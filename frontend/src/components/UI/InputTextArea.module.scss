@@ -1,0 +1,37 @@
+@use "../../styles/abstracts/mixins" as m;
+
+.container,
+.date,
+.number,
+.text {
+  @include m.flexCenter(column);
+  width: 100%;
+  font-family: "open sans";
+
+  & textarea {
+    width: 100%;
+    padding: 0.25rem 0.5rem;
+    border-radius: 5px;
+    min-height: 15rem;
+    font-size: 1.6rem;
+    font-family: "open sans";
+  }
+}
+
+.date,
+.text,
+.number {
+  & input {
+    padding: 1rem;
+    width: 100%;
+    border-radius: 5px;
+    font-family: "open sans";
+    font-size: 1.6rem;
+  }
+}
+
+.date {
+  & input {
+    @include m.flexCenter();
+  }
+}

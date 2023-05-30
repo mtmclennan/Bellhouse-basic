@@ -1,0 +1,38 @@
+@mixin gradient {
+  background: linear-gradient(
+    295deg,
+    rgba(224, 59, 251, 1) 0%,
+    rgba(134, 38, 250, 1) 100%
+  );
+}
+
+@mixin flexCenter($direction: row) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $direction;
+}
+
+@mixin mediaTablet {
+  @media (min-width: 700px) and (max-width: 1000px) {
+    @content;
+  }
+}
+
+@mixin mediaPhone {
+  @media (max-width: 699px) {
+    @content;
+  }
+}
+
+@mixin mediaDesktop {
+  @media (min-width: 1001px) {
+    @content;
+  }
+}
+
+@mixin mediaUpToDesktop {
+  @media (max-width: 1000px) {
+    @content;
+  }
+}

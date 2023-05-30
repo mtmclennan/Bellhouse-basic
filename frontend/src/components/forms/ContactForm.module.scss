@@ -1,0 +1,122 @@
+@use "../../styles/abstracts/variables" as v;
+
+.contactForm {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin: 1rem 0 1rem 0;
+  border-radius: 10px;
+  background-color: v.$grey-color-7;
+  padding: 1rem;
+  color: v.$text-color-light;
+  font-size: 1.7rem;
+  letter-spacing: 0.15rem;
+  font-weight: 600;
+}
+
+@media (min-width: 800px) {
+  .contactForm {
+    max-width: 800px;
+  }
+}
+
+.contactForm label {
+  margin-bottom: 0.2rem;
+}
+
+.nameContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  gap: 1rem;
+}
+
+@media (min-width: 600px) {
+  .nameContainer {
+    flex-direction: row;
+  }
+
+  .contactForm {
+    padding: 3rem;
+  }
+}
+
+.nameContainer .inputWrapper {
+  width: 100%;
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  height: 8rem;
+}
+
+.input,
+.textarea {
+  border-radius: 10px;
+  // box-shadow: 0px 2px 8px #0000003a;
+  background-color: v.$grey-color-2;
+  border: 2px solid v.$color-secondary;
+  height: 100%;
+  padding: 0 2rem;
+  transition: all 0.15s linear;
+  font-size: 1.6rem;
+}
+
+.input:focus,
+.textarea:focus {
+  border: 2px solid v.$color-primary-dark;
+  transition: all 0.15s linear;
+  background-color: v.$grey-color-1;
+}
+
+.error {
+  border: 2px solid #ca0101dc;
+  transition: all 0.15s linear;
+  background-color: #f8afaff5;
+}
+
+.errorText {
+  color: #f82c2c;
+  margin-top: 0.1rem;
+}
+
+.textarea {
+  height: 20rem;
+  padding: 1rem;
+}
+
+.contactForm button {
+  margin-top: 1rem;
+  padding: 1rem 1rem;
+  border-radius: 10px;
+  background-color: v.$color-primary;
+  border: solid 1px v.$color-primary;
+  color: v.$text-color-dark;
+  /* font-weight: 600; */
+  font-size: 1.7rem;
+  letter-spacing: 1.5px;
+  transition: all 0.1s linear;
+}
+
+.contactForm button:hover,
+.contactForm button:focus {
+  background-color: v.$color-primary-light;
+  color: v.$text-color-dark;
+  border: solid 1px v.$color-primary;
+  transform: scale(1.03);
+  transition: all 0.1s linear;
+}
+
+.textAreaWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
