@@ -2,7 +2,7 @@ import Link from "next/link";
 import classes from "./MainHeader.module.scss";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import logo from "../../../public/assets/excvator-white.png";
+import logo from "../../../public/assets/BellhouseLogo-text.png";
 
 import { Fragment, useEffect, useState } from "react";
 import Hamburger from "./Hamburger";
@@ -30,10 +30,10 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
       <header className={`${classes.headerHome}`}>
         <nav className={classes.navHome}>
           <div className={classes.logoHome}>
-            <Link href="/">
-              <Image src={logo} alt="bellhouse" layout="responsive" />
-            </Link>
-            <h1>BELLHOUSE EXCAVATING</h1>
+            {/* <Link href="/"> */}
+            <Image src={logo} alt="bellhouse" layout="responsive" />
+            {/* </Link> */}
+            {/* <h1>BELLHOUSE EXCAVATING</h1> */}
           </div>
           <ul>
             <li>

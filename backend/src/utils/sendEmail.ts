@@ -2,10 +2,9 @@ import { EmailUser, User } from "../types/interfaces";
 import nodemailer from "nodemailer";
 import pug from "pug";
 import { htmlToText } from "html-to-text";
-
 // new Email(user, url).sendWelcome();
 
-interface Message {
+export interface Message {
   subject: string;
   sender?: string;
   message?: string;
@@ -18,10 +17,12 @@ export class sendEmail {
   from: string;
 
   constructor(options: EmailUser, url: string) {
-    this.to = options.email;
+    this.to = options.email || "bellhouseexcavating@gmail.com";
     this.url = url;
     this.from = options.from
-      ? `${options.firstName} ${options.lastName} <${options.from}>`
+      ? `${options.firstName} ${options.lastName ? options.lastName : ""} <${
+          options.from
+        }>`
       : `${process.env.EMAIL_FROM}`;
   }
 
@@ -42,6 +43,8 @@ export class sendEmail {
   async send(template: string, message: Message) {
     //1) Render HTML based on a pug template
 
+    console.log(message.subject);
+
     const html = pug.renderFile(
       `${__dirname}/../views/emails/${template}.pug`,
       {
@@ -59,6 +62,7 @@ export class sendEmail {
       message: message.message,
       html,
       text: htmlToText(html),
+      subject: message.subject,
     };
 
     // 3) Create transport and send email
@@ -73,7 +77,7 @@ export class sendEmail {
     });
   }
 
-  async sendContactMessage({ subject, message, sender }: Message) {
-    await this.send("contact", { subject, message, sender });
+  async sendContactMessage(message: Message) {
+    await this.send("contact", message);
   }
 }

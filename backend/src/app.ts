@@ -4,6 +4,7 @@ import AppError from "./utils/appError";
 import serviceRouter from "./routes/serviceRoutes";
 import userRouter from "./routes/userRoutes";
 import equipmentRouter from "./routes/equipmentRoutes";
+import emailRouter from "./routes/emailRoutes";
 import helmet from "helmet";
 import cors from "cors";
 import cookieParser from "cookie-parser";
@@ -84,6 +85,7 @@ app.use(cookieParser());
 app.use("/api/service", serviceRouter);
 app.use("/api/users", userRouter);
 app.use("/api/equipment", equipmentRouter);
+app.use("/api/email", emailRouter);
 
 app.all("*", (req: Request, res: Response, next: NextFunction) => {
   next(new AppError(`Can't find ${req.originalUrl} on the server!`, 404));

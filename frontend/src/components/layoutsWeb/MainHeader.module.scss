@@ -84,13 +84,13 @@
 
 .logoHome {
   grid-row: 1 / 4;
-  flex-direction: column;
+  // flex-direction: column;
   text-align: center;
   // margin: auto;
   width: 100%;
 
   margin: 1rem 1rem 0 5rem;
-  max-width: 15rem;
+  max-width: 25rem;
   height: fit-content;
   position: relative;
   & a {

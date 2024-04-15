@@ -1,5 +1,5 @@
 import { EmailUser } from "../types/interfaces";
-import { sendEmail } from "../utils/sendEmail";
+import { Message, sendEmail } from "../utils/sendEmail";
 
 export class sendEmailOne extends sendEmail {
   firstName: string;

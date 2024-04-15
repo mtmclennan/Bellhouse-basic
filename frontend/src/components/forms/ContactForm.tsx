@@ -10,20 +10,13 @@ const ContactForm = () => {
   const { sendRequest, error, isLoading } = useHttp();
   const [showModal, setShowModal] = useState(false);
 
-  const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_CONTACT_URL;
+  const url = process.env.NEXT_PUBLIC_SERVER_CONTACT_URL;
 
   const {
-    value: enteredFirstName,
+    value: enteredName,
     valueChangeHandler: firstNameChangeHandler,
     inputBlurHandler: firstNameBlurHandler,
     reset: resetFirstName,
-  } = useInput(stringValidate);
-
-  const {
-    value: enteredLastName,
-    valueChangeHandler: lastNameChangeHandler,
-    inputBlurHandler: lastNameBlurHandler,
-    reset: resetLastName,
   } = useInput(stringValidate);
 
   const {
@@ -36,10 +29,10 @@ const ContactForm = () => {
   } = useInput(emailValidate);
 
   const {
-    value: enteredTopic,
-    valueChangeHandler: topicChangeHandler,
-    inputBlurHandler: topicBlurHandler,
-    reset: resetTopic,
+    value: enteredPhone,
+    valueChangeHandler: phoneChangeHandler,
+    inputBlurHandler: phoneBlurHandler,
+    reset: resetPhone,
   } = useInput(stringValidate);
 
   const {
@@ -55,10 +48,12 @@ const ContactForm = () => {
     event.preventDefault();
 
     if (!enteredEmailIsValid || !messageIsValid) {
+      emailBlurHandler();
+      messageBlurHandler();
       return;
     }
-    console.log(SERVER_URL);
-    if (!SERVER_URL) return;
+
+    if (!url) return;
 
     if (error) {
       setShowModal(true);
@@ -66,26 +61,24 @@ const ContactForm = () => {
     const response = (res: Res) => {
       if (res.status === "success") {
         resetFirstName();
-        resetLastName();
         resetEmail();
         resetmessage();
-        resetTopic();
+        resetPhone();
         setShowModal(true);
       }
     };
 
     sendRequest(
       {
-        url: SERVER_URL,
+        url,
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: {
-          firstName: enteredFirstName,
-          lastName: enteredLastName,
+          name: enteredName,
           email: enteredEmail,
-          topic: enteredTopic,
+          phone: enteredPhone,
           message: enteredMessage,
         },
       },
@@ -108,32 +101,23 @@ const ContactForm = () => {
       )}
 
       <form className={classes.contactForm} onSubmit={onSubmitHandler}>
+        <h2>Tell us about your project</h2>
+
         <div className={classes.nameContainer}>
           <div className={classes.inputWrapper}>
-            <label htmlFor="first-name">First Name</label>
+            <label htmlFor="name">Your name</label>
             <input
-              id="first-name"
+              id="name"
               type="text"
               className={classes.input}
               onChange={firstNameChangeHandler}
               onBlur={firstNameBlurHandler}
-              value={enteredFirstName}
-            ></input>
-          </div>
-          <div className={classes.inputWrapper}>
-            <label htmlFor="last-name">Last Name</label>
-            <input
-              id="last-name"
-              type="text"
-              className={classes.input}
-              onChange={lastNameChangeHandler}
-              onBlur={lastNameBlurHandler}
-              value={enteredLastName}
+              value={enteredName}
             ></input>
           </div>
         </div>
         <div className={classes.inputWrapper}>
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">Your email</label>
           <input
             id="email"
             type="email"
@@ -144,23 +128,23 @@ const ContactForm = () => {
             onBlur={emailBlurHandler}
             value={enteredEmail}
           ></input>
-          {emailInputHasError && (
-            <p className={classes.errorText}>Please provide a valid email</p>
-          )}
         </div>
+        {emailInputHasError && (
+          <p className={classes.errorText}>Please provide a valid email</p>
+        )}
         <div className={classes.inputWrapper}>
-          <label htmlFor="topic">Topic</label>
+          <label htmlFor="phone">Your phone number</label>
           <input
-            id="topic"
+            id="phone"
             type="text"
             className={classes.input}
-            onChange={topicChangeHandler}
-            onBlur={topicBlurHandler}
-            value={enteredTopic}
+            onChange={phoneChangeHandler}
+            onBlur={phoneBlurHandler}
+            value={enteredPhone}
           ></input>
         </div>
         <div className={classes.textAreaWrapper}>
-          <label htmlFor="message">Message</label>
+          <label htmlFor="message">Your message</label>
           <textarea
             id="message"
             spellCheck="true"
@@ -175,13 +159,13 @@ const ContactForm = () => {
             value={enteredMessage}
           ></textarea>
           {messageHasError && (
-            <p className={classes.errorText}>
+            <p className={classes.errorTextArea}>
               Please complete this required field
             </p>
           )}
         </div>
         <div className={classes.buttonContainer}>
-          <button>Send Message</button>
+          <button>SEND MESSAGE</button>
         </div>
       </form>
     </Fragment>

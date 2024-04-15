@@ -52,7 +52,7 @@ export interface EmailUser {
   name?: string;
   firstName?: string;
   lastName?: string;
-  email: string | string[];
+  email?: string | string[];
   from?: string;
 }
 

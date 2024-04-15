@@ -34,5 +34,5 @@ export type Context = {
 
 export type UserRes = {
   status: string;
-  user: { email: string; name: string; role: string; photo: string };
+  user: { email: string; name: string; role: string; _id: string };
 };

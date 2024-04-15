@@ -41,6 +41,20 @@ button {
   height: 100vh;
 }
 
+.about-hero__section {
+  @include m.flexCenter();
+  padding: 4rem;
+}
+
+.about-hero {
+  @include m.flexCenter(column);
+  gap: 1rem;
+  & h1 {
+    font-size: 4rem;
+    margin-bottom: 3rem;
+  }
+}
+
 .logo {
   @include m.flexCenter();
   height: 100%;
@@ -404,40 +418,35 @@ button {
 
 .contact-hero__section {
   padding: 2rem 0;
-  @include m.flexCenter();
+  @include m.flexCenter(column);
   @include m.mediaDesktop() {
-    height: 30vh;
+    min-height: 30vh;
   }
 }
 
 .contact-hero {
   & h3 {
-    text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 2rem;
   }
 }
 
-.contact-hero .contact-hero {
+.contact-hero {
+  @include m.flexCenter(column);
   height: 100%;
-  padding: 1em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-width: 800px;
+  padding: 1rem;
+
+  max-width: 80rem;
 }
 
 .contact-hero h1 {
-  font-size: 2rem;
-  text-align: center;
+  font-size: 4rem;
   margin-bottom: 1rem;
   color: v.$color-primary;
 }
 
 @media (min-width: 800px) {
   .contact-hero h1 {
-    font-size: 4rem;
+    font-size: 6rem;
   }
 
   .contact-hero p {
@@ -458,16 +467,15 @@ button {
   align-items: center;
   justify-content: center;
   background-color: v.$color-neutral-dark;
-  padding: 3rem 0;
+  // padding: 3rem 0;
   min-height: 70vh;
 }
 
 .about-content__container {
   padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  margin: auto;
+  @include m.flexCenter(column);
   max-width: 800px;
+  margin: auto;
 }
 
 .services {
@@ -609,6 +617,12 @@ button {
   }
 }
 
+.logo-text {
+  font-weight: 400;
+  font-size: 5rem;
+  line-height: 0.9;
+}
+
 .login-form__container {
   @include m.flexCenter(column);
   width: 80%;
@@ -629,4 +643,30 @@ button {
   @include m.mediaPhone {
     display: none;
   }
+}
+
+.services__hero {
+  min-height: 30vh;
+  @include m.flexCenter(column);
+  & h1 {
+    text-align: center;
+    padding-top: 3rem;
+    font-size: 4rem;
+  }
+}
+
+.logo__wrapper {
+  width: 20rem;
+  height: 15rem;
+  position: relative;
+}
+
+.section--container {
+  padding: 6rem;
+  background-color: v.$grey-color-2;
+  @include m.flexCenter(column);
+  gap: 4rem;
+  border-radius: 5px;
+  margin: auto;
+  max-width: 128rem;
 }

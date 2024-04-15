@@ -25,6 +25,10 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
     setShowMobileMenu(false);
   }, [currentRoute]);
 
+  const onClickHandler = () => {
+    router.push("/contact");
+  };
+
   return (
     <Fragment>
       <header className={`${classes.header}`}>
@@ -63,7 +67,7 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
             </li>
           </ul>
           <div className={classes.actionContainer}>
-            <button>Get An Estimate</button>
+            <button onClick={onClickHandler}>Get An Estimate</button>
           </div>
           <Hamburger
             showMenu={showMobileMenu}
