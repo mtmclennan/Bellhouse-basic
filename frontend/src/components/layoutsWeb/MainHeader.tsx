@@ -13,9 +13,11 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   const homeClassname = currentRoute === "/" ? "active" : "non-active";
-  const blogClassname = currentRoute === "/blog" ? "active" : "non-active";
+  const servicesClassname =
+    currentRoute === "/services" ? "active" : "non-active";
   const aboutClassname = currentRoute === "/about" ? "active" : "non-active";
-  const toolsClassname = currentRoute === "/tools" ? "active" : "non-active";
+  const careersClassname =
+    currentRoute === "/careers" ? "active" : "non-active";
   const contactClassname =
     currentRoute === "/contact" ? "active" : "non-active";
 
@@ -63,11 +65,11 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
                 Contact
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link legacyBehavior={true} href="/careers">
                 Careers
               </Link>
-            </li>
+            </li> */}
           </ul>
           <div className={classes.actionContainer}>
             <button onClick={() => router.push("/contact")}>
@@ -84,10 +86,10 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
       <MobileMenu
         showMenu={showMobileMenu}
         homeClassname={homeClassname}
-        blogClassname={blogClassname}
+        servicesClassname={servicesClassname}
         aboutClassname={aboutClassname}
         contactClassname={contactClassname}
-        toolsClassname={toolsClassname}
+        careersClassname={careersClassname}
       />
     </Fragment>
   );

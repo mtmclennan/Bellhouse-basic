@@ -2,8 +2,6 @@ import { Fragment } from "react";
 import Head from "next/head";
 import Image from "next/legacy/image";
 import logo from "../../public/assets/BellhouseLogo-text.png";
-import pinevest from "../../public/assets/pv-noto-light-opt.svg";
-import navacon from "../../public/assets/navacon_web_new.png";
 import { useRouter } from "next/router";
 
 import LayoutHome from "@/components/layoutsWeb/layoutHome";
@@ -60,25 +58,76 @@ const HomePage = () => {
           </section>
         </div>
         <section className="services">
-          <h2>Our Services</h2>
           <ul>
+            <li>
+              <Image
+                src={"/assets/gallery1.jpg"}
+                alt={"bucket of dirt"}
+                width={650}
+                height={650}
+                style={{
+                  width: "100%",
+                  height: "auto",
+                }}
+              />
+            </li>
+            <li>
+              <Image
+                src={"/assets/gallery2.jpg"}
+                alt={"bucket of dirt"}
+                width={650}
+                height={650}
+                style={{
+                  width: "100%",
+                  height: "auto",
+                }}
+              />
+            </li>
+            <li>
+              <Image
+                src={"/assets/gallery3.jpg"}
+                alt={"bucket of dirt"}
+                width={650}
+                height={650}
+                style={{
+                  width: "100%",
+                  height: "auto",
+                }}
+              />
+            </li>
+            <li>
+              <Image
+                src={"/assets/gallery4.jpg"}
+                alt={"bucket of dirt"}
+                width={650}
+                height={650}
+                style={{
+                  width: "100%",
+                  height: "auto",
+                }}
+              />
+            </li>
+          </ul>
+          {/* <h2>Our Services</h2> */}
+
+          {/* <ul>
             <ServiceCard
-              heading="DUMP TRUCK"
-              image="/assets/20230523_134215.jpg"
+              heading="FOUNDATIONS"
+              image="/assets/foundation.jpg"
               link="/trucking"
-              text="From Dump trucks to equipment floating, we can help"
+              text="Your Expert in Foundation and Backfilling Services! "
             />
             <ServiceCard
               heading="TRUCKING"
               link="/trucking"
-              image="/assets/20230523_133956.jpg"
+              image="/assets/trucking.jpg"
               text="From Dump trucks to equipment floating, we can help"
             />
             <ServiceCard
-              heading="SKID STEER"
+              heading="AGGREGATES"
               link="/trucking"
-              image="/assets/20230523_133642.jpg"
-              text="From Dump trucks to equipment floating, we can help"
+              image="/assets/aggregates.jpg"
+              text="Your Trusted Aggregates Delivery Partner!"
             />
             <ServiceCard
               heading="DOZER"
@@ -110,11 +159,12 @@ const HomePage = () => {
               link="/trucking"
               text="From Dump trucks to equipment floating, we can help"
             />
-          </ul>
+          </ul> */}
         </section>
 
         <section className="reviews">
-          <div className="review-image__container">
+          <h3>Serving Brant County and surrounding areas</h3>
+          {/* <div className="review-image__container">
             <Image src={pinevest} alt="PineVest Homes" layout="responsive" />
           </div>
           <div className="review-image__container">
@@ -125,7 +175,7 @@ const HomePage = () => {
               width={30}
               height={15}
             />
-          </div>
+          </div> */}
         </section>
         <section className="why">
           <h2>WHY CHOOSE US?</h2>

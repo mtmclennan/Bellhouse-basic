@@ -9,8 +9,10 @@ const Footer = () => {
   const currentRoute = router.pathname;
 
   const homeClassname = currentRoute === "/" ? "active" : "non-active";
-  const blogClassname = currentRoute === "/blog" ? "active" : "non-active";
-  const toolsClassname = currentRoute === "/tools" ? "active" : "non-active";
+  const servicesClassname =
+    currentRoute === "/services" ? "active" : "non-active";
+  const careersClassname =
+    currentRoute === "/careers" ? "active" : "non-active";
   const aboutClassname = currentRoute === "/about" ? "active" : "non-active";
   const contactClassname =
     currentRoute === "/contact" ? "active" : "non-active";
@@ -35,15 +37,15 @@ const Footer = () => {
             <Link href="/"></Link>
           </li>
           <li>
-            <Link className={blogClassname} href="/services">
+            <Link className={servicesClassname} href="/services">
               Services
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link href="/careers" className={toolsClassname}>
               Careers
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link legacyBehavior={true} href="/about">
               About

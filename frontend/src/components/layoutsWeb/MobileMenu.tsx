@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 
 type MobileMenuProps = {
   homeClassname: string;
-  blogClassname: string;
-  toolsClassname: string;
+  servicesClassname: string;
+  careersClassname: string;
   aboutClassname: string;
   contactClassname: string;
   showMenu: boolean;
@@ -14,8 +14,8 @@ type MobileMenuProps = {
 const MobileMenu = ({
   showMenu,
   homeClassname,
-  blogClassname,
-  toolsClassname,
+  servicesClassname,
+  careersClassname,
   aboutClassname,
   contactClassname,
 }: MobileMenuProps) => {
@@ -35,9 +35,9 @@ const MobileMenu = ({
         <li className={classes.link}>
           <Link href="/contact">Contact</Link>
         </li>
-        <li className={classes.link}>
+        {/* <li className={classes.link}>
           <Link href="/careers">Careers</Link>
-        </li>
+        </li> */}
       </ul>
     </div>
   );
