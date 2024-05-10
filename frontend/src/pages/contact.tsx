@@ -19,7 +19,7 @@ const Contact = () => {
             <Image alt="Excavator logo" src={logo} fill />
           </div>
           <div className="contact-hero">
-            <h3>Reach Out and Let's Get Digging</h3>
+            <h3>Reach Out and Let&apos;s Get Digging</h3>
             <h1>Contact Us Now</h1>
             <h2>(519) 752-8500</h2>
 

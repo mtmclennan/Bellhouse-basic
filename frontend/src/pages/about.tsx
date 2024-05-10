@@ -37,9 +37,9 @@ const About = () => {
             In 2020, Bellhouse Excavating underwent a significant change in
             management. Darryl, a long-time employee of the company and highly
             skilled in all areas of our services, took over management. With his
-            in-depth knowledge and expertise, Darryl has continued the company's
-            legacy of excellence, ensuring that Bellhouse Excavating remains a
-            leader in the industry.
+            in-depth knowledge and expertise, Darryl has continued the
+            company&apos;s legacy of excellence, ensuring that Bellhouse
+            Excavating remains a leader in the industry.
           </p>
           <p>
             Today, Bellhouse Excavating serves Brant County, Brantford,

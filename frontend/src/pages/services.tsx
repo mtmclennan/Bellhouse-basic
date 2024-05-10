@@ -77,10 +77,10 @@ const Services = () => {
           <li>
             <h3>Drainage Solutions</h3>
             <p>
-              Bellhouse Excavating: Your Solution for Superior Drainage! Don't
-              let poor drainage dampen your construction project! Bellhouse
-              Excavating offers expert drainage solutions to keep your property
-              dry and protected. Our team specializes in designing and
+              Bellhouse Excavating: Your Solution for Superior Drainage!
+              Don&apos;t let poor drainage dampen your construction project!
+              Bellhouse Excavating offers expert drainage solutions to keep your
+              property dry and protected. Our team specializes in designing and
               implementing drainage systems that effectively manage water
               runoff, preventing erosion and water damage to your property.
               Whether you need catch basins, stormwater management, or erosion
@@ -96,8 +96,8 @@ const Services = () => {
               test of time? Bellhouse Excavating has you covered with our expert
               services! Our team excavates and prepares surfaces for driveways
               and parking lots, ensuring a solid foundation for long-lasting
-              results. Whether you're looking for a new installation, repairs,
-              or maintenance, our team delivers exceptional quality and
+              results. Whether you&apos;re looking for a new installation,
+              repairs, or maintenance, our team delivers exceptional quality and
               attention to detail every step of the way.{" "}
             </p>
           </li>
@@ -110,7 +110,7 @@ const Services = () => {
               off-road trucks, which are available for rent with experienced
               operators! Our off-road trucks are perfect for transporting
               aggregates and fill materials around your job site, even in the
-              most challenging conditions. Don't let rough terrain slow you
+              most challenging conditions. Don&apos;t let rough terrain slow you
               down. Contact us today to learn more about renting our off-road
               trucks with operators and streamline your on-site material
               transport!
@@ -139,8 +139,8 @@ const Services = () => {
               the right foot! Our experienced team utilizes the latest equipment
               and techniques to safely and efficiently demolish structures of
               all sizes. Whether you need a complete building demolition or
-              selective demolition for renovations, we've got you covered. Trust
-              Bellhouse Excavating to handle your demolition needs with
+              selective demolition for renovations, we&apos;ve got you covered.
+              Trust Bellhouse Excavating to handle your demolition needs with
               precision and care.{" "}
             </p>
           </li>
