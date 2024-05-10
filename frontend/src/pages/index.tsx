@@ -1,15 +1,13 @@
 import { Fragment } from "react";
 import Head from "next/head";
-import Image from "next/image";
-import logo from "../../public/assets/hero.jpg";
+import Image from "next/legacy/image";
+import logo from "../../public/assets/BellhouseLogo-text.png";
 import pinevest from "../../public/assets/pv-noto-light-opt.svg";
 import navacon from "../../public/assets/navacon_web_new.png";
 import { useRouter } from "next/router";
-import Layout from "@/components/layoutsWeb/LayoutWeb";
+
 import LayoutHome from "@/components/layoutsWeb/layoutHome";
 import ServiceCard from "@/components/UI/ServiceCard";
-import LocalShippingIcon from "@mui/icons-material/LocalShipping";
-import { fontSize } from "@mui/system";
 
 const HomePage = () => {
   const router = useRouter();
@@ -24,8 +22,22 @@ const HomePage = () => {
         <div className="hero__container">
           <section className="hero">
             <div className="hero-title">
-              <h1>Excavate with Confidence</h1>
-              <h3>Your Trusted Partner for Superior Results</h3>
+              <h1>Excavating Excellence Since 1982</h1>
+              <div className="hero-logo__mobile">
+                <Image
+                  src={logo}
+                  alt="Bellhouse Excavating"
+                  width={375}
+                  height={300}
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                  }}
+                />
+              </div>
+              <h3 className="hero-desktop">
+                Your Trusted Partner for Superior Results
+              </h3>
               <p>
                 With our line up of earth moving equipment, We can help with
                 your project. Lets dig!
@@ -40,15 +52,15 @@ const HomePage = () => {
                 </button>
               </div>
             </div>
-            <div className="hero-logo">
+            {/* <div className="hero-logo">
               <div className="hero-logo__image-container">
                 <Image src={logo} alt="Excavator" layout="responsive" />
               </div>
-            </div>
+            </div> */}
           </section>
         </div>
         <section className="services">
-          <h2>Services We Provide</h2>
+          <h2>Our Services</h2>
           <ul>
             <ServiceCard
               heading="DUMP TRUCK"

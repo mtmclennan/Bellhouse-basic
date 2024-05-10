@@ -1,6 +1,6 @@
 import Footer from "./Footer";
 import { Fragment, ReactNode, useEffect, useState } from "react";
-import Image from "next/image";
+// import Image from "next/legacy/image";
 import classes from "./LayoutWeb.module.scss";
 import { useRouter } from "next/router";
 import MainHeader from "./MainHeader";

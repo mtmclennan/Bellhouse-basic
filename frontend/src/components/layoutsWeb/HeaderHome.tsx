@@ -3,16 +3,13 @@ import classes from "./MainHeader.module.scss";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import logo from "../../../public/assets/BellhouseLogo-text.png";
-
 import { Fragment, useEffect, useState } from "react";
 import Hamburger from "./Hamburger";
 import MobileMenu from "./MobileMenu";
-// import SubscribeButton from "../UI/SubscribeButton";
 
 const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
   const router = useRouter();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  // const currentRoute = router.pathname;
 
   const homeClassname = currentRoute === "/" ? "active" : "non-active";
   const blogClassname = currentRoute === "/blog" ? "active" : "non-active";
@@ -30,10 +27,18 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
       <header className={`${classes.headerHome}`}>
         <nav className={classes.navHome}>
           <div className={classes.logoHome}>
-            {/* <Link href="/"> */}
-            <Image src={logo} alt="bellhouse" layout="responsive" />
-            {/* </Link> */}
-            {/* <h1>BELLHOUSE EXCAVATING</h1> */}
+            <Link href="/">
+              <Image
+                src={logo}
+                alt="Bellhouse Excavating"
+                width={250}
+                height={200}
+                style={{
+                  width: "100%",
+                  height: "auto",
+                }}
+              />
+            </Link>
           </div>
           <ul>
             <li>
@@ -49,7 +54,9 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
               <Link href="/careers">Careers</Link>
             </li>
             <li className={classes.actionContainer}>
-              <button>Get An Estimate</button>
+              <button onClick={() => router.push("/contact")}>
+                Get An Estimate
+              </button>
             </li>
           </ul>
           <Hamburger

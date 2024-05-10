@@ -1,13 +1,17 @@
 @use "../../styles/abstracts/mixins" as m;
 @use "../../styles/abstracts/variables" as v;
 
-.container {
+.container,
+.containerHome {
   margin: auto;
   min-height: 100vh;
   height: 100%;
-  // margin-top: 5rem;
   padding-bottom: 5rem;
   background-color: v.$color-neutral-dark;
+}
+
+.container {
+  margin-top: 5rem;
   @include m.mediaDesktop {
     margin-top: 0;
   }

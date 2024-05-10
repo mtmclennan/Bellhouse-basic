@@ -1,7 +1,7 @@
 import classes from "./Footer.module.scss";
 import Link from "next/link";
 import Image from "next/image";
-import logo from "../../../public/assets/excvator-white.png";
+import logo from "../../../public/assets/BellhouseLogo-text.png";
 import { useRouter } from "next/router";
 
 const Footer = () => {
@@ -20,9 +20,14 @@ const Footer = () => {
     <footer className={classes.footer}>
       <div className={classes.logoContainer}>
         <div className={classes.logo}>
-          <Image src={logo} alt="EdgeInMind" layout="responsive" />
+          <Image
+            src={logo}
+            alt="EdgeInMind"
+            width={389}
+            height={515}
+            style={{ width: "100%", height: "auto" }}
+          />
         </div>
-        <h1>BELLHOUSE EXCAVATING</h1>
       </div>
       <div className={classes.nav}>
         <ul>

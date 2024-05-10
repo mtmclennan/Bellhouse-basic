@@ -8,7 +8,7 @@ import dozer from "../../public/assets/IMG_0889[2382].jpg";
 import septic from "../../public/assets/Septic_tank_Bolduc.jpg";
 import rockTruck from "../../public/assets/8420228339_78691eb78c_b.jpg";
 import foundation from "../../public/assets/iStock_996232320-1-scaled.jpg.optimal.jpg";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import logo from "../../public/assets/excvator-white.png";
 
 const Services = () => {
@@ -16,7 +16,16 @@ const Services = () => {
     <Layout>
       <section className="services__hero">
         <div className="logo__wrapper">
-          <Image alt="Excavator logo" src={logo} fill />
+          <Image
+            alt="Excavator logo"
+            src={logo}
+            width={250}
+            height={200}
+            style={{
+              width: "100%",
+              height: "auto",
+            }}
+          />
         </div>
         <h1>Services We Provide</h1>
       </section>

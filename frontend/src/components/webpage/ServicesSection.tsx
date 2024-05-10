@@ -23,7 +23,16 @@ const ServicesSection = ({
   const ImageComponent = () => {
     return (
       <div className={classes.image}>
-        <Image alt="title" src={image} fill />
+        <Image
+          alt="title"
+          src={image}
+          width={400}
+          height={600}
+          style={{
+            width: "100%",
+            height: "auto",
+          }}
+        />
       </div>
     );
   };

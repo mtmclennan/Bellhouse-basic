@@ -127,7 +127,7 @@ button {
 
 .hero__container {
   @include m.flexCenter();
-  height: 100%;
+  height: calc(100vh - 7rem);
 }
 
 .hero {
@@ -136,6 +136,7 @@ button {
   padding-top: 4rem;
   text-align: center;
   @include m.flexCenter(column);
+  justify-content: flex-start;
   @include m.mediaDesktop {
     height: 70vh;
     padding: 0;
@@ -155,15 +156,25 @@ button {
   }
 
   & h1 {
-    font-size: 6rem;
+    font-size: 3rem;
     line-height: 1;
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
+    @include m.mediaDesktop {
+      font-size: 6rem;
+      margin-bottom: 1.5rem;
+    }
   }
 
   & h3 {
-    font-size: 3rem;
+    display: none;
+    // font-size: 2rem;
     letter-spacing: 0.1rem;
     margin-bottom: 1rem;
+
+    @include m.mediaDesktop {
+      display: inline;
+      font-size: 3rem;
+    }
   }
 }
 
@@ -179,6 +190,12 @@ button {
   //   height: 2px;
   //   margin: 2rem 0 0 4rem;
   // }
+}
+
+.hero-logo__mobile {
+  max-width: 30rem;
+  margin: auto;
+  margin-bottom: 2rem;
 }
 
 .hero-logo {
@@ -204,11 +221,19 @@ button {
   // height: fit-content;
 }
 
+.hero-logo__mobile {
+  @include m.mediaDesktop {
+    display: none;
+  }
+}
+
 .hero {
   padding: 1rem;
   & p {
-    font-size: 2rem;
-    line-height: 1.5;
+    @include m.mediaDesktop {
+      font-size: 2rem;
+      line-height: 1.5;
+    }
   }
 }
 
@@ -223,6 +248,7 @@ button {
 
   & button {
     padding: 0.75rem 4rem;
+    min-width: 21rem;
     background-color: v.$color-neutral-dark;
     border-radius: 5px;
     border: 1px solid v.$color-primary;
@@ -417,7 +443,7 @@ button {
 }
 
 .contact-hero__section {
-  padding: 2rem 0;
+  padding: 10rem 0;
   @include m.flexCenter(column);
   @include m.mediaDesktop() {
     min-height: 30vh;
@@ -427,6 +453,7 @@ button {
 .contact-hero {
   & h3 {
     font-size: 2.5rem;
+    text-align: center;
   }
 }
 
@@ -434,8 +461,29 @@ button {
   @include m.flexCenter(column);
   height: 100%;
   padding: 1rem;
-
   max-width: 80rem;
+
+  & a {
+    padding: 0.75rem 4rem;
+    min-width: 21rem;
+    background-color: v.$color-neutral-dark;
+    border-radius: 5px;
+    border: 1px solid v.$color-primary;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+    color: v.$color-primary;
+    transition: all 0.2s ease;
+
+    &:hover,
+    &:focus {
+      color: v.$color-primary;
+      background-color: v.$grey-color-7;
+      transform: scale(1.04);
+      transition: all 0.2s ease;
+    }
+  }
 }
 
 .contact-hero h1 {
@@ -662,11 +710,14 @@ button {
 }
 
 .section--container {
-  padding: 6rem;
   background-color: v.$grey-color-2;
   @include m.flexCenter(column);
   gap: 4rem;
   border-radius: 5px;
   margin: auto;
   max-width: 128rem;
+
+  @include m.mediaDesktop {
+    padding: 6rem;
+  }
 }

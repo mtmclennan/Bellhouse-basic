@@ -4,12 +4,19 @@
 .image {
   //   max-width: 60rem;
   //   max-height: 10rem;
+
   position: relative;
-  min-height: 35rem;
-  min-width: 50rem;
   align-self: flex-start;
   & img {
-    border-radius: 5px 0 0 5px;
+    border-radius: 5px 5px 0;
+  }
+
+  @include m.mediaDesktop {
+    min-width: 50rem;
+    min-height: 35rem;
+    & img {
+      border-radius: 5px 0 0 5px;
+    }
   }
 }
 
@@ -19,7 +26,9 @@
 }
 
 .container {
-  @include m.flexCenter();
+  @include m.flexCenter(column);
+  position: relative;
+
   gap: 5rem;
   background-color: v.$color-primary;
   height: 100%;
@@ -27,6 +36,9 @@
   border-radius: 5px;
   -webkit-box-shadow: 0px 0px 15px 4px rgba(32, 32, 32, 0.349);
   box-shadow: 0px 0px 15px 4px rgba(32, 32, 32, 0.342);
+  @include m.mediaDesktop {
+    flex-direction: row;
+  }
 }
 
 .wrapper {

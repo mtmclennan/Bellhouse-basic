@@ -1,18 +1,16 @@
+"use cilent";
 import Link from "next/link";
 import classes from "./MainHeader.module.scss";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import logo from "../../../public/assets/excvator-white.png";
-
+import logo from "../../../public/assets/BellhouseLogo-text-LS.png";
 import { Fragment, useEffect, useState } from "react";
 import Hamburger from "./Hamburger";
 import MobileMenu from "./MobileMenu";
-// import SubscribeButton from "../UI/SubscribeButton";
 
 const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
   const router = useRouter();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  // const currentRoute = router.pathname;
 
   const homeClassname = currentRoute === "/" ? "active" : "non-active";
   const blogClassname = currentRoute === "/blog" ? "active" : "non-active";
@@ -25,19 +23,24 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
     setShowMobileMenu(false);
   }, [currentRoute]);
 
-  const onClickHandler = () => {
-    router.push("/contact");
-  };
-
   return (
     <Fragment>
       <header className={`${classes.header}`}>
         <nav className={classes.nav}>
           <div className={classes.logo}>
             <Link href="/">
-              <Image src={logo} alt="bellhouse" layout="fill" />
+              <Image
+                src={logo}
+                alt="Bellhouse Excavating"
+                width={250}
+                height={200}
+                style={{
+                  width: "100%",
+                  height: "auto",
+                }}
+              />
             </Link>
-            <h1>BELLHOUSE EXCAVATING</h1>
+            {/* <h1>BELLHOUSE EXCAVATING</h1> */}
           </div>
           <ul>
             <li>
@@ -67,7 +70,9 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
             </li>
           </ul>
           <div className={classes.actionContainer}>
-            <button onClick={onClickHandler}>Get An Estimate</button>
+            <button onClick={() => router.push("/contact")}>
+              Get An Estimate
+            </button>
           </div>
           <Hamburger
             showMenu={showMobileMenu}

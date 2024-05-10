@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
@@ -15,7 +15,7 @@ const Header = () => {
       </button>
       <div className="logo">
         <Link href="/app">
-          <Image src={logo} alt="Bellhouse" layout="fill" />
+          <Image src={logo} alt="Bellhouse" />
         </Link>
       </div>
       <div>
