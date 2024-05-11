@@ -8,8 +8,14 @@ const About = () => {
   return (
     <Fragment>
       <Head>
-        <title>About | BELLHOUSE EXCAVATING</title>
-        <meta name="description" content="About Bellhouse Excavating company" />
+        <title>
+          About Bellhouse Excavating | Your Trusted Excavation Partner in Brant
+          County
+        </title>
+        <meta
+          name="description"
+          content="Learn about Bellhouse Excavating, your trusted excavation and construction partner serving Brant County, Brantford, Hamilton, Waterloo, Oxford, Halton, and surrounding areas. With over 30 years of experience, we are committed to delivering high-quality excavation services."
+        />
       </Head>
       <Layout>
         <section className="about-hero__section">

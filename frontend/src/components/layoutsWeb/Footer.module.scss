@@ -59,7 +59,8 @@
   .footer {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 4fr 1fr;
-    height: 30vh;
+    min-height: 30vh;
+    height: 100%;
   }
   .copyright {
     grid-row: 2/3;

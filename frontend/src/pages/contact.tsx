@@ -9,8 +9,13 @@ const Contact = () => {
   return (
     <Fragment>
       <Head>
-        <title>Contact Us</title>
-        <meta name="description" content="Contact page" />
+        <title>
+          Contact Bellhouse Excavating | Excavation Services in Brant County
+        </title>
+        <meta
+          name="description"
+          content="Contact Bellhouse Excavating for reliable excavation services in Brant County, Brantford, Hamilton, Waterloo, Oxford, Halton, and surrounding areas."
+        />
       </Head>
 
       <Layout>

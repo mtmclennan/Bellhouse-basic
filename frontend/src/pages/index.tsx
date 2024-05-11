@@ -13,8 +13,14 @@ const HomePage = () => {
   return (
     <Fragment>
       <Head>
-        <title>BELLHOUSE EXCAVATING</title>
-        <meta name="description" content="BellHouse Excavating" />
+        <title>
+          Excavation Services in Brantford | Bellhouse Excavating | Serving
+          Brant County & Surrounding Areas
+        </title>
+        <meta
+          name="description"
+          content="Bellhouse Excavating is your trusted excavation and construction partner serving Brant County, Brantford, Hamilton, Waterloo, Oxford, Halton, and surrounding areas.  We specialize in site preparation, foundations, drainage solutions, septic system installation, aggregates delivery, off-road truck rental, equipment floating, and more. Contact us today for reliable, high-quality services!"
+        />
       </Head>
       <LayoutHome>
         <div className="hero__container">
@@ -24,7 +30,7 @@ const HomePage = () => {
               <div className="hero-logo__mobile">
                 <Image
                   src={logo}
-                  alt="Bellhouse Excavating"
+                  alt="Bellhouse Excavating logo"
                   priority={true}
                   quality={80}
                   width={300}

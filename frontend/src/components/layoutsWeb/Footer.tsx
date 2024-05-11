@@ -59,7 +59,7 @@ const Footer = () => {
         </ul>
       </div>
       <div className={classes.copyright}>
-        <p>{`©${year} By BellHouse Excavating`}</p>
+        <p>{`©${year} By BELLHOUSE EXCAVATING`}</p>
       </div>
     </footer>
   );
