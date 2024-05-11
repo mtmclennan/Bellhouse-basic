@@ -1,13 +1,13 @@
 import Layout from "@/components/layoutsWeb/LayoutWeb";
-import ServicesSection from "@/components/webpage/ServicesSection";
+// import ServicesSection from "@/components/webpage/ServicesSection";
 import React from "react";
-import excavtor from "../../public/assets/20230509_103809.jpg";
-import truck from "../../public/assets/20230523_133832.jpg";
-import skidSteer from "../../public/assets/20230523_133653.jpg";
-import dozer from "../../public/assets/IMG_0889[2382].jpg";
-import septic from "../../public/assets/Septic_tank_Bolduc.jpg";
-import rockTruck from "../../public/assets/8420228339_78691eb78c_b.jpg";
-import foundation from "../../public/assets/iStock_996232320-1-scaled.jpg.optimal.jpg";
+// import excavtor from "../../public/assets/20230509_103809.jpg";
+// import truck from "../../public/assets/20230523_133832.jpg";
+// import skidSteer from "../../public/assets/20230523_133653.jpg";
+// import dozer from "../../public/assets/IMG_0889[2382].jpg";
+// import septic from "../../public/assets/Septic_tank_Bolduc.jpg";
+// import rockTruck from "../../public/assets/8420228339_78691eb78c_b.jpg";
+// import foundation from "../../public/assets/iStock_996232320-1-scaled.jpg.optimal.jpg";
 import Image from "next/legacy/image";
 import logo from "../../public/assets/BellhouseLogowhite5.png";
 

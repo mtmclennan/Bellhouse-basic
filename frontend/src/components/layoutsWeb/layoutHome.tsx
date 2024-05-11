@@ -1,5 +1,5 @@
 import Footer from "./Footer";
-import { Fragment, ReactNode, useEffect, useState } from "react";
+import { Fragment, ReactNode } from "react";
 
 import classes from "./LayoutWeb.module.scss";
 import { useRouter } from "next/router";

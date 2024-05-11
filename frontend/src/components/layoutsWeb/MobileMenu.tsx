@@ -1,6 +1,6 @@
 import Link from "next/link";
 import classes from "./MobileMenu.module.scss";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
 type MobileMenuProps = {
   homeClassname: string;

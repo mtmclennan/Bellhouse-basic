@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import Head from "next/head";
-import ContactForm from "../components/forms/ContactForm";
+// import ContactForm from "../components/forms/ContactForm";
 import Layout from "@/components/layoutsWeb/LayoutWeb";
 import logo from "../../public/assets/BellhouseLogowhite5.png";
 import Image from "next/image";

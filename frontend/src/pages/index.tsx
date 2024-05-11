@@ -1,11 +1,11 @@
 import { Fragment } from "react";
 import Head from "next/head";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import logo from "../../public/assets/BellhouseLogo-text.png";
 import { useRouter } from "next/router";
 
 import LayoutHome from "@/components/layoutsWeb/layoutHome";
-import ServiceCard from "@/components/UI/ServiceCard";
+// import ServiceCard from "@/components/UI/ServiceCard";
 
 const HomePage = () => {
   const router = useRouter();
@@ -13,7 +13,7 @@ const HomePage = () => {
   return (
     <Fragment>
       <Head>
-        <title>BellHouse</title>
+        <title>BELLHOUSE EXCAVATING</title>
         <meta name="description" content="BellHouse Excavating" />
       </Head>
       <LayoutHome>
@@ -25,12 +25,15 @@ const HomePage = () => {
                 <Image
                   src={logo}
                   alt="Bellhouse Excavating"
-                  width={375}
-                  height={300}
+                  priority={true}
+                  quality={80}
+                  width={300}
+                  height={227}
                   style={{
                     width: "100%",
                     height: "auto",
                   }}
+                  sizes="(min-width: 380px) 300px, calc(33.33vw + 180px)"
                 />
               </div>
               <h3 className="hero-desktop">
@@ -63,8 +66,11 @@ const HomePage = () => {
               <Image
                 src={"/assets/gallery1.jpg"}
                 alt={"bucket of dirt"}
-                width={650}
-                height={650}
+                // placeholder="blur"
+                quality={70}
+                width={750}
+                height={750}
+                sizes="(min-width: 800px) 750px, calc(93.75vw + 19px)"
                 style={{
                   width: "100%",
                   height: "auto",
@@ -74,9 +80,12 @@ const HomePage = () => {
             <li>
               <Image
                 src={"/assets/gallery2.jpg"}
-                alt={"bucket of dirt"}
-                width={650}
-                height={650}
+                alt={"view out of bulldozer"}
+                // placeholder="blur"
+                quality={70}
+                width={750}
+                height={750}
+                sizes="(min-width: 800px) 750px, calc(93.75vw + 19px)"
                 style={{
                   width: "100%",
                   height: "auto",
@@ -86,9 +95,12 @@ const HomePage = () => {
             <li>
               <Image
                 src={"/assets/gallery3.jpg"}
-                alt={"bucket of dirt"}
-                width={650}
-                height={650}
+                alt={"Dump truck with float and excavator"}
+                // placeholder="blur"
+                quality={70}
+                width={750}
+                height={750}
+                sizes="(min-width: 800px) 750px, calc(93.75vw + 19px)"
                 style={{
                   width: "100%",
                   height: "auto",
@@ -98,9 +110,12 @@ const HomePage = () => {
             <li>
               <Image
                 src={"/assets/gallery4.jpg"}
-                alt={"bucket of dirt"}
-                width={650}
-                height={650}
+                alt={"excavator digging"}
+                // placeholder="blur"
+                quality={70}
+                width={750}
+                height={750}
+                sizes="(min-width: 800px) 750px, calc(93.75vw + 19px)"
                 style={{
                   width: "100%",
                   height: "auto",
@@ -163,7 +178,7 @@ const HomePage = () => {
         </section>
 
         <section className="reviews">
-          <h3>Serving Brant County and surrounding areas</h3>
+          <h3>Serving Brant County and Surrounding Areas</h3>
           {/* <div className="review-image__container">
             <Image src={pinevest} alt="PineVest Homes" layout="responsive" />
           </div>

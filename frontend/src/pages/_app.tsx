@@ -1,12 +1,16 @@
 import "../styles/main.scss";
+import { Open_Sans } from "next/font/google";
 
 import type { AppProps } from "next/app";
-import { AuthContextProvider } from "@/store/auth-context";
+
+const openSans = Open_Sans({ subsets: ["latin"] });
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <AuthContextProvider>
-      <Component {...pageProps} />
-    </AuthContextProvider>
+    <>
+      <main className={openSans.className}>
+        <Component {...pageProps} />;
+      </main>
+    </>
   );
 }

@@ -25,8 +25,8 @@ const Footer = () => {
           <Image
             src={logo}
             alt="EdgeInMind"
-            width={389}
-            height={515}
+            width={200}
+            height={151}
             style={{ width: "100%", height: "auto" }}
           />
         </div>
