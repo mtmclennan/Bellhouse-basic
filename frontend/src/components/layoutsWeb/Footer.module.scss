@@ -35,6 +35,9 @@
   margin: 1em;
   align-self: center;
   justify-self: center;
+  & p {
+    text-align: center;
+  }
 }
 
 .logo {

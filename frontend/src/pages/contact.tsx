@@ -10,7 +10,8 @@ const Contact = () => {
     <Fragment>
       <Head>
         <title>
-          Contact Bellhouse Excavating | Excavation Services in Brant County
+          Contact Bellhouse Excavating | Professional Excavation Services in
+          Brant County
         </title>
         <meta
           name="description"

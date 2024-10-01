@@ -46,8 +46,7 @@ const HomePage = () => {
                 Your Trusted Partner for Superior Results
               </h3>
               <p>
-                With our line up of earth moving equipment, We can help with
-                your project. Lets dig!
+                Kick Off Your Project with a Solid Foundation—Contact Us Today!
               </p>
 
               <div className="hero__button-container">
@@ -184,7 +183,7 @@ const HomePage = () => {
         </section>
 
         <section className="reviews">
-          <h3>Serving Brant County and Surrounding Areas</h3>
+          <h3>Proudly Serving Brant County and Surrounding Areas</h3>
           {/* <div className="review-image__container">
             <Image src={pinevest} alt="PineVest Homes" layout="responsive" />
           </div>

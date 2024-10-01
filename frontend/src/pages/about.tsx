@@ -9,7 +9,7 @@ const About = () => {
     <Fragment>
       <Head>
         <title>
-          About Bellhouse Excavating | Your Trusted Excavation Partner in Brant
+          About Bellhouse Excavating | Expert Excavation Services in Brant
           County
         </title>
         <meta
@@ -23,10 +23,6 @@ const About = () => {
             <h1>About Us</h1>
             <div className="logo__wrapper">
               <Image alt="BELLHOUSE LOGO" src={logo} fill />
-            </div>
-
-            <div>
-              {/* <Image src={logo} alt="EdgeInMind" layout="responsive" /> */}
             </div>
           </div>
         </section>

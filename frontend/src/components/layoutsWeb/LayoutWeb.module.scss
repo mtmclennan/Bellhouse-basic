@@ -6,9 +6,15 @@
   margin: auto;
   min-height: 100vh;
   height: 100%;
-  padding-bottom: 5rem;
+  // padding-bottom: 5rem;
   background-color: v.$color-neutral-dark;
 }
+
+// .containerHome {
+//   @include m.mediaDesktop {
+//     margin-bottom: 0;
+//   }
+// }
 
 .container {
   margin-top: 5rem;

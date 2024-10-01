@@ -45,7 +45,7 @@ const Services = () => {
         <div className="section--container">
           <ul className="services__content">
             <li>
-              <h3>Fountain Excavation and Backfilling</h3>
+              <h3>Foundation Excavation and Backfilling</h3>
               <p>
                 Bellhouse Excavating: Your Expert in Foundation and Backfilling
                 Services! Building a solid foundation is crucial for any

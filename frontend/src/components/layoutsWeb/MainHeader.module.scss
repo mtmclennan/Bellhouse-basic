@@ -136,7 +136,8 @@
 .headerHome li {
   margin: 1em;
 }
-.header a {
+.header a,
+.headerHome a {
   letter-spacing: 0.15rem;
   color: v.$text-color-light;
 
@@ -170,7 +171,7 @@
 }
 
 .actionContainer {
-  margin: auto;
+  // margin: auto;
   display: flex;
   align-items: center;
   justify-content: center;
