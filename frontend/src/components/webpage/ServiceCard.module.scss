@@ -1,0 +1,28 @@
+@use '../../styles/abstracts/variables' as v;
+@use '../../styles/abstracts/mixins' as m;
+
+.card {
+  @include m.flexCenter(column);
+  width: 35rem;
+  & h3 {
+    // text-align: center;
+    font-size: 2.1rem;
+    font-weight: 500;
+    color: v.$color-primary;
+    margin-bottom: 1rem;
+  }
+
+  & p {
+    color: v.$grey-color-5;
+    font-size: 1.6rem;
+  }
+}
+
+.image {
+  width: 100%;
+  border-radius: 15px 15px 15px 15px;
+}
+
+.imageContainer {
+  width: 100%;
+}

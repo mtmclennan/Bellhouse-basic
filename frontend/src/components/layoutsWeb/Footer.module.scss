@@ -1,5 +1,5 @@
-@use "../../styles/abstracts/mixins" as m;
-@use "../../styles/abstracts/variables" as v;
+@use '../../styles/abstracts/mixins' as m;
+@use '../../styles/abstracts/variables' as v;
 
 .footer {
   background-color: v.$color-footer;
@@ -58,6 +58,16 @@
   }
 }
 
+.phone {
+  @include m.flexCenter();
+  gap: 1rem;
+  grid-row: 3/4;
+  & h3 {
+    font-size: 3rem;
+    font-weight: 100;
+  }
+}
+
 @media (min-width: 800px) {
   .footer {
     grid-template-columns: repeat(3, 1fr);
@@ -72,5 +82,9 @@
 
   .logo {
     grid-row: 1/2;
+  }
+  .phone {
+    grid-row: 1/2;
+    grid-column: 3/4;
   }
 }

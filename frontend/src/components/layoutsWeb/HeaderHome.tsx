@@ -1,24 +1,25 @@
-import Link from "next/link";
-import classes from "./MainHeader.module.scss";
-import { useRouter } from "next/router";
-import Image from "next/image";
-import logo from "../../../public/assets/BellhouseLogo-text.png";
-import { Fragment, useEffect, useState } from "react";
-import Hamburger from "./Hamburger";
-import MobileMenu from "./MobileMenu";
+import Link from 'next/link';
+import classes from './MainHeader.module.scss';
+import { useRouter } from 'next/router';
+import Image from 'next/image';
+import logo from '../../../public/assets/BellhouseLogo-text.png';
+import { Fragment, useEffect, useState } from 'react';
+import Hamburger from './Hamburger';
+import MobileMenu from './MobileMenu';
+import { Phone } from '@phosphor-icons/react';
 
 const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
   const router = useRouter();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
-  const homeClassname = currentRoute === "/" ? "active" : "non-active";
+  const homeClassname = currentRoute === '/' ? 'active' : 'non-active';
   const servicesClassname =
-    currentRoute === "/services" ? "active" : "non-active";
-  const aboutClassname = currentRoute === "/about" ? "active" : "non-active";
+    currentRoute === '/services' ? 'active' : 'non-active';
+  const aboutClassname = currentRoute === '/about' ? 'active' : 'non-active';
   const careersClassname =
-    currentRoute === "/careers" ? "active" : "non-active";
+    currentRoute === '/careers' ? 'active' : 'non-active';
   const contactClassname =
-    currentRoute === "/contact" ? "active" : "non-active";
+    currentRoute === '/contact' ? 'active' : 'non-active';
 
   useEffect(() => {
     setShowMobileMenu(false);
@@ -37,8 +38,8 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
                 width={250}
                 height={189}
                 style={{
-                  width: "100%",
-                  height: "auto",
+                  width: '100%',
+                  height: 'auto',
                 }}
               />
             </Link>
@@ -57,9 +58,15 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
               <Link href="/careers">Careers</Link>
             </li> */}
             <li className={classes.actionContainer}>
-              <button onClick={() => router.push("/contact")}>
+              <button onClick={() => router.push('/contact')}>
                 Get An Estimate
               </button>
+            </li>
+            <li>
+              <a className={classes.phone} href="tel:519-752-8500">
+                <Phone size={24} />
+                <h3>519-752-8500</h3>
+              </a>
             </li>
           </ul>
           <Hamburger

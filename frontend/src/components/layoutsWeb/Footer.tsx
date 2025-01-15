@@ -1,21 +1,22 @@
-import classes from "./Footer.module.scss";
-import Link from "next/link";
-import Image from "next/image";
-import logo from "../../../public/assets/BellhouseLogo-text.png";
-import { useRouter } from "next/router";
+import classes from './Footer.module.scss';
+import Link from 'next/link';
+import Image from 'next/image';
+import logo from '../../../public/assets/BellhouseLogo-text.png';
+import { Phone } from '@phosphor-icons/react';
+import { useRouter } from 'next/router';
 
 const Footer = () => {
   const router = useRouter();
   const currentRoute = router.pathname;
 
-  const homeClassname = currentRoute === "/" ? "active" : "non-active";
+  const homeClassname = currentRoute === '/' ? 'active' : 'non-active';
   const servicesClassname =
-    currentRoute === "/services" ? "active" : "non-active";
+    currentRoute === '/services' ? 'active' : 'non-active';
   const careersClassname =
-    currentRoute === "/careers" ? "active" : "non-active";
-  const aboutClassname = currentRoute === "/about" ? "active" : "non-active";
+    currentRoute === '/careers' ? 'active' : 'non-active';
+  const aboutClassname = currentRoute === '/about' ? 'active' : 'non-active';
   const contactClassname =
-    currentRoute === "/contact" ? "active" : "non-active";
+    currentRoute === '/contact' ? 'active' : 'non-active';
 
   const year = new Date().getFullYear();
   return (
@@ -24,13 +25,17 @@ const Footer = () => {
         <div className={classes.logo}>
           <Image
             src={logo}
-            alt="EdgeInMind"
+            alt="Bellhouse Excavating"
             width={200}
             height={151}
-            style={{ width: "100%", height: "auto" }}
+            style={{ width: '100%', height: 'auto' }}
           />
         </div>
       </div>
+      <a className={classes.phone} href="tel:519-752-8500">
+        <Phone size={30} />
+        <h3>519-752-8500</h3>
+      </a>
       <div className={classes.nav}>
         <ul>
           <li>

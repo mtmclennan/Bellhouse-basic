@@ -1,9 +1,9 @@
-import { Fragment } from "react";
-import Head from "next/head";
+import { Fragment } from 'react';
+import Head from 'next/head';
 // import ContactForm from "../components/forms/ContactForm";
-import Layout from "@/components/layoutsWeb/LayoutWeb";
-import logo from "../../public/assets/BellhouseLogowhite5.png";
-import Image from "next/image";
+import Layout from '@/components/layoutsWeb/LayoutWeb';
+import logo from '../../public/assets/BellhouseLogowhite5.png';
+import Image from 'next/image';
 
 const Contact = () => {
   return (
@@ -31,7 +31,7 @@ const Contact = () => {
 
             <div className="hero__button-container">
               <a href="tel:519-752-8500">Call Now</a>
-              <a href="mailto:belhouseexcavating@gmail.com">Email Us</a>
+              <a href="mailto:bellhouseexcavating@gmail.com">Email Us</a>
             </div>
           </div>
         </section>

@@ -1,5 +1,5 @@
-@use "../styles/abstracts/mixins" as m;
-@use "../styles/abstracts/variables" as v;
+@use '../styles/abstracts/mixins' as m;
+@use '../styles/abstracts/variables' as v;
 
 *,
 *::before,
@@ -278,6 +278,7 @@ button {
 #cta-btn {
   background-color: v.$color-primary;
   color: v.$text-color-dark;
+  transition: all 0.2s ease;
 
   &:hover,
   &:focus {
@@ -436,7 +437,7 @@ button {
   position: relative;
 }
 .active::after {
-  content: "";
+  content: '';
   /* border: 1px solid #be3939; */
   position: absolute;
   height: 4px;
@@ -753,7 +754,7 @@ button {
 }
 
 .logo {
-  font-family: "Oswald", sans-serif;
+  font-family: 'Oswald', sans-serif;
   margin-bottom: 3rem;
 
   @include m.mediaPhone {
@@ -816,5 +817,20 @@ button {
 
   @include m.mediaDesktop {
     padding: 6rem;
+  }
+}
+
+.hero-phone__mobile {
+  @include m.mediaDesktop {
+    display: none;
+  }
+  @include m.flexCenter();
+  gap: 1rem;
+  & h3 {
+    margin: 0;
+    color: v.$color-primary;
+    font-size: 2.4rem;
+    font-weight: 100;
+    display: block;
   }
 }

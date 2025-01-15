@@ -1,14 +1,59 @@
-import { Fragment } from "react";
-import Head from "next/head";
-import Image from "next/image";
-import logo from "../../public/assets/BellhouseLogo-text.png";
-import { useRouter } from "next/router";
+import { Fragment } from 'react';
+import Head from 'next/head';
+import Image from 'next/image';
+import logo from '../../public/assets/BellhouseLogo-text.png';
+import { useRouter } from 'next/router';
+import { Phone } from '@phosphor-icons/react';
 
-import LayoutHome from "@/components/layoutsWeb/layoutHome";
+import LayoutHome from '@/components/layoutsWeb/layoutHome';
+import HomeAbout from '@/components/webpage/HomeAbout';
+import HomeServices from '@/components/webpage/HomeServices';
+import ImageGallerySlider from '@/components/UI/ImageSlider';
 // import ServiceCard from "@/components/UI/ServiceCard";
 
 const HomePage = () => {
   const router = useRouter();
+
+  const images = [
+    {
+      src: '/assets/excavator-digging-foundation.jpg',
+      alt: 'a bucket of dirt',
+    },
+    { src: '/assets/Auto-level-floor-skid-steer.jpg', alt: 'a bucket of dirt' },
+    { src: '/assets/dozer-pushing-dirt.jpg', alt: 'a bucket of dirt' },
+    {
+      src: '/assets/soil-conditioner-top-soil-skid-steer.jpg',
+      alt: 'a bucket of dirt',
+    },
+    {
+      src: '/assets/excavator-loading-tri-axle-foundation.jpg',
+      alt: 'a bucket of dirt',
+    },
+    {
+      src: '/assets/off-road-truck-dump-truck.jpg',
+      alt: 'a bucket of dirt',
+    },
+    {
+      src: '/assets/grading-driveway-laser-level.jpg',
+      alt: 'a bucket of dirt',
+    },
+    {
+      src: '/assets/foundation-backfill-packer.jpg',
+      alt: 'a bucket of dirt',
+    },
+    {
+      src: '/assets/retaining-wall-concrete.jpg',
+      alt: 'a bucket of dirt',
+    },
+    {
+      src: '/assets/tri-axle-dump-trucks.jpg',
+      alt: 'a bucket of dirt',
+    },
+    {
+      src: '/assets/dozer-landfill-expansion.jpg',
+      alt: 'a bucket of dirt',
+    },
+  ];
 
   return (
     <Fragment>
@@ -36,8 +81,8 @@ const HomePage = () => {
                   width={300}
                   height={227}
                   style={{
-                    width: "100%",
-                    height: "auto",
+                    width: '100%',
+                    height: 'auto',
                   }}
                   sizes="(min-width: 380px) 300px, calc(33.33vw + 180px)"
                 />
@@ -50,84 +95,86 @@ const HomePage = () => {
               </p>
 
               <div className="hero__button-container">
-                <button id="cta-btn" onClick={() => router.push("/contact")}>
+                <button id="cta-btn" onClick={() => router.push('/contact')}>
                   Contact Us
                 </button>
-                <button onClick={() => router.push("/services")}>
+                <button onClick={() => router.push('/services')}>
                   Services
                 </button>
+                <a className="hero-phone__mobile" href="tel:519-752-8500">
+                  <Phone size={30} />
+                  <h3>519-752-8500</h3>
+                </a>
               </div>
             </div>
-            {/* <div className="hero-logo">
-              <div className="hero-logo__image-container">
-                <Image src={logo} alt="Excavator" layout="responsive" />
-              </div>
-            </div> */}
           </section>
         </div>
+        <HomeAbout />
+        <HomeServices />
         <section className="services">
-          <ul>
+          <ImageGallerySlider interval={7500} images={images} />
+          {/* <ul>
             <li>
               <Image
-                src={"/assets/gallery1.jpg"}
-                alt={"bucket of dirt"}
+                src={'/assets/gallery1.jpg'}
+                alt={'bucket of dirt'}
                 // placeholder="blur"
                 quality={70}
                 width={750}
                 height={750}
                 sizes="(min-width: 800px) 750px, calc(93.75vw + 19px)"
                 style={{
-                  width: "100%",
-                  height: "auto",
+                  width: '100%',
+                  height: 'auto',
                 }}
               />
             </li>
             <li>
               <Image
-                src={"/assets/gallery2.jpg"}
-                alt={"view out of bulldozer"}
+                src={'/assets/gallery2.jpg'}
+                alt={'view out of bulldozer'}
                 // placeholder="blur"
                 quality={70}
                 width={750}
                 height={750}
                 sizes="(min-width: 800px) 750px, calc(93.75vw + 19px)"
                 style={{
-                  width: "100%",
-                  height: "auto",
+                  width: '100%',
+                  height: 'auto',
                 }}
               />
             </li>
             <li>
               <Image
-                src={"/assets/gallery3.jpg"}
-                alt={"Dump truck with float and excavator"}
+                src={'/assets/gallery3.jpg'}
+                alt={'Dump truck with float and excavator'}
                 // placeholder="blur"
                 quality={70}
                 width={750}
                 height={750}
                 sizes="(min-width: 800px) 750px, calc(93.75vw + 19px)"
                 style={{
-                  width: "100%",
-                  height: "auto",
+                  width: '100%',
+                  height: 'auto',
                 }}
               />
             </li>
             <li>
               <Image
-                src={"/assets/gallery4.jpg"}
-                alt={"excavator digging"}
+                src={'/assets/gallery4.jpg'}
+                alt={'excavator digging'}
                 // placeholder="blur"
                 quality={70}
                 width={750}
                 height={750}
                 sizes="(min-width: 800px) 750px, calc(93.75vw + 19px)"
                 style={{
-                  width: "100%",
-                  height: "auto",
+                  width: '100%',
+                  height: 'auto',
                 }}
               />
             </li>
-          </ul>
+          </ul> */}
           {/* <h2>Our Services</h2> */}
 
           {/* <ul>
@@ -250,7 +297,7 @@ const HomePage = () => {
         <section className="last-call">
           <div>
             <h2>Lets get started on your next project</h2>
-            <button id="cta-btn" onClick={() => router.push("/contact")}>
+            <button id="cta-btn" onClick={() => router.push('/contact')}>
               Contact Us
             </button>
           </div>
