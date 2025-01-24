@@ -1,5 +1,5 @@
-@use "../../styles/abstracts/mixins" as m;
-@use "../../styles/abstracts/variables" as v;
+@use '../../styles/abstracts/mixins' as m;
+@use '../../styles/abstracts/variables' as v;
 
 .container,
 .containerHome {
@@ -7,7 +7,7 @@
   min-height: 100vh;
   height: 100%;
   // padding-bottom: 5rem;
-  background-color: v.$color-neutral-dark;
+  background-color: v.$transparent;
 }
 
 // .containerHome {

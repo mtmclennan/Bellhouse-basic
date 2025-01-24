@@ -26,10 +26,10 @@ export default function HomeAbout() {
           </p>
           <p>
             We pride ourselves on our commitment to safety, precision, and
-            professionalism. Whether you're building a new foundation, needing
-            aggregate delivery, or requiring excavation for any construction
-            project, Bellhouse Excavating has the expertise and the equipment to
-            get the job done right.
+            professionalism. Whether you&apos;re building a new foundation,
+            needing aggregate delivery, or requiring excavation for any
+            construction project, Bellhouse Excavating has the expertise and the
+            equipment to get the job done right.
           </p>
         </div>
         <div>

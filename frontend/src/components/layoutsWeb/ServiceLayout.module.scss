@@ -1,0 +1,73 @@
+@use '../../styles/abstracts/variables' as v;
+@use '../../styles/abstracts/mixins' as m;
+
+.container {
+  @include m.flexCenter();
+  min-height: calc(100vh - 20rem);
+}
+
+// .mask {
+//   //   position: absolute;
+//   //   right: 0;
+//   //   top: 0;
+// }
+
+.image {
+  //   position: relative;
+  margin-top: -20rem;
+  margin-right: 4rem;
+}
+
+// .overlay {
+//   z-index: -6;
+// }
+
+.hero {
+  @include m.flexCenter(column);
+  gap: 2rem;
+  margin-right: -4rem;
+
+  & h1 {
+    margin-top: -20rem;
+    line-height: 1.05;
+    font-size: 9rem;
+    text-align: center;
+  }
+}
+
+.btn {
+  @include m.btnMain;
+  margin-top: 2rem;
+}
+
+.introContainer {
+  @include m.flexCenter(column);
+  background-color: v.$color-primary-light;
+  color: v.$text-color-dark;
+  padding: 8rem 0;
+  & h2 {
+    margin: 0 0 4rem 0;
+    max-width: 120rem;
+    line-height: 1.1;
+    text-align: center;
+    font-size: 6rem;
+  }
+}
+
+.introContent {
+  @include m.flexCenter(column);
+  max-width: 90rem;
+
+  & p {
+    font-size: 1.8rem;
+    margin-bottom: 4rem;
+  }
+
+  & li {
+    @include m.flexCenter();
+    justify-content: flex-start;
+    font-size: 1.8rem;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+}

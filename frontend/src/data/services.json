@@ -1,0 +1,111 @@
+[
+  {
+    "slug": "foundation-excavation",
+    "hero": {
+      "heading": "Foundation Excavation & Backfilling",
+      "subheading": "Ensuring Precision and Stability for Your Construction Projects",
+      "image": "/assets/foundation-excavating-backfill.png",
+      "alt": "foundation and backfilling"
+    },
+    "intro": {
+      "heading": "Professional Foundation Excavation and Backfilling Services",
+      "content": "At Bellhouse Excavating, we specialize in foundation excavation and backfilling, providing essential services for both residential and commercial projects. With years of experience and state-of-the-art equipment, we ensure that your project starts with a solid, stable foundation. Our team handles each job with precision, safety, and efficiency, delivering results that meet your exact specifications.",
+      "keypoints": [
+        "Expert excavation for all types of foundations",
+        "Precise backfilling to ensure structural integrity",
+        "Timely and efficient service to keep your project on schedule",
+        "Advanced equipment for accurate and safe excavation"
+      ]
+    }
+  },
+  {
+    "slug": "heavy-equipment-floating",
+    "hero": {
+      "heading": "Heavy Equipment Floating Services",
+      "subheading": "Safe, Reliable, and Efficient Transportation for Your Heavy Equipment",
+      "image": "/assets/heavy-equipment-floating.jpg"
+    },
+    "intro": {
+      "heading": "Reliable Heavy Equipment Transportation Services",
+      "content": "At Bellhouse Excavating, we provide top-notch heavy equipment floating services for all your transportation needs. Our fleet is equipped to handle even the most challenging loads, ensuring your machinery is safely and efficiently transported to your site. Whether you're moving construction machinery, agricultural equipment, or any other large items, we have the expertise and equipment to get the job done right.",
+      "keypoints": [
+        "Specialized in transporting large and heavy equipment",
+        "Wide range of trucks and trailers for diverse equipment sizes",
+        "Timely and efficient delivery to minimize downtime",
+        "Fully insured and experienced operators for safe transport"
+      ]
+    }
+  },
+  {
+    "slug": "dirt-gravel-delivery",
+    "hero": {
+      "heading": "Dirt & Gravel Delivery Services",
+      "subheading": "Efficient, Reliable, and On-Time Material Delivery for Your Construction Needs",
+      "image": "/images/dirt-gravel-delivery-hero.jpg"
+    },
+    "intro": {
+      "heading": "Reliable Delivery of Dirt, Gravel, and Other Construction Materials",
+      "content": "At Bellhouse Excavating, we provide fast and reliable dirt and gravel delivery services for construction sites, landscaping projects, and more. With our fleet of dump trucks, we can quickly deliver the materials you need to keep your project on schedule. Whether it's topsoil, gravel, sand, or other aggregates, we ensure that your delivery is prompt, accurate, and cost-effective.",
+      "keypoints": [
+        "Prompt and accurate delivery of dirt, gravel, and aggregates",
+        "Variety of materials available for all construction and landscaping needs",
+        "Large fleet of dump trucks to handle small and large deliveries",
+        "Competitive pricing and reliable, on-time service"
+      ]
+    }
+  },
+  {
+    "slug": "driveways-parking-lots",
+    "hero": {
+      "heading": "Driveways & Parking Lots Construction",
+      "subheading": "Durable and Well-Constructed Driveways and Parking Lots for Residential and Commercial Needs",
+      "image": "/images/driveways-parking-lots-hero.jpg"
+    },
+    "intro": {
+      "heading": "Reliable Construction of Driveways and Parking Lots",
+      "content": "At Bellhouse Excavating, we specialize in building durable driveways and parking lots for both residential and commercial properties. Our team works with a variety of materials, including asphalt, concrete, and gravel, to create a long-lasting surface that meets your needs. We ensure that each project is completed on time and within budget, providing you with a solid foundation for your property.",
+      "keypoints": [
+        "Expert design and construction of driveways and parking lots",
+        "Variety of materials including asphalt, concrete, and gravel",
+        "High-quality work ensuring long-lasting results",
+        "Punctual service with competitive pricing"
+      ]
+    }
+  },
+  {
+    "slug": "septic-system-installation",
+    "hero": {
+      "heading": "Septic System Installation Services",
+      "subheading": "Efficient and Compliant Septic System Installations for Residential and Commercial Properties",
+      "image": "/images/septic-system-installation-hero.jpg"
+    },
+    "intro": {
+      "heading": "Professional Septic System Installation",
+      "content": "Bellhouse Excavating provides efficient and reliable septic system installation services for homes, businesses, and other properties. Our team ensures your septic system meets local regulations and functions properly, with an emphasis on quality materials and timely completion. We work with each client to design a septic system that fits their property’s needs and ensure that the installation is completed with minimal disruption.",
+      "keypoints": [
+        "Expert installation of septic systems for residential and commercial properties",
+        "Compliance with all local regulations and codes",
+        "High-quality materials and professional installation",
+        "Timely service with minimal disruption to your property"
+      ]
+    }
+  },
+  {
+    "slug": "off-road-dump-truck",
+    "hero": {
+      "heading": "Off-Road Dump Truck Services",
+      "subheading": "Heavy-Duty Dump Truck Services for Challenging and Remote Job Sites",
+      "image": "/images/off-road-dump-truck-hero.jpg"
+    },
+    "intro": {
+      "heading": "Off-Road Dump Truck Services for Difficult Terrain",
+      "content": "Bellhouse Excavating offers off-road dump truck services for job sites in tough terrain or remote locations. Our fleet of rugged, heavy-duty trucks is designed to handle the most challenging conditions, delivering materials to and from construction sites, mines, and other hard-to-reach areas. With experienced drivers and reliable equipment, we ensure timely and safe transport for your materials.",
+      "keypoints": [
+        "Off-road dump trucks designed for tough terrain and remote sites",
+        "Safe and efficient delivery of materials in difficult conditions",
+        "Experienced operators for challenging jobs",
+        "Timely and reliable transport to keep your project on schedule"
+      ]
+    }
+  }
+]

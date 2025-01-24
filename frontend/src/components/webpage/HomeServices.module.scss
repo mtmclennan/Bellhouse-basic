@@ -3,7 +3,8 @@
 
 .container {
   @include m.flexCenter(column);
-  margin: 5rem 0 5rem 0;
+
+  padding: 5rem 0 5rem 0;
   width: 100%;
   min-height: 50vh;
   background-color: v.$color-primary-dark;

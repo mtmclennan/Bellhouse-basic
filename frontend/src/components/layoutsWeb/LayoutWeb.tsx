@@ -1,9 +1,9 @@
-import Footer from "./Footer";
-import { Fragment, ReactNode, useEffect, useState } from "react";
-// import Image from "next/legacy/image";
-import classes from "./LayoutWeb.module.scss";
-import { useRouter } from "next/router";
-import MainHeader from "./MainHeader";
+import Footer from './Footer';
+import { Fragment, ReactNode, useEffect, useState } from 'react';
+import Image from 'next/legacy/image';
+import classes from './LayoutWeb.module.scss';
+import { useRouter } from 'next/router';
+import MainHeader from './MainHeader';
 
 type LayoutProps = {
   children: ReactNode;
@@ -16,10 +16,10 @@ const Layout = ({ children }: LayoutProps) => {
 
   useEffect(() => {
     if (
-      currentRoute === "/" ||
-      currentRoute === "/about" ||
-      currentRoute === "/contact" ||
-      currentRoute === "/tools"
+      currentRoute === '/' ||
+      currentRoute === '/about' ||
+      currentRoute === '/contact' ||
+      currentRoute === '/tools'
     ) {
       setShowBackground(true);
     } else setShowBackground(false);
@@ -27,16 +27,16 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <Fragment>
-      {/* <div className="background">
+      <div className="background">
         <Image
           className="background-image"
           layout="fill"
           quality={80}
           // placeholder="blur"
-          src="/assets/iStock-1322645661.jpg"
+          src="/assets/background.jpg"
           alt="background"
         />
-      </div> */}
+      </div>
 
       <MainHeader currentRoute={currentRoute} />
       <main className={classes.container}>{children}</main>

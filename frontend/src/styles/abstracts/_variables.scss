@@ -29,7 +29,7 @@ $darker-blue: #252a34;
 
 $color-footer: $color-neutral-dark;
 
-$transparent: #252a3431;
+$transparent: #00000000;
 $transparent-less: #252a34e0;
 
 $box-shadow-light: 5px 5px 24px -2px #ffffff3f;
@@ -46,12 +46,22 @@ $grey-color-7: #495057;
 $grey-color-8: #343a40;
 $grey-color-9: #212529;
 
+$cat-yellow: #ffc500;
+$cat-yellow2: #ffc302;
+
+$btn-main-text2: #43444f;
+$btn-main-border2: $btn-main-text2;
+
 $text-color-light: $grey-color-4;
 $text-color-mid: $grey-color-6;
 $text-color-mid-dark: $grey-color-8;
 $text-color-dark: $grey-color-9;
 
 $btn-dark-hover: $grey-color-6;
+$btn-main: $cat-yellow2;
+$btn-main-border: #000000;
+$btn-main-text: #000000;
+$btn-main-hover: #ffc400a9;
 
 $tooltip-margin: 30px;
 $tooltip-arrow-size: 6px;

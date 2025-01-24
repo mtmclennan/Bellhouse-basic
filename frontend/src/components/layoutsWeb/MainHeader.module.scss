@@ -9,7 +9,7 @@
   padding: 0 2%;
   align-items: center;
   justify-content: space-between;
-  background-color: v.$color-neutral-dark;
+  background-color: v.$transparent;
   z-index: 100;
   border-bottom: 1px solid rgba(189, 189, 189, 0.144);
 
@@ -28,7 +28,7 @@
   display: grid;
   width: 100vw;
   height: 7rem;
-  background-color: v.$color-neutral-dark;
+  background-color: v.$transparent;
   @include m.mediaDesktop {
     grid-template-rows: 15rem 10rem;
     grid-template-columns: 1fr;

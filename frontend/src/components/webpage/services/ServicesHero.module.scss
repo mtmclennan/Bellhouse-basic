@@ -1,0 +1,38 @@
+@use './../../../styles/abstracts/mixins' as m;
+@use './../../../styles/abstracts/variables' as v;
+
+.container {
+  @include m.flexCenter();
+  min-height: calc(100vh - 20rem);
+  width: 100%;
+}
+
+.hero {
+  margin-top: -10rem;
+  max-width: 110rem;
+  @include m.flexCenter(column);
+  gap: 4rem;
+
+  & h1 {
+    font-size: 10rem;
+    text-align: center;
+
+    line-height: 1.1;
+  }
+  & h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    color: v.$text-color-light;
+  }
+
+  & button {
+    @include m.btnMain;
+  }
+}
+
+.text {
+  font-weight: 100;
+  text-transform: uppercase;
+  color: v.$btn-main;
+  letter-spacing: 0;
+}

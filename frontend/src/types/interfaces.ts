@@ -24,6 +24,23 @@ export interface ServiceRequest {
   requestDate: string;
 }
 
+export interface ServicePage {
+  service: {
+    slug: string;
+    hero: {
+      heading: string;
+      subheading: string;
+      image: string;
+      alt: string;
+    };
+    intro: {
+      heading: string;
+      content: string;
+      keypoints: string[];
+    };
+  };
+}
+
 export interface Service {
   unit?: string | Equipment;
   serviceDate: string;

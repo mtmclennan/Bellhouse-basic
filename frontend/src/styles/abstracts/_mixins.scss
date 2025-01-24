@@ -1,3 +1,5 @@
+@use './variables' as v;
+
 @mixin gradient {
   background: linear-gradient(
     295deg,
@@ -34,5 +36,21 @@
 @mixin mediaUpToDesktop {
   @media (max-width: 1000px) {
     @content;
+  }
+}
+
+@mixin btnMain {
+  padding: 1.5rem 1.75rem;
+  border-radius: 10px;
+  font-size: 2.1rem;
+  font-weight: 600;
+  color: v.$btn-main-text2;
+  background-color: v.$btn-main;
+  border: 3px solid v.$btn-main-border2;
+
+  &:hover,
+  &:focus {
+    background-color: v.$btn-main-hover;
+    transform: scale(1.03);
   }
 }
