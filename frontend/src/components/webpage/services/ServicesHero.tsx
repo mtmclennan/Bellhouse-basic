@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './ServicesHero.module.scss';
+import Link from 'next/link';
 
 export default function ServicesHero() {
   return (
@@ -12,7 +13,9 @@ export default function ServicesHero() {
         <h2>
           Expert Excavation Services for Residential and Commercial Projects
         </h2>
-        <button>Get a Free Estimate!</button>
+        <Link className={classes.btn} href={'/contact'}>
+          Get a Free Estimate!
+        </Link>
       </div>
     </section>
   );

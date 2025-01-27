@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import classes from './CallToAction.module.scss';
 
@@ -10,7 +11,9 @@ export default function CallToAction() {
           Get in touch with us today for a free estimate on your excavation
           project. We’re here to help you bring your vision to life!
         </p>
-        <button>Start Your Project Today</button>
+        <Link className={classes.btn} href={'/contact'}>
+          Start Your Project Today
+        </Link>
       </div>
     </section>
   );

@@ -30,12 +30,16 @@
   // );
   background-color: v.$color-primary-dark;
   cursor: pointer;
-  padding: 4rem;
-  border-radius: 15px;
-  width: 53rem;
-  min-height: 70rem;
+  padding-bottom: 1rem;
+  max-width: 53rem;
+  @include m.mediaDesktop {
+    padding: 4rem;
+    border-radius: 15px;
+    width: 53rem;
+    min-height: 70rem;
+  }
   & h3 {
-    // text-align: center;
+    text-align: center;
     font-size: 3rem;
     font-weight: 700;
     color: v.$color-primary;
@@ -45,6 +49,10 @@
   & p {
     color: v.$text-color-light;
     font-size: 2rem;
+  }
+
+  & div {
+    @include m.flexCenter(column);
   }
 
   & a {

@@ -7,6 +7,7 @@ import Image from 'next/image';
 import classes from './ServiceLayout.module.scss';
 import Link from 'next/link';
 import { Star } from '@phosphor-icons/react/dist/ssr';
+import ServicesGrid from '../webpage/services/ServicesGrid';
 
 export default function ServiceLayout({ service }: ServicePage) {
   return (
@@ -22,10 +23,11 @@ export default function ServiceLayout({ service }: ServicePage) {
         {/* <div className={classes.mask}> */}
         <Image
           className={classes.image}
-          width={750}
-          height={632}
+          width={650}
+          height={550}
           src={service.hero.image}
           alt={service.hero.alt}
+          layout="intrinsic"
         />
         {/* <div className={classes.overlay}>
             <Image layout="fill" src="/assets/exc.png" alt="mask" />
@@ -46,8 +48,9 @@ export default function ServiceLayout({ service }: ServicePage) {
           </ul>
         </div>
       </section>
-      <WhyChooseUs />
       <CallToAction />
+      <WhyChooseUs />
+      <ServicesGrid />
     </LayoutHome>
   );
 }

@@ -26,6 +26,16 @@ export interface ServiceRequest {
 
 export interface ServicePage {
   service: {
+    meta: {
+      title: string;
+      description: string;
+    };
+    card: {
+      title: string;
+      description: string;
+      image: string;
+      alt: string;
+    };
     slug: string;
     hero: {
       heading: string;

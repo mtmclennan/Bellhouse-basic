@@ -21,8 +21,12 @@ const ServicePage = () => {
   );
 };
 
-export async function getStaticProps({ params }) {
-  const { slug } = params;
+export async function getStaticProps({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const slug = (await params).slug;
   const service = servicesData.find((service) => service.slug === slug);
 
   return {

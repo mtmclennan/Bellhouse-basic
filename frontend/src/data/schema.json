@@ -1,0 +1,33 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ExcavationBusiness",
+  "name": "Bellhouse Excavating",
+  "description": "Bellhouse Excavating is a professional excavation company serving the Paris, ON area. Specializing in foundation digging, dump truck services, heavy equipment transportation, and aggregates delivery, we offer high-quality, reliable services for both residential and commercial projects. With over [X] years of experience, our skilled team ensures precision and efficiency, making us the trusted choice for excavation services in the region.",
+  "url": "https://bellhouseexcavating.ca",
+  "logo": "https://bellhouseexcavating.ca/assets/bellhouse-excavating-contractor.jpg",
+  "telephone": "+1-519-752-8500",
+  "email": "mailto:bellhouseexcavating@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "573 Governors Rd E",
+    "addressLocality": "Paris",
+    "addressRegion": "ON",
+    "postalCode": "N3L 3E1",
+    "addressCountry": "CA"
+  },
+  "openingHours": "Mo-Fr 07:00-17:00",
+  "sameAs": [
+    "https://www.facebook.com/bellhouseexcavating",
+    "https://www.instagram.com/bellhouse_excavating/"
+  ],
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 43.2,
+    "longitude": -80.4
+  },
+  "serviceArea": {
+    "@type": "Place",
+    "name": "Brant County, Hamilton, Waterloo Region, Woodstock, Halton, Norfolk"
+  },
+  "priceRange": "$$$"
+}

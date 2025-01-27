@@ -3,7 +3,7 @@
 
 .container {
   @include m.flexCenter();
-  padding: 8rem 0;
+  padding: 8rem 1rem;
 }
 
 .dark {
@@ -24,8 +24,7 @@
     color: v.$text-color-light;
     font-size: 2rem;
   }
-
-  & button {
-    @include m.btnMain;
-  }
+}
+.btn {
+  @include m.btnMain;
 }

@@ -10,6 +10,7 @@ import LocalExperts from '@/components/webpage/LocalExperts';
 import CallToAction from '@/components/webpage/CallToAction';
 import ServiceCard from '@/components/webpage/ServiceCard';
 import { title } from 'process';
+import ServicesGrid from '@/components/webpage/services/ServicesGrid';
 
 const services = [
   {
@@ -99,7 +100,7 @@ const Services = () => {
             </p>
           </div>
         </section>
-        <section className="services__services">
+        {/* <section className="services__services">
           <h2>How We Help You Build</h2>
           <div className="services__grid">
             {services.map((service) => (
@@ -113,7 +114,8 @@ const Services = () => {
               />
             ))}
           </div>
-        </section>
+        </section> */}
+        <ServicesGrid />
         <LocalExperts colorDark={true} />
         <CallToAction />
         {/* <section className="services__hero">
