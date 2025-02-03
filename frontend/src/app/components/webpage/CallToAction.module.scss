@@ -1,0 +1,30 @@
+@use './../../../styles/abstracts/mixins' as m;
+@use './../../../styles/abstracts/variables' as v;
+
+.container {
+  @include m.flexCenter();
+  padding: 8rem 1rem;
+}
+
+.dark {
+  background-color: v.$color-primary-dark;
+}
+
+.cta {
+  @include m.flexCenter(column);
+  max-width: 90rem;
+  gap: 2rem;
+
+  & h2 {
+    font-size: 8rem;
+    text-align: center;
+  }
+
+  & p {
+    color: v.$text-color-light;
+    font-size: 2rem;
+  }
+}
+.btn {
+  @include m.btnMain;
+}

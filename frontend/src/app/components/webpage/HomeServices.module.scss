@@ -1,0 +1,49 @@
+@use '../../../styles/abstracts/variables' as v;
+@use '../../../styles/abstracts/mixins' as m;
+
+.container {
+  @include m.flexCenter(column);
+
+  padding: 5rem 0 5rem 0;
+  width: 100%;
+  min-height: 50vh;
+  background-color: v.$color-primary-dark;
+
+  & h2 {
+    font-size: 4.5rem;
+    font-weight: 100;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+}
+
+.grid {
+  @include m.flexCenter(column);
+  width: 95%;
+  justify-items: center;
+  align-items: start;
+  gap: 3rem;
+  display: grid;
+
+  @include m.mediaDesktop {
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 120rem;
+  }
+}
+
+.cta {
+  @include m.flexCenter(column);
+  margin: 3rem 0 3rem 0;
+  width: 100%;
+  font-size: 4rem;
+
+  @include m.mediaDesktop {
+    font-size: 6.5rem;
+    grid-column: 1 /4;
+  }
+
+  & h3,
+  & h4 {
+    font-weight: 100;
+  }
+}

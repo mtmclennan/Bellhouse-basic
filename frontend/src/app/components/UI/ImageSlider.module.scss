@@ -1,0 +1,66 @@
+@use '../../../styles/abstracts/mixins' as m;
+.galleryContainer {
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+
+  @include m.mediaDesktop {
+    max-width: 1100px;
+    width: 80%;
+  }
+}
+
+.slider {
+  position: relative;
+}
+
+.slider {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+.sliderImage {
+  border-radius: 15px;
+  max-width: 100%;
+  height: auto;
+}
+
+.fadeOut {
+  opacity: 0; /* Start fading out */
+}
+
+.fadeIn {
+  opacity: 1; /* Start fading in */
+}
+
+.prevButton,
+.nextButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.prevButton {
+  left: 10px;
+}
+
+.nextButton {
+  right: 10px;
+}
+
+.imageIndicator {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #333;
+}

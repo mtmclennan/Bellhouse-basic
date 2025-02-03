@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "meta": {
       "title": "Foundation Excavation & Backfilling in Brant County | Bellhouse",
       "description": "Bellhouse Excavating provides expert foundation excavation and backfilling in Brant County. Reliable, efficient, and precise services for your construction project."
@@ -29,6 +30,7 @@
     }
   },
   {
+    "id": 2,
     "meta": {
       "title": "Heavy Equipment Floating Services in Brant County | Bellhouse",
       "description": "Bellhouse Excavating offers reliable heavy equipment floating services in Brant County. Safe, efficient transportation for all your machinery needs."
@@ -58,6 +60,7 @@
     }
   },
   {
+    "id": 3,
     "meta": {
       "title": "Dirt & Gravel Delivery in Brant County | Bellhouse Excavating",
       "description": "Bellhouse Excavating offers fast and reliable dirt and gravel delivery in Brant County. Efficient, on-time delivery for all your construction needs."
@@ -87,6 +90,7 @@
     }
   },
   {
+    "id": 4,
     "meta": {
       "title": "Driveways & Parking Lots Construction in Brant County | Bellhouse",
       "description": "Bellhouse Excavating provides expert driveways and parking lots construction in Brant County. Durable, quality solutions for residential and commercial needs."
@@ -116,6 +120,7 @@
     }
   },
   {
+    "id": 5,
     "meta": {
       "title": "Septic System Installation in Brant County | Bellhouse Excavating",
       "description": "Bellhouse Excavating offers expert septic system installation in Brant County. Efficient, compliant solutions for residential and commercial properties."
@@ -145,6 +150,7 @@
     }
   },
   {
+    "id": 6,
     "meta": {
       "title": "Off-Road Dump Truck Services in Brant County | Bellhouse Excavating",
       "description": "Bellhouse Excavating offers reliable off-road dump truck services in Brant County. Efficient transportation for challenging terrain and remote job sites."
