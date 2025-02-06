@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import classes from './MainHeader.module.scss';
 import { useRouter } from 'next/navigation';
@@ -8,7 +10,7 @@ import Hamburger from './Hamburger';
 import MobileMenu from './MobileMenu';
 import { Phone } from '@phosphor-icons/react';
 
-const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
+const MainHeader = ({ currentRoute }: { currentRoute?: string }) => {
   const router = useRouter();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 

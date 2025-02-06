@@ -66,10 +66,6 @@ const HomePage = () => {
         <div className="hero__container">
           <section className="hero">
             <div className="hero-title">
-              <h1>
-                <span className="text">Excavation</span> & Dump Truck Services
-                You Can Count On
-              </h1>
               <div className="hero-logo__mobile">
                 <Image
                   src={logo}
@@ -85,6 +81,10 @@ const HomePage = () => {
                   sizes="(min-width: 380px) 300px, calc(33.33vw + 180px)"
                 />
               </div>
+              <h1>
+                <span className="text">Excavation</span> & Dump Truck Services
+                You Can Count On
+              </h1>
               <h2 className="hero-desktop">
                 Precision excavation, foundation digging, and hauling services
                 for residential, commercial, and industrial projects in

@@ -1,3 +1,5 @@
+'use client';
+
 import Footer from './Footer';
 import { Fragment, ReactNode } from 'react';
 import Image from 'next/legacy/image';
@@ -12,8 +14,6 @@ type LayoutProps = {
 
 const LayoutHome = ({ children, background = 'on' }: LayoutProps) => {
   const pathname = usePathname();
-  const currentRoute = pathname;
-
   return (
     <Fragment>
       {background === 'on' && (
@@ -28,7 +28,7 @@ const LayoutHome = ({ children, background = 'on' }: LayoutProps) => {
           />
         </div>
       )}
-      <HeaderHome currentRoute={currentRoute} />
+      <HeaderHome currentRoute={`${pathname ? pathname : '/'}`} />
       <main className={classes.containerHome}>{children}</main>
       <Footer />
     </Fragment>

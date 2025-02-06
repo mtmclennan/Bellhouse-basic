@@ -5,11 +5,19 @@
   @include m.flexCenter(column);
   min-height: 30vh;
   background-color: v.$grey-color-8;
+  padding: 0 1rem;
 
   & h2 {
+    font-size: 5rem;
+    line-height: 1;
+    @include m.mediaDesktop {
+      font-size: 6rem;
+    }
+    @include m.mediaPhone {
+      text-align: center;
+    }
     @include m.flexCenter();
     gap: 0.5rem;
-    font-size: 6rem;
     margin: 8rem 0 2rem;
   }
 }
@@ -20,9 +28,12 @@
   max-width: 90rem;
 
   & h4 {
+    font-size: 2rem;
+    @include m.mediaDesktop {
+      font-size: 3rem;
+    }
     @include m.flexCenter();
     gap: 1rem;
-    font-size: 3rem;
     font-weight: 500;
     margin-bottom: 1rem;
   }
@@ -37,7 +48,14 @@
   margin-bottom: 10rem;
   @include m.flexCenter(column);
   & h3 {
-    font-size: 6rem;
+    font-size: 5rem;
+    @include m.mediaDesktop {
+      font-size: 6rem;
+    }
+    line-height: 1.1;
     align-self: center;
+    @include m.mediaPhone {
+      text-align: center;
+    }
   }
 }

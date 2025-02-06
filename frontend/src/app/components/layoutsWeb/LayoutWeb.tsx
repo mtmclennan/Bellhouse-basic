@@ -13,8 +13,7 @@ type LayoutProps = {
 
 const Layout = ({ children }: LayoutProps) => {
   const [showBackground, setShowBackground] = useState(false);
-  const router = usePathname();
-  const currentRoute = router;
+  const currentRoute = usePathname();
 
   useEffect(() => {
     if (
@@ -40,7 +39,7 @@ const Layout = ({ children }: LayoutProps) => {
         />
       </div>
 
-      <MainHeader currentRoute={currentRoute} />
+      <MainHeader currentRoute={`${currentRoute ? currentRoute : '/'}`} />
       <main className={classes.container}>{children}</main>
       <Footer />
     </Fragment>

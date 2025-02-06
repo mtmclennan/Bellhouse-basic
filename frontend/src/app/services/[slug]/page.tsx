@@ -2,28 +2,26 @@ import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import ServiceLayout from '../../components/layoutsWeb/ServiceLayout';
 import servicesData from '../../../data/services.json';
-import { ResolvedMetadata } from 'next';
 
 interface ServicePageProps {
   params: Promise<{ slug: string }>;
 }
 
-export function generateStaticParams() {
+export function generateStaticParams(): { slug: string }[] {
   return servicesData.map((service) => ({
     slug: service.slug,
   }));
 }
 
-export async function generateMetadata(
-  { params }: ServicePageProps,
-  Parent: ResolvedMetadata
-): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: ServicePageProps): Promise<Metadata> {
   const { slug } = await params;
   const service = servicesData.find((service) => service.slug === slug);
 
   return {
-    title: service?.meta.title,
-    description: service?.meta.description,
+    title: service?.meta.title || 'Bellhouse excavating',
+    description: service?.meta.description || 'Excavating contractor',
   };
 }
 

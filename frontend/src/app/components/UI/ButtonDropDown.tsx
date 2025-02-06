@@ -1,7 +1,7 @@
-import { SetStateBoolean } from "@/types/index.types";
-import classes from "./ButtonDropDown.module.scss";
-import React from "react";
-import ExpandMoreRoundedIcon from "@mui/icons-material/ExpandMoreRounded";
+import { SetStateBoolean } from '@/types/index.types';
+import classes from './ButtonDropDown.module.scss';
+import React from 'react';
+import { CaretCircleDown } from '@phosphor-icons/react';
 
 interface ButtonDropDownProps {
   label: string;
@@ -16,7 +16,7 @@ const ButtonDropDown = ({ label, setOpen }: ButtonDropDownProps) => {
   return (
     <button className={classes.drop} onClick={onCLickHandler}>
       {label}
-      <ExpandMoreRoundedIcon fontSize="large" />
+      <CaretCircleDown />
     </button>
   );
 };

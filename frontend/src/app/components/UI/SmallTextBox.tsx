@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-import classes from "./SmallTextBox.module.scss";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import { Eye, EyeSlash } from '@phosphor-icons/react';
+import React, { useState } from 'react';
+import classes from './SmallTextBox.module.scss';
 
 type SmallTextBoxProps = {
   className: string;
@@ -21,14 +20,14 @@ const SmallTextBox = ({
   type,
 }: SmallTextBoxProps) => {
   const [showPassword, setShowPassword] = useState(
-    type === "password" ? false : true
+    type === 'password' ? false : true
   );
 
   const onclickHandler = () => {
     setShowPassword((currentState) => !currentState);
   };
 
-  if (type === "password") {
+  if (type === 'password') {
   }
 
   return (
@@ -40,14 +39,14 @@ const SmallTextBox = ({
         <input
           className={className}
           id={fieldName}
-          type={showPassword ? "text" : "password"}
+          type={showPassword ? 'text' : 'password'}
           value={value}
           onChange={onChange}
           onBlur={onBlur}
         ></input>
-        {type === "password" && (
+        {type === 'password' && (
           <div className={classes.icon} onClick={onclickHandler}>
-            {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+            {showPassword ? <EyeSlash /> : <Eye />}
           </div>
         )}
       </div>

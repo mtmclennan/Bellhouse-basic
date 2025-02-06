@@ -16,7 +16,10 @@
   gap: 2rem;
 
   & h2 {
-    font-size: 8rem;
+    font-size: 6rem;
+    @include m.mediaDesktop {
+      font-size: 8rem;
+    }
     text-align: center;
   }
 

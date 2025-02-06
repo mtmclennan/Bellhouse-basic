@@ -1,8 +1,6 @@
 'use client';
 import { Fragment } from 'react';
-import Head from 'next/head';
 import Image from 'next/image';
-import Layout from '@/app/components/layoutsWeb/LayoutWeb';
 import logo from '../../../public/assets/BellhouseLogo-text.png';
 import LayoutHome from '../components/layoutsWeb/layoutHome';
 

@@ -3,8 +3,6 @@
 import { Fragment } from 'react';
 // import ContactForm from "../components/forms/ContactForm";
 import LayoutHome from '../components/layoutsWeb/layoutHome';
-import logo from '../../../public/assets/BellhouseLogowhite5.png';
-import Image from 'next/image';
 import Link from 'next/link';
 import { PaperPlane, Phone } from '@phosphor-icons/react/dist/ssr';
 import { PhoneCall } from '@phosphor-icons/react';

@@ -12,13 +12,13 @@ const ImageGallerySlider: React.FC<GalleryProps> = ({ images, interval }) => {
   const [fade, setFade] = useState(true);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  const nextImage = () => {
+  const nextImage = useCallback(() => {
     setFade(false);
     setTimeout(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
       setFade(true);
     }, 500);
-  };
+  }, []);
 
   const prevImage = () => {
     setFade(false);
@@ -37,7 +37,7 @@ const ImageGallerySlider: React.FC<GalleryProps> = ({ images, interval }) => {
     timerRef.current = setInterval(() => {
       nextImage();
     }, interval);
-  }, [interval]);
+  }, [interval, nextImage]);
 
   useEffect(() => {
     // const timer = setInterval(() => {
