@@ -33,7 +33,7 @@ const Footer = () => {
         </div>
       </div>
       <a className={classes.phone} href="tel:519-752-8500">
-        <Phone size={30} />
+        <Phone size={30} color={'#ffc302'} weight={'duotone'} />
         <h3>519-752-8500</h3>
       </a>
       <div className={classes.nav}>

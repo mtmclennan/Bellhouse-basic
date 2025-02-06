@@ -1,42 +1,56 @@
+'use client';
+
 import { Fragment } from 'react';
-import Head from 'next/head';
 // import ContactForm from "../components/forms/ContactForm";
-import Layout from '@/app/components/layoutsWeb/LayoutWeb';
+import LayoutHome from '../components/layoutsWeb/layoutHome';
 import logo from '../../../public/assets/BellhouseLogowhite5.png';
 import Image from 'next/image';
+import Link from 'next/link';
+import { PaperPlane, Phone } from '@phosphor-icons/react/dist/ssr';
+import { PhoneCall } from '@phosphor-icons/react';
+import LocalExperts from '../components/webpage/LocalExperts';
+import Faq from '../components/webpage/Faq';
 
 const Contact = () => {
   return (
     <Fragment>
-      <Head>
-        <title>
-          Contact Bellhouse Excavating | Professional Excavation Services in
-          Brant County
-        </title>
-        <meta
-          name="description"
-          content="Contact Bellhouse Excavating for reliable excavation services in Brant County, Brantford, Hamilton, Waterloo, Oxford, Halton, and surrounding areas."
-        />
-      </Head>
-
-      <Layout>
+      <LayoutHome>
         <section className="contact-hero__section">
-          <div className="logo__wrapper">
+          {/* <div className="logo__wrapper">
             <Image alt="Excavator logo" src={logo} fill />
-          </div>
+          </div> */}
           <div className="contact-hero">
+            <h1>
+              Contact <span className="font-thin">BELLHOUSE</span>
+              <span className="text"> EXCAVATING</span>
+            </h1>
+            <span>
+              <i>Reliable. Efficient. Ready to Get to Work.</i>
+            </span>
+            <p>
+              Have a question or need a free estimate for your project? Our team
+              is ready to help! Whether you need excavation, dump truck
+              services, or equipment rentals, we’re here to discuss your project
+              and provide a competitive quote.
+            </p>
             <h3>Reach Out and Let&apos;s Get Digging</h3>
-            <h1>Contact Us Now</h1>
-            <h2>(519) 752-8500</h2>
+            {/* <h2>(519) 752-8500</h2> */}
 
             <div className="hero__button-container">
-              <a href="tel:519-752-8500">Call Now</a>
-              <a href="mailto:bellhouseexcavating@gmail.com">Email Us</a>
+              <Link href="tel:519-752-8500">
+                <Phone size={24} />
+                Call Us Now
+              </Link>
+              <Link href="mailto:bellhouseexcavating@gmail.com">
+                <PaperPlane size={24} />
+                Email Us
+              </Link>
             </div>
           </div>
         </section>
-        <div className="contact-form__container">{/* <ContactForm /> */}</div>
-      </Layout>
+        <LocalExperts colorDark={true} />
+        <Faq />
+      </LayoutHome>
     </Fragment>
   );
 };

@@ -198,6 +198,7 @@
   @include m.flexCenter();
   gap: 1rem;
   & h3 {
+    color: v.$btn-main;
     font-size: 2.4rem;
     font-weight: 100;
   }

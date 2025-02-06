@@ -60,3 +60,19 @@
     transform: scale(1.03);
   }
 }
+
+@mixin btnSec {
+  padding: 1.5rem 1.75rem;
+  border-radius: 10px;
+  font-size: 2.1rem;
+  font-weight: 600;
+  background-color: v.$btn-main-border2;
+  color: v.$btn-text;
+  border: 3px solid v.$grey-color-7;
+  transition: all 0.2s ease;
+
+  &:hover,
+  &:focus {
+    background-color: v.$grey-color-5;
+  }
+}

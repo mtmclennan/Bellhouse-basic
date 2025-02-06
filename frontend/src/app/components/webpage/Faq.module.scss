@@ -1,0 +1,43 @@
+@use '../../../styles/abstracts/mixins' as m;
+@use '../../../styles/abstracts/variables' as v;
+
+.container {
+  @include m.flexCenter(column);
+  min-height: 30vh;
+  background-color: v.$grey-color-8;
+
+  & h2 {
+    @include m.flexCenter();
+    gap: 0.5rem;
+    font-size: 6rem;
+    margin: 8rem 0 2rem;
+  }
+}
+
+.faq {
+  @include m.flexCenter(column);
+  align-items: flex-start;
+  max-width: 90rem;
+
+  & h4 {
+    @include m.flexCenter();
+    gap: 1rem;
+    font-size: 3rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  & p {
+    margin-bottom: 2rem;
+  }
+}
+
+.call {
+  margin-top: 6rem;
+  align-self: center;
+  margin-bottom: 10rem;
+  @include m.flexCenter(column);
+  & h3 {
+    font-size: 6rem;
+    align-self: center;
+  }
+}

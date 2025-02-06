@@ -11,6 +11,9 @@ import HomeAbout from '@/app/components/webpage/HomeAbout';
 import HomeServices from '@/app/components/webpage/HomeServices';
 import ImageGallerySlider from '@/app/components/UI/ImageSlider';
 import WhyChooseUs from '@/app/components/webpage/WhyChooseUs';
+import CallToAction from './components/webpage/CallToAction';
+import LocalExperts from './components/webpage/LocalExperts';
+import Link from 'next/link';
 // import ServiceCard from "@/components/UI/ServiceCard";
 
 const HomePage = () => {
@@ -52,7 +55,7 @@ const HomePage = () => {
       alt: 'a bucket of dirt',
     },
     {
-      src: '/assets/dozer-landfill-expansion.jpg',
+      src: '/assets/site-preparation-dozer-brant-county.jpg',
       alt: 'a bucket of dirt',
     },
   ];
@@ -63,7 +66,10 @@ const HomePage = () => {
         <div className="hero__container">
           <section className="hero">
             <div className="hero-title">
-              <h1>Excavating Excellence Since 1982</h1>
+              <h1>
+                <span className="text">Excavation</span> & Dump Truck Services
+                You Can Count On
+              </h1>
               <div className="hero-logo__mobile">
                 <Image
                   src={logo}
@@ -79,24 +85,27 @@ const HomePage = () => {
                   sizes="(min-width: 380px) 300px, calc(33.33vw + 180px)"
                 />
               </div>
-              <h3 className="hero-desktop">
-                Your Trusted Partner for Superior Results
-              </h3>
-              <p>
+              <h2 className="hero-desktop">
+                Precision excavation, foundation digging, and hauling services
+                for residential, commercial, and industrial projects in
+                Brantford & beyond. Built for efficiency. Delivered with
+                expertise.
+              </h2>
+              {/* <p>
                 Kick Off Your Project with a Solid Foundation—Contact Us Today!
-              </p>
+              </p> */}
 
               <div className="hero__button-container">
-                <button id="cta-btn" onClick={() => router.push('/contact')}>
-                  Contact Us
+                <button onClick={() => router.push('/contact')}>
+                  Get a Free Quote!
                 </button>
-                <button onClick={() => router.push('/services')}>
-                  Services
+                <button id="cta-btn" onClick={() => router.push('/services')}>
+                  Explore Our Services
                 </button>
-                <a className="hero-phone__mobile" href="tel:519-752-8500">
+                <Link className="hero-phone__mobile" href="tel:519-752-8500">
                   <Phone size={30} />
                   <h3>519-752-8500</h3>
-                </a>
+                </Link>
               </div>
             </div>
           </section>
@@ -221,7 +230,7 @@ const HomePage = () => {
           </ul> */}
         </section>
 
-        <section className="reviews">
+        {/* <section className="reviews">
           <h3>Proudly Serving Brant County and Surrounding Areas</h3>
           {/* <div className="review-image__container">
             <Image src={pinevest} alt="PineVest Homes" layout="responsive" />
@@ -235,16 +244,18 @@ const HomePage = () => {
               height={15}
             />
           </div> */}
-        </section>
+        {/* </section> */}
+        <LocalExperts colorDark={true} />
         <WhyChooseUs />
-        <section className="last-call">
+        {/* <section className="last-call">
           <div>
             <h2>Lets get started on your next project</h2>
             <button id="cta-btn" onClick={() => router.push('/contact')}>
               Contact Us
             </button>
           </div>
-        </section>
+        </section> */}
+        <CallToAction />
       </LayoutHome>
     </Fragment>
   );

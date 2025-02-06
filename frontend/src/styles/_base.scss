@@ -131,7 +131,7 @@ button {
 
 .hero__container {
   @include m.flexCenter();
-  height: calc(100vh - 7rem);
+  height: calc(100vh - 20rem);
 }
 
 .hero {
@@ -157,6 +157,8 @@ button {
   @include m.mediaDesktop() {
     // margin-top: 8rem;
 
+    margin-top: -10rem;
+    max-width: 110rem;
     padding: 2rem;
     width: 100%;
     gap: 1rem;
@@ -164,11 +166,11 @@ button {
 
   & h1 {
     font-size: 3rem;
-    line-height: 1;
-    margin-bottom: 3rem;
+    line-height: 1.1;
+    margin-bottom: 2rem;
     @include m.mediaDesktop {
-      font-size: 8rem;
-      margin-bottom: 5rem;
+      font-size: 10rem;
+      margin-bottom: 2rem;
     }
   }
 
@@ -185,9 +187,16 @@ button {
   }
 }
 
+.text {
+  font-weight: 100;
+  text-transform: uppercase;
+  color: v.$btn-main;
+  letter-spacing: 0;
+}
 .hero-title h2 {
-  font-size: 5.3rem;
-  line-height: 1.4;
+  font-size: 2rem;
+  line-height: 1.6;
+  font-weight: 500;
 
   // &::after {
   //   content: "";
@@ -247,37 +256,42 @@ button {
 .hero__button-container {
   @include m.flexCenter();
   gap: 2rem;
-  margin-top: 2rem;
+  margin-top: 3rem;
 
   @include m.mediaPhone() {
     flex-direction: column;
   }
 
   & button {
-    padding: 0.75rem 4rem;
-    min-width: 21rem;
-    background-color: v.$color-neutral-dark;
-    border-radius: 5px;
-    border: 1px solid v.$color-primary;
-    font-size: 2rem;
-    font-weight: 600;
-    letter-spacing: 0.2rem;
-    color: v.$text-color-light;
-    transition: all 0.2s ease;
-
-    &:hover,
-    &:focus {
-      color: v.$color-primary;
-      background-color: v.$grey-color-7;
-      transform: scale(1.04);
-      transition: all 0.2s ease;
-    }
+    @include m.btnMain;
+    // padding: 0.75rem 4rem;
+    // min-width: 21rem;
+    // background-color: v.$color-neutral-dark;
+    // border-radius: 5px;
+    // border: 1px solid v.$color-primary;
+    // font-size: 2rem;
+    // font-weight: 600;
+    // letter-spacing: 0.2rem;
+    // color: v.$text-color-light;
+    // transition: all 0.2s ease;
+    // &: hover,
+    //   &: focus {
+    //   color: v.$color-primary;
+    //   background-color: v.$grey-color-7;
+    //   transform: scale(1.04);
+    //   transition: all 0.2s ease;
+    // }
   }
 }
 
 #cta-btn {
-  background-color: v.$color-primary;
-  color: v.$text-color-dark;
+  padding: 1.5rem 1.75rem;
+  border-radius: 10px;
+  font-size: 2.1rem;
+  font-weight: 600;
+  background-color: v.$btn-main-border2;
+  color: v.$btn-text;
+  border: 3px solid v.$grey-color-7;
   transition: all 0.2s ease;
 
   &:hover,
@@ -451,10 +465,10 @@ button {
 }
 
 .contact-hero__section {
-  padding: 5rem 0;
+  // padding: 5rem 0;
   @include m.flexCenter(column);
   @include m.mediaDesktop() {
-    min-height: 100vh;
+    min-height: calc(100vh - 20rem);
   }
 }
 
@@ -468,12 +482,15 @@ button {
 .contact-hero {
   @include m.flexCenter(column);
   height: 100%;
-  padding: 3rem;
+  // padding: 3rem;
   gap: 2rem;
-  max-width: 80rem;
+  max-width: 110rem;
   color: v.$grey-color-2;
 
   text-align: center;
+  // & span {
+  //   font-size: 3rem;
+  // }
   // & p {
   //   margin-bottom: 1rem;
 
@@ -483,18 +500,23 @@ button {
   //   }
   // }
 
+  & i {
+    font-size: 4rem;
+  }
   & h3 {
     font-weight: 400;
+    margin-top: 2rem;
   }
 
   & h1 {
     font-size: 5rem;
-    font-weight: 400;
+    font-weight: 800;
     margin-bottom: 1rem;
+    line-height: 1.1;
     color: v.$grey-color-1;
 
     @include m.mediaDesktop {
-      font-size: 8rem;
+      font-size: 10rem;
     }
   }
 
@@ -507,25 +529,29 @@ button {
   }
 
   & a {
-    padding: 0.75rem 4rem;
-    min-width: 21rem;
-    background-color: v.$color-neutral-dark;
-    border-radius: 5px;
-    border: 1px solid v.$color-primary;
-    font-size: 2rem;
-    text-align: center;
-    font-weight: 600;
-    letter-spacing: 0.2rem;
-    color: v.$color-primary;
-    transition: all 0.2s ease;
+    @include m.flexCenter();
+    gap: 0.5rem;
+    @include m.btnMain;
+    margin-top: -2rem;
+    // padding: 0.75rem 4rem;
+    // min-width: 21rem;
+    // background-color: v.$color-neutral-dark;
+    // border-radius: 5px;
+    // border: 1px solid v.$color-primary;
+    // font-size: 2rem;
+    // text-align: center;
+    // font-weight: 600;
+    // letter-spacing: 0.2rem;
+    // color: v.$color-primary;
+    // transition: all 0.2s ease;
 
-    &:hover,
-    &:focus {
-      color: v.$color-primary;
-      background-color: v.$grey-color-7;
-      transform: scale(1.04);
-      transition: all 0.2s ease;
-    }
+    // &:hover,
+    // &:focus {
+    //   color: v.$color-primary;
+    //   background-color: v.$grey-color-7;
+    //   transform: scale(1.04);
+    //   transition: all 0.2s ease;
+    // }
   }
 }
 
@@ -651,9 +677,9 @@ button {
 
   gap: 1rem;
   & h2 {
-    margin: 2rem 0 3rem 0;
+    margin: 4rem 0 4rem 0;
     font-weight: 100;
-    font-size: 3.5rem;
+    font-size: 5rem;
   }
 }
 
@@ -674,7 +700,7 @@ button {
   width: 100%;
   flex-wrap: wrap;
   gap: 3rem;
-  margin-bottom: 2rem;
+  margin-bottom: 6rem;
 }
 
 .last-call {
@@ -895,4 +921,8 @@ button {
   @include m.mediaWideDesktop {
     grid-template-columns: 1fr 1fr 1fr;
   }
+}
+
+.font-thin {
+  font-weight: 100;
 }

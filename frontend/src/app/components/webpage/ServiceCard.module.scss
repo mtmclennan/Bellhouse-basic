@@ -16,6 +16,11 @@
   & p {
     color: v.$grey-color-5;
     font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+
+  & a {
+    color: v.$btn-main;
   }
 }
 

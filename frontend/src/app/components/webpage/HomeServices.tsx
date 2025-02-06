@@ -20,7 +20,7 @@ export default function HomeServices() {
             image={service.card.image}
             alt={service.card.alt}
             description={service.card.description}
-            link={service.slug}
+            link={`services/${service.slug}`}
             title={service.card.title}
           />
         ))}

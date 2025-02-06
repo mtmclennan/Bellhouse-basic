@@ -4,21 +4,12 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Layout from '@/app/components/layoutsWeb/LayoutWeb';
 import logo from '../../../public/assets/BellhouseLogo-text.png';
+import LayoutHome from '../components/layoutsWeb/layoutHome';
 
 const About = () => {
   return (
     <Fragment>
-      <Head>
-        <title>
-          About Bellhouse Excavating | Expert Excavation Services in Brant
-          County
-        </title>
-        <meta
-          name="description"
-          content="Learn about Bellhouse Excavating, your trusted excavation and construction partner serving Brant County, Brantford, Hamilton, Waterloo, Oxford, Halton, and surrounding areas. With over 30 years of experience, we are committed to delivering high-quality excavation services."
-        />
-      </Head>
-      <Layout>
+      <LayoutHome>
         <section className="about-hero__section">
           <div className="about-hero">
             <h1>About Us</h1>
@@ -53,7 +44,7 @@ const About = () => {
             delivering exceptional results for every project.
           </p>
         </section>
-      </Layout>
+      </LayoutHome>
     </Fragment>
   );
 };

@@ -78,7 +78,7 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
             </button>
             <li>
               <a className={classes.phone} href="tel:519-752-8500">
-                <Phone size={24} />
+                <Phone size={24} color={'#ffc302'} />
                 <h3>519-752-8500</h3>
               </a>
             </li>

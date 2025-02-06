@@ -17,37 +17,49 @@
   & h2 {
     font-weight: 100;
     text-transform: uppercase;
-    font-size: 4.5rem;
-    margin: 2rem 0 3rem 0;
+    font-size: 5rem;
+    margin: 6rem 0 2rem 0;
   }
 
   & p {
     // font-size: 20px;
-    margin-bottom: 1rem;
+    margin: 2rem;
+    font-size: 1.8rem;
+    line-height: 1.7;
   }
 
   & h3 {
     font-size: 3.5rem;
+    margin-top: 2rem;
     text-transform: uppercase;
     font-weight: 100;
-    margin-top: 5rem;
     text-align: center;
   }
 }
 
 .about {
   max-width: 90rem;
+  @include m.flexCenter(column);
+}
+
+.why {
+  margin-top: 2rem;
+  & h3 {
+    font-size: 4rem;
+  }
 }
 
 .whyContainer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: start;
-
-  margin-top: 2rem;
+  align-items: start;
+  gap: 2rem;
+  margin-top: 4rem;
 
   & div {
     @include m.flexCenter();
+    align-items: flex-start;
     gap: 2rem;
   }
 }
@@ -56,34 +68,49 @@
   @include m.flexCenter(column);
   margin: 5rem 0 5rem 0;
 
-  & button {
-    margin-top: 2rem;
-    font-size: 1.5rem;
-    font-weight: 400;
-    padding: 0.75rem 1rem;
-    border-radius: 5px;
-    letter-spacing: 0.1rem;
-    transition: all 0.2s ease;
-    &:last-child {
-      color: v.$color-primary-light;
-      border: 1px solid v.$color-primary-dark;
-      background-color: v.$text-color-dark;
-    }
+  // & button {
+  //   margin-top: 2rem;
+  //   font-size: 1.5rem;
+  //   font-weight: 400;
+  //   padding: 0.75rem 1rem;
+  //   border-radius: 5px;
+  //   letter-spacing: 0.1rem;
+  //   transition: all 0.2s ease;
+  //   &:last-child {
+  //     color: v.$color-primary-light;
+  //     border: 1px solid v.$color-primary-dark;
+  //     background-color: v.$text-color-dark;
+  //   }
 
-    &:hover,
-    &:focus {
-      background-color: v.$btn-dark-hover;
-      transform: scale(1.04);
-      transition: all 0.2s ease;
-    }
-  }
+  //   &:hover,
+  //   &:focus {
+  //     background-color: v.$btn-dark-hover;
+  //     transform: scale(1.04);
+  //     transition: all 0.2s ease;
+  //   }
 
   & h4 {
-    font-size: 2rem;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 2rem;
   }
 }
 
 .btnContainer {
+  margin: 4rem;
   @include m.flexCenter();
-  gap: 1rem;
+  gap: 2rem;
+}
+
+.btn {
+  @include m.btnMain;
+  &:last-child {
+    @include m.btnSec;
+  }
+}
+
+.italic {
+  text-align: center;
+  font-size: 3rem;
+  // color: v.$btn-main;
 }
