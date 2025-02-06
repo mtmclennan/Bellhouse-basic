@@ -1,6 +1,6 @@
 'use client';
 import { Fragment } from 'react';
-import Head from 'next/head';
+
 import Image from 'next/image';
 import logo from '../../public/assets/BellhouseLogo-text.png';
 import { useRouter } from 'next/navigation';
@@ -59,16 +59,6 @@ const HomePage = () => {
 
   return (
     <Fragment>
-      <Head>
-        <title>
-          Excavation Services in Brantford | Bellhouse Excavating | Serving
-          Brant County & Surrounding Areas
-        </title>
-        <meta
-          name="description"
-          content="Bellhouse Excavating is your trusted excavation and construction partner serving Brant County, Brantford, Hamilton, Waterloo, Oxford, Halton, and surrounding areas.  We specialize in site preparation, foundations, drainage solutions, septic system installation, aggregates delivery, off-road truck rental, equipment floating, and more. Contact us today for reliable, high-quality services!"
-        />
-      </Head>
       <LayoutHome>
         <div className="hero__container">
           <section className="hero">

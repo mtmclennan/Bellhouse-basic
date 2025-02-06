@@ -1,0 +1,304 @@
+[
+  {
+    "id": 1,
+    "meta": {
+      "title": "Foundation Excavation & Backfilling in Brant County | Bellhouse",
+      "description": "Bellhouse Excavating provides expert foundation excavation and backfilling in Brant County. Reliable, efficient, and precise services for your construction project."
+    },
+    "card": {
+      "title": "Foundation Excavation and Backfill",
+      "description": "Expert foundation digging and backfilling to ensure stability and support for your construction projects.",
+      "image": "/assets/foundation-excavation-machinery.jpg",
+      "alt": "Excavation machinery working on foundation digging"
+    },
+    "slug": "foundation-excavation",
+    "hero": {
+      "heading": "Foundation Excavation & Backfilling",
+      "subheading": "Ensuring Precision and Stability for Your Construction Projects",
+      "image": "/assets/foundation-excavating-backfill.png",
+      "alt": "foundation and backfilling"
+    },
+    "intro": {
+      "heading": "Professional Foundation Excavation and Backfilling Services",
+      "content": "At Bellhouse Excavating, we specialize in foundation excavation and backfilling, providing essential services for both residential and commercial projects. With years of experience and state-of-the-art equipment, we ensure that your project starts with a solid, stable foundation. Our team handles each job with precision, safety, and efficiency, delivering results that meet your exact specifications.",
+      "keypoints": [
+        "Expert excavation for all types of foundations",
+        "Precise backfilling to ensure structural integrity",
+        "Timely and efficient service to keep your project on schedule",
+        "Advanced equipment for accurate and safe excavation"
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "meta": {
+      "title": "Heavy Equipment Floating Services in Brant County | Bellhouse",
+      "description": "Bellhouse Excavating offers reliable heavy equipment floating services in Brant County. Safe, efficient transportation for all your machinery needs."
+    },
+    "card": {
+      "title": "Trucking - Heavy Equipment floating",
+      "description": "We offer reliable float truck services to transport heavy equipment like excavators to construction sites, ensuring secure and timely delivery every time.",
+      "image": "/assets/truck-hauling-heavy-equipment.jpg",
+      "alt": "A truck hooked to a float trailer carrying an excavator, ready for transport on a construction site."
+    },
+    "slug": "heavy-equipment-floating",
+    "hero": {
+      "heading": "Heavy Equipment Floating Services",
+      "subheading": "Safe, Reliable, and Efficient Transportation for Your Heavy Equipment",
+      "image": "/assets/equipment-floating-trucking-services.png",
+      "alt": ""
+    },
+    "intro": {
+      "heading": "Reliable Heavy Equipment Transportation Services",
+      "content": "At Bellhouse Excavating, we provide top-notch heavy equipment floating services for all your transportation needs. Our fleet is equipped to handle even the most challenging loads, ensuring your machinery is safely and efficiently transported to your site. Whether you're moving construction machinery, agricultural equipment, or any other large items, we have the expertise and equipment to get the job done right.",
+      "keypoints": [
+        "Specialized in transporting large and heavy equipment",
+        "Wide range of trucks and trailers for diverse equipment sizes",
+        "Timely and efficient delivery to minimize downtime",
+        "Fully insured and experienced operators for safe transport"
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "meta": {
+      "title": "Dirt & Gravel Delivery in Brant County | Bellhouse Excavating",
+      "description": "Bellhouse Excavating offers fast and reliable dirt and gravel delivery in Brant County. Efficient, on-time delivery for all your construction needs."
+    },
+    "card": {
+      "title": "Dump Truck Services - dirt and gravel delivery",
+      "description": "Reliable dump truck services for dirt and gravel delivery. Trucks for hire available for construction, landscaping, and driveway needs.",
+      "image": "/assets/dump-truck-delivery-service.jpg",
+      "alt": "A tri-axle dump truck being loaded with material by an excavator on a construction site, showcasing heavy equipment in action."
+    },
+    "slug": "dirt-gravel-delivery",
+    "hero": {
+      "heading": "Dirt & Gravel Delivery Services",
+      "subheading": "Efficient, Reliable, and On-Time Material Delivery for Your Construction Needs",
+      "image": "/assets/tri-axle-dump-truck-services.png",
+      "alt": ""
+    },
+    "intro": {
+      "heading": "Reliable Delivery of Dirt, Gravel, and Other Construction Materials",
+      "content": "At Bellhouse Excavating, we provide fast and reliable dirt and gravel delivery services for construction sites, landscaping projects, and more. With our fleet of dump trucks, we can quickly deliver the materials you need to keep your project on schedule. Whether it's topsoil, gravel, sand, or other aggregates, we ensure that your delivery is prompt, accurate, and cost-effective.",
+      "keypoints": [
+        "Prompt and accurate delivery of dirt, gravel, and aggregates",
+        "Variety of materials available for all construction and landscaping needs",
+        "Large fleet of dump trucks to handle small and large deliveries",
+        "Competitive pricing and reliable, on-time service"
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "meta": {
+      "title": "Driveway & Parking Lot Preparation | Brant County | Bellhouse Excavating",
+      "description": "Professional grading and site preparation for driveways and parking lots in Brant County. Ensure a level, compacted surface ready for paving."
+    },
+    "card": {
+      "title": "Driveway & Parking Lot Preparation",
+      "description": "Expert site grading and compaction for stable driveways and parking lots. Preparing surfaces for concrete, asphalt, or gravel installation.",
+      "image": "/assets/Driveway-parking-lot-skid-steer.jpg",
+      "alt": "A skid steer leveling a large driveway, preparing the surface for a smooth and even finish, showcasing driveway grading services."
+    },
+    "slug": "driveways-parking-lots",
+    "hero": {
+      "heading": "Driveways & Parking Lots Construction",
+      "subheading": "Durable and Well-Constructed Driveways and Parking Lots for Residential and Commercial Needs",
+      "image": "/assets/driveways-parking-lots-services.png",
+      "alt": ""
+    },
+    "intro": {
+      "heading": "Reliable Construction of Driveways and Parking Lots",
+      "content": "At Bellhouse Excavating, we specialize in building durable driveways and parking lots for both residential and commercial properties. Our team works with a variety of materials, including asphalt, concrete, and gravel, to create a long-lasting surface that meets your needs. We ensure that each project is completed on time and within budget, providing you with a solid foundation for your property.",
+      "keypoints": [
+        "Expert design and construction of driveways and parking lots",
+        "Variety of materials including asphalt, concrete, and gravel",
+        "High-quality work ensuring long-lasting results",
+        "Punctual service with competitive pricing"
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "meta": {
+      "title": "Septic System Installation in Brant County | Bellhouse Excavating",
+      "description": "Bellhouse Excavating offers expert septic system installation in Brant County. Efficient, compliant solutions for residential and commercial properties."
+    },
+    "card": {
+      "title": "Septic System Installation",
+      "description": "Bellhouse Excavating offers expert septic system installation in Brant County. Efficient, compliant solutions for residential and commercial properties.",
+      "image": "/assets/septic-system-installation-contractor.jpg",
+      "alt": "An excavator digging for septic system installation, preparing the site for tank placement, showcasing professional septic system services."
+    },
+    "slug": "septic-system-installation",
+    "hero": {
+      "heading": "Septic System Installation Services",
+      "subheading": "Efficient and Compliant Septic System Installations for Residential and Commercial Properties",
+      "image": "/assets/septic-system-installation-contractor.png",
+      "alt": ""
+    },
+    "intro": {
+      "heading": "Professional Septic System Installation",
+      "content": "Bellhouse Excavating provides efficient and reliable septic system installation services for homes, businesses, and other properties. Our team ensures your septic system meets local regulations and functions properly, with an emphasis on quality materials and timely completion. We work with each client to design a septic system that fits their property’s needs and ensure that the installation is completed with minimal disruption.",
+      "keypoints": [
+        "Expert installation of septic systems for residential and commercial properties",
+        "Compliance with all local regulations and codes",
+        "High-quality materials and professional installation",
+        "Timely service with minimal disruption to your property"
+      ]
+    }
+  },
+  {
+    "id": 6,
+    "meta": {
+      "title": "Off-Road Dump Truck Services in Brant County | Bellhouse Excavating",
+      "description": "Bellhouse Excavating offers reliable off-road dump truck services in Brant County. Efficient transportation for challenging terrain and remote job sites."
+    },
+    "card": {
+      "title": "Off-road Dump Truck",
+      "description": "Off-road truck A35 bulk material moving and rentals with operator. Ideal for heavy hauling on tough terrain, we ensure efficient and reliable service.",
+      "image": "/assets/off-road-truck-rock-truck-rental.jpg",
+      "alt": "An excavator digging for septic system installation, preparing the site for tank placement, showcasing professional septic system services."
+    },
+
+    "slug": "off-road-dump-truck",
+    "hero": {
+      "heading": "Off-Road Dump Truck Services",
+      "subheading": "Heavy-Duty Dump Truck Services for Challenging and Remote Job Sites",
+      "image": "/assets/off-road-dump-truck-services.png",
+      "alt": ""
+    },
+    "intro": {
+      "heading": "Off-Road Dump Truck Services for Difficult Terrain",
+      "content": "Bellhouse Excavating offers off-road dump truck services for job sites in tough terrain or remote locations. Our fleet of rugged, heavy-duty trucks is designed to handle the most challenging conditions, delivering materials to and from construction sites, mines, and other hard-to-reach areas. With experienced drivers and reliable equipment, we ensure timely and safe transport for your materials.",
+      "keypoints": [
+        "Off-road dump trucks designed for tough terrain and remote sites",
+        "Safe and efficient delivery of materials in difficult conditions",
+        "Experienced operators for challenging jobs",
+        "Timely and reliable transport to keep your project on schedule"
+      ]
+    }
+  },
+  {
+    "id": 7,
+    "meta": {
+      "title": "House & Barn Demolition in Brant County | Bellhouse Excavating",
+      "description": "Bellhouse Excavating provides professional house and barn demolition services in Brant County. Safe, efficient, and environmentally responsible demolition solutions."
+    },
+    "card": {
+      "title": "House & Barn Demolition Services",
+      "description": "Safe and efficient demolition of houses, barns, and other structures. We handle the teardown, debris removal, and site preparation.",
+      "image": "/assets/house-demolition-excavator-paris-ontario.jpg",
+      "alt": "An excavator demolishing a barn, with debris being cleared for site preparation."
+    },
+    "slug": "house-barn-demolition",
+    "hero": {
+      "heading": "House & Barn Demolition Services",
+      "subheading": "Safe, Efficient, and Responsible Structure Demolition",
+      "image": "/assets/house-demolition-excavator-brant-county.png",
+      "alt": "An excavator tearing down an old house, clearing debris for site preparation in Brant County"
+    },
+    "intro": {
+      "heading": "Professional Demolition Services for Houses, Barns, and More",
+      "content": "Bellhouse Excavating offers expert demolition services for houses, barns, and other structures. Whether you need a complete teardown or selective demolition, our team ensures a safe and efficient process. We handle everything from obtaining necessary permits to debris removal, leaving your site clean and ready for its next use.",
+      "keypoints": [
+        "Safe and controlled demolition of houses, barns, and sheds",
+        "Debris removal and site cleanup for a hassle-free process",
+        "Environmentally responsible waste disposal and recycling",
+        "Efficient execution with minimal disruption to surrounding areas"
+      ]
+    }
+  },
+  {
+    "id": 8,
+    "meta": {
+      "title": "Site Preparation & Land Grading in Brant County | Bellhouse Excavating",
+      "description": "Bellhouse Excavating specializes in site preparation and land grading for construction projects in Brant County. Precision earthmoving for foundations, roads, and more."
+    },
+    "card": {
+      "title": "Site Preparation & Land Grading Services",
+      "description": "Expert site preparation and land grading for residential and commercial construction projects. We ensure a solid foundation for your build.",
+      "image": "/assets/site-preparation-dozer-brant-county.jpg",
+      "alt": "A bulldozer grading land for site preparation, ensuring a level foundation for construction in Brant County."
+    },
+    "slug": "site-preparation-land-grading",
+    "hero": {
+      "heading": "Site Preparation & Land Grading Services",
+      "subheading": "Precision Earthmoving & Land Clearing for Your Project",
+      "image": "/assets/site-preparation-dozer-brant-county.png",
+      "alt": "A powerful bulldozer clearing and leveling land, preparing the site for construction and development."
+    },
+    "intro": {
+      "heading": "Expert Site Preparation & Grading for a Strong Foundation",
+      "content": "Bellhouse Excavating provides professional site preparation and land grading services to ensure your project starts on a stable foundation. We specialize in clearing, leveling, and grading land for homes, commercial buildings, roads, and landscaping projects.",
+      "keypoints": [
+        "Precision grading and leveling for construction sites",
+        "Land clearing and debris removal for new developments",
+        "Excavation for foundations, driveways, and drainage systems",
+        "Efficient, on-time service with expert operators"
+      ]
+    }
+  },
+  {
+    "id": 9,
+    "meta": {
+      "title": "Pond Digging & Cleaning in Brant County | Bellhouse Excavating",
+      "description": "Bellhouse Excavating offers professional pond digging and cleaning services in Brant County. We build, restore, and maintain ponds for residential and agricultural use."
+    },
+    "card": {
+      "title": "Pond Digging & Cleaning Services",
+      "description": "Professional pond excavation and maintenance. We dig new ponds and clean existing ones for improved drainage and aesthetics.",
+      "image": "/assets/pond-digging-cleaning-brant-county.jpg",
+      "alt": "An excavator digging a pond on a rural property."
+    },
+    "slug": "pond-digging-cleaning",
+    "hero": {
+      "heading": "Pond Digging & Cleaning Services",
+      "subheading": "Professional Excavation & Maintenance for Healthy Ponds",
+      "image": "/assets/Pond-digging-cleaning-services-brant-county.png",
+      "alt": "A large pond under construction with an excavator shaping its edges."
+    },
+    "intro": {
+      "heading": "Create or Restore Your Pond with Expert Excavation",
+      "content": "Bellhouse Excavating specializes in pond excavation and maintenance. Whether you're looking to build a new pond for aesthetics, irrigation, or livestock, or need to clean and restore an existing pond, we provide the expertise and equipment necessary to get the job done right.",
+      "keypoints": [
+        "Pond digging for farms, homes, and commercial properties",
+        "Removal of debris, silt, and overgrown vegetation",
+        "Proper grading and drainage solutions for long-term stability",
+        "Custom pond sizes and depths to meet your needs"
+      ]
+    }
+  },
+
+  {
+    "id": 11,
+    "meta": {
+      "title": "Dump Truck Services & Aggregate Delivery in Brant County | Bellhouse Excavating",
+      "description": "Bellhouse Excavating provides reliable dump truck services and aggregate delivery in Brant County. Fast and efficient transportation of materials for construction and landscaping projects."
+    },
+    "card": {
+      "title": "Dump Truck Services & Aggregate Delivery",
+      "description": "Dependable dump truck services for dirt, gravel, sand, and other aggregates. Fast delivery for construction, landscaping, and site preparation projects.",
+      "image": "/assets/dump-truck-delivery-service.jpg",
+      "alt": "A dump truck unloading gravel at a construction site."
+    },
+    "slug": "dump-truck-services-aggregate-delivery",
+    "hero": {
+      "heading": "Dump Truck Services & Aggregate Delivery",
+      "subheading": "Reliable Hauling & Delivery of Construction Materials",
+      "image": "/assets/tri-axle-dump-truck-services.png",
+      "alt": "A tri-axle dump truck transporting materials to a job site."
+    },
+    "intro": {
+      "heading": "Fast & Reliable Dump Truck Services for Your Project",
+      "content": "Bellhouse Excavating offers professional dump truck services for hauling and delivering dirt, gravel, sand, and other aggregates. Our fleet ensures timely and efficient material transportation for contractors, landscapers, and property owners.",
+      "keypoints": [
+        "Hauling and delivery of dirt, gravel, sand, and topsoil",
+        "Dump truck rentals for construction and excavation projects",
+        "Reliable and timely service to keep your project on schedule",
+        "Competitive pricing for bulk material transport"
+      ]
+    }
+  }
+]
