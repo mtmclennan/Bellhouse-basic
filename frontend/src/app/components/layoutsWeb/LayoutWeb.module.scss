@@ -6,6 +6,8 @@
   margin: auto;
   min-height: 100vh;
   height: 100%;
+  // padding-top: 7rem;
+
   // padding-bottom: 5rem;
   background-color: v.$transparent;
 }
@@ -17,7 +19,6 @@
 // }
 
 .container {
-  margin-top: 5rem;
   @include m.mediaDesktop {
     margin-top: 0;
   }

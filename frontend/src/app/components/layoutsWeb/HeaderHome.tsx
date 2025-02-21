@@ -35,12 +35,11 @@ const MainHeader = ({ currentRoute }: { currentRoute?: string }) => {
             <Link href="/">
               <Image
                 src={logo}
-                priority
                 alt="Bellhouse Excavating"
                 width={250}
                 height={189}
                 style={{
-                  width: '100%',
+                  width: 'auto',
                   height: 'auto',
                 }}
               />

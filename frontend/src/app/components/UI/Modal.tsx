@@ -1,6 +1,8 @@
-import ReactDOM from "react-dom";
-import React, { Children, Fragment, useEffect, useRef, useState } from "react";
-import classes from "./Modal.module.scss";
+'use client';
+
+import ReactDOM from 'react-dom';
+import React, { Children, Fragment, useEffect, useRef, useState } from 'react';
+import classes from './Modal.module.scss';
 
 const Backdrop = ({ onClose }: { onClose: () => void }) => {
   return (

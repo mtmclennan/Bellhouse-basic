@@ -1,4 +1,9 @@
-@use "../../styles/abstracts/variables" as v;
+@use '../../../styles/abstracts/variables' as v;
+@use '../../../styles/abstracts/mixins' as m;
+
+.container {
+  @include m.flexCenter(column);
+}
 
 .contactForm {
   display: flex;
@@ -15,6 +20,8 @@
 
   & h2 {
     margin-bottom: 3rem;
+    font-size: 3rem;
+    text-align: center;
   }
 }
 
@@ -128,4 +135,42 @@
   display: flex;
   justify-content: center;
   margin-top: 2rem;
+}
+
+.modalContent {
+  @include m.flexCenter(column);
+  -webkit-box-shadow: 0px 0px 300px -39px rgba(255, 255, 255, 1);
+  -moz-box-shadow: 0px 0px 300px -39px rgba(255, 255, 255, 1);
+  box-shadow: 0px 0px 300px -39px rgba(255, 255, 255, 1);
+  position: relative;
+  background-color: v.$color-primary-dark;
+  border-radius: 25px;
+  padding: 2rem;
+  color: v.$text-color-light;
+  height: 100%;
+  font-size: 2rem;
+  text-align: center;
+  // align-items: flex-start;
+  gap: 1rem;
+
+  & h3 {
+    align-self: center;
+    font-size: 6rem;
+    margin-top: 7rem;
+    // margin-bottom: 1rem;
+  }
+
+  & button {
+    @include m.btnMain();
+  }
+}
+
+.logo {
+  position: absolute;
+  border-radius: 2rem 2rem 0 0;
+  @include m.flexCenter();
+  padding: 1.5rem;
+  top: 0;
+  width: 100%;
+  background-color: v.$btn-main-text;
 }

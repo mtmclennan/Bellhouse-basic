@@ -1,5 +1,5 @@
-@use "../../styles/abstracts/variables" as v;
-@use "../../styles/abstracts/mixins" as m;
+@use '../../../styles/abstracts/variables' as v;
+@use '../../../styles/abstracts/mixins' as m;
 
 .backdrop {
   position: fixed;
@@ -33,7 +33,10 @@
   position: fixed;
   min-height: 30rem;
   top: calc(50% - 30rem);
-  left: 5%;
+
+  @include m.mediaDesktop {
+    left: 5%;
+  }
   // width: 90%;
   background-color: v.$grey-color-3;
   // padding: 1rem;

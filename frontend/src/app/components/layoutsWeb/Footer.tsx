@@ -28,7 +28,7 @@ const Footer = () => {
             alt="Bellhouse Excavating"
             width={200}
             height={151}
-            style={{ width: '100%', height: 'auto' }}
+            style={{ width: 'auto', height: 'auto' }}
           />
         </div>
       </div>
@@ -52,14 +52,10 @@ const Footer = () => {
             </Link>
           </li> */}
           <li>
-            <Link legacyBehavior={true} href="/about">
-              About
-            </Link>
+            <Link href="/about">About</Link>
           </li>
           <li>
-            <Link legacyBehavior={true} href="/contact">
-              Contact
-            </Link>
+            <Link href="/contact">Contact</Link>
           </li>
         </ul>
       </div>

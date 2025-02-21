@@ -70,20 +70,19 @@ const HomePage = () => {
                 <Image
                   src={logo}
                   alt="Bellhouse Excavating logo"
-                  priority={true}
                   quality={80}
-                  width={300}
-                  height={227}
+                  width={200}
+                  height={155}
                   style={{
-                    width: '100%',
+                    width: 'auto',
                     height: 'auto',
                   }}
-                  sizes="(min-width: 380px) 300px, calc(33.33vw + 180px)"
+                  sizes="(max-width: 375px) 120px, (max-width: 768px) 160px, 200px"
                 />
               </div>
               <h1>
-                <span className="text">Excavation</span> & Dump Truck Services
-                You Can Count On
+                <span className="text text-yellow">Excavation</span> & Dump
+                Truck Services You Can Count On
               </h1>
               <h2 className="hero-desktop">
                 Precision excavation, foundation digging, and hauling services
