@@ -1,3 +1,5 @@
+@use '../../../styles/abstracts/variables' as v;
+
 .spinner {
   display: inline-block;
   width: 80px;
@@ -10,8 +12,8 @@
   height: 64px;
   margin: 8px;
   border-radius: 50%;
-  border: 6px solid teal;
-  border-color: teal transparent teal transparent;
+  border: 6px solid v.$btn-main;
+  border-color: v.$btn-main transparent v.$btn-main transparent;
   animation: spinner 1.2s linear infinite;
 }
 @keyframes spinner {

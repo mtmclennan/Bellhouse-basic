@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import ServiceLayout from '../../components/layoutsWeb/ServiceLayout';
 import servicesData from '../../../data/services.json';
+import { validateMetadata } from '../../../lib/utils/seoValidation';
 
 interface ServicePageProps {
   params: Promise<{ slug: string }>;
@@ -19,8 +20,13 @@ export async function generateMetadata({
   const { slug } = await params;
   const service = servicesData.find((service) => service.slug === slug);
 
+  const validated = validateMetadata(
+    service?.meta.title,
+    service?.meta.description
+  );
+
   return {
-    title: service?.meta.title || 'Bellhouse excavating',
+    title: validated.title || 'Bellhouse excavating',
     description: service?.meta.description || 'Excavating contractor',
   };
 }

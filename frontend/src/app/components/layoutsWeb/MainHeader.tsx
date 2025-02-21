@@ -36,6 +36,7 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
                 src={logo}
                 alt="Bellhouse Excavating"
                 width={250}
+                priority
                 height={200}
                 style={{
                   width: '100%',

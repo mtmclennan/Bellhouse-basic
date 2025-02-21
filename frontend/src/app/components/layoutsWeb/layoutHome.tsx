@@ -2,7 +2,7 @@
 
 import Footer from './Footer';
 import { Fragment, ReactNode } from 'react';
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import classes from './LayoutWeb.module.scss';
 import { usePathname } from 'next/navigation';
 import HeaderHome from './HeaderHome';
@@ -20,11 +20,12 @@ const LayoutHome = ({ children, background = 'on' }: LayoutProps) => {
         <div className="background">
           <Image
             className="background-image"
-            layout="fill"
             quality={70}
             // placeholder="blur"
+            priority
+            fill
             src="/assets/background.jpg"
-            alt="background"
+            alt="an excavator digging a foundation, loading fill onto a dump truck"
           />
         </div>
       )}

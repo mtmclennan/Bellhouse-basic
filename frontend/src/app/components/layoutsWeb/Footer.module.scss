@@ -4,7 +4,10 @@
 .footer {
   background-color: v.$color-footer;
   width: 100%;
-  padding: 0 10%;
+  @include m.mediaDesktop {
+    padding: 5rem 10rem 0;
+  }
+  padding-top: 10rem;
   display: grid;
   grid-template-rows: 20rem 15rem 5rem;
   align-items: center;
@@ -41,10 +44,13 @@
 }
 
 .logo {
-  grid-row: 2/3;
   margin: auto;
+  grid-column: 1/4;
+  @include m.mediaDesktop {
+    grid-row: 2/3;
+    max-width: 20rem;
+  }
   width: 100%;
-  max-width: 20rem;
   height: fit-content;
   position: relative;
 }

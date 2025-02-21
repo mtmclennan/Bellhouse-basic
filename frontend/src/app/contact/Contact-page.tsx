@@ -1,15 +1,16 @@
 'use client';
 
-import { Fragment } from 'react';
-// import ContactForm from "../components/forms/ContactForm";
+import { Fragment, useRef } from 'react';
+
 import LayoutHome from '../components/layoutsWeb/layoutHome';
 import Link from 'next/link';
-import { PaperPlane, Phone } from '@phosphor-icons/react/dist/ssr';
-import { PhoneCall } from '@phosphor-icons/react';
+import { Phone } from '@phosphor-icons/react/dist/ssr';
 import LocalExperts from '../components/webpage/LocalExperts';
 import Faq from '../components/webpage/Faq';
+import ContactForm from '../components/forms/ContactForm';
 
 const Contact = () => {
+  const contactFormRef = useRef<{ scrollToForm: () => void } | null>(null);
   return (
     <Fragment>
       <LayoutHome>
@@ -20,7 +21,7 @@ const Contact = () => {
           <div className="contact-hero">
             <h1>
               Contact <span className="font-thin">BELLHOUSE</span>
-              <span className="text"> EXCAVATING</span>
+              <span className="text text-yellow"> EXCAVATING</span>
             </h1>
             <span>
               <i>Reliable. Efficient. Ready to Get to Work.</i>
@@ -32,20 +33,19 @@ const Contact = () => {
               and provide a competitive quote.
             </p>
             <h3>Reach Out and Let&apos;s Get Digging</h3>
-            {/* <h2>(519) 752-8500</h2> */}
+            <Link href="tel:519-752-8500">
+              <Phone size={60} color={'#ffc302'} />
+              <h2 className="text-yellow">(519) 752-8500</h2>
+            </Link>
 
             <div className="hero__button-container">
-              <Link href="tel:519-752-8500">
-                <Phone size={24} />
-                Call Us Now
-              </Link>
-              <Link href="mailto:bellhouseexcavating@gmail.com">
-                <PaperPlane size={24} />
-                Email Us
-              </Link>
+              <button onClick={() => contactFormRef.current?.scrollToForm()}>
+                Contact Us Now
+              </button>
             </div>
           </div>
         </section>
+        <ContactForm ref={contactFormRef} />
         <LocalExperts colorDark={true} />
         <Faq />
       </LayoutHome>

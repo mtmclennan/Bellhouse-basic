@@ -51,6 +51,7 @@
     font-size: 5rem;
     @include m.mediaDesktop {
       font-size: 6rem;
+      line-height: 1.5;
     }
     line-height: 1.1;
     align-self: center;

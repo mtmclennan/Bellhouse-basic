@@ -54,7 +54,7 @@ export default function Faq() {
           <h3>Still have questions?</h3>
           <Link href="tel:519-752-8500">
             <h3>
-              Call us at <span className="text">519-752-8500</span>
+              Call us at <span className="text-yellow">519-752-8500</span>
             </h3>
           </Link>
         </div>
