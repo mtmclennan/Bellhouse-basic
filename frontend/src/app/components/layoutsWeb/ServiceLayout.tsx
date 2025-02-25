@@ -1,5 +1,6 @@
 'use client';
 
+import logo from '../../../../public/assets/BellhouseLogo-text.png';
 import { ServicePage } from '@/types/interfaces';
 import React from 'react';
 import CallToAction from '../webpage/CallToAction';
@@ -15,6 +16,22 @@ export default function ServiceLayout({ service }: ServicePage) {
   return (
     <LayoutHome background="off">
       <section className={classes.container}>
+        <div className="contact-hero">
+          <div className="hero-logo__mobile">
+            <Image
+              src={logo}
+              alt="Bellhouse Excavating logo"
+              quality={80}
+              width={200}
+              height={155}
+              style={{
+                width: 'auto',
+                height: 'auto',
+              }}
+              sizes="(max-width: 375px) 120px, (max-width: 768px) 160px, 200px"
+            />
+          </div>
+        </div>
         <div className={classes.hero}>
           <h1>{service.hero.heading}</h1>
           <h3>{service.hero.subheading}</h3>

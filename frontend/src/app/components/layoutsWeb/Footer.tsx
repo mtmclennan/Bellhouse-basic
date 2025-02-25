@@ -59,6 +59,13 @@ const Footer = () => {
           </li>
         </ul>
       </div>
+      <a
+        target="blank"
+        className={classes.review}
+        href="https://g.page/r/CZtOlkcv7cW2EBM/review"
+      >
+        Leave Us a Google Review{' '}
+      </a>
       <div className={classes.copyright}>
         <p>{`©${year} By BELLHOUSE EXCAVATING`}</p>
       </div>

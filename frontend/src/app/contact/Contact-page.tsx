@@ -1,7 +1,8 @@
 'use client';
 
 import { Fragment, useRef } from 'react';
-
+import Image from 'next/image';
+import logo from '../../../public/assets/BellhouseLogo-text.png';
 import LayoutHome from '../components/layoutsWeb/layoutHome';
 import Link from 'next/link';
 import { Phone } from '@phosphor-icons/react/dist/ssr';
@@ -19,6 +20,20 @@ const Contact = () => {
             <Image alt="Excavator logo" src={logo} fill />
           </div> */}
           <div className="contact-hero">
+            <div className="hero-logo__mobile">
+              <Image
+                src={logo}
+                alt="Bellhouse Excavating logo"
+                quality={80}
+                width={200}
+                height={155}
+                style={{
+                  width: 'auto',
+                  height: 'auto',
+                }}
+                sizes="(max-width: 375px) 120px, (max-width: 768px) 160px, 200px"
+              />
+            </div>
             <h1>
               Contact <span className="font-thin">BELLHOUSE</span>
               <span className="text text-yellow"> EXCAVATING</span>

@@ -46,7 +46,7 @@ button {
 
 .about-hero__section {
   padding: 1rem;
-  min-height: 80vh;
+  min-height: calc(100vh - 7rem);
   @include m.flexCenter();
   @include m.mediaDesktop {
     padding: 2rem;
@@ -542,7 +542,7 @@ button {
 
 .contact-hero__section {
   // padding: 5rem 0;
-  min-height: 100vh;
+  min-height: calc(100vh - 7rem);
   @include m.flexCenter(column);
   @include m.mediaDesktop() {
     min-height: calc(100vh - 20rem);

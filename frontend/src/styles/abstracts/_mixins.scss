@@ -27,8 +27,14 @@
   }
 }
 
+@mixin media1200 {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
 @mixin mediaWideDesktop {
-  @media (min-width: 1500px) {
+  @media (min-width: 1600px) {
     @content;
   }
 }
