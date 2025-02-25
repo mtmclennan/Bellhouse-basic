@@ -94,48 +94,114 @@ export async function sendContactForm(data: {
   });
 
   // 🔹 Define Email Messages
+
   const businessMailOptions = {
     from: process.env.EMAIL_FROM,
     to: `${process.env.RECIPIENT_EMAIL}, ${process.env.BOSS_EMAIL}`,
-    subject: `New ${data.workType} Estimate Request`,
-    text: `New Estimate Request
-
-Name: ${data.name}
-Email: ${data.email}
-Phone: ${data.phone || 'Not provided'}
-
-Service Requested: ${data.workType}
-
-Message:
-${data.message || 'No additional details provided.'}
-
-Submitted on: ${new Date().toLocaleString()}
-
-Please follow up with the customer as soon as possible.
-
-Best,  
-Bellhouse Excavating Website`,
+    subject: `🔔 New ${data.workType} Estimate Request`,
+    html: `
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px; background-color: #ffffff; color: #202020;">
+      
+      <div style="background-color: #202020; padding: 15px; text-align: center;">
+        <img src="https://bellhouseexcavating.ca/assets/BellhouseLogo-text-LS.png" alt="Bellhouse Excavating Logo" style="max-width: 200px; margin-bottom: 10px;">
+        <h2 style="color: #ffc302;">New Estimate Request</h2>
+      </div>
+  
+      <div style="padding: 20px;">
+        <p><strong>📌 Submitted On:</strong> ${new Date().toLocaleString()}</p>
+  
+        <hr style="border: none; border-top: 2px solid #ffc302; margin: 15px 0;">
+  
+        <h3 style="color: #ffc302;">Customer Details</h3>
+        <p><strong>👤 Name:</strong> ${data.name}</p>
+        <p><strong>📧 Email:</strong> <a href="mailto:${
+          data.email
+        }" style="color: #202020; text-decoration: none;">${data.email}</a></p>
+        <p><strong>📞 Phone:</strong> ${data.phone || 'Not provided'}</p>
+  
+        <hr style="border: none; border-top: 1px solid #ddd; margin: 15px 0;">
+  
+        <h3 style="color: #ffc302;">Request Details</h3>
+        <p><strong>🚧 Service Requested:</strong> ${data.workType}</p>
+        <p><strong>📝 Message:</strong><br>${
+          data.message || '<em>No additional details provided.</em>'
+        }</p>
+  
+        <hr style="border: none; border-top: 2px solid #ffc302; margin: 15px 0;">
+  
+        <p><strong>⚠️ Action Required:</strong> Please follow up with the customer as soon as possible.</p>
+      </div>
+  
+      <div style="text-align: center; background-color: #202020; padding: 10px; color: #ffffff;">
+        <p><strong>Bellhouse Excavating</strong></p>
+        <p>📞 <a href="tel:5197528500" style="color: #ffc302; text-decoration: none;">519-752-8500</a> | 
+           📧 <a href="mailto:info@bellhouseexcavating.ca" style="color: #ffc302; text-decoration: none;">info@bellhouseexcavating.ca</a> | 
+           🌐 <a href="https://bellhouseexcavating.ca" style="color: #ffc302; text-decoration: none;">bellhouseexcavating.ca</a>
+        </p>
+      </div>
+  
+    </div>
+    `,
   };
+
+  //   const businessMailOptions = {
+  //     from: process.env.EMAIL_FROM,
+  //     to: `${process.env.RECIPIENT_EMAIL}, ${process.env.BOSS_EMAIL}`,
+  //     subject: `New ${data.workType} Estimate Request`,
+  //     text: `New Estimate Request
+
+  // Name: ${data.name}
+  // Email: ${data.email}
+  // Phone: ${data.phone || 'Not provided'}
+
+  // Service Requested: ${data.workType}
+
+  // Message:
+  // ${data.message || 'No additional details provided.'}
+
+  // Submitted on: ${new Date().toLocaleString()}
+
+  // Please follow up with the customer as soon as possible.
+
+  // Best,
+  // Bellhouse Excavating Website`,
+  //   };
 
   const customerMailOptions = {
     from: process.env.EMAIL_FROM,
     to: data.email,
     subject: `We Received Your Request for ${data.workType}!`,
-    text: `Hello ${data.name},
-
-Thank you for reaching out to Bellhouse Excavating. We’ve received your message and will get back to you as soon as possible.
-
-Our team typically responds within 24 hours, but if your request is urgent, please call us at 519-752-8500.
-
-In the meantime, you can explore our services here: https://bellhouseexcavating.ca
-
-We appreciate your interest and look forward to assisting you.
-
-Best regards,  
-The Bellhouse Excavating Team  
-📞 519-752-8500  
-📧 info@bellhouseexcavating.ca  
-🌐 https://bellhouseexcavating.ca`,
+    html: `
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border-radius: 10px; background-color: #ffffff; color: #202020;">
+      
+      <div style="background-color: #202020; padding: 20px; text-align: center;">
+        <img src="https://bellhouseexcavating.ca/assets/BellhouseLogo-text.png" alt="Bellhouse Excavating Logo" style="max-width: 250px; margin-bottom: 10px;">
+      </div>
+  
+      <div style="padding: 20px;">
+        <h2 style="color: #ffc302; text-align: center;">Thank You for Contacting Bellhouse Excavating!</h2>
+        <p>Hello <strong>${data.name}</strong>,</p>
+        <p>Thank you for reaching out to us regarding <strong>${data.workType}</strong>. We have received your message and will get back to you as soon as possible.</p>
+        <p>Our team typically responds within <strong>24 hours</strong>, but if your request is urgent, please feel free to call us at <a href="tel:5197528500" style="color: #ffc302; text-decoration: none;"><strong>519-752-8500</strong></a>.</p>
+        
+        <p style="text-align: center;">
+          <a href="https://bellhouseexcavating.ca" style="display: inline-block; background-color: #ffc302; color: #202020; padding: 12px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">Visit Our Website</a>
+        </p>
+      </div>
+  
+      <hr style="border: none; border-top: 2px solid #ffc302; margin: 20px 0;">
+  
+      <div style="text-align: center; background-color: #202020; padding: 15px; color: #ffffff;">
+        <p><strong>Best regards,</strong><br>The Bellhouse Excavating Team</p>
+        <p>
+          📞 <a href="tel:5197528500" style="color: #ffc302; text-decoration: none;">519-752-8500</a> |
+          📧 <a href="mailto:info@bellhouseexcavating.ca" style="color: #ffc302; text-decoration: none;">info@bellhouseexcavating.ca</a> |
+          🌐 <a href="https://bellhouseexcavating.ca" style="color: #ffc302; text-decoration: none;">bellhouseexcavating.ca</a>
+        </p>
+      </div>
+  
+    </div>
+    `,
   };
 
   try {
