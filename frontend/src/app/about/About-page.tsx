@@ -2,6 +2,7 @@
 import { Fragment } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import logo from '../../../public/assets/BellhouseLogo-text.png';
 import darryl from '../../../public/assets/about-bellhouse-excavating.jpg';
 
 import LayoutHome from '../components/layoutsWeb/layoutHome';
@@ -16,6 +17,20 @@ const About = () => {
     <Fragment>
       <LayoutHome>
         <section className="about-hero__section">
+          <div className="hero-logo__mobile">
+            <Image
+              src={logo}
+              alt="Bellhouse Excavating logo"
+              quality={80}
+              width={200}
+              height={155}
+              style={{
+                width: 'auto',
+                height: 'auto',
+              }}
+              sizes="(max-width: 375px) 120px, (max-width: 768px) 160px, 200px"
+            />
+          </div>
           <div className="about-hero">
             <h1>
               Over 40 Years of Trusted{' '}
