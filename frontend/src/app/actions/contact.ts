@@ -144,29 +144,6 @@ export async function sendContactForm(data: {
     `,
   };
 
-  //   const businessMailOptions = {
-  //     from: process.env.EMAIL_FROM,
-  //     to: `${process.env.RECIPIENT_EMAIL}, ${process.env.BOSS_EMAIL}`,
-  //     subject: `New ${data.workType} Estimate Request`,
-  //     text: `New Estimate Request
-
-  // Name: ${data.name}
-  // Email: ${data.email}
-  // Phone: ${data.phone || 'Not provided'}
-
-  // Service Requested: ${data.workType}
-
-  // Message:
-  // ${data.message || 'No additional details provided.'}
-
-  // Submitted on: ${new Date().toLocaleString()}
-
-  // Please follow up with the customer as soon as possible.
-
-  // Best,
-  // Bellhouse Excavating Website`,
-  //   };
-
   const customerMailOptions = {
     from: process.env.EMAIL_FROM,
     to: data.email,

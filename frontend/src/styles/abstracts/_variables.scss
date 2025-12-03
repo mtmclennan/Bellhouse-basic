@@ -1,6 +1,7 @@
 $color-primary: #ffffff;
 $color-primary-dark: #202020;
 $color-main: $color-primary;
+$background-warm: #3a3a3a;
 
 $light-primary-color: $color-primary-dark;
 
@@ -18,14 +19,10 @@ $color-neutral: #1f2833;
 
 $color-neutral-dark: #202020;
 
-$color-neutral-dark333: #0b0c10;
+$color-dark: #0b0c10;
 
 $main-color: #2c2c2c;
 $main-color-med: #222629;
-$main-color-light: #b197fc;
-
-$dark-blue: #041430;
-$darker-blue: #252a34;
 
 $color-footer: $color-neutral-dark;
 
@@ -48,10 +45,12 @@ $grey-color-9: #212529;
 
 $cat-yellow: #ffc500;
 $cat-yellow2: #ffc302;
+$color-accent: $cat-yellow2;
 
 $btn-main-text2: #43444f;
 $btn-main-border2: $btn-main-text2;
 
+$text-color-lighter: $grey-color-1;
 $text-color-light: $grey-color-4;
 $text-color-mid: $grey-color-6;
 $text-color-mid-dark: $grey-color-8;

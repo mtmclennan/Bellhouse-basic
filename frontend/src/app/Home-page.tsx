@@ -5,7 +5,7 @@ import Image from 'next/image';
 import logo from '../../public/assets/BellhouseLogo-text.png';
 import { useRouter } from 'next/navigation';
 import { Phone } from '@phosphor-icons/react';
-
+import reviews from '@/data/reviews.json';
 import LayoutHome from '@/app/components/layoutsWeb/layoutHome';
 import HomeAbout from '@/app/components/webpage/HomeAbout';
 import HomeServices from '@/app/components/webpage/HomeServices';
@@ -14,6 +14,8 @@ import WhyChooseUs from '@/app/components/webpage/WhyChooseUs';
 import CallToAction from './components/webpage/CallToAction';
 import LocalExperts from './components/webpage/LocalExperts';
 import Link from 'next/link';
+import Reviews from './components/webpage/Reviews';
+import ServiceArea from './components/webpage/ServiceArea';
 // import ServiceCard from "@/components/UI/ServiceCard";
 
 const HomePage = () => {
@@ -229,32 +231,22 @@ const HomePage = () => {
           </ul> */}
         </section>
 
-        {/* <section className="reviews">
-          <h3>Proudly Serving Brant County and Surrounding Areas</h3>
-          {/* <div className="review-image__container">
-            <Image src={pinevest} alt="PineVest Homes" layout="responsive" />
-          </div>
-          <div className="review-image__container">
-            <Image
-              src={navacon}
-              alt="PineVest Homes"
-              layout="responsive"
-              width={30}
-              height={15}
-            />
-          </div> */}
-        {/* </section> */}
-        <LocalExperts colorDark={true} />
-        <WhyChooseUs />
-        {/* <section className="last-call">
-          <div>
-            <h2>Lets get started on your next project</h2>
-            <button id="cta-btn" onClick={() => router.push('/contact')}>
-              Contact Us
-            </button>
-          </div>
-        </section> */}
+        {/* <WhyChooseUs /> */}
+        <Reviews reviews={reviews} />
         <CallToAction />
+        <ServiceArea
+          heading="Serving Brant County & Beyond"
+          subtext="Proudly serving Brantford, Paris, St. George, Burford, and nearby communities with over 40 years of local excavation experience."
+          locations={[
+            'Brantford',
+            'Paris',
+            'St. George',
+            'Burford',
+            'Hamilton',
+          ]}
+          variant="homepage"
+        />
+        {/* <LocalExperts colorDark={true} /> */}
       </LayoutHome>
     </Fragment>
   );

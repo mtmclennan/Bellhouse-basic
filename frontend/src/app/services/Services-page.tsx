@@ -76,7 +76,7 @@ const Services = () => {
     <>
       <LayoutHome>
         <ServicesHero />
-        <section className="services__intro">
+        {/* <section className="services__intro">
           <div>
             <h2>Transforming Construction Sites</h2>
             <p>
@@ -91,9 +91,9 @@ const Services = () => {
               safety and quality.
             </p>
           </div>
-        </section>
+        </section> */}
 
-        <ServicesGrid />
+        <ServicesGrid dark />
         <LocalExperts colorDark={true} />
         <CallToAction />
       </LayoutHome>

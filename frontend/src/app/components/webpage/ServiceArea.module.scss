@@ -1,0 +1,61 @@
+@use '../../../styles/abstracts/variables' as v;
+@use '../../..//styles/abstracts/mixins' as m;
+
+.section {
+  width: 100%;
+  padding: 6rem 2rem;
+}
+
+.default {
+  background: #262626;
+}
+
+.homepage {
+  background: #202020; // or whatever shade you want
+}
+
+.heading {
+  font-size: 4rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.subtext {
+  font-size: 1.8rem;
+  color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+  max-width: 70rem;
+  margin: 0 auto 3rem auto;
+  line-height: 1.45;
+}
+
+.locationList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem 2rem;
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+
+  li {
+    font-size: 1.8rem;
+    padding-left: 1.4rem;
+    position: relative;
+    line-height: 1.4;
+    color: white;
+  }
+
+  li::before {
+    content: '';
+    width: 0.8rem;
+    height: 0.8rem;
+    background: v.$color-accent;
+    border-radius: 50%;
+    position: absolute;
+    top: 0.8rem;
+    left: 0;
+  }
+}

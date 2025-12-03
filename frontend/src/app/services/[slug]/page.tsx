@@ -1,15 +1,18 @@
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
-import ServiceLayout from '../../components/layoutsWeb/ServiceLayout';
+import ServiceLayout from './_components/ServiceLayout';
 import servicesData from '../../../data/services.json';
 import { validateMetadata } from '../../../lib/utils/seoValidation';
+import type { ServicePage } from '@/types/interfaces';
 
 interface ServicePageProps {
   params: Promise<{ slug: string }>;
 }
 
+export const revalidate = 3600;
+
 export function generateStaticParams(): { slug: string }[] {
-  return servicesData.map((service) => ({
+  return (servicesData as ServicePage[]).map((service) => ({
     slug: service.slug,
   }));
 }

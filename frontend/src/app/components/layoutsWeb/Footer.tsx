@@ -68,6 +68,15 @@ const Footer = () => {
       </a>
       <div className={classes.copyright}>
         <p>{`©${year} By BELLHOUSE EXCAVATING`}</p>
+        <small className={classes.siteBy}>
+          <a
+            href="https://all8webworks.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Site by ALL8 Webworks
+          </a>
+        </small>
       </div>
     </footer>
   );
