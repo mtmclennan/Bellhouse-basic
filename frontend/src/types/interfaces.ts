@@ -25,29 +25,79 @@ export interface ServiceRequest {
 }
 
 export interface ServicePage {
-  service: {
-    meta: {
+  meta: {
+    title: string;
+    description: string;
+  };
+
+  card: {
+    title: string;
+    description: string;
+    image: string;
+    alt: string;
+  };
+
+  slug: string;
+
+  hero: {
+    heading: string;
+    subheading: string;
+    image: string;
+    alt: string;
+  };
+
+  intro: {
+    heading: string;
+    content: string;
+    keypoints: string[];
+  };
+
+  includes?: {
+    heading: string;
+    subheading?: string;
+    items: {
       title: string;
       description: string;
-    };
-    card: {
+    }[];
+  };
+
+  equipment?: {
+    heading: string;
+    subheading?: string;
+    items: {
+      icon?: string; // optional icon image
       title: string;
       description: string;
-      image: string;
-      alt: string;
-    };
-    slug: string;
-    hero: {
-      heading: string;
-      subheading: string;
-      image: string;
-      alt: string;
-    };
-    intro: {
-      heading: string;
-      content: string;
-      keypoints: string[];
-    };
+    }[];
+  };
+
+  process?: {
+    heading: string;
+    subheading?: string;
+    steps: {
+      title: string;
+      description: string;
+    }[];
+  };
+
+  serviceArea?: {
+    heading: string;
+    content: string;
+    locations: string[];
+  };
+
+  faq?: {
+    heading: string;
+    items: {
+      question: string;
+      answer: string;
+    }[];
+  };
+
+  cta?: {
+    heading: string;
+    subheading: string;
+    button: string;
   };
 }
 

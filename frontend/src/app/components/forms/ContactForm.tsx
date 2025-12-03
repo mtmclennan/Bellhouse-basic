@@ -152,6 +152,13 @@ const ContactForm = forwardRef<ContactFormRef>((_, ref) => {
         setSelectedWorkType(''),
           setCustomWorkType(''),
           setStatus('Success: Your request has been sent.');
+
+        // ✅ Fire Google Ads conversion
+        if (typeof window !== 'undefined' && (window as any).gtag) {
+          (window as any).gtag('event', 'conversion', {
+            send_to: 'AW-16958173496/gn9BCIyi-7QaELjipJY_',
+          });
+        }
       } else {
         setLoading(false);
         setStatus('Error: ' + result?.error || 'Unknown error occurred');

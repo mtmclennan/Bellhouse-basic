@@ -6,11 +6,13 @@ import logo from '../../../public/assets/BellhouseLogo-text.png';
 import darryl from '../../../public/assets/about-bellhouse-excavating.jpg';
 
 import LayoutHome from '../components/layoutsWeb/layoutHome';
-
+import reviews from '@/data/reviews.json';
 import ServicesGrid from '../components/webpage/services/ServicesGrid';
 import WhyChooseUs from '../components/webpage/WhyChooseUs';
 import CallToAction from '../components/webpage/CallToAction';
 import LocalExperts from '../components/webpage/LocalExperts';
+import ServiceArea from '../components/webpage/ServiceArea';
+import Reviews from '../components/webpage/Reviews';
 
 const About = () => {
   return (
@@ -94,7 +96,19 @@ const About = () => {
         </section>
         <ServicesGrid />
         <WhyChooseUs />
-        <LocalExperts colorDark={true} />
+        {/* <LocalExperts colorDark={true} /> */}
+        <ServiceArea
+          heading="Serving Brant County & Surrounding Communities"
+          subtext="Local experience matters — we’ve been working with the soil and terrain here for over 40 years."
+          locations={[
+            'Brantford',
+            'Paris',
+            'St. George',
+            'Burford',
+            'Hamilton',
+          ]}
+        />
+        <Reviews reviews={reviews} />
         <CallToAction />
       </LayoutHome>
     </Fragment>

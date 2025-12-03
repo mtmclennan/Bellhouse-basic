@@ -1,34 +1,162 @@
 [
   {
     "id": 1,
-    "meta": {
-      "title": "Foundation Excavation & Backfilling - Brant, Brantford",
-      "description": "Get expert foundation excavation and backfilling services in Brant County. Precision digging, grading, and backfill solutions for durable construction."
-    },
-    "card": {
-      "title": "Foundation Excavation & Backfill Services",
-      "description": "Professional foundation digging and backfilling for stable and long-lasting construction. Expert service in Brant County.",
-      "image": "/assets/foundation-excavation-machinery.jpg",
-      "alt": "Excavation equipment digging a foundation trench for a construction project in Brant County."
-    },
     "slug": "foundation-excavation",
+
+    "meta": {
+      "title": "Foundation Excavation & Backfilling in Brant County | Bellhouse Excavating",
+      "description": "Professional foundation excavation and backfilling for new builds, additions, and structural projects across Brantford, Paris, and Hamilton. Reliable, precise, and built for contractors."
+    },
+
+    "card": {
+      "title": "Foundation Excavation & Backfilling",
+      "description": "Accurate foundation digs and reliable backfilling for residential and commercial builds.",
+      "image": "/assets/foundation-excavation-machinery.jpg",
+      "alt": "Excavator digging foundation trench for residential construction"
+    },
+
     "hero": {
       "heading": "Foundation Excavation & Backfilling",
-      "subheading": "Precision Excavation & Backfilling to Ensure Structural Stability",
+      "subheading": "Precision excavation for new home builds, additions, garages, and structural projects.",
       "image": "/assets/foundation-excavating-backfill.png",
-      "alt": "A construction site with a foundation trench being excavated and prepared for backfilling."
+      "alt": "excavator digging and backfilling a foundation"
     },
+
     "intro": {
-      "heading": "Expert Foundation Excavation & Backfilling for Strong, Durable Structures",
-      "content": "Bellhouse Excavating specializes in precision foundation excavation and backfilling, ensuring your residential or commercial structure starts with a rock-solid base. Our skilled operators use advanced equipment to provide safe and efficient excavation, ensuring stability for your construction project.",
+      "heading": "Professional Foundation Excavation and Backfilling",
+      "content": "Your foundation sets the stage for the entire structure. Our team provides accurate, safe, and efficient foundation excavation and backfilling for builders, contractors, and homeowners throughout Brant County and the surrounding area. We ensure the right depth, clean lines, proper soil handling, and reliable compaction—everything required for a strong, stable foundation.",
       "keypoints": [
-        "Precision foundation excavation for residential & commercial builds",
-        "Backfilling with high-quality materials for long-term durability",
-        "Efficient service to keep projects on schedule & within budget",
-        "Experienced team ensuring accuracy & structural integrity"
+        "Full foundation digs for new builds and additions",
+        "Basement walkouts and structural excavation",
+        "Clean, precise backfilling and compaction",
+        "Experienced operators and modern equipment"
       ]
+    },
+
+    "includes": {
+      "heading": "Foundation Excavation Scope",
+      "subheading": "We handle every stage of the excavation, from layout to spoil removal to final grading, so your foundation is structurally ready and builder-approved.",
+      "items": [
+        {
+          "title": "Full Basement & Addition Excavation",
+          "description": "We dig to engineered depth and specifications, ensuring accurate grades, clean edges, and safe soil management."
+        },
+        {
+          "title": "Over-Excavation & Soil Removal",
+          "description": "When poor soil is discovered, we remove unsuitable material and haul it away with our triaxle fleet."
+        },
+        {
+          "title": "Professional Backfilling",
+          "description": "We supply and place granular A or B material, ensuring proper lift thickness and long-term stability around the foundation."
+        },
+        {
+          "title": "Compaction for Structural Stability",
+          "description": "Using a diesel plate tamper or roller, we compact the backfill to prevent future settling and drainage issues."
+        },
+        {
+          "title": "Rough Grading for Drainage",
+          "description": "We shape the site around the home to direct water away from the structure and prepare the area for landscaping or construction."
+        },
+        {
+          "title": "Trucking & Spoil Removal",
+          "description": "Our three triaxle dump trucks haul away all excess soil, keeping your site clean and ready for the next phase."
+        }
+      ]
+    },
+
+    "equipment": {
+      "heading": "Equipment Used for Foundation Excavation",
+      "subheading": "Reliable equipment chosen for accuracy, efficiency, and safe excavation on every job site.",
+      "items": [
+        {
+          "icon": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp",
+          "title": "Mid-Size Excavator",
+          "description": "Ideal for residential and commercial foundation digs, providing precise and efficient earthmoving."
+        },
+        {
+          "icon": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp",
+          "title": "Tri-Axle Dump Trucks",
+          "description": "Used for spoil removal and material delivery, keeping your site clean and project on schedule."
+        },
+        {
+          "icon": "/assets/services/bellhouse-plate-compactor-excavation-compaction-tool.webp",
+          "title": "Diesel Plate Tamper",
+          "description": "Ensures proper compaction around the foundation for long-term stability."
+        },
+        {
+          "icon": "/assets/services/bellhouse-laser-level-gps-rover-precision-layout-tools.webp",
+          "title": "Precision Layout Tools",
+          "description": "We use a rotary laser level and GPS rover for accurate site layout, elevation checks, and cut/fill measurements, ensuring every excavation meets engineered specifications."
+        }
+      ]
+    },
+
+    "process": {
+      "heading": "How Our Excavation Process Works",
+      "subheading": "A clear, predictable workflow that keeps your project on schedule from start to finish.",
+      "steps": [
+        {
+          "title": "Site Layout & Planning",
+          "description": "We review engineering drawings, confirm elevations, and establish accurate dig lines before any ground is broken."
+        },
+        {
+          "title": "Excavation to Required Depth",
+          "description": "We excavate to engineered specifications, ensuring clean walls, correct depth, and proper soil management."
+        },
+        {
+          "title": "Spoil Removal & Trucking",
+          "description": "Excess soil is hauled away using our dump trucks or supplemental rentals as needed."
+        },
+        {
+          "title": "Fine Grading & Shaping",
+          "description": "We clean up the excavation, prepare the base, and ensure everything is ready for footings or foundation work."
+        },
+        {
+          "title": "Backfilling After Foundation Work",
+          "description": "Once the foundation is complete, we place material in controlled lifts to protect walls and ensure long-term stability."
+        },
+        {
+          "title": "Final Grading for Drainage",
+          "description": "We shape the surrounding area to promote proper drainage and prepare the site for its next phase."
+        }
+      ]
+    },
+
+    "serviceArea": {
+      "heading": "Service Area",
+      "content": "We provide foundation excavation and backfilling throughout Brant County, including Brantford, Paris, St. George, Burford, and surrounding rural areas. We also service Hamilton and nearby communities.",
+      "locations": ["Brantford", "Paris", "Hamilton", "St. George", "Burford"]
+    },
+
+    "faq": {
+      "heading": "Frequently Asked Questions",
+      "items": [
+        {
+          "question": "Do you remove all excess soil?",
+          "answer": "Yes. Our triaxle fleet hauls away all spoil material as part of our excavation service."
+        },
+        {
+          "question": "Can you work in tight backyards?",
+          "answer": "In most cases, yes. We assess access during the estimate and plan equipment size accordingly."
+        },
+        {
+          "question": "Do you handle compaction?",
+          "answer": "Yes. We use plate tampers or rollers depending on the project requirements."
+        },
+        {
+          "question": "How far ahead should I book?",
+          "answer": "Most projects book 1–3 weeks in advance, depending on the season."
+        }
+      ]
+    },
+
+    "cta": {
+      "heading": "Ready to Start Your Excavation?",
+      "subheading": "Get a fast, accurate estimate for your foundation project.",
+      "button": "Get a Free Estimate"
     }
   },
+
   {
     "id": 2,
     "meta": {

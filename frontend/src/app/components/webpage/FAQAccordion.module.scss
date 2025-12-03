@@ -1,0 +1,84 @@
+@use '../../../styles/abstracts/variables' as v;
+@use '../../../styles/abstracts/mixins' as m;
+
+.faqSection {
+  background: #262626;
+  padding: 6rem 2rem 12rem;
+  width: 100%;
+}
+
+.container {
+  max-width: 110rem;
+  margin: 0 auto;
+}
+
+.heading {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: white;
+  @include m.mediaDesktop {
+    font-size: 6rem;
+  }
+}
+
+.subheading {
+  font-size: 1.8rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  max-width: 75rem;
+  margin: 0 auto 6rem auto;
+  line-height: 1.5;
+}
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.item {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 0.8rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.question {
+  width: 100%;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: left;
+  padding: 1.8rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.15s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+.answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease, padding 0.25s ease;
+  padding: 0 2rem;
+
+  p {
+    font-size: 1.7rem;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.9);
+  }
+}
+
+.answer.open {
+  max-height: 500px; // safe enough for most FAQ answers
+  padding: 1.6rem 2rem 2.2rem 2rem;
+}

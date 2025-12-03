@@ -1,0 +1,560 @@
+@use '../../../../styles/abstracts/variables' as v;
+@use '../../../../styles/abstracts/mixins' as m;
+
+.container {
+  @include m.flexCenter(column);
+
+  @include m.mediaDesktop {
+    flex-direction: row;
+    min-height: calc(100vh - 20rem);
+    gap: 4rem;
+  }
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  padding: 2rem;
+
+  @include m.mediaDesktop {
+    width: 650px;
+    height: auto;
+    margin-top: -10rem;
+    margin-right: 2rem;
+  }
+}
+
+.hero {
+  @include m.flexCenter(column);
+  text-align: center;
+  padding: 2rem;
+
+  @include m.mediaDesktop {
+    gap: 2rem;
+    margin-right: -4rem;
+  }
+
+  h1 {
+    margin-top: 6rem;
+    font-size: 6rem;
+    line-height: 1.05;
+
+    @include m.mediaDesktop {
+      margin-top: -15rem;
+      font-size: 8rem;
+    }
+  }
+
+  h3 {
+    margin-top: 2rem;
+
+    @include m.mediaDesktop {
+      margin-top: 0;
+    }
+  }
+}
+
+.btn {
+  @include m.btnMain;
+  margin-top: 2rem;
+}
+
+/* INTRO SECTION */
+
+.introContainer {
+  @include m.flexCenter(column);
+  background-color: v.$color-primary-light;
+  color: v.$text-color-dark;
+  padding: 8rem 1rem;
+
+  h2 {
+    font-size: 4rem;
+    margin: 0 0 4rem;
+    max-width: 120rem;
+    text-align: center;
+    line-height: 1.1;
+
+    @include m.mediaDesktop {
+      font-size: 6rem;
+    }
+  }
+}
+
+.introContent {
+  @include m.flexCenter(column);
+  max-width: 90rem;
+
+  p {
+    font-size: 1.8rem;
+    margin-bottom: 4rem;
+  }
+
+  li {
+    @include m.flexCenter();
+    justify-content: flex-start;
+    font-size: 1.8rem;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* GENERIC SECTION BLOCK */
+
+/* LISTS FOR INCLUDES + EQUIPMENT */
+
+.section {
+  @include m.flexCenter(column);
+  margin-inline: auto;
+  width: 100%;
+  max-width: 110rem;
+  padding: 6rem 2rem;
+
+  h2 {
+    font-size: 3.6rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    @include m.mediaDesktop {
+      font-size: 6rem;
+    }
+  }
+}
+
+/* WHAT'S INCLUDED + EQUIPMENT STYLE UPGRADE */
+
+.list {
+  width: 100%;
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 0;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.6rem;
+
+    background: rgba(v.$color-primary-light, 0.3);
+    padding: 1.8rem 2rem;
+    border-radius: 1rem;
+    margin-bottom: 1.4rem;
+    list-style: none;
+    border-left: 4px solid v.$color-primary;
+
+    font-size: 1.9rem;
+    line-height: 1.5;
+    color: v.$text-color-dark;
+
+    @include m.mediaDesktop {
+      padding: 2rem 2.4rem;
+      font-size: 2.1rem;
+    }
+
+    span {
+      flex: 1;
+      display: block;
+    }
+  }
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  width: 100%;
+  max-width: 110rem;
+  margin: 1rem auto;
+
+  @include m.mediaDesktop {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 4rem auto;
+    gap: 3rem;
+  }
+}
+
+.featureCard {
+  background: rgba(v.$color-dark, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2rem;
+
+  border: 1px solid rgba(v.$color-accent, 0.9);
+  border-radius: 1.2rem;
+  min-height: 15rem;
+  gap: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  p {
+    font-size: 1.8rem;
+    line-height: 1.45;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.featureHeading {
+  @include m.flexCenter();
+  gap: 1rem;
+  & h3 {
+    font-size: 2.25rem;
+  }
+}
+
+.subtext {
+  font-size: 1.9rem;
+  max-width: 90rem;
+  text-align: center;
+  margin: 0 auto 3rem auto;
+  color: v.$text-color-light;
+  line-height: 1.45;
+}
+
+.icon {
+  color: rgba(v.$color-accent, 0.9); // your yellow
+  flex-shrink: 0;
+}
+
+// .list {
+//   width: 100%;
+//   max-width: 80rem;
+
+//   li {
+//     font-size: 1.8rem;
+//     margin-bottom: 1.4rem;
+//     line-height: 1.4;
+//     list-style: disc;
+//     margin-left: 2rem;
+//   }
+// }
+
+/* PROCESS LIST */
+
+.orderedList {
+  width: 100%;
+  max-width: 80rem;
+
+  li {
+    font-size: 1.8rem;
+    margin-bottom: 1.4rem;
+    line-height: 1.4;
+    list-style: decimal;
+    margin-left: 2rem;
+  }
+}
+
+/* SERVICE AREA LISTS */
+
+.locationList {
+  width: 100%;
+  max-width: 80rem;
+  margin-top: 2rem;
+
+  li {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    list-style: disc;
+    margin-left: 2rem;
+  }
+}
+
+/* FAQ SECTION */
+
+.faq {
+  @include m.flexCenter(column);
+  max-width: 100rem;
+  padding: 6rem 2rem;
+  margin: 0 auto;
+
+  h2 {
+    font-size: 3.2rem;
+    text-align: center;
+    margin-bottom: 4rem;
+
+    @include m.mediaDesktop {
+      font-size: 4.2rem;
+    }
+  }
+}
+
+.faqItem {
+  margin-bottom: 3rem;
+  max-width: 90rem;
+
+  h4 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.8rem;
+    line-height: 1.4;
+  }
+}
+
+/* CTA BLOCK */
+
+.cta {
+  @include m.flexCenter(column);
+  text-align: center;
+  padding: 8rem 2rem;
+  background-color: v.$color-primary-light;
+  color: v.$text-color-dark;
+
+  h2 {
+    font-size: 4rem;
+
+    @include m.mediaDesktop {
+      font-size: 5rem;
+    }
+  }
+
+  p {
+    font-size: 1.8rem;
+    margin: 2rem 0 3rem;
+  }
+
+  .btn {
+    @include m.btnMain;
+  }
+}
+
+.equipmentSection {
+  background: #fff;
+  padding: 6rem 2rem;
+  width: 100%;
+}
+
+.equipmentGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 120rem;
+  margin: 4rem auto 0;
+
+  @include m.mediaDesktop {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+.equipmentCard {
+  background: #fcfcfc;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 1.2rem;
+  padding: 2.4rem;
+
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  }
+
+  h3 {
+    font-size: 2.1rem;
+    margin: 0 0 0.8rem 0;
+  }
+
+  p {
+    font-size: 1.7rem;
+    line-height: 1.4;
+    color: #444;
+  }
+}
+
+.iconBox {
+  background: rgba(v.$color-primary, 0.12);
+  padding: 1rem;
+  border-radius: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    color: v.$color-primary;
+  }
+}
+
+.eqText {
+  flex: 1;
+}
+
+.equipmentSection {
+  background: v.$background-warm;
+  width: 100%;
+  padding: 1rem;
+  padding-bottom: 8rem;
+  color: v.$text-color-lighter;
+  @include m.mediaDesktop {
+    margin: 1rem auto;
+    padding: 8rem 8rem 12rem 8rem;
+  }
+}
+
+.heading {
+  text-align: center;
+  font-size: 1.7rem;
+  padding-top: 4rem;
+  @include m.mediaDesktop {
+    padding-top: 1rem;
+    margin-bottom: 8rem;
+  }
+  & h2 {
+    font-size: 4rem;
+
+    @include m.mediaDesktop {
+      font-size: 6rem;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.equipmentList {
+  max-width: 110rem;
+  margin: 4rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-bottom: 8rem;
+}
+
+.equipmentItem {
+  @include m.flexCenter(column);
+  text-align: center;
+
+  @include m.mediaDesktop {
+    flex-direction: row;
+    text-align: left;
+    align-items: flex-start;
+  }
+  gap: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid v.$color-accent; // your yellow
+}
+
+.equipmentIcon {
+  width: 150px;
+  height: 150px;
+  flex-shrink: 0;
+  border-radius: 2rem;
+  background: rgba(v.$color-primary, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img,
+  svg {
+    width: 150px;
+    height: 150px;
+    color: v.$color-primary;
+    border-radius: 2rem;
+  }
+}
+
+.eqText {
+  flex: 1;
+
+  h3 {
+    font-size: 3rem;
+    margin-bottom: 0.4rem;
+  }
+
+  p {
+    font-size: 1.7rem;
+    line-height: 1.45;
+    color: v.$text-color-light;
+  }
+}
+
+.processSection {
+  width: 100%;
+  padding: 6rem 2rem;
+  background: #262626; // variation from earlier palette
+  & h2 {
+    font-size: 4rem;
+    line-height: 1.1;
+    text-align: center;
+    margin-bottom: 1rem;
+    @include m.mediaDesktop {
+      font-size: 6rem;
+    }
+  }
+}
+
+.processList {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 80rem;
+  margin: 4rem auto 0;
+  & p {
+    color: v.$text-color-light;
+  }
+  @include m.mediaDesktop {
+    margin-top: 6rem;
+  }
+}
+
+.processItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  padding-bottom: 2rem;
+  border-left: 4px solid v.$color-accent; // your yellow
+  padding-left: 2rem;
+}
+
+.stepNumber {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background: v.$color-accent;
+  flex-shrink: 0;
+  margin-top: 0.3rem;
+}
+
+.locationList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem 2rem;
+  max-width: 60rem;
+  margin: 2rem auto 0;
+  padding: 0;
+
+  li {
+    list-style: none;
+    font-size: 1.8rem;
+    padding-left: 1.4rem;
+    position: relative;
+    line-height: 1.4;
+  }
+
+  li::before {
+    content: '';
+    width: 0.8rem;
+    height: 0.8rem;
+    background: v.$color-accent;
+    border-radius: 50%;
+    position: absolute;
+    top: 0.8rem;
+    left: 0;
+  }
+}
+
+.backgroundMid {
+  background-color: #2a2a2a;
+  max-width: 100%;
+}
