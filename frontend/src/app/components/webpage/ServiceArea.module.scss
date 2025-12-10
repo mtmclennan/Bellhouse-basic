@@ -33,9 +33,9 @@
 
 .locationList {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.2rem 2rem;
-  max-width: 60rem;
+  max-width: 80rem;
   margin: 0 auto;
   padding: 0;
   list-style: none;
@@ -57,5 +57,17 @@
     position: absolute;
     top: 0.8rem;
     left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .locationList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .locationList {
+    grid-template-columns: 1fr;
   }
 }

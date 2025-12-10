@@ -1,0 +1,141 @@
+{
+  "id": 9,
+  "slug": "house-barn-demolition",
+
+  "meta": {
+    "title": "House & Barn Demolition | Brant County, Brantford",
+    "description": "Safe and efficient house & barn demolition services in Brant County. Professional structure removal, site cleanup, and debris disposal."
+  },
+
+  "card": {
+    "title": "House & Barn Demolition Services",
+    "description": "Full or partial demolition of houses, barns, and outbuildings, including cleanup and disposal.",
+    "image": "/assets/house-demolition-excavator-paris-ontario.jpg",
+    "alt": "An excavator demolishing an old barn, preparing the site for redevelopment."
+  },
+
+  "hero": {
+    "heading": "House & Barn Demolition Services",
+    "subheading": "Safe, Efficient, and Responsible Structure Demolition",
+    "image": "/assets/house-demolition-excavator-brant-county.png",
+    "alt": "An excavator tearing down an old house, clearing debris for site preparation."
+  },
+
+  "intro": {
+    "heading": "Professional Demolition for Residential & Agricultural Structures",
+    "content": "Bellhouse Excavating provides safe, controlled demolition for houses, barns, garages, and outbuildings. From teardown to debris removal, we handle the heavy lifting so your site is cleared and ready for its next use.",
+    "keypoints": [
+      "Complete or selective demolition",
+      "Safe teardown with experienced operators",
+      "Efficient debris removal and disposal",
+      "Site grading and preparation after demolition"
+    ]
+  },
+
+  "includes": {
+    "heading": "Demolition Service Includes",
+    "subheading": "Everything needed to safely remove your structure and clean up the site.",
+    "items": [
+      {
+        "title": "Structure Teardown",
+        "description": "Controlled demolition of homes, barns, sheds, and outbuildings."
+      },
+      {
+        "title": "Material Sorting",
+        "description": "Separation of metal, concrete, and general debris where practical."
+      },
+      {
+        "title": "Debris Hauling & Disposal",
+        "description": "Loading and trucking of wood, roofing, concrete, and rubbish to approved facilities."
+      },
+      {
+        "title": "Site Grading",
+        "description": "Rough grading of the site so it’s level, safe, and ready for future use."
+      }
+    ]
+  },
+
+  "equipment": {
+    "heading": "Equipment Used for Demolition",
+    "subheading": "Right-sized machines for controlled, safe structure removal.",
+    "items": [
+      {
+        "icon": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp",
+        "title": "Excavator with Demolition Attachments",
+        "description": "Used for tearing down structures, sorting material, and loading trucks."
+      },
+      {
+        "icon": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp",
+        "title": "Tri-Axle Dump Trucks",
+        "description": "Hauling construction debris, concrete, and waste from the site."
+      }
+    ]
+  },
+
+  "process": {
+    "heading": "How Our Demolition Process Works",
+    "subheading": "A controlled, step-by-step approach for safe removal and cleanup.",
+    "steps": [
+      {
+        "title": "Site Assessment",
+        "description": "We inspect the structure, access points, and any special considerations."
+      },
+      {
+        "title": "Demolition Plan",
+        "description": "We determine the safest teardown method and debris handling approach."
+      },
+      {
+        "title": "Structure Teardown",
+        "description": "The building is taken down in a controlled way using an excavator."
+      },
+      {
+        "title": "Debris Removal",
+        "description": "Material is loaded into dump trucks and hauled to proper disposal sites."
+      },
+      {
+        "title": "Final Grading",
+        "description": "We level and smooth the site so it’s ready for the next phase."
+      }
+    ]
+  },
+
+  "serviceArea": {
+    "heading": "Service Area",
+    "content": "Demolition services available throughout Brant County and neighbouring communities.",
+    "locations": [
+      "Paris",
+      "Brantford",
+      "Brant County",
+      "St. George",
+      "Burford",
+      "Ayr",
+      "Hamilton",
+      "Cambridge",
+      "Woodstock"
+    ]
+  },
+
+  "faq": {
+    "heading": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "Do you handle permits?",
+        "answer": "Permits are typically obtained by the owner, but we can provide guidance on what’s required."
+      },
+      {
+        "question": "Can you demolish just part of a building?",
+        "answer": "Yes, selective demolition is available depending on structure and access."
+      },
+      {
+        "question": "Do you remove all debris?",
+        "answer": "Yes, we can remove and dispose of all demolition material as part of the job."
+      }
+    ]
+  },
+
+  "cta": {
+    "heading": "Need a Structure Removed?",
+    "subheading": "Get a demolition quote for your house, barn, or outbuilding.",
+    "button": "Request Demolition Quote"
+  }
+}

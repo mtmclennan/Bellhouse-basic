@@ -1,0 +1,132 @@
+{
+  "id": 11,
+  "slug": "dump-truck-rental",
+
+  "meta": {
+    "title": "Dump Truck Rental & Hauling Services | Brant County",
+    "description": "Reliable dump truck rentals with experienced operators in Brant County. Hire our fleet for construction, excavation, and bulk material hauling projects."
+  },
+
+  "card": {
+    "title": "Dump Truck Rental & Hauling Services",
+    "description": "Dump trucks for hire with experienced operators for material hauling and site support.",
+    "image": "/assets/dump-truck-delivery-service.jpg",
+    "alt": "A dump truck on-site, ready for material hauling and excavation work."
+  },
+
+  "hero": {
+    "heading": "Dump Truck Rental & Hauling Services",
+    "subheading": "Professional Dump Truck Hire for Contractors & Construction Projects",
+    "image": "/assets/tri-axle-dump-truck-services.png",
+    "alt": "A fleet of dump trucks lined up, available for hire in Brant County."
+  },
+
+  "intro": {
+    "heading": "Hire Reliable Dump Trucks with Skilled Operators",
+    "content": "Bellhouse Excavating offers dump truck rental services for contractors, builders, and property owners. Our tri-axle fleet is available with professional operators to haul aggregates, excavation spoil, and demolition debris.",
+    "keypoints": [
+      "Tri-axle dump trucks with operators",
+      "Hauling for aggregates, fill, and debris",
+      "Day-rate and project-rate options",
+      "Ideal for excavation and site development support"
+    ]
+  },
+
+  "includes": {
+    "heading": "Dump Truck Rental Includes",
+    "subheading": "Flexible hauling support for a wide range of construction projects.",
+    "items": [
+      {
+        "title": "Material Delivery",
+        "description": "We can supply and deliver gravel, sand, topsoil, and fill."
+      },
+      {
+        "title": "Spoil & Debris Removal",
+        "description": "Hauling away excavation material, broken concrete, and demolition debris."
+      },
+      {
+        "title": "On-Site Hauling Support",
+        "description": "Trucks available to support large excavation and grading projects."
+      },
+      {
+        "title": "Multiple Load Hauling",
+        "description": "Efficient turnarounds for projects that require several loads per day."
+      }
+    ]
+  },
+
+  "equipment": {
+    "heading": "Dump Truck Fleet",
+    "subheading": "Modern trucks maintained for reliable daily use.",
+    "items": [
+      {
+        "icon": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp",
+        "title": "Tri-Axle Dump Trucks",
+        "description": "Capable of hauling up to approximately 21.5 tons per load, depending on material and regulations."
+      }
+    ]
+  },
+
+  "process": {
+    "heading": "How Truck Rental Works",
+    "subheading": "Simple booking and reliable hauling.",
+    "steps": [
+      {
+        "title": "Request a Quote",
+        "description": "Tell us your material, location, and rough volume."
+      },
+      {
+        "title": "Schedule Truck & Operator",
+        "description": "We book dates and times that align with your site schedule."
+      },
+      {
+        "title": "Hauling & Delivery",
+        "description": "Our operator delivers or removes material as planned."
+      },
+      {
+        "title": "Project Wrap-Up",
+        "description": "Final loads are completed and the site is left clean and accessible."
+      }
+    ]
+  },
+
+  "serviceArea": {
+    "heading": "Service Area",
+    "content": "Dump truck rentals are available across Brant County and surrounding communities.",
+    "locations": [
+      "Paris",
+      "Brantford",
+      "Brant County",
+      "St. George",
+      "Burford",
+      "Ayr",
+      "Cambridge",
+      "Hamilton",
+      "Woodstock"
+    ]
+  },
+
+  "faq": {
+    "heading": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "Do trucks come with an operator?",
+        "answer": "Yes, all dump truck rentals include an experienced operator."
+      },
+      {
+        "question": "Can I hire trucks by the day?",
+        "answer": "Yes, we offer day rates and project-based pricing."
+      },
+      {
+        "question": "Do you supply material as well?",
+        "answer": "Yes, we can both supply and haul aggregates or simply provide hauling for your material."
+      }
+    ]
+  },
+
+  "cta": {
+    "heading": "Need Dump Truck Support?",
+    "subheading": "Book a dump truck with an experienced operator.",
+    "button": "Request Truck Rental Quote"
+  }
+}

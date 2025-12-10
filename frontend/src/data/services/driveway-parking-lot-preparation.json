@@ -1,0 +1,151 @@
+{
+  "id": 4,
+  "slug": "driveway-parking-lot-preparation",
+
+  "meta": {
+    "title": "Driveway & Parking Lot Construction | Brant County, Brantford",
+    "description": "Professional grading and site preparation for driveways and parking lots in Brant County. Ensure a level, compacted surface ready for paving."
+  },
+
+  "card": {
+    "title": "Driveway & Parking Lot Preparation",
+    "description": "Expert site grading and compaction for stable driveways and parking lots.",
+    "image": "/assets/driveway-parking-lot-construction.jpg",
+    "alt": "A skid steer grading a driveway before gravel installation."
+  },
+
+  "hero": {
+    "heading": "Driveway & Parking Lot Preparation",
+    "subheading": "Precision Site Grading & Compaction for Long-Lasting Surfaces",
+    "image": "/assets/driveways-parking-lots-services.png",
+    "alt": "A construction site being prepared for driveway installation with grading equipment."
+  },
+
+  "intro": {
+    "heading": "Proper Site Preparation for Driveways & Parking Lots",
+    "content": "Bellhouse Excavating provides expert grading and compaction services to prepare driveways and parking lots for paving, gravel installation, or resurfacing. We shape, level, and compact the surface to ensure long-term durability and proper drainage.",
+    "keypoints": [
+      "Expert grading and surface shaping",
+      "Base material placement and compaction",
+      "Driveway widening and regrading",
+      "Parking lot preparation for commercial sites"
+    ]
+  },
+
+  "includes": {
+    "heading": "Driveway & Parking Lot Prep Includes",
+    "subheading": "Everything required to build a stable, long-lasting surface.",
+    "items": [
+      {
+        "title": "Grading & Slope Correction",
+        "description": "We create proper drainage slopes to prevent pooling, erosion, and frost-heave issues."
+      },
+      {
+        "title": "Base Material Installation",
+        "description": "Granular A or B placed, spread, and compacted in lifts for max stability."
+      },
+      {
+        "title": "Compaction",
+        "description": "Using our diesel plate tamper (and roller rental if needed), we ensure proper compaction for long-term durability."
+      },
+      {
+        "title": "Driveway Widening",
+        "description": "We remove sod, soil, and obstacles to widen existing driveways."
+      },
+      {
+        "title": "Parking Lot Prep",
+        "description": "Commercial grading for asphalt or gravel lots of any size."
+      }
+    ]
+  },
+
+  "equipment": {
+    "heading": "Equipment Used",
+    "subheading": "Reliable machines that deliver accurate grading and compaction.",
+    "items": [
+      {
+        "icon": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp",
+        "title": "Excavator",
+        "description": "Used to remove old material, shape ditches, and build proper grade."
+      },
+      {
+        "icon": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp",
+        "title": "Tri-Axle Dump Trucks",
+        "description": "Delivering base gravel and hauling away debris or excess soil."
+      },
+      {
+        "icon": "/assets/services/bellhouse-plate-compactor-excavation-compaction-tool.webp",
+        "title": "Diesel Plate Tamper",
+        "description": "Ensuring proper compaction of base material for a solid finished surface."
+      }
+    ]
+  },
+
+  "process": {
+    "heading": "How Our Process Works",
+    "subheading": "A streamlined workflow for perfect surface prep.",
+    "steps": [
+      {
+        "title": "Site Assessment",
+        "description": "We evaluate drainage needs, slope issues, and required materials."
+      },
+      {
+        "title": "Excavation & Removal",
+        "description": "We remove soft, unsuitable soils and shape the rough grade."
+      },
+      {
+        "title": "Base Material Installation",
+        "description": "We place gravel in controlled lifts and compact between layers."
+      },
+      {
+        "title": "Fine Grading & Slope Setting",
+        "description": "We dial in precise drainage slopes to avoid future issues."
+      },
+      {
+        "title": "Final Compaction",
+        "description": "The surface is compacted and ready for paving or use."
+      }
+    ]
+  },
+
+  "serviceArea": {
+    "heading": "Service Area",
+    "content": "Driveway and parking lot grading available across Brant County and neighbouring cities.",
+    "locations": [
+      "Paris",
+      "Brantford",
+      "St. George",
+      "Burford",
+      "Hamilton",
+      "Cambridge",
+      "Kitchener",
+      "Waterloo",
+      "Ayr",
+      "Woodstock"
+    ]
+  },
+
+  "faq": {
+    "heading": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "What base material do you recommend?",
+        "answer": "Granular A for most residential projects, Granular B for deep fills or heavy traffic areas."
+      },
+      {
+        "question": "Do you prepare for asphalt paving?",
+        "answer": "Yes, our grading and compaction meets paving contractor requirements."
+      },
+      {
+        "question": "Can you fix drainage issues?",
+        "answer": "Yes, slope correction and ditching are part of our grading service."
+      }
+    ]
+  },
+
+  "cta": {
+    "heading": "Ready to Build a Better Driveway?",
+    "subheading": "Get a quote for grading and site preparation today.",
+    "button": "Request a Quote"
+  }
+}

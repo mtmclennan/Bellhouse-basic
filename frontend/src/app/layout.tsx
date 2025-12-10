@@ -40,12 +40,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* ReCAPTCHA */}
-        <Script
-          src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
-          strategy="beforeInteractive"
-        />
-
         {/* Local Business Schema */}
         <Script
           id="local-business-schema"

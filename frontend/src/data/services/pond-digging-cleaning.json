@@ -1,0 +1,136 @@
+{
+  "id": 8,
+  "slug": "pond-digging-cleaning",
+
+  "meta": {
+    "title": "Pond Digging & Cleaning Services | Brant County | Bellhouse",
+    "description": "Professional pond digging and maintenance services in Brant County. Excavation, restoration, and cleaning for residential, commercial, and agricultural ponds."
+  },
+
+  "card": {
+    "title": "Pond Digging & Cleaning Services",
+    "description": "Custom pond excavation, dredging, and cleaning for farms and residential properties.",
+    "image": "/assets/pond-digging-cleaning-brant-county.jpg",
+    "alt": "An excavator digging a new pond on rural land."
+  },
+
+  "hero": {
+    "heading": "Pond Digging & Cleaning Services",
+    "subheading": "Custom Pond Excavation & Maintenance for Healthy Water Management",
+    "image": "/assets/pond-digging-cleaning-services-brant-county.png",
+    "alt": "A large pond under construction, shaped by an excavator."
+  },
+
+  "intro": {
+    "heading": "Create, Expand, or Restore Your Pond with Expert Excavation",
+    "content": "Bellhouse Excavating provides complete pond digging and pond cleaning services, from new pond construction to sediment removal and shoreline reshaping. Whether you want a farm pond, wildlife pond, or decorative feature, we can build or restore it.",
+    "keypoints": [
+      "New pond excavation",
+      "Pond deepening and expansion",
+      "Sediment removal and dredging",
+      "Shoreline reshaping and drainage improvements"
+    ]
+  },
+
+  "includes": {
+    "heading": "Pond Excavation & Cleaning Includes",
+    "subheading": "Complete pond creation and restoration services.",
+    "items": [
+      {
+        "title": "New Pond Construction",
+        "description": "Custom pond digging based on drainage, depth, and land use."
+      },
+      {
+        "title": "Sediment Removal",
+        "description": "We remove silt buildup to restore water depth and improve clarity."
+      },
+      {
+        "title": "Pond Expansion",
+        "description": "We dig additional sections to increase water capacity."
+      },
+      {
+        "title": "Shoreline Reshaping",
+        "description": "We shape natural slopes and improve drainage for longevity."
+      }
+    ]
+  },
+
+  "equipment": {
+    "heading": "Equipment Used for Pond Projects",
+    "subheading": "Powerful machines for moving large amounts of soil and sediment.",
+    "items": [
+      {
+        "icon": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp",
+        "title": "Excavator",
+        "description": "Used for digging ponds, removing sediment, and shaping shorelines."
+      },
+      {
+        "icon": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp",
+        "title": "Tri-Axle Dump Trucks",
+        "description": "Hauling away excess material and bringing in aggregates."
+      }
+    ]
+  },
+
+  "process": {
+    "heading": "How Our Pond Services Work",
+    "subheading": "Clear, efficient steps from design to completion.",
+    "steps": [
+      {
+        "title": "Site Assessment",
+        "description": "We evaluate drainage, soil type, and access for excavation."
+      },
+      {
+        "title": "Excavation & Shaping",
+        "description": "We dig the pond to required depth and create natural slopes."
+      },
+      {
+        "title": "Sediment Removal (If Applicable)",
+        "description": "We remove silt and organic buildup to restore depth."
+      },
+      {
+        "title": "Final Grading",
+        "description": "We shape shorelines and ensure proper water management."
+      }
+    ]
+  },
+
+  "serviceArea": {
+    "heading": "Service Area",
+    "content": "Pond digging and cleaning services available across Brant County and surrounding rural areas.",
+    "locations": [
+      "Paris",
+      "Brantford",
+      "Brant County",
+      "St. George",
+      "Burford",
+      "Ayr",
+      "Norfolk County",
+      "Woodstock"
+    ]
+  },
+
+  "faq": {
+    "heading": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "How deep can you dig a pond?",
+        "answer": "Most ponds are dug 6–12 feet deep, depending on purpose and soil conditions."
+      },
+      {
+        "question": "Do you handle wetlands?",
+        "answer": "We can improve drainage and sediment buildup, but regulated wetlands require permits."
+      },
+      {
+        "question": "Can you clean an overgrown pond?",
+        "answer": "Yes, we remove sediment, vegetation, and reshape the shoreline."
+      }
+    ]
+  },
+
+  "cta": {
+    "heading": "Ready to Build or Restore Your Pond?",
+    "subheading": "Get a custom quote for pond digging or cleaning.",
+    "button": "Request Pond Quote"
+  }
+}

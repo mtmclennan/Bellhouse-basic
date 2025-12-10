@@ -24,7 +24,7 @@ interface ServiceLayoutProps {
 }
 
 export default function ServiceLayout({ service }: ServiceLayoutProps) {
-  console.log(service);
+  // console.log(service);
   return (
     <LayoutHome background="off">
       {/* HERO */}

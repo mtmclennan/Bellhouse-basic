@@ -1,0 +1,142 @@
+{
+  "id": 2,
+  "slug": "heavy-equipment-hauling",
+
+  "meta": {
+    "title": "Equipment Hauling & Floating Services | Brant, Brantford",
+    "description": "Reliable heavy equipment hauling & float truck services in Brant County. Safe transportation of excavators, bulldozers, and machinery."
+  },
+
+  "card": {
+    "title": "Heavy Equipment Hauling & Float Truck Services",
+    "description": "Transport heavy machinery safely with our professional float truck services.",
+    "image": "/assets/truck-hauling-heavy-equipment.jpg",
+    "alt": "A float truck transporting an excavator to a construction site in Brant County."
+  },
+
+  "hero": {
+    "heading": "Heavy Equipment Hauling & Floating Services",
+    "subheading": "Safe, Secure, and Efficient Transportation for Construction Machinery",
+    "image": "/assets/equipment-floating-trucking-services.png",
+    "alt": "A low-bed float truck loaded with heavy equipment, ready for transport."
+  },
+
+  "intro": {
+    "heading": "Reliable Heavy Equipment Hauling for Your Construction Needs",
+    "content": "Bellhouse Excavating provides professional heavy equipment floating services to transport machinery safely and efficiently. We move excavators, skid steers, dozers, and other equipment with proper tie-downs, safe loading procedures, and experienced operators.",
+    "keypoints": [
+      "Fully insured hauling services",
+      "Safe loading and unloading procedures",
+      "Experienced, licensed operators",
+      "Reliable transport across Brant County and surrounding areas"
+    ]
+  },
+
+  "includes": {
+    "heading": "What’s Included in Our Hauling Service",
+    "subheading": "A safe and efficient experience from pickup to delivery.",
+    "items": [
+      {
+        "title": "Machine Loading & Securement",
+        "description": "Proper tie-downs and transport procedures ensure safe travel for every load."
+      },
+      {
+        "title": "Equipment Transport for Short & Long Distance",
+        "description": "We move equipment between job sites, storage yards, and rental depots."
+      },
+      {
+        "title": "Flexible Scheduling",
+        "description": "Hauling available weekdays and weekends to reduce project downtime."
+      },
+      {
+        "title": "Oversized Load Coordination",
+        "description": "We manage the logistics for machinery that requires special attention."
+      }
+    ]
+  },
+
+  "equipment": {
+    "heading": "Equipment We Use for Hauling",
+    "subheading": "Reliable trucks and proper transport tools for safe hauling.",
+    "items": [
+      {
+        "icon": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp",
+        "title": "Tri-Axle Trucks",
+        "description": "Ideal for towing and hauling mid-size machinery."
+      },
+      {
+        "icon": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp",
+        "title": "Loading Equipment",
+        "description": "Excavators and skid steers assist with safe loading where needed."
+      },
+      {
+        "icon": "/assets/services/bellhouse-laser-level-gps-rover-precision-layout-tools.webp",
+        "title": "Transport Safety Gear",
+        "description": "Proper chains, binders, and load securement equipment."
+      }
+    ]
+  },
+
+  "process": {
+    "heading": "How Our Hauling Process Works",
+    "subheading": "Fast, predictable, and safe from start to finish.",
+    "steps": [
+      {
+        "title": "Pickup & Pre-Trip Inspection",
+        "description": "We inspect the equipment and plan secure loading."
+      },
+      {
+        "title": "Safe Loading & Tie-Down",
+        "description": "Your equipment is secured using proper load-rated gear."
+      },
+      {
+        "title": "Transport to Destination",
+        "description": "We haul machinery safely to its next job site or storage location."
+      },
+      {
+        "title": "Unload & Placement",
+        "description": "We unload equipment exactly where you need it."
+      }
+    ]
+  },
+
+  "serviceArea": {
+    "heading": "Service Area",
+    "content": "We provide equipment hauling throughout Brant County and nearby regions.",
+    "locations": [
+      "Paris",
+      "Brantford",
+      "Brant County",
+      "St. George",
+      "Burford",
+      "Hamilton",
+      "Cambridge",
+      "Ayr",
+      "Woodstock"
+    ]
+  },
+
+  "faq": {
+    "heading": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "What equipment can you haul?",
+        "answer": "Excavators, skid steers, tractors, small dozers, and similar machinery."
+      },
+      {
+        "question": "Are you insured?",
+        "answer": "Yes, all hauling is fully insured for your protection."
+      },
+      {
+        "question": "How far do you haul?",
+        "answer": "We service Brant County and surrounding areas. Longer hauls available on request."
+      }
+    ]
+  },
+
+  "cta": {
+    "heading": "Need Equipment Hauled?",
+    "subheading": "Get a reliable, insured hauling service for your machinery.",
+    "button": "Request Hauling Quote"
+  }
+}

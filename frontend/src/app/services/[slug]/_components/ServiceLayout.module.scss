@@ -251,16 +251,43 @@
 /* SERVICE AREA LISTS */
 
 .locationList {
-  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem 2rem;
   max-width: 80rem;
-  margin-top: 2rem;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
 
   li {
     font-size: 1.8rem;
-    margin-bottom: 1rem;
+    padding-left: 1.4rem;
+    position: relative;
     line-height: 1.4;
-    list-style: disc;
-    margin-left: 2rem;
+    color: white;
+  }
+
+  li::before {
+    content: '';
+    width: 0.8rem;
+    height: 0.8rem;
+    background: v.$color-accent;
+    border-radius: 50%;
+    position: absolute;
+    top: 0.8rem;
+    left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .locationList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .locationList {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -524,34 +551,6 @@
   background: v.$color-accent;
   flex-shrink: 0;
   margin-top: 0.3rem;
-}
-
-.locationList {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.2rem 2rem;
-  max-width: 60rem;
-  margin: 2rem auto 0;
-  padding: 0;
-
-  li {
-    list-style: none;
-    font-size: 1.8rem;
-    padding-left: 1.4rem;
-    position: relative;
-    line-height: 1.4;
-  }
-
-  li::before {
-    content: '';
-    width: 0.8rem;
-    height: 0.8rem;
-    background: v.$color-accent;
-    border-radius: 50%;
-    position: absolute;
-    top: 0.8rem;
-    left: 0;
-  }
 }
 
 .backgroundMid {

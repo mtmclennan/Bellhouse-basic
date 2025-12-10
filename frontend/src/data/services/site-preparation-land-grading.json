@@ -1,0 +1,152 @@
+{
+  "id": 10,
+  "slug": "site-preparation-land-grading",
+
+  "meta": {
+    "title": "Site Preparation & Land Grading | Brant County | Bellhouse",
+    "description": "Professional site preparation and land grading services in Brant County. Precision grading, excavation, and clearing for construction projects."
+  },
+
+  "card": {
+    "title": "Site Preparation & Land Grading Services",
+    "description": "Land clearing, grading, and excavation to get your site ready for construction.",
+    "image": "/assets/site-preparation-dozer-brant-county.jpg",
+    "alt": "A bulldozer grading land for site preparation and foundation work."
+  },
+
+  "hero": {
+    "heading": "Site Preparation & Land Grading Services",
+    "subheading": "Precision Grading & Land Clearing for a Strong Construction Foundation",
+    "image": "/assets/site-preparation-dozer-brant-county.png",
+    "alt": "A bulldozer leveling ground for a future construction project."
+  },
+
+  "intro": {
+    "heading": "Start Your Project with Proper Site Preparation",
+    "content": "Bellhouse Excavating handles full site preparation, including stripping topsoil, rough grading, land shaping, and excavation for foundations, roads, and drainage. Proper site prep sets your project up for long-term success.",
+    "keypoints": [
+      "Land clearing and rough grading",
+      "Building pad and roadbed preparation",
+      "Drainage and ditching improvements",
+      "Foundation and trench excavation"
+    ]
+  },
+
+  "includes": {
+    "heading": "Site Prep & Grading Includes",
+    "subheading": "Everything required to turn raw land into a build-ready site.",
+    "items": [
+      {
+        "title": "Topsoil Stripping",
+        "description": "Removal of organics and topsoil to expose stable subgrade."
+      },
+      {
+        "title": "Rough & Final Grading",
+        "description": "We shape the land for proper drainage and building layout."
+      },
+      {
+        "title": "Building Pad Prep",
+        "description": "Creation of level, compacted pads for shops, barns, and homes."
+      },
+      {
+        "title": "Ditching & Drainage",
+        "description": "Ditches and swales to manage water and protect structures."
+      }
+    ]
+  },
+
+  "equipment": {
+    "heading": "Equipment Used for Site Prep",
+    "subheading": "Excavation and grading equipment suited for small to mid-size sites.",
+    "items": [
+      {
+        "icon": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp",
+        "title": "Excavator",
+        "description": "Used for cutting grades, trenching, and bulk excavation."
+      },
+      {
+        "icon": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp",
+        "title": "Tri-Axle Dump Trucks",
+        "description": "Hauling away unsuitable material and bringing in base or fill."
+      },
+      {
+        "icon": "/assets/services/bellhouse-plate-compactor-excavation-compaction-tool.webp",
+        "title": "Diesel Plate Tamper",
+        "description": "Compacting building pads, driveways, and trenches."
+      },
+      {
+        "icon": "/assets/services/bellhouse-laser-level-gps-rover-precision-layout-tools.webp",
+        "title": "Rotary Laser & Grade Tools",
+        "description": "For accurate elevations and consistent grading."
+      }
+    ]
+  },
+
+  "process": {
+    "heading": "Our Site Preparation Process",
+    "subheading": "Organized, efficient, and built around your project schedule.",
+    "steps": [
+      {
+        "title": "Site Walk & Planning",
+        "description": "We review drawings, grades, and drainage needs."
+      },
+      {
+        "title": "Topsoil Removal",
+        "description": "Stripping and stockpiling or hauling of topsoil as required."
+      },
+      {
+        "title": "Rough Grading",
+        "description": "We shape the land to match proposed elevations."
+      },
+      {
+        "title": "Pad & Access Prep",
+        "description": "We create stable access roads and building pads."
+      },
+      {
+        "title": "Final Grading",
+        "description": "Final shaping for drainage and site usability."
+      }
+    ]
+  },
+
+  "serviceArea": {
+    "heading": "Service Area",
+    "content": "Site preparation and grading services available throughout Brant County and surrounding regions.",
+    "locations": [
+      "Paris",
+      "Brantford",
+      "Brant County",
+      "St. George",
+      "Burford",
+      "Ayr",
+      "Cambridge",
+      "Kitchener",
+      "Waterloo",
+      "Hamilton"
+    ]
+  },
+
+  "faq": {
+    "heading": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "Can you prepare sites for new builds?",
+        "answer": "Yes, we regularly prepare sites for new homes, shops, and agricultural buildings."
+      },
+      {
+        "question": "Do you handle drainage issues?",
+        "answer": "Yes, grading and ditching for drainage is a core part of site prep."
+      },
+      {
+        "question": "Can you work from engineered site plans?",
+        "answer": "Yes, we work directly from survey and engineering drawings."
+      }
+    ]
+  },
+
+  "cta": {
+    "heading": "Need Your Site Ready for Construction?",
+    "subheading": "Get a quote for site preparation and grading.",
+    "button": "Request Site Prep Quote"
+  }
+}
