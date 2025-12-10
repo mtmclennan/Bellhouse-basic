@@ -1,0 +1,136 @@
+{
+  "id": 6,
+  "slug": "off-road-dump-truck-services",
+
+  "meta": {
+    "title": "Off-Road Dump Truck Services | Brant County | Bellhouse",
+    "description": "Heavy-duty off-road dump truck services in Brant County. Efficient bulk material hauling for construction, mining, and remote job sites."
+  },
+
+  "card": {
+    "title": "Off-Road Dump Truck & Rock Hauling",
+    "description": "Specialized off-road hauling for bulk material transport on rugged terrain.",
+    "image": "/assets/off-road-dump-truck-rental.jpg",
+    "alt": "A large off-road dump truck transporting materials on a construction site."
+  },
+
+  "hero": {
+    "heading": "Off-Road Dump Truck Services",
+    "subheading": "Heavy-Duty Material Transport for Challenging Job Sites",
+    "image": "/assets/off-road-hauling-services.png",
+    "alt": "An off-road dump truck hauling gravel through rough terrain."
+  },
+
+  "intro": {
+    "heading": "Reliable Off-Road Dump Truck Services for Tough Terrain",
+    "content": "For jobs where standard trucks can’t go, Bellhouse Excavating provides off-road hauling services designed for rugged environments. From large rock loads to bulk excavation material, our team ensures safe and efficient transport in remote or uneven job sites.",
+    "keypoints": [
+      "Heavy-duty off-road haul trucks",
+      "Ideal for quarries, remote builds, and rough terrain",
+      "Efficient handling of bulk rock and fill",
+      "Experienced operators for challenging sites"
+    ]
+  },
+
+  "includes": {
+    "heading": "Off-Road Hauling Includes",
+    "subheading": "Professional hauling for heavy materials and rugged environments.",
+    "items": [
+      {
+        "title": "Bulk Material Hauling",
+        "description": "Transport of rock, clay, overburden, sand, and bulk fill."
+      },
+      {
+        "title": "Rugged Terrain Access",
+        "description": "Designed for sites where standard dump trucks cannot operate."
+      },
+      {
+        "title": "Large-Capacity Hauling",
+        "description": "Efficient movement of large quantities of material to speed up excavation schedules."
+      },
+      {
+        "title": "Support for Remote Projects",
+        "description": "Ideal for agricultural land clearing, pits, and long private road projects."
+      }
+    ]
+  },
+
+  "equipment": {
+    "heading": "Equipment Used for Off-Road Hauling",
+    "subheading": "Heavy-duty machinery built for rough terrain.",
+    "items": [
+      {
+        "icon": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp",
+        "title": "Off-Road Haul Trucks",
+        "description": "Designed to handle steep slopes, mud, and uneven terrain."
+      },
+      {
+        "icon": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp",
+        "title": "Excavator",
+        "description": "Used for loading heavy material into haul trucks."
+      }
+    ]
+  },
+
+  "process": {
+    "heading": "How Our Off-Road Hauling Works",
+    "subheading": "A safe, efficient workflow for challenging job sites.",
+    "steps": [
+      {
+        "title": "Material Assessment",
+        "description": "We determine load type, weight, and site conditions."
+      },
+      {
+        "title": "Safe Loading",
+        "description": "Material is loaded using proper techniques for balanced hauling."
+      },
+      {
+        "title": "Transport Across Rugged Terrain",
+        "description": "Our operators navigate challenging job sites safely and efficiently."
+      },
+      {
+        "title": "Material Dumping",
+        "description": "Material is placed in designated locations for grading or removal."
+      }
+    ]
+  },
+
+  "serviceArea": {
+    "heading": "Service Area",
+    "content": "Off-road hauling available throughout Brant County and nearby remote areas.",
+    "locations": [
+      "Brant County",
+      "Paris",
+      "Brantford",
+      "Burford",
+      "Ayr",
+      "Cambridge",
+      "St. George",
+      "Hamilton"
+    ]
+  },
+
+  "faq": {
+    "heading": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "Can you haul large rock?",
+        "answer": "Yes, our off-road trucks are designed for large rock and heavy materials."
+      },
+      {
+        "question": "Do you work on wet or muddy job sites?",
+        "answer": "Yes, off-road trucks are ideal for soft or uneven ground."
+      },
+      {
+        "question": "Do you support large excavation projects?",
+        "answer": "Yes, we frequently haul material for large digs and site preparation projects."
+      }
+    ]
+  },
+
+  "cta": {
+    "heading": "Need Off-Road Hauling?",
+    "subheading": "Get a fast quote for rugged terrain material transport.",
+    "button": "Request Hauling Quote"
+  }
+}

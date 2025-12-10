@@ -1,0 +1,146 @@
+{
+  "id": 5,
+  "slug": "septic-system-installation",
+
+  "meta": {
+    "title": "Septic System Installation | Brant County | Bellhouse",
+    "description": "Expert septic system installation in Brant County. Reliable, compliant solutions for homes & businesses."
+  },
+
+  "card": {
+    "title": "Septic System Installation Services",
+    "description": "Complete septic system excavation, tank placement, and drainage bed installation.",
+    "image": "/assets/septic-system-installation-contractor.jpg",
+    "alt": "An excavator digging a trench for a new septic system installation."
+  },
+
+  "hero": {
+    "heading": "Septic System Installation Services",
+    "subheading": "Efficient & Compliant Septic Solutions for Residential & Commercial Needs",
+    "image": "/assets/septic-system-installation-contractor.png",
+    "alt": "A backhoe digging for septic tank placement at a construction site."
+  },
+
+  "intro": {
+    "heading": "Professional Septic System Installation for Homes & Businesses",
+    "content": "Bellhouse Excavating installs septic tanks, drainage beds, and complete systems according to local codes and engineering guidelines. We provide safe excavation, proper grading, and long-lasting installations.",
+    "keypoints": [
+      "Septic tank excavation and proper placement",
+      "Fully engineered drainage bed installation",
+      "Regulation-compliant depth and slope",
+      "Fast and reliable service"
+    ]
+  },
+
+  "includes": {
+    "heading": "Septic System Installation Scope",
+    "subheading": "We install complete septic systems from excavation to final grading.",
+    "items": [
+      {
+        "title": "Tank Excavation & Placement",
+        "description": "Digging to engineered depth and placing tanks with proper bedding."
+      },
+      {
+        "title": "Trench & Drainage Field Installation",
+        "description": "We follow engineered designs for lateral pipes, stone, and filter cloth."
+      },
+      {
+        "title": "Soil Backfilling",
+        "description": "Controlled backfills that protect tanks and pipes from shifting."
+      },
+      {
+        "title": "Final Grading",
+        "description": "We shape the area for proper drainage and long-term performance."
+      }
+    ]
+  },
+
+  "equipment": {
+    "heading": "Equipment Used",
+    "subheading": "Reliable machinery for safe septic excavation.",
+    "items": [
+      {
+        "icon": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp",
+        "title": "Excavator",
+        "description": "Used for tank digging, trenching, and final grading."
+      },
+      {
+        "icon": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp",
+        "title": "Tri-Axle Dump Trucks",
+        "description": "Transporting sand, gravel, and removing excess soil."
+      },
+      {
+        "icon": "/assets/services/bellhouse-plate-compactor-excavation-compaction-tool.webp",
+        "title": "Diesel Plate Tamper",
+        "description": "Compacts around tanks and trenches to prevent settling."
+      }
+    ]
+  },
+
+  "process": {
+    "heading": "How Our Septic Installation Works",
+    "subheading": "A reliable workflow that ensures proper function and long-term performance.",
+    "steps": [
+      {
+        "title": "Site Review & Engineering Plans",
+        "description": "We review septic designs and confirm elevations."
+      },
+      {
+        "title": "Tank Excavation",
+        "description": "We dig and prepare the tank bed to spec."
+      },
+      {
+        "title": "Tank Placement",
+        "description": "We install tanks with proper bedding and leveling."
+      },
+      {
+        "title": "Drainage Field Installation",
+        "description": "We trench, place pipes, stone, and protective layers."
+      },
+      {
+        "title": "Backfill & Grade",
+        "description": "We backfill in controlled lifts and shape final grade."
+      }
+    ]
+  },
+
+  "serviceArea": {
+    "heading": "Service Area",
+    "content": "Septic installation available across Brant County and surrounding regions.",
+    "locations": [
+      "Paris",
+      "Brantford",
+      "Brant County",
+      "St. George",
+      "Burford",
+      "Ayr",
+      "Cambridge",
+      "Hamilton",
+      "Woodstock"
+    ]
+  },
+
+  "faq": {
+    "heading": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "Do you handle engineering?",
+        "answer": "Engineering must be completed before installation, but we work directly with your engineer."
+      },
+      {
+        "question": "Can you replace failing systems?",
+        "answer": "Yes, we remove and replace outdated systems."
+      },
+      {
+        "question": "Do you install tanks for new builds?",
+        "answer": "Yes, we work with builders and homeowners."
+      }
+    ]
+  },
+
+  "cta": {
+    "heading": "Need a Septic System Installed?",
+    "subheading": "Get a professional quote for excavation and installation.",
+    "button": "Request Septic Quote"
+  }
+}

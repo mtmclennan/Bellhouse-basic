@@ -124,10 +124,26 @@
 
     "serviceArea": {
       "heading": "Service Area",
-      "content": "We provide foundation excavation and backfilling throughout Brant County, including Brantford, Paris, St. George, Burford, and surrounding rural areas. We also service Hamilton and nearby communities.",
-      "locations": ["Brantford", "Paris", "Hamilton", "St. George", "Burford"]
+      "content": "We provide excavation, foundation digging, backfilling, and dump truck services throughout Brant County, Brantford, Hamilton, Cambridge, Kitchener–Waterloo, and surrounding Southern Ontario communities.",
+      "locations": [
+        "Paris",
+        "Brantford",
+        "Brant County",
+        "St. George",
+        "Burford",
+        "Hamilton",
+        "Ancaster",
+        "Stoney Creek",
+        "Burlington",
+        "Milton",
+        "Cambridge",
+        "Kitchener",
+        "Waterloo",
+        "Woodstock",
+        "Ayr",
+        "Simcoe"
+      ]
     },
-
     "faq": {
       "heading": "Frequently Asked Questions",
       "items": [

@@ -1,0 +1,123 @@
+{
+  "id": 3,
+  "slug": "dirt-gravel-delivery",
+
+  "meta": {
+    "title": "Dirt & Gravel, Aggregates Delivery | Brant County",
+    "description": "Fast, efficient dirt, gravel & aggregate delivery in Brant County. Reliable dump truck services for construction, landscaping & site prep."
+  },
+
+  "card": {
+    "title": "Dump Truck Services - Dirt & Gravel Delivery",
+    "description": "Bulk delivery of gravel, topsoil, sand, and aggregates.",
+    "image": "/assets/dump-truck-delivery-service.jpg",
+    "alt": "A tri-axle dump truck unloading gravel at a construction site."
+  },
+
+  "hero": {
+    "heading": "Dirt & Gravel Delivery Services",
+    "subheading": "Fast, Reliable Aggregate Delivery for Construction & Landscaping",
+    "image": "/assets/tri-axle-dump-truck-services.png",
+    "alt": "A dump truck delivering gravel for a new driveway installation."
+  },
+
+  "intro": {
+    "heading": "Reliable Dirt & Gravel Delivery for Any Project",
+    "content": "Bellhouse Excavating provides fast delivery of aggregates for construction, driveways, drainage projects, and landscaping.",
+    "keypoints": [
+      "Bulk delivery of high-quality materials",
+      "Fast turnaround times",
+      "Clean dumping with accurate placement",
+      "Affordable rates"
+    ]
+  },
+
+  "includes": {
+    "heading": "Materials We Deliver",
+    "subheading": "High-quality aggregates for construction and landscaping.",
+    "items": [
+      {
+        "title": "Gravel (A-Gravel, Clear Stone)",
+        "description": "Perfect for driveways, drainage, and compaction."
+      },
+      {
+        "title": "Topsoil",
+        "description": "Screened soil ideal for lawns and gardens."
+      },
+      {
+        "title": "Sand",
+        "description": "Used for leveling, bedding, and construction."
+      },
+      {
+        "title": "Fill Dirt",
+        "description": "Affordable bulk fill for grade changes and site prep."
+      }
+    ]
+  },
+
+  "equipment": {
+    "heading": "Equipment Used",
+    "subheading": "A well-maintained fleet for reliable delivery.",
+    "items": [
+      {
+        "icon": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp",
+        "title": "Tri-Axle Dump Trucks",
+        "description": "Efficient material hauling with 21.5-ton capacity."
+      }
+    ]
+  },
+
+  "process": {
+    "heading": "How Delivery Works",
+    "subheading": "Simple, fast, and accurate.",
+    "steps": [
+      {
+        "title": "Order & Scheduling",
+        "description": "Tell us your material and quantity."
+      },
+      {
+        "title": "Loading at Quarry or Yard",
+        "description": "We load high-quality aggregates."
+      },
+      {
+        "title": "Delivery to Site",
+        "description": "We dump material exactly where you need it."
+      }
+    ]
+  },
+
+  "serviceArea": {
+    "heading": "Service Area",
+    "content": "Aggregate delivery available throughout Brant County.",
+    "locations": [
+      "Paris",
+      "Brantford",
+      "Brant County",
+      "Ayr",
+      "Burford",
+      "St. George",
+      "Hamilton",
+      "Cambridge"
+    ]
+  },
+
+  "faq": {
+    "heading": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "What materials do you deliver?",
+        "answer": "Gravel, sand, topsoil, fill, and other aggregates."
+      },
+      {
+        "question": "Is there a minimum order?",
+        "answer": "Most deliveries require at least one full dump truck load."
+      }
+    ]
+  },
+
+  "cta": {
+    "heading": "Need Aggregates Delivered?",
+    "subheading": "Get a fast quote for dirt or gravel delivery.",
+    "button": "Get Delivery Quote"
+  }
+}

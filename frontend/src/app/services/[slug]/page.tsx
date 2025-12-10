@@ -1,50 +1,48 @@
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import ServiceLayout from './_components/ServiceLayout';
-import servicesData from '../../../data/services.json';
 import { validateMetadata } from '../../../lib/utils/seoValidation';
 import type { ServicePage } from '@/types/interfaces';
+import { getServiceBySlug } from '@/data/services/index';
+import { getAllServices } from '@/data/services/index';
 
 interface ServicePageProps {
   params: Promise<{ slug: string }>;
 }
 
-export const revalidate = 3600;
-
-export function generateStaticParams(): { slug: string }[] {
-  return (servicesData as ServicePage[]).map((service) => ({
-    slug: service.slug,
-  }));
-}
-
-export async function generateMetadata({
-  params,
-}: ServicePageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: ServicePageProps) {
   const { slug } = await params;
-  const service = servicesData.find((service) => service.slug === slug);
+  const service = getServiceBySlug(slug);
+
+  if (!service) {
+    return {
+      title: 'Service Not Found | Bellhouse Excavating',
+      description: 'Requested service does not exist.',
+    };
+  }
 
   const validated = validateMetadata(
-    service?.meta.title,
-    service?.meta.description
+    service.meta.title,
+    service.meta.description
   );
 
   return {
-    title: validated.title || 'Bellhouse excavating',
-    description: service?.meta.description || 'Excavating contractor',
+    title: validated.title,
+    description: validated.description,
   };
 }
 
 export default async function ServicePage({ params }: ServicePageProps) {
   const { slug } = await params;
-  const service = servicesData.find((s) => s.slug === slug);
+  const service = getServiceBySlug(slug);
 
-  if (!service) {
-    notFound(); // Automatically shows Next.js 404 page
-  }
+  if (!service) return notFound();
 
-  return (
-    <div>
-      <ServiceLayout service={service} />
-    </div>
-  );
+  return <ServiceLayout service={service} />;
+}
+
+export function generateStaticParams() {
+  return getAllServices().map((service) => ({
+    slug: service.slug,
+  }));
 }
