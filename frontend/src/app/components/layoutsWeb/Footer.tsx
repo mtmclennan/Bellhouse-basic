@@ -12,8 +12,6 @@ const Footer = () => {
   const homeClassname = currentRoute === '/' ? 'active' : 'non-active';
   const servicesClassname =
     currentRoute === '/services' ? 'active' : 'non-active';
-  const careersClassname =
-    currentRoute === '/careers' ? 'active' : 'non-active';
   const aboutClassname = currentRoute === '/about' ? 'active' : 'non-active';
   const contactClassname =
     currentRoute === '/contact' ? 'active' : 'non-active';
@@ -39,23 +37,24 @@ const Footer = () => {
       <div className={classes.nav}>
         <ul>
           <li>
-            <Link href="/"></Link>
+            <Link className={homeClassname} href="/">
+              Home
+            </Link>
           </li>
           <li>
             <Link className={servicesClassname} href="/services">
               Services
             </Link>
           </li>
-          {/* <li>
-            <Link href="/careers" className={toolsClassname}>
-              Careers
-            </Link>
-          </li> */}
           <li>
-            <Link href="/about">About</Link>
+            <Link className={aboutClassname} href="/about">
+              About
+            </Link>
           </li>
           <li>
-            <Link href="/contact">Contact</Link>
+            <Link className={contactClassname} href="/contact">
+              Contact
+            </Link>
           </li>
         </ul>
       </div>
