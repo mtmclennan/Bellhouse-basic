@@ -57,22 +57,27 @@
 
   "equipment": {
     "heading": "Equipment Used",
-    "subheading": "Reliable machinery for safe septic excavation.",
+    "subheading": "Precision equipment for accurate septic excavation and site preparation.",
     "items": [
       {
         "icon": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp",
         "title": "Excavator",
-        "description": "Used for tank digging, trenching, and final grading."
+        "description": "Used for septic tank excavation, trenching, and controlled material placement."
+      },
+      {
+        "icon": "/assets/services/bellhouse-laser-level-gps-rover-precision-layout-tools.webp",
+        "title": "Laser & GPS Survey Equipment",
+        "description": "Ensures accurate elevations, slopes, and system layout to meet septic design requirements."
+      },
+      {
+        "icon": "/assets/services/bellhouse-skid-steer-equipment-illustration.webp",
+        "title": "Skid Steer",
+        "description": "Used for fine grading, final shaping, and preparing surfaces for topsoil and grass."
       },
       {
         "icon": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp",
         "title": "Tri-Axle Dump Trucks",
-        "description": "Transporting sand, gravel, and removing excess soil."
-      },
-      {
-        "icon": "/assets/services/bellhouse-plate-compactor-excavation-compaction-tool.webp",
-        "title": "Diesel Plate Tamper",
-        "description": "Compacts around tanks and trenches to prevent settling."
+        "description": "Transporting sand, gravel, and removing excess excavated material."
       }
     ]
   },

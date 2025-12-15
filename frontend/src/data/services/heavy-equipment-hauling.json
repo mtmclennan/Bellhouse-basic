@@ -57,22 +57,27 @@
 
   "equipment": {
     "heading": "Equipment We Use for Hauling",
-    "subheading": "Reliable trucks and proper transport tools for safe hauling.",
+    "subheading": "Reliable trucks and proper transport equipment for safe, efficient hauling.",
     "items": [
       {
         "icon": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp",
-        "title": "Tri-Axle Trucks",
-        "description": "Ideal for towing and hauling mid-size machinery."
+        "title": "Tri-Axle Dump Trucks",
+        "description": "Used for hauling aggregate, excavated material, and towing equipment when required."
+      },
+      {
+        "icon": "/assets/services/bellhouse-triaxle-equipment-float-trailer-illustration.webp",
+        "title": "Tri-Axle Equipment Trailer",
+        "description": "Heavy-duty trailer used for transporting excavators, skid steers, and other machinery safely between sites."
       },
       {
         "icon": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp",
         "title": "Loading Equipment",
-        "description": "Excavators and skid steers assist with safe loading where needed."
+        "description": "Excavators and skid steers assist with safe loading and unloading where required."
       },
       {
-        "icon": "/assets/services/bellhouse-laser-level-gps-rover-precision-layout-tools.webp",
+        "icon": "/assets/services/bellhouse-transport-safety-gear.webp",
         "title": "Transport Safety Gear",
-        "description": "Proper chains, binders, and load securement equipment."
+        "description": "Chains, binders, and certified load securement equipment to ensure safe transport."
       }
     ]
   },

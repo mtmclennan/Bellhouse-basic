@@ -56,28 +56,38 @@
   },
 
   "equipment": {
-    "heading": "Equipment Used for Site Prep",
-    "subheading": "Excavation and grading equipment suited for small to mid-size sites.",
+    "heading": "Equipment Used for Site Preparation",
+    "subheading": "Heavy equipment and transport resources for efficient site clearing, grading, and earthmoving.",
     "items": [
+      {
+        "icon": "/assets/services/bellhouse-dozer-equipment-illustration.webp",
+        "title": "Dozer",
+        "description": "Used for bulk earthmoving, stripping topsoil, rough grading, and shaping building pads."
+      },
       {
         "icon": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp",
         "title": "Excavator",
-        "description": "Used for cutting grades, trenching, and bulk excavation."
+        "description": "Handles excavation, trenching, material placement, and detailed site shaping."
+      },
+      {
+        "icon": "/assets/services/bellhouse-skid-steer-equipment-illustration.webp",
+        "title": "Skid Steer",
+        "description": "Used for fine grading, cleanup, material handling, and preparing surfaces for construction."
+      },
+      {
+        "icon": "/assets/services/bellhouse-offroad-dump-truck-equipment-illustration.webp",
+        "title": "Off-Road Dump Truck",
+        "description": "Moves material efficiently around the site without relying on public road access."
       },
       {
         "icon": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp",
-        "title": "Tri-Axle Dump Trucks",
-        "description": "Hauling away unsuitable material and bringing in base or fill."
-      },
-      {
-        "icon": "/assets/services/bellhouse-plate-compactor-excavation-compaction-tool.webp",
-        "title": "Diesel Plate Tamper",
-        "description": "Compacting building pads, driveways, and trenches."
+        "title": "Tri-Axle Dump Truck",
+        "description": "Hauls excavated material off-site and delivers fill, granular base, and aggregates as needed."
       },
       {
         "icon": "/assets/services/bellhouse-laser-level-gps-rover-precision-layout-tools.webp",
-        "title": "Rotary Laser & Grade Tools",
-        "description": "For accurate elevations and consistent grading."
+        "title": "Laser & GPS Grade Control",
+        "description": "Ensures accurate elevations, slopes, and consistent grading across the site."
       }
     ]
   },

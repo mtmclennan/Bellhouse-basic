@@ -191,7 +191,7 @@ button {
   @include m.flexCenter();
   min-height: calc(100vh - 7rem);
   height: 100%;
-  padding-top: 4rem;
+  padding-top: 1rem;
   @include m.mediaDesktop {
     min-height: calc(100vh - 20rem);
   }
@@ -328,7 +328,7 @@ button {
 .hero__button-container {
   @include m.flexCenter();
   gap: 2rem;
-  margin-top: 3rem;
+  margin-top: 2rem;
 
   @include m.mediaPhone() {
     flex-direction: column;
