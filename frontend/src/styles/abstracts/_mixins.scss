@@ -65,6 +65,10 @@
     background-color: v.$btn-main-hover;
     transform: scale(1.03);
   }
+
+  @include mediaPhone {
+    font-size: 1.8rem;
+  }
 }
 
 @mixin btnSec {
@@ -80,5 +84,9 @@
   &:hover,
   &:focus {
     background-color: v.$grey-color-5;
+  }
+
+  @include mediaPhone {
+    font-size: 1.8rem;
   }
 }

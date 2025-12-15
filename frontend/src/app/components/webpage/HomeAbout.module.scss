@@ -16,7 +16,7 @@
 
   & h2 {
     font-weight: 100;
-    text-transform: uppercase;
+    // text-transform: uppercase;
     font-size: 4rem;
     text-align: center;
     @include m.mediaDesktop {
@@ -33,9 +33,9 @@
   }
 
   & h3 {
-    font-size: 3.5rem;
+    font-size: 3rem;
     margin-top: 2rem;
-    text-transform: uppercase;
+    // text-transform: uppercase;
     font-weight: 100;
     text-align: center;
   }
@@ -49,7 +49,7 @@
 .why {
   margin-top: 2rem;
   & h3 {
-    font-size: 4rem;
+    font-size: 3.5rem;
   }
 }
 
@@ -74,31 +74,10 @@
   @include m.flexCenter(column);
   margin: 5rem 0 5rem 0;
 
-  // & button {
-  //   margin-top: 2rem;
-  //   font-size: 1.5rem;
-  //   font-weight: 400;
-  //   padding: 0.75rem 1rem;
-  //   border-radius: 5px;
-  //   letter-spacing: 0.1rem;
-  //   transition: all 0.2s ease;
-  //   &:last-child {
-  //     color: v.$color-primary-light;
-  //     border: 1px solid v.$color-primary-dark;
-  //     background-color: v.$text-color-dark;
-  //   }
-
-  //   &:hover,
-  //   &:focus {
-  //     background-color: v.$btn-dark-hover;
-  //     transform: scale(1.04);
-  //     transition: all 0.2s ease;
-  //   }
-
   & h4 {
-    font-size: 2rem;
+    font-size: 3rem;
     @include m.mediaDesktop {
-      font-size: 3rem;
+      font-size: 4rem;
     }
     text-align: center;
     margin-bottom: 2rem;

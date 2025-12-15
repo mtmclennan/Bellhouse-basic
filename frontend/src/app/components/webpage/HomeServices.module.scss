@@ -4,16 +4,37 @@
 .container {
   @include m.flexCenter(column);
 
-  padding: 5rem 0 5rem 0;
-  width: 100%;
-  min-height: 50vh;
+  padding: 4rem 1.5rem 3rem;
   background-color: v.$color-primary-dark;
 
+  @include m.mediaDesktop {
+    padding: 6rem 2rem 4rem;
+  }
+
   & h2 {
-    font-size: 6rem;
-    font-weight: 100;
+    font-size: 4.5rem;
+
+    @include m.mediaDesktop {
+      font-size: 5rem;
+    }
+
     margin-bottom: 3rem;
     text-align: center;
+  }
+
+  & p {
+    max-width: 80rem;
+    margin: 0 auto 3rem;
+    font-size: 1.8rem;
+    line-height: 1.5;
+    font-weight: 400;
+    color: v.$grey-color-4;
+    text-align: center;
+    @include m.mediaDesktop {
+      .container > p {
+        font-size: 2rem;
+      }
+    }
   }
 }
 
@@ -35,15 +56,22 @@
   @include m.flexCenter(column);
   margin: 3rem 0 3rem 0;
   width: 100%;
-  font-size: 4rem;
 
-  @include m.mediaDesktop {
-    font-size: 6.5rem;
-    grid-column: 1 /4;
+  & h3 {
+    font-size: 2.5rem;
   }
 
-  & h3,
   & h4 {
-    font-weight: 100;
+    font-size: 3rem;
+  }
+
+  @include m.mediaDesktop {
+    & h3 {
+      font-size: 3.5rem;
+    }
+
+    & h4 {
+      font-size: 5rem;
+    }
   }
 }
