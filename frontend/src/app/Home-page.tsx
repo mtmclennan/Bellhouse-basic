@@ -8,53 +8,53 @@ import reviews from '@/data/reviews.json';
 import LayoutHome from '@/app/components/layoutsWeb/layoutHome';
 import HomeAbout from '@/app/components/webpage/HomeAbout';
 import HomeServices from '@/app/components/webpage/HomeServices';
-import ImageGallerySlider from '@/app/components/UI/ImageSlider';
+// import ImageGallerySlider from '@/app/components/UI/ImageSlider';
 import CallToAction from './components/webpage/CallToAction';
 import Link from 'next/link';
 import Reviews from './components/webpage/Reviews';
 import ServiceArea from './components/webpage/ServiceArea';
 
 const HomePage = () => {
-  const images = [
-    {
-      src: '/assets/excavator-digging-foundation.jpg',
-      alt: 'a bucket of dirt',
-    },
-    { src: '/assets/Auto-level-floor-skid-steer.jpg', alt: 'a bucket of dirt' },
-    { src: '/assets/dozer-pushing-dirt.jpg', alt: 'a bucket of dirt' },
-    {
-      src: '/assets/soil-conditioner-top-soil-skid-steer.jpg',
-      alt: 'a bucket of dirt',
-    },
-    {
-      src: '/assets/excavator-loading-tri-axle-foundation.jpg',
-      alt: 'a bucket of dirt',
-    },
-    {
-      src: '/assets/off-road-truck-dump-truck.jpg',
-      alt: 'a bucket of dirt',
-    },
-    {
-      src: '/assets/grading-driveway-laser-level.jpg',
-      alt: 'a bucket of dirt',
-    },
-    {
-      src: '/assets/foundation-backfill-packer.jpg',
-      alt: 'a bucket of dirt',
-    },
-    {
-      src: '/assets/retaining-wall-concrete.jpg',
-      alt: 'a bucket of dirt',
-    },
-    {
-      src: '/assets/tri-axle-dump-trucks.jpg',
-      alt: 'a bucket of dirt',
-    },
-    {
-      src: '/assets/site-preparation-dozer-brant-county.jpg',
-      alt: 'a bucket of dirt',
-    },
-  ];
+  // const images = [
+  //   {
+  //     src: '/assets/excavator-digging-foundation.jpg',
+  //     alt: 'a bucket of dirt',
+  //   },
+  //   { src: '/assets/Auto-level-floor-skid-steer.jpg', alt: 'a bucket of dirt' },
+  //   { src: '/assets/dozer-pushing-dirt.jpg', alt: 'a bucket of dirt' },
+  //   {
+  //     src: '/assets/soil-conditioner-top-soil-skid-steer.jpg',
+  //     alt: 'a bucket of dirt',
+  //   },
+  //   {
+  //     src: '/assets/excavator-loading-tri-axle-foundation.jpg',
+  //     alt: 'a bucket of dirt',
+  //   },
+  //   {
+  //     src: '/assets/off-road-truck-dump-truck.jpg',
+  //     alt: 'a bucket of dirt',
+  //   },
+  //   {
+  //     src: '/assets/grading-driveway-laser-level.jpg',
+  //     alt: 'a bucket of dirt',
+  //   },
+  //   {
+  //     src: '/assets/foundation-backfill-packer.jpg',
+  //     alt: 'a bucket of dirt',
+  //   },
+  //   {
+  //     src: '/assets/retaining-wall-concrete.jpg',
+  //     alt: 'a bucket of dirt',
+  //   },
+  //   {
+  //     src: '/assets/tri-axle-dump-trucks.jpg',
+  //     alt: 'a bucket of dirt',
+  //   },
+  //   {
+  //     src: '/assets/site-preparation-dozer-brant-county.jpg',
+  //     alt: 'a bucket of dirt',
+  //   },
+  // ];
 
   return (
     <Fragment>

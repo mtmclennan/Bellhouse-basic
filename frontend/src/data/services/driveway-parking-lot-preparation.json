@@ -66,17 +66,32 @@
       {
         "icon": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp",
         "title": "Excavator",
-        "description": "Used to remove old material, shape ditches, and build proper grade."
+        "description": "Used to remove old material, dig foundations, shape ditches, and establish proper grade."
       },
       {
         "icon": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp",
         "title": "Tri-Axle Dump Trucks",
-        "description": "Delivering base gravel and hauling away debris or excess soil."
+        "description": "Used for hauling excavated material and delivering granular base and aggregates."
+      },
+      {
+        "icon": "/assets/services/bellhouse-skid-steer-equipment-illustration.webp",
+        "title": "Skid Steer",
+        "description": "Ideal for tight access areas, fine grading, material handling, and site cleanup."
+      },
+      {
+        "icon": "/assets/services/bellhouse-dozer-equipment-illustration.webp",
+        "title": "Dozer",
+        "description": "Used for bulk earthmoving, site preparation, rough grading, and large-scale material relocation."
+      },
+      {
+        "icon": "/assets/services/bellhouse-roller-compactor-equipment-illustration.webp",
+        "title": "Vibratory Roller",
+        "description": "Provides consistent, even compaction for driveways, pads, and larger surface areas."
       },
       {
         "icon": "/assets/services/bellhouse-plate-compactor-excavation-compaction-tool.webp",
         "title": "Diesel Plate Tamper",
-        "description": "Ensuring proper compaction of base material for a solid finished surface."
+        "description": "Used for targeted compaction in trenches, edges, and confined areas."
       }
     ]
   },
