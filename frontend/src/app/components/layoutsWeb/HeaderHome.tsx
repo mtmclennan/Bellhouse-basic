@@ -47,21 +47,29 @@ const MainHeader = ({ currentRoute }: { currentRoute?: string }) => {
           </div>
           <ul>
             <li>
-              <Link href="/about">About</Link>
+              <Link className={homeClassname} href="/">
+                Home
+              </Link>
             </li>
             <li>
-              <Link href="/services">Services</Link>
+              <Link className={aboutClassname} href="/about">
+                About
+              </Link>
             </li>
             <li>
-              <Link href="/contact">Contact</Link>
+              <Link className={servicesClassname} href="/services">
+                Services
+              </Link>
             </li>
-            {/* <li>
-              <Link href="/careers">Careers</Link>
-            </li> */}
+            <li>
+              <Link className={contactClassname} href="/contact">
+                Contact
+              </Link>
+            </li>
             <li className={classes.actionContainer}>
-              <button onClick={() => router.push('/contact')}>
+              <Link className={classes.headerHome_cta} href="/contact">
                 Get An Estimate
-              </button>
+              </Link>
             </li>
             <li>
               <a className={classes.phone} href="tel:519-752-8500">
