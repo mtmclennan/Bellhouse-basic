@@ -4,9 +4,29 @@ import { Metadata } from 'next';
 import { validateMetadata } from '../lib/utils/seoValidation';
 
 export const metadata: Metadata = {
-  title: 'Excavation Services in Brantford | Bellhouse Excavating',
+  title: 'Excavation & Dump Truck Services in Brantford',
+
   description:
-    'Expert excavation, site prep, drainage, septic installs & more in Brantford, Brant County & nearby. Contact Bellhouse Excavating for reliable service!',
+    'Professional excavation and dump truck hauling services in Brantford and Southern Ontario. Get a free on-site quote today.',
+
+  alternates: {
+    canonical: 'https://bellhouseexcavating.ca/',
+  },
+
+  openGraph: {
+    title:
+      'Excavation & Dump Truck Services in Brantford & Southern Ontario | Bellhouse',
+    description:
+      'Reliable excavation and dump truck services for residential and commercial projects across Brantford and Southern Ontario.',
+    url: 'https://bellhouseexcavating.ca/',
+    siteName: 'Bellhouse Excavating',
+    type: 'website',
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 validateMetadata(metadata.title, metadata.description);

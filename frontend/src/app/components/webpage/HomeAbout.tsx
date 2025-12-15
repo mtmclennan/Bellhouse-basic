@@ -10,23 +10,24 @@ import {
   MapPin,
 } from '@phosphor-icons/react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function HomeAbout() {
   const router = useRouter();
   return (
     <section className={classes.section}>
       <div className={classes.container}>
-        <h2>About BELLHOUSE EXCAVATING</h2>
+        <h2>About Our Excavation & Hauling Services in Brantford</h2>
         <div className={classes.about}>
           <span className={classes.italic}>
             <i>Experienced. Reliable. Built for Your Project.</i>
           </span>
           <p>
-            At Bellhouse Excavating, we don’t just move dirt – we build the
-            foundation for successful projects. With a reputation for precision
-            and reliability, we provide expert excavation, foundation digging,
-            and material hauling services across Brantford and surrounding
-            areas.
+            At Bellhouse Excavating, we provide reliable excavation, foundation
+            digging, and material hauling services for residential and
+            commercial projects across Brantford and surrounding areas. Our team
+            is known for precision, dependable scheduling, and doing the job
+            right the first time.
           </p>
           {/* <h3>Our Story</h3>
           <p>
@@ -58,7 +59,7 @@ export default function HomeAbout() {
                 job.
               </span>
             </div>
-            <div>
+            {/* <div>
               <span>
                 <Bulldozer size={40} color={'#ffc302'} weight="fill" />
               </span>
@@ -67,7 +68,7 @@ export default function HomeAbout() {
                 serviced excavation and hauling equipment to maximize
                 performance and minimize downtime.
               </span>
-            </div>
+            </div> */}
             <div>
               <span>
                 <Clock size={40} color={'#ffc302'} weight="fill" />
@@ -78,7 +79,7 @@ export default function HomeAbout() {
                 schedule without sacrificing quality.
               </span>
             </div>
-            <div>
+            {/* <div>
               <span>
                 <CurrencyDollar size={40} color={'#ffc302'} weight="fill" />
               </span>
@@ -87,7 +88,7 @@ export default function HomeAbout() {
                 fair, transparent rates with no hidden costs. We provide upfront
                 quotes tailored to your project.
               </span>
-            </div>
+            </div> */}
             <div>
               <span>
                 <ShieldCheck size={40} color={'#ffc302'} weight="fill" />
@@ -98,7 +99,7 @@ export default function HomeAbout() {
                 site safety regulations.
               </span>
             </div>
-            <div>
+            {/* <div>
               <span>
                 <HardHat size={40} color={'#ffc302'} weight="fill" />
               </span>
@@ -107,7 +108,7 @@ export default function HomeAbout() {
                 strict protocols to protect our team, clients, and job sites
                 while maintaining efficiency.
               </span>
-            </div>
+            </div> */}
             <div>
               <span>
                 <MapPin size={40} color={'#ffc302'} weight="fill" />
@@ -120,23 +121,14 @@ export default function HomeAbout() {
           </div>
         </div>
         <div className={classes.cta}>
-          <h4>
-            Let us take care of your excavation needs so you can focus on the
-            next steps of your project.
-          </h4>
+          <h4>Ready to start your excavation project?</h4>
           <div className={classes.btnContainer}>
-            <button
-              className={classes.btn}
-              onClick={() => router.push('/contact')}
-            >
+            <Link className={classes.btn} href={'/contact'}>
               Let’s Talk About Your Project
-            </button>
-            <button
-              className={classes.btn}
-              onClick={() => router.push('/about')}
-            >
+            </Link>
+            <Link className={classes.btn} href={'/about-us'}>
               Our Story & Experience
-            </button>
+            </Link>
           </div>
         </div>
       </div>

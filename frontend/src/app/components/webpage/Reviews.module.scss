@@ -4,10 +4,10 @@
 .section {
   background: #202020;
 
-  padding: 6rem 2rem;
+  padding: 4rem 1.5rem;
 
   @include m.mediaDesktop {
-    padding: 8rem 2rem 12rem;
+    padding: 5rem 2rem;
   }
 }
 

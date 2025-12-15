@@ -191,7 +191,7 @@ button {
   @include m.flexCenter();
   min-height: calc(100vh - 7rem);
   height: 100%;
-  padding-top: 7rem;
+  padding-top: 4rem;
   @include m.mediaDesktop {
     min-height: calc(100vh - 20rem);
   }
@@ -233,7 +233,7 @@ button {
     line-height: 1.1;
     margin-bottom: 2rem;
     @include m.mediaDesktop {
-      font-size: 10rem;
+      font-size: 8rem;
       margin-bottom: 2rem;
     }
   }
@@ -281,7 +281,7 @@ button {
   top: 0;
   left: 0;
   padding: 2rem 2rem;
-  max-width: 30rem;
+  max-width: 25rem;
   margin: auto;
   margin-bottom: 2rem;
 }
@@ -334,45 +334,26 @@ button {
     flex-direction: column;
   }
 
-  & button {
-    @include m.btnMain;
+  // & a {
+  //   @include m.btnMain;
 
-    &:active {
-      @include m.btnMain;
-    }
-    // padding: 0.75rem 4rem;
-    // min-width: 21rem;
-    // background-color: v.$color-neutral-dark;
-    // border-radius: 5px;
-    // border: 1px solid v.$color-primary;
-    // font-size: 2rem;
-    // font-weight: 600;
-    // letter-spacing: 0.2rem;
-    // color: v.$text-color-light;
-    // transition: all 0.2s ease;
-    // &: hover,
-    //   &: focus {
-    //   color: v.$color-primary;
-    //   background-color: v.$grey-color-7;
-    //   transform: scale(1.04);
-    //   transition: all 0.2s ease;
-    // }
+  //   &:active {
+  //     @include m.btnMain;
+  //   }
+  // }
+}
+
+#cta-link {
+  @include m.btnMain;
+  &:active {
+    @include m.btnMain;
   }
 }
 
 #cta-btn {
-  padding: 1.5rem 1.75rem;
-  border-radius: 10px;
-  font-size: 2.1rem;
-  font-weight: 600;
-  background-color: v.$btn-main-border2;
-  color: v.$btn-text;
-  border: 3px solid v.$grey-color-7;
-  transition: all 0.2s ease;
-
-  &:hover,
-  &:focus {
-    background-color: v.$grey-color-5;
+  @include m.btnSec;
+  &:active {
+    @include m.btnSec;
   }
 }
 .logo-image {
@@ -431,14 +412,6 @@ button {
   font-size: 2.5rem;
   /* color: var(--grey-color-8); */
 }
-
-// @media (min-width: 800px) {
-//   // .post__container {
-//   //   width: 800px;
-//   // }
-//   .post__title h1 {
-//   }
-// }
 
 .post__title {
   display: flex;
@@ -565,17 +538,6 @@ button {
   color: v.$grey-color-2;
 
   text-align: center;
-  // & span {
-  //   font-size: 3rem;
-  // }
-  // & p {
-  //   margin-bottom: 1rem;
-
-  //   @include m.mediaDesktop {
-  //     font-size: 1.5rem;
-  //     margin-bottom: 1rem;
-  //   }
-  // }
 
   & i {
     font-size: 2.5rem;
@@ -611,58 +573,8 @@ button {
   & a {
     @include m.flexCenter();
     gap: 1rem;
-    //   @include m.btnMain;
-    //   margin-top: -2rem;
-    // padding: 0.75rem 4rem;
-    // min-width: 21rem;
-    // background-color: v.$color-neutral-dark;
-    // border-radius: 5px;
-    // border: 1px solid v.$color-primary;
-    // font-size: 2rem;
-    // text-align: center;
-    // font-weight: 600;
-    // letter-spacing: 0.2rem;
-    // color: v.$color-primary;
-    // transition: all 0.2s ease;
-
-    // &:hover,
-    // &:focus {
-    //   color: v.$color-primary;
-    //   background-color: v.$grey-color-7;
-    //   transform: scale(1.04);
-    //   transition: all 0.2s ease;
-    // }
   }
 }
-
-// .contact-hero h1 {
-//   font-size: 4rem;
-//   margin-bottom: 1rem;
-//   color: v.$grey-color-2;
-// }
-
-// @media (min-width: 800px) {
-// .contact-hero h1 {
-//   font-size: 8rem;
-// }
-
-//   .contact-hero p {
-//     font-size: 1.5rem;
-//     margin-bottom: 1rem;
-//   }
-// }
-
-// .contact-hero p {
-//   text-align: center;
-//   margin-bottom: 1rem;
-
-//   color: v.$grey-color-1;
-
-//   @include m.mediaDesktop {
-//     font-size: 1.5rem;
-//     margin-bottom: 1rem;
-//   }
-// }
 
 .contact-form__container {
   display: flex;
