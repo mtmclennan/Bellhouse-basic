@@ -1,5 +1,5 @@
-@use '../../../styles/abstracts/variables' as v;
-@use '../../../styles/abstracts/mixins' as m;
+@use '../../styles/abstracts/variables' as v;
+@use '../../styles/abstracts/mixins' as m;
 
 .faqSection {
   background: #262626;
@@ -18,6 +18,7 @@
   margin-bottom: 1rem;
   text-align: center;
   color: white;
+
   @include m.mediaDesktop {
     font-size: 6rem;
   }
@@ -63,22 +64,38 @@
   &:hover {
     background: rgba(255, 255, 255, 0.08);
   }
+
+  &:focus-visible {
+    outline: 2px solid rgba(255, 195, 2, 0.55);
+    outline-offset: 2px;
+  }
 }
 
+/* ✅ Real height animation */
 .answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.25s ease, padding 0.25s ease;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.25s ease;
   padding: 0 2rem;
+}
+
+.answerInner {
+  overflow: hidden;
+  padding: 0; // closed state
 
   p {
+    margin: 0;
     font-size: 1.7rem;
     line-height: 1.55;
     color: rgba(255, 255, 255, 0.9);
   }
 }
 
-.answer.open {
-  max-height: 500px; // safe enough for most FAQ answers
-  padding: 1.6rem 2rem 2.2rem 2rem;
+.answer[data-open='true'] {
+  grid-template-rows: 1fr;
+  padding: 0 2rem 2.2rem;
+
+  .answerInner {
+    padding-top: 1.6rem;
+  }
 }
