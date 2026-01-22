@@ -11,7 +11,7 @@ import LayoutHome from '@/app/components/layoutsWeb/layoutHome';
 import CallToAction from '@/app/components/webpage/CallToAction';
 import WhyChooseUs from '@/app/components/webpage/WhyChooseUs';
 import ServicesGrid from '@/app/components/webpage/services/ServicesGrid';
-import FAQAccordion from '@/app/components/webpage/FAQAccordion';
+import FAQAccordion from '@/app/components/FAQAccordion';
 import { Star } from '@phosphor-icons/react/dist/ssr';
 import classes from './ServiceLayout.module.scss';
 import { CheckCircle, Gear } from '@phosphor-icons/react';

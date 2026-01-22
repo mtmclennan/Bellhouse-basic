@@ -16,8 +16,19 @@ html {
 
 body {
   font-size: 1.6rem;
-  font-family: Open Sans, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family:
+    Open Sans,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    Fira Sans,
+    Droid Sans,
+    Helvetica Neue,
+    sans-serif;
   background-color: rgb(39, 39, 39);
   color: rgb(255, 255, 255);
   overflow-x: hidden;
@@ -281,9 +292,12 @@ button {
   top: 0;
   left: 0;
   padding: 2rem 2rem;
-  max-width: 25rem;
+  max-width: 15rem;
   margin: auto;
   margin-bottom: 2rem;
+  @include m.mediaDesktop {
+    display: none;
+  }
 }
 
 .hero-logo {
@@ -309,12 +323,6 @@ button {
   // height: fit-content;
 }
 
-.hero-logo__mobile {
-  @include m.mediaDesktop {
-    display: none;
-  }
-}
-
 .hero {
   padding: 1rem;
   & p {
@@ -334,13 +342,13 @@ button {
     flex-direction: column;
   }
 
-  // & a {
-  //   @include m.btnMain;
+  & button {
+    @include m.btnMain;
 
-  //   &:active {
-  //     @include m.btnMain;
-  //   }
-  // }
+    &:active {
+      @include m.btnMain;
+    }
+  }
 }
 
 #cta-link {
@@ -523,38 +531,37 @@ button {
 }
 
 .contact-hero {
-  & h3 {
-    font-size: 2.5rem;
-    text-align: center;
-  }
-}
-
-.contact-hero {
   @include m.flexCenter(column);
   height: 100%;
   padding: 1rem;
-  gap: 2rem;
+  margin-top: 3rem;
+  gap: 1rem;
   max-width: 110rem;
   color: v.$grey-color-2;
 
   text-align: center;
 
   & i {
-    font-size: 2.5rem;
+    font-size: 2rem;
     @include m.mediaDesktop {
       font-size: 4rem;
     }
   }
   & h3 {
     font-weight: 400;
-    margin-top: 2rem;
+    font-size: 2.5rem;
+    text-align: center;
+    @include m.mediaDesktop {
+      // font-size: 4rem;
+      margin-top: 2rem;
+    }
   }
 
   & h1 {
-    font-size: 6rem;
+    font-size: 4.5rem;
     font-weight: 800;
-    margin-bottom: 1rem;
-    line-height: 1.1;
+    // margin-bottom: 1rem;
+    line-height: 1.05;
     color: v.$grey-color-1;
 
     @include m.mediaDesktop {
@@ -562,9 +569,17 @@ button {
     }
   }
 
+  & svg {
+    max-width: 3rem;
+    @include m.mediaDesktop {
+      max-width: 10rem;
+      max-width: 10rem;
+    }
+  }
+
   & h2 {
     font-weight: 400;
-    font-size: 4rem;
+    font-size: 3rem;
     @include m.mediaDesktop {
       font-size: 6rem;
     }
@@ -573,6 +588,15 @@ button {
   & a {
     @include m.flexCenter();
     gap: 1rem;
+    @include m.mediaDesktop {
+    }
+  }
+
+  & button {
+    margin-top: -2rem;
+    @include m.mediaDesktop {
+      margin-top: 0rem;
+    }
   }
 }
 

@@ -3,6 +3,7 @@
 
 .container {
   @include m.flexCenter(column);
+  padding: 4rem 0 12rem;
 }
 
 .contactForm {
