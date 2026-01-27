@@ -1,0 +1,34 @@
+name: Bellhouse Daily Email Check
+
+on:
+  schedule:
+    # Daily at 7:15am ET-ish.
+    # DST shifts because time is fake.
+    - cron: '15 12 * * *'
+  workflow_dispatch:
+
+jobs:
+  daily-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Call Bellhouse daily-check endpoint
+        run: |
+          set -e
+          URL="${{ secrets.SITE_URL }}/api/monitor/daily-check?token=${{ secrets.MONITOR_TOKEN }}"
+          echo "Calling $URL"
+
+          HTTP_STATUS=$(curl -s -o response.json -w "%{http_code}" "$URL")
+          cat response.json
+
+          if [ "$HTTP_STATUS" -ne 200 ]; then
+            echo "Daily check failed with status $HTTP_STATUS"
+            exit 1
+          fi
+
+      - name: Alert Slack if daily check fails
+        if: failure()
+        run: |
+          curl -X POST -H "Content-type: application/json" \
+            --data "{\"text\":\"🚨 Bellhouse DAILY CHECK FAILED (endpoint error). Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}" \
+            ${{ secrets.SLACK_WEBHOOK_URL }}
