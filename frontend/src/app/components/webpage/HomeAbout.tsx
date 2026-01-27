@@ -126,7 +126,7 @@ export default function HomeAbout() {
             <Link className={classes.btn} href={'/contact'}>
               Let’s Talk About Your Project
             </Link>
-            <Link className={classes.btn} href={'/about-us'}>
+            <Link className={classes.btn} href={'/about'}>
               Our Story & Experience
             </Link>
           </div>
