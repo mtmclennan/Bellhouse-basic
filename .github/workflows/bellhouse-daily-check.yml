@@ -16,12 +16,14 @@ jobs:
         run: |
           set -euo pipefail
 
-          URL="${{ secrets.SITE_URL }}/api/monitor/daily-check?token=${{ secrets.MONITOR_TOKEN }}"
-          echo "Calling (token hidden): ${URL%%token=*}token=***"
+          URL="${{ secrets.SITE_URL }}/api/monitor/daily-check"
+          echo "Calling: $URL"
 
           # Don't let `set -e` hide what happened
           set +e
-          HTTP_STATUS=$(curl --http1.1 -sS -o response.json -w "%{http_code}" "$URL")
+          HTTP_STATUS=$(curl --http1.1 -sS -o response.json -w "%{http_code}" \
+            -H "Authorization: Bearer ${{ secrets.MONITOR_TOKEN }}" \
+            "$URL")
           CURL_EXIT=$?
           set -e
 
@@ -37,6 +39,36 @@ jobs:
 
           if [ "$HTTP_STATUS" -ne 200 ]; then
             echo "Daily check failed with status $HTTP_STATUS"
+            exit 1
+          fi
+
+      - name: Call Bellhouse homepage-check endpoint
+        run: |
+          set -euo pipefail
+
+          URL="${{ secrets.SITE_URL }}/api/monitor/homepage-check"
+          echo "Calling: $URL"
+
+          # Don't let `set -e` hide what happened
+          set +e
+          HTTP_STATUS=$(curl --http1.1 -sS -o response.json -w "%{http_code}" \
+            -H "Authorization: Bearer ${{ secrets.MONITOR_TOKEN }}" \
+            "$URL")
+          CURL_EXIT=$?
+          set -e
+
+          echo "curl_exit=$CURL_EXIT"
+          echo "http_status=$HTTP_STATUS"
+          echo "--- response.json (first 80 lines) ---"
+          sed -n '1,80p' response.json || true
+
+          if [ "$CURL_EXIT" -ne 0 ]; then
+            echo "Homepage check failed: curl error (network/protocol)."
+            exit 1
+          fi
+
+          if [ "$HTTP_STATUS" -ne 200 ]; then
+            echo "Homepage check failed with status $HTTP_STATUS"
             exit 1
           fi
 
