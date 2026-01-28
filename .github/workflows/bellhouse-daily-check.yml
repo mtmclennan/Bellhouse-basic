@@ -71,6 +71,37 @@ jobs:
             echo "Homepage check failed with status $HTTP_STATUS"
             exit 1
           fi
+      - name: Call Bellhouse form-check endpoint
+        run: |
+          set -euo pipefail
+
+          URL="${{ secrets.SITE_URL }}/api/monitor/form-check"
+          echo "Calling: $URL"
+
+          set +e
+          HTTP_STATUS=$(curl --http1.1 -sS -o response.json -w "%{http_code}" \
+            -X POST \
+            -H "Authorization: Bearer ${{ secrets.MONITOR_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            --data '{}' \
+            "$URL")
+          CURL_EXIT=$?
+          set -e
+
+          echo "curl_exit=$CURL_EXIT"
+          echo "http_status=$HTTP_STATUS"
+          echo "--- response.json (first 80 lines) ---"
+          sed -n '1,80p' response.json || true
+
+          if [ "$CURL_EXIT" -ne 0 ]; then
+            echo "Form check failed: curl error."
+            exit 1
+          fi
+
+          if [ "$HTTP_STATUS" -ne 200 ]; then
+            echo "Form check failed with status $HTTP_STATUS"
+            exit 1
+          fi
 
       - name: Alert Slack if daily check fails
         if: failure()
