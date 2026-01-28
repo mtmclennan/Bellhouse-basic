@@ -14,12 +14,26 @@ jobs:
     steps:
       - name: Call Bellhouse daily-check endpoint
         run: |
-          set -e
-          URL="${{ secrets.SITE_URL }}/api/monitor/daily-check?token=${{ secrets.MONITOR_TOKEN }}"
-          echo "Calling $URL"
+          set -euo pipefail
 
-          HTTP_STATUS=$(curl -s -o response.json -w "%{http_code}" "$URL")
-          cat response.json
+          URL="${{ secrets.SITE_URL }}/api/monitor/daily-check?token=${{ secrets.MONITOR_TOKEN }}"
+          echo "Calling (token hidden): ${URL%%token=*}token=***"
+
+          # Don't let `set -e` hide what happened
+          set +e
+          HTTP_STATUS=$(curl --http1.1 -sS -o response.json -w "%{http_code}" "$URL")
+          CURL_EXIT=$?
+          set -e
+
+          echo "curl_exit=$CURL_EXIT"
+          echo "http_status=$HTTP_STATUS"
+          echo "--- response.json (first 80 lines) ---"
+          sed -n '1,80p' response.json || true
+
+          if [ "$CURL_EXIT" -ne 0 ]; then
+            echo "Daily check failed: curl error (network/protocol)."
+            exit 1
+          fi
 
           if [ "$HTTP_STATUS" -ne 200 ]; then
             echo "Daily check failed with status $HTTP_STATUS"
@@ -30,5 +44,5 @@ jobs:
         if: failure()
         run: |
           curl -X POST -H "Content-type: application/json" \
-            --data "{\"text\":\"🚨 Bellhouse DAILY CHECK FAILED (endpoint error). Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}" \
-            ${{ secrets.SLACK_WEBHOOK_URL }}
+            --data "{\"text\":\"🚨 Bellhouse DAILY CHECK FAILED. Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}" \
+            "${{ secrets.SLACK_WEBHOOK_URL }}"
