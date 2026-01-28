@@ -35,6 +35,7 @@ const spamKeywords = [
   'cheap loans',
   'adult content',
 ];
+
 function mustEnv(name: string) {
   const v = process.env[name];
   if (!v) throw new Error(`Missing env var: ${name}`);
@@ -57,7 +58,99 @@ function isDisposableEmail(email: string) {
   return disposableDomains.some((domain) => email.endsWith(`@${domain}`));
 }
 
-// 📌 Contact Form Submission Handler
+export type ContactData = {
+  name: string;
+  email: string;
+  phone?: string;
+  workType: string;
+  message: string;
+};
+
+/**
+ * ✅ Shared “core” contact processing.
+ * Use this for:
+ * - real form submissions (after recaptcha)
+ * - monitor synthetic checks (skip recaptcha, optionally skip sheets)
+ */
+export async function processContactCore(
+  data: ContactData,
+  opts?: {
+    /**
+     * If true, skips writing to Google Sheets (prevents test noise).
+     * Default: false
+     */
+    skipSheets?: boolean;
+
+    /**
+     * If set, overrides where the BUSINESS email goes (defaults to RECIPIENT_EMAIL).
+     */
+    businessToEmail?: string;
+
+    /**
+     * If set, overrides where the CUSTOMER copy goes (defaults to customer email).
+     * Useful for monitor tests so you don't email a random address.
+     */
+    customerToEmail?: string;
+
+    /**
+     * Optional subject prefix, e.g. "[MONITOR TEST] "
+     */
+    subjectPrefix?: string;
+  },
+) {
+  const RECIPIENT_EMAIL = mustEnv('RECIPIENT_EMAIL');
+
+  const business = buildBusinessEmail(data);
+  const customer = buildCustomerEmail(data);
+
+  const businessTo = opts?.businessToEmail ?? RECIPIENT_EMAIL;
+  const customerTo = opts?.customerToEmail ?? data.email;
+  const subjectPrefix = opts?.subjectPrefix ?? '';
+
+  try {
+    if (!isProduction) {
+      console.log('📧 Sending emails with Brevo...');
+    }
+
+    // 🔹 Save to Google Sheets **in the background** (doesn't block response)
+    if (!opts?.skipSheets) {
+      saveToGoogleSheets(data).catch((error) =>
+        console.error('❌ Google Sheets error:', error),
+      );
+    }
+
+    // 🔹 Send Emails in Parallel
+    await Promise.all([
+      sendBrevoEmail({
+        subject: `${subjectPrefix}${business.subject}`,
+        html: business.html,
+        to: [{ email: businessTo }],
+        replyTo: { email: data.email, name: data.name }, // so Darryl can reply directly
+        tags: opts?.subjectPrefix ? ['monitor', 'form-check'] : undefined,
+      }),
+      sendBrevoEmail({
+        subject: `${subjectPrefix}${customer.subject}`,
+        html: customer.html,
+        to: [{ email: customerTo, name: data.name }],
+        tags: opts?.subjectPrefix ? ['monitor', 'form-check'] : undefined,
+      }),
+    ]);
+
+    if (!isProduction) {
+      console.log('✅ Emails sent successfully!');
+    }
+  } catch (err: any) {
+    console.error('❌ Email sending error:', {
+      message: err?.message,
+      status: err?.response?.status,
+      data: err?.response?.data,
+    });
+
+    throw err;
+  }
+}
+
+// 📌 Contact Form Submission Handler (real users)
 export async function sendContactForm(data: {
   name: string;
   email: string;
@@ -66,7 +159,6 @@ export async function sendContactForm(data: {
   message: string;
   token: string;
 }) {
-  const RECIPIENT_EMAIL = mustEnv('RECIPIENT_EMAIL');
   const RECAPTCHA_SECRET = mustEnv('RECAPTCHA_SECRET');
 
   // 🔹 Validate Form Data
@@ -96,46 +188,17 @@ export async function sendContactForm(data: {
     return { error: 'Failed reCAPTCHA verification. Try again.' };
   }
 
-  const business = buildBusinessEmail(data);
-  const customer = buildCustomerEmail(data);
-
   try {
-    if (!isProduction) {
-      console.log('📧 Sending emails with Brevo...');
-    }
-
-    // 🔹 Save to Google Sheets **in the background** (doesn't block response)
-    saveToGoogleSheets(data).catch((error) =>
-      console.error('❌ Google Sheets error:', error),
-    );
-    // 🔹 Send Emails in Parallel
-    await Promise.all([
-      sendBrevoEmail({
-        subject: business.subject,
-        html: business.html,
-        to: [{ email: RECIPIENT_EMAIL }],
-        replyTo: { email: data.email, name: data.name }, // so Darryl can reply directly
-      }),
-      sendBrevoEmail({
-        subject: customer.subject,
-        html: customer.html,
-        to: [{ email: data.email, name: data.name }],
-      }),
-    ]);
-    // 🔹 Wait for emails to finish sending
-
-    if (!isProduction) {
-      console.log('✅ Emails sent successfully!');
-    }
-
-    return { success: 'Estimate request sent successfully!' };
-  } catch (err: any) {
-    console.error('❌ Email sending error:', {
-      message: err?.message,
-      status: err?.response?.status,
-      data: err?.response?.data,
+    await processContactCore({
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+      workType: data.workType,
+      message: data.message,
     });
 
+    return { success: 'Estimate request sent successfully!' };
+  } catch {
     return { error: 'Failed to send email. Please try again later.' };
   }
 }
