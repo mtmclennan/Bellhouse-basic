@@ -15,13 +15,13 @@ jobs:
       - name: Call Bellhouse daily-check endpoint
         run: |
           set -euo pipefail
+          REASON_FILE="reason.txt"
 
           URL="${{ secrets.SITE_URL }}/api/monitor/daily-check"
           echo "Calling: $URL"
 
-          # Don't let `set -e` hide what happened
           set +e
-          HTTP_STATUS=$(curl --http1.1 -sS -o response.json -w "%{http_code}" \
+          HTTP_STATUS=$(curl --http1.1 -sS -o daily.json -w "%{http_code}" \
             -H "Authorization: Bearer ${{ secrets.MONITOR_TOKEN }}" \
             "$URL")
           CURL_EXIT=$?
@@ -29,29 +29,29 @@ jobs:
 
           echo "curl_exit=$CURL_EXIT"
           echo "http_status=$HTTP_STATUS"
-          echo "--- response.json (first 80 lines) ---"
-          sed -n '1,80p' response.json || true
+          echo "--- daily.json (first 80 lines) ---"
+          sed -n '1,80p' daily.json || true
 
           if [ "$CURL_EXIT" -ne 0 ]; then
-            echo "Daily check failed: curl error (network/protocol)."
+            echo "Daily check failed: curl error (exit $CURL_EXIT)" > "$REASON_FILE"
             exit 1
           fi
 
           if [ "$HTTP_STATUS" -ne 200 ]; then
-            echo "Daily check failed with status $HTTP_STATUS"
+            echo "Daily check failed: HTTP $HTTP_STATUS" > "$REASON_FILE"
             exit 1
           fi
 
       - name: Call Bellhouse homepage-check endpoint
         run: |
           set -euo pipefail
+          REASON_FILE="reason.txt"
 
           URL="${{ secrets.SITE_URL }}/api/monitor/homepage-check"
           echo "Calling: $URL"
 
-          # Don't let `set -e` hide what happened
           set +e
-          HTTP_STATUS=$(curl --http1.1 -sS -o response.json -w "%{http_code}" \
+          HTTP_STATUS=$(curl --http1.1 -sS -o home.json -w "%{http_code}" \
             -H "Authorization: Bearer ${{ secrets.MONITOR_TOKEN }}" \
             "$URL")
           CURL_EXIT=$?
@@ -59,27 +59,29 @@ jobs:
 
           echo "curl_exit=$CURL_EXIT"
           echo "http_status=$HTTP_STATUS"
-          echo "--- response.json (first 80 lines) ---"
-          sed -n '1,80p' response.json || true
+          echo "--- home.json (first 80 lines) ---"
+          sed -n '1,80p' home.json || true
 
           if [ "$CURL_EXIT" -ne 0 ]; then
-            echo "Homepage check failed: curl error (network/protocol)."
+            echo "Homepage check failed: curl error (exit $CURL_EXIT)" > "$REASON_FILE"
             exit 1
           fi
 
           if [ "$HTTP_STATUS" -ne 200 ]; then
-            echo "Homepage check failed with status $HTTP_STATUS"
+            echo "Homepage check failed: HTTP $HTTP_STATUS" > "$REASON_FILE"
             exit 1
           fi
+
       - name: Call Bellhouse form-check endpoint
         run: |
           set -euo pipefail
+          REASON_FILE="reason.txt"
 
           URL="${{ secrets.SITE_URL }}/api/monitor/form-check"
           echo "Calling: $URL"
 
           set +e
-          HTTP_STATUS=$(curl --http1.1 -sS -o response.json -w "%{http_code}" \
+          HTTP_STATUS=$(curl --http1.1 -sS -o form.json -w "%{http_code}" \
             -X POST \
             -H "Authorization: Bearer ${{ secrets.MONITOR_TOKEN }}" \
             -H "Content-Type: application/json" \
@@ -90,22 +92,70 @@ jobs:
 
           echo "curl_exit=$CURL_EXIT"
           echo "http_status=$HTTP_STATUS"
-          echo "--- response.json (first 80 lines) ---"
-          sed -n '1,80p' response.json || true
+          echo "--- form.json (first 80 lines) ---"
+          sed -n '1,80p' form.json || true
 
           if [ "$CURL_EXIT" -ne 0 ]; then
-            echo "Form check failed: curl error."
+            echo "Form check failed: curl error (exit $CURL_EXIT)" > "$REASON_FILE"
             exit 1
           fi
 
           if [ "$HTTP_STATUS" -ne 200 ]; then
-            echo "Form check failed with status $HTTP_STATUS"
+            echo "Form check failed: HTTP $HTTP_STATUS" > "$REASON_FILE"
             exit 1
           fi
 
-      - name: Alert Slack if daily check fails
+      - name: SSL certificate expiry check (bellhouse + monitor)
+        run: |
+          set -euo pipefail
+          REASON_FILE="reason.txt"
+          THRESHOLD_DAYS=14
+
+          check_domain () {
+            local DOMAIN="$1"
+            local PORT="443"
+
+            echo "Checking SSL expiry for ${DOMAIN}:${PORT} (threshold: ${THRESHOLD_DAYS} days)"
+
+            local NOT_AFTER
+            NOT_AFTER=$(echo | openssl s_client -servername "$DOMAIN" -connect "$DOMAIN:$PORT" 2>/dev/null \
+              | openssl x509 -noout -enddate \
+              | cut -d= -f2)
+
+            if [ -z "$NOT_AFTER" ]; then
+              echo "SSL check failed: could not read cert expiry for ${DOMAIN}" > "$REASON_FILE"
+              exit 1
+            fi
+
+            local EXPIRY_EPOCH NOW_EPOCH DAYS_LEFT
+            EXPIRY_EPOCH=$(date -d "$NOT_AFTER" +%s)
+            NOW_EPOCH=$(date -u +%s)
+
+            if [ "$EXPIRY_EPOCH" -le "$NOW_EPOCH" ]; then
+              echo "SSL expired for ${DOMAIN} (notAfter: $NOT_AFTER)" > "$REASON_FILE"
+              exit 1
+            fi
+
+            DAYS_LEFT=$(( (EXPIRY_EPOCH - NOW_EPOCH) / 86400 ))
+            echo "${DOMAIN} days_left=$DAYS_LEFT (notAfter: $NOT_AFTER)"
+
+            if [ "$DAYS_LEFT" -lt "$THRESHOLD_DAYS" ]; then
+              echo "SSL expiring soon for ${DOMAIN}: ${DAYS_LEFT} days left (notAfter: $NOT_AFTER)" > "$REASON_FILE"
+              exit 1
+            fi
+          }
+
+          check_domain "bellhouseexcavating.ca"
+          check_domain "monitor.bellhouseexcavating.ca"
+
+      - name: Alert Slack if check fails
         if: failure()
         run: |
+          REASON="(no reason captured)"
+          if [ -f reason.txt ]; then
+            REASON=$(cat reason.txt | head -c 300)
+          fi
+
           curl -X POST -H "Content-type: application/json" \
-            --data "{\"text\":\"🚨 Bellhouse DAILY CHECK FAILED. Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}" \
+            --data "{\"text\":\"🚨 Bellhouse MONITOR FAILED: ${REASON}\nRun: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}" \
             "${{ secrets.SLACK_WEBHOOK_URL }}"
