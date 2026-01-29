@@ -4,6 +4,7 @@ import { google } from 'googleapis';
 import { promises as fs } from 'fs';
 import path from 'path';
 import { z } from 'zod';
+import { logMonitorEvent } from '@/lib/monitor/eventLog';
 
 import { sendBrevoEmail } from '@/lib/email/emailBrevo';
 import {
@@ -140,6 +141,15 @@ export async function processContactCore(
       console.log('✅ Emails sent successfully!');
     }
   } catch (err: any) {
+    await logMonitorEvent({
+      ts: new Date().toISOString(),
+      type: 'CONTACT_EMAIL_FAIL',
+      message: err?.message ?? 'Unknown Brevo error',
+      meta: {
+        workType: data.workType,
+        fromEmail: data.email,
+      },
+    });
     console.error('❌ Email sending error:', {
       message: err?.message,
       status: err?.response?.status,
@@ -307,6 +317,13 @@ export async function saveToGoogleSheets(data: {
       console.log('✅ Data successfully added to Google Sheets!');
     }
   } catch (error) {
+    await logMonitorEvent({
+      ts: new Date().toISOString(),
+      type: 'SHEETS_FAIL',
+      message: (error as any)?.message ?? 'Unknown Sheets error',
+      meta: { email: data.email, workType: data.workType },
+    });
+
     console.error('❌ Google Sheets error:', error);
   }
 }
