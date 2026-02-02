@@ -4,4 +4,4 @@ dist
 .next
 *.env
 
-ecosystem.config.js
+ecosystem.config.jsfrontend/ecosystem.config.js
