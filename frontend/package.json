@@ -13,27 +13,27 @@
   "dependencies": {
     "@getbrevo/brevo": "^3.0.1",
     "@phosphor-icons/react": "^2.1.7",
-    "@types/node": "18.16.0",
-    "@types/react": "18.0.38",
-    "@types/react-dom": "18.0.11",
-    "eslint": "^9.19.0",
-    "eslint-config-next": "^15.1.6",
     "form-data": "^4.0.1",
     "googleapis": "^144.0.0",
-    "next": "^15.1.6",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "next": "15.5.11",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
     "sass": "^1.62.0",
     "schema-dts": "^1.1.2",
     "sharp": "^0.33.3",
-    "typescript": "5.0.4",
     "velocityjs": "^2.0.6",
     "zod": "^3.24.1"
   },
   "devDependencies": {
     "@playwright/test": "^1.58.0",
+    "@types/node": "^20.11.0",
     "@types/nodemailer": "^6.4.17",
     "@types/nodemailer-mailgun-transport": "^1.4.6",
-    "@types/react-window": "^1.8.5"
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
+    "@types/react-window": "^1.8.8",
+    "eslint": "^9.19.0",
+    "eslint-config-next": "15.5.11",
+    "typescript": "^5.4.5"
   }
 }
