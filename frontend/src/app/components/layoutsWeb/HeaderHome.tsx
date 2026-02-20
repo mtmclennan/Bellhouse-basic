@@ -36,12 +36,10 @@ const MainHeader = ({ currentRoute }: { currentRoute?: string }) => {
               <Image
                 src={logo}
                 alt="Bellhouse Excavating"
-                width={250}
-                height={189}
-                style={{
-                  width: 'auto',
-                  height: 'auto',
-                }}
+                width={200}
+                height={151}
+                sizes="(max-width: 800px) 220px, 300px"
+                className={classes.logoImg}
               />
             </Link>
           </div>
