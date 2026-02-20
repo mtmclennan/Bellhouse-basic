@@ -1,4 +1,5 @@
 'use client';
+
 import Script from 'next/script';
 import logo from '../../../../public/assets/BellhouseLogo-text-LS.png';
 import useInput from '../../../hooks/use-input';
@@ -14,21 +15,35 @@ import React, {
   useImperativeHandle,
 } from 'react';
 import { emailValidate, stringValidate } from '../../../lib/input-utils';
-import { sendContactForm } from '@/app/actions/contact'; // Use server action
+import { sendContactForm } from '@/app/actions/contact'; // server action
 import LoadingSpinner from '../UI/LoadingSpinner';
 
 interface ContactFormRef {
   scrollToForm: () => void;
 }
 
+const REQUIRED_SMS_DISCLOSURE = [
+  '* By clicking SUBMIT you consent to receiving SMS messages',
+  '* Messages and Data rates may apply. Message frequency will vary',
+  '* Reply HELP to get more assistance',
+  '* Reply STOP to Opt-out of messaging',
+] as const;
+
 const ContactForm = forwardRef<ContactFormRef>((_, ref) => {
   const sectionRef = useRef<HTMLDivElement>(null);
+
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
+
   const [selectedWorkType, setSelectedWorkType] = useState('');
   const [customWorkType, setCustomWorkType] = useState('');
+
   const [isRecaptchaReady, setIsRecaptchaReady] = useState(false);
   const [status, setStatus] = useState<string | null>(null);
+
+  // SMS consent state
+  const [smsConsent, setSmsConsent] = useState(false);
+
   const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '';
 
   useImperativeHandle(ref, () => ({
@@ -59,33 +74,33 @@ const ContactForm = forwardRef<ContactFormRef>((_, ref) => {
   ];
 
   const handleWorkTypeChange = (
-    event: React.ChangeEvent<HTMLSelectElement>
+    event: React.ChangeEvent<HTMLSelectElement>,
   ) => {
     const value = event.target.value;
     setSelectedWorkType(value);
 
-    // Reset custom input if user selects something else
     if (value !== 'Other') {
       setCustomWorkType('');
     }
   };
 
   useEffect(() => {
-    // Check if grecaptcha is loaded
+    // Wait until grecaptcha exists and has execute()
     const checkRecaptcha = setInterval(() => {
       if (typeof window !== 'undefined' && window.grecaptcha?.execute) {
         setIsRecaptchaReady(true);
         clearInterval(checkRecaptcha);
       }
     }, 500);
+
     return () => clearInterval(checkRecaptcha);
   }, []);
 
   const {
     value: enteredName,
-    valueChangeHandler: firstNameChangeHandler,
-    inputBlurHandler: firstNameBlurHandler,
-    reset: resetFirstName,
+    valueChangeHandler: nameChangeHandler,
+    inputBlurHandler: nameBlurHandler,
+    reset: resetName,
   } = useInput(stringValidate);
 
   const {
@@ -113,63 +128,85 @@ const ContactForm = forwardRef<ContactFormRef>((_, ref) => {
     reset: resetMessage,
   } = useInput(stringValidate);
 
+  const hasPhone = enteredPhone.trim().length > 0;
+  const workTypeFinal =
+    `${selectedWorkType}${customWorkType ? ` ${customWorkType}` : ''}`.trim();
+
+  const resetForm = () => {
+    resetName();
+    resetEmail();
+    resetPhone();
+    resetMessage();
+    setSelectedWorkType('');
+    setCustomWorkType('');
+    setSmsConsent(false);
+  };
+
   const onSubmitHandler = async (event: React.FormEvent) => {
     event.preventDefault();
+    setStatus(null);
 
+    // Basic required validation
     if (!enteredEmailIsValid || !messageIsValid) {
       emailBlurHandler();
       messageBlurHandler();
+      setStatus('Please fix the highlighted fields.');
+      return;
+    }
+
+    // If they provided a phone number, require SMS consent
+    if (hasPhone && !smsConsent) {
+      setStatus(
+        'Please consent to receive SMS messages if you provide a phone number.',
+      );
       return;
     }
 
     try {
-      // Fetch reCAPTCHA token from Google (Frontend)
-
       if (!isRecaptchaReady || typeof window.grecaptcha === 'undefined') {
         throw new Error('reCAPTCHA is not ready. Please try again.');
       }
+
+      setLoading(true);
+
       const token = await window.grecaptcha.execute(recaptchaSiteKey, {
         action: 'submit',
       });
-      setLoading(true);
-      // Send form data + reCAPTCHA token to server action
+
       const result = await sendContactForm({
         name: enteredName,
         email: enteredEmail,
         phone: enteredPhone,
-        workType: `${selectedWorkType} ${customWorkType}`,
+        workType: workTypeFinal,
         message: enteredMessage,
         token,
+
+        // SMS consent metadata (log this server-side)
+        smsConsent: hasPhone ? smsConsent : false,
+        smsDisclosureShown: hasPhone,
       });
 
       if (result?.success) {
-        resetFirstName();
-        resetEmail();
-        resetMessage();
-        resetPhone();
+        resetForm();
         setShowModal(true);
-        setLoading(false);
-        setSelectedWorkType(''),
-          setCustomWorkType(''),
-          setStatus('Success: Your request has been sent.');
+        setStatus('Success: Your request has been sent.');
 
-        // ✅ Fire Google Ads conversion
+        // Fire Google Ads conversion
         if (typeof window !== 'undefined' && (window as any).gtag) {
           (window as any).gtag('event', 'conversion', {
             send_to: 'AW-16958173496/gn9BCIyi-7QaELjipJY_',
           });
         }
       } else {
-        setLoading(false);
-        setStatus('Error: ' + result?.error || 'Unknown error occurred');
+        setStatus(`Error: ${result?.error || 'Unknown error occurred'}`);
       }
     } catch (error) {
       console.error('Form submission error:', error);
       setStatus(
-        `Error: ${
-          error instanceof Error ? error.message : 'Something went wrong.'
-        }`
+        `Error: ${error instanceof Error ? error.message : 'Something went wrong.'}`,
       );
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -180,6 +217,7 @@ const ContactForm = forwardRef<ContactFormRef>((_, ref) => {
         strategy="lazyOnload"
         onLoad={() => console.log('✅ reCAPTCHA script loaded')}
       />
+
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <div className={classes.modalContent}>
@@ -191,6 +229,7 @@ const ContactForm = forwardRef<ContactFormRef>((_, ref) => {
                 height={53}
               />
             </div>
+
             <h3>Thank You!</h3>
 
             <p>Your request has been received!</p>
@@ -200,13 +239,8 @@ const ContactForm = forwardRef<ContactFormRef>((_, ref) => {
             </p>
 
             <p>We’re excited to help with your project!</p>
-            <button
-              onClick={() => {
-                setShowModal(false);
-              }}
-            >
-              Close
-            </button>
+
+            <button onClick={() => setShowModal(false)}>Close</button>
           </div>
         </Modal>
       )}
@@ -222,39 +256,45 @@ const ContactForm = forwardRef<ContactFormRef>((_, ref) => {
                 id="name"
                 type="text"
                 className={classes.input}
-                onChange={firstNameChangeHandler}
-                onBlur={firstNameBlurHandler}
+                onChange={nameChangeHandler}
+                onBlur={nameBlurHandler}
                 value={enteredName}
+                autoComplete="name"
               />
             </div>
           </div>
+
           <div className={classes.inputWrapper}>
             <label htmlFor="email">Your Email</label>
             <input
               id="email"
               type="email"
-              className={`${classes.input} ${
-                emailInputHasError ? `${classes.error}` : ''
-              }`}
+              className={`${classes.input} ${emailInputHasError ? classes.error : ''}`}
               onChange={emailChangeHandler}
               onBlur={emailBlurHandler}
               value={enteredEmail}
+              autoComplete="email"
+              required
             />
           </div>
           {emailInputHasError && (
             <p className={classes.errorText}>Please provide a valid email</p>
           )}
+
           <div className={classes.inputWrapper}>
             <label htmlFor="phone">Your Phone Number</label>
             <input
               id="phone"
-              type="text"
+              type="tel"
               className={classes.input}
               onChange={phoneChangeHandler}
               onBlur={phoneBlurHandler}
               value={enteredPhone}
+              autoComplete="tel"
+              placeholder="Optional"
             />
           </div>
+
           <div className={classes.inputWrapper}>
             <label htmlFor="workType">Type of Work Required</label>
             <select
@@ -271,6 +311,7 @@ const ContactForm = forwardRef<ContactFormRef>((_, ref) => {
               ))}
             </select>
           </div>
+
           {selectedWorkType === 'Other' && (
             <div className={classes.inputWrapper}>
               <label htmlFor="customWorkType">Please Specify</label>
@@ -284,20 +325,20 @@ const ContactForm = forwardRef<ContactFormRef>((_, ref) => {
               />
             </div>
           )}
+
           <div className={classes.textAreaWrapper}>
             <label htmlFor="message">How Can We Help You?</label>
             <textarea
               id="message"
-              spellCheck="true"
+              spellCheck
               autoCorrect="on"
               rows={5}
               cols={80}
-              className={`${classes.textarea} ${
-                messageHasError ? `${classes.error}` : ''
-              }`}
+              className={`${classes.textarea} ${messageHasError ? classes.error : ''}`}
               onChange={messageChangeHandler}
               onBlur={messageBlurHandler}
               value={enteredMessage}
+              required
             />
             {messageHasError && (
               <p className={classes.errorTextArea}>
@@ -305,6 +346,39 @@ const ContactForm = forwardRef<ContactFormRef>((_, ref) => {
               </p>
             )}
           </div>
+
+          {/* SMS Consent + Required Disclosure (only when phone is entered) */}
+          {hasPhone && (
+            <div className={classes.smsConsent}>
+              <label className={classes.smsConsentLabel}>
+                <input
+                  type="checkbox"
+                  checked={smsConsent}
+                  onChange={(e) => setSmsConsent(e.target.checked)}
+                />
+                <span>
+                  I agree to receive SMS messages from Bellhouse Excavating.
+                </span>
+              </label>
+
+              <ul className={classes.smsDisclosure}>
+                {REQUIRED_SMS_DISCLOSURE.map((line) => (
+                  <li key={line}>{line}</li>
+                ))}
+              </ul>
+
+              <p className={classes.privacyLink}>
+                <a
+                  href="/privacy-policy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Privacy Policy
+                </a>
+              </p>
+            </div>
+          )}
+
           <div className={classes.buttonContainer}>
             {!loading && (
               <button type="submit" disabled={!isRecaptchaReady}>
@@ -313,6 +387,7 @@ const ContactForm = forwardRef<ContactFormRef>((_, ref) => {
             )}
             {loading && <LoadingSpinner />}
           </div>
+
           {status && <p className="text-center text-red-500">{status}</p>}
         </form>
       </section>

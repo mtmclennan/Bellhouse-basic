@@ -67,6 +67,11 @@ const Footer = () => {
       </a>
       <div className={classes.copyright}>
         <p>{`©${year} By BELLHOUSE EXCAVATING`}</p>
+
+        <div className={classes.legal}>
+          <Link href="/privacy-policy">Privacy Policy</Link>
+        </div>
+
         <small className={classes.siteBy}>
           <a
             href="https://all8webworks.com"

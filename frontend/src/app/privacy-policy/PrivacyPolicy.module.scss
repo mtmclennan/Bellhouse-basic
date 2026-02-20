@@ -1,0 +1,95 @@
+@use '../../styles/abstracts/variables' as v;
+@use '../../styles/abstracts/mixins' as m;
+
+.page {
+  background: v.$grey-color-0;
+  color: v.$text-color-dark;
+  padding: 4rem 0 10rem;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.header {
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0;
+}
+
+.effectiveDate {
+  font-size: 1.6rem;
+  opacity: 0.9;
+}
+
+.section {
+  background: v.$grey-color-0;
+  border-radius: 8px;
+  margin-bottom: 2.5rem;
+
+  h2 {
+    margin: 2.5rem 0 1rem;
+    font-size: 2.4rem;
+    color: v.$color-primary-dark;
+  }
+
+  p {
+    font-size: 1.6rem;
+    line-height: 1.7;
+    margin: 1rem 0;
+  }
+
+  ul {
+    margin: 1rem 0 1.5rem 2rem;
+    padding: 0;
+
+    li {
+      font-size: 1.6rem;
+      line-height: 1.6;
+      margin: 0.5rem 0;
+    }
+  }
+}
+
+.callout {
+  margin-top: 1.5rem;
+  border: 1px solid v.$color-secondary;
+  background: v.$grey-color-2;
+  border-radius: 8px;
+  padding: 1.5rem;
+
+  p {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+}
+
+.links {
+  li a {
+    color: v.$color-primary-dark;
+    text-decoration: underline;
+  }
+
+  li a:hover,
+  li a:focus {
+    color: v.$grey-color-8;
+  }
+}
+
+.contact {
+  a {
+    color: v.$color-primary-dark;
+    text-decoration: underline;
+  }
+
+  a:hover,
+  a:focus {
+    color: v.$grey-color-8;
+  }
+}

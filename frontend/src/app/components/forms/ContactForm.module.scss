@@ -175,3 +175,55 @@
   width: 100%;
   background-color: v.$btn-main-text;
 }
+
+/* --- SMS Consent (only shown when phone is entered) --- */
+.smsConsent {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-radius: 5px;
+  background-color: v.$grey-color-2;
+  border: 1px solid v.$color-secondary;
+}
+
+.smsConsentLabel {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+
+  input {
+    margin-top: 0.35rem;
+    transform: scale(1.2);
+  }
+
+  span {
+    font-weight: 600;
+    line-height: 1.4;
+  }
+}
+
+.smsDisclosure {
+  margin-top: 1rem;
+  padding-left: 2rem;
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 1.5;
+
+  li {
+    margin-bottom: 0.3rem;
+  }
+}
+
+.privacyLink {
+  margin-top: 1rem;
+  font-size: 1.4rem;
+
+  a {
+    color: v.$color-primary-dark;
+    text-decoration: underline;
+  }
+
+  a:hover,
+  a:focus {
+    color: v.$grey-color-8;
+  }
+}

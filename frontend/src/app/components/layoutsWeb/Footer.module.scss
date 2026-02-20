@@ -78,7 +78,9 @@
 .review {
   text-align: center;
   font-size: 2rem;
-  transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+  transition:
+    transform 0.3s ease-in-out,
+    background 0.3s ease-in-out;
   animation: pulse 1.5s infinite;
   position: relative;
 
@@ -136,5 +138,21 @@
     &:hover {
       opacity: 0.75;
     }
+  }
+}
+
+.legal {
+  margin-top: 0.5rem;
+
+  text-align: center;
+  a {
+    font-size: 1.4rem;
+    text-decoration: underline;
+    color: v.$color-primary;
+  }
+
+  a:hover,
+  a:focus {
+    opacity: 0.8;
   }
 }

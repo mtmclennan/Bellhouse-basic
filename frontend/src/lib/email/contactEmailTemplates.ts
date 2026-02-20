@@ -4,9 +4,35 @@ export type ContactPayload = {
   phone?: string;
   workType: string;
   message: string;
+
+  // ✅ SMS consent audit fields (optional, but used when phone exists)
+  smsConsent?: boolean;
+  smsDisclosureShown?: boolean;
+  smsConsentAt?: string; // ISO timestamp
 };
 
 export function buildBusinessEmail(data: ContactPayload) {
+  const submittedOn = new Date().toLocaleString();
+
+  const phoneProvided = !!data.phone?.trim();
+
+  const smsConsentSection = phoneProvided
+    ? `
+      <hr style="border: none; border-top: 1px solid #ddd; margin: 15px 0;">
+      <h3 style="color: #ffc302;">SMS Consent</h3>
+      <p>
+        <strong>✅ Consent:</strong> ${data.smsConsent ? 'YES' : 'NO'}<br/>
+        <strong>📄 Disclosure Shown:</strong> ${data.smsDisclosureShown ? 'YES' : 'NO'}<br/>
+        <strong>🕒 Consent Timestamp (UTC):</strong> ${
+          data.smsConsentAt ? escapeHtml(data.smsConsentAt) : 'Not recorded'
+        }
+      </p>
+      <p style="font-size: 12px; color: #555;">
+        Note: Consent is required when a phone number is provided. Keep this record for carrier compliance.
+      </p>
+    `
+    : '';
+
   return {
     subject: `🔔 New ${data.workType} Estimate Request`,
     html: `
@@ -17,20 +43,26 @@ export function buildBusinessEmail(data: ContactPayload) {
       </div>
 
       <div style="padding: 20px;">
-        <p><strong>📌 Submitted On:</strong> ${new Date().toLocaleString()}</p>
+        <p><strong>📌 Submitted On:</strong> ${escapeHtml(submittedOn)}</p>
 
         <hr style="border: none; border-top: 2px solid #ffc302; margin: 15px 0;">
 
         <h3 style="color: #ffc302;">Customer Details</h3>
         <p><strong>👤 Name:</strong> ${escapeHtml(data.name)}</p>
         <p><strong>📧 Email:</strong> <a href="mailto:${escapeAttr(data.email)}" style="color: #202020; text-decoration: none;">${escapeHtml(data.email)}</a></p>
-        <p><strong>📞 Phone:</strong> ${data.phone ? escapeHtml(data.phone) : 'Not provided'}</p>
+        <p><strong>📞 Phone:</strong> ${phoneProvided ? escapeHtml(data.phone!) : 'Not provided'}</p>
+
+        ${smsConsentSection}
 
         <hr style="border: none; border-top: 1px solid #ddd; margin: 15px 0;">
 
         <h3 style="color: #ffc302;">Request Details</h3>
         <p><strong>🚧 Service Requested:</strong> ${escapeHtml(data.workType)}</p>
-        <p><strong>📝 Message:</strong><br>${data.message ? escapeHtml(data.message).replace(/\n/g, '<br/>') : '<em>No additional details provided.</em>'}</p>
+        <p><strong>📝 Message:</strong><br>${
+          data.message
+            ? escapeHtml(data.message).replace(/\n/g, '<br/>')
+            : '<em>No additional details provided.</em>'
+        }</p>
 
         <hr style="border: none; border-top: 2px solid #ffc302; margin: 15px 0;">
         <p><strong>⚠️ Action Required:</strong> Please follow up with the customer as soon as possible.</p>
