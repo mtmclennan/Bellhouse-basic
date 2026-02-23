@@ -351,6 +351,19 @@ button {
   }
 }
 
+.text-sm {
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+
+.contact-hero__cta {
+  @include m.flexCenter();
+  gap: 2rem;
+  & a {
+    @include m.btnMain;
+  }
+}
+
 #cta-link {
   @include m.btnMain;
   &:active {
@@ -597,6 +610,8 @@ button {
     @include m.mediaDesktop {
       margin-top: 0rem;
     }
+    margin-top: 2rem;
+    @include m.btnSecSmall;
   }
 }
 

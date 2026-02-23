@@ -1,6 +1,7 @@
 import '../styles/main.scss';
 import schema from '../data/schema.json';
 import Script from 'next/script';
+import LayoutHome from './components/layoutsWeb/layoutHome';
 
 export default function RootLayout({
   children,
@@ -40,7 +41,9 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <LayoutHome>{children}</LayoutHome>
+      </body>
     </html>
   );
 }

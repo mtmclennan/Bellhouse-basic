@@ -14,9 +14,13 @@ type LayoutProps = {
 
 const LayoutHome = ({ children, background = 'on' }: LayoutProps) => {
   const pathname = usePathname();
+  const isServicesPage =
+    usePathname()?.startsWith('/services/') && pathname !== '/services';
+
+  const showBackground = isServicesPage ? 'off' : background;
   return (
     <Fragment>
-      {background === 'on' && (
+      {showBackground === 'on' && (
         <div className="background">
           <Image
             className="background-image"

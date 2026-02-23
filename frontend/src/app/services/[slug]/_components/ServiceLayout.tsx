@@ -7,7 +7,7 @@ import Link from 'next/link';
 import logo from '../../../../../public/assets/BellhouseLogo-text.png';
 import { ServicePage } from '@/types/interfaces';
 
-import LayoutHome from '@/app/components/layoutsWeb/layoutHome';
+// import LayoutHome from '@/app/components/layoutsWeb/layoutHome';
 import CallToAction from '@/app/components/webpage/CallToAction';
 import WhyChooseUs from '@/app/components/webpage/WhyChooseUs';
 import ServicesGrid from '@/app/components/webpage/services/ServicesGrid';
@@ -26,7 +26,8 @@ interface ServiceLayoutProps {
 export default function ServiceLayout({ service }: ServiceLayoutProps) {
   // console.log(service);
   return (
-    <LayoutHome background="off">
+    // <LayoutHome background="off">
+    <>
       {/* HERO */}
       <section className={classes.container}>
         <div className="contact-hero">
@@ -199,6 +200,6 @@ export default function ServiceLayout({ service }: ServiceLayoutProps) {
       )}
 
       <ServicesGrid />
-    </LayoutHome>
+    </>
   );
 }

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import classes from './MobileMenu.module.scss';
-import { Phone } from '@phosphor-icons/react';
+import { Phone, ChatTextIcon } from '@phosphor-icons/react';
 // import { useEffect, useState } from "react";
 
 type MobileMenuProps = {
@@ -43,6 +43,12 @@ const MobileMenu = ({
           <a className={classes.phone} href="tel:519-752-8500">
             <Phone size={30} />
             <h3>519-752-8500</h3>
+          </a>
+        </li>
+        <li className={classes.link}>
+          <a className={classes.phone} href="sms:5197528500">
+            <ChatTextIcon size={30} />
+            Text Us
           </a>
         </li>
       </ul>

@@ -90,3 +90,27 @@
     font-size: 1.8rem;
   }
 }
+
+@mixin btnSecSmall {
+  padding: 0.9rem 1.4rem;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  background-color: transparent;
+  color: v.$btn-text;
+  border: 2px solid v.$grey-color-7;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+
+  &:hover,
+  &:focus {
+    background-color: v.$grey-color-6;
+    border-color: v.$grey-color-5;
+  }
+
+  @include mediaPhone {
+    font-size: 1.4rem;
+  }
+}

@@ -1,6 +1,5 @@
 'use client';
 
-import LayoutHome from '@/app/components/layoutsWeb/layoutHome';
 import React from 'react';
 import Head from 'next/head';
 import Image from 'next/legacy/image';
@@ -74,9 +73,8 @@ const services = [
 const Services = () => {
   return (
     <>
-      <LayoutHome>
-        <ServicesHero />
-        {/* <section className="services__intro">
+      <ServicesHero />
+      {/* <section className="services__intro">
           <div>
             <h2>Transforming Construction Sites</h2>
             <p>
@@ -93,10 +91,9 @@ const Services = () => {
           </div>
         </section> */}
 
-        <ServicesGrid dark />
-        <LocalExperts colorDark={true} />
-        <CallToAction />
-      </LayoutHome>
+      <ServicesGrid dark />
+      <LocalExperts colorDark={true} />
+      <CallToAction />
     </>
   );
 };
