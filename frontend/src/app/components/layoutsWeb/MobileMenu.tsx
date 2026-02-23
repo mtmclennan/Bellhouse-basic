@@ -40,7 +40,7 @@ const MobileMenu = ({
           <Link href="/careers">Careers</Link>
         </li> */}
         <li className={classes.link}>
-          <a className={classes.phone} href="tel:519-752-8500">
+          <a className={classes.phone} href="tel:5197528500">
             <Phone size={30} />
             <h3>519-752-8500</h3>
           </a>

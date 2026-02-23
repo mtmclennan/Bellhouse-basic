@@ -52,7 +52,7 @@ export default function Faq() {
         </p>
         <div className={classes.call}>
           <h3>Still have questions?</h3>
-          <Link href="tel:519-752-8500">
+          <Link href="tel:5197528500">
             <h3>
               Call us at <span className="text-yellow">519-752-8500</span>
             </h3>

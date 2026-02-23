@@ -70,7 +70,7 @@ const MainHeader = ({ currentRoute }: { currentRoute?: string }) => {
               </Link>
             </li>
             <li>
-              <a className={classes.phone} href="tel:519-752-8500">
+              <a className={classes.phone} href="tel:5197528500">
                 <Phone size={24} color={'#ffc302'} weight={'duotone'} />
                 <h3>519-752-8500</h3>
               </a>

@@ -1,12 +1,15 @@
 {
   "@context": "https://schema.org",
   "@type": "HomeAndConstructionBusiness",
+  "@id": "https://bellhouseexcavating.ca/#business",
   "name": "Bellhouse Excavating",
-  "description": "Bellhouse Excavating is a professional excavation company serving the Paris, ON area. Specializing in foundation digging, dump truck services, heavy equipment transportation, and aggregates delivery, we offer high-quality, reliable services for both residential and commercial projects. With over 20 years of experience, our skilled team ensures precision and efficiency, making us the trusted choice for excavation services in the region.",
   "url": "https://bellhouseexcavating.ca",
-  "logo": "https://bellhouseexcavating.ca/assets/bellhouse-excavating-contractor.jpg",
-  "telephone": "+1-519-752-8500",
-  "email": "bellhouseexcavating@gmail.com",
+  "logo": "https://bellhouseexcavating.ca/assets/bellhouse-excavating-logo.jpg",
+  "image": [
+    "https://bellhouseexcavating.ca/assets/Bellhouse-excavating-contractor.jpg"
+  ],
+  "telephone": "+15197528500",
+  "email": "info@bellhouseexcavating.ca",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "573 Governors Rd E",
@@ -17,8 +20,8 @@
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 43.2,
-    "longitude": -80.4
+    "latitude": 43.196386,
+    "longitude": -80.332905
   },
   "openingHoursSpecification": [
     {
@@ -28,13 +31,32 @@
       "closes": "17:00"
     }
   ],
-  "serviceArea": {
-    "@type": "GeoShape",
-    "name": "Brant County, Hamilton, Waterloo Region, Woodstock, Halton, Norfolk"
-  },
+  "areaServed": [
+    { "@type": "City", "name": "Paris, ON" },
+    { "@type": "City", "name": "Brantford, ON" },
+    { "@type": "AdministrativeArea", "name": "Brant County, ON" },
+    { "@type": "City", "name": "Hamilton, ON" },
+    { "@type": "City", "name": "Cambridge, ON" },
+    { "@type": "City", "name": "Kitchener, ON" },
+    { "@type": "City", "name": "Waterloo, ON" },
+    { "@type": "City", "name": "Woodstock, ON" },
+    { "@type": "AdministrativeArea", "name": "Halton Region, ON" },
+    { "@type": "AdministrativeArea", "name": "Norfolk County, ON" }
+  ],
   "priceRange": "$$$",
   "sameAs": [
     "https://www.facebook.com/bellhouseexcavating",
-    "https://www.instagram.com/bellhouse_excavating/"
+    "https://www.instagram.com/bellhouse_excavating/",
+    "https://www.linkedin.com/company/bellhouse-excavating/"
+  ],
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "telephone": "+15197528500",
+      "email": "info@bellhouseexcavating.ca",
+      "areaServed": "CA-ON",
+      "availableLanguage": ["English"]
+    }
   ]
 }

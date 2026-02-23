@@ -96,7 +96,7 @@ const HomePage = () => {
               <Link id="cta-btn" href={'/services'}>
                 View Services
               </Link>
-              <Link className="hero-phone__mobile" href="tel:519-752-8500">
+              <Link className="hero-phone__mobile" href="tel:5197528500">
                 <Phone size={30} />
                 <h3>519-752-8500</h3>
               </Link>

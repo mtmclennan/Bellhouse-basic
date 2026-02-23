@@ -1,4 +1,4 @@
-import * as Brevo from '@getbrevo/brevo';
+import { BrevoClient } from '@getbrevo/brevo';
 
 type BrevoRecipient = { email: string; name?: string };
 
@@ -9,12 +9,16 @@ function required(name: string, value?: string) {
 
 const BREVO_API_KEY = () =>
   required('BREVO_API_KEY', process.env.BREVO_API_KEY);
+
 const EMAIL_FROM = () => required('EMAIL_FROM', process.env.EMAIL_FROM);
 
 export function getBrevoClient() {
-  const api = new Brevo.TransactionalEmailsApi();
-  api.setApiKey(Brevo.TransactionalEmailsApiApiKeys.apiKey, BREVO_API_KEY());
-  return api;
+  // v4 uses BrevoClient with apiKey passed in config
+  return new BrevoClient({
+    apiKey: BREVO_API_KEY(),
+    timeoutInSeconds: 30,
+    maxRetries: 2,
+  });
 }
 
 export async function sendBrevoEmail(opts: {
@@ -22,23 +26,18 @@ export async function sendBrevoEmail(opts: {
   html: string;
   to: BrevoRecipient[];
   replyTo?: BrevoRecipient;
-  tags?: string[]; // ✅ add this
+  tags?: string[];
 }) {
-  const api = getBrevoClient();
+  const brevo = getBrevoClient();
 
-  const email = new Brevo.SendSmtpEmail();
-  email.subject = opts.subject;
-  email.htmlContent = opts.html;
-  email.sender = { email: EMAIL_FROM(), name: 'Bellhouse Excavating' };
-  email.to = opts.to;
-
-  if (opts.replyTo) {
-    email.replyTo = { email: opts.replyTo.email, name: opts.replyTo.name };
-  }
-
-  if (opts.tags?.length) {
-    email.tags = opts.tags;
-  }
-
-  return api.sendTransacEmail(email);
+  return brevo.transactionalEmails.sendTransacEmail({
+    subject: opts.subject,
+    htmlContent: opts.html,
+    sender: { email: EMAIL_FROM(), name: 'Bellhouse Excavating' },
+    to: opts.to,
+    replyTo: opts.replyTo
+      ? { email: opts.replyTo.email, name: opts.replyTo.name }
+      : undefined,
+    tags: opts.tags?.length ? opts.tags : undefined,
+  });
 }
