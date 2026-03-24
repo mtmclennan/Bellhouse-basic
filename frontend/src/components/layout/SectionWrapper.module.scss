@@ -1,0 +1,40 @@
+@use '../../styles/abstracts/mixins' as m;
+@use '../../styles/abstracts/variables' as v;
+
+.section {
+  width: 100%;
+  padding: 6rem 0;
+
+  @include m.mediaDesktop {
+    padding: 8rem 0;
+  }
+}
+
+.tight {
+  padding: 4rem 0;
+
+  @include m.mediaDesktop {
+    padding: 5rem 0;
+  }
+}
+
+.loose {
+  padding: 8rem 0;
+
+  @include m.mediaDesktop {
+    padding: 10rem 0;
+  }
+}
+
+.container {
+  width: min(95%, 110rem);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  color: v.$text-color-mid-dark;
+
+  @include m.mediaDesktop {
+    gap: 3.2rem;
+  }
+}

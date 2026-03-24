@@ -1,0 +1,64 @@
+@use '../../styles/abstracts/mixins' as m;
+@use '../../styles/abstracts/variables' as v;
+
+.section {
+  background-color: v.$grey-color-8;
+}
+
+.container {
+  color: #fff;
+  gap: 3rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.8rem;
+  height: 4.8rem;
+  background-color: rgba(v.$cat-yellow2, 0.12);
+  color: v.$cat-yellow2;
+  border-radius: 999px;
+}
+
+.heading {
+  @include m.sectionHeading();
+  color: #fff;
+}
+
+.list {
+  display: grid;
+  gap: 1.6rem;
+  margin: 0;
+
+  @include m.mediaDesktop {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.item {
+  padding: 2.4rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.8rem;
+}
+
+.question {
+  font-size: 2rem;
+  line-height: 1.35;
+  font-weight: 600;
+  color: #fff;
+}
+
+.answer {
+  margin: 1.2rem 0 0;
+  font-size: 1.7rem;
+  line-height: 1.68;
+  color: rgba(255, 255, 255, 0.84);
+}

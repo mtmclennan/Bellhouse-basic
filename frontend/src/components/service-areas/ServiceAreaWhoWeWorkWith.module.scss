@@ -1,0 +1,58 @@
+@use '../../styles/abstracts/mixins' as m;
+@use '../../styles/abstracts/variables' as v;
+
+.container {
+  gap: 3rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.heading {
+  @include m.sectionHeading();
+  max-width: 13ch;
+}
+
+.list {
+  display: grid;
+  gap: 1.6rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  @include m.mediaDesktop {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 5.2rem 1fr;
+  gap: 1.6rem;
+  padding: 2.2rem 2.4rem;
+  border: 1px solid v.$grey-color-3;
+  background:
+    linear-gradient(180deg, rgba(v.$cat-yellow2, 0.06) 0%, transparent 100%),
+    v.$grey-color-1;
+  box-shadow: 0 1rem 2rem -2rem rgba(0, 0, 0, 0.45);
+
+  p {
+    font-size: 1.8rem;
+    line-height: 1.65;
+  }
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.8rem;
+  height: 4.8rem;
+  background-color: v.$color-primary-dark;
+  color: v.$cat-yellow2;
+  border-radius: 999px;
+  box-shadow: 0 1rem 2rem -1.2rem rgba(0, 0, 0, 0.6);
+}

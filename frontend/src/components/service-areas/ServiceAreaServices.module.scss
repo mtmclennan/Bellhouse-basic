@@ -1,0 +1,149 @@
+@use '../../styles/abstracts/mixins' as m;
+@use '../../styles/abstracts/variables' as v;
+
+.section {
+  background-color: v.$grey-color-0;
+}
+
+.container {
+  gap: 3rem;
+}
+
+.header {
+  display: grid;
+  gap: 1.6rem;
+
+  @include m.mediaDesktop {
+    grid-template-columns: minmax(0, 0.78fr) minmax(0, 1fr);
+    gap: 3rem;
+    align-items: end;
+  }
+}
+
+.heading {
+  @include m.sectionHeading(4rem, 5.4rem);
+  max-width: 11ch;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+
+  @include m.mediaDesktop {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: v.$color-primary;
+  border: 1px solid v.$grey-color-3;
+  border-radius: 2rem;
+  box-shadow: 0 1.4rem 3rem -2.6rem rgba(0, 0, 0, 0.45);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+
+  @include m.mediaDesktop {
+    &:nth-child(even) {
+      transform: translateY(2rem);
+    }
+  }
+
+  &:hover {
+    transform: translateY(-0.4rem);
+    box-shadow: 0 2.2rem 3.6rem -2.8rem rgba(0, 0, 0, 0.45);
+    border-color: rgba(v.$cat-yellow2, 0.6);
+  }
+}
+
+.imageFrame {
+  position: relative;
+  min-height: 24rem;
+  background-color: v.$grey-color-2;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.iconBadge {
+  position: absolute;
+  top: 1.6rem;
+  left: 1.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 5rem;
+  height: 5rem;
+  background-color: rgba(17, 17, 17, 0.84);
+  color: v.$cat-yellow2;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  box-shadow: 0 1rem 2rem -1rem rgba(0, 0, 0, 0.6);
+}
+
+.cardCopy {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 1.4rem;
+  padding: 2.4rem;
+
+  h3 {
+    font-size: 2.4rem;
+    line-height: 1.2;
+    font-weight: 600;
+    color: v.$text-color-mid-dark;
+  }
+
+  p {
+    font-size: 1.7rem;
+    line-height: 1.68;
+    color: v.$text-color-mid-dark;
+  }
+}
+
+.serviceLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: fit-content;
+  margin-top: auto;
+  padding-bottom: 0.2rem;
+  border-bottom: 2px solid v.$cat-yellow2;
+  color: v.$text-color-mid-dark;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  &::after {
+    content: '?';
+    font-size: 1.6rem;
+  }
+
+  @include m.focusRing();
+}
+
+.supportingCopy {
+  max-width: 82rem;
+
+  p {
+    font-size: 1.7rem;
+    line-height: 1.72;
+    color: v.$text-color-mid-dark;
+
+    @include m.mediaDesktop {
+      font-size: 1.8rem;
+    }
+  }
+
+  a {
+    @include m.textLink();
+    @include m.focusRing();
+  }
+}

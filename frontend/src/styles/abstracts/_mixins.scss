@@ -114,3 +114,36 @@
     font-size: 1.4rem;
   }
 }
+
+@mixin sectionHeading($mobile: 3.6rem, $desktop: 5rem) {
+  font-size: $mobile;
+  line-height: 1.1;
+  font-weight: 300;
+
+  @include mediaDesktop {
+    font-size: $desktop;
+  }
+}
+
+@mixin textLink($color: v.$text-color-mid-dark, $hoverColor: v.$grey-color-7) {
+  color: $color;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+
+  &:hover,
+  &:focus {
+    color: $hoverColor;
+  }
+}
+
+@mixin focusRing(
+  $color: rgba(v.$cat-yellow2, 0.65),
+  $offset: 0.3rem,
+  $radius: 1rem
+) {
+  &:focus-visible {
+    outline: 3px solid $color;
+    outline-offset: $offset;
+    border-radius: $radius;
+  }
+}

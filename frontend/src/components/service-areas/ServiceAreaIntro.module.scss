@@ -1,0 +1,89 @@
+@use '../../styles/abstracts/mixins' as m;
+@use '../../styles/abstracts/variables' as v;
+
+.container {
+  color: v.$text-color-mid-dark;
+}
+
+.content {
+  display: grid;
+  gap: 2.4rem;
+  align-items: start;
+
+  @include m.mediaDesktop {
+    grid-template-columns: minmax(0, 1.05fr) minmax(30rem, 0.85fr);
+    gap: 4rem;
+  }
+}
+
+.copyBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.heading {
+  @include m.sectionHeading(4rem, 5.4rem);
+  max-width: 12ch;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  padding: 2.4rem;
+  background-color: v.$color-primary;
+  border: 1px solid v.$grey-color-3;
+  border-left: 4px solid v.$cat-yellow2;
+  box-shadow: 0 1.6rem 3.6rem -3rem rgba(0, 0, 0, 0.4);
+
+  @include m.mediaDesktop {
+    padding: 3rem;
+  }
+
+  p {
+    font-size: 1.7rem;
+    line-height: 1.72;
+
+    @include m.mediaDesktop {
+      font-size: 1.8rem;
+    }
+  }
+
+  a {
+    @include m.textLink();
+    @include m.focusRing();
+  }
+}
+
+.media {
+  display: block;
+}
+
+.imageFrame {
+  position: relative;
+  overflow: hidden;
+  min-height: 30rem;
+  border-radius: 2.2rem;
+  box-shadow: v.$box-shadow-dark;
+
+  @include m.mediaDesktop {
+    min-height: 100%;
+    aspect-ratio: 0.9;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: auto 1.6rem 1.6rem auto;
+    width: 13rem;
+    height: 13rem;
+    border-right: 3px solid rgba(v.$cat-yellow2, 0.75);
+    border-bottom: 3px solid rgba(v.$cat-yellow2, 0.75);
+    pointer-events: none;
+  }
+}
+
+.image {
+  object-fit: cover;
+}
