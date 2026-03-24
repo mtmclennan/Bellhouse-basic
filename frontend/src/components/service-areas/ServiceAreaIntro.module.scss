@@ -25,6 +25,7 @@
 .heading {
   @include m.sectionHeading(4rem, 5.4rem);
   max-width: 12ch;
+  color: v.$text-color-dark;
 }
 
 .copy {
@@ -32,7 +33,7 @@
   flex-direction: column;
   gap: 1.8rem;
   padding: 2.4rem;
-  background-color: v.$color-primary;
+  background-color: v.$grey-color-0;
   border: 1px solid v.$grey-color-3;
   border-left: 4px solid v.$cat-yellow2;
   box-shadow: 0 1.6rem 3.6rem -3rem rgba(0, 0, 0, 0.4);
@@ -42,6 +43,7 @@
   }
 
   p {
+    color: v.$text-color-dark;
     font-size: 1.7rem;
     line-height: 1.72;
 
@@ -51,7 +53,7 @@
   }
 
   a {
-    @include m.textLink();
+    @include m.textLink(v.$text-color-dark, v.$grey-color-7);
     @include m.focusRing();
   }
 }
@@ -87,3 +89,5 @@
 .image {
   object-fit: cover;
 }
+
+

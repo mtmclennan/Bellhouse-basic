@@ -13,6 +13,9 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
   const router = useRouter();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
+  const isServiceAreaRoute =
+    currentRoute === '/service-areas' || currentRoute.startsWith('/service-areas/');
+
   const homeClassname = currentRoute === '/' ? 'active' : 'non-active';
   const servicesClassname =
     currentRoute === '/services' ? 'active' : 'non-active';
@@ -28,7 +31,9 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
 
   return (
     <Fragment>
-      <header className={`${classes.header}`}>
+      <header
+        className={`${classes.header} ${isServiceAreaRoute ? classes.headerOverlay : ''}`}
+      >
         <nav className={classes.nav}>
           <div className={classes.logo}>
             <Link href="/">
@@ -44,7 +49,6 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
                 }}
               />
             </Link>
-            {/* <h1>BELLHOUSE EXCAVATING</h1> */}
           </div>
           <ul>
             <li>
@@ -67,16 +71,9 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
                 Contact
               </Link>
             </li>
-            {/* <li>
-              <Link legacyBehavior={true} href="/careers">
-                Careers
-              </Link>
-            </li> */}
           </ul>
           <div className={classes.actionContainer}>
-            <button onClick={() => router.push('/contact')}>
-              Get An Estimate
-            </button>
+            <button onClick={() => router.push('/contact')}>Get An Estimate</button>
             <li>
               <a className={classes.phone} href="tel:5197528500">
                 <Phone size={24} color={'#ffc302'} />

@@ -3,6 +3,11 @@
 
 .section {
   position: relative;
+  padding-top: 11rem;
+
+  @include m.mediaDesktop {
+    padding-top: 22rem;
+  }
   overflow: hidden;
   background:
     radial-gradient(circle at top left, rgba(v.$cat-yellow2, 0.14), transparent 26%),
@@ -20,7 +25,7 @@
   align-items: center;
 
   @include m.mediaDesktop {
-    grid-template-columns: minmax(0, 1.02fr) minmax(36rem, 0.98fr);
+    grid-template-columns: minmax(0, 1.22fr) minmax(30rem, 0.78fr);
     gap: 4.8rem;
   }
 }
@@ -52,14 +57,14 @@
 }
 
 .title {
-  max-width: 10ch;
+  max-width: 16ch;
   font-size: 5rem;
   line-height: 0.98;
   font-weight: 200;
   color: #fff;
 
   @include m.mediaDesktop {
-    font-size: 8.6rem;
+    font-size: 7.6rem;
   }
 }
 
@@ -149,3 +154,7 @@
     backdrop-filter: blur(4px);
   }
 }
+
+
+
+

@@ -15,9 +15,12 @@ type LayoutProps = {
 const LayoutHome = ({ children, background = 'on' }: LayoutProps) => {
   const pathname = usePathname();
   const isServicesPage =
-    usePathname()?.startsWith('/services/') && pathname !== '/services';
+    pathname?.startsWith('/services/') && pathname !== '/services';
+  const isServiceAreasPage =
+    pathname === '/service-areas' || pathname?.startsWith('/service-areas/');
 
-  const showBackground = isServicesPage ? 'off' : background;
+  const showBackground = isServicesPage || isServiceAreasPage ? 'off' : background;
+
   return (
     <Fragment>
       {showBackground === 'on' && (
@@ -25,7 +28,6 @@ const LayoutHome = ({ children, background = 'on' }: LayoutProps) => {
           <Image
             className="background-image"
             quality={70}
-            // placeholder="blur"
             priority
             fill
             src="/assets/background.jpg"

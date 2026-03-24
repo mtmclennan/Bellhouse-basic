@@ -14,6 +14,9 @@ const MainHeader = ({ currentRoute }: { currentRoute?: string }) => {
   const router = useRouter();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
+  const isServiceAreaRoute =
+    currentRoute === '/service-areas' || currentRoute?.startsWith('/service-areas/');
+
   const homeClassname = currentRoute === '/' ? 'active' : 'non-active';
   const servicesClassname =
     currentRoute === '/services' ? 'active' : 'non-active';
@@ -29,7 +32,9 @@ const MainHeader = ({ currentRoute }: { currentRoute?: string }) => {
 
   return (
     <Fragment>
-      <header className={`${classes.headerHome}`}>
+      <header
+        className={`${classes.headerHome} ${isServiceAreaRoute ? classes.headerHomeOverlay : ''}`}
+      >
         <nav className={classes.navHome}>
           <div className={classes.logoHome}>
             <Link href="/">

@@ -1,7 +1,7 @@
 'use client';
 
 import Footer from './Footer';
-import { Fragment, ReactNode, useEffect, useState } from 'react';
+import { Fragment, ReactNode, useMemo } from 'react';
 import Image from 'next/legacy/image';
 import classes from './LayoutWeb.module.scss';
 import { usePathname } from 'next/navigation';
@@ -12,34 +12,32 @@ type LayoutProps = {
 };
 
 const Layout = ({ children }: LayoutProps) => {
-  const [showBackground, setShowBackground] = useState(false);
-  const currentRoute = usePathname();
+  const currentRoute = usePathname() ?? '/';
 
-  useEffect(() => {
-    if (
+  const showBackground = useMemo(
+    () =>
       currentRoute === '/' ||
       currentRoute === '/about' ||
       currentRoute === '/contact' ||
-      currentRoute === '/tools'
-    ) {
-      setShowBackground(true);
-    } else setShowBackground(false);
-  }, [currentRoute]);
+      currentRoute === '/tools',
+    [currentRoute],
+  );
 
   return (
     <Fragment>
-      <div className="background">
-        <Image
-          className="background-image"
-          layout="fill"
-          quality={80}
-          // placeholder="blur"
-          src="/assets/background.jpg"
-          alt="background"
-        />
-      </div>
+      {showBackground ? (
+        <div className="background">
+          <Image
+            className="background-image"
+            layout="fill"
+            quality={80}
+            src="/assets/background.jpg"
+            alt="background"
+          />
+        </div>
+      ) : null}
 
-      <MainHeader currentRoute={`${currentRoute ? currentRoute : '/'}`} />
+      <MainHeader currentRoute={currentRoute} />
       <main className={classes.container}>{children}</main>
       <Footer />
     </Fragment>
