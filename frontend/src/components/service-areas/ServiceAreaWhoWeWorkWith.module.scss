@@ -13,7 +13,8 @@
 
 .heading {
   @include m.sectionHeading();
-  max-width: 13ch;
+  color: v.$text-color-light;
+  max-width: 18ch;
 }
 
 .list {

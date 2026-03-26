@@ -12,7 +12,7 @@
 
 .heading {
   @include m.sectionHeading(4rem, 5.4rem);
-  max-width: 12ch;
+  max-width: 18ch;
 }
 
 .list {
@@ -34,8 +34,11 @@
   gap: 1.4rem;
   align-items: start;
   padding: 2.4rem;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.03) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06) 0%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 2rem;
   box-shadow: 0 1.2rem 2.8rem -2.4rem rgba(0, 0, 0, 0.65);

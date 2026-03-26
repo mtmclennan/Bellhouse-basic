@@ -2,7 +2,7 @@
 @use '../../styles/abstracts/variables' as v;
 
 .container {
-  color: v.$text-color-mid-dark;
+  color: v.$text-color-light;
 }
 
 .content {
@@ -24,8 +24,8 @@
 
 .heading {
   @include m.sectionHeading(4rem, 5.4rem);
-  max-width: 12ch;
-  color: v.$text-color-dark;
+  max-width: 20ch;
+  color: v.$text-color-light;
 }
 
 .copy {
@@ -89,5 +89,3 @@
 .image {
   object-fit: cover;
 }
-
-

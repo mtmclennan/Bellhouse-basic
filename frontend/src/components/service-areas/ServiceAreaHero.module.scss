@@ -10,7 +10,11 @@
   }
   overflow: hidden;
   background:
-    radial-gradient(circle at top left, rgba(v.$cat-yellow2, 0.14), transparent 26%),
+    radial-gradient(
+      circle at top left,
+      rgba(v.$cat-yellow2, 0.14),
+      transparent 26%
+    ),
     linear-gradient(180deg, #191919 0%, #101010 100%);
 }
 
@@ -113,14 +117,14 @@
     min-height: 58rem;
   }
 
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 1.6rem;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 2rem;
-    pointer-events: none;
-  }
+  // &::after {
+  //   content: '';
+  //   position: absolute;
+  //   inset: 1.6rem;
+  //   border: 1px solid rgba(255, 255, 255, 0.12);
+  //   border-radius: 2rem;
+  //   pointer-events: none;
+  // }
 }
 
 .image {
@@ -154,7 +158,3 @@
     backdrop-filter: blur(4px);
   }
 }
-
-
-
-

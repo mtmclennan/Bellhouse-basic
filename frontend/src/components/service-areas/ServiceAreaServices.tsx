@@ -23,7 +23,9 @@ export default function ServiceAreaServices({
     >
       <div className={classes.header}>
         <h2 className={classes.heading}>{heading}</h2>
-        {children ? <div className={classes.supportingCopy}>{children}</div> : null}
+        {children ? (
+          <div className={classes.supportingCopy}>{children}</div>
+        ) : null}
       </div>
       <div className={classes.grid}>
         {items.map((item) => (
@@ -37,14 +39,16 @@ export default function ServiceAreaServices({
                   className={classes.image}
                   sizes="(max-width: 1000px) 100vw, 33vw"
                 />
-                <div className={classes.iconBadge}>{getServiceAreaServiceIcon(item.slug)}</div>
+                <div className={classes.iconBadge}>
+                  {getServiceAreaServiceIcon(item.slug)}
+                </div>
               </div>
             ) : null}
             <div className={classes.cardCopy}>
               <h3>{item.title}</h3>
               <p>{item.description}</p>
               <Link className={classes.serviceLink} href={item.coreServiceHref}>
-                View related core service
+                View related service
               </Link>
             </div>
           </article>

@@ -10,7 +10,11 @@
   }
   overflow: hidden;
   background:
-    radial-gradient(circle at top left, rgba(v.$cat-yellow2, 0.14), transparent 26%),
+    radial-gradient(
+      circle at top left,
+      rgba(v.$cat-yellow2, 0.14),
+      transparent 26%
+    ),
     linear-gradient(180deg, #191919 0%, #101010 100%);
 }
 
@@ -52,7 +56,7 @@
 .sectionEyebrow {
   display: inline-flex;
   width: fit-content;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -96,20 +100,10 @@
   overflow: hidden;
   min-height: 38rem;
   border-radius: 2.8rem;
-  border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: v.$box-shadow-dark;
 
   @include m.mediaDesktop {
     min-height: 58rem;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 1.6rem;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 2rem;
-    pointer-events: none;
   }
 }
 
@@ -118,11 +112,6 @@
 }
 
 .heroOverlay {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.52) 100%),
-    linear-gradient(120deg, rgba(v.$cat-yellow2, 0.12) 0%, transparent 42%);
 }
 
 .heroBadgeRow {
@@ -188,6 +177,10 @@
   border-radius: 999px;
 }
 
+.serviceIcon {
+  background-color: rgba(v.$color-primary-dark, 0.92);
+}
+
 .servicesContainer,
 .areasContainer {
   gap: 3rem;
@@ -196,18 +189,34 @@
 .servicesIntro,
 .areasIntro {
   max-width: 86rem;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1.6rem;
+  text-align: center;
 
   h2 {
     @include m.sectionHeading(4rem, 5.4rem);
-    max-width: 13ch;
+    color: v.$text-color-light;
   }
 
   p:last-child {
     font-size: 1.8rem;
     line-height: 1.72;
+    color: v.$text-color-light;
+  }
+}
+
+.areasIntro {
+  h2 {
+    color: v.$text-color-dark;
+  }
+
+  p {
+    color: v.$text-color-mid-dark;
+  }
+  p:last-child {
     color: v.$text-color-mid-dark;
   }
 }
@@ -246,7 +255,7 @@
 }
 
 .areasSection {
-  background-color: v.$grey-color-0;
+  background-color: v.$color-primary;
 }
 
 .areasGrid {
@@ -365,12 +374,4 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-
-  &::after {
-    content: '?';
-    font-size: 1.6rem;
-  }
 }
-
-
-
