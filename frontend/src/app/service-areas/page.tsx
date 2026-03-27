@@ -58,9 +58,9 @@ const valuePoints = [
 
 export const metadata: Metadata = {
   title:
-    'Excavation Service Areas in Brantford & Southern Ontario | Bellhouse Excavating',
+    'Excavation Service Areas Across Southern Ontario | Bellhouse Excavating',
   description:
-    'Bellhouse Excavating provides excavation, grading, dump truck hauling, material delivery, and equipment floating across Brantford, Paris, Hamilton, Cambridge, Ancaster, and surrounding Southern Ontario areas.',
+    'Bellhouse Excavating provides excavation, grading, dump truck hauling, material delivery, and equipment floating across Brantford, Hamilton-area communities, Norfolk County, Oxford County, and surrounding Southern Ontario service areas.',
   alternates: {
     canonical: 'https://bellhouseexcavating.ca/service-areas',
   },
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     title:
       'Excavation Service Areas in Brantford & Southern Ontario | Bellhouse Excavating',
     description:
-      'Explore Bellhouse service areas for excavation, grading, dump truck hauling, material delivery, and equipment floating across Brantford and surrounding Southern Ontario communities.',
+      'Explore Bellhouse service areas for excavation, grading, dump truck hauling, material delivery, and equipment floating across Southern Ontario communities.',
     url: 'https://bellhouseexcavating.ca/service-areas',
     siteName: 'Bellhouse Excavating',
     type: 'website',
@@ -91,8 +91,8 @@ export default function ServiceAreasPage() {
             <p className={classes.heroText}>
               Bellhouse Excavating provides excavation, grading, dump truck
               hauling, material delivery, and equipment floating across
-              Brantford, Paris, Hamilton, Cambridge, Ancaster, and surrounding
-              areas.
+              Brantford, Hamilton-area communities, Norfolk County, Oxford
+              County, and surrounding Southern Ontario areas.
             </p>
 
             <p className={classes.heroText}>
@@ -152,10 +152,9 @@ export default function ServiceAreasPage() {
             work.
           </h2>
           <p>
-            Bellhouse works across Brantford, Paris, Hamilton, Cambridge,
-            Ancaster, and surrounding areas, supporting projects that need
-            excavation, truck support, and site work handled properly from the
-            start.
+            Bellhouse works across Southern Ontario service areas, supporting
+            projects that need excavation, truck support, and site work handled
+            properly from the start.
           </p>
         </div>
         <div className={classes.servicesGrid}>

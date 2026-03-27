@@ -293,9 +293,9 @@ export const serviceAreaPages = {
     ],
     nearbyAreas: [
       { label: 'Paris', href: '/service-areas/paris' },
-      'St. George',
-      'Burford',
       { label: 'Hamilton', href: '/service-areas/hamilton' },
+      { label: 'Simcoe', href: '/service-areas/simcoe' },
+      'St. George',
       'Brant County',
     ],
     whatHappensNextIntro:
@@ -505,9 +505,9 @@ export const serviceAreaPages = {
     ],
     nearbyAreas: [
       { label: 'Brantford', href: '/service-areas/brantford' },
+      { label: 'Simcoe', href: '/service-areas/simcoe' },
+      { label: 'Cambridge', href: '/service-areas/cambridge' },
       'St. George',
-      'Ayr',
-      'Burford',
     ],
     whatHappensNextIntro:
       'On a Paris lot, the useful first step is usually simple: line up the ground conditions, the access route, and the rough build schedule before the digging starts.',
@@ -707,9 +707,9 @@ export const serviceAreaPages = {
     ],
     nearbyAreas: [
       { label: 'Ancaster', href: '/service-areas/ancaster' },
-      'Dundas',
+      { label: 'Dundas', href: '/service-areas/dundas' },
+      { label: 'Waterdown', href: '/service-areas/waterdown' },
       'Stoney Creek',
-      'Binbrook',
     ],
     whatHappensNextIntro:
       'On Hamilton work, the useful first step is usually to settle the schedule pressure, truck movement, and access limits before the digging starts.',
@@ -911,10 +911,10 @@ export const serviceAreaPages = {
       'You get a direct answer on fit, timing, and how to keep the next step moving.',
     ],
     nearbyAreas: [
+      { label: 'Paris', href: '/service-areas/paris' },
+      { label: 'Woodstock', href: '/service-areas/woodstock' },
       'Kitchener',
       'Ayr',
-      { label: 'Paris', href: '/service-areas/paris' },
-      'Puslinch',
     ],
     whatHappensNextIntro:
       'On Cambridge work, the first useful step is usually to line up access, staging, and material movement with the part of the site that has to stay active.',
@@ -970,6 +970,838 @@ export const serviceAreaPages = {
         question: 'Can Bellhouse support Cambridge jobs that stay active while work is underway?',
         answer:
           'Yes. Bellhouse is a good fit for Cambridge sites that need to keep materials moving, haul routes usable, and equipment arriving on time while residential, commercial, or industrial work continues through multiple phases.',
+      },
+    ],
+  },
+
+  dundas: {
+    slug: 'dundas',
+    city: 'Dundas',
+    province: 'Ontario',
+    heroTitle:
+      'Dundas Excavation Contractor for Tight Residential Site Work & Trucking',
+    heroDescription:
+      'Bellhouse handles Dundas excavation, site preparation, grading, dump truck hauling, material delivery, and equipment floating for older properties, additions, drainage work, and tight residential projects where access has to stay controlled.',
+    metaTitle:
+      'Dundas Excavation & Tight-Lot Site Prep | Bellhouse',
+    metaDescription:
+      'Dundas excavation contractor for additions, drainage work, grading, trenching, dump truck hauling, and site prep on older properties with tighter residential access.',
+    openGraphTitle:
+      'Dundas excavation for tight residential site work | Bellhouse',
+    openGraphDescription:
+      'Dundas excavation and truck support for older properties, additions, drainage work, and tighter residential lots where access and grading need to stay controlled.',
+    map: {
+      eyebrow: 'Nearby work',
+      title:
+        'Dundas jobs often connect to nearby work, but the site conditions are usually tighter and more residential.',
+      description:
+        'Bellhouse handles excavation, grading, hauling, and equipment movement across the region from its Paris base, supporting Dundas work where access, neighbours, and clean truck movement matter from the start.',
+    },
+    intro: [
+      'Dundas jobs often happen on older residential properties where the work area is tighter, the driveway is already established, and there is less room to stage spoil, stone, and truck movement without creating problems fast.',
+      'That changes the work. Excavation has to stay controlled around existing houses, additions, garages, trees, fences, retaining edges, and neighbouring properties instead of treating the lot like an open site.',
+      'Typical Dundas work includes additions, garage foundations, drainage corrections, service trenching, driveway and access improvements, rough grading, spoil haul-out, and imported material for smaller residential builds that still need proper truck support.',
+    ],
+    sectionHeadings: {
+      intro: 'Tight residential site work in Dundas',
+      services: 'Excavation, grading, hauling, and float work in Dundas',
+      rightFit: 'Is Bellhouse the right fit for your Dundas project?',
+      howProjectsAreHandled: 'How Dundas projects are handled',
+      whoWeWorkWith: 'Who this Dundas work is for',
+      whyChoose: 'Why Dundas jobs call Bellhouse',
+      nearbyAreas: 'Nearby areas',
+      faq: 'Dundas excavation and grading FAQs',
+      whatHappensNext: 'What happens next on a Dundas job',
+    },
+    ctaTitle:
+      'Get a quote for Dundas excavation, grading, or truck support',
+    rightFitIntro:
+      'Bellhouse is a fit for Dundas jobs where excavation has to stay practical on a tighter residential property, with trucking, grading, and material movement handled cleanly instead of improvised after the cut starts.',
+    rightFit: [
+      'Residential additions, garages, drainage fixes, and foundation work on older properties with limited room to stage materials',
+      'Projects that need excavation, spoil haul-out, imported gravel or fill, and grading kept together so the lot stays usable',
+      'Jobs where driveway access, neighbour proximity, established landscaping, or small work areas make clean truck movement important',
+      'Owners, builders, and contractors who want a direct answer on fit before the site gets boxed in by the wrong sequence',
+    ],
+    howProjectsAreHandledIntro:
+      'Dundas work usually goes better when the access route, spoil movement, and next step on site are sorted out before equipment starts cutting.',
+    howProjectsAreHandled: [
+      'Bellhouse starts with the address, the existing access, and what has to stay protected or usable while the work is underway.',
+      'Excavation, truck hauling, imported aggregate, and rough grading are sequenced so the property does not get blocked off halfway through the job.',
+      'The ground is left ready for the next residential step, whether that is footings, concrete, drainage work, backfill, or driveway prep.',
+      'If machinery has to move between Dundas and nearby jobs, float timing can be tied into the same schedule.',
+    ],
+    midPageCta: {
+      title: 'Need Dundas excavation that works on a tighter property?',
+      description:
+        'Send Bellhouse the address, the job type, and the rough timing to get a direct read on access, truck fit, and what should happen first.',
+      supportingPoints: [
+        'Strong fit for additions, garage foundations, drainage work, and driveway access improvements.',
+        'Excavation, hauling, grading, and equipment movement can stay coordinated.',
+        'Useful before a small site turns into a bigger cleanup problem.',
+      ],
+    },
+    services: [
+      {
+        slug: 'excavation',
+        title: 'Excavation for additions, foundations, trenches, and residential site changes',
+        description:
+          'Bellhouse handles Dundas excavation for additions, garage foundations, service trenching, removals, and residential site changes where the cut has to stay controlled around existing structures and tighter work zones.',
+        coreServiceHref: '/services/foundation-excavation',
+        image: {
+          src: '/assets/foundation-excavation-machinery.jpg',
+          alt: 'Excavator cutting a foundation footprint beside a new residential build.',
+        },
+      },
+      {
+        slug: 'site-preparation',
+        title: 'Site preparation for older properties and build-ready access',
+        description:
+          'Dundas site prep includes stripping, shaping work areas, setting access, and preparing the lot so residential construction can move ahead without fighting mud, poor staging, or blocked driveways every day.',
+        coreServiceHref: '/services/site-preparation-land-grading',
+        image: {
+          src: '/assets/site-preparation-dozer-brant-county.jpg',
+          alt: 'Dozer shaping stripped ground for a building area and site access.',
+        },
+      },
+      {
+        slug: 'grading',
+        title: 'Grading for drainage, driveway function, and controlled runoff',
+        description:
+          'Bellhouse handles Dundas grading for drainage corrections, driveway approaches, rough residential shaping, and finished grade prep where runoff and access have to work on a tighter lot with existing surroundings.',
+        coreServiceHref: '/services/site-preparation-land-grading',
+        image: {
+          src: '/assets/driveway-parking-lot-construction.jpg',
+          alt: 'Machine grading a driveway and access lane with compacted aggregate.',
+        },
+      },
+      {
+        slug: 'dump-truck-services',
+        title: 'Dump truck hauling and material delivery for spoil, gravel, and fill',
+        description:
+          'Bellhouse provides Dundas dump truck hauling for spoil export and material delivery for gravel, topsoil, and fill so excavation and grading work can keep moving without waiting on separate truck availability.',
+        coreServiceHref: '/services/dump-truck-rental',
+        image: {
+          src: '/assets/dump-truck-delivery-service.jpg',
+          alt: 'Tri-axle dump truck delivering gravel to an active jobsite.',
+        },
+      },
+      {
+        slug: 'equipment-floating',
+        title: 'Equipment floating for excavators and residential site machinery',
+        description:
+          'Equipment floating is available for excavators, skid steers, and heavy site machinery moving into Dundas or between nearby jobs when the machine has to land on schedule for a tight residential phase change.',
+        coreServiceHref: '/services/heavy-equipment-hauling',
+        image: {
+          src: '/assets/truck-hauling-heavy-equipment.jpg',
+          alt: 'Float truck hauling an excavator and site equipment to a jobsite.',
+        },
+      },
+    ],
+    whoWeWorkWithIntro:
+      'This is a good fit for people who need the job handled cleanly on a smaller or older residential property without losing control of access, drainage, or truck movement.',
+    whoWeWorkWith: [
+      'Homeowners planning additions, garages, drainage improvements, and other residential site work in Dundas',
+      'Builders and renovation contractors preparing tighter lots for foundations, trenching, and concrete work',
+      'General contractors who want excavation, grading, hauling, and material delivery kept under one working schedule',
+      'Concrete, utility, drainage, and landscape crews stepping into a site that has to be shaped properly first',
+      'Teams moving machines between Dundas, Hamilton, Ancaster, Waterdown, and nearby jobs',
+    ],
+    whyChooseIntro:
+      'Bellhouse is a better fit on Dundas jobs where the lot is tighter, the property is already established, and the work has to stay practical from the first truck in to the last clean-up pass out.',
+    whyChoose: [
+      'Bellhouse can handle the dig, haul-out, imported material, and machine movement under one working schedule instead of forcing a smaller site through multiple suppliers.',
+      'Older residential properties usually leave less room for mistakes, so clean access and controlled grading matter more than broad production-style site work.',
+      'Bellhouse has served the region since 1982 from its Paris base, which matters when a Dundas job needs practical decision-making instead of generic site-work assumptions.',
+      'You get a direct answer on fit, access, and likely sequence before the site gets crowded or the drainage plan goes sideways.',
+    ],
+    nearbyAreas: [
+      { label: 'Hamilton', href: '/service-areas/hamilton' },
+      { label: 'Ancaster', href: '/service-areas/ancaster' },
+      { label: 'Waterdown', href: '/service-areas/waterdown' },
+      'Flamborough',
+    ],
+    whatHappensNextIntro:
+      'On Dundas work, the useful first step is usually to sort out site access, what has to stay protected, and how spoil and imported material will move through the property.',
+    whatHappensNext: [
+      'Share the address, the job type, and the rough timing.',
+      'Bellhouse reviews access, staging room, spoil movement, material delivery, and whether excavation, grading, and trucking should stay together.',
+      'You get a direct answer on fit, likely sequence, and whether more site detail is needed for quoting.',
+      'Once the plan is clear, the job can be scheduled to keep the property workable while the next residential trade moves in.',
+    ],
+    bottomCta: {
+      title: 'Request a quote for Dundas excavation and truck support',
+      description:
+        'Call, text, or request a quote if you need a practical read on tight access, drainage grading, spoil haul-out, driveway function, or the order of work before the lot gets tied up the wrong way.',
+      supportingPoints: [
+        'Useful for additions, drainage fixes, garage foundations, and tighter residential site work.',
+        'Bellhouse has served the region since 1982 from its Paris base.',
+        'Direct answer on fit, sequence, and what to handle first.',
+      ],
+    },
+    faqs: [
+      {
+        question:
+          'Do you handle excavation, truck hauling, and material delivery together in Dundas?',
+        answer:
+          'Yes. Bellhouse can handle Dundas excavation, dump truck hauling, and material delivery under one schedule so spoil can leave, gravel or fill can come back in, and the site can stay workable between phases. That matters on tighter residential properties where there is less room for separate trucks and less tolerance for a stalled driveway or blocked work area.',
+      },
+      {
+        question:
+          'Is Dundas a good fit for tighter residential excavation work?',
+        answer:
+          'Yes. Dundas is a strong fit for residential excavation tied to additions, garage foundations, drainage improvements, driveway access work, and service trenching on older properties. Bellhouse is a good fit when the lot is tighter, neighbours are close, and the work needs to stay controlled instead of being treated like an open subdivision site.',
+      },
+      {
+        question:
+          'Can you prepare a Dundas addition or garage site before the concrete or framing crew arrives?',
+        answer:
+          'Yes. Bellhouse can prepare a Dundas site by stripping the work area, handling excavation, hauling spoil out, bringing gravel or fill back in, and rough grading the lot so the footing, concrete, drainage, or framing crew is stepping into usable ground instead of fixing the site first.',
+      },
+      {
+        question: 'Who does Bellhouse typically work with on Dundas projects?',
+        answer:
+          'Bellhouse works with homeowners, builders, renovation contractors, concrete crews, utility contractors, drainage crews, and landscape contractors in Dundas who need excavation, grading, dump truck hauling, material delivery, or equipment floating tied to the same residential project schedule.',
+      },
+      {
+        question:
+          'Do you provide grading and drainage work on older Dundas properties?',
+        answer:
+          'Yes. Bellhouse handles Dundas grading for drainage corrections, driveway approaches, rough site shaping, runoff control, and build-ready residential grades. On older properties, the grading has to work with the existing house, neighbouring lots, and the way water already moves through the site, not just the immediate cut area.',
+      },
+      {
+        question:
+          'Can you move equipment into or out of Dundas jobs when the timing changes?',
+        answer:
+          'Yes. Bellhouse provides equipment floating for excavators, skid steers, and heavy site machinery when Dundas projects need machines delivered, removed, or shifted between nearby jobs. That helps keep residential work moving when the next phase is ready and the machine needs to arrive on schedule rather than wait on outside transport.',
+      },
+      {
+        question: 'What kinds of Dundas projects are a good fit for Bellhouse?',
+        answer:
+          'Good Dundas fits include additions, garage foundations, service trenching, drainage work, driveway access improvements, spoil haul-out, imported gravel or fill, rough grading, and residential site prep on older or tighter properties. If the project needs excavation, trucking, and grading handled cleanly on a constrained lot, it is likely the right kind of fit.',
+      },
+    ],
+  },
+
+  waterdown: {
+    slug: 'waterdown',
+    city: 'Waterdown',
+    province: 'Ontario',
+    heroTitle:
+      'Waterdown Excavation Contractor for New Builds, Site Prep & Trucking',
+    heroDescription:
+      'Bellhouse handles Waterdown excavation, site preparation, grading, dump truck hauling, material delivery, and equipment floating for new builds, subdivision lots, mixed residential work, and growing edge-of-town construction.',
+    metaTitle:
+      'Waterdown Excavation & New-Build Site Prep | Bellhouse',
+    metaDescription:
+      'Waterdown excavation contractor for new builds, subdivision lot prep, grading, dump truck hauling, material delivery, and site work that keeps residential projects moving.',
+    openGraphTitle:
+      'Waterdown excavation for new builds and lot prep | Bellhouse',
+    openGraphDescription:
+      'Waterdown excavation and truck support for new builds, subdivision lots, and mixed residential site work where lot prep and material flow need to stay on schedule.',
+    map: {
+      eyebrow: 'Nearby work',
+      title:
+        'Waterdown jobs often sit between subdivision growth and nearby established communities.',
+      description:
+        'Bellhouse handles excavation, grading, hauling, and equipment movement across the region from its Paris base, supporting Waterdown work that needs new-build timing, lot prep, and material flow kept practical.',
+    },
+    intro: [
+      'Waterdown work is often shaped by growth. New houses, additions, mixed residential construction, and edge-of-town lot prep all depend on the ground being ready before the next crew arrives and the schedule gets tighter.',
+      'That creates a different kind of pressure than older in-town sites. The job usually has a little more room to move than Dundas, but it still needs excavation, trucking, imported material, and grading to land in the right order so the site stays buildable.',
+      'Typical Waterdown work includes subdivision lot prep, custom-home and infill starts, foundation excavation, rough grading, service trenching, spoil haul-out, aggregate delivery, and machine moves tied to active residential construction.',
+    ],
+    sectionHeadings: {
+      intro: 'Site prep for growing Waterdown jobs',
+      services: 'Excavation, grading, hauling, and float work in Waterdown',
+      rightFit: 'Is Bellhouse the right fit for your Waterdown project?',
+      howProjectsAreHandled: 'How Waterdown projects are handled',
+      whoWeWorkWith: 'Who this Waterdown work is for',
+      whyChoose: 'Why Waterdown jobs call Bellhouse',
+      nearbyAreas: 'Nearby areas',
+      faq: 'Waterdown excavation and site-prep FAQs',
+      whatHappensNext: 'What happens next on a Waterdown job',
+    },
+    ctaTitle:
+      'Get a quote for Waterdown excavation, site prep, or hauling',
+    rightFitIntro:
+      'Bellhouse is a fit for Waterdown jobs where a lot has to stay ready for the next phase, with excavation, trucking, grading, and imported material working together instead of showing up as separate problems.',
+    rightFit: [
+      'New builds, subdivision lots, custom-home starts, and mixed residential jobs that need the site ready on schedule',
+      'Projects that need excavation, spoil haul-out, imported aggregate, and rough grading tied together from the start',
+      'Sites with more room than tighter urban properties but no appetite for loose truck timing or unfinished working grades',
+      'Builders, contractors, and owners who want a direct answer on fit before the ground work starts slowing the build down',
+    ],
+    howProjectsAreHandledIntro:
+      'Waterdown jobs usually move best when the cut, truck cycle, imported material, and next residential step are planned around the build schedule from day one.',
+    howProjectsAreHandled: [
+      'Bellhouse starts with the address, scope, access, and what the next crew needs from the lot before digging starts.',
+      'Excavation, haul-out, aggregate delivery, and rough grading are sequenced together so the lot stays workable for forms, utilities, concrete, and framing access.',
+      'The site is shaped for the next trade, whether that means a subdivision start, a custom-home foundation, or mixed residential site work with more than one phase moving at once.',
+      'If machines need to move between Waterdown and nearby jobs, float timing can stay tied to the same working schedule.',
+    ],
+    midPageCta: {
+      title: 'Need Waterdown site prep that keeps the build moving?',
+      description:
+        'Send Bellhouse the lot location, the job type, and the rough timing to get a direct read on fit, access, imported material, and what should happen first.',
+      supportingPoints: [
+        'Strong fit for subdivision lots, new homes, mixed residential jobs, and rough grading work.',
+        'Excavation, hauling, grading, and equipment movement can stay coordinated.',
+        'Useful before the schedule tightens and the lot starts losing time.',
+      ],
+    },
+    services: [
+      {
+        slug: 'excavation',
+        title: 'Excavation for new homes, foundations, trenching, and mixed residential starts',
+        description:
+          'Bellhouse handles Waterdown excavation for new homes, foundations, service trenching, removals, and mixed residential starts where the cut has to be accurate enough to keep the lot moving into the next phase without rework.',
+        coreServiceHref: '/services/foundation-excavation',
+        image: {
+          src: '/assets/foundation-excavation-machinery.jpg',
+          alt: 'Excavator cutting a foundation footprint beside a new residential build.',
+        },
+      },
+      {
+        slug: 'site-preparation',
+        title: 'Site preparation for subdivision lots, building areas, and clean access',
+        description:
+          'Waterdown site prep includes stripping, clearing, building-area setup, access shaping, and early lot work so builders and contractors can start from usable ground instead of chasing mud, poor grades, or late material movement.',
+        coreServiceHref: '/services/site-preparation-land-grading',
+        image: {
+          src: '/assets/site-preparation-dozer-brant-county.jpg',
+          alt: 'Dozer shaping stripped ground for a building area and site access.',
+        },
+      },
+      {
+        slug: 'grading',
+        title: 'Grading for lot readiness, drainage, and residential working surfaces',
+        description:
+          'Bellhouse handles Waterdown grading for rough lot shaping, drainage control, access lanes, building pads, and working grades that need to stay practical through active residential construction and the next trade on site.',
+        coreServiceHref: '/services/site-preparation-land-grading',
+        image: {
+          src: '/assets/driveway-parking-lot-construction.jpg',
+          alt: 'Machine grading a driveway and access lane with compacted aggregate.',
+        },
+      },
+      {
+        slug: 'dump-truck-services',
+        title: 'Dump truck hauling and material delivery for spoil, aggregate, and fill',
+        description:
+          'Bellhouse provides Waterdown dump truck hauling for spoil export, imported gravel, fill, and aggregate so excavation and grading can stay tied to the build schedule instead of waiting on separate truck coordination.',
+        coreServiceHref: '/services/dump-truck-rental',
+        image: {
+          src: '/assets/dump-truck-delivery-service.jpg',
+          alt: 'Tri-axle dump truck delivering gravel to an active jobsite.',
+        },
+      },
+      {
+        slug: 'equipment-floating',
+        title: 'Equipment floating for excavators and heavy site machinery',
+        description:
+          'Equipment floating is available for excavators and heavy site machinery moving into Waterdown or between nearby jobs when the next construction phase is ready and the machine has to arrive on time.',
+        coreServiceHref: '/services/heavy-equipment-hauling',
+        image: {
+          src: '/assets/truck-hauling-heavy-equipment.jpg',
+          alt: 'Float truck hauling an excavator and site equipment to a jobsite.',
+        },
+      },
+    ],
+    whoWeWorkWithIntro:
+      'This is a good fit for people who need the lot ready for the next residential step without letting truck timing, rough grades, or material delivery slow the job down.',
+    whoWeWorkWith: [
+      'Builders and general contractors running new builds, subdivision starts, and mixed residential work in Waterdown',
+      'Custom-home and infill crews that need excavation, grading, and truck support kept on schedule',
+      'Property owners preparing new homes, additions, driveway work, and drainage improvements',
+      'Utility, concrete, and landscape contractors stepping into a lot that needs proper prep before their phase begins',
+      'Teams moving machines between Waterdown, Dundas, Hamilton, Ancaster, and surrounding jobs',
+    ],
+    whyChooseIntro:
+      'Bellhouse is a better fit on Waterdown jobs where growth, build timing, and lot readiness matter more than broad generic site-work language.',
+    whyChoose: [
+      'Bellhouse can handle excavation, haul-out, imported material, grading, and equipment movement under one working schedule instead of leaving the lot dependent on separate suppliers.',
+      'Waterdown often gives more room to move than tighter residential areas, which means the work has to be efficient enough to keep up with active build schedules rather than recover from avoidable delays.',
+      'Bellhouse has served the region since 1982 from its Paris base, which matters when a new-build site needs practical decisions on sequence, truck flow, and lot readiness.',
+      'You get a direct answer on fit, timing, and what the lot needs first before the build starts stacking trades on unfinished ground.',
+    ],
+    nearbyAreas: [
+      { label: 'Dundas', href: '/service-areas/dundas' },
+      { label: 'Hamilton', href: '/service-areas/hamilton' },
+      { label: 'Ancaster', href: '/service-areas/ancaster' },
+      'Burlington',
+    ],
+    whatHappensNextIntro:
+      'On Waterdown work, the useful first step is usually to confirm what the next crew needs and line up excavation, truck support, and rough grading around that schedule.',
+    whatHappensNext: [
+      'Share the address, lot type, and rough project timing.',
+      'Bellhouse reviews access, spoil movement, imported material, grading, and whether excavation and trucking should stay under one working schedule.',
+      'You get a direct answer on fit, likely sequence, and whether more site detail is needed for quoting.',
+      'Once the plan is clear, the lot can be scheduled to stay build-ready for the next phase instead of turning into rework.',
+    ],
+    bottomCta: {
+      title: 'Request a quote for Waterdown excavation and truck support',
+      description:
+        'Call, text, or request a quote if you need a practical read on lot prep, grading, spoil haul-out, imported material, or the next step before the build schedule gets tighter.',
+      supportingPoints: [
+        'Useful for new builds, subdivision lots, mixed residential work, and early site prep.',
+        'Bellhouse has served the region since 1982 from its Paris base.',
+        'Direct answer on fit, sequence, and what to handle first.',
+      ],
+    },
+    faqs: [
+      {
+        question:
+          'Do you handle excavation, truck hauling, and material delivery together in Waterdown?',
+        answer:
+          'Yes. Bellhouse can handle Waterdown excavation, dump truck hauling, and material delivery under one schedule so spoil can leave, imported gravel or fill can arrive on time, and the lot can stay ready for the next construction phase. That is especially useful on new-build and subdivision work where delays between ground work and the next crew show up quickly.',
+      },
+      {
+        question:
+          'Is Waterdown a good fit for new-build and subdivision lot work?',
+        answer:
+          'Yes. Waterdown is a strong fit for new homes, subdivision lot prep, custom-home starts, mixed residential construction, and grading tied to active build schedules. Bellhouse is a good fit when excavation, trucking, and rough site shaping need to keep the lot moving rather than simply open the ground and leave the rest to chance.',
+      },
+      {
+        question:
+          'Can you prepare a Waterdown lot before the foundation or utility crew arrives?',
+        answer:
+          'Yes. Bellhouse can prepare a Waterdown lot by stripping the site, handling excavation, hauling spoil out, importing gravel or fill, shaping the working grade, and leaving the ground ready for footings, utilities, concrete, or framing access without forcing the next crew to rework the lot first.',
+      },
+      {
+        question: 'Who does Bellhouse typically work with on Waterdown projects?',
+        answer:
+          'Bellhouse works with builders, general contractors, custom-home crews, property owners, utility contractors, concrete crews, and landscape contractors in Waterdown who need excavation, grading, dump truck hauling, material delivery, or equipment floating tied to the same project schedule.',
+      },
+      {
+        question:
+          'Do you provide grading and drainage work for Waterdown lots and residential starts?',
+        answer:
+          'Yes. Bellhouse handles Waterdown grading for rough lot shaping, drainage control, working surfaces, access lanes, and build-ready grades that support new construction. The goal is to leave the lot practical for active residential work, not just roughly cut and left for the next crew to sort out.',
+      },
+      {
+        question:
+          'Can you move equipment into or out of Waterdown jobs when the schedule changes?',
+        answer:
+          'Yes. Bellhouse provides equipment floating for excavators and heavy site machinery when Waterdown projects need machines delivered, removed, or shifted between nearby jobs. That helps keep new-build and subdivision work moving when the next phase is ready and the machine needs to be there on time.',
+      },
+      {
+        question: 'What kinds of Waterdown projects are a good fit for Bellhouse?',
+        answer:
+          'Good Waterdown fits include new homes, subdivision lot prep, custom-home starts, service trenching, rough grading, spoil haul-out, imported gravel or fill, driveway access work, and equipment moves tied to active residential construction. If the project depends on keeping the lot ready for the next phase, it is likely the right kind of fit.',
+      },
+    ],
+  },
+  simcoe: {
+    slug: 'simcoe',
+    city: 'Simcoe',
+    province: 'Ontario',
+    heroTitle:
+      'Simcoe Excavation Contractor for Rural-Commercial Site Prep & Trucking',
+    heroDescription:
+      'Bellhouse handles Simcoe excavation, site preparation, grading, dump truck hauling, material delivery, and equipment floating for larger properties, rural-commercial work, and access-heavy site jobs.',
+    metaTitle:
+      'Simcoe Excavation & Rural-Commercial Site Prep | Bellhouse',
+    metaDescription:
+      'Simcoe excavation contractor for larger properties, rural-commercial site prep, grading, dump truck hauling, and material delivery where access and site flow matter.',
+    openGraphTitle:
+      'Simcoe excavation for larger properties and site access | Bellhouse',
+    openGraphDescription:
+      'Simcoe excavation and truck support for larger properties, rural-commercial work, access routes, and grading where material movement has to stay practical from the start.',
+    map: {
+      eyebrow: 'Nearby work',
+      title:
+        'Simcoe work often connects larger properties, small commercial sites, and nearby Norfolk County jobs.',
+      description:
+        'Bellhouse handles excavation, grading, hauling, and equipment movement across the region from its Paris base, supporting Simcoe work that depends on truck access, larger lots, and reliable material movement.',
+    },
+    intro: [
+      'Simcoe work often starts on larger properties where access routes, stockpile space, and truck movement matter just as much as the excavation itself. The site may not be tight in the urban sense, but it still has to work cleanly for trucks, imported material, and the next phase of construction.',
+      'That creates a different mix from a pure rural custom-home page or a tighter city redevelopment page. Simcoe jobs often blend rural ground conditions with commercial-style site needs such as pads, access lanes, drainage shaping, and controlled haul-out.',
+      'Typical Simcoe work includes excavation for foundations and site changes, rural-commercial site prep, grading for access and drainage, spoil export, imported aggregate, and machine moves tied to active job schedules.',
+    ],
+    sectionHeadings: {
+      intro: 'Site work for larger lots, access routes, and material movement',
+      services: 'Excavation, grading, hauling, and float work in Simcoe',
+      rightFit: 'Is Bellhouse the right fit for your Simcoe project?',
+      howProjectsAreHandled: 'How Simcoe projects are handled',
+      whoWeWorkWith: 'Who this Simcoe work is for',
+      whyChoose: 'Why Simcoe jobs call Bellhouse',
+      nearbyAreas: 'Nearby areas',
+      faq: 'Simcoe excavation and trucking FAQs',
+      whatHappensNext: 'What happens next on a Simcoe job',
+    },
+    ctaTitle:
+      'Get a quote for Simcoe excavation, grading, or truck support',
+    rightFitIntro:
+      'Bellhouse is a fit for Simcoe jobs where excavation has to work with larger properties, truck access, imported material, and practical site flow instead of being handled as an isolated dig.',
+    rightFit: [
+      'Rural-commercial and larger-lot jobs that need excavation, grading, haul-out, and imported material tied together',
+      'Properties where access routes, lane prep, drainage, and truck movement all affect the usefulness of the site',
+      'Projects that need enough room to work efficiently but still need the ground shaped properly for the next crew',
+      'Owners, contractors, and builders who want a practical read on fit before the site starts moving the wrong way',
+    ],
+    howProjectsAreHandledIntro:
+      'Simcoe jobs usually go better when the cut, truck routes, imported material, and access plan are worked through before the first cycle starts.',
+    howProjectsAreHandled: [
+      'Bellhouse starts with the address, access route, site use, and what the next phase needs from the ground work.',
+      'Excavation, spoil haul-out, imported aggregate, and grading are sequenced together so the site stays usable instead of getting worked twice.',
+      'Pads, lanes, and drainage are shaped around how trucks and crews actually need to move through the property.',
+      'If equipment needs to move between Simcoe and nearby jobs, float timing can be tied into the same schedule.',
+    ],
+    midPageCta: {
+      title: 'Need Simcoe excavation that keeps access and material flow workable?',
+      description:
+        'Send Bellhouse the address, project type, and rough timing to get a direct read on fit, access, truck movement, and what should happen first.',
+      supportingPoints: [
+        'Strong fit for larger properties, rural-commercial work, and access-heavy jobs.',
+        'Excavation, hauling, grading, and equipment movement can stay coordinated.',
+        'Useful before the site gets committed to the wrong access or grading plan.',
+      ],
+    },
+    services: [
+      {
+        slug: 'excavation',
+        title: 'Excavation for foundations, trenching, site changes, and larger-lot work',
+        description:
+          'Bellhouse handles Simcoe excavation for foundations, trenching, removals, site changes, and larger-lot work where grades, access, and clean spoil handling all need to stay under control from the first cut.',
+        coreServiceHref: '/services/foundation-excavation',
+        image: {
+          src: '/assets/foundation-excavation-machinery.jpg',
+          alt: 'Excavator cutting a foundation footprint beside a new residential build.',
+        },
+      },
+      {
+        slug: 'site-preparation',
+        title: 'Site preparation for rural-commercial starts, pads, and access',
+        description:
+          'Simcoe site prep includes stripping, clearing, shaping work areas, setting practical haul access, and preparing building or equipment pads so the next phase can start without avoidable rework.',
+        coreServiceHref: '/services/site-preparation-land-grading',
+        image: {
+          src: '/assets/site-preparation-dozer-brant-county.jpg',
+          alt: 'Dozer shaping stripped ground for a building area and site access.',
+        },
+      },
+      {
+        slug: 'grading',
+        title: 'Grading for drainage, lanes, pads, and usable working ground',
+        description:
+          'Bellhouse handles Simcoe grading for drainage control, pad work, lane construction, access routes, and stable working ground that has to stay useful for trucks, material movement, and the next crew.',
+        coreServiceHref: '/services/site-preparation-land-grading',
+        image: {
+          src: '/assets/driveway-parking-lot-construction.jpg',
+          alt: 'Machine grading a driveway and access lane with compacted aggregate.',
+        },
+      },
+      {
+        slug: 'dump-truck-services',
+        title: 'Dump truck hauling for spoil export, aggregate supply, and site movement',
+        description:
+          'Bellhouse provides Simcoe dump truck hauling for spoil export, gravel and fill delivery, and material movement that keeps excavation, grading, and access work moving on one practical schedule.',
+        coreServiceHref: '/services/dump-truck-rental',
+        image: {
+          src: '/assets/dump-truck-delivery-service.jpg',
+          alt: 'Tri-axle dump truck delivering gravel to an active jobsite.',
+        },
+      },
+      {
+        slug: 'equipment-floating',
+        title: 'Equipment floating for excavators and heavy site machinery',
+        description:
+          'Equipment floating is available to move excavators and heavy site machinery between Simcoe jobs, larger properties, and nearby county work when the next phase is ready and the schedule depends on the machine arriving on time.',
+        coreServiceHref: '/services/heavy-equipment-hauling',
+        image: {
+          src: '/assets/truck-hauling-heavy-equipment.jpg',
+          alt: 'Float truck hauling an excavator and site equipment to a jobsite.',
+        },
+      },
+    ],
+    whoWeWorkWithIntro:
+      'This is a good fit for builders, contractors, and property-side teams who need the ground work to stay practical for trucks, pads, drainage, and the next stage of the job.',
+    whoWeWorkWith: [
+      'General contractors working on rural-commercial and larger-lot jobs around Simcoe',
+      'Property owners improving access routes, drainage, trenching, pads, and building areas on larger properties',
+      'Builders who need excavation, grading, dump truck support, and imported material kept under one schedule',
+      'Commercial and yard-focused crews preparing lanes, pads, and serviced work areas',
+      'Teams moving machines between Simcoe, Paris, Woodstock, and nearby county jobs',
+    ],
+    whyChooseIntro:
+      'Bellhouse is a better fit on Simcoe jobs where the site has room to move, but the access plan, grading, and truck flow still have to be handled properly from the start.',
+    whyChoose: [
+      'Bellhouse can handle excavation, haul-out, imported material, grading, and equipment movement under one working plan instead of splitting the site across suppliers.',
+      'Lanes, pads, drainage, and working grades are shaped around how the property needs to function during the job, not patched in later.',
+      'Simcoe work often gives more room than tighter city sites, which makes efficient truck movement and site layout more important than improvising around constraints.',
+      'You get a direct answer on fit, sequence, and what the property needs first before poor material flow creates rework.',
+    ],
+    nearbyAreas: [
+      { label: 'Paris', href: '/service-areas/paris' },
+      { label: 'Brantford', href: '/service-areas/brantford' },
+      { label: 'Woodstock', href: '/service-areas/woodstock' },
+      'Port Dover',
+    ],
+    whatHappensNextIntro:
+      'On Simcoe work, the useful first step is usually to line up access, truck routes, grading priorities, and imported material before the cut starts.',
+    whatHappensNext: [
+      'Share the site address, project type, and what part of the property has to stay workable.',
+      'Bellhouse reviews access, haul-out, imported material, grading needs, and whether excavation and trucking should stay on one plan.',
+      'You get a direct answer on fit, the likely order of work, and whether more site detail is needed for quoting.',
+      'Once the sequence is clear, the job can be scheduled to keep trucks, materials, and the next phase moving together.',
+    ],
+    bottomCta: {
+      title: 'Request a quote for Simcoe excavation and truck support',
+      description:
+        'Call, text, or request a quote if you need a practical read on access, grading, haul-out, imported material, or the next step before the site starts moving the wrong way.',
+      supportingPoints: [
+        'Useful for larger properties, rural-commercial work, pads, and access routes.',
+        'Bellhouse has served the region since 1982 from its Paris base.',
+        'Direct answer on fit, sequence, and what to handle first.',
+      ],
+    },
+    faqs: [
+      {
+        question:
+          'Do you handle excavation, trucking, and material delivery together in Simcoe?',
+        answer:
+          'Yes. Bellhouse can handle Simcoe excavation, dump truck hauling, and material delivery under one plan so spoil can leave, imported gravel or fill can come back in, and the site can keep moving without separate truck schedules getting in the way. That matters on larger properties and rural-commercial jobs where access, stockpile space, and material flow all affect the work.',
+      },
+      {
+        question:
+          'Is Simcoe a good fit for larger properties and rural-commercial site work?',
+        answer:
+          'Yes. Simcoe is a good fit for larger-lot excavation, rural-commercial site prep, pads, access routes, trenching, and grading where the work needs to stay practical for trucks, imported material, and the next phase of construction. Bellhouse is a better fit when the site needs to function, not just get dug out.',
+      },
+      {
+        question:
+          'Can you prepare access routes, pads, and working areas before the next crew arrives?',
+        answer:
+          'Yes. Bellhouse can prepare Simcoe access routes, pads, working areas, and haul lanes through stripping, excavation, grading, spoil haul-out, and imported aggregate so builders, utility crews, commercial contractors, or property-side teams are stepping into usable ground instead of reworking the site first.',
+      },
+      {
+        question: 'Who does Bellhouse typically work with on Simcoe projects?',
+        answer:
+          'Bellhouse works with builders, general contractors, property owners, commercial crews, and site-side operators in Simcoe who need excavation, grading, dump truck hauling, material delivery, or equipment floating tied to the same practical schedule.',
+      },
+      {
+        question:
+          'Do you provide grading for lanes, pads, and drainage on Simcoe properties?',
+        answer:
+          'Yes. Bellhouse handles Simcoe grading for pads, access routes, drainage control, lane construction, and usable working surfaces that need to stay practical under truck traffic and active site use. The goal is to make the property work properly during the job, not leave that part until later cleanup.',
+      },
+      {
+        question:
+          'Can you move equipment into or out of Simcoe job sites when the schedule changes?',
+        answer:
+          'Yes. Bellhouse provides equipment floating for excavators and heavy site machinery when Simcoe projects need machines delivered, removed, or shifted between nearby jobs. That helps keep excavation, grading, and site movement on schedule when timing changes and the machine still has to arrive when the work is ready.',
+      },
+      {
+        question: 'What kinds of Simcoe projects are a good fit for Bellhouse?',
+        answer:
+          'Good Simcoe fits include larger-lot excavation, rural-commercial site prep, pads, access routes, spoil haul-out, imported gravel or fill, trenching, grading, and equipment moves tied to active job schedules. If the project depends on practical truck access and reliable material movement, it is likely the right kind of fit.',
+      },
+    ],
+  },
+  woodstock: {
+    slug: 'woodstock',
+    city: 'Woodstock',
+    province: 'Ontario',
+    heroTitle:
+      'Woodstock Excavation Contractor for Industrial Site Prep, Pads & Trucking',
+    heroDescription:
+      'Bellhouse handles Woodstock excavation, site preparation, grading, dump truck hauling, material delivery, and equipment floating for industrial, commercial, yard, and production-focused site work.',
+    metaTitle:
+      'Woodstock Industrial Site Prep & Excavation | Bellhouse',
+    metaDescription:
+      'Woodstock excavation contractor for industrial and commercial site prep, yard grading, pad construction, dump truck hauling, material delivery, and equipment moves.',
+    openGraphDescription:
+      'Woodstock excavation and trucking for industrial yards, commercial pads, haul routes, and active sites where production and material flow need to stay moving.',
+    map: {
+      eyebrow: 'Nearby work',
+      title:
+        'Woodstock jobs often connect to nearby industrial and commercial work across Oxford County and the 401 corridor.',
+      description:
+        'Bellhouse handles excavation, grading, hauling, and equipment movement across the region from its Paris base, supporting Woodstock work that depends on access, pads, and reliable material flow.',
+    },
+    intro: [
+      'Woodstock work is often less about squeezing into a tight urban footprint and more about keeping larger industrial and commercial sites usable while excavation, truck cycles, and imported material keep moving.',
+      'That changes the job. Yard prep, building pads, haul routes, loading areas, and drainage all have to work with the site flow instead of fighting production, deliveries, or the next phase of construction.',
+      'Typical Woodstock work includes industrial and commercial site prep, yard grading, equipment pads, service trenching, spoil haul-out, imported aggregate, and machine moves tied to active site schedules.',
+    ],
+    sectionHeadings: {
+      intro: 'Site work for pads, yards, and steady material flow',
+      services: 'Excavation, grading, hauling, and float work in Woodstock',
+      rightFit: 'Is Bellhouse the right fit for your Woodstock project?',
+      howProjectsAreHandled: 'How Woodstock projects are handled',
+      whoWeWorkWith: 'Who this Woodstock work is for',
+      whyChoose: 'Why Woodstock jobs call Bellhouse',
+      nearbyAreas: 'Nearby areas',
+      faq: 'Woodstock excavation and trucking FAQs',
+      whatHappensNext: 'What happens next on a Woodstock job',
+    },
+    ctaTitle:
+      'Get a quote for Woodstock excavation, site prep, or truck support',
+    rightFitIntro:
+      'Bellhouse is a fit for Woodstock jobs where excavation has to support yard use, truck efficiency, pad construction, and material flow instead of interrupting the site every time the work changes phase.',
+    rightFit: [
+      'Industrial and commercial jobs that need yard prep, haul routes, pads, and working grades built for active use',
+      'Projects that need excavation, spoil export, imported aggregate, and grading tied together under one working plan',
+      'Sites with enough room to move efficiently but still no tolerance for loose truck timing or half-finished work surfaces',
+      'Owners, contractors, and facility-side teams who want a direct answer on fit before the site starts losing production time',
+    ],
+    howProjectsAreHandledIntro:
+      'Woodstock jobs usually go better when the cut, truck flow, pad work, and imported material are planned around how the site actually operates.',
+    howProjectsAreHandled: [
+      'Bellhouse starts with access, yard use, truck paths, material movement, and what the next phase needs from the ground work.',
+      'Excavation, haul-out, imported aggregate, and grading are sequenced together so the site stays usable instead of turning into a stop-start cleanup job.',
+      'Pads, haul routes, and working surfaces are shaped for production, staging, and follow-on crews, not left loose until the end.',
+      'If machines need to move between Woodstock and nearby jobs, float timing can be tied into the same schedule.',
+    ],
+    midPageCta: {
+      title: 'Need Woodstock excavation that keeps the site moving?',
+      description:
+        'Send Bellhouse the address, scope, and rough timing to get a direct read on fit, truck flow, working pads, and what should happen first.',
+      supportingPoints: [
+        'Strong fit for industrial and commercial yards, pads, and access work.',
+        'Excavation, hauling, grading, and equipment movement can stay coordinated.',
+        'Useful before the site loses time to poor truck flow or rework.',
+      ],
+    },
+    services: [
+      {
+        slug: 'excavation',
+        title: 'Excavation for site development, trenching, foundations, and removals',
+        description:
+          'Bellhouse handles Woodstock excavation for industrial and commercial site development, service trenching, foundations, removals, and machine work where grades, access, and clean material handling all need to stay under control from the first cut.',
+        coreServiceHref: '/services/foundation-excavation',
+        image: {
+          src: '/assets/foundation-excavation-machinery.jpg',
+          alt: 'Excavator cutting a foundation footprint beside a new residential build.',
+        },
+      },
+      {
+        slug: 'site-preparation',
+        title: 'Site preparation for yards, pads, access, and commercial starts',
+        description:
+          'Woodstock site prep includes stripping, clearing, shaping working areas, setting haul access, and preparing pads so builders, utility crews, and facility-side contractors can step into a site that is ready to work.',
+        coreServiceHref: '/services/site-preparation-land-grading',
+        image: {
+          src: '/assets/site-preparation-dozer-brant-county.jpg',
+          alt: 'Dozer shaping stripped ground for a building area and site access.',
+        },
+      },
+      {
+        slug: 'grading',
+        title: 'Grading for yards, pads, drainage, and working surfaces',
+        description:
+          'Bellhouse handles Woodstock grading for yard prep, commercial pads, drainage control, haul routes, loading areas, and stable working surfaces that need to stay usable through active site work and the next stage of construction.',
+        coreServiceHref: '/services/site-preparation-land-grading',
+        image: {
+          src: '/assets/driveway-parking-lot-construction.jpg',
+          alt: 'Machine grading a driveway and access lane with compacted aggregate.',
+        },
+      },
+      {
+        slug: 'dump-truck-services',
+        title: 'Dump truck hauling for spoil export, aggregate supply, and material flow',
+        description:
+          'Bellhouse provides Woodstock dump truck hauling for spoil export, aggregate delivery, fill placement support, and material movement that keeps excavation, grading, and yard work moving without breaking truck flow on site.',
+        coreServiceHref: '/services/dump-truck-rental',
+        image: {
+          src: '/assets/dump-truck-delivery-service.jpg',
+          alt: 'Tri-axle dump truck delivering gravel to an active jobsite.',
+        },
+      },
+      {
+        slug: 'equipment-floating',
+        title: 'Equipment floating for excavators and heavy site machinery',
+        description:
+          'Equipment floating is available to move excavators and heavy machinery between Woodstock jobs, industrial properties, and nearby corridor work when the next phase is ready and the site depends on the machine arriving on schedule.',
+        coreServiceHref: '/services/heavy-equipment-hauling',
+        image: {
+          src: '/assets/truck-hauling-heavy-equipment.jpg',
+          alt: 'Float truck hauling an excavator and site equipment to a jobsite.',
+        },
+      },
+    ],
+    whoWeWorkWithIntro:
+      'This is a good fit for contractors, builders, and operators who need the site to stay practical for trucks, pads, deliveries, and the next phase of work.',
+    whoWeWorkWith: [
+      'General contractors running industrial and commercial work across Woodstock',
+      'Facility-side teams improving yards, pads, drainage, access roads, and service areas',
+      'Builders and developers who need excavation, grading, truck support, and imported material kept under one schedule',
+      'Site crews preparing haul routes, loading areas, building pads, and trenching on active properties',
+      'Teams moving machines between Woodstock, Ingersoll, Tillsonburg, Cambridge, and surrounding jobs',
+    ],
+    whyChooseIntro:
+      'Bellhouse is a better fit on Woodstock jobs where production, truck movement, and usable working ground matter just as much as the dig itself.',
+    whyChoose: [
+      'Bellhouse can handle excavation, haul-out, imported material, grading, and equipment moves under one working plan instead of splitting the site between suppliers.',
+      'Pads, yard grades, truck routes, and loading areas are shaped around how the site needs to function during real use, not just how it looks after the last pass.',
+      'Woodstock sites usually offer easier access than tighter urban work, which makes efficiency more important than improvising around constraints.',
+      'You get a direct answer on fit, sequence, and what the site needs first before poor material flow starts costing time.',
+    ],
+    nearbyAreas: [
+      { label: 'Cambridge', href: '/service-areas/cambridge' },
+      { label: 'Simcoe', href: '/service-areas/simcoe' },
+      'Ingersoll',
+      'Tillsonburg',
+    ],
+    whatHappensNextIntro:
+      'On Woodstock work, the useful first step is usually to line up access, truck routes, pad locations, and material movement before the site gets opened up.',
+    whatHappensNext: [
+      'Share the site address, project type, and what part of the property has to stay working.',
+      'Bellhouse reviews access, truck flow, spoil export, imported material, and whether excavation, grading, and float work should stay on one plan.',
+      'You get a direct answer on fit, the likely order of work, and whether more site detail is needed for quoting.',
+      'Once the sequence is clear, the job can be scheduled to keep production, site flow, and ground work moving together.',
+    ],
+    bottomCta: {
+      title: 'Request a quote for Woodstock excavation and truck support',
+      description:
+        'Call, text, or request a quote if you need a practical read on yard prep, pads, truck flow, grading, haul-out, or the next step before the site starts slowing itself down.',
+      supportingPoints: [
+        'Useful for industrial and commercial yards, pads, drainage, and access work.',
+        'Bellhouse has served the region since 1982 from its Paris base.',
+        'Direct answer on fit, sequence, and what to handle first.',
+      ],
+    },
+    faqs: [
+      {
+        question:
+          'Do you handle excavation, trucking, and material delivery together in Woodstock?',
+        answer:
+          'Yes. Bellhouse can handle Woodstock excavation, dump truck hauling, and material delivery under one plan so spoil can leave, aggregate or fill can come back in, and the site can keep moving without relying on separate truck schedules. That is especially useful on industrial and commercial jobs where material flow and truck timing affect production and the next phase of work.',
+      },
+      {
+        question:
+          'Is Woodstock a good fit for industrial and commercial site prep work?',
+        answer:
+          'Yes. Woodstock is a strong fit for industrial and commercial site prep, yard grading, working pads, haul routes, loading areas, and trenching where the excavation has to support how the site actually operates. Bellhouse is a good fit when the work needs to stay practical for trucks, deliveries, equipment, and follow-on crews.',
+      },
+      {
+        question:
+          'Can you prepare yards, pads, and access areas before the next crew arrives?',
+        answer:
+          'Yes. Bellhouse can prepare Woodstock yards, building pads, access lanes, and working surfaces through stripping, excavation, rough grading, haul-out, and imported aggregate so concrete crews, utility contractors, builders, or facility-side teams are stepping into usable ground instead of reworking the site first.',
+      },
+      {
+        question: 'Who does Bellhouse typically work with on Woodstock projects?',
+        answer:
+          'Bellhouse works with general contractors, builders, developers, facility-side teams, property owners, and industrial or commercial site crews in Woodstock who need excavation, grading, dump truck hauling, material delivery, or equipment floating tied to the same working schedule.',
+      },
+      {
+        question:
+          'Do you provide grading for yards, pads, and commercial drainage in Woodstock?',
+        answer:
+          'Yes. Bellhouse handles Woodstock grading for industrial yards, commercial pads, drainage control, haul routes, loading areas, and working surfaces that need to stay stable under truck traffic and active site use. The goal is to make the site function properly during the build, not just move dirt around once.',
+      },
+      {
+        question:
+          'Can you move equipment into or out of Woodstock job sites when timing changes?',
+        answer:
+          'Yes. Bellhouse provides equipment floating for excavators and heavy site machinery when Woodstock projects need machines delivered, removed, or shifted between nearby jobs. That helps keep excavation, yard work, and site production moving when the schedule changes and the machine has to arrive on time.',
+      },
+      {
+        question: 'What kinds of Woodstock projects are a good fit for Bellhouse?',
+        answer:
+          'Good Woodstock fits include industrial and commercial site prep, yard grading, building pads, access routes, service trenching, spoil haul-out, imported gravel or fill, drainage improvements, and equipment moves tied to active site schedules. If the project depends on truck efficiency, material flow, and usable working ground, it is likely the right kind of fit.',
       },
     ],
   },
@@ -1117,9 +1949,9 @@ export const serviceAreaPages = {
     ],
     nearbyAreas: [
       { label: 'Hamilton', href: '/service-areas/hamilton' },
-      'Dundas',
+      { label: 'Dundas', href: '/service-areas/dundas' },
+      { label: 'Waterdown', href: '/service-areas/waterdown' },
       'Flamborough',
-      'Mount Hope',
     ],
     whatHappensNextIntro:
       'On Ancaster work, the useful first step is usually to look at the building area, the driveway route, and the main grade transitions before the site starts getting cut up.',

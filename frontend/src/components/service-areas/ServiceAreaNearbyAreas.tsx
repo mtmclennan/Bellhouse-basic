@@ -87,7 +87,7 @@ export default function ServiceAreaNearbyAreas({
               ) : (
                 <Link href={item.href}>
                   <MapPin size={18} weight="fill" />
-                  See excavation work near {item.label}
+                  See {item.label} excavation and site work
                 </Link>
               )}
             </li>
