@@ -1,38 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Frontend (Next.js)
 
-## Getting Started
+This directory contains the production web application for Bellhouse Excavating.
 
-First, run the development server:
+It is built with **Next.js App Router**, **React**, and **TypeScript**, with a focus on SEO, reliability, and lead capture quality.
+
+## What this app includes
+
+- Route-based marketing pages (home, services, service details, about, contact)
+- Dynamic service pages driven by JSON content
+- A server-action-based contact workflow with reCAPTCHA verification
+- Transactional email delivery via Brevo
+- Google Sheets persistence for submission tracking
+- Monitor endpoints used by scheduled health checks
+- Playwright smoke tests for browser-level confidence
+
+## Run locally
+
+From this `frontend/` directory:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- http://localhost:3000 (development)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Build and run production mode
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```bash
+npm run build
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The production start script runs Next.js on port `8000`.
 
-## Learn More
+## Scripts
 
-To learn more about Next.js, take a look at the following resources:
+- `npm run dev` — start local development server
+- `npm run build` — create production build
+- `npm run start` — run production server on port 8000
+- `npm run lint` — run lint checks
+- `npm run test:e2e` — run Playwright smoke tests
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Environment and integrations
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+This app depends on environment variables for third-party services (email, monitoring, and anti-spam). Sensitive keys are intentionally not committed.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+For architecture and production context, see the repository root `README.md`.

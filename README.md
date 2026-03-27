@@ -2,7 +2,7 @@
 
 Production website for **Bellhouse Excavating**, a heavy equipment and excavation company based in Ontario, Canada.
 
-This is a real-world client project that is actively maintained and used in production. The focus is on performance, reliability, operational integrations, and monitoring rather than demos or tutorials.
+This is an actively maintained, real-world client system with live business impact. The architecture prioritizes performance, uptime, and lead reliability over demo-oriented patterns.
 
 ---
 
@@ -21,6 +21,19 @@ This is a real-world client project that is actively maintained and used in prod
 - Cloudflare (DNS, CDN, bot protection)
 - GitHub Actions (scheduled monitoring + alerts)
 - Playwright (browser smoke tests)
+
+---
+
+## Architecture Overview
+
+The system is built as a modern **Next.js App Router** application with a clear separation of responsibilities:
+
+- **Presentation layer:** route-based pages and reusable UI components
+- **Application layer:** server actions for secure workflow execution
+- **Integration layer:** Brevo, Google APIs, reCAPTCHA, Slack
+- **Operational layer:** authenticated monitor endpoints, synthetic checks, and alerting
+
+The result is a marketing site that behaves like a production service: observable, secure, and resilient.
 
 ---
 
@@ -55,6 +68,14 @@ The contact form uses a **client component paired with a server action**, design
 
 This approach avoids exposing secrets client-side and is designed for real-world reliability rather than idealized patterns.
 
+Additional production considerations implemented in the form pipeline:
+
+- input schema enforcement and server-side guardrails
+- spam keyword and disposable email heuristics
+- duplicate submission protection in persistence flow
+- asynchronous persistence with failure logging
+- monitor-aware synthetic path for CI/health checks
+
 ---
 
 ## Monitoring & Reliability (Production)
@@ -73,6 +94,8 @@ Scheduled checks run daily and include:
 
 Monitoring endpoints are protected using Bearer token authentication.
 
+This monitoring strategy is intentionally practical: it verifies the customer-facing page, integration health, and delivery path so failures are detected before they become lost leads.
+
 ### Failure Tripwire
 
 Contact and integration failures (email delivery or Google Sheets persistence) are logged server-side.  
@@ -89,6 +112,8 @@ Playwright is used for scheduled browser-level smoke tests to validate that:
 - Console errors, runtime page errors, and failed network requests are treated as test failures
 
 Form submission is not performed in Playwright due to reCAPTCHA v3 behavior in CI environments; server-side synthetic checks cover the submission pipeline.
+
+This split keeps browser tests stable while still validating the critical lead-capture path through synthetic server-side checks.
 
 ---
 
@@ -135,6 +160,20 @@ It demonstrates my ability to:
 - Integrate third-party services (email, Google APIs, reCAPTCHA, Slack)
 - Implement monitoring, synthetic checks, and browser smoke tests
 - Make pragmatic architectural decisions based on real business needs
+
+---
+
+## Highlights for Employers
+
+This project demonstrates senior-level product engineering behaviors beyond UI implementation:
+
+- Designing for **business continuity** (alerts, monitoring, and failure tripwires)
+- Building secure server/client boundaries for sensitive workflows
+- Integrating multiple external services with graceful degradation
+- Shipping SEO-conscious, performance-oriented pages for local lead generation
+- Maintaining production software with operational visibility and test coverage
+
+In short: this repository reflects how I build and run software that has to work in production, not just pass local demos.
 
 ---
 
