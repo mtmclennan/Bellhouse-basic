@@ -35,13 +35,13 @@
 }
 
 .title {
-  font-size: 4.8rem;
-  line-height: 1.02;
+  font-size: 4.4rem;
+  line-height: 1.04;
   font-weight: 300;
   color: #fff;
 
   @include m.mediaDesktop {
-    font-size: 7.2rem;
+    font-size: 5.8rem;
   }
 }
 
@@ -99,6 +99,24 @@
 .secondaryAction {
   @include m.btnSec;
   @include m.focusRing(rgba(v.$color-primary, 0.5));
+}
+
+.contactNote {
+  margin: -0.4rem 0 0;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.76);
+
+  a {
+    color: v.$cat-yellow2;
+    font-weight: 700;
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+      text-decoration: underline;
+    }
+  }
 }
 
 .media {

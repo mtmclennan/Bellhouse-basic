@@ -13,6 +13,16 @@ const nextConfig = {
   experimental: {
     scrollRestoration: false, // ✅ Disables automatic scrolling behavior
   },
+
+  async redirects() {
+    return [
+      {
+        source: '/services/off-road-dump-truck-services',
+        destination: '/services/volvo-a35-off-road-dump-truck-rental',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;

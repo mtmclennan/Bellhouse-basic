@@ -10,12 +10,18 @@ type HeroAction = {
   variant?: 'primary' | 'secondary';
 };
 
+type ContactNote = {
+  label: string;
+  href: string;
+};
+
 type ServiceAreaHeroProps = {
   title: string;
   description: string;
   eyebrow?: string;
   actions?: HeroAction[];
   image?: ServiceAreaImage;
+  contactNote?: ContactNote;
 };
 
 export default function ServiceAreaHero({
@@ -24,6 +30,7 @@ export default function ServiceAreaHero({
   eyebrow,
   actions = [],
   image,
+  contactNote,
 }: ServiceAreaHeroProps) {
   return (
     <SectionWrapper
@@ -52,6 +59,11 @@ export default function ServiceAreaHero({
                 </Link>
               ))}
             </div>
+          ) : null}
+          {contactNote ? (
+            <p className={classes.contactNote}>
+              Prefer to text? <Link href={contactNote.href}>{contactNote.label}</Link>
+            </p>
           ) : null}
         </div>
         {image ? (

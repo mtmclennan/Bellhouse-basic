@@ -10,12 +10,18 @@ type CtaAction = {
   variant?: 'primary' | 'secondary';
 };
 
+type ContactNote = {
+  label: string;
+  href: string;
+};
+
 type ServiceAreaCtaProps = {
   title: string;
   description: string;
   actions: CtaAction[];
   image?: ServiceAreaImage;
   supportingPoints?: string[];
+  contactNote?: ContactNote;
 };
 
 export default function ServiceAreaCta({
@@ -24,6 +30,7 @@ export default function ServiceAreaCta({
   actions,
   image,
   supportingPoints,
+  contactNote,
 }: ServiceAreaCtaProps) {
   return (
     <SectionWrapper
@@ -57,6 +64,11 @@ export default function ServiceAreaCta({
                 </Link>
               ))}
             </div>
+          ) : null}
+          {contactNote ? (
+            <p className={classes.contactNote}>
+              Prefer to text? <Link href={contactNote.href}>{contactNote.label}</Link>
+            </p>
           ) : null}
         </div>
         {image ? (

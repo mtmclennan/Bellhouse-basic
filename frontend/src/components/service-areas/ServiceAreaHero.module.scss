@@ -100,6 +100,24 @@
   @include m.focusRing(rgba(v.$color-primary, 0.5));
 }
 
+.contactNote {
+  margin: -0.2rem 0 0;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.76);
+
+  a {
+    color: v.$cat-yellow2;
+    font-weight: 700;
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+      text-decoration: underline;
+    }
+  }
+}
+
 .media {
   display: block;
 }
@@ -116,15 +134,6 @@
   @include m.mediaDesktop {
     min-height: 58rem;
   }
-
-  // &::after {
-  //   content: '';
-  //   position: absolute;
-  //   inset: 1.6rem;
-  //   border: 1px solid rgba(255, 255, 255, 0.12);
-  //   border-radius: 2rem;
-  //   pointer-events: none;
-  // }
 }
 
 .image {

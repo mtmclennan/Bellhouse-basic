@@ -43,11 +43,6 @@ export default function ServiceAreaLayout({
       label: 'Call 519-752-8500',
       variant: 'secondary' as const,
     },
-    {
-      href: 'sms:5197528500',
-      label: 'Text 519-752-8500',
-      variant: 'secondary' as const,
-    },
   ];
   const finalActions = [
     {
@@ -57,11 +52,6 @@ export default function ServiceAreaLayout({
     {
       href: 'tel:5197528500',
       label: 'Call 519-752-8500',
-      variant: 'secondary' as const,
-    },
-    {
-      href: 'sms:5197528500',
-      label: 'Text 519-752-8500',
       variant: 'secondary' as const,
     },
   ];
@@ -156,6 +146,10 @@ export default function ServiceAreaLayout({
         description={page.heroDescription}
         image={page.heroImage ?? defaultHeroImage}
         actions={heroActions}
+        contactNote={{
+          href: 'sms:5197528500',
+          label: 'Text 519-752-8500',
+        }}
       />
       <ServiceAreaIntro
         heading={
@@ -182,7 +176,10 @@ export default function ServiceAreaLayout({
         items={page.whyChoose}
       />
       <ServiceAreaWhoWeWorkWith
-        heading={`Jobs in ${page.city} where Bellhouse is usually the right crew`}
+        heading={
+          page.sectionHeadings?.whoWeWorkWith ??
+          `Jobs in ${page.city} where Bellhouse is usually the right crew`
+        }
         intro={page.rightFitIntro ?? page.whoWeWorkWithIntro}
         items={whoItsForItems}
       />
@@ -216,6 +213,10 @@ export default function ServiceAreaLayout({
         supportingPoints={page.bottomCta?.supportingPoints}
         image={page.ctaImage ?? defaultCtaImage}
         actions={finalActions}
+        contactNote={{
+          href: 'sms:5197528500',
+          label: 'Text 519-752-8500',
+        }}
       />
     </>
   );
