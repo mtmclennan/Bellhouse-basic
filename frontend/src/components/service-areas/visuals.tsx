@@ -35,10 +35,10 @@ export const defaultCtaImage: ServiceAreaImage = {
 };
 
 export const defaultMapContent: ServiceAreaMap = {
-  eyebrow: 'Areas we serve',
-  title: 'Nearby jobs often need the same excavation, truck hauling, and machine support.',
+  eyebrow: 'Nearby areas',
+  title: 'Jobs outside the core city often need a closer local page.',
   description:
-    'Bellhouse works across nearby communities where site prep, grading, hauling, and equipment movement need to stay on one job schedule.',
+    'Use the nearest service-area page to check the kind of excavation, grading, hauling, and machine support Bellhouse handles in that part of the region.',
 };
 
 export function getServiceAreaServiceIcon(slug: ServiceAreaService['slug']): ReactNode {

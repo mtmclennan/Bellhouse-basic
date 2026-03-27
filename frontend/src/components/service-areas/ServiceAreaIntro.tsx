@@ -13,7 +13,7 @@ type ServiceAreaIntroProps = {
 
 export default function ServiceAreaIntro({
   intro,
-  heading = 'Local project context',
+  heading = 'What the job needs on the ground',
   children,
   image,
 }: ServiceAreaIntroProps) {

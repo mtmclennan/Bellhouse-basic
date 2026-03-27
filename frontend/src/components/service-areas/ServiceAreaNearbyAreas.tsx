@@ -55,8 +55,8 @@ export default function ServiceAreaNearbyAreas({
             <h3>{mapContent.title ?? defaultMapContent.title}</h3>
             <p>
               {city
-                ? `See which nearby Bellhouse service areas connect to ${city} work.`
-                : 'See which nearby Bellhouse service areas connect to this work.'}
+                ? `If your job sits just outside ${city}, these nearby pages may match the ground conditions, access, and trucking setup more closely.`
+                : 'If your job sits between service areas, these nearby pages may be the closer match for site conditions and trucking access.'}
             </p>
             <p>{mapContent.description ?? defaultMapContent.description}</p>
             <div className={classes.pinRow}>
@@ -87,7 +87,7 @@ export default function ServiceAreaNearbyAreas({
               ) : (
                 <Link href={item.href}>
                   <MapPin size={18} weight="fill" />
-                  Explore Bellhouse work near {item.label}
+                  See excavation work near {item.label}
                 </Link>
               )}
             </li>

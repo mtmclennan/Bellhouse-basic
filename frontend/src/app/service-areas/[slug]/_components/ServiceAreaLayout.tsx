@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Script from 'next/script';
 import type { ServiceAreaPage } from '@/lib/serviceAreas';
 import {
@@ -16,7 +15,6 @@ import {
   defaultHeroImage,
   defaultIntroImage,
 } from '@/components/service-areas/visuals';
-import faqClasses from '@/components/service-areas/ServiceAreaFaq.module.scss';
 
 type ServiceAreaLayoutProps = {
   page: ServiceAreaPage;
@@ -25,15 +23,20 @@ type ServiceAreaLayoutProps = {
 const baseUrl = 'https://bellhouseexcavating.ca';
 const businessId = `${baseUrl}/#business`;
 
+function mergeUniqueItems(...groups: Array<string[] | undefined>) {
+  return groups.flatMap((group) => group ?? []).filter((item, index, items) => {
+    return items.indexOf(item) === index;
+  });
+}
+
 export default function ServiceAreaLayout({
   page,
 }: ServiceAreaLayoutProps) {
   const pageUrl = `${baseUrl}/service-areas/${page.slug}`;
-  const primaryActionLabel = `Get a quote for ${page.city} work`;
-  const ctaActions = [
+  const heroActions = [
     {
       href: '/contact',
-      label: primaryActionLabel,
+      label: 'Request a quote',
     },
     {
       href: 'tel:5197528500',
@@ -46,6 +49,27 @@ export default function ServiceAreaLayout({
       variant: 'secondary' as const,
     },
   ];
+  const finalActions = [
+    {
+      href: '/contact',
+      label: 'Request a quote',
+    },
+    {
+      href: 'tel:5197528500',
+      label: 'Call 519-752-8500',
+      variant: 'secondary' as const,
+    },
+    {
+      href: 'sms:5197528500',
+      label: 'Text 519-752-8500',
+      variant: 'secondary' as const,
+    },
+  ];
+
+  const whoItsForItems = mergeUniqueItems(
+    page.rightFit,
+    page.whoWeWorkWith,
+  ).slice(0, 6);
 
   const businessSchema = {
     '@context': 'https://schema.org',
@@ -131,153 +155,67 @@ export default function ServiceAreaLayout({
         title={page.heroTitle}
         description={page.heroDescription}
         image={page.heroImage ?? defaultHeroImage}
-        actions={ctaActions}
+        actions={heroActions}
       />
       <ServiceAreaIntro
         heading={
           page.sectionHeadings?.intro ??
-          `How Bellhouse handles excavation, grading, and truck access in ${page.city}`
+          `What your ${page.city} site usually needs before the next crew can move in`
         }
-        intro={page.intro.slice(0, 2)}
+        intro={page.intro}
         image={page.introImage ?? defaultIntroImage}
-      >
-        <p>
-          See Bellhouse&apos;s full <Link href="/services">services overview</Link>,
-          including{' '}
-          <Link href="/services/foundation-excavation">
-            {page.city} foundation excavation
-          </Link>{' '}
-          and{' '}
-          <Link href="/services/site-preparation-land-grading">
-            {page.city} site preparation and land grading
-          </Link>{' '}
-          for projects that need accurate cuts, stable grades, and clean truck
-          coordination from the start.
-        </p>
-      </ServiceAreaIntro>
+      />
       <ServiceAreaServices
         heading={
           page.sectionHeadings?.services ??
-          `Excavation, grading, hauling, and float services Bellhouse offers in ${page.city}`
+          `Excavation, grading, hauling, and float services available in ${page.city}`
         }
         items={page.services}
         city={page.city}
-      >
-        <p>{page.intro[2]}</p>
-        <p>
-          Bellhouse also handles{' '}
-          <Link href="/services/dump-truck-rental">
-            {page.city} dump truck hauling
-          </Link>
-          ,{' '}
-          <Link href="/services/dirt-gravel-delivery">
-            aggregate delivery for {page.city} jobs
-          </Link>
-          , and{' '}
-          <Link href="/services/heavy-equipment-hauling">
-            equipment floating in {page.city}
-          </Link>{' '}
-          as part of the same site-work plan, so the digging, haul-out, and next
-          delivery stay aligned.
-        </p>
-      </ServiceAreaServices>
-      <ServiceAreaCta
-        title={
-          page.midPageCta?.title ??
-          `Need ${page.city} excavation and truck coordination on one schedule?`
-        }
-        description={
-          page.midPageCta?.description ??
-          `Send Bellhouse the site address, scope, and rough timing to get a direct answer on fit, sequencing, and the next step.`
-        }
-        supportingPoints={page.midPageCta?.supportingPoints}
-        actions={ctaActions}
-      />
-      <ServiceAreaWhoWeWorkWith
-        heading={
-          page.sectionHeadings?.rightFit ??
-          `Is Bellhouse the right fit for your ${page.city} project?`
-        }
-        intro={page.rightFitIntro}
-        items={page.rightFit}
-      />
-      <ServiceAreaWhyChoose
-        heading={
-          page.sectionHeadings?.howProjectsAreHandled ??
-          `How ${page.city} projects are handled`
-        }
-        intro={page.howProjectsAreHandledIntro}
-        items={page.howProjectsAreHandled}
-      />
-      <ServiceAreaWhoWeWorkWith
-        heading={
-          page.sectionHeadings?.whoWeWorkWith ??
-          `Who hires Bellhouse for ${page.city} excavation work`
-        }
-        intro={page.whoWeWorkWithIntro}
-        items={page.whoWeWorkWith}
       />
       <ServiceAreaWhyChoose
         heading={
           page.sectionHeadings?.whyChoose ??
-          `Why ${page.city} projects call Bellhouse for excavation and trucking`
+          `Why contractors in ${page.city} bring Bellhouse onto the job`
         }
         intro={page.whyChooseIntro}
         items={page.whyChoose}
       />
-      <ServiceAreaNearbyAreas
-        heading={
-          page.sectionHeadings?.nearbyAreas ??
-          `Nearby Bellhouse service areas linked to ${page.city}`
-        }
-        items={page.nearbyAreas}
-        city={page.city}
-        map={page.map}
+      <ServiceAreaWhoWeWorkWith
+        heading={`Jobs in ${page.city} where Bellhouse is usually the right crew`}
+        intro={page.rightFitIntro ?? page.whoWeWorkWithIntro}
+        items={whoItsForItems}
       />
       <ServiceAreaFaq
         heading={
           page.sectionHeadings?.faq ??
-          `${page.city} excavation, grading, and hauling FAQs`
+          `Questions about ${page.city} excavation, grading, hauling, and site prep`
         }
         items={page.faqs}
-        cta={
-          <div className={faqClasses.call}>
-            <h3 className={faqClasses.title}>Still deciding if Bellhouse is the right fit?</h3>
-            <p className={faqClasses.copy}>
-              Call{' '}
-              <Link href="tel:5197528500" className={faqClasses.inlineLink}>
-                519-752-8500
-              </Link>{' '}
-              or{' '}
-              <Link href="sms:5197528500" className={faqClasses.inlineLink}>
-                text 519-752-8500
-              </Link>{' '}
-              if you want to talk through the site, timeline, or send photos before filling out the form.
-            </p>
-          </div>
-        }
       />
-      <ServiceAreaWhyChoose
-        heading={
-          page.sectionHeadings?.whatHappensNext ??
-          `What happens next on a ${page.city} project`
-        }
-        intro={page.whatHappensNextIntro}
-        items={page.whatHappensNext}
-      />
+      {page.nearbyAreas.length ? (
+        <ServiceAreaNearbyAreas
+          heading={
+            page.sectionHeadings?.nearbyAreas ??
+            `Nearby service areas connected to ${page.city} work`
+          }
+          items={page.nearbyAreas}
+          city={page.city}
+          map={page.map}
+        />
+      ) : null}
       <ServiceAreaCta
         title={
           page.bottomCta?.title ??
-          page.ctaTitle ??
-          `Get a quote for ${page.city} excavation, grading, or hauling`
+          `Request a quote for ${page.city} excavation and site work`
         }
         description={
           page.bottomCta?.description ??
-          `Bellhouse keeps excavation, grading, trucking, and machine timing tied to the same job plan so the site is ready for the next step.`
+          `Call, text, or request a quote if you need a clear answer on fit, timing, and what the job needs first.`
         }
         supportingPoints={page.bottomCta?.supportingPoints}
         image={page.ctaImage ?? defaultCtaImage}
-        actions={ctaActions}
+        actions={finalActions}
       />
     </>
   );
