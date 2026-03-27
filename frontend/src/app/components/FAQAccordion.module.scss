@@ -7,9 +7,53 @@
   width: 100%;
 }
 
+.serviceAreaSection {
+  background-color: v.$grey-color-8;
+  padding: 6rem 0;
+
+  @include m.mediaDesktop {
+    padding: 8rem 0;
+  }
+}
+
 .container {
   max-width: 110rem;
   margin: 0 auto;
+}
+
+.serviceAreaContainer {
+  width: min(95%, 110rem);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  color: #fff;
+}
+
+.header {
+  display: block;
+}
+
+.serviceAreaHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
+  gap: 1.2rem;
+
+  &::before {
+    content: '?';
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.8rem;
+    height: 4.8rem;
+    background-color: rgba(v.$cat-yellow2, 0.12);
+    color: v.$cat-yellow2;
+    border-radius: 999px;
+    font-size: 2.6rem;
+    font-weight: 700;
+    flex: 0 0 auto;
+  }
 }
 
 .heading {
@@ -24,6 +68,13 @@
   }
 }
 
+.serviceAreaHeading {
+  @include m.sectionHeading();
+  margin-bottom: 0;
+  text-align: left;
+  color: #fff;
+}
+
 .subheading {
   font-size: 1.8rem;
   color: rgba(255, 255, 255, 0.8);
@@ -33,10 +84,26 @@
   line-height: 1.5;
 }
 
+.serviceAreaSubheading {
+  text-align: left;
+  max-width: none;
+  margin: 0 0 2rem;
+  color: rgba(255, 255, 255, 0.84);
+}
+
 .accordion {
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
+}
+
+.serviceAreaAccordion {
+  display: grid;
+  gap: 1.6rem;
+
+  @include m.mediaDesktop {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .item {
@@ -44,6 +111,12 @@
   border-radius: 0.8rem;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.serviceAreaItem {
+  border-radius: 1.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 1.2rem 2.8rem -2.4rem rgba(0, 0, 0, 0.65);
 }
 
 .question {
@@ -71,7 +144,12 @@
   }
 }
 
-/* ✅ Real height animation */
+.serviceAreaQuestion {
+  font-size: 2rem;
+  line-height: 1.35;
+  padding: 2.4rem;
+}
+
 .answer {
   display: grid;
   grid-template-rows: 0fr;
@@ -79,15 +157,27 @@
   padding: 0 2rem;
 }
 
+.serviceAreaAnswer {
+  padding: 0 2.4rem;
+}
+
 .answerInner {
   overflow: hidden;
-  padding: 0; // closed state
+  padding: 0;
 
   p {
     margin: 0;
     font-size: 1.7rem;
     line-height: 1.55;
     color: rgba(255, 255, 255, 0.9);
+  }
+}
+
+.serviceAreaAnswerInner {
+  p {
+    font-size: 1.7rem;
+    line-height: 1.68;
+    color: rgba(255, 255, 255, 0.84);
   }
 }
 
@@ -98,4 +188,16 @@
   .answerInner {
     padding-top: 1.6rem;
   }
+}
+
+.serviceAreaAnswer[data-open='true'] {
+  padding: 0 2.4rem 2.4rem;
+
+  .serviceAreaAnswerInner {
+    padding-top: 0;
+  }
+}
+
+.cta {
+  margin-top: 3rem;
 }

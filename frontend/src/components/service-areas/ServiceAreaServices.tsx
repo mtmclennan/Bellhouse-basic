@@ -8,12 +8,14 @@ import classes from './ServiceAreaServices.module.scss';
 type ServiceAreaServicesProps = {
   heading?: string;
   items: ServiceAreaService[];
+  city?: string;
   children?: React.ReactNode;
 };
 
 export default function ServiceAreaServices({
   heading = 'Services',
   items,
+  city,
   children,
 }: ServiceAreaServicesProps) {
   return (
@@ -48,7 +50,9 @@ export default function ServiceAreaServices({
               <h3>{item.title}</h3>
               <p>{item.description}</p>
               <Link className={classes.serviceLink} href={item.coreServiceHref}>
-                View related service
+                {city
+                  ? `See how Bellhouse handles ${item.title.toLowerCase()} in ${city}`
+                  : 'See the related excavation service'}
               </Link>
             </div>
           </article>

@@ -1,6 +1,5 @@
-import { Question } from '@phosphor-icons/react/dist/ssr';
-import SectionWrapper from '@/components/layout/SectionWrapper';
-import classes from './ServiceAreaFaq.module.scss';
+import type { ReactNode } from 'react';
+import FAQAccordion from '@/app/components/FAQAccordion';
 
 type ServiceAreaFaqItem = {
   question: string;
@@ -10,31 +9,23 @@ type ServiceAreaFaqItem = {
 type ServiceAreaFaqProps = {
   heading?: string;
   items: ServiceAreaFaqItem[];
+  cta?: ReactNode;
 };
 
 export default function ServiceAreaFaq({
   heading = 'Frequently asked questions',
   items,
+  cta,
 }: ServiceAreaFaqProps) {
   return (
-    <SectionWrapper
-      className={classes.section}
-      containerClassName={classes.container}
-    >
-      <div className={classes.header}>
-        <span className={classes.icon}>
-          <Question size={26} weight="fill" />
-        </span>
-        <h2 className={classes.heading}>{heading}</h2>
-      </div>
-      <dl className={classes.list}>
-        {items.map((item) => (
-          <div className={classes.item} key={item.question}>
-            <dt className={classes.question}>{item.question}</dt>
-            <dd className={classes.answer}>{item.answer}</dd>
-          </div>
-        ))}
-      </dl>
-    </SectionWrapper>
+    <FAQAccordion
+      heading={heading}
+      items={items.map((item) => ({
+        question: item.question,
+        answer: <p>{item.answer}</p>,
+      }))}
+      cta={cta}
+      variant="serviceArea"
+    />
   );
 }

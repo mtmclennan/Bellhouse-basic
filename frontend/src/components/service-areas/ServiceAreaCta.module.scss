@@ -56,6 +56,34 @@
   }
 }
 
+.supportingPoints {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-width: 60rem;
+
+  li {
+    position: relative;
+    padding-left: 2rem;
+    font-size: 1.7rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.84);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 1rem;
+      left: 0;
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 999px;
+      background-color: v.$cat-yellow2;
+    }
+  }
+}
+
 .actions {
   display: flex;
   flex-wrap: wrap;

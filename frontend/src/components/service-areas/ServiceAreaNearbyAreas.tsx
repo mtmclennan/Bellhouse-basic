@@ -11,6 +11,7 @@ type NearbyArea = string | { label: string; href: string };
 type ServiceAreaNearbyAreasProps = {
   heading?: string;
   items: NearbyArea[];
+  city?: string;
   map?: ServiceAreaMap;
 };
 
@@ -25,6 +26,7 @@ function getAreaLabel(item: NearbyArea) {
 export default function ServiceAreaNearbyAreas({
   heading = 'Nearby areas',
   items,
+  city,
   map,
 }: ServiceAreaNearbyAreasProps) {
   const mapContent = map ?? defaultMapContent;
@@ -46,17 +48,31 @@ export default function ServiceAreaNearbyAreas({
             </div>
           ) : null}
           <div className={classes.mapCopy}>
-            <p className={classes.eyebrow}>{mapContent.eyebrow ?? defaultMapContent.eyebrow}</p>
+            <p className={classes.eyebrow}>
+              {mapContent.eyebrow ?? defaultMapContent.eyebrow}
+            </p>
             <h2 className={classes.heading}>{heading}</h2>
             <h3>{mapContent.title ?? defaultMapContent.title}</h3>
+            <p>
+              {city
+                ? `See which nearby Bellhouse service areas connect to ${city} work.`
+                : 'See which nearby Bellhouse service areas connect to this work.'}
+            </p>
             <p>{mapContent.description ?? defaultMapContent.description}</p>
             <div className={classes.pinRow}>
-              {items.slice(0, 5).map((item) => (
-                <span className={classes.pin} key={getAreaKey(item)}>
-                  <MapPin size={16} weight="fill" />
-                  {getAreaLabel(item)}
-                </span>
-              ))}
+              {items.slice(0, 5).map((item) =>
+                typeof item === 'string' ? (
+                  <span className={classes.pin} key={getAreaKey(item)}>
+                    <MapPin size={16} weight="fill" />
+                    {getAreaLabel(item)}
+                  </span>
+                ) : (
+                  <Link className={classes.pin} href={item.href} key={getAreaKey(item)}>
+                    <MapPin size={16} weight="fill" />
+                    {getAreaLabel(item)}
+                  </Link>
+                ),
+              )}
             </div>
           </div>
         </div>
@@ -71,7 +87,7 @@ export default function ServiceAreaNearbyAreas({
               ) : (
                 <Link href={item.href}>
                   <MapPin size={18} weight="fill" />
-                  {item.label}
+                  Explore Bellhouse work near {item.label}
                 </Link>
               )}
             </li>

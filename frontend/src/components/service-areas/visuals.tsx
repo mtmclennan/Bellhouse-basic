@@ -21,24 +21,24 @@ import type {
 
 export const defaultHeroImage: ServiceAreaImage = {
   src: '/assets/Bellhouse-excavating-contractor.jpg',
-  alt: 'Bellhouse excavation crew and heavy equipment working on site.',
+  alt: 'Excavation crew and heavy equipment working on an active jobsite.',
 };
 
 export const defaultIntroImage: ServiceAreaImage = {
   src: '/assets/excavator-digging-foundation.jpg',
-  alt: 'Excavator digging and shaping a construction site for foundation work.',
+  alt: 'Excavator cutting and shaping ground for foundation and site-prep work.',
 };
 
 export const defaultCtaImage: ServiceAreaImage = {
   src: '/assets/truck-hauling-heavy-equipment.jpg',
-  alt: 'Bellhouse float truck moving heavy equipment to a construction site.',
+  alt: 'Float truck hauling heavy equipment to a jobsite.',
 };
 
 export const defaultMapContent: ServiceAreaMap = {
   eyebrow: 'Areas we serve',
-  title: 'Service coverage is coordinated around the city, not tied to a separate branch office.',
+  title: 'Nearby jobs often need the same excavation, truck hauling, and machine support.',
   description:
-    'Bellhouse can support nearby jobs where excavation, hauling, and equipment movement need to stay on one schedule.',
+    'Bellhouse works across nearby communities where site prep, grading, hauling, and equipment movement need to stay on one job schedule.',
 };
 
 export function getServiceAreaServiceIcon(slug: ServiceAreaService['slug']): ReactNode {

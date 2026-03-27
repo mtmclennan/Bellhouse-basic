@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import ServiceAreaLayout from './_components/ServiceAreaLayout';
 import {
   getServiceAreaPage,
+  getServiceAreaMetadata,
   serviceAreaPageList,
 } from '@/lib/serviceAreas';
 import { validateMetadata } from '@/lib/utils/seoValidation';
@@ -27,23 +28,7 @@ export async function generateMetadata({
   }
 
   validateMetadata(page.metaTitle, page.metaDescription);
-
-  const canonicalUrl = `${baseUrl}/service-areas/${page.slug}`;
-
-  return {
-    title: page.metaTitle,
-    description: page.metaDescription,
-    alternates: {
-      canonical: canonicalUrl,
-    },
-    openGraph: {
-      title: page.metaTitle,
-      description: page.metaDescription,
-      url: canonicalUrl,
-      siteName: 'Bellhouse Excavating',
-      type: 'website',
-    },
-  };
+  return getServiceAreaMetadata(page, baseUrl);
 }
 
 export default async function ServiceAreaPage({

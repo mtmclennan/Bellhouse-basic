@@ -15,6 +15,13 @@
   max-width: 18ch;
 }
 
+.intro {
+  max-width: 72rem;
+  font-size: 1.8rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.82);
+}
+
 .list {
   display: grid;
   gap: 1.6rem;

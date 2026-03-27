@@ -17,6 +17,7 @@ interface FAQAccordionProps {
   defaultOpenId?: string;
   cta?: React.ReactNode;
   accentColor?: string;
+  variant?: 'default' | 'serviceArea';
 }
 
 export default function FAQAccordion({
@@ -26,6 +27,7 @@ export default function FAQAccordion({
   defaultOpenId,
   cta,
   accentColor = '#ffc302',
+  variant = 'default',
 }: FAQAccordionProps) {
   const uid = useId();
 
@@ -45,27 +47,65 @@ export default function FAQAccordion({
   };
 
   return (
-    <section className={styles.faqSection} aria-labelledby={`${uid}-heading`}>
-      <div className={styles.container}>
-        <header className={styles.header}>
-          <h2 id={`${uid}-heading`} className={styles.heading}>
+    <section
+      className={`${styles.faqSection} ${
+        variant === 'serviceArea' ? styles.serviceAreaSection : ''
+      }`.trim()}
+      aria-labelledby={`${uid}-heading`}
+    >
+      <div
+        className={`${styles.container} ${
+          variant === 'serviceArea' ? styles.serviceAreaContainer : ''
+        }`.trim()}
+      >
+        <header
+          className={`${styles.header} ${
+            variant === 'serviceArea' ? styles.serviceAreaHeader : ''
+          }`.trim()}
+        >
+          <h2
+            id={`${uid}-heading`}
+            className={`${styles.heading} ${
+              variant === 'serviceArea' ? styles.serviceAreaHeading : ''
+            }`.trim()}
+          >
             {heading}
           </h2>
-          {subheading && <p className={styles.subheading}>{subheading}</p>}
+          {subheading && (
+            <p
+              className={`${styles.subheading} ${
+                variant === 'serviceArea' ? styles.serviceAreaSubheading : ''
+              }`.trim()}
+            >
+              {subheading}
+            </p>
+          )}
         </header>
 
-        <div className={styles.accordion}>
+        <div
+          className={`${styles.accordion} ${
+            variant === 'serviceArea' ? styles.serviceAreaAccordion : ''
+          }`.trim()}
+        >
           {normalized.map((item) => {
             const isOpen = openId === item.id;
             const panelId = `${item.id}-panel`;
             const btnId = `${item.id}-btn`;
 
             return (
-              <div key={item.id} className={styles.item} data-open={isOpen}>
+              <div
+                key={item.id}
+                className={`${styles.item} ${
+                  variant === 'serviceArea' ? styles.serviceAreaItem : ''
+                }`.trim()}
+                data-open={isOpen}
+              >
                 <button
                   id={btnId}
                   type="button"
-                  className={styles.question}
+                  className={`${styles.question} ${
+                    variant === 'serviceArea' ? styles.serviceAreaQuestion : ''
+                  }`.trim()}
                   onClick={() => toggle(item.id!)}
                   aria-expanded={isOpen}
                   aria-controls={panelId}
@@ -84,10 +124,20 @@ export default function FAQAccordion({
                   id={panelId}
                   role="region"
                   aria-labelledby={btnId}
-                  className={styles.answer}
+                  className={`${styles.answer} ${
+                    variant === 'serviceArea' ? styles.serviceAreaAnswer : ''
+                  }`.trim()}
                   data-open={isOpen}
                 >
-                  <div className={styles.answerInner}>{item.answer}</div>
+                  <div
+                    className={`${styles.answerInner} ${
+                      variant === 'serviceArea'
+                        ? styles.serviceAreaAnswerInner
+                        : ''
+                    }`.trim()}
+                  >
+                    {item.answer}
+                  </div>
                 </div>
               </div>
             );

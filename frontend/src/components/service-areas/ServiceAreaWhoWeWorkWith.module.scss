@@ -17,6 +17,13 @@
   max-width: 18ch;
 }
 
+.intro {
+  max-width: 72rem;
+  font-size: 1.8rem;
+  line-height: 1.7;
+  color: v.$text-color-light;
+}
+
 .list {
   display: grid;
   gap: 1.6rem;

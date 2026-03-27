@@ -15,6 +15,7 @@ type ServiceAreaCtaProps = {
   description: string;
   actions: CtaAction[];
   image?: ServiceAreaImage;
+  supportingPoints?: string[];
 };
 
 export default function ServiceAreaCta({
@@ -22,6 +23,7 @@ export default function ServiceAreaCta({
   description,
   actions,
   image,
+  supportingPoints,
 }: ServiceAreaCtaProps) {
   return (
     <SectionWrapper
@@ -32,6 +34,13 @@ export default function ServiceAreaCta({
         <div className={classes.content}>
           <h2 className={classes.title}>{title}</h2>
           <p className={classes.description}>{description}</p>
+          {supportingPoints && supportingPoints.length > 0 ? (
+            <ul className={classes.supportingPoints}>
+              {supportingPoints.map((point) => (
+                <li key={point}>{point}</li>
+              ))}
+            </ul>
+          ) : null}
           {actions.length > 0 ? (
             <div className={classes.actions}>
               {actions.map((action) => (

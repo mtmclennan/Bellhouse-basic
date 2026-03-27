@@ -57,22 +57,23 @@ const valuePoints = [
 ];
 
 export const metadata: Metadata = {
-  title: 'Service Areas | Bellhouse Excavating',
+  title:
+    'Excavation Service Areas in Brantford & Southern Ontario | Bellhouse Excavating',
   description:
-    'Explore Bellhouse Excavating service areas across Brantford, Paris, Hamilton, Cambridge, Ancaster, and nearby communities for excavation, grading, hauling, and equipment float support.',
+    'Bellhouse Excavating provides excavation, grading, dump truck hauling, material delivery, and equipment floating across Brantford, Paris, Hamilton, Cambridge, Ancaster, and surrounding Southern Ontario areas.',
   alternates: {
     canonical: 'https://bellhouseexcavating.ca/service-areas',
   },
   openGraph: {
-    title: 'Bellhouse Excavating Service Areas',
+    title:
+      'Excavation Service Areas in Brantford & Southern Ontario | Bellhouse Excavating',
     description:
-      'Local excavation, grading, dump truck hauling, and equipment floating across Bellhouse service areas in Southern Ontario.',
+      'Explore Bellhouse service areas for excavation, grading, dump truck hauling, material delivery, and equipment floating across Brantford and surrounding Southern Ontario communities.',
     url: 'https://bellhouseexcavating.ca/service-areas',
     siteName: 'Bellhouse Excavating',
     type: 'website',
   },
 };
-
 validateMetadata(metadata.title, metadata.description);
 
 export default function ServiceAreasPage() {
@@ -101,7 +102,7 @@ export default function ServiceAreasPage() {
             </p>
             <div className={classes.heroActions}>
               <Link className={classes.primaryAction} href="/contact">
-                Request a quote
+                Get a quote
               </Link>
               <Link className={classes.secondaryAction} href="/services">
                 View core services
@@ -209,10 +210,20 @@ export default function ServiceAreasPage() {
                   <p>{area.metaDescription}</p>
                   <div className={classes.areaMeta}>
                     {area.nearbyAreas.slice(0, 3).map((nearby) => (
-                      <span key={`${area.slug}-${nearby}`}>{nearby}</span>
+                      <span
+                        key={
+                          typeof nearby === 'string'
+                            ? `${area.slug}-${nearby}`
+                            : `${area.slug}-${nearby.label}-${nearby.href}`
+                        }
+                      >
+                        {typeof nearby === 'string' ? nearby : nearby.label}
+                      </span>
                     ))}
                   </div>
-                  <span className={classes.areaLink}>View local page</span>
+                  <span className={classes.areaLink}>
+                    Explore {area.city} service area
+                  </span>
                 </div>
               </Link>
             </li>
@@ -225,7 +236,7 @@ export default function ServiceAreasPage() {
         description="Bellhouse supports excavation, grading, hauling, and equipment movement across Southern Ontario. Reach out to get your project moving."
         image={defaultCtaImage}
         actions={[
-          { href: '/contact', label: 'Request a Quote' },
+          { href: '/contact', label: 'Get a quote' },
           {
             href: 'tel:5197528500',
             label: 'Call 519-752-8500',
