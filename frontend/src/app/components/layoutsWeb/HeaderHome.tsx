@@ -36,7 +36,9 @@ const MainHeader = ({ currentRoute }: { currentRoute?: string }) => {
         className={`${classes.headerHome} ${isServiceAreaRoute ? classes.headerHomeOverlay : ''}`}
       >
         <nav className={classes.navHome}>
-          <div className={classes.logoHome}>
+          <div
+            className={`${classes.logoHome} ${isServiceAreaRoute ? classes.logoHomeMobileVisible : ''}`}
+          >
             <Link href="/">
               <Image
                 src={logo}
