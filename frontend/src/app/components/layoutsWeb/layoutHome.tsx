@@ -16,10 +16,13 @@ const LayoutHome = ({ children, background = 'on' }: LayoutProps) => {
   const pathname = usePathname();
   const isServicesPage =
     pathname?.startsWith('/services/') && pathname !== '/services';
-  const isServiceAreasPage =
-    pathname === '/service-areas' || pathname?.startsWith('/service-areas/');
+  const isOverlayHeroRoute =
+    pathname === '/service-areas' ||
+    pathname?.startsWith('/service-areas/') ||
+    pathname === '/contractors' ||
+    pathname?.startsWith('/contractors/');
 
-  const showBackground = isServicesPage || isServiceAreasPage ? 'off' : background;
+  const showBackground = isServicesPage || isOverlayHeroRoute ? 'off' : background;
 
   return (
     <Fragment>

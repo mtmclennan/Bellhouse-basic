@@ -42,7 +42,7 @@
   @include m.flexCenter(column);
   width: 95%;
   justify-items: center;
-  align-items: start;
+  align-items: flex-start;
   gap: 3rem;
   display: grid;
 

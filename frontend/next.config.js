@@ -1,19 +1,20 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  outputFileTracingRoot: __dirname,
+  reactStrictMode: true,
+  images: {
+    qualities: [70, 80],
+  },
   webpack: (config, { isServer }) => {
-    if (!isServer) {
-      const isProduction = process.env.NODE_ENV === 'production';
-      if (isProduction) {
-        console.log = () => {}; // Disable logs in production
-      }
+    if (!isServer && process.env.NODE_ENV === 'production') {
+      console.log = () => {};
     }
+
     return config;
   },
-  reactStrictMode: true,
   experimental: {
-    scrollRestoration: false, // ✅ Disables automatic scrolling behavior
+    scrollRestoration: false,
   },
-
   async redirects() {
     return [
       {
@@ -26,7 +27,3 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
-
-module.exports = {
-  outputFileTracingRoot: __dirname,
-};

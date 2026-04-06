@@ -14,6 +14,7 @@ import {
   Wrench,
 } from '@phosphor-icons/react/dist/ssr';
 import SectionWrapper from '@/components/layout/SectionWrapper';
+import ServiceAreaHero from '@/components/service-areas/ServiceAreaHero';
 import FAQAccordion from '../components/FAQAccordion';
 import ContactForm from '../components/forms/ContactForm';
 import heroImage from '../../../public/assets/Bellhouse-excavating-contractor.jpg';
@@ -245,64 +246,35 @@ const processItems = [
   },
 ];
 
+const heroDescription =
+  'Bellhouse Excavating supports builders, general contractors, design-build companies, concrete contractors, and developers with excavation, grading, site prep, trucking, material hauling, and operator-backed equipment support for active construction projects.';
+
 export default function ContractorsPage() {
   return (
     <>
-      <SectionWrapper
-        className={classes.heroSection}
-        containerClassName={classes.heroContainer}
-        spacing="loose"
-      >
-        <div className={classes.heroShell}>
-          <div className={classes.heroContent}>
-            <p className={classes.eyebrow}>
-              Excavation support for builders and contractors
-            </p>
-            <h1 className={classes.heroTitle}>
-              Excavation, trucking, and site support that fits active
-              construction schedules.
-            </h1>
-            <p className={classes.heroText}>
-              Bellhouse Excavating supports builders, general contractors,
-              design-build companies, concrete contractors, and developers with
-              excavation, grading, site prep, trucking, material hauling, and
-              operator-backed equipment support.
-            </p>
-            <p className={classes.heroText}>
-              Bring Bellhouse in when the project needs one crew that can
-              handle the ground work, truck coordination, and added production
-              support without creating another handoff.
-            </p>
-            <div className={classes.heroActions}>
-              <Link className={classes.primaryAction} href="#contractor-form">
-                Talk about your project
-              </Link>
-              <Link className={classes.secondaryAction} href="/service-areas">
-                View service areas
-              </Link>
-            </div>
-            <ul className={classes.heroTags}>
-              <li>Excavation and grading</li>
-              <li>Truck hauling and delivery</li>
-              <li>Equipment and operator support</li>
-            </ul>
-          </div>
-
-          <div className={classes.heroMedia}>
-            <div className={classes.heroImageFrame}>
-              <Image
-                src={heroImage}
-                alt="Bellhouse excavation crew working on an active construction site."
-                fill
-                className={classes.heroImage}
-                sizes="(max-width: 1000px) 100vw, 42vw"
-                priority
-              />
-              <div className={classes.heroOverlay} />
-            </div>
-          </div>
-        </div>
-      </SectionWrapper>
+      <ServiceAreaHero
+        eyebrow="Excavation support for builders and contractors"
+        title="Excavation, trucking, and site support for active construction projects."
+        description={heroDescription}
+        actions={[
+          { href: '#contractor-form', label: 'Talk about your project' },
+          {
+            href: '/service-areas',
+            label: 'View service areas',
+            variant: 'secondary',
+          },
+        ]}
+        image={{
+          src: heroImage.src,
+          alt: 'Bellhouse excavation crew working on an active construction site.',
+        }}
+        contactNote={{
+          prefix: 'Need to talk through a live project schedule?',
+          href: 'tel:5197528500',
+          label: 'Call 519-752-8500',
+        }}
+        badges={['Excavation', 'Truck Hauling', 'Equipment Support']}
+      />
 
       <SectionWrapper>
         <div className={classes.sectionIntro}>
@@ -332,7 +304,9 @@ export default function ContractorsPage() {
       <SectionWrapper className={classes.altSection}>
         <div className={classes.sectionIntro}>
           <p className={classes.sectionEyebrow}>Project support</p>
-          <h2>Scopes Bellhouse can handle on active builds and development work.</h2>
+          <h2>
+            Scopes Bellhouse can handle on active builds and development work.
+          </h2>
           <p>
             Bellhouse supports the parts of the job that need dirt moving,
             grades shaped, material hauled, and equipment coordinated without
@@ -353,7 +327,9 @@ export default function ContractorsPage() {
 
       <SectionWrapper>
         <div className={classes.sectionIntro}>
-          <p className={classes.sectionEyebrow}>Why contractors work with Bellhouse</p>
+          <p className={classes.sectionEyebrow}>
+            Why contractors work with Bellhouse
+          </p>
           <h2>Bellhouse is set up to be a repeat-use project partner.</h2>
           <p>
             The value is not just having equipment on site. It is having a crew
@@ -420,7 +396,9 @@ export default function ContractorsPage() {
 
       <SectionWrapper className={classes.altSection}>
         <div className={classes.sectionIntro}>
-          <p className={classes.sectionEyebrow}>How Bellhouse fits into your project</p>
+          <p className={classes.sectionEyebrow}>
+            How Bellhouse fits into your project
+          </p>
           <h2>A straightforward process that works with live site conditions.</h2>
           <p>
             Bellhouse fits best when the job needs practical coordination from
@@ -514,6 +492,7 @@ export default function ContractorsPage() {
         heading="Contractor questions Bellhouse can answer early"
         subheading="A few practical answers before you send over the project details."
         defaultOpenId="repeat-work"
+        variant="serviceArea"
         items={[
           {
             id: 'repeat-work',

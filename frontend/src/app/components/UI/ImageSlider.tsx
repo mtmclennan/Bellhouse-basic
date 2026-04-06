@@ -18,7 +18,7 @@ const ImageGallerySlider: React.FC<GalleryProps> = ({ images, interval }) => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
       setFade(true);
     }, 500);
-  }, []);
+  }, [images.length]);
 
   const prevImage = () => {
     setFade(false);

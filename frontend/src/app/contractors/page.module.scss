@@ -1,68 +1,63 @@
 @use '../../styles/abstracts/mixins' as m;
 @use '../../styles/abstracts/variables' as v;
 
-.heroSection {
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(v.$cat-yellow2, 0.18),
-      transparent 28%
-    ),
-    linear-gradient(180deg, #171717 0%, #101010 100%);
-}
-
-.heroContainer,
 .capabilityContainer,
 .ctaContainer {
   color: #fff;
 }
 
-.heroShell,
 .capabilityShell,
 .ctaShell {
   display: grid;
   gap: 3rem;
-  align-items: stretch;
+  align-items: center;
 
   @include m.mediaDesktop {
-    grid-template-columns: minmax(0, 1fr) minmax(32rem, 0.84fr);
-    gap: 4rem;
+    grid-template-columns: minmax(0, 1.22fr) minmax(30rem, 0.78fr);
+    gap: 4.8rem;
   }
 }
 
-.heroContent,
+.capabilityShell {
+  @include m.mediaDesktop {
+    grid-template-columns: minmax(0, 1fr) minmax(30rem, 0.86fr);
+    gap: 3.2rem;
+  }
+}
+
+.ctaShell {
+  @include m.mediaDesktop {
+    grid-template-columns: minmax(0, 1.02fr) minmax(34rem, 0.98fr);
+    gap: 3.2rem;
+    align-items: stretch;
+  }
+}
+
 .capabilityContent,
 .ctaContent {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1.8rem;
+  gap: 2rem;
+  padding: 1rem 0;
+
+  @include m.mediaDesktop {
+    gap: 2.6rem;
+    padding: 2rem 0;
+  }
 }
 
-.eyebrow,
 .sectionEyebrow {
+  display: inline-flex;
+  width: fit-content;
   margin: 0;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  letter-spacing: 0.18rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: v.$cat-yellow2;
 }
 
-.heroTitle {
-  margin: 0;
-  max-width: 13ch;
-  font-size: 4.8rem;
-  line-height: 1.02;
-  font-weight: 300;
-  color: #fff;
-
-  @include m.mediaDesktop {
-    font-size: 6.8rem;
-  }
-}
-
-.heroText,
 .sectionIntro p,
 .capabilityText,
 .ctaText,
@@ -74,98 +69,58 @@
   line-height: 1.7;
 }
 
-.heroText {
-  max-width: 66rem;
-  color: rgba(255, 255, 255, 0.86);
-}
-
-.heroActions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.6rem;
-  margin-top: 0.8rem;
-}
-
-.primaryAction {
-  @include m.btnMain;
-  @include m.focusRing();
-}
-
-.secondaryAction {
-  @include m.btnSec;
-  @include m.focusRing(rgba(v.$color-primary, 0.5));
-}
-
-.heroTags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  list-style: none;
-  padding: 0;
-  margin: 0.8rem 0 0;
-
-  li {
-    padding: 0.9rem 1.2rem;
-    border-radius: 999px;
-    background-color: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    font-size: 1.5rem;
-    line-height: 1.4;
-    color: rgba(255, 255, 255, 0.9);
-  }
-}
-
-.heroMedia,
 .capabilityMedia {
   display: block;
 }
 
-.heroImageFrame,
 .capabilityImageFrame {
   position: relative;
   overflow: hidden;
-  min-height: 32rem;
-  border-radius: 2.4rem;
+  min-height: 38rem;
+  border-radius: 2.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: v.$box-shadow-dark;
+  isolation: isolate;
 
   @include m.mediaDesktop {
-    min-height: 100%;
+    min-height: 58rem;
   }
 }
 
-.heroImage,
 .capabilityImage {
   object-fit: cover;
 }
 
-.heroOverlay,
 .capabilityOverlay {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.48) 100%),
-    linear-gradient(135deg, rgba(v.$cat-yellow2, 0.1) 0%, transparent 46%);
+    linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.5) 100%),
+    linear-gradient(120deg, rgba(v.$cat-yellow2, 0.12) 0%, transparent 42%);
 }
 
 .sectionIntro {
   display: flex;
   flex-direction: column;
-  gap: 1.4rem;
-  max-width: 78rem;
+  align-items: center;
+  gap: 1.6rem;
+  max-width: 86rem;
+  margin: 0 auto;
+  text-align: center;
 
   h2 {
-    @include m.sectionHeading();
+    @include m.sectionHeading(4rem, 5.4rem);
     margin: 0;
-    color: v.$text-color-mid-dark;
+    color: v.$text-color-light;
   }
 
   p {
-    color: v.$text-color-mid-dark;
+    color: v.$text-color-light;
   }
 }
 
 .altSection {
-  background-color: v.$grey-color-1;
+  background-color: v.$color-primary;
 }
 
 .cardGrid {
@@ -184,23 +139,31 @@
   padding: 2.6rem;
   border-radius: 2rem;
   border: 1px solid v.$grey-color-3;
-  background:
-    linear-gradient(180deg, rgba(v.$cat-yellow2, 0.05) 0%, transparent 100%),
-    #fff;
-  box-shadow: 0 1.4rem 2.8rem -2.6rem rgba(0, 0, 0, 0.35);
+  background-color: #fff;
+  box-shadow: 0 1.4rem 3rem -2.6rem rgba(0, 0, 0, 0.25);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+
+  &:hover {
+    transform: translateY(-0.4rem);
+    box-shadow: 0 2.2rem 3.6rem -2.8rem rgba(0, 0, 0, 0.45);
+    border-color: rgba(v.$cat-yellow2, 0.6);
+  }
 
   h3 {
     margin: 0;
     font-size: 2.4rem;
     line-height: 1.2;
-    color: v.$text-color-dark;
+    color: v.$text-color-mid-dark;
   }
 
   p {
     margin: 0;
     font-size: 1.7rem;
     line-height: 1.65;
-    color: v.$text-color-mid-dark;
+    color: v.$text-color-dark;
   }
 }
 
@@ -209,11 +172,20 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 5rem;
-  height: 5rem;
+  width: 4.8rem;
+  height: 4.8rem;
   border-radius: 999px;
-  background-color: rgba(v.$cat-yellow2, 0.14);
-  color: v.$grey-color-9;
+}
+
+.cardIcon {
+  background-color: rgba(v.$color-primary-dark, 0.92);
+  color: v.$cat-yellow2;
+  box-shadow: 0 1rem 2rem -1.2rem rgba(0, 0, 0, 0.6);
+}
+
+.capabilityIcon {
+  background-color: rgba(v.$cat-yellow2, 0.12);
+  color: v.$cat-yellow2;
 }
 
 .capabilitySection,
@@ -229,7 +201,7 @@
 
 .capabilityContent h2,
 .ctaContent h2 {
-  @include m.sectionHeading();
+  @include m.sectionHeading(4rem, 5.4rem);
   margin: 0;
   color: #fff;
 }
@@ -293,14 +265,14 @@
     margin: 0;
     font-size: 2.4rem;
     line-height: 1.2;
-    color: v.$text-color-dark;
+    color: v.$text-color-mid-dark;
   }
 
   p {
     margin: 0;
     font-size: 1.7rem;
     line-height: 1.65;
-    color: v.$text-color-mid-dark;
+    color: v.$text-color-dark;
   }
 }
 
@@ -346,13 +318,22 @@
 }
 
 .formPane {
-  display: block;
+  display: flex;
+  align-items: stretch;
 }
 
 .faqCall {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
+  padding: 2.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.8rem;
+  background: linear-gradient(
+    180deg,
+    rgba(v.$cat-yellow2, 0.08) 0%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
 
   h3 {
     margin: 0;

@@ -39,6 +39,12 @@
   max-width: none;
   margin: 0;
   height: 100%;
+  border-radius: 2rem;
+}
+
+.embeddedForm .formHeader h2,
+.embeddedForm .formIntro {
+  text-align: left;
 }
 
 .formHeader {

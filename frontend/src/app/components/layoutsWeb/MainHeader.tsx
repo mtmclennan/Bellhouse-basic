@@ -14,7 +14,9 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   const isServiceAreaRoute =
-    currentRoute === '/service-areas' || currentRoute.startsWith('/service-areas/');
+    currentRoute === '/service-areas' ||
+    currentRoute.startsWith('/service-areas/') ||
+    currentRoute.startsWith('/contractors');
 
   const homeClassname = currentRoute === '/' ? 'active' : 'non-active';
   const servicesClassname =
@@ -73,7 +75,9 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
             </li>
           </ul>
           <div className={classes.actionContainer}>
-            <button onClick={() => router.push('/contact')}>Get An Estimate</button>
+            <button onClick={() => router.push('/contact')}>
+              Get An Estimate
+            </button>
             <li>
               <a className={classes.phone} href="tel:5197528500">
                 <Phone size={24} color={'#ffc302'} />

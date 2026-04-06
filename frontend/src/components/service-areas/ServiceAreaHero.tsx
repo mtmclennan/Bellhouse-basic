@@ -11,6 +11,7 @@ type HeroAction = {
 };
 
 type ContactNote = {
+  prefix?: string;
   label: string;
   href: string;
 };
@@ -22,6 +23,7 @@ type ServiceAreaHeroProps = {
   actions?: HeroAction[];
   image?: ServiceAreaImage;
   contactNote?: ContactNote;
+  badges?: string[];
 };
 
 export default function ServiceAreaHero({
@@ -31,6 +33,7 @@ export default function ServiceAreaHero({
   actions = [],
   image,
   contactNote,
+  badges = ['Excavation', 'Hauling', 'Float Service'],
 }: ServiceAreaHeroProps) {
   return (
     <SectionWrapper
@@ -62,7 +65,8 @@ export default function ServiceAreaHero({
           ) : null}
           {contactNote ? (
             <p className={classes.contactNote}>
-              Prefer to text? <Link href={contactNote.href}>{contactNote.label}</Link>
+              {contactNote.prefix ?? 'Prefer to text?'}{' '}
+              <Link href={contactNote.href}>{contactNote.label}</Link>
             </p>
           ) : null}
         </div>
@@ -77,11 +81,13 @@ export default function ServiceAreaHero({
                 sizes="(max-width: 1000px) 100vw, 42vw"
               />
               <div className={classes.imageOverlay} />
-              <div className={classes.mediaBadge}>
-                <span>Excavation</span>
-                <span>Hauling</span>
-                <span>Float Service</span>
-              </div>
+              {badges.length > 0 ? (
+                <div className={classes.mediaBadge}>
+                  {badges.map((badge) => (
+                    <span key={badge}>{badge}</span>
+                  ))}
+                </div>
+              ) : null}
             </div>
           </div>
         ) : null}

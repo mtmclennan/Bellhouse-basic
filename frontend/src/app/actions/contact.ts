@@ -1,6 +1,5 @@
 'use server';
 
-import { google } from 'googleapis';
 import { promises as fs } from 'fs';
 import path from 'path';
 import { z } from 'zod';
@@ -19,7 +18,17 @@ function mustEnv(name: string) {
   return v;
 }
 
-// 📌 Spam Filtering
+async function getGoogleSheetsClient(credentials: Record<string, unknown>) {
+  const { google } = await import('googleapis');
+
+  const auth = new google.auth.GoogleAuth({
+    credentials,
+    scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+  });
+
+  return google.sheets({ version: 'v4', auth });
+}
+
 const spamKeywords = [
   'viagra',
   'free money',
@@ -50,25 +59,17 @@ function isDisposableEmail(email: string) {
   );
 }
 
-/**
- * ✅ Contact payload used across:
- * - real submissions
- * - synthetic monitor tests (processContactCore)
- */
 export type ContactData = {
   name: string;
   email: string;
   phone?: string;
   workType: string;
   message: string;
-
-  // ✅ SMS consent audit fields (optional)
   smsConsent?: boolean;
   smsDisclosureShown?: boolean;
-  smsConsentAt?: string; // ISO timestamp
+  smsConsentAt?: string;
 };
 
-// 📌 Form Validation Schema (real submissions)
 const formSchema = z
   .object({
     name: z.string().min(2, 'Name is required'),
@@ -77,15 +78,12 @@ const formSchema = z
     workType: z.string().min(2, 'Must have a work type'),
     message: z.string().min(10, 'Message must be at least 10 characters'),
     token: z.string(),
-
-    // ✅ new fields
     smsConsent: z.boolean().optional(),
     smsDisclosureShown: z.boolean().optional(),
   })
   .superRefine((data, ctx) => {
     const hasPhone = !!data.phone?.trim();
     if (hasPhone) {
-      // If they provided a phone, consent must be true
       if (data.smsConsent !== true) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
@@ -93,7 +91,7 @@ const formSchema = z
           path: ['smsConsent'],
         });
       }
-      // Also: disclosure should have been shown if phone was provided
+
       if (data.smsDisclosureShown !== true) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
@@ -105,12 +103,6 @@ const formSchema = z
     }
   });
 
-/**
- * ✅ Shared “core” contact processing.
- * Use this for:
- * - real form submissions (after recaptcha)
- * - monitor synthetic checks (skip recaptcha, optionally skip sheets)
- */
 export async function processContactCore(
   data: ContactData,
   opts?: {
@@ -131,17 +123,15 @@ export async function processContactCore(
 
   try {
     if (!isProduction) {
-      console.log('📧 Sending emails with Brevo...');
+      console.log('Sending emails with Brevo...');
     }
 
-    // 🔹 Save to Google Sheets in the background
     if (!opts?.skipSheets) {
       saveToGoogleSheets(data).catch((error) =>
-        console.error('❌ Google Sheets error:', error),
+        console.error('Google Sheets error:', error),
       );
     }
 
-    // 🔹 Send Emails in Parallel
     await Promise.all([
       sendBrevoEmail({
         subject: `${subjectPrefix}${business.subject}`,
@@ -159,7 +149,7 @@ export async function processContactCore(
     ]);
 
     if (!isProduction) {
-      console.log('✅ Emails sent successfully!');
+      console.log('Emails sent successfully.');
     }
   } catch (err: any) {
     await logMonitorEvent({
@@ -172,7 +162,7 @@ export async function processContactCore(
       },
     });
 
-    console.error('❌ Email sending error:', {
+    console.error('Email sending error:', {
       message: err?.message,
       status: err?.response?.status,
       data: err?.response?.data,
@@ -182,7 +172,6 @@ export async function processContactCore(
   }
 }
 
-// 📌 Contact Form Submission Handler (real users)
 export async function sendContactForm(data: {
   name: string;
   email: string;
@@ -190,13 +179,11 @@ export async function sendContactForm(data: {
   workType: string;
   message: string;
   token: string;
-
   smsConsent?: boolean;
   smsDisclosureShown?: boolean;
 }) {
   const RECAPTCHA_SECRET = mustEnv('RECAPTCHA_SECRET');
 
-  // 🔹 Validate Form Data
   const parsed = formSchema.safeParse(data);
   if (!parsed.success) {
     return {
@@ -204,14 +191,12 @@ export async function sendContactForm(data: {
     };
   }
 
-  // 🔹 basic spam heuristics
   if (isSpamMessage(data.message) || isDisposableEmail(data.email)) {
     return {
       error: 'Suspicious activity detected. Your request was not sent.',
     };
   }
 
-  // 🔹 Verify reCAPTCHA
   const recaptchaVerify = await fetch(
     'https://www.google.com/recaptcha/api/siteverify',
     {
@@ -226,7 +211,6 @@ export async function sendContactForm(data: {
     return { error: 'Failed reCAPTCHA verification. Try again.' };
   }
 
-  // ✅ record consent timestamp if phone present
   const hasPhone = !!data.phone?.trim();
   const smsConsentAt =
     hasPhone && data.smsConsent ? new Date().toISOString() : undefined;
@@ -238,36 +222,26 @@ export async function sendContactForm(data: {
       phone: data.phone,
       workType: data.workType,
       message: data.message,
-
       smsConsent: hasPhone ? data.smsConsent : false,
       smsDisclosureShown: hasPhone ? data.smsDisclosureShown : false,
       smsConsentAt,
     });
 
-    return { success: 'Estimate request sent successfully!' };
+    return { success: 'Estimate request sent successfully.' };
   } catch {
     return { error: 'Failed to send email. Please try again later.' };
   }
 }
 
-// 📊 Google Sheets Integration: Prevent Duplicate Submissions & Save Data
 async function isDuplicateEntry(data: { email: string; workType: string }) {
   try {
     const keyFilePath = path.join(process.cwd(), 'google-service-account.json');
     const keyFile = await fs.readFile(keyFilePath, 'utf-8');
     const credentials = JSON.parse(keyFile);
-
-    const auth = new google.auth.GoogleAuth({
-      credentials,
-      scopes: ['https://www.googleapis.com/auth/spreadsheets'],
-    });
-
-    const sheets = google.sheets({ version: 'v4', auth });
+    const sheets = await getGoogleSheetsClient(credentials);
 
     const spreadsheetId = mustEnv('GOOGLE_SHEET_ID');
     const sheetName = 'BellhouseMessages';
-
-    // Updated to A:I (we’re adding two columns)
     const range = `${sheetName}!A:I`;
 
     const sheetData = await sheets.spreadsheets.values.get({
@@ -277,13 +251,11 @@ async function isDuplicateEntry(data: { email: string; workType: string }) {
 
     const existingEntries = sheetData.data.values || [];
 
-    // NOTE: indexes assume your original column order still starts:
-    // A name, B email, C phone, D workType...
     return existingEntries.some(
       (row) => row[1] === data.email && row[3] === data.workType,
     );
   } catch (error) {
-    console.error('❌ Error checking duplicates:', error);
+    console.error('Error checking duplicates:', error);
     return false;
   }
 }
@@ -292,12 +264,11 @@ export async function saveToGoogleSheets(data: ContactData) {
   const GOOGLE_SHEET_ID = mustEnv('GOOGLE_SHEET_ID');
 
   try {
-    // Duplicate check still only uses email + workType
     if (
       await isDuplicateEntry({ email: data.email, workType: data.workType })
     ) {
       if (!isProduction) {
-        console.log('⚠️ Duplicate submission detected. Skipping save.');
+        console.log('Duplicate submission detected. Skipping save.');
       }
       return;
     }
@@ -305,25 +276,14 @@ export async function saveToGoogleSheets(data: ContactData) {
     const keyFilePath = path.join(process.cwd(), 'google-service-account.json');
     const keyFile = await fs.readFile(keyFilePath, 'utf-8');
     const credentials = JSON.parse(keyFile);
-
-    const auth = new google.auth.GoogleAuth({
-      credentials,
-      scopes: ['https://www.googleapis.com/auth/spreadsheets'],
-    });
-
-    const sheets = google.sheets({ version: 'v4', auth });
+    const sheets = await getGoogleSheetsClient(credentials);
 
     const spreadsheetId = GOOGLE_SHEET_ID;
     const sheetName = 'BellhouseMessages';
-
-    // Updated to A:I (adds H + I)
     const range = `${sheetName}!A:I`;
 
     const formattedDateTime = new Date().toLocaleString();
 
-    // ✅ New columns:
-    // H: smsConsent (TRUE/FALSE)
-    // I: smsConsentAt (ISO timestamp)
     const values = [
       [
         data.name,
@@ -350,7 +310,7 @@ export async function saveToGoogleSheets(data: ContactData) {
     });
 
     if (!isProduction) {
-      console.log('✅ Data successfully added to Google Sheets!');
+      console.log('Data successfully added to Google Sheets.');
     }
   } catch (error) {
     await logMonitorEvent({
@@ -360,6 +320,6 @@ export async function saveToGoogleSheets(data: ContactData) {
       meta: { email: data.email, workType: data.workType },
     });
 
-    console.error('❌ Google Sheets error:', error);
+    console.error('Google Sheets error:', error);
   }
 }
