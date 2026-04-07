@@ -3,8 +3,8 @@
   "slug": "foundation-excavation",
 
   "meta": {
-    "title": "Foundation Excavation & Backfilling in Brant County | Bellhouse Excavating",
-    "description": "Professional foundation excavation and backfilling for new builds, additions, and structural projects across Brantford, Paris, and Hamilton. Reliable, precise, and built for contractors."
+    "title": "Foundation Excavation & Backfilling | Bellhouse",
+    "description": "Bellhouse provides foundation excavation and backfilling for new builds, additions, and contractor-led projects across Brantford and nearby areas."
   },
 
   "card": {
@@ -23,7 +23,7 @@
 
   "intro": {
     "heading": "Professional Foundation Excavation and Backfilling",
-    "content": "Your foundation sets the stage for the entire structure. Our team provides accurate, safe, and efficient foundation excavation and backfilling for builders, contractors, and homeowners throughout Brant County and the surrounding area. We ensure the right depth, clean lines, proper soil handling, and reliable compaction—everything required for a strong, stable foundation.",
+    "content": "Your foundation sets the stage for the entire structure. Our team provides accurate, safe, and efficient foundation excavation and backfilling for builders, contractors, and homeowners throughout Brant County and the surrounding area. We ensure the right depth, clean lines, proper soil handling, and reliable compaction - everything required for a strong, stable foundation.",
     "keypoints": [
       "Full foundation digs for new builds and additions",
       "Basement walkouts and structural excavation",
@@ -123,7 +123,7 @@
 
   "serviceArea": {
     "heading": "Service Area",
-    "content": "We provide excavation, foundation digging, backfilling, and dump truck services throughout Brant County, Brantford, Hamilton, Cambridge, Kitchener–Waterloo, and surrounding Southern Ontario communities.",
+    "content": "We provide excavation, foundation digging, backfilling, and dump truck services throughout Brant County, Brantford, Hamilton, Cambridge, Kitchener-Waterloo, and surrounding Southern Ontario communities.",
     "locations": [
       "Paris",
       "Brantford",
@@ -160,7 +160,7 @@
       },
       {
         "question": "How far ahead should I book?",
-        "answer": "Most projects book 1–3 weeks in advance, depending on the season."
+        "answer": "Most projects book 1-3 weeks in advance, depending on the season."
       }
     ]
   },
@@ -171,3 +171,8 @@
     "button": "Get a Free Estimate"
   }
 }
+
+
+
+
+

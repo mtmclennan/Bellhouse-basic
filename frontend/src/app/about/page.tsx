@@ -4,9 +4,9 @@ import { Metadata } from 'next';
 import { validateMetadata } from '../../lib/utils/seoValidation';
 
 export const metadata: Metadata = {
-  title: 'About Bellhouse Excavating | Brant County Excavation',
+  title: 'About Bellhouse Excavating | Brantford Excavation',
   description:
-    'Bellhouse Excavating has 30+ years of experience providing expert excavation & construction services in Brant County, Brantford, Hamilton, Waterloo & beyond.',
+    'Learn about Bellhouse Excavating, serving Brantford and Southern Ontario with excavation, grading, hauling, and site work since 1982.',
 };
 
 validateMetadata(metadata.title, metadata.description);

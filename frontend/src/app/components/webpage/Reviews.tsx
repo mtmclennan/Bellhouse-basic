@@ -19,10 +19,10 @@ export default function Reviews({ reviews }: ReviewsProps) {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.heading}>What Our Customers Say</h2>
+        <h2 className={styles.heading}>What Customers Say About Bellhouse</h2>
         <p className={styles.subtext}>
-          Real feedback from homeowners, builders, and contractors we’ve worked
-          with.
+          Real feedback from homeowners, builders, and contractors Bellhouse has
+          worked with.
         </p>
 
         <div className={styles.grid}>

@@ -1,53 +1,48 @@
 import React from 'react';
+import classes from './WhyChooseUs.module.scss';
+
+const items = [
+  {
+    title: 'Long-running experience',
+    text: 'Bellhouse has been working in excavation and site work since 1982, with decades of local project history behind the company.',
+  },
+  {
+    title: 'Local jobsite knowledge',
+    text: 'Brantford-area work, rural access, subdivision lots, and older properties all come with different conditions. Bellhouse knows the region because this is where the company has worked for years.',
+  },
+  {
+    title: 'Excavation and trucking together',
+    text: 'Digging, haul-out, imported material, and equipment movement can stay under one company instead of being split across multiple suppliers.',
+  },
+  {
+    title: 'Dependable when timing matters',
+    text: 'Bellhouse works on home starts, additions, grading, access work, commercial site prep, and contractor-led jobs where the next stage has to be ready when promised.',
+  },
+  {
+    title: 'Clear scope and scheduling',
+    text: 'Customers need clear answers on fit, timing, access, truck needs, and what the job requires first. Bellhouse is straightforward about scope, schedule, and what it will take to keep the job moving.',
+  },
+];
 
 export default function WhyChooseUs() {
   return (
-    <section className="why">
-      <h2>WHY CHOOSE US?</h2>
-      <div className="why__container">
-        <div className="why-item">
-          <h3>EXPERTISE</h3>
-          <p>
-            Our team has years of experience in the excavation industry and has
-            worked on a wide range of projects. We have the knowledge and
-            expertise to handle any project, no matter how complex.
+    <section className={classes.section}>
+      <div className={classes.container}>
+        <div className={classes.intro}>
+          <p className={classes.eyebrow}>Why Bellhouse</p>
+          <h2>Why customers and contractors keep Bellhouse in rotation</h2>
+          <p className={classes.subtext}>
+            Bellhouse gets called back because the work is practical,
+            coordinated, and backed by long local experience.
           </p>
         </div>
-        <div className="why-item">
-          <h3>EQUIPMENT</h3>
-          <p>
-            We use the latest equipment and technology to ensure that every
-            project is completed to the highest standards. Our equipment is
-            regularly serviced and maintained to ensure that it is in top
-            working order.
-          </p>
-        </div>
-        <div className="why-item">
-          <h3>SAFETY</h3>
-          <p>
-            Safety is our top priority, and we take every precaution to ensure
-            that our staff and customers are safe on the job site. We provide
-            regular safety training to our staff and use the latest safety
-            equipment and procedures to minimize the risk of accidents.
-          </p>
-        </div>
-        <div className="why-item">
-          <h3>CUSTOMER SERVICE</h3>
-          <p>
-            We believe that good customer service is key to building strong
-            relationships with our clients. We take the time to listen to our
-            customers needs and concerns and work with them to develop a
-            solution that meets their specific requirements.
-          </p>
-        </div>
-        <div className="why-item">
-          <h3>QUALITY WORK</h3>
-          <p>
-            We take pride in the quality of our work and strive to exceed our
-            customers expectations. We pay attention to every detail, from site
-            preparation to final cleanup, to ensure that the project is
-            completed to the highest standards.
-          </p>
+        <div className={classes.grid}>
+          {items.map((item) => (
+            <article className={classes.card} key={item.title}>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
         </div>
       </div>
     </section>

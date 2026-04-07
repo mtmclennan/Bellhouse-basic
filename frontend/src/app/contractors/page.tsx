@@ -3,9 +3,9 @@ import ContractorsPage from './Contractors-page';
 import { validateMetadata } from '@/lib/utils/seoValidation';
 
 export const metadata: Metadata = {
-  title: 'Contractor Excavation & Trucking | Bellhouse',
+  title: 'Excavation Support for Builders & Contractors | Bellhouse',
   description:
-    'Bellhouse supports builders, contractors, and developers with excavation, grading, hauling, and equipment support for active construction sites.',
+    'Bellhouse supports builders, contractors, and developers with excavation, grading, trucking, and site support across Brantford and Southern Ontario.',
   alternates: {
     canonical: 'https://bellhouseexcavating.ca/contractors',
   },

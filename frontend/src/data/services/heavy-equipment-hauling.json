@@ -3,8 +3,8 @@
   "slug": "heavy-equipment-hauling",
 
   "meta": {
-    "title": "Equipment Hauling & Floating Services | Brant, Brantford",
-    "description": "Reliable heavy equipment hauling & float truck services in Brant County. Safe transportation of excavators, bulldozers, and machinery."
+    "title": "Heavy Equipment Hauling & Float Service | Bellhouse",
+    "description": "Bellhouse moves excavators, dozers, and site equipment safely across Brantford and nearby areas with professional float service."
   },
 
   "card": {
@@ -33,7 +33,7 @@
   },
 
   "includes": {
-    "heading": "What’s Included in Our Hauling Service",
+    "heading": "Whatâ€™s Included in Our Hauling Service",
     "subheading": "A safe and efficient experience from pickup to delivery.",
     "items": [
       {
@@ -145,3 +145,4 @@
     "button": "Request Hauling Quote"
   }
 }
+

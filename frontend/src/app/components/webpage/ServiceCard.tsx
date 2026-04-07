@@ -6,7 +6,6 @@ import React from 'react';
 import classes from './ServiceCard.module.scss';
 
 interface ServiceCard {
-  // id: number;
   title: string;
   description: string;
   image: string | StaticImport;
@@ -16,7 +15,6 @@ interface ServiceCard {
 }
 
 export default function ServiceCard({
-  // id,
   title,
   description,
   image,
@@ -34,11 +32,7 @@ export default function ServiceCard({
   };
 
   return (
-    <li
-      // key={id}
-      className={`${large ? classes.large : classes.card}`}
-      onClick={onClickHandler}
-    >
+    <li className={`${large ? classes.large : classes.card}`} onClick={onClickHandler}>
       <div className={classes.imageContainer}>
         <Image
           className={classes.image}
@@ -51,7 +45,7 @@ export default function ServiceCard({
       <div>
         <h3>{title}</h3>
         <p>{description}</p>
-        {link ? <Link href={link}>Learn More</Link> : null}
+        {link ? <Link href={link}>View Service</Link> : null}
       </div>
     </li>
   );

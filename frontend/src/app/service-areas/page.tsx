@@ -58,17 +58,17 @@ const valuePoints = [
 
 export const metadata: Metadata = {
   title:
-    'Excavation Service Areas Across Southern Ontario | Bellhouse Excavating',
+    'Excavation Service Areas in Southern Ontario | Bellhouse',
   description:
-    'Bellhouse Excavating provides excavation, grading, dump truck hauling, material delivery, and equipment floating across Brantford, Hamilton-area communities, Norfolk County, Oxford County, and surrounding Southern Ontario service areas.',
+    'Explore Bellhouse service areas for excavation, grading, hauling, and site work across Brantford, Hamilton, Cambridge, Paris, and nearby communities.',
   alternates: {
     canonical: 'https://bellhouseexcavating.ca/service-areas',
   },
   openGraph: {
     title:
-      'Excavation Service Areas in Brantford & Southern Ontario | Bellhouse Excavating',
+      'Excavation Service Areas in Southern Ontario | Bellhouse',
     description:
-      'Explore Bellhouse service areas for excavation, grading, dump truck hauling, material delivery, and equipment floating across Southern Ontario communities.',
+      'Explore Bellhouse service areas for excavation, grading, hauling, and site work across Southern Ontario communities.',
     url: 'https://bellhouseexcavating.ca/service-areas',
     siteName: 'Bellhouse Excavating',
     type: 'website',
@@ -235,7 +235,7 @@ export default function ServiceAreasPage() {
         description="Bellhouse supports excavation, grading, hauling, and equipment movement across Southern Ontario. Reach out to get your project moving."
         image={defaultCtaImage}
         actions={[
-          { href: '/contact', label: 'Get a quote' },
+          { href: '/contact', label: 'Request a Quote' },
           {
             href: 'tel:5197528500',
             label: 'Call 519-752-8500',
@@ -246,3 +246,8 @@ export default function ServiceAreasPage() {
     </>
   );
 }
+
+
+
+
+

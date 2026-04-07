@@ -12,12 +12,12 @@ export function validateMetadata(
 
   if (safeTitle.length > 60) {
     console.warn(
-      `⚠️ Meta Title too long (${safeTitle.length} chars): "${safeTitle}"`
+      `Warning: Meta Title too long (${safeTitle.length} chars): "${safeTitle}"`
     );
   }
   if (safeDescription.length > 160) {
     console.warn(
-      `⚠️ Meta Description too long (${safeDescription.length} chars): "${safeDescription}"`
+      `Warning: Meta Description too long (${safeDescription.length} chars): "${safeDescription}"`
     );
   }
 

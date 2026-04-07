@@ -989,7 +989,7 @@ const baseServiceAreaPages = {
     metaTitle:
       'Dundas Excavation & Tight-Lot Site Prep | Bellhouse',
     metaDescription:
-      'Dundas excavation contractor for additions, drainage work, grading, trenching, dump truck hauling, and site prep on older properties with tighter residential access.',
+      'Dundas excavation contractor for additions, drainage, grading, trenching, and site prep on older properties with tighter access.',
     openGraphTitle:
       'Dundas excavation for tight residential site work | Bellhouse',
     openGraphDescription:
@@ -1198,7 +1198,7 @@ const baseServiceAreaPages = {
     metaTitle:
       'Waterdown Excavation & New-Build Site Prep | Bellhouse',
     metaDescription:
-      'Waterdown excavation contractor for new builds, subdivision lot prep, grading, dump truck hauling, material delivery, and site work that keeps residential projects moving.',
+      'Waterdown excavation contractor for new builds, lot prep, grading, hauling, and material delivery on active residential projects.',
     openGraphTitle:
       'Waterdown excavation for new builds and lot prep | Bellhouse',
     openGraphDescription:
@@ -1406,7 +1406,7 @@ const baseServiceAreaPages = {
     metaTitle:
       'Simcoe Excavation & Rural-Commercial Site Prep | Bellhouse',
     metaDescription:
-      'Simcoe excavation contractor for larger properties, rural-commercial site prep, grading, dump truck hauling, and material delivery where access and site flow matter.',
+      'Simcoe excavation contractor for larger properties, rural site prep, grading, hauling, and material delivery where access matters.',
     openGraphTitle:
       'Simcoe excavation for larger properties and site access | Bellhouse',
     openGraphDescription:
@@ -1614,7 +1614,7 @@ const baseServiceAreaPages = {
     metaTitle:
       'Woodstock Industrial Site Prep & Excavation | Bellhouse',
     metaDescription:
-      'Woodstock excavation contractor for industrial and commercial site prep, yard grading, pad construction, dump truck hauling, material delivery, and equipment moves.',
+      'Woodstock excavation contractor for industrial site prep, yard grading, pad construction, hauling, and material delivery.',
     openGraphDescription:
       'Woodstock excavation and trucking for industrial yards, commercial pads, haul routes, and active sites where production and material flow need to stay moving.',
     map: {
@@ -2065,5 +2065,9 @@ export function getServiceAreaService(
 
   return page?.services.find((service) => service.slug === serviceSlug);
 }
+
+
+
+
 
 

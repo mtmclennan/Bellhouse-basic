@@ -1,0 +1,254 @@
+@use '../../styles/abstracts/mixins' as m;
+@use '../../styles/abstracts/variables' as v;
+
+.heroSection {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  padding: 11rem 1rem 7rem;
+  background:
+    radial-gradient(circle at top left, rgba(v.$cat-yellow2, 0.14), transparent 26%),
+    linear-gradient(180deg, #191919 0%, #101010 100%);
+
+  @include m.mediaDesktop {
+    padding: 19rem 2rem 8rem;
+  }
+}
+
+.hero {
+  @include m.flexCenter(column);
+  width: 100%;
+  max-width: 110rem;
+  margin: 0 auto;
+  gap: 2.4rem;
+  text-align: center;
+
+  h1 {
+    font-size: 4.8rem;
+    line-height: 1.04;
+    color: #fff;
+
+    @include m.mediaDesktop {
+      font-size: 8rem;
+    }
+
+    @include m.media1200 {
+      font-size: 10rem;
+    }
+  }
+
+  h2 {
+    max-width: 82rem;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.86);
+    line-height: 1.55;
+
+    @include m.mediaDesktop {
+      font-size: 2rem;
+      line-height: 1.6;
+    }
+  }
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 0.9rem 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background-color: rgba(255, 255, 255, 0.05);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: v.$cat-yellow2;
+}
+
+.text {
+  font-weight: 100;
+  text-transform: uppercase;
+  color: v.$btn-main;
+  letter-spacing: 0;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.6rem;
+  margin-top: 0.8rem;
+}
+
+.btn {
+  @include m.btnMain;
+}
+
+.btnSecondary {
+  @include m.btnSec;
+}
+
+.proofGrid {
+  display: grid;
+  gap: 1.2rem;
+  max-width: 128rem;
+  margin: 4.8rem auto 0;
+}
+
+.proofItem {
+  display: grid;
+  gap: 0.8rem;
+  padding: 1.8rem;
+  border-radius: 1.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+
+  p {
+    margin: 0;
+    font-size: 1.5rem;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  @include m.mediaDesktop {
+    min-height: 17rem;
+  }
+}
+
+.proofTitle {
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.contentSection {
+  background-color: v.$color-primary-dark;
+  padding: 9rem 0;
+}
+
+.contentContainer {
+  max-width: 128rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.contentGrid {
+  display: grid;
+  gap: 3rem;
+  align-items: start;
+
+  @include m.mediaDesktop {
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+    gap: 4rem;
+  }
+}
+
+.copyBlock,
+.historyBlock {
+  color: v.$text-color-light;
+  padding: 3rem;
+  border-radius: 2.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.035);
+  box-shadow: 0 1.6rem 3.4rem -2.8rem rgba(0, 0, 0, 0.45);
+
+  h3 {
+    font-size: 4rem;
+    line-height: 1.15;
+    margin-bottom: 2rem;
+
+    @include m.mediaDesktop {
+      font-size: 5.2rem;
+    }
+  }
+
+  p {
+    font-size: 1.9rem;
+    line-height: 1.75;
+    margin-bottom: 2rem;
+  }
+
+  a {
+    color: v.$btn-main;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(v.$btn-main, 0.45);
+
+    &:hover,
+    &:focus-visible {
+      border-bottom-color: v.$btn-main;
+    }
+  }
+}
+
+.mediaBlock {
+  display: flex;
+  justify-content: center;
+}
+
+.imageFrame {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 60rem;
+  min-height: 46rem;
+  border-radius: 2.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 1.8rem 4rem rgba(0, 0, 0, 0.35);
+  isolation: isolate;
+
+  @include m.mediaDesktop {
+    min-height: 62rem;
+  }
+}
+
+.featureImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.5) 100%),
+    linear-gradient(120deg, rgba(v.$cat-yellow2, 0.12) 0%, transparent 42%);
+}
+
+.imageBadge {
+  position: absolute;
+  inset: auto 1.6rem 1.6rem 1.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+
+  span {
+    padding: 0.9rem 1.2rem;
+    background-color: rgba(17, 17, 17, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    backdrop-filter: blur(4px);
+  }
+}
+
+.historyBlock {
+  margin-top: 4rem;
+  max-width: 104rem;
+}
+
+.inlineAccent {
+  color: v.$btn-main;
+}
+
+@media (min-width: 900px) {
+  .proofGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

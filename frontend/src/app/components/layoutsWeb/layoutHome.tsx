@@ -20,7 +20,9 @@ const LayoutHome = ({ children, background = 'on' }: LayoutProps) => {
     pathname === '/service-areas' ||
     pathname?.startsWith('/service-areas/') ||
     pathname === '/contractors' ||
-    pathname?.startsWith('/contractors/');
+    pathname?.startsWith('/contractors/') ||
+    pathname === '/about' ||
+    pathname?.startsWith('/about/');
 
   const showBackground = isServicesPage || isOverlayHeroRoute ? 'off' : background;
 

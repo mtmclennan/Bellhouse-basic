@@ -18,7 +18,9 @@ const MainHeader = ({ currentRoute }: { currentRoute?: string }) => {
     currentRoute === '/service-areas' ||
     currentRoute?.startsWith('/service-areas/') ||
     currentRoute === '/contractors' ||
-    currentRoute?.startsWith('/contractors/');
+    currentRoute?.startsWith('/contractors/') ||
+    currentRoute === '/about' ||
+    currentRoute?.startsWith('/about/');
 
   const homeClassname = currentRoute === '/' ? 'active' : 'non-active';
   const servicesClassname =
@@ -76,7 +78,7 @@ const MainHeader = ({ currentRoute }: { currentRoute?: string }) => {
             </li>
             <li className={classes.actionContainer}>
               <Link className={classes.headerHome_cta} href="/contact">
-                Get An Estimate
+                Request a Quote
               </Link>
             </li>
             <li>

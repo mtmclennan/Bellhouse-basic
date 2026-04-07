@@ -94,7 +94,7 @@ const VARIANT_COPY = {
     customWorkTypeLabel: 'Please Specify',
     messageLabel: 'How Can We Help You?',
     messagePlaceholder: '',
-    submitLabel: 'SEND MESSAGE',
+    submitLabel: 'Send Request',
     successHeading: 'Thank You!',
     successBody: [
       'Your request has been received!',
@@ -115,7 +115,7 @@ const VARIANT_COPY = {
     messageLabel: 'Project Scope / Site Details',
     messagePlaceholder:
       'Include the site address, stage of work, hauling needs, access conditions, equipment support required, or anything else that affects scheduling and production.',
-    submitLabel: 'SEND CONTRACTOR INQUIRY',
+    submitLabel: 'Send Project Details',
     successHeading: 'Thanks for reaching out',
     successBody: [
       'Your contractor inquiry has been received.',
@@ -707,3 +707,5 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
 ContactForm.displayName = 'ContactForm';
 
 export default ContactForm;
+
+

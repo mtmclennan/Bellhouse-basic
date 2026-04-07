@@ -76,7 +76,7 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
           </ul>
           <div className={classes.actionContainer}>
             <button onClick={() => router.push('/contact')}>
-              Get An Estimate
+              Request a Quote
             </button>
             <li>
               <a className={classes.phone} href="tel:5197528500">
@@ -105,3 +105,4 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
 };
 
 export default MainHeader;
+

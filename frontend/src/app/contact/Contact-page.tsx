@@ -6,7 +6,6 @@ import logo from '../../../public/assets/BellhouseLogo-text.png';
 
 import Link from 'next/link';
 import FAQAccordion from '../components/FAQAccordion';
-import { Phone } from '@phosphor-icons/react/dist/ssr';
 import classes from '../components/webpage/Faq.module.scss';
 import LocalExperts from '../components/webpage/LocalExperts';
 import ContactForm from '../components/forms/ContactForm';
@@ -44,7 +43,7 @@ const Contact = () => {
           <p>
             Have a question or need a free estimate for your project? Our team
             is ready to help! Whether you need excavation, dump truck services,
-            or equipment rentals, we’re here to discuss your project and provide
+            or equipment rentals, we&apos;re here to discuss your project and provide
             a competitive quote.
           </p>
           <h3>Reach Out and Let&apos;s Get Digging</h3>
@@ -62,13 +61,12 @@ const Contact = () => {
             Text us photos of your project location for quicker pricing.
           </p>
           <button onClick={() => contactFormRef.current?.scrollToForm()}>
-            Request a Detailed Quote
+            Request a Quote
           </button>
         </div>
       </section>
       <ContactForm ref={contactFormRef} />
       <LocalExperts colorDark={true} />
-      {/* <Faq /> */}
       <FAQAccordion
         heading="Questions Before You Reach Out?"
         subheading="Here are a few quick answers to the things people usually ask before calling."
@@ -89,7 +87,7 @@ const Contact = () => {
             question: 'Do you offer free estimates?',
             answer: (
               <p>
-                Yes. All estimates are free and no-obligation. We’ll review your
+                Yes. All estimates are free and no-obligation. We&apos;ll review your
                 project details and provide clear pricing before any work
                 begins.
               </p>
@@ -147,3 +145,5 @@ const Contact = () => {
 };
 
 export default Contact;
+
+

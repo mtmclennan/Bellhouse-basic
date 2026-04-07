@@ -1,4 +1,4 @@
-@use '../styles/abstracts/mixins' as m;
+﻿@use '../styles/abstracts/mixins' as m;
 @use '../styles/abstracts/variables' as v;
 
 *,
@@ -78,13 +78,29 @@ button {
     }
   }
   & h2 {
+    line-height: 1.45;
+    max-width: 95rem;
     @include m.mediaDesktop {
       font-size: 4rem;
     }
   }
+}
+.about-hero__actions {
+  @include m.flexCenter();
+  gap: 1.6rem;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+
   & a {
-    margin-top: 3rem;
+    margin-top: 0;
+  }
+
+  & a:first-child {
     @include m.btnMain;
+  }
+
+  & a:last-child {
+    @include m.btnSec;
   }
 }
 
@@ -893,28 +909,34 @@ button {
   }
 }
 
-.services__intro {
-  padding: 8rem 1rem 8rem;
-  background-color: v.$color-primary-dark;
-  width: 100%;
-  @include m.flexCenter(column);
+.services__introCopy {
+  max-width: 92rem;
+  margin: 1rem auto 0;
+  padding: 0 2rem;
+  text-align: center;
+  color: v.$text-color-light;
+  font-size: 2rem;
+  line-height: 1.7;
+}
 
-  & div {
-    @include m.flexCenter(column);
-    // justify-content: start;
-    max-width: 90rem;
-    gap: 6rem;
-  }
+.services__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.6rem;
+  margin: 2.4rem auto 0;
+}
 
-  & h2 {
-    font-size: 5rem;
-    text-align: center;
-  }
+.services__action {
+  text-decoration: none;
+}
 
-  & p {
-    color: v.$text-color-light;
-    font-size: 2rem;
-  }
+.services__action--primary {
+  @include m.btnMain;
+}
+
+.services__action--secondary {
+  @include m.btnSec;
 }
 
 .services__services {
@@ -962,3 +984,4 @@ button {
 .font-thin {
   font-weight: 100;
 }
+
