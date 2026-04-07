@@ -1,6 +1,10 @@
+import { applyServiceAreaImages } from './serviceAreaImages';
+
 export type ServiceAreaImage = {
   src: string;
   alt: string;
+  width?: number;
+  height?: number;
 };
 
 export type ServiceAreaMap = {
@@ -135,7 +139,7 @@ export const serviceAreaServiceIndex: Record<
   },
 };
 
-export const serviceAreaPages = {
+const baseServiceAreaPages = {
   brantford: {
     slug: 'brantford',
     city: 'Brantford',
@@ -2015,6 +2019,8 @@ export const serviceAreaPages = {
     ],
   },
 } satisfies Record<string, ServiceAreaPage>;
+
+export const serviceAreaPages = applyServiceAreaImages(baseServiceAreaPages);
 
 export type ServiceAreaSlug = keyof typeof serviceAreaPages;
 

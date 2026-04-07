@@ -125,6 +125,23 @@ Examples include:
 - Keep trust signals practical and believable.
 - Use internal links to relevant service pages, service areas, and contact pages naturally.
 
+### # contractor Page Rules
+
+- Reuse existing components before creating new ones
+- Keep the current SASS-based design system
+- Do not add extra sections to solve weak content
+- Each section must have one clear purpose
+- Remove repeated messaging across sections
+- Keep copy practical, direct, and contractor-focused
+- Do not imply Bellhouse has physical offices in every city
+- Prioritize conversion, scanability, and real-world jobsite language
+- Use “Volvo A35 articulated off-road dump truck” on first mention only
+- After first mention, shorten to “Volvo A35” or “off-road dump truck”
+- Do not use “rock truck” as the main label
+- Use buttons for primary conversion actions
+- Use text links/cards for supporting navigation
+- Contractor pages should favor clear CTA hierarchy over plain inline link text
+
 ### CTA / Form Rules
 
 - Contractor pages should use a more practical, project-focused CTA.

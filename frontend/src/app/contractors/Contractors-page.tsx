@@ -14,7 +14,9 @@ import {
   Wrench,
 } from '@phosphor-icons/react/dist/ssr';
 import SectionWrapper from '@/components/layout/SectionWrapper';
+import ServiceAreaCta from '@/components/service-areas/ServiceAreaCta';
 import ServiceAreaHero from '@/components/service-areas/ServiceAreaHero';
+import { defaultCtaImage } from '@/components/service-areas/visuals';
 import FAQAccordion from '../components/FAQAccordion';
 import ContactForm from '../components/forms/ContactForm';
 import heroImage from '../../../public/assets/Bellhouse-excavating-contractor.jpg';
@@ -27,185 +29,239 @@ type ContentCard = {
   icon: ReactNode;
 };
 
+type NavLinkItem = {
+  href: string;
+  label: string;
+};
+
+type ProofItem = {
+  title: string;
+  detail: string;
+};
+
+const proofItems: ProofItem[] = [
+  {
+    title: 'Southern Ontario',
+    detail: 'Brantford, Paris, Hamilton, Cambridge, and surrounding areas.',
+  },
+  {
+    title: 'Since 1982',
+    detail: 'Long-running regional excavation and trucking experience.',
+  },
+  {
+    title: 'Tri-axle hauling',
+    detail: 'Truck capacity for spoil export, stone, and material import.',
+  },
+  {
+    title: 'Volvo A35',
+    detail: 'Extra production capacity for larger and rougher sites.',
+  },
+  {
+    title: 'Contractor work',
+    detail: 'Built for builders, GCs, concrete crews, and developers.',
+  },
+];
+
 const audienceItems: ContentCard[] = [
   {
     title: 'Home builders',
     description:
-      'Builders who need excavation, grading, truck support, and dependable follow-through from the first cut through later site phases.',
+      'Builders who need reliable excavation, rough grading, and truck hauling from lot opening through later site phases.',
     icon: <Buildings size={26} weight="fill" />,
   },
   {
     title: 'General contractors',
     description:
-      'GCs managing active schedules, changing site conditions, and multiple trades that need the ground work and trucking kept aligned.',
+      'GCs that need excavation, spoil haul-out, imported stone, and schedule commitments handled cleanly.',
     icon: <HardHat size={26} weight="fill" />,
   },
   {
     title: 'Design-build firms',
     description:
-      'Teams that want one excavation partner who can support planning conversations, field coordination, and execution on site.',
+      'Teams that want one excavation partner who can price clearly, communicate early, and execute in the field.',
     icon: <CompassRose size={26} weight="fill" />,
   },
   {
     title: 'Concrete contractors',
     description:
-      'Concrete crews that need accurate footing digs, subgrade prep, truck timing, and clean site conditions before the next pour.',
+      'Concrete crews that need footing digs, subgrade prep, and truck timing lined up before forming and pours.',
     icon: <Bulldozer size={26} weight="fill" />,
   },
   {
     title: 'Property developers',
     description:
-      'Developers running larger or phased work where Bellhouse can support earthmoving, hauling, and added production capacity as the site opens up.',
+      'Developers running multi-lot, phased, or larger-site work that needs dependable earthmoving and hauling capacity.',
     icon: <UsersThree size={26} weight="fill" />,
   },
 ];
 
 const scopeItems: ContentCard[] = [
   {
-    title: 'Site prep before the next trade shows up',
+    title: 'Site Prep & Grading',
     description: (
       <p>
-        Bellhouse handles stripping, cuts, fills, working grades, and prep
-        tied to real construction schedules, including{' '}
+        Bellhouse handles stripping, cuts, fills, and working grades, including{' '}
         <Link
           href="/services/site-preparation-land-grading"
           className={classes.inlineLink}
         >
           site preparation and land grading
         </Link>{' '}
-        that gets the site ready for foundations, servicing, or paving.
+        that leaves the site ready for the next crew.
       </p>
     ),
-    icon: <Shovel size={26} weight="fill" />,
+    icon: <Bulldozer size={26} weight="fill" />,
   },
   {
-    title: 'Foundation digs, trenching, and rough grading',
+    title: 'Foundation Excavation & Trenching',
     description: (
       <p>
-        Support includes{' '}
+        Work includes{' '}
         <Link
           href="/services/foundation-excavation"
           className={classes.inlineLink}
         >
           foundation excavation
         </Link>
-        , trenching, pad shaping, and rough grades that fit builder layouts and
-        keep follow-on crews moving.
+        , utility trenches, and digging that matches builder layouts and elevations.
+      </p>
+    ),
+    icon: <Shovel size={26} weight="fill" />,
+  },
+  {
+    title: 'Rough Grading & Pad Prep',
+    description: (
+      <p>
+        Building pads, subgrades, and rough grades are shaped so forming,
+        concrete, utility, and framing crews step into usable ground.
       </p>
     ),
     icon: <MapPin size={26} weight="fill" />,
   },
   {
-    title: 'Truck hauling, spoil export, and material import',
+    title: 'Truck Hauling & Spoil Export',
     description: (
       <p>
-        Bellhouse ties excavation to truck cycles, spoil removal, and{' '}
-        <Link
-          href="/services/dirt-gravel-delivery"
-          className={classes.inlineLink}
-        >
-          aggregate delivery
-        </Link>{' '}
-        or{' '}
-        <Link
-          href="/services/dump-truck-rental"
-          className={classes.inlineLink}
-        >
-          dump truck support
-        </Link>{' '}
-        so material keeps moving on one plan.
+        Excavated material is loaded out and hauled off with trucking tied to
+        the dig instead of handled as a separate problem later.
       </p>
     ),
     icon: <Truck size={26} weight="fill" />,
   },
   {
-    title: 'Added equipment and operator support on active sites',
+    title: 'Aggregate Delivery & Material Import',
     description: (
       <p>
-        When production needs to increase, Bellhouse can support the site with
-        more hauling capacity, machine moves, and operator-backed equipment
-        instead of leaving that coordination to separate suppliers.
+        Imported stone, gravel, and fill can be brought in as needed so the job
+        keeps moving from cut to buildable surface.
+      </p>
+    ),
+    icon: <Truck size={26} weight="fill" />,
+  },
+  {
+    title: 'Equipment Support & Floating',
+    description: (
+      <p>
+        Bellhouse can coordinate{' '}
+        <Link
+          href="/services/heavy-equipment-hauling"
+          className={classes.inlineLink}
+        >
+          equipment floating
+        </Link>{' '}
+        and machine moves when excavators, skid steers, or other site equipment
+        need to stay on schedule.
       </p>
     ),
     icon: <Wrench size={26} weight="fill" />,
+  },
+  {
+    title: 'Volvo A35 Off-Road Dump Truck Support',
+    description: (
+      <p>
+        When the site needs higher-volume internal hauling, Bellhouse can bring
+        in the{' '}
+        <Link
+          href="/services/volvo-a35-off-road-dump-truck-rental"
+          className={classes.inlineLink}
+        >
+          Volvo A35 off-road dump truck
+        </Link>{' '}
+        with operator for rougher or larger earthmoving work.
+      </p>
+    ),
+    icon: <TruckTrailer size={26} weight="fill" />,
   },
 ];
 
 const reasonItems: ContentCard[] = [
   {
-    title: 'Built around active jobs, not one-off homeowner work',
+    title: 'Excavation and trucking planned together',
     description:
-      'Bellhouse fits contractor-led schedules where excavation, trucking, and follow-up phases need to stay coordinated over time.',
-    icon: <HardHat size={26} weight="fill" />,
+      'Cuts, haul-out, imported material, and truck timing are handled as one scope instead of separate moving parts.',
+    icon: <Truck size={26} weight="fill" />,
   },
   {
-    title: 'One crew for excavation, grading, hauling, and support',
+    title: 'Fewer handoffs on the job',
     description:
-      'Keeping more of the site work under one contractor reduces handoffs and makes schedule changes easier to manage.',
+      'Keeping more of the work under one contractor reduces missed details between excavation, trucking, and the next phase.',
     icon: <Shovel size={26} weight="fill" />,
   },
   {
-    title: 'Practical coordination when site conditions change',
+    title: 'Responsive when site conditions change',
     description:
-      'Access issues, weather, spoil volumes, and added material needs can be addressed without losing the thread between scopes.',
-    icon: <MapPin size={26} weight="fill" />,
+      'Extra spoil, soft ground, access changes, or added stone can be handled without chasing a new supplier list.',
+    icon: <CompassRose size={26} weight="fill" />,
   },
   {
-    title: 'A better fit for repeat builders and phased work',
+    title: 'A fit for phased and repeat work',
     description:
-      'Bellhouse is positioned to support returning contractors, multi-lot work, and projects that reopen for additional phases later.',
+      'Bellhouse is a good match for builders and developers that reopen jobs for later lots, later stages, or added hauling.',
     icon: <Buildings size={26} weight="fill" />,
   },
 ];
 
 const capabilityItems: ContentCard[] = [
   {
-    title: 'Excavation and grading equipment for working sites',
+    title: 'Excavation and grading fleet for working sites',
     description: (
       <p>
-        Bellhouse supports cuts, trenching, pad prep, grading, and clean-up
-        with excavation and grading equipment sized for active construction and
-        changing jobsite conditions.
+        Cuts, trenching, pad prep, grading, and cleanup are handled with
+        equipment suited to changing site conditions and day-to-day production.
       </p>
     ),
     icon: <Shovel size={26} weight="fill" />,
   },
   {
-    title: 'Tri-axle trucking and material movement',
+    title: 'Tri-axle truck capacity for import and export',
     description: (
       <p>
-        Truck support covers spoil export, aggregate import, and on-site
-        material movement tied to the excavation pace, including{' '}
+        Truck capacity covers spoil export, aggregate import, and on-site
+        material movement, including{' '}
         <Link
           href="/services/dump-truck-rental"
           className={classes.inlineLinkLight}
         >
-          tri-axle dump truck support
+          tri-axle dump truck work
         </Link>{' '}
-        for active projects.
+        tied to the excavation schedule.
       </p>
     ),
     icon: <Truck size={26} weight="fill" />,
   },
   {
-    title: 'Volvo A35 support for larger and rougher sites',
+    title: 'Volvo A35 articulated off-road dump truck for heavy site movement',
     description: (
       <p>
-        For bulk earthmoving, deep cuts, subdivision work, soft ground, or
-        long internal hauls, Bellhouse can bring in the{' '}
-        <Link
-          href="/services/volvo-a35-off-road-dump-truck-rental"
-          className={classes.inlineLinkLight}
-        >
-          Volvo A35 articulated off-road dump truck with operator
-        </Link>{' '}
-        as added production support.
+        The Volvo A35 is useful on rough terrain, soft ground, deep cuts,
+        subdivision work, bulk earthmoving, and long internal hauls where road
+        trucks are not the best production fit.
       </p>
     ),
     icon: <TruckTrailer size={26} weight="fill" />,
   },
   {
-    title: 'Equipment moves and supplemental site support',
+    title: 'Machine moves and added capacity when production climbs',
     description: (
       <p>
         Bellhouse can also coordinate{' '}
@@ -215,8 +271,7 @@ const capabilityItems: ContentCard[] = [
         >
           heavy equipment floating
         </Link>{' '}
-        and machine support when excavators, skid steers, or other site
-        equipment need to move in step with the job.
+        and additional machine capacity when the pace of the site starts to change.
       </p>
     ),
     icon: <Wrench size={26} weight="fill" />,
@@ -225,42 +280,60 @@ const capabilityItems: ContentCard[] = [
 
 const processItems = [
   {
-    title: 'Review the job and where Bellhouse fits',
+    title: 'Send the job information',
     description:
-      'Start with the location, drawings, intended scope, and the stage of work so Bellhouse can understand what the site needs first.',
+      'Start with the site location, scope, drawings if available, and the stage of work.',
   },
   {
-    title: 'Line up excavation, trucking, and equipment support',
+    title: 'Confirm scope, access, and truck requirements',
     description:
-      'Scope, truck timing, access conditions, and any added equipment support are planned together instead of as separate calls.',
+      'Bellhouse reviews haul-out needs, imported material, access conditions, and where equipment should fit in.',
   },
   {
-    title: 'Work inside the live construction schedule',
+    title: 'Schedule the excavation and trucking',
     description:
-      'Bellhouse supports the active phase, communicates around changes, and keeps the site moving without unnecessary downtime between scopes.',
+      'The work is lined up around the build sequence so the next trade is not stepping into unfinished ground.',
   },
   {
-    title: 'Stay available for the next phase or next project',
+    title: 'Bring Bellhouse back for later phases',
     description:
-      'Repeat builders and contractors can bring Bellhouse back for later phases, added hauling, or the next development without restarting from scratch.',
+      'Later lots, later stages, added haul-out, or added machine work can be handled without starting over.',
   },
 ];
 
+const serviceLinks: NavLinkItem[] = [
+  { href: '/services/site-preparation-land-grading', label: 'Site Preparation' },
+  { href: '/services/foundation-excavation', label: 'Foundation Excavation' },
+  { href: '/services/dump-truck-rental', label: 'Dump Truck Work' },
+  { href: '/services/heavy-equipment-hauling', label: 'Equipment Floating' },
+  {
+    href: '/services/volvo-a35-off-road-dump-truck-rental',
+    label: 'Volvo A35',
+  },
+];
+
+const areaLinks: NavLinkItem[] = [
+  { href: '/service-areas/brantford', label: 'Brantford' },
+  { href: '/service-areas/hamilton', label: 'Hamilton' },
+  { href: '/service-areas/cambridge', label: 'Cambridge' },
+  { href: '/service-areas/paris', label: 'Paris' },
+];
+
 const heroDescription =
-  'Bellhouse Excavating supports builders, general contractors, design-build companies, concrete contractors, and developers with excavation, grading, site prep, trucking, material hauling, and operator-backed equipment support for active construction projects.';
+  'Bellhouse works with builders, GCs, concrete crews, and developers across Brantford, Paris, Hamilton, Cambridge, and nearby Southern Ontario areas for excavation, grading, site prep, truck hauling, spoil export, aggregate and material import, and operator-backed equipment.';
 
 export default function ContractorsPage() {
   return (
     <>
       <ServiceAreaHero
-        eyebrow="Excavation support for builders and contractors"
-        title="Excavation, trucking, and site support for active construction projects."
+        eyebrow="For builders, GCs, and developers"
+        title="Contractor excavation, trucking, and site work across Southern Ontario."
         description={heroDescription}
         actions={[
-          { href: '#contractor-form', label: 'Talk about your project' },
+          { href: '#contractor-form', label: 'Send Project Details' },
           {
             href: '/service-areas',
-            label: 'View service areas',
+            label: 'View Service Areas',
             variant: 'secondary',
           },
         ]}
@@ -273,20 +346,30 @@ export default function ContractorsPage() {
           href: 'tel:5197528500',
           label: 'Call 519-752-8500',
         }}
-        badges={['Excavation', 'Truck Hauling', 'Equipment Support']}
+        badges={['Excavation', 'Truck Hauling', 'Site Work']}
       />
 
+      <SectionWrapper
+        className={classes.proofSection}
+        containerClassName={classes.proofContainer}
+      >
+        <ul className={classes.proofGrid}>
+          {proofItems.map((item) => (
+            <li key={item.title} className={classes.proofItem}>
+              <span className={classes.proofTitle}>{item.title}</span>
+              <p>{item.detail}</p>
+            </li>
+          ))}
+        </ul>
+      </SectionWrapper>
+
       <SectionWrapper>
-        <div className={classes.sectionIntro}>
+        <div className={`${classes.sectionIntro} ${classes.sectionIntroDark}`}>
           <p className={classes.sectionEyebrow}>Who we work with</p>
-          <h2>
-            Bellhouse is built for contractor-led work where schedules, access,
-            and site flow all matter.
-          </h2>
+          <h2>Bellhouse fits builders and site crews that need the ground work handled properly.</h2>
           <p>
             The right fit is a builder or contractor who needs excavation and
-            hauling support tied to real project conditions, not a one-time
-            handoff with no follow-through.
+            hauling done cleanly from first cut through later job phases.
           </p>
         </div>
 
@@ -302,15 +385,12 @@ export default function ContractorsPage() {
       </SectionWrapper>
 
       <SectionWrapper className={classes.altSection}>
-        <div className={classes.sectionIntro}>
-          <p className={classes.sectionEyebrow}>Project support</p>
-          <h2>
-            Scopes Bellhouse can handle on active builds and development work.
-          </h2>
+        <div className={`${classes.sectionIntro} ${classes.sectionIntroLight}`}>
+          <p className={classes.sectionEyebrow}>Contractor scopes Bellhouse supports</p>
+          <h2>Scopes Bellhouse can take on for builder and development work.</h2>
           <p>
-            Bellhouse supports the parts of the job that need dirt moving,
-            grades shaped, material hauled, and equipment coordinated without
-            breaking site momentum.
+            From site opening and footing digs to haul-out, imported stone, and
+            added equipment, these are the contractor scopes Bellhouse can handle.
           </p>
         </div>
 
@@ -325,16 +405,39 @@ export default function ContractorsPage() {
         </div>
       </SectionWrapper>
 
+      <SectionWrapper
+        className={classes.midCtaSection}
+        containerClassName={classes.midCtaContainer}
+      >
+        <div className={classes.midCtaShell}>
+          <div className={classes.midCtaContent}>
+            <p className={classes.sectionEyebrow}>Project fit</p>
+            <h2>Need Bellhouse lined up for excavation, trucking, or site work?</h2>
+            <p>
+              Send the scope, location, and timing to get a direct read on fit,
+              likely sequencing, and what the job needs first.
+            </p>
+            <div className={classes.buttonRow}>
+              <Link href="#contractor-form" className={classes.primaryButton}>
+                Send Project Details
+              </Link>
+              <Link href="tel:5197528500" className={classes.secondaryButton}>
+                Call 519-752-8500
+              </Link>
+            </div>
+          </div>
+        </div>
+      </SectionWrapper>
+
       <SectionWrapper>
-        <div className={classes.sectionIntro}>
+        <div className={`${classes.sectionIntro} ${classes.sectionIntroDark}`}>
           <p className={classes.sectionEyebrow}>
             Why contractors work with Bellhouse
           </p>
-          <h2>Bellhouse is set up to be a repeat-use project partner.</h2>
+          <h2>Bellhouse stays in rotation because the work is practical, clean, and reliable.</h2>
           <p>
-            The value is not just having equipment on site. It is having a crew
-            that can stay coordinated across excavation, trucking, and the next
-            phase of work.
+            The difference is not another list of services. It is how excavation,
+            trucking, and changing site conditions are handled in real time.
           </p>
         </div>
 
@@ -356,14 +459,10 @@ export default function ContractorsPage() {
         <div className={classes.capabilityShell}>
           <div className={classes.capabilityContent}>
             <p className={classes.sectionEyebrow}>Equipment and capability</p>
-            <h2>
-              Capacity that supports excavation, hauling, and larger-site
-              production.
-            </h2>
+            <h2>Production capacity for bigger earthmoving, rough ground, and internal haul work.</h2>
             <p className={classes.capabilityText}>
-              Bellhouse supports more than the initial dig. The crew can keep
-              truck movement, site equipment, and added hauling capacity lined
-              up as the job develops.
+              Fleet and truck capacity matter when haul distances grow,
+              conditions get rough, or production starts depending on faster site movement.
             </p>
 
             <div className={classes.capabilityGrid}>
@@ -376,6 +475,20 @@ export default function ContractorsPage() {
                   </div>
                 </article>
               ))}
+            </div>
+
+            <div className={classes.capabilityCta}>
+              <p className={classes.capabilityCtaText}>
+                Need extra hauling capacity, an off-road dump truck, or machine movement lined up?
+              </p>
+              <div className={classes.buttonRow}>
+                <Link href="#contractor-form" className={classes.primaryButton}>
+                  Send Project Details
+                </Link>
+                <Link href="tel:5197528500" className={classes.secondaryButton}>
+                  Call 519-752-8500
+                </Link>
+              </div>
             </div>
           </div>
 
@@ -395,14 +508,14 @@ export default function ContractorsPage() {
       </SectionWrapper>
 
       <SectionWrapper className={classes.altSection}>
-        <div className={classes.sectionIntro}>
+        <div className={`${classes.sectionIntro} ${classes.sectionIntroLight}`}>
           <p className={classes.sectionEyebrow}>
             How Bellhouse fits into your project
           </p>
-          <h2>A straightforward process that works with live site conditions.</h2>
+          <h2>A straightforward process that keeps the job moving.</h2>
           <p>
-            Bellhouse fits best when the job needs practical coordination from
-            first conversation through later phases of excavation and trucking.
+            The goal is to know the scope, access, and timing early enough to
+            price and schedule the work cleanly.
           </p>
         </div>
 
@@ -427,61 +540,65 @@ export default function ContractorsPage() {
         <div className={classes.ctaShell}>
           <div className={classes.ctaContent}>
             <p className={classes.sectionEyebrow}>Start the conversation</p>
-            <h2>
-              Send over the project details and Bellhouse can review fit,
-              timing, and support.
-            </h2>
+            <h2>Send over the job details and Bellhouse can review fit and timing.</h2>
             <p className={classes.ctaText}>
-              Use the form to share the company name, site location, scope, and
-              timeline. Bellhouse supports contractor work across Brantford,
-              Paris, Hamilton, Cambridge, and surrounding Southern Ontario
-              areas.
+              Use the form to send the company, contact, site location, rough
+              timeline, hauling needs, access conditions, and equipment
+              requirements. If you have drawings, plans, or site photos, note
+              that in the message and Bellhouse can advise the best way to send
+              them after review.
             </p>
+            <div className={classes.buttonRow}>
+              <Link href="#contractor-form" className={classes.primaryButton}>
+                Send Project Details
+              </Link>
+              <Link href="tel:5197528500" className={classes.secondaryButton}>
+                Call 519-752-8500
+              </Link>
+            </div>
             <ul className={classes.ctaList}>
-              <li>Excavation, grading, and site prep support</li>
-              <li>Truck hauling, material delivery, and spoil export</li>
-              <li>Additional equipment, float support, and Volvo A35 capacity</li>
+              <li>Excavation, grading, and site prep</li>
+              <li>Truck hauling, spoil export, and material import</li>
+              <li>Added equipment, float work, and Volvo A35 capacity</li>
             </ul>
-            <p className={classes.ctaLinks}>
-              Relevant pages:{' '}
-              <Link href="/services" className={classes.inlineLinkLight}>
-                core services
-              </Link>
-              ,{' '}
-              <Link
-                href="/service-areas/brantford"
-                className={classes.inlineLinkLight}
-              >
-                Brantford
-              </Link>
-              ,{' '}
-              <Link
-                href="/service-areas/hamilton"
-                className={classes.inlineLinkLight}
-              >
-                Hamilton
-              </Link>
-              , and{' '}
-              <Link
-                href="/service-areas/cambridge"
-                className={classes.inlineLinkLight}
-              >
-                Cambridge
-              </Link>
-              .
-            </p>
-            <p className={classes.ctaPhone}>
-              Prefer to call first?{' '}
-              <Link href="tel:5197528500" className={classes.inlineLinkLight}>
-                519-752-8500
-              </Link>
-            </p>
+            <div className={classes.supportingNav}>
+              <div className={classes.supportingNavGroup}>
+                <p className={classes.supportingNavLabel}>Related services</p>
+                <div className={classes.supportingNavLinks}>
+                  {serviceLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={classes.supportingNavLinkLight}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+              <div className={classes.supportingNavGroup}>
+                <p className={classes.supportingNavLabel}>Related service areas</p>
+                <div className={classes.supportingNavLinks}>
+                  {areaLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={classes.supportingNavLinkLight}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className={classes.formPane}>
             <ContactForm
               variant="contractor"
               embedded={true}
+              heading="Send Project Details for Review"
+              intro="Include the company, project location, timeline, hauling needs, access conditions, and equipment requirements. File upload is not available in this form yet, so mention any drawings, plans, or site photos you have and Bellhouse can advise the best way to send them."
               sectionId="contractor-form"
             />
           </div>
@@ -500,9 +617,9 @@ export default function ContractorsPage() {
               'Can Bellhouse support repeat work or multi-phase construction?',
             answer: (
               <p>
-                Yes. Bellhouse is positioned to support repeat builders, phased
-                developments, and projects that reopen for later excavation,
-                grading, hauling, or added equipment support.
+                Yes. Bellhouse is a fit for repeat builders, phased developments,
+                and projects that reopen for later excavation, hauling, or added
+                machine work.
               </p>
             ),
           },
@@ -513,9 +630,8 @@ export default function ContractorsPage() {
             answer: (
               <p>
                 Yes. Bellhouse can tie excavation to spoil export, imported
-                aggregate, truck hauling, and delivery support so the site keeps
-                moving on one schedule instead of separate truck and excavation
-                timelines.
+                aggregate, truck hauling, and delivery timing so the site is not
+                waiting on separate schedules.
               </p>
             ),
           },
@@ -534,7 +650,7 @@ export default function ContractorsPage() {
                 >
                   Volvo A35 page
                 </Link>{' '}
-                shows where that support usually makes sense.
+                shows where that truck usually makes sense.
               </p>
             ),
           },
@@ -543,9 +659,9 @@ export default function ContractorsPage() {
             question: 'What areas do you typically cover for contractor work?',
             answer: (
               <p>
-                Bellhouse supports contractor and builder work across Brantford,
-                Paris, Hamilton, Cambridge, and nearby Southern Ontario
-                communities. You can review the local pages for{' '}
+                Bellhouse works across Brantford, Paris, Hamilton, Cambridge,
+                and nearby Southern Ontario communities. You can review the local
+                pages for{' '}
                 <Link
                   href="/service-areas/brantford"
                   className={classes.inlineLink}
@@ -582,33 +698,47 @@ export default function ContractorsPage() {
             question: 'What should we send for pricing or fit?',
             answer: (
               <p>
-                A company name, contact name, project location, scope, and
-                timing is enough to start. If you already have site plans,
-                haul-out expectations, or equipment support requirements, add
-                those details so Bellhouse can respond more accurately.
+                A company name, contact name, project location, scope, rough
+                timeline, haul-out expectations, access conditions, and any
+                equipment requirements is enough to start. Bellhouse can use
+                that information to judge fit and the likely next step.
+              </p>
+            ),
+          },
+          {
+            id: 'quote-drawings',
+            question: 'Can Bellhouse quote from drawings or site details?',
+            answer: (
+              <p>
+                Yes. Bellhouse can review drawings, site details, grading
+                information, haul-out expectations, and similar project
+                information as part of early pricing or fit review. If you have
+                plans or site photos, mention that in the form and Bellhouse can
+                advise the best way to send them.
               </p>
             ),
           },
         ]}
-        cta={
-          <div className={classes.faqCall}>
-            <h3>Need an answer tied to a live project?</h3>
-            <p>
-              <Link href="#contractor-form" className={classes.inlineLinkLight}>
-                Send the project details
-              </Link>{' '}
-              or call{' '}
-              <Link
-                href="tel:5197528500"
-                className={classes.inlineLinkLight}
-              >
-                519-752-8500
-              </Link>
-              .
-            </p>
-          </div>
-        }
+      />
+
+      <ServiceAreaCta
+        title="Ready to send the project details?"
+        description="Send the scope, location, timeline, hauling needs, and equipment requirements for review, or call if the job is moving now."
+        image={defaultCtaImage}
+        supportingPoints={[
+          'Southern Ontario contractor work backed by a business that has been operating since 1982.',
+          'Excavation, truck hauling, material import, and Volvo A35 capacity when the job calls for it.',
+        ]}
+        actions={[
+          { href: '#contractor-form', label: 'Send Project Details' },
+          {
+            href: 'tel:5197528500',
+            label: 'Call 519-752-8500',
+            variant: 'secondary',
+          },
+        ]}
       />
     </>
   );
 }
+

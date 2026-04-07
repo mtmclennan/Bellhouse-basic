@@ -40,7 +40,8 @@ export default function ServiceAreaNearbyAreas({
               <Image
                 src={mapContent.image.src}
                 alt={mapContent.image.alt}
-                fill
+                width={mapContent.image.width ?? 1600}
+                height={mapContent.image.height ?? 1200}
                 className={classes.mapImage}
                 sizes="(max-width: 1000px) 100vw, 40vw"
               />

@@ -76,7 +76,8 @@ export default function ServiceAreaHero({
               <Image
                 src={image.src}
                 alt={image.alt}
-                fill
+                width={image.width ?? 1600}
+                height={image.height ?? 1200}
                 className={classes.image}
                 sizes="(max-width: 1000px) 100vw, 42vw"
               />

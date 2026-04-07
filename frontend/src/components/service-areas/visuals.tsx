@@ -20,18 +20,24 @@ import type {
 } from '@/lib/serviceAreas';
 
 export const defaultHeroImage: ServiceAreaImage = {
-  src: '/assets/Bellhouse-excavating-contractor.jpg',
-  alt: 'Excavation crew and heavy equipment working on an active jobsite.',
+  src: '/assets/services/large-site-prep-two-excavators.webp',
+  alt: 'Large-scale site preparation and excavation work on a Southern Ontario construction project.',
+  width: 1434,
+  height: 1080,
 };
 
 export const defaultIntroImage: ServiceAreaImage = {
-  src: '/assets/excavator-digging-foundation.jpg',
-  alt: 'Excavator cutting and shaping ground for foundation and site-prep work.',
+  src: '/assets/services/concrete-foundation-backfill.webp',
+  alt: 'Foundation excavation and backfill work on a Southern Ontario building site.',
+  width: 900,
+  height: 1200,
 };
 
 export const defaultCtaImage: ServiceAreaImage = {
-  src: '/assets/truck-hauling-heavy-equipment.jpg',
-  alt: 'Float truck hauling heavy equipment to a jobsite.',
+  src: '/assets/services/dumptruck-foudation-excavator-loading.webp',
+  alt: 'Truck hauling and material handling on a Southern Ontario construction project.',
+  width: 1440,
+  height: 1080,
 };
 
 export const defaultMapContent: ServiceAreaMap = {

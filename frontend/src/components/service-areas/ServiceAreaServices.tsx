@@ -37,7 +37,8 @@ export default function ServiceAreaServices({
                 <Image
                   src={item.image.src}
                   alt={item.image.alt}
-                  fill
+                  width={item.image.width ?? 1600}
+                  height={item.image.height ?? 1200}
                   className={classes.image}
                   sizes="(max-width: 1000px) 100vw, 33vw"
                 />

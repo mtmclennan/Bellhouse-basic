@@ -32,7 +32,12 @@
   left: 0;
   width: 100%;
   z-index: 220;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.34) 0%, rgba(0, 0, 0, 0.12) 72%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.34) 0%,
+    rgba(0, 0, 0, 0.12) 72%,
+    rgba(0, 0, 0, 0) 100%
+  );
   border-bottom-color: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(4px);
 
@@ -107,7 +112,7 @@
 
 .logoHome {
   display: none;
-  width: 12.5rem;
+  width: 10.5rem;
   height: auto;
   position: relative;
   margin: 0;
@@ -115,7 +120,8 @@
   & a {
     display: block;
     width: 100%;
-    max-width: 150rem;
+    padding-top: 2rem;
+    max-width: 15rem;
     position: relative;
     height: auto;
   }
@@ -123,8 +129,8 @@
   @include m.mediaDesktop {
     display: block;
     grid-row: 1 / 4;
-    width: 80rem;
-    max-width: 25rem;
+    width: 20rem;
+    max-width: 20rem;
     height: 100%;
   }
 }
@@ -226,7 +232,12 @@
   left: 0;
   width: 100%;
   z-index: 320;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.24) 72%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.62) 0%,
+    rgba(0, 0, 0, 0.24) 72%,
+    rgba(0, 0, 0, 0) 100%
+  );
   border-bottom-color: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(6px);
 
