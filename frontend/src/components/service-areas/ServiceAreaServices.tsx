@@ -31,7 +31,7 @@ export default function ServiceAreaServices({
       </div>
       <div className={classes.grid}>
         {items.map((item) => (
-          <article className={classes.card} key={item.title}>
+          <Link className={classes.card} href={item.coreServiceHref} key={item.title}>
             {item.image ? (
               <div className={classes.imageFrame}>
                 <Image
@@ -50,13 +50,13 @@ export default function ServiceAreaServices({
             <div className={classes.cardCopy}>
               <h3>{item.title}</h3>
               <p>{item.description}</p>
-              <Link className={classes.serviceLink} href={item.coreServiceHref}>
+              <span className={classes.serviceLink}>
                 {city
                   ? `See how Bellhouse handles ${item.title.toLowerCase()} in ${city}`
                   : 'See the related excavation service'}
-              </Link>
+              </span>
             </div>
-          </article>
+          </Link>
         ))}
       </div>
     </SectionWrapper>
