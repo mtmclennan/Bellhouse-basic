@@ -62,7 +62,9 @@
   margin-top: 2rem;
 }
 
-/* INTRO SECTION */
+.btnSecondary {
+  @include m.btnSec;
+}
 
 .introContainer {
   @include m.flexCenter(column);
@@ -90,6 +92,12 @@
   p {
     font-size: 1.8rem;
     margin-bottom: 4rem;
+    color: v.$text-color-dark;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
   }
 
   li {
@@ -98,12 +106,9 @@
     font-size: 1.8rem;
     gap: 1rem;
     margin-bottom: 1rem;
+    color: v.$text-color-dark;
   }
 }
-
-/* GENERIC SECTION BLOCK */
-
-/* LISTS FOR INCLUDES + EQUIPMENT */
 
 .section {
   @include m.flexCenter(column);
@@ -116,44 +121,9 @@
     font-size: 3.6rem;
     text-align: center;
     margin-bottom: 1rem;
+
     @include m.mediaDesktop {
       font-size: 6rem;
-    }
-  }
-}
-
-/* WHAT'S INCLUDED + EQUIPMENT STYLE UPGRADE */
-
-.list {
-  width: 100%;
-  max-width: 90rem;
-  margin: 0 auto;
-  padding: 0;
-
-  li {
-    display: flex;
-    align-items: flex-start;
-    gap: 1.6rem;
-
-    background: rgba(v.$color-primary-light, 0.3);
-    padding: 1.8rem 2rem;
-    border-radius: 1rem;
-    margin-bottom: 1.4rem;
-    list-style: none;
-    border-left: 4px solid v.$color-primary;
-
-    font-size: 1.9rem;
-    line-height: 1.5;
-    color: v.$text-color-dark;
-
-    @include m.mediaDesktop {
-      padding: 2rem 2.4rem;
-      font-size: 2.1rem;
-    }
-
-    span {
-      flex: 1;
-      display: block;
     }
   }
 }
@@ -174,18 +144,19 @@
 }
 
 .featureCard {
-  background: rgba(v.$color-dark, 0.3);
+  background: rgba(v.$color-neutral-dark, 0.3);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 2rem;
-
-  border: 1px solid rgba(v.$color-accent, 0.9);
+  border: 1px solid rgba(v.$cat-yellow2, 0.9);
   border-radius: 1.2rem;
   min-height: 15rem;
   gap: 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
 
   p {
     font-size: 1.8rem;
@@ -201,7 +172,8 @@
 .featureHeading {
   @include m.flexCenter();
   gap: 1rem;
-  & h3 {
+
+  h3 {
     font-size: 2.25rem;
   }
 }
@@ -216,146 +188,42 @@
 }
 
 .icon {
-  color: rgba(v.$color-accent, 0.9); // your yellow
+  color: rgba(v.$cat-yellow2, 0.9);
   flex-shrink: 0;
 }
 
-// .list {
-//   width: 100%;
-//   max-width: 80rem;
-
-//   li {
-//     font-size: 1.8rem;
-//     margin-bottom: 1.4rem;
-//     line-height: 1.4;
-//     list-style: disc;
-//     margin-left: 2rem;
-//   }
-// }
-
-/* PROCESS LIST */
-
-.orderedList {
+.equipmentSection {
+  background: v.$background-warm;
   width: 100%;
-  max-width: 80rem;
+  padding: 1rem;
+  padding-bottom: 8rem;
+  color: v.$text-color-lighter;
 
-  li {
-    font-size: 1.8rem;
-    margin-bottom: 1.4rem;
-    line-height: 1.4;
-    list-style: decimal;
-    margin-left: 2rem;
+  @include m.mediaDesktop {
+    margin: 1rem auto;
+    padding: 8rem 8rem 12rem 8rem;
   }
 }
 
-/* SERVICE AREA LISTS */
-
-.locationList {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.2rem 2rem;
-  max-width: 80rem;
-  margin: 0 auto;
-  padding: 0;
-  list-style: none;
-
-  li {
-    font-size: 1.8rem;
-    padding-left: 1.4rem;
-    position: relative;
-    line-height: 1.4;
-    color: white;
-  }
-
-  li::before {
-    content: '';
-    width: 0.8rem;
-    height: 0.8rem;
-    background: v.$color-accent;
-    border-radius: 50%;
-    position: absolute;
-    top: 0.8rem;
-    left: 0;
-  }
-}
-
-@media (max-width: 768px) {
-  .locationList {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 480px) {
-  .locationList {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* FAQ SECTION */
-
-.faq {
-  @include m.flexCenter(column);
-  max-width: 100rem;
-  padding: 6rem 2rem;
-  margin: 0 auto;
-
-  h2 {
-    font-size: 3.2rem;
-    text-align: center;
-    margin-bottom: 4rem;
-
-    @include m.mediaDesktop {
-      font-size: 4.2rem;
-    }
-  }
-}
-
-.faqItem {
-  margin-bottom: 3rem;
-  max-width: 90rem;
-
-  h4 {
-    font-size: 2.2rem;
-    margin-bottom: 1rem;
-  }
-
-  p {
-    font-size: 1.8rem;
-    line-height: 1.4;
-  }
-}
-
-/* CTA BLOCK */
-
-.cta {
-  @include m.flexCenter(column);
+.heading {
   text-align: center;
-  padding: 8rem 2rem;
-  background-color: v.$color-primary-light;
-  color: v.$text-color-dark;
+  font-size: 1.7rem;
+  padding-top: 4rem;
+
+  @include m.mediaDesktop {
+    padding-top: 1rem;
+    margin-bottom: 8rem;
+  }
 
   h2 {
     font-size: 4rem;
 
     @include m.mediaDesktop {
-      font-size: 5rem;
+      font-size: 6rem;
+      line-height: 1.1;
+      margin-bottom: 1rem;
     }
   }
-
-  p {
-    font-size: 1.8rem;
-    margin: 2rem 0 3rem;
-  }
-
-  .btn {
-    @include m.btnMain;
-  }
-}
-
-.equipmentSection {
-  background: #fff;
-  padding: 6rem 2rem;
-  width: 100%;
 }
 
 .equipmentGrid {
@@ -371,105 +239,18 @@
   }
 }
 
-.equipmentCard {
-  background: #fcfcfc;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 1.2rem;
-  padding: 2.4rem;
-
-  display: flex;
-  gap: 3rem;
-  align-items: flex-start;
-
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
-  }
-
-  h3 {
-    font-size: 2.1rem;
-    margin: 0 0 0.8rem 0;
-  }
-
-  p {
-    font-size: 1.7rem;
-    line-height: 1.4;
-    color: #444;
-  }
-}
-
-.iconBox {
-  background: rgba(v.$color-primary, 0.12);
-  padding: 1rem;
-  border-radius: 0.8rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  svg {
-    color: v.$color-primary;
-  }
-}
-
-.eqText {
-  flex: 1;
-}
-
-.equipmentSection {
-  background: v.$background-warm;
-  width: 100%;
-  padding: 1rem;
-  padding-bottom: 8rem;
-  color: v.$text-color-lighter;
-  @include m.mediaDesktop {
-    margin: 1rem auto;
-    padding: 8rem 8rem 12rem 8rem;
-  }
-}
-
-.heading {
-  text-align: center;
-  font-size: 1.7rem;
-  padding-top: 4rem;
-  @include m.mediaDesktop {
-    padding-top: 1rem;
-    margin-bottom: 8rem;
-  }
-  & h2 {
-    font-size: 4rem;
-
-    @include m.mediaDesktop {
-      font-size: 6rem;
-      line-height: 1.1;
-      margin-bottom: 1rem;
-    }
-  }
-}
-
-.equipmentList {
-  max-width: 110rem;
-  margin: 4rem auto 0;
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  margin-bottom: 8rem;
-}
-
 .equipmentItem {
   @include m.flexCenter(column);
   text-align: center;
+  gap: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid v.$cat-yellow2;
 
   @include m.mediaDesktop {
     flex-direction: row;
     text-align: left;
     align-items: flex-start;
   }
-  gap: 2rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid v.$color-accent; // your yellow
 }
 
 .equipmentIcon {
@@ -509,12 +290,14 @@
 .processSection {
   width: 100%;
   padding: 6rem 2rem;
-  background: #262626; // variation from earlier palette
-  & h2 {
+  background: #262626;
+
+  h2 {
     font-size: 4rem;
     line-height: 1.1;
     text-align: center;
     margin-bottom: 1rem;
+
     @include m.mediaDesktop {
       font-size: 6rem;
     }
@@ -527,9 +310,11 @@
   gap: 3rem;
   max-width: 80rem;
   margin: 4rem auto 0;
-  & p {
+
+  p {
     color: v.$text-color-light;
   }
+
   @include m.mediaDesktop {
     margin-top: 6rem;
   }
@@ -540,20 +325,233 @@
   align-items: flex-start;
   gap: 2rem;
   padding-bottom: 2rem;
-  border-left: 4px solid v.$color-accent; // your yellow
+  border-left: 4px solid v.$cat-yellow2;
   padding-left: 2rem;
 }
 
 .stepNumber {
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%;
-  background: v.$color-accent;
+  background: v.$cat-yellow2;
+  color: v.$text-color-dark;
   flex-shrink: 0;
-  margin-top: 0.3rem;
+  margin-top: 0.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  font-weight: 700;
 }
 
-.backgroundMid {
-  background-color: #2a2a2a;
-  max-width: 100%;
+.eyebrow {
+  display: inline-flex;
+  width: fit-content;
+  margin: 0 auto 1.6rem;
+  padding: 0.8rem 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background-color: rgba(255, 255, 255, 0.05);
+  color: v.$cat-yellow2;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.serviceAreaSection {
+  padding-bottom: 8rem;
+}
+
+.locationGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.6rem;
+  width: 100%;
+  max-width: 96rem;
+  margin: 0 auto;
+
+  @include m.mediaDesktop {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.locationLinkCard,
+.locationItemCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 7.2rem;
+  padding: 1.8rem 2rem;
+  border-radius: 1.2rem;
+  font-size: 1.7rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.locationLinkCard {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(v.$cat-yellow2, 0.4);
+  color: #fff;
+  text-decoration: none;
+  transition:
+    transform 0.15s ease,
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-3px);
+    background-color: rgba(v.$cat-yellow2, 0.12);
+    border-color: rgba(v.$cat-yellow2, 0.75);
+  }
+}
+
+.locationItemCard {
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.contractorCtaSection {
+  padding: 7rem 2rem;
+  background-color: v.$color-primary-light;
+  color: v.$text-color-dark;
+}
+
+.contractorCtaShell {
+  max-width: 96rem;
+  margin: 0 auto;
+  padding: 3rem;
+  border-radius: 1.8rem;
+  background: rgba(v.$color-neutral-dark, 0.94);
+  box-shadow: 0 1.8rem 3.2rem -2.6rem rgba(0, 0, 0, 0.6);
+  text-align: center;
+
+  h2 {
+    font-size: 3.8rem;
+    line-height: 1.08;
+    color: #fff;
+
+    @include m.mediaDesktop {
+      font-size: 5rem;
+    }
+  }
+
+  p:last-of-type {
+    margin: 2rem auto 0;
+    max-width: 72rem;
+    font-size: 1.8rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.84);
+  }
+}
+
+.contractorActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.6rem;
+  margin-top: 3rem;
+}
+
+.relatedServicesSection {
+  width: 100%;
+  max-width: 118rem;
+  margin: 0 auto;
+  padding: 7rem 2rem 6rem;
+
+  h2 {
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 1rem;
+
+    @include m.mediaDesktop {
+      font-size: 5.6rem;
+    }
+  }
+}
+
+.relatedServicesGrid {
+  display: grid;
+  gap: 2rem;
+  margin-top: 3rem;
+
+  @include m.mediaDesktop {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.relatedServiceCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  min-height: 22rem;
+  padding: 2.4rem;
+  border-radius: 1.4rem;
+  background-color: rgba(v.$color-primary-light, 0.42);
+  border: 1px solid rgba(v.$cat-yellow2, 0.3);
+  color: v.$text-color-dark;
+  text-decoration: none;
+  box-shadow: 0 1.2rem 2.6rem -2.6rem rgba(0, 0, 0, 0.45);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-4px);
+    border-color: rgba(v.$cat-yellow2, 0.65);
+    box-shadow: 0 1.8rem 3rem -2.2rem rgba(0, 0, 0, 0.45);
+  }
+
+  h3 {
+    font-size: 2.5rem;
+    line-height: 1.15;
+  }
+
+  p {
+    font-size: 1.7rem;
+    line-height: 1.55;
+  }
+}
+
+.relatedServiceAction {
+  margin-top: auto;
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.6rem;
+  padding-bottom: 0.2rem;
+  border-bottom: 2px solid v.$cat-yellow2;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  &::after {
+    content: '>';
+    font-size: 1.6rem;
+  }
+}
+
+.cta {
+  @include m.flexCenter(column);
+  text-align: center;
+  padding: 8rem 2rem;
+  background-color: v.$color-primary-light;
+  color: v.$text-color-dark;
+
+  h2 {
+    font-size: 4rem;
+
+    @include m.mediaDesktop {
+      font-size: 5rem;
+    }
+  }
+
+  p {
+    font-size: 1.8rem;
+    margin: 2rem 0 3rem;
+  }
 }

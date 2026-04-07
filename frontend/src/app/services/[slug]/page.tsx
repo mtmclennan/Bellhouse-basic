@@ -1,10 +1,13 @@
 import { notFound } from 'next/navigation';
-import { Metadata } from 'next';
 import ServiceLayout from './_components/ServiceLayout';
 import { validateMetadata } from '../../../lib/utils/seoValidation';
-import type { ServicePage } from '@/types/interfaces';
 import { getServiceBySlug } from '@/data/services/index';
 import { getAllServices } from '@/data/services/index';
+import {
+  getContractorCta,
+  getLinkedServiceAreas,
+  getRelatedServiceLinks,
+} from '@/lib/servicePageLinks';
 
 interface ServicePageProps {
   params: Promise<{ slug: string }>;
@@ -23,7 +26,7 @@ export async function generateMetadata({ params }: ServicePageProps) {
 
   const validated = validateMetadata(
     service.meta.title,
-    service.meta.description
+    service.meta.description,
   );
 
   return {
@@ -38,7 +41,16 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
   if (!service) return notFound();
 
-  return <ServiceLayout service={service} />;
+  const allServices = getAllServices();
+
+  return (
+    <ServiceLayout
+      service={service}
+      linkedServiceAreas={getLinkedServiceAreas(service)}
+      relatedServices={getRelatedServiceLinks(service, allServices)}
+      contractorCta={getContractorCta(service)}
+    />
+  );
 }
 
 export function generateStaticParams() {

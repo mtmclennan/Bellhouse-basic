@@ -3,32 +3,35 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { CheckCircle, Gear, Star } from '@phosphor-icons/react/dist/ssr';
 
 import logo from '../../../../../public/assets/BellhouseLogo-text.png';
-import { ServicePage } from '@/types/interfaces';
-
-// import LayoutHome from '@/app/components/layoutsWeb/layoutHome';
-import CallToAction from '@/app/components/webpage/CallToAction';
-import WhyChooseUs from '@/app/components/webpage/WhyChooseUs';
-import ServicesGrid from '@/app/components/webpage/services/ServicesGrid';
 import FAQAccordion from '@/app/components/FAQAccordion';
-import { Star } from '@phosphor-icons/react/dist/ssr';
-import classes from './ServiceLayout.module.scss';
-import { CheckCircle, Gear } from '@phosphor-icons/react';
-import { title } from 'process';
 import Reviews from '@/app/components/webpage/Reviews';
 import reviews from '@/data/reviews.json';
+import type { ServicePage } from '@/types/interfaces';
+import type {
+  ContractorCtaContent,
+  RelatedServiceLinkItem,
+  ServiceAreaLinkItem,
+} from '@/lib/servicePageLinks';
+import classes from './ServiceLayout.module.scss';
 
 interface ServiceLayoutProps {
   service: ServicePage;
+  linkedServiceAreas: ServiceAreaLinkItem[];
+  relatedServices: RelatedServiceLinkItem[];
+  contractorCta: ContractorCtaContent | null;
 }
 
-export default function ServiceLayout({ service }: ServiceLayoutProps) {
-  // console.log(service);
+export default function ServiceLayout({
+  service,
+  linkedServiceAreas,
+  relatedServices,
+  contractorCta,
+}: ServiceLayoutProps) {
   return (
-    // <LayoutHome background="off">
     <>
-      {/* HERO */}
       <section className={classes.container}>
         <div className="contact-hero">
           <div className="hero-logo__mobile">
@@ -64,7 +67,6 @@ export default function ServiceLayout({ service }: ServiceLayoutProps) {
         />
       </section>
 
-      {/* INTRO */}
       <section className={classes.introContainer}>
         <h2>{service.intro.heading}</h2>
 
@@ -73,7 +75,7 @@ export default function ServiceLayout({ service }: ServiceLayoutProps) {
 
           <ul>
             {service.intro.keypoints.map((point) => (
-              <li key={crypto.randomUUID()}>
+              <li key={point}>
                 <Star size={24} color="#ffc302" weight="fill" />
                 <span>{point}</span>
               </li>
@@ -82,15 +84,16 @@ export default function ServiceLayout({ service }: ServiceLayoutProps) {
         </div>
       </section>
 
-      {/* WHAT'S INCLUDED */}
-      {service.includes && (
+      {service.includes ? (
         <section className={classes.section}>
           <h2>{service.includes.heading}</h2>
-          <p className={classes.subtext}>{service.includes.subheading}</p>
+          {service.includes.subheading ? (
+            <p className={classes.subtext}>{service.includes.subheading}</p>
+          ) : null}
 
           <div className={classes.featureGrid}>
             {service.includes.items.map((item) => (
-              <div key={crypto.randomUUID()} className={classes.featureCard}>
+              <div key={item.title} className={classes.featureCard}>
                 <div className={classes.featureHeading}>
                   <CheckCircle
                     size={32}
@@ -104,19 +107,20 @@ export default function ServiceLayout({ service }: ServiceLayoutProps) {
             ))}
           </div>
         </section>
-      )}
+      ) : null}
 
-      {/* EQUIPMENT */}
-      {service.equipment && (
+      {service.equipment ? (
         <section className={classes.equipmentSection}>
           <div className={classes.heading}>
             <h2>{service.equipment.heading}</h2>
-            <p>{service.equipment.subheading}</p>
+            {service.equipment.subheading ? (
+              <p>{service.equipment.subheading}</p>
+            ) : null}
           </div>
 
           <div className={classes.equipmentGrid}>
             {service.equipment.items.map((item) => (
-              <div key={crypto.randomUUID()} className={classes.equipmentItem}>
+              <div key={item.title} className={classes.equipmentItem}>
                 <div className={classes.equipmentIcon}>
                   {item.icon ? (
                     <Image
@@ -138,20 +142,19 @@ export default function ServiceLayout({ service }: ServiceLayoutProps) {
             ))}
           </div>
         </section>
-      )}
+      ) : null}
 
-      {/* PROCESS */}
-      {service.process && (
+      {service.process ? (
         <section className={classes.processSection}>
           <h2>{service.process.heading}</h2>
-          {service.process.subheading && (
+          {service.process.subheading ? (
             <p className={classes.subtext}>{service.process.subheading}</p>
-          )}
+          ) : null}
 
           <div className={classes.processList}>
-            {service.process.steps.map((step) => (
-              <div key={crypto.randomUUID()} className={classes.processItem}>
-                <div className={classes.stepNumber}></div>
+            {service.process.steps.map((step, index) => (
+              <div key={step.title} className={classes.processItem}>
+                <div className={classes.stepNumber}>{index + 1}</div>
                 <div>
                   <h3>{step.title}</h3>
                   <p>{step.description}</p>
@@ -160,35 +163,88 @@ export default function ServiceLayout({ service }: ServiceLayoutProps) {
             ))}
           </div>
         </section>
-      )}
+      ) : null}
 
-      {/* SERVICE AREA */}
-
-      {service.serviceArea && (
-        <section className={`${classes.section} ${classes.backgroundMid}`}>
+      {service.serviceArea ? (
+        <section className={`${classes.section} ${classes.serviceAreaSection}`}>
+          <p className={classes.eyebrow}>Service areas</p>
           <h2>{service.serviceArea.heading}</h2>
-
           <p className={classes.subtext}>{service.serviceArea.content}</p>
 
-          <ul className={classes.locationList}>
-            {service.serviceArea.locations.map((loc) => (
-              <li key={crypto.randomUUID()}>{loc}</li>
-            ))}
-          </ul>
+          <div className={classes.locationGrid}>
+            {linkedServiceAreas.map((location) =>
+              location.href ? (
+                <Link
+                  className={classes.locationLinkCard}
+                  href={location.href}
+                  key={`${location.href}-${location.label}`}
+                >
+                  See service in {location.label}
+                </Link>
+              ) : (
+                <span className={classes.locationItemCard} key={location.label}>
+                  {location.label}
+                </span>
+              ),
+            )}
+          </div>
         </section>
-      )}
+      ) : null}
 
-      {/* FAQ */}
-      {service.faq && (
+      {contractorCta ? (
+        <section className={classes.contractorCtaSection}>
+          <div className={classes.contractorCtaShell}>
+            <p className={classes.eyebrow}>For builders and contractors</p>
+            <h2>{contractorCta.title}</h2>
+            <p>{contractorCta.description}</p>
+            <div className={classes.contractorActions}>
+              <Link href={contractorCta.primaryHref} className={classes.btn}>
+                {contractorCta.primaryLabel}
+              </Link>
+              <Link
+                href={contractorCta.secondaryHref}
+                className={classes.btnSecondary}
+              >
+                {contractorCta.secondaryLabel}
+              </Link>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {service.faq ? (
         <FAQAccordion
           heading={service.faq.heading}
           subheading="Clear, helpful answers for builders and homeowners."
           items={service.faq.items}
         />
-      )}
+      ) : null}
+
+      {relatedServices.length > 0 ? (
+        <section className={classes.relatedServicesSection}>
+          <p className={classes.eyebrow}>Related services</p>
+          <h2>Related excavation and hauling services</h2>
+          <div className={classes.relatedServicesGrid}>
+            {relatedServices.map((relatedService) => (
+              <Link
+                className={classes.relatedServiceCard}
+                href={relatedService.href}
+                key={relatedService.href}
+              >
+                <h3>{relatedService.title}</h3>
+                <p>{relatedService.description}</p>
+                <span className={classes.relatedServiceAction}>
+                  View Service
+                </span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
       <Reviews reviews={reviews} />
-      {/* CTA */}
-      {service.cta && (
+
+      {service.cta ? (
         <section className={classes.cta}>
           <h2>{service.cta.heading}</h2>
           <p>{service.cta.subheading}</p>
@@ -197,9 +253,7 @@ export default function ServiceLayout({ service }: ServiceLayoutProps) {
             {service.cta.button}
           </Link>
         </section>
-      )}
-
-      <ServicesGrid />
+      ) : null}
     </>
   );
 }

@@ -27,11 +27,21 @@ export default function ServicesHero() {
           Services in Brant County
         </h1>
         <h2>
-          Expert Excavation Services for Residential and Commercial Projects
+          Expert excavation, grading, hauling, and site support for residential,
+          commercial, and contractor-led work across Brant County and nearby
+          Southern Ontario communities.
         </h2>
-        <Link className={classes.btn} href={'/contact'}>
-          Get a Free Estimate!
-        </Link>
+        <div className={classes.actions}>
+          <Link className={classes.btn} href={'/contact'}>
+            Get a Free Estimate
+          </Link>
+          <Link className={classes.btnSecondary} href={'/service-areas'}>
+            View Service Areas
+          </Link>
+          <Link className={classes.btnSecondary} href={'/contractors'}>
+            For Builders & Contractors
+          </Link>
+        </div>
       </div>
     </section>
   );

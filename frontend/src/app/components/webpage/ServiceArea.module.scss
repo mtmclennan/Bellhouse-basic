@@ -1,5 +1,5 @@
 @use '../../../styles/abstracts/variables' as v;
-@use '../../..//styles/abstracts/mixins' as m;
+@use '../../../styles/abstracts/mixins' as m;
 
 .section {
   width: 100%;
@@ -11,7 +11,7 @@
 }
 
 .homepage {
-  background: #202020; // or whatever shade you want
+  background: v.$color-primary-dark;
 }
 
 .heading {
@@ -19,12 +19,12 @@
   font-weight: 700;
   text-align: center;
   margin-bottom: 1rem;
-  color: white;
+  color: v.$color-primary;
 }
 
 .subtext {
   font-size: 1.8rem;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(v.$text-color-light, 0.95);
   text-align: center;
   max-width: 70rem;
   margin: 0 auto 3rem auto;
@@ -35,29 +35,63 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.2rem 2rem;
-  max-width: 80rem;
+  max-width: 90rem;
   margin: 0 auto;
   padding: 0;
   list-style: none;
 
   li {
-    font-size: 1.8rem;
-    padding-left: 1.4rem;
     position: relative;
-    line-height: 1.4;
-    color: white;
+    padding-left: 1.4rem;
   }
 
   li::before {
     content: '';
     width: 0.8rem;
     height: 0.8rem;
-    background: v.$color-accent;
+    background: v.$cat-yellow2;
     border-radius: 50%;
     position: absolute;
     top: 0.8rem;
     left: 0;
   }
+}
+
+.locationItem,
+.locationLink {
+  font-size: 1.8rem;
+  line-height: 1.4;
+  color: v.$color-primary;
+}
+
+.locationLink {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(v.$cat-yellow2, 0.65);
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    color: v.$cat-yellow2;
+    border-bottom-color: v.$cat-yellow2;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.6rem;
+  margin-top: 3.2rem;
+}
+
+.primaryAction {
+  @include m.btnMain;
+}
+
+.secondaryAction {
+  @include m.btnSec;
 }
 
 @media (max-width: 768px) {
@@ -69,6 +103,6 @@
 @media (max-width: 480px) {
   .locationList {
     grid-template-columns: 1fr;
-    justify-items: center;
+    justify-items: start;
   }
 }

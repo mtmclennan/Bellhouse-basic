@@ -50,8 +50,8 @@ export default function ServiceAreaLayout({
       label: 'Request a quote',
     },
     {
-      href: 'tel:5197528500',
-      label: 'Call 519-752-8500',
+      href: '/contractors',
+      label: 'For Builders & Contractors',
       variant: 'secondary' as const,
     },
   ];
@@ -97,7 +97,7 @@ export default function ServiceAreaLayout({
     },
     areaServed: {
       '@type': 'City',
-      name: `${page.city}, ${page.province}`,
+      name: page.city,
     },
     serviceType: [
       'Excavation',
@@ -208,7 +208,7 @@ export default function ServiceAreaLayout({
         }
         description={
           page.bottomCta?.description ??
-          `Call, text, or request a quote if you need a clear answer on fit, timing, and what the job needs first.`
+          'Call, text, or request a quote if you need a clear answer on fit, timing, and what the job needs first.'
         }
         supportingPoints={page.bottomCta?.supportingPoints}
         image={page.ctaImage ?? defaultCtaImage}

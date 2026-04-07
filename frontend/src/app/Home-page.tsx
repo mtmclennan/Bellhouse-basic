@@ -7,54 +7,12 @@ import { Phone } from '@phosphor-icons/react';
 import reviews from '@/data/reviews.json';
 import HomeAbout from '@/app/components/webpage/HomeAbout';
 import HomeServices from '@/app/components/webpage/HomeServices';
-// import ImageGallerySlider from '@/app/components/UI/ImageSlider';
 import CallToAction from './components/webpage/CallToAction';
 import Link from 'next/link';
 import Reviews from './components/webpage/Reviews';
 import ServiceArea from './components/webpage/ServiceArea';
 
 const HomePage = () => {
-  // const images = [
-  //   {
-  //     src: '/assets/excavator-digging-foundation.jpg',
-  //     alt: 'a bucket of dirt',
-  //   },
-  //   { src: '/assets/Auto-level-floor-skid-steer.jpg', alt: 'a bucket of dirt' },
-  //   { src: '/assets/dozer-pushing-dirt.jpg', alt: 'a bucket of dirt' },
-  //   {
-  //     src: '/assets/soil-conditioner-top-soil-skid-steer.jpg',
-  //     alt: 'a bucket of dirt',
-  //   },
-  //   {
-  //     src: '/assets/excavator-loading-tri-axle-foundation.jpg',
-  //     alt: 'a bucket of dirt',
-  //   },
-  //   {
-  //     src: '/assets/off-road-truck-dump-truck.jpg',
-  //     alt: 'a bucket of dirt',
-  //   },
-  //   {
-  //     src: '/assets/grading-driveway-laser-level.jpg',
-  //     alt: 'a bucket of dirt',
-  //   },
-  //   {
-  //     src: '/assets/foundation-backfill-packer.jpg',
-  //     alt: 'a bucket of dirt',
-  //   },
-  //   {
-  //     src: '/assets/retaining-wall-concrete.jpg',
-  //     alt: 'a bucket of dirt',
-  //   },
-  //   {
-  //     src: '/assets/tri-axle-dump-trucks.jpg',
-  //     alt: 'a bucket of dirt',
-  //   },
-  //   {
-  //     src: '/assets/site-preparation-dozer-brant-county.jpg',
-  //     alt: 'a bucket of dirt',
-  //   },
-  // ];
-
   return (
     <Fragment>
       <div className="hero__container">
@@ -85,10 +43,6 @@ const HomePage = () => {
               and surrounding areas.
             </h2>
 
-            {/* <p>
-                Kick Off Your Project with a Solid Foundation—Contact Us Today!
-              </p> */}
-
             <div className="hero__button-container">
               <Link href={'/contact'} id="cta-link">
                 Get a Free On-Site Quote
@@ -106,21 +60,29 @@ const HomePage = () => {
       </div>
       <HomeAbout />
       <HomeServices />
-      {/* <section className="services">
-          <ImageGallerySlider interval={7500} images={images} />
-        </section> */}
-
-      {/* <WhyChooseUs /> */}
       <Reviews reviews={reviews} />
       <CallToAction />
       <ServiceArea
-        heading="Excavation Services Across Brant County & Southern Ontario
-"
-        subtext="Proudly serving Brantford, Paris, St. George, Burford, and nearby communities with over 40 years of local excavation experience."
-        locations={['Brantford', 'Paris', 'St. George', 'Burford', 'Hamilton']}
+        heading="Excavation Services Across Brant County & Southern Ontario"
+        subtext="Proudly serving Brantford, Paris, Hamilton, Cambridge, and nearby communities with over 40 years of local excavation experience."
+        locations={[
+          { label: 'Brantford', href: '/service-areas/brantford' },
+          { label: 'Paris', href: '/service-areas/paris' },
+          { label: 'Hamilton', href: '/service-areas/hamilton' },
+          { label: 'Cambridge', href: '/service-areas/cambridge' },
+          'St. George',
+          'Burford',
+        ]}
+        actions={[
+          { label: 'View All Service Areas', href: '/service-areas' },
+          {
+            label: 'For Builders & Contractors',
+            href: '/contractors',
+            variant: 'secondary',
+          },
+        ]}
         variant="homepage"
       />
-      {/* <LocalExperts colorDark={true} /> */}
     </Fragment>
   );
 };

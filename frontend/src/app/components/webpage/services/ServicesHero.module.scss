@@ -6,41 +6,42 @@
 
   min-height: 100vh;
   padding: 0 1rem;
+  width: 100%;
+
   @include m.mediaDesktop {
     min-height: calc(100vh - 20rem);
   }
-  width: 100%;
 }
 
 .hero {
   @include m.flexCenter(column);
-  // padding: 1rem;
   margin-top: -10rem;
   padding-top: 6rem;
   width: 100%;
-  @include m.mediaDesktop {
-  }
   max-width: 110rem;
-  @include m.flexCenter(column);
   gap: 4rem;
 
-  & h1 {
+  h1 {
     font-size: 5.5rem;
-    @include m.media1200 {
-      font-size: 10rem;
-    }
+    text-align: center;
+    line-height: 1.1;
+
     @include m.mediaDesktop {
       font-size: 8rem;
     }
-    text-align: center;
 
-    line-height: 1.1;
+    @include m.media1200 {
+      font-size: 10rem;
+    }
   }
-  & h2 {
+
+  h2 {
+    max-width: 82rem;
     text-align: center;
     font-size: 2rem;
     font-weight: 500;
     color: v.$text-color-light;
+    line-height: 1.5;
   }
 }
 
@@ -51,6 +52,17 @@
   letter-spacing: 0;
 }
 
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.6rem;
+}
+
 .btn {
   @include m.btnMain;
+}
+
+.btnSecondary {
+  @include m.btnSec;
 }

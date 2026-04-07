@@ -19,7 +19,7 @@ import ServiceAreaHero from '@/components/service-areas/ServiceAreaHero';
 import { defaultCtaImage } from '@/components/service-areas/visuals';
 import FAQAccordion from '../components/FAQAccordion';
 import ContactForm from '../components/forms/ContactForm';
-import heroImage from '../../../public/assets/Bellhouse-excavating-contractor.jpg';
+import heroImage from '../../../public/assets/services/large-site-prep-equipment.webp';
 import capabilityImage from '../../../public/assets/off-road-dump-truck-rental.jpg';
 import classes from './page.module.scss';
 
@@ -123,7 +123,8 @@ const scopeItems: ContentCard[] = [
         >
           foundation excavation
         </Link>
-        , utility trenches, and digging that matches builder layouts and elevations.
+        , utility trenches, and digging that matches builder layouts and
+        elevations.
       </p>
     ),
     icon: <Shovel size={26} weight="fill" />,
@@ -271,7 +272,8 @@ const capabilityItems: ContentCard[] = [
         >
           heavy equipment floating
         </Link>{' '}
-        and additional machine capacity when the pace of the site starts to change.
+        and additional machine capacity when the pace of the site starts to
+        change.
       </p>
     ),
     icon: <Wrench size={26} weight="fill" />,
@@ -302,7 +304,10 @@ const processItems = [
 ];
 
 const serviceLinks: NavLinkItem[] = [
-  { href: '/services/site-preparation-land-grading', label: 'Site Preparation' },
+  {
+    href: '/services/site-preparation-land-grading',
+    label: 'Site Preparation',
+  },
   { href: '/services/foundation-excavation', label: 'Foundation Excavation' },
   { href: '/services/dump-truck-rental', label: 'Dump Truck Work' },
   { href: '/services/heavy-equipment-hauling', label: 'Equipment Floating' },
@@ -366,7 +371,10 @@ export default function ContractorsPage() {
       <SectionWrapper>
         <div className={`${classes.sectionIntro} ${classes.sectionIntroDark}`}>
           <p className={classes.sectionEyebrow}>Who we work with</p>
-          <h2>Bellhouse fits builders and site crews that need the ground work handled properly.</h2>
+          <h2>
+            Bellhouse fits builders and site crews that need the ground work
+            handled properly.
+          </h2>
           <p>
             The right fit is a builder or contractor who needs excavation and
             hauling done cleanly from first cut through later job phases.
@@ -386,11 +394,16 @@ export default function ContractorsPage() {
 
       <SectionWrapper className={classes.altSection}>
         <div className={`${classes.sectionIntro} ${classes.sectionIntroLight}`}>
-          <p className={classes.sectionEyebrow}>Contractor scopes Bellhouse supports</p>
-          <h2>Scopes Bellhouse can take on for builder and development work.</h2>
+          <p className={classes.sectionEyebrow}>
+            Contractor scopes Bellhouse supports
+          </p>
+          <h2>
+            Scopes Bellhouse can take on for builder and development work.
+          </h2>
           <p>
             From site opening and footing digs to haul-out, imported stone, and
-            added equipment, these are the contractor scopes Bellhouse can handle.
+            added equipment, these are the contractor scopes Bellhouse can
+            handle.
           </p>
         </div>
 
@@ -412,7 +425,9 @@ export default function ContractorsPage() {
         <div className={classes.midCtaShell}>
           <div className={classes.midCtaContent}>
             <p className={classes.sectionEyebrow}>Project fit</p>
-            <h2>Need Bellhouse lined up for excavation, trucking, or site work?</h2>
+            <h2>
+              Need Bellhouse lined up for excavation, trucking, or site work?
+            </h2>
             <p>
               Send the scope, location, and timing to get a direct read on fit,
               likely sequencing, and what the job needs first.
@@ -434,10 +449,14 @@ export default function ContractorsPage() {
           <p className={classes.sectionEyebrow}>
             Why contractors work with Bellhouse
           </p>
-          <h2>Bellhouse stays in rotation because the work is practical, clean, and reliable.</h2>
+          <h2>
+            Bellhouse stays in rotation because the work is practical, clean,
+            and reliable.
+          </h2>
           <p>
-            The difference is not another list of services. It is how excavation,
-            trucking, and changing site conditions are handled in real time.
+            The difference is not another list of services. It is how
+            excavation, trucking, and changing site conditions are handled in
+            real time.
           </p>
         </div>
 
@@ -459,10 +478,14 @@ export default function ContractorsPage() {
         <div className={classes.capabilityShell}>
           <div className={classes.capabilityContent}>
             <p className={classes.sectionEyebrow}>Equipment and capability</p>
-            <h2>Production capacity for bigger earthmoving, rough ground, and internal haul work.</h2>
+            <h2>
+              Production capacity for bigger earthmoving, rough ground, and
+              internal haul work.
+            </h2>
             <p className={classes.capabilityText}>
               Fleet and truck capacity matter when haul distances grow,
-              conditions get rough, or production starts depending on faster site movement.
+              conditions get rough, or production starts depending on faster
+              site movement.
             </p>
 
             <div className={classes.capabilityGrid}>
@@ -479,7 +502,8 @@ export default function ContractorsPage() {
 
             <div className={classes.capabilityCta}>
               <p className={classes.capabilityCtaText}>
-                Need extra hauling capacity, an off-road dump truck, or machine movement lined up?
+                Need extra hauling capacity, an off-road dump truck, or machine
+                movement lined up?
               </p>
               <div className={classes.buttonRow}>
                 <Link href="#contractor-form" className={classes.primaryButton}>
@@ -540,7 +564,9 @@ export default function ContractorsPage() {
         <div className={classes.ctaShell}>
           <div className={classes.ctaContent}>
             <p className={classes.sectionEyebrow}>Start the conversation</p>
-            <h2>Send over the job details and Bellhouse can review fit and timing.</h2>
+            <h2>
+              Send over the job details and Bellhouse can review fit and timing.
+            </h2>
             <p className={classes.ctaText}>
               Use the form to send the company, contact, site location, rough
               timeline, hauling needs, access conditions, and equipment
@@ -577,7 +603,9 @@ export default function ContractorsPage() {
                 </div>
               </div>
               <div className={classes.supportingNavGroup}>
-                <p className={classes.supportingNavLabel}>Related service areas</p>
+                <p className={classes.supportingNavLabel}>
+                  Related service areas
+                </p>
                 <div className={classes.supportingNavLinks}>
                   {areaLinks.map((link) => (
                     <Link
@@ -598,7 +626,7 @@ export default function ContractorsPage() {
               variant="contractor"
               embedded={true}
               heading="Send Project Details for Review"
-              intro="Include the company, project location, timeline, hauling needs, access conditions, and equipment requirements. File upload is not available in this form yet, so mention any drawings, plans, or site photos you have and Bellhouse can advise the best way to send them."
+              intro=""
               sectionId="contractor-form"
             />
           </div>
@@ -617,9 +645,9 @@ export default function ContractorsPage() {
               'Can Bellhouse support repeat work or multi-phase construction?',
             answer: (
               <p>
-                Yes. Bellhouse is a fit for repeat builders, phased developments,
-                and projects that reopen for later excavation, hauling, or added
-                machine work.
+                Yes. Bellhouse is a fit for repeat builders, phased
+                developments, and projects that reopen for later excavation,
+                hauling, or added machine work.
               </p>
             ),
           },
@@ -660,8 +688,8 @@ export default function ContractorsPage() {
             answer: (
               <p>
                 Bellhouse works across Brantford, Paris, Hamilton, Cambridge,
-                and nearby Southern Ontario communities. You can review the local
-                pages for{' '}
+                and nearby Southern Ontario communities. You can review the
+                local pages for{' '}
                 <Link
                   href="/service-areas/brantford"
                   className={classes.inlineLink}
@@ -741,4 +769,3 @@ export default function ContractorsPage() {
     </>
   );
 }
-
