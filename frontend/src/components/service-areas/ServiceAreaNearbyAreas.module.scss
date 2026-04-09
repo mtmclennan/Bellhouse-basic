@@ -42,8 +42,9 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.18) 0%, rgba(0, 0, 0, 0.72) 100%),
-    linear-gradient(125deg, rgba(v.$cat-yellow2, 0.1) 0%, transparent 44%);
+    linear-gradient(180deg, rgba(0, 0, 0, 0.38) 0%, rgba(0, 0, 0, 0.82) 100%),
+    linear-gradient(100deg, rgba(10, 10, 10, 0.88) 0%, rgba(10, 10, 10, 0.72) 44%, rgba(10, 10, 10, 0.28) 72%, transparent 100%),
+    linear-gradient(125deg, rgba(v.$cat-yellow2, 0.08) 0%, transparent 44%);
 }
 
 .mapCopy {
@@ -54,6 +55,18 @@
   gap: 1.4rem;
   padding: 2.6rem;
 
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 1.6rem auto 1.6rem 1.6rem;
+    width: min(100%, 54rem);
+    border-radius: 2rem;
+    background:
+      linear-gradient(180deg, rgba(8, 8, 8, 0.74) 0%, rgba(8, 8, 8, 0.5) 100%);
+    backdrop-filter: blur(0.2rem);
+    z-index: -1;
+  }
+
   h3 {
     font-size: 2.6rem;
     line-height: 1.2;
@@ -61,11 +74,15 @@
     color: #fff;
   }
 
-  p:last-of-type {
+  p {
     max-width: 46rem;
     font-size: 1.7rem;
     line-height: 1.68;
-    color: rgba(255, 255, 255, 0.84);
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  p:last-of-type {
+    color: rgba(255, 255, 255, 0.86);
   }
 }
 

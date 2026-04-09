@@ -48,6 +48,11 @@ type ServiceSlug =
   | 'equipment-floating';
 
 const photoCatalog = {
+  'Excavator-loading-dump-truck': {
+    src: '/assets/services/Excavator-loading-dump-truck.webp',
+    width: 900,
+    height: 1200,
+  },
   'auto-level-fine-grading-skid-steer': {
     src: '/assets/services/auto-level-fine-grading-skid-steer.webp',
     width: 1434,
@@ -73,15 +78,55 @@ const photoCatalog = {
     width: 1440,
     height: 1080,
   },
+  'excavator-dozer-building-driveway': {
+    src: '/assets/services/excavator-dozer-building-driveway.webp',
+    width: 1440,
+    height: 1080,
+  },
+  'excavator-farm-driveway': {
+    src: '/assets/services/excavator-farm-driveway.webp',
+    width: 1440,
+    height: 1080,
+  },
+  'excavator-loading-dump-truck-right': {
+    src: '/assets/services/excavator-loading-dump-truck-right.webp',
+    width: 1440,
+    height: 1080,
+  },
   'dumptruck-foudation-excavator-loading': {
     src: '/assets/services/dumptruck-foudation-excavator-loading.webp',
     width: 1440,
     height: 1080,
   },
+  'farm-laneway-base-dozer': {
+    src: '/assets/services/farm-laneway-base-dozer.webp',
+    width: 900,
+    height: 1200,
+  },
   'equipment-lined-up-large-site-prep': {
     src: '/assets/services/equipment-lined-up-large-site-prep.webp',
     width: 1200,
     height: 904,
+  },
+  'cat-320-excavator-loading-b-gravel': {
+    src: '/assets/services/cat-320-excavator-loading-b-gravel.webp',
+    width: 1440,
+    height: 1080,
+  },
+  'cat-320D-excavator-leveling-aggregates-pile': {
+    src: '/assets/services/cat-320D-excavator-leveling-aggregates-pile.webp',
+    width: 900,
+    height: 1200,
+  },
+  'cat-excavator-digging-in-aggregates-pile': {
+    src: '/assets/services/cat-excavator-digging-in-aggregates-pile.webp',
+    width: 900,
+    height: 1200,
+  },
+  'cat315D-excavator-farm-laneway': {
+    src: '/assets/services/cat315D-excavator-farm-laneway.webp',
+    width: 900,
+    height: 1200,
   },
   'housing-development': {
     src: '/assets/services/housing-development.webp',
@@ -133,52 +178,60 @@ const serviceAreaOrder = [
 ] as const;
 
 const heroAssignments: Record<(typeof serviceAreaOrder)[number], PhotoKey> = {
-  brantford: 'large-site-prep-two-excavators',
-  paris: 'dozer-stripping-site-prep',
-  hamilton: 'equipment-lined-up-large-site-prep',
-  cambridge: 'large-site-prep-equipment',
+  brantford: 'excavator-loading-dump-truck-right',
+  paris: 'excavator-farm-driveway',
+  hamilton: 'cat-320-excavator-loading-b-gravel',
+  cambridge: 'excavator-dozer-building-driveway',
   dundas: 'site-prep-rocky-two-excavators-striping',
-  waterdown: 'housing-development',
-  simcoe: 'new-construction-infill',
+  waterdown: 'large-site-prep-two-excavators',
+  simcoe: 'dozer-stripping-site-prep',
   woodstock: 'large-yard-soil-grading-lawn',
-  ancaster: 'concrete-floor-site-prep',
+  ancaster: 'driveway-grading-concrete-base',
 };
 
 const introRotation: PhotoKey[] = [
-  'concrete-foundation-backfill',
+  'cat315D-excavator-farm-laneway',
   'concrete-floor-site-prep',
+  'cat-320D-excavator-leveling-aggregates-pile',
+  'concrete-foundation-backfill',
   'new-construction-infill',
+  'cat-excavator-digging-in-aggregates-pile',
 ];
 
 const mapRotation: PhotoKey[] = [
   'driveway-grading-concrete-base',
   'auto-level-fine-grading-skid-steer',
-  'pool-retaining-wall',
+  'excavator-farm-driveway',
+  'farm-laneway-base-dozer',
   'large-yard-soil-grading-lawn',
 ];
 
 const ctaRotation: PhotoKey[] = [
+  'excavator-loading-dump-truck-right',
+  'Excavator-loading-dump-truck',
   'dumptruck-foudation-excavator-loading',
-  'equipment-lined-up-large-site-prep',
-  'large-site-prep-equipment',
+  'cat-320-excavator-loading-b-gravel',
 ];
 
 const serviceImageRotation: Record<ServiceSlug, PhotoKey[]> = {
   excavation: [
+    'cat-excavator-digging-in-aggregates-pile',
     'new-construction-infill',
+    'cat-320D-excavator-leveling-aggregates-pile',
     'concrete-floor-site-prep',
-    'concrete-foundation-backfill',
+    'cat315D-excavator-farm-laneway',
   ],
   'site-preparation': [
+    'excavator-dozer-building-driveway',
     'dozer-stripping-site-prep',
     'large-site-prep-two-excavators',
-    'equipment-lined-up-large-site-prep',
     'site-prep-rocky-two-excavators-striping',
-    'housing-development',
+    'farm-laneway-base-dozer',
   ],
   grading: [
     'auto-level-fine-grading-skid-steer',
     'driveway-grading-concrete-base',
+    'excavator-farm-driveway',
     'large-yard-soil-grading-lawn',
     'pool-retaining-wall',
   ],
@@ -186,10 +239,16 @@ const serviceImageRotation: Record<ServiceSlug, PhotoKey[]> = {
     'concrete-foundation-backfill',
     'concrete-floor-site-prep',
     'new-construction-infill',
+    'cat-320D-excavator-leveling-aggregates-pile',
   ],
-  'dump-truck-services': ['dumptruck-foudation-excavator-loading'],
-  'material-delivery': [
+  'dump-truck-services': [
+    'excavator-loading-dump-truck-right',
     'dumptruck-foudation-excavator-loading',
+    'Excavator-loading-dump-truck',
+  ],
+  'material-delivery': [
+    'cat-320-excavator-loading-b-gravel',
+    'excavator-loading-dump-truck-right',
     'driveway-grading-concrete-base',
   ],
   'equipment-floating': [
@@ -219,15 +278,15 @@ function getHeroAlt(city: string) {
 }
 
 function getIntroAlt(city: string) {
-  return `Foundation excavation and backfill work on a ${city}, Ontario building site.`;
+  return `Excavation and site preparation work on a ${city}, Ontario project.`;
 }
 
 function getMapAlt(city: string) {
-  return `Grading and access preparation for a ${city}, Ontario construction site.`;
+  return `Grading and access preparation for a ${city}, Ontario jobsite.`;
 }
 
 function getCtaAlt(city: string) {
-  return `Truck hauling and material handling for a ${city}, Ontario construction project.`;
+  return `Excavation and hauling work for a ${city}, Ontario construction project.`;
 }
 
 function getServiceAlt(serviceSlug: ServiceSlug, city: string) {

@@ -20,22 +20,22 @@ import type {
 } from '@/lib/serviceAreas';
 
 export const defaultHeroImage: ServiceAreaImage = {
-  src: '/assets/services/large-site-prep-two-excavators.webp',
-  alt: 'Large-scale site preparation and excavation work on a Southern Ontario construction project.',
-  width: 1434,
+  src: '/assets/services/excavator-dozer-building-driveway.webp',
+  alt: 'Excavator and dozer preparing a Southern Ontario construction site for the next phase of work.',
+  width: 1440,
   height: 1080,
 };
 
 export const defaultIntroImage: ServiceAreaImage = {
-  src: '/assets/services/concrete-foundation-backfill.webp',
-  alt: 'Foundation excavation and backfill work on a Southern Ontario building site.',
+  src: '/assets/services/cat-320D-excavator-leveling-aggregates-pile.webp',
+  alt: 'Excavator shaping material on a Southern Ontario excavation and grading project.',
   width: 900,
   height: 1200,
 };
 
 export const defaultCtaImage: ServiceAreaImage = {
-  src: '/assets/services/dumptruck-foudation-excavator-loading.webp',
-  alt: 'Truck hauling and material handling on a Southern Ontario construction project.',
+  src: '/assets/services/excavator-loading-dump-truck-right.webp',
+  alt: 'Bellhouse excavator loading a dump truck on a Southern Ontario construction project.',
   width: 1440,
   height: 1080,
 };

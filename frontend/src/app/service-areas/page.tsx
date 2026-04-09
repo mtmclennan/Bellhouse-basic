@@ -10,7 +10,7 @@ import {
 } from '@phosphor-icons/react/dist/ssr';
 import SectionWrapper from '@/components/layout/SectionWrapper';
 import { ServiceAreaCta } from '@/components/service-areas';
-import heroImage from '../../../public/assets/southern-ontario-excavation-service-area-3d-map-hero.webp';
+import heroImage from '../../../public/assets/services/southern-ontario-excavation-service-area-3d-map-hero.webp';
 
 import {
   defaultCtaImage,

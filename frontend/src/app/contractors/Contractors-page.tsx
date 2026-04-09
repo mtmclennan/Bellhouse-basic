@@ -16,10 +16,10 @@ import {
 import SectionWrapper from '@/components/layout/SectionWrapper';
 import ServiceAreaCta from '@/components/service-areas/ServiceAreaCta';
 import ServiceAreaHero from '@/components/service-areas/ServiceAreaHero';
-import { defaultCtaImage } from '@/components/service-areas/visuals';
 import FAQAccordion from '../components/FAQAccordion';
 import ContactForm from '../components/forms/ContactForm';
-import heroImage from '../../../public/assets/services/large-site-prep-equipment.webp';
+import heroImage from '../../../public/assets/services/excavator-loading-dump-truck-right.webp';
+import ctaImage from '../../../public/assets/services/cat-320-excavator-loading-b-gravel.webp';
 import capabilityImage from '../../../public/assets/off-road-dump-truck-rental.jpg';
 import classes from './page.module.scss';
 
@@ -345,6 +345,8 @@ export default function ContractorsPage() {
         image={{
           src: heroImage.src,
           alt: 'Bellhouse excavation crew working on an active construction site.',
+          width: heroImage.width,
+          height: heroImage.height,
         }}
         contactNote={{
           prefix: 'Need to talk through a live project schedule?',
@@ -752,7 +754,12 @@ export default function ContractorsPage() {
       <ServiceAreaCta
         title="Ready to send the project details?"
         description="Send the scope, location, timeline, hauling needs, and equipment requirements for review, or call if the job is moving now."
-        image={defaultCtaImage}
+        image={{
+          src: ctaImage.src,
+          alt: 'Bellhouse excavator loading aggregate into a dump truck on an active Southern Ontario contractor site.',
+          width: ctaImage.width,
+          height: ctaImage.height,
+        }}
         supportingPoints={[
           'Southern Ontario contractor work backed by a business that has been operating since 1982.',
           'Excavation, truck hauling, material import, and Volvo A35 capacity when the job calls for it.',
