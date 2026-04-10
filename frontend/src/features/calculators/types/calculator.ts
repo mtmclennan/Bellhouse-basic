@@ -1,5 +1,7 @@
 export type UnitSystem = 'metric' | 'imperial';
-export type OutputUnitPreference = 'metric' | 'imperial' | 'both';
+export type OutputUnitPreference = 'same' | 'metric' | 'imperial' | 'both';
+export type MetricDimensionUnit = 'm' | 'cm' | 'mm';
+export type ImperialDimensionMode = 'feet-inches' | 'inches';
 
 export type CalculatorKind = 'excavation' | 'gravel' | 'topsoil';
 
@@ -20,11 +22,26 @@ export type Material = {
 };
 
 export type CalculatorEditableNumber = number | '';
+export type CalculatorDimensionKey = 'length' | 'width' | 'depth';
+export type CalculatorDimensionValueField =
+  | 'metricValue'
+  | 'feet'
+  | 'inches';
+
+export type CalculatorDimensionFormInput = {
+  metricValue: CalculatorEditableNumber;
+  metricUnit: MetricDimensionUnit;
+  feet: CalculatorEditableNumber;
+  inches: CalculatorEditableNumber;
+};
+
+export type CalculatorDimensionBehavior = {
+  defaultMetricUnit: MetricDimensionUnit;
+  metricUnits: readonly MetricDimensionUnit[];
+  imperialMode: ImperialDimensionMode;
+};
 
 export type CalculatorNumberField =
-  | 'length'
-  | 'width'
-  | 'depth'
   | 'swellFactor'
   | 'wetMaterialPercentage'
   | 'compactionPercentage'
@@ -38,9 +55,9 @@ export type CalculatorSelectField =
   | 'materialId';
 
 export type CalculatorFormInput = {
-  length: CalculatorEditableNumber;
-  width: CalculatorEditableNumber;
-  depth: CalculatorEditableNumber;
+  length: CalculatorDimensionFormInput;
+  width: CalculatorDimensionFormInput;
+  depth: CalculatorDimensionFormInput;
   inputUnitSystem: UnitSystem;
   outputUnitPreference: OutputUnitPreference;
   materialId: MaterialId;
@@ -53,10 +70,9 @@ export type CalculatorFormInput = {
 };
 
 export type CalculatorCalculationInput = {
-  length: number;
-  width: number;
-  depth: number;
-  inputUnitSystem: UnitSystem;
+  lengthM: number;
+  widthM: number;
+  depthM: number;
   materialId: MaterialId;
   useAdvanced: boolean;
   swellFactor?: number;

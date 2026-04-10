@@ -1,13 +1,17 @@
 import type {
+  CalculatorDimensionBehavior,
+  CalculatorDimensionFormInput,
+  CalculatorFormInput,
   CalculatorKind,
   MaterialId,
   OutputUnitPreference,
+  MetricDimensionUnit,
   UnitSystem,
 } from '../types/calculator';
 
 type CalculatorFieldLabels = {
   inputUnits: string;
-  outputUnits: string;
+  resultDisplay: string;
   material: string;
   useAdvanced: string;
   dimensions: {
@@ -39,6 +43,10 @@ type CalculatorDefaults = {
   truckCapacityTons: number;
 };
 
+type CalculatorResultDisplaySettings = {
+  options: readonly OutputUnitPreference[];
+};
+
 export type CalculatorConfig = {
   kind: CalculatorKind;
   title: string;
@@ -50,8 +58,21 @@ export type CalculatorConfig = {
     metric: string;
     imperial: string;
   };
+  dimensionBehavior: Record<'length' | 'width' | 'depth', CalculatorDimensionBehavior>;
+  resultDisplay: CalculatorResultDisplaySettings;
   advancedSettings: CalculatorAdvancedSettingVisibility;
 };
+
+function createInitialDimensionInput(
+  defaultMetricUnit: MetricDimensionUnit,
+): CalculatorDimensionFormInput {
+  return {
+    metricValue: '',
+    metricUnit: defaultMetricUnit,
+    feet: '',
+    inches: '',
+  };
+}
 
 export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
   excavation: {
@@ -62,13 +83,13 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
     defaults: {
       materialId: 'native-soil',
       inputUnitSystem: 'metric',
-      outputUnitPreference: 'both',
+      outputUnitPreference: 'same',
       truckCapacityTons: 21.5,
     },
     allowedMaterialIds: ['native-soil', 'clay'],
     labels: {
       inputUnits: 'Input Units',
-      outputUnits: 'Output Units',
+      resultDisplay: 'Result Display',
       material: 'Excavated Material',
       useAdvanced: 'Use advanced excavation settings',
       dimensions: {
@@ -78,15 +99,35 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
       },
       advanced: {
         swellFactor: 'Swell Factor',
-        wetMaterialPercentage: 'Wet Material Percentage (%)',
-        compactionPercentage: 'Compaction Percentage (%)',
-        truckCapacityTons: 'Truck Capacity (tonnes)',
+        wetMaterialPercentage: 'Wet Material Adjustment (%)',
+        compactionPercentage: 'Compaction Adjustment (%)',
+        truckCapacityTons: 'Truck Capacity (tons)',
         halfLoadToggle: 'Half-load season / road restriction',
       },
     },
     unitHints: {
-      metric: 'Metric (m / m / m)',
-      imperial: 'Imperial (ft / ft / in)',
+      metric: 'Metric',
+      imperial: 'Imperial',
+    },
+    dimensionBehavior: {
+      length: {
+        defaultMetricUnit: 'm',
+        metricUnits: ['m', 'cm', 'mm'],
+        imperialMode: 'feet-inches',
+      },
+      width: {
+        defaultMetricUnit: 'm',
+        metricUnits: ['m', 'cm', 'mm'],
+        imperialMode: 'feet-inches',
+      },
+      depth: {
+        defaultMetricUnit: 'm',
+        metricUnits: ['m', 'cm', 'mm'],
+        imperialMode: 'feet-inches',
+      },
+    },
+    resultDisplay: {
+      options: ['same', 'metric', 'imperial', 'both'],
     },
     advancedSettings: {
       swellFactor: true,
@@ -104,13 +145,13 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
     defaults: {
       materialId: 'granular-a',
       inputUnitSystem: 'metric',
-      outputUnitPreference: 'both',
+      outputUnitPreference: 'same',
       truckCapacityTons: 21.5,
     },
     allowedMaterialIds: ['granular-a', 'granular-b'],
     labels: {
       inputUnits: 'Input Units',
-      outputUnits: 'Output Units',
+      resultDisplay: 'Result Display',
       material: 'Aggregate Type',
       useAdvanced: 'Use advanced gravel settings',
       dimensions: {
@@ -120,15 +161,35 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
       },
       advanced: {
         swellFactor: 'Swell Factor',
-        wetMaterialPercentage: 'Wet Material Percentage (%)',
-        compactionPercentage: 'Compaction Percentage (%)',
-        truckCapacityTons: 'Truck Capacity (tonnes)',
+        wetMaterialPercentage: 'Wet Material Adjustment (%)',
+        compactionPercentage: 'Compaction Adjustment (%)',
+        truckCapacityTons: 'Truck Capacity (tons)',
         halfLoadToggle: 'Half-load season / road restriction',
       },
     },
     unitHints: {
-      metric: 'Metric (m / m / m)',
-      imperial: 'Imperial (ft / ft / in)',
+      metric: 'Metric',
+      imperial: 'Imperial',
+    },
+    dimensionBehavior: {
+      length: {
+        defaultMetricUnit: 'm',
+        metricUnits: ['m', 'cm', 'mm'],
+        imperialMode: 'feet-inches',
+      },
+      width: {
+        defaultMetricUnit: 'm',
+        metricUnits: ['m', 'cm', 'mm'],
+        imperialMode: 'feet-inches',
+      },
+      depth: {
+        defaultMetricUnit: 'mm',
+        metricUnits: ['m', 'cm', 'mm'],
+        imperialMode: 'inches',
+      },
+    },
+    resultDisplay: {
+      options: ['same', 'metric', 'imperial', 'both'],
     },
     advancedSettings: {
       swellFactor: true,
@@ -146,13 +207,13 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
     defaults: {
       materialId: 'topsoil',
       inputUnitSystem: 'metric',
-      outputUnitPreference: 'both',
+      outputUnitPreference: 'same',
       truckCapacityTons: 21.5,
     },
     allowedMaterialIds: ['topsoil'],
     labels: {
       inputUnits: 'Input Units',
-      outputUnits: 'Output Units',
+      resultDisplay: 'Result Display',
       material: 'Soil Type',
       useAdvanced: 'Use advanced topsoil settings',
       dimensions: {
@@ -162,15 +223,35 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
       },
       advanced: {
         swellFactor: 'Swell Factor',
-        wetMaterialPercentage: 'Wet Material Percentage (%)',
-        compactionPercentage: 'Compaction Percentage (%)',
-        truckCapacityTons: 'Truck Capacity (tonnes)',
+        wetMaterialPercentage: 'Wet Material Adjustment (%)',
+        compactionPercentage: 'Compaction Adjustment (%)',
+        truckCapacityTons: 'Truck Capacity (tons)',
         halfLoadToggle: 'Half-load season / road restriction',
       },
     },
     unitHints: {
-      metric: 'Metric (m / m / m)',
-      imperial: 'Imperial (ft / ft / in)',
+      metric: 'Metric',
+      imperial: 'Imperial',
+    },
+    dimensionBehavior: {
+      length: {
+        defaultMetricUnit: 'm',
+        metricUnits: ['m', 'cm', 'mm'],
+        imperialMode: 'feet-inches',
+      },
+      width: {
+        defaultMetricUnit: 'm',
+        metricUnits: ['m', 'cm', 'mm'],
+        imperialMode: 'feet-inches',
+      },
+      depth: {
+        defaultMetricUnit: 'mm',
+        metricUnits: ['m', 'cm', 'mm'],
+        imperialMode: 'inches',
+      },
+    },
+    resultDisplay: {
+      options: ['same', 'metric', 'imperial', 'both'],
     },
     advancedSettings: {
       swellFactor: true,
@@ -181,3 +262,32 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
     },
   },
 };
+
+export function getCalculatorConfig(kind: CalculatorKind): CalculatorConfig {
+  return calculatorConfigs[kind];
+}
+
+export function createCalculatorFormInput(
+  config: CalculatorConfig,
+): CalculatorFormInput {
+  return {
+    length: createInitialDimensionInput(
+      config.dimensionBehavior.length.defaultMetricUnit,
+    ),
+    width: createInitialDimensionInput(
+      config.dimensionBehavior.width.defaultMetricUnit,
+    ),
+    depth: createInitialDimensionInput(
+      config.dimensionBehavior.depth.defaultMetricUnit,
+    ),
+    inputUnitSystem: config.defaults.inputUnitSystem,
+    outputUnitPreference: config.defaults.outputUnitPreference,
+    materialId: config.defaults.materialId,
+    useAdvanced: false,
+    swellFactor: '',
+    wetMaterialPercentage: '',
+    compactionPercentage: '',
+    isHalfLoad: false,
+    truckCapacityTons: config.defaults.truckCapacityTons,
+  };
+}

@@ -68,14 +68,17 @@ Do not place calculator-specific normalization or business rules in generic util
 Assume many users will access Bellhouse calculators on mobile while on-site, in vehicles, or away from a desk.
 
 - Design calculators mobile-first.
-- Prioritize quick entry, scanability, and clear outputs on phones.
+- Prioritize quick entry, scanability, and clear outputs on phones used on-site.
 - Stack fields vertically on smaller screens.
 - Avoid cramped multi-column forms on mobile.
 - Use large tap targets for inputs, checkboxes, toggles, and selects.
-- Preserve readable font sizes and spacing.
+- Preserve readable font sizes, field spacing, and touch-friendly separation between controls.
+- Keep grouped dimension inputs practical on mobile so they stay thumb-friendly even when using separate unit fields.
+- Support separate feet and inches inputs without making the mobile layout cramped or hard to tap.
 - Avoid tiny helper text or dense instructional copy near the calculator.
 - Avoid layouts that require horizontal scrolling.
-- Results must be easy to scan quickly on mobile.
+- Results must be easy to scan quickly on mobile, with the most important outputs visible in compact stacked blocks or cards.
+- Keep labels, values, and spacing clear enough that users can check results quickly from the cab, site, or yard without hunting across the screen.
 - Desktop enhancements must not reduce mobile usability.
 
 ### Calculator Styling Rules
@@ -94,11 +97,14 @@ Assume many users will access Bellhouse calculators on mobile while on-site, in 
 
 - Calculator pages should feel like compact estimating tools, not oversized generic forms.
 - Keep the calculator shell tighter and more compact than a typical landing page form.
-- Avoid overly large cards, excessive padding, and oversized result panels.
-- Input fields should not all span unnecessarily wide widths on desktop.
-- Group related dimension fields together to reduce visual sprawl.
+- Avoid oversized calculator shells that make the tool feel bloated or slow to scan.
+- Avoid overly large cards, excessive card padding, and oversized result panels.
+- Avoid unnecessarily wide input fields on desktop when a narrower working width is more practical.
+- Group related dimension fields together to reduce visual sprawl and make entry faster.
 - Keep advanced settings visually secondary and collapsed or hidden until enabled.
-- Results should be easy to scan and should not dominate the page with oversized blocks.
+- Results should stay compact, easy to scan, and should not dominate the page with oversized blocks.
+- Prefer compact result cards or stacked result groups over large summary panels with excessive empty space.
+- Desktop layout can open up more than mobile, but it should still feel like a practical estimating tool rather than a marketing page form.
 
 ### Input and Output Unit Rules
 
@@ -106,16 +112,16 @@ Users must be able to choose input units separately from output display.
 
 #### Input units
 
-Input unit selection should be simple and limited to:
+The main input unit selector should be simple and limited to:
 
 - Metric
 - Imperial
 
-Do not overload the main input selector with sub-unit choices.
+Do not overload the main input selector with sub-unit choices or output-display choices.
 
 #### Output display
 
-Output unit selection should live in the results area, not in the main input section.
+Output display should be controlled in the results area, not in the main input section.
 
 Default output display should be:
 
@@ -127,13 +133,14 @@ Users should also be able to switch results to:
 - Imperial
 - Both
 
-Do not assume output units should always match the selected input units, but default to "Same as input" for the most intuitive behavior.
+Do not assume output units should always match the selected input units, but document "Same as input" as the default result-display behavior.
 
 Users should be able to:
 
 - enter dimensions in metric and view imperial outputs
 - enter dimensions in imperial and view metric outputs
 - view both where useful
+- Changing output display should affect result presentation only, not input behavior or calculation logic.
 
 ### Dimension Input UX Rules
 
@@ -149,6 +156,7 @@ Dimension entry must feel intuitive for real users, especially on mobile.
   - cm
   - mm
 - Prefer a single value plus a unit selector over multiple separate metric sub-unit fields.
+- Keep any per-field unit handling inside the dimension inputs, not in the main input-system selector.
 - Do not force users to convert everything mentally into decimal metres before entry.
 
 #### Imperial input behavior
@@ -163,8 +171,9 @@ Dimension entry must feel intuitive for real users, especially on mobile.
 
 - All dimension inputs must be normalized before calculation.
 - The calculation engine should receive normalized numeric values only.
-- Metric dimensions should normalize to metres.
-- Imperial dimensions should normalize to metres.
+- Metric dimensions entered as `m`, `cm`, or `mm` should normalize to metres.
+- Imperial dimensions entered as `ft` and `in` should normalize to metres.
+- Detailed normalization requirements should stay in the calculation rules so the implementation has one source of truth.
 
 #### Usability rule
 
@@ -204,17 +213,6 @@ At minimum support:
 
 Where appropriate, the UI may show metric and imperial volume outputs together.
 
-### Output Unit UX Rule
-
-- Input units should be selected in the input section.
-- Output unit selection should live in the results section.
-- Default output display should be "Same as input".
-- Users should still be able to switch result display to:
-  - Metric
-  - Imperial
-  - Both
-- Changing output display should affect result presentation only, not input behavior or calculation logic.
-
 ### Calculator Calculation Rules
 
 #### Base flow
@@ -238,6 +236,13 @@ Do not pass raw form input into the calculation engine if form state can contain
 - partially entered values
 
 Use a dedicated normalization step between form state and calculation logic.
+
+Normalization must account for the dimension-entry model used in the UI:
+
+- Metric dimensions entered as `m`, `cm`, or `mm` must normalize to metres before calculation.
+- Imperial dimensions entered as `ft` and `in` must normalize to metres before calculation.
+- The calculation layer should work from normalized numeric values only, never raw UI field values.
+- Keep the separation between form input state and normalized calculation input types intact.
 
 #### Wet material rule
 
@@ -345,10 +350,11 @@ Calculator pages may include supporting SEO copy below the tool, but that copy m
 
 A calculator implementation is complete when:
 
-- users can select Metric or Imperial as the input system
+- users can select Metric or Imperial as the main input system
 - metric inputs support m, cm, and mm entry
 - imperial inputs support intuitive feet and inches entry where appropriate
-- output display defaults to "Same as input" and can be switched in the results area
+- output display defaults to "Same as input"
+- output display can be switched in the results area
 - users can still view metric, imperial, or both outputs
 - the calculation engine only receives normalized numeric input
 - excavation, gravel, and topsoil all run on the shared system

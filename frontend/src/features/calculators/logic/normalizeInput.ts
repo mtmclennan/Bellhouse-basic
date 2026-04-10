@@ -1,8 +1,16 @@
 import type {
   CalculatorCalculationInput,
+  CalculatorDimensionBehavior,
+  CalculatorDimensionFormInput,
   CalculatorEditableNumber,
   CalculatorFormInput,
+  CalculatorDimensionKey,
 } from '../types/calculator';
+import {
+  feetAndInchesToMeters,
+  inchesToMeters,
+  metricDimensionToMeters,
+} from './conversions';
 
 function normalizeRequiredPositiveNumber(
   value: CalculatorEditableNumber,
@@ -42,23 +50,99 @@ function normalizeOptionalNonNegativeNumber(
   return value;
 }
 
+function normalizeRequiredMetricDimension(
+  input: CalculatorDimensionFormInput,
+  behavior: CalculatorDimensionBehavior,
+): number | null {
+  if (!behavior.metricUnits.includes(input.metricUnit)) {
+    return null;
+  }
+
+  const value = normalizeRequiredPositiveNumber(input.metricValue);
+  if (value === null) {
+    return null;
+  }
+
+  return metricDimensionToMeters(value, input.metricUnit);
+}
+
+function normalizeFeetAndInchesDimension(
+  input: CalculatorDimensionFormInput,
+): number | null {
+  const feet = normalizeOptionalNonNegativeNumber(input.feet);
+  const inches = normalizeOptionalNonNegativeNumber(input.inches);
+
+  if (feet === null || inches === null) {
+    return null;
+  }
+
+  const totalFeet = feet ?? 0;
+  const totalInches = inches ?? 0;
+
+  if (totalFeet <= 0 && totalInches <= 0) {
+    return null;
+  }
+
+  return feetAndInchesToMeters(totalFeet, totalInches);
+}
+
+function normalizeInchesDimension(
+  input: CalculatorDimensionFormInput,
+): number | null {
+  const inches = normalizeRequiredPositiveNumber(input.inches);
+
+  if (inches === null) {
+    return null;
+  }
+
+  return inchesToMeters(inches);
+}
+
+function normalizeDimensionInput(
+  input: CalculatorDimensionFormInput,
+  unitSystem: CalculatorFormInput['inputUnitSystem'],
+  behavior: CalculatorDimensionBehavior,
+): number | null {
+  if (unitSystem === 'metric') {
+    return normalizeRequiredMetricDimension(input, behavior);
+  }
+
+  if (behavior.imperialMode === 'inches') {
+    return normalizeInchesDimension(input);
+  }
+
+  return normalizeFeetAndInchesDimension(input);
+}
+
 export function normalizeCalculatorInput(
   input: CalculatorFormInput,
+  dimensionBehavior: Record<CalculatorDimensionKey, CalculatorDimensionBehavior>,
 ): CalculatorCalculationInput | null {
-  const length = normalizeRequiredPositiveNumber(input.length);
-  const width = normalizeRequiredPositiveNumber(input.width);
-  const depth = normalizeRequiredPositiveNumber(input.depth);
+  const lengthM = normalizeDimensionInput(
+    input.length,
+    input.inputUnitSystem,
+    dimensionBehavior.length,
+  );
+  const widthM = normalizeDimensionInput(
+    input.width,
+    input.inputUnitSystem,
+    dimensionBehavior.width,
+  );
+  const depthM = normalizeDimensionInput(
+    input.depth,
+    input.inputUnitSystem,
+    dimensionBehavior.depth,
+  );
 
-  if (length === null || width === null || depth === null) {
+  if (lengthM === null || widthM === null || depthM === null) {
     return null;
   }
 
   if (!input.useAdvanced) {
     return {
-      length,
-      width,
-      depth,
-      inputUnitSystem: input.inputUnitSystem,
+      lengthM,
+      widthM,
+      depthM,
       materialId: input.materialId,
       useAdvanced: false,
       isHalfLoad: false,
@@ -84,10 +168,9 @@ export function normalizeCalculatorInput(
   }
 
   return {
-    length,
-    width,
-    depth,
-    inputUnitSystem: input.inputUnitSystem,
+    lengthM,
+    widthM,
+    depthM,
     materialId: input.materialId,
     useAdvanced: input.useAdvanced,
     swellFactor,

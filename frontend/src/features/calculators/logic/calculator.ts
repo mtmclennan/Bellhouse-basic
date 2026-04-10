@@ -1,4 +1,4 @@
-import { dimensionsToMeters, m3ToCubicYards } from './conversions';
+import { m3ToCubicYards } from './conversions';
 import type {
   CalculatorCalculationInput,
   CalculatorResult,
@@ -20,14 +20,7 @@ export function calculateProjectMaterial(
   input: CalculatorCalculationInput,
   material: Material,
 ): CalculatorResult {
-  const { lengthM, widthM, depthM } = dimensionsToMeters(
-    input.length,
-    input.width,
-    input.depth,
-    input.inputUnitSystem,
-  );
-
-  const baseVolumeM3 = lengthM * widthM * depthM;
+  const baseVolumeM3 = input.lengthM * input.widthM * input.depthM;
 
   let adjustedVolumeM3 = baseVolumeM3;
 

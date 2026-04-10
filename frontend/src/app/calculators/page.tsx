@@ -18,6 +18,7 @@ const calculatorCards = [
     meta: 'Excavation estimating',
     blurb:
       'Estimate excavation volume, tonnage, and truck loads for foundation digs, cut work, and general earthmoving.',
+    bestFor: 'Best for: digs, cut-and-fill, and haul-out planning',
   },
   {
     slug: 'gravel',
@@ -26,6 +27,7 @@ const calculatorCards = [
     meta: 'Aggregate estimating',
     blurb:
       'Work out gravel quantities, tonnage, and likely truck loads for pads, lanes, base prep, and imported aggregate.',
+    bestFor: 'Best for: driveways, pads, lanes, and base prep',
   },
   {
     slug: 'topsoil',
@@ -34,21 +36,9 @@ const calculatorCards = [
     meta: 'Topsoil estimating',
     blurb:
       'Estimate topsoil coverage, weight, and load count for grading, finish shaping, and landscape prep.',
+    bestFor: 'Best for: finish grading, coverage checks, and topsoil planning',
   },
 ] as const;
-
-const valuePoints = [
-  {
-    title: 'Built for quick field estimates',
-    description:
-      'These tools are meant to help you get a fast working number for material, weight, and hauling while the job is being planned or priced.',
-  },
-  {
-    title: 'Useful before you call',
-    description:
-      'A rough calculator result can make it easier to describe the job clearly before asking Bellhouse about fit, truck needs, or the likely next step.',
-  },
-];
 
 export const metadata: Metadata = {
   title: 'Excavation, Gravel & Topsoil Calculators | Bellhouse',
@@ -106,6 +96,7 @@ export default function CalculatorsPage() {
               <li>Quick quantity checks before calling in a quote request</li>
               <li>Working out rough truck loads for export or import</li>
               <li>Comparing excavation, gravel, and topsoil needs cleanly</li>
+              <li>Choosing the right next step before Bellhouse reviews the job</li>
             </ul>
           </div>
         </div>
@@ -113,33 +104,12 @@ export default function CalculatorsPage() {
 
       <SectionWrapper>
         <div className={classes.sectionIntro}>
-          <p className={classes.sectionEyebrow}>Use the right calculator</p>
-          <h2>Choose the estimating tool that matches the job.</h2>
-          <p>
-            Each calculator is built on the same Bellhouse framework, but the
-            materials, labels, and settings stay focused on the kind of work you
-            are actually pricing or planning.
-          </p>
-        </div>
-
-        <div className={classes.valueGrid}>
-          {valuePoints.map((point) => (
-            <article className={classes.valueCard} key={point.title}>
-              <h3>{point.title}</h3>
-              <p>{point.description}</p>
-            </article>
-          ))}
-        </div>
-      </SectionWrapper>
-
-      <SectionWrapper>
-        <div className={classes.sectionIntro}>
           <p className={classes.sectionEyebrow}>Calculator hub</p>
-          <h2>Go directly to the estimating page you need.</h2>
+          <h2>Choose the estimating tool that matches the work.</h2>
           <p>
-            Use the excavation, gravel, or topsoil calculator below to get a
-            rough working estimate before reaching out to Bellhouse for jobsite
-            review or pricing.
+            Each calculator uses the same Bellhouse estimating framework, but
+            the materials, dimension entry, and settings stay focused on the
+            kind of work you are actually planning.
           </p>
         </div>
 
@@ -150,8 +120,9 @@ export default function CalculatorsPage() {
               <span className={classes.cardMeta}>{card.meta}</span>
               <h3>{calculatorConfigs[card.slug].title}</h3>
               <p>{card.blurb}</p>
+              <p className={classes.cardBestFor}>{card.bestFor}</p>
               <span className={classes.cardLink}>
-                Open {calculatorConfigs[card.slug].title}
+                Open Calculator
               </span>
             </Link>
           ))}

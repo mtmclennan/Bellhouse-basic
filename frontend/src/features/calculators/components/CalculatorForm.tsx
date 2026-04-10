@@ -2,7 +2,10 @@
 
 import { useMemo, useState } from 'react';
 import SectionWrapper from '@/components/layout/SectionWrapper';
-import { calculatorConfigs } from '../config/calculators';
+import {
+  createCalculatorFormInput,
+  getCalculatorConfig,
+} from '../config/calculators';
 import { getMaterialById, getMaterialsByIds } from '../config/materials';
 import { calculateProjectMaterial } from '../logic/calculator';
 import { normalizeCalculatorInput } from '../logic/normalizeInput';
@@ -10,12 +13,15 @@ import { AdvancedSettings } from './AdvancedSettings';
 import { CalculatorResults } from './CalculatorResults';
 import classes from './CalculatorForm.module.scss';
 import type {
+  CalculatorDimensionKey,
+  CalculatorDimensionValueField,
   CalculatorEditableNumber,
   CalculatorFormInput,
   CalculatorKind,
   CalculatorNumberField,
   CalculatorSelectField,
   CalculatorToggleField,
+  MetricDimensionUnit,
 } from '../types/calculator';
 
 type CalculatorFormProps = {
@@ -23,41 +29,29 @@ type CalculatorFormProps = {
 };
 
 export function CalculatorForm({ kind }: CalculatorFormProps) {
-  const config = calculatorConfigs[kind];
+  const config = getCalculatorConfig(kind);
 
-  const [input, setInput] = useState<CalculatorFormInput>({
-    length: '',
-    width: '',
-    depth: '',
-    inputUnitSystem: config.defaults.inputUnitSystem,
-    outputUnitPreference: config.defaults.outputUnitPreference,
-    materialId: config.defaults.materialId,
-    useAdvanced: false,
-    swellFactor: '',
-    wetMaterialPercentage: '',
-    compactionPercentage: '',
-    isHalfLoad: false,
-    truckCapacityTons: config.defaults.truckCapacityTons,
-  });
+  const [input, setInput] = useState<CalculatorFormInput>(() =>
+    createCalculatorFormInput(config),
+  );
 
   const allowedMaterials = useMemo(() => {
     return getMaterialsByIds(config.allowedMaterialIds);
   }, [config.allowedMaterialIds]);
 
   const material = getMaterialById(input.materialId);
-  const dimensionUnits =
-    input.inputUnitSystem === 'metric'
-      ? { length: 'm', width: 'm', depth: 'm' }
-      : { length: 'ft', width: 'ft', depth: 'in' };
 
   const result = useMemo(() => {
     if (!material) return null;
 
-    const normalizedInput = normalizeCalculatorInput(input);
+    const normalizedInput = normalizeCalculatorInput(
+      input,
+      config.dimensionBehavior,
+    );
     if (!normalizedInput) return null;
 
     return calculateProjectMaterial(normalizedInput, material);
-  }, [input, material]);
+  }, [config.dimensionBehavior, input, material]);
 
   const updateNumberField = (
     field: CalculatorNumberField,
@@ -66,6 +60,33 @@ export function CalculatorForm({ kind }: CalculatorFormProps) {
     setInput((prev) => ({
       ...prev,
       [field]: value,
+    }));
+  };
+
+  const updateDimensionValueField = (
+    dimension: CalculatorDimensionKey,
+    field: CalculatorDimensionValueField,
+    value: CalculatorEditableNumber,
+  ) => {
+    setInput((prev) => ({
+      ...prev,
+      [dimension]: {
+        ...prev[dimension],
+        [field]: value,
+      },
+    }));
+  };
+
+  const updateDimensionUnitField = (
+    dimension: CalculatorDimensionKey,
+    value: MetricDimensionUnit,
+  ) => {
+    setInput((prev) => ({
+      ...prev,
+      [dimension]: {
+        ...prev[dimension],
+        metricUnit: value,
+      },
     }));
   };
 
@@ -89,6 +110,15 @@ export function CalculatorForm({ kind }: CalculatorFormProps) {
     }));
   };
 
+  const dimensionEntries = (
+    ['length', 'width', 'depth'] as CalculatorDimensionKey[]
+  ).map((dimensionKey) => ({
+    key: dimensionKey,
+    label: config.labels.dimensions[dimensionKey],
+    behavior: config.dimensionBehavior[dimensionKey],
+    value: input[dimensionKey],
+  }));
+
   return (
     <SectionWrapper
       className={classes.section}
@@ -105,8 +135,8 @@ export function CalculatorForm({ kind }: CalculatorFormProps) {
           <div className={classes.panelHeader}>
             <h2>Project Inputs</h2>
             <p>
-              Enter dimensions, choose the material, and adjust the advanced
-              settings only if the job needs them.
+              Enter field measurements in the format that makes the job easiest
+              to estimate, then review the output in the units you want.
             </p>
           </div>
 
@@ -131,27 +161,10 @@ export function CalculatorForm({ kind }: CalculatorFormProps) {
                 </select>
               </label>
 
-              <label className={classes.field}>
-                <span>{config.labels.outputUnits}</span>
-                <select
-                  value={input.outputUnitPreference}
-                  onChange={(e) =>
-                    updateSelectField(
-                      'outputUnitPreference',
-                      e.target.value as CalculatorFormInput['outputUnitPreference'],
-                    )
-                  }
-                  className={classes.selectControl}
-                >
-                  <option value="metric">Metric only</option>
-                  <option value="imperial">Imperial only</option>
-                  <option value="both">Metric and imperial</option>
-                </select>
-              </label>
-
               <p className={classes.unitHint}>
-                Input units and output units are separate, so you can enter
-                field measurements one way and review results another way.
+                Input units stay here in the project-input section. Result
+                display is controlled in the results panel so it does not affect
+                how you enter measurements.
               </p>
             </div>
 
@@ -159,66 +172,124 @@ export function CalculatorForm({ kind }: CalculatorFormProps) {
               <p className={classes.fieldGroupLabel}>Dimensions</p>
 
               <div className={classes.dimensionGrid}>
-                <label className={classes.field}>
-                  <span>
-                    {config.labels.dimensions.length} ({dimensionUnits.length})
-                  </span>
-                  <input
-                    type="number"
-                    inputMode="decimal"
-                    min="0"
-                    step="any"
-                    value={input.length}
-                    onChange={(e) =>
-                      updateNumberField(
-                        'length',
-                        e.target.value === '' ? '' : Number(e.target.value),
-                      )
-                    }
-                    className={classes.fieldControl}
-                  />
-                </label>
+                {dimensionEntries.map((dimension) => (
+                  <div className={classes.dimensionCard} key={dimension.key}>
+                    <span className={classes.dimensionLabel}>
+                      {dimension.label}
+                    </span>
 
-                <label className={classes.field}>
-                  <span>
-                    {config.labels.dimensions.width} ({dimensionUnits.width})
-                  </span>
-                  <input
-                    type="number"
-                    inputMode="decimal"
-                    min="0"
-                    step="any"
-                    value={input.width}
-                    onChange={(e) =>
-                      updateNumberField(
-                        'width',
-                        e.target.value === '' ? '' : Number(e.target.value),
-                      )
-                    }
-                    className={classes.fieldControl}
-                  />
-                </label>
+                    {input.inputUnitSystem === 'metric' ? (
+                      <div className={classes.dimensionMetricRow}>
+                        <input
+                          type="number"
+                          inputMode="decimal"
+                          min="0"
+                          step="any"
+                          value={dimension.value.metricValue}
+                          onChange={(e) =>
+                            updateDimensionValueField(
+                              dimension.key,
+                              'metricValue',
+                              e.target.value === ''
+                                ? ''
+                                : Number(e.target.value),
+                            )
+                          }
+                          className={classes.fieldControl}
+                        />
 
-                <label className={classes.field}>
-                  <span>
-                    {config.labels.dimensions.depth} ({dimensionUnits.depth})
-                  </span>
-                  <input
-                    type="number"
-                    inputMode="decimal"
-                    min="0"
-                    step="any"
-                    value={input.depth}
-                    onChange={(e) =>
-                      updateNumberField(
-                        'depth',
-                        e.target.value === '' ? '' : Number(e.target.value),
-                      )
-                    }
-                    className={classes.fieldControl}
-                  />
-                </label>
+                        <select
+                          value={dimension.value.metricUnit}
+                          onChange={(e) =>
+                            updateDimensionUnitField(
+                              dimension.key,
+                              e.target.value as MetricDimensionUnit,
+                            )
+                          }
+                          className={`${classes.selectControl} ${classes.dimensionUnitSelect}`}
+                        >
+                          {dimension.behavior.metricUnits.map((unit) => (
+                            <option key={unit} value={unit}>
+                              {unit}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    ) : dimension.behavior.imperialMode === 'feet-inches' ? (
+                      <div className={classes.dimensionImperialRow}>
+                        <label className={classes.subField}>
+                          <span>Feet</span>
+                          <input
+                            type="number"
+                            inputMode="decimal"
+                            min="0"
+                            step="1"
+                            value={dimension.value.feet}
+                            onChange={(e) =>
+                              updateDimensionValueField(
+                                dimension.key,
+                                'feet',
+                                e.target.value === ''
+                                  ? ''
+                                  : Number(e.target.value),
+                              )
+                            }
+                            className={classes.fieldControl}
+                          />
+                        </label>
+
+                        <label className={classes.subField}>
+                          <span>Inches</span>
+                          <input
+                            type="number"
+                            inputMode="decimal"
+                            min="0"
+                            step="any"
+                            value={dimension.value.inches}
+                            onChange={(e) =>
+                              updateDimensionValueField(
+                                dimension.key,
+                                'inches',
+                                e.target.value === ''
+                                  ? ''
+                                  : Number(e.target.value),
+                              )
+                            }
+                            className={classes.fieldControl}
+                          />
+                        </label>
+                      </div>
+                    ) : (
+                      <label className={classes.subField}>
+                        <span>Inches</span>
+                        <input
+                          type="number"
+                          inputMode="decimal"
+                          min="0"
+                          step="any"
+                          value={dimension.value.inches}
+                          onChange={(e) =>
+                            updateDimensionValueField(
+                              dimension.key,
+                              'inches',
+                              e.target.value === ''
+                                ? ''
+                                : Number(e.target.value),
+                            )
+                          }
+                          className={classes.fieldControl}
+                        />
+                      </label>
+                    )}
+                  </div>
+                ))}
               </div>
+
+              <p className={classes.dimensionHint}>
+                Metric dimensions use one value and one unit selector. Imperial
+                entry uses feet and inches where it makes the most sense for the
+                calculator.
+              </p>
             </div>
 
             <div className={classes.fieldGroup}>
@@ -266,6 +337,8 @@ export function CalculatorForm({ kind }: CalculatorFormProps) {
                   fieldGroupLabel: classes.fieldGroupLabel,
                   field: classes.field,
                   fieldControl: classes.fieldControl,
+                  fieldNote: classes.fieldNote,
+                  settingsNote: classes.settingsNote,
                   toggleCard: classes.toggleCard,
                 }}
                 labels={config.labels.advanced}
@@ -297,16 +370,26 @@ export function CalculatorForm({ kind }: CalculatorFormProps) {
 
         <CalculatorResults
           result={result}
+          inputUnitSystem={input.inputUnitSystem}
           outputUnitPreference={input.outputUnitPreference}
+          onOutputUnitPreferenceChange={(value) =>
+            updateSelectField('outputUnitPreference', value)
+          }
+          outputDisplayLabel={config.labels.resultDisplay}
+          availableOutputUnitPreferences={config.resultDisplay.options}
           classes={{
             resultsPanel: classes.resultsPanel,
             resultsHeader: classes.resultsHeader,
+            resultsHeaderTop: classes.resultsHeaderTop,
+            resultsControls: classes.resultsControls,
             resultsBody: classes.resultsBody,
             resultsIntro: classes.resultsIntro,
             placeholder: classes.placeholder,
-            resultsGrid: classes.resultsGrid,
+            resultsPrimaryGrid: classes.resultsPrimaryGrid,
+            resultsSecondary: classes.resultsSecondary,
             resultCard: classes.resultCard,
             resultCardPrimary: classes.resultCardPrimary,
+            resultCardMuted: classes.resultCardMuted,
             resultLabel: classes.resultLabel,
             resultValue: classes.resultValue,
             resultValueSplit: classes.resultValueSplit,

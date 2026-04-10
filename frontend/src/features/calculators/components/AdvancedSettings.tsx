@@ -5,6 +5,8 @@ type CalculatorStyleClasses = {
   fieldGroupLabel: string;
   field: string;
   fieldControl: string;
+  fieldNote: string;
+  settingsNote: string;
   toggleCard: string;
 };
 
@@ -52,14 +54,20 @@ export function AdvancedSettings({
   return (
     <div className={classes.fieldGroup}>
       <p className={classes.fieldGroupLabel}>Advanced Settings</p>
+      <p className={classes.settingsNote}>
+        Use these only when the job needs extra hauling or material
+        adjustments. Percent fields are converted automatically, and half-load
+        mode changes truck-load estimates only.
+      </p>
 
       {visibility.swellFactor && (
-        <label className={classes.field}>
+        <div className={classes.field}>
           <span>{labels.swellFactor}</span>
           <input
             type="number"
             inputMode="decimal"
             step="0.01"
+            min="0.01"
             value={values.swellFactor}
             onChange={(e) =>
               onSwellFactorChange(
@@ -68,11 +76,15 @@ export function AdvancedSettings({
             }
             className={classes.fieldControl}
           />
-        </label>
+          <p className={classes.fieldNote}>
+            Example: `1.25` means the loose material takes up about 25% more
+            space than the bank volume.
+          </p>
+        </div>
       )}
 
       {visibility.compactionPercentage && (
-        <label className={classes.field}>
+        <div className={classes.field}>
           <span>{labels.compactionPercentage}</span>
           <input
             type="number"
@@ -87,11 +99,14 @@ export function AdvancedSettings({
             }
             className={classes.fieldControl}
           />
-        </label>
+          <p className={classes.fieldNote}>
+            Enter the extra percentage needed for compacted placement.
+          </p>
+        </div>
       )}
 
       {visibility.wetMaterialPercentage && (
-        <label className={classes.field}>
+        <div className={classes.field}>
           <span>{labels.wetMaterialPercentage}</span>
           <input
             type="number"
@@ -106,11 +121,15 @@ export function AdvancedSettings({
             }
             className={classes.fieldControl}
           />
-        </label>
+          <p className={classes.fieldNote}>
+            This moisture adjustment changes estimated tonnage only, not base
+            volume.
+          </p>
+        </div>
       )}
 
       {visibility.truckCapacityTons && (
-        <label className={classes.field}>
+        <div className={classes.field}>
           <span>{labels.truckCapacityTons}</span>
           <input
             type="number"
@@ -125,18 +144,28 @@ export function AdvancedSettings({
             }
             className={classes.fieldControl}
           />
-        </label>
+          <p className={classes.fieldNote}>
+            Used for load-count estimates only. It does not change project
+            volume or tonnage.
+          </p>
+        </div>
       )}
 
       {visibility.halfLoadToggle && (
-        <label className={classes.toggleCard}>
-          <input
-            type="checkbox"
-            checked={values.isHalfLoad}
-            onChange={(e) => onHalfLoadChange(e.target.checked)}
-          />
-          <span>{labels.halfLoadToggle}</span>
-        </label>
+        <div className={classes.fieldGroup}>
+          <label className={classes.toggleCard}>
+            <input
+              type="checkbox"
+              checked={values.isHalfLoad}
+              onChange={(e) => onHalfLoadChange(e.target.checked)}
+            />
+            <span>{labels.halfLoadToggle}</span>
+          </label>
+          <p className={classes.fieldNote}>
+            Applies a conservative 50% truck-payload assumption for road-legal
+            hauling estimates only.
+          </p>
+        </div>
       )}
     </div>
   );
