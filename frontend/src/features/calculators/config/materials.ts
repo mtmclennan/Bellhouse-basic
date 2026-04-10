@@ -6,41 +6,48 @@ export const materials: Material[] = [
     name: 'Native Soil',
     densityTonsPerM3: 1.8,
     defaultSwellFactor: 1.2,
-    wetDensityMultiplier: 1.08,
+    defaultWetMaterialPercentage: 8,
   },
   {
     id: 'clay',
     name: 'Clay',
     densityTonsPerM3: 1.9,
     defaultSwellFactor: 1.4,
-    wetDensityMultiplier: 1.1,
+    defaultWetMaterialPercentage: 10,
   },
   {
     id: 'granular-a',
     name: 'Granular A',
     densityTonsPerM3: 2.2,
-    defaultCompactionFactor: 1.12,
+    defaultCompactionPercentage: 12,
     defaultSwellFactor: 1.05,
-    wetDensityMultiplier: 1.03,
+    defaultWetMaterialPercentage: 3,
   },
   {
     id: 'granular-b',
     name: 'Granular B',
     densityTonsPerM3: 2.0,
-    defaultCompactionFactor: 1.15,
+    defaultCompactionPercentage: 15,
     defaultSwellFactor: 1.05,
-    wetDensityMultiplier: 1.03,
+    defaultWetMaterialPercentage: 3,
   },
   {
     id: 'topsoil',
     name: 'Topsoil',
     densityTonsPerM3: 1.4,
     defaultSwellFactor: 1.25,
-    defaultCompactionFactor: 1.05,
-    wetDensityMultiplier: 1.1,
+    defaultCompactionPercentage: 5,
+    defaultWetMaterialPercentage: 10,
   },
 ];
 
 export function getMaterialById(id: MaterialId) {
   return materials.find((material) => material.id === id);
+}
+
+export function getMaterialsByIds(ids: readonly MaterialId[]): Material[] {
+  return ids.flatMap((id) => {
+    const material = getMaterialById(id);
+    return material ? [material] : [];
+  });
 }

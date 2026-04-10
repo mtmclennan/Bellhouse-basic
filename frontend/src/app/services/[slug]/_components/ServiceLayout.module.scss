@@ -418,6 +418,12 @@
   color: v.$text-color-dark;
 }
 
+.calculatorSection {
+  padding: 7rem 2rem;
+  background-color: v.$color-primary-light;
+  color: v.$text-color-dark;
+}
+
 .contractorCtaShell {
   max-width: 96rem;
   margin: 0 auto;
@@ -444,6 +450,10 @@
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.84);
   }
+}
+
+.calculatorShell {
+  @extend .contractorCtaShell;
 }
 
 .contractorActions {

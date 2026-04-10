@@ -1,4 +1,5 @@
 export type UnitSystem = 'metric' | 'imperial';
+export type OutputUnitPreference = 'metric' | 'imperial' | 'both';
 
 export type CalculatorKind = 'excavation' | 'gravel' | 'topsoil';
 
@@ -14,21 +15,55 @@ export type Material = {
   name: string;
   densityTonsPerM3: number;
   defaultSwellFactor?: number;
-  defaultCompactionFactor?: number;
-  wetDensityMultiplier?: number;
+  defaultCompactionPercentage?: number;
+  defaultWetMaterialPercentage?: number;
 };
 
-export type CalculatorInput = {
-  length: number | '';
-  width: number | '';
-  depth: number | '';
-  unitSystem: UnitSystem;
+export type CalculatorEditableNumber = number | '';
+
+export type CalculatorNumberField =
+  | 'length'
+  | 'width'
+  | 'depth'
+  | 'swellFactor'
+  | 'wetMaterialPercentage'
+  | 'compactionPercentage'
+  | 'truckCapacityTons';
+
+export type CalculatorToggleField = 'useAdvanced' | 'isHalfLoad';
+
+export type CalculatorSelectField =
+  | 'inputUnitSystem'
+  | 'outputUnitPreference'
+  | 'materialId';
+
+export type CalculatorFormInput = {
+  length: CalculatorEditableNumber;
+  width: CalculatorEditableNumber;
+  depth: CalculatorEditableNumber;
+  inputUnitSystem: UnitSystem;
+  outputUnitPreference: OutputUnitPreference;
   materialId: MaterialId;
   useAdvanced: boolean;
-  swellFactor?: number | '';
-  compactionFactor?: number | '';
-  isWet: boolean;
-  truckCapacityTons?: number | '';
+  swellFactor: CalculatorEditableNumber;
+  wetMaterialPercentage: CalculatorEditableNumber;
+  compactionPercentage: CalculatorEditableNumber;
+  isHalfLoad: boolean;
+  truckCapacityTons: CalculatorEditableNumber;
+};
+
+export type CalculatorCalculationInput = {
+  length: number;
+  width: number;
+  depth: number;
+  inputUnitSystem: UnitSystem;
+  materialId: MaterialId;
+  useAdvanced: boolean;
+  swellFactor?: number;
+  wetMaterialPercentage?: number;
+  compactionPercentage?: number;
+  isHalfLoad: boolean;
+  truckCapacityTons?: number;
 };
 
 export type CalculatorResult = {
@@ -39,9 +74,4 @@ export type CalculatorResult = {
   cubicYards: number;
 };
 
-export type CalculatorField = keyof CalculatorInput;
-
-export type UpdateCalculatorField = <K extends CalculatorField>(
-  field: K,
-  value: CalculatorInput[K],
-) => void;
+export type CalculatorField = keyof CalculatorFormInput;

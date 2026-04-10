@@ -1,25 +1,20 @@
 import { dimensionsToMeters, m3ToCubicYards } from './conversions';
 import type {
+  CalculatorCalculationInput,
   CalculatorResult,
   Material,
-  UnitSystem,
-  MaterialId,
 } from '../types/calculator';
 
 const DEFAULT_TRUCK_CAPACITY_TONS = 21.5;
+const HALF_LOAD_CAPACITY_MULTIPLIER = 0.5;
 
-export type CalculatorCalculationInput = {
-  length: number;
-  width: number;
-  depth: number;
-  unitSystem: UnitSystem;
-  materialId: MaterialId;
-  useAdvanced: boolean;
-  swellFactor?: number;
-  compactionFactor?: number;
-  isWet: boolean;
-  truckCapacityTons?: number;
-};
+function percentageToMultiplier(percentage?: number) {
+  if (percentage === undefined) {
+    return 1;
+  }
+
+  return 1 + percentage / 100;
+}
 
 export function calculateProjectMaterial(
   input: CalculatorCalculationInput,
@@ -29,7 +24,7 @@ export function calculateProjectMaterial(
     input.length,
     input.width,
     input.depth,
-    input.unitSystem,
+    input.inputUnitSystem,
   );
 
   const baseVolumeM3 = lengthM * widthM * depthM;
@@ -37,25 +32,34 @@ export function calculateProjectMaterial(
   let adjustedVolumeM3 = baseVolumeM3;
 
   const swellFactor = input.swellFactor ?? material.defaultSwellFactor ?? 1;
-  const compactionFactor =
-    input.compactionFactor ?? material.defaultCompactionFactor ?? 1;
+  const compactionPercentage =
+    input.compactionPercentage ?? material.defaultCompactionPercentage;
+  const compactionMultiplier = percentageToMultiplier(compactionPercentage);
 
   if (input.useAdvanced) {
     adjustedVolumeM3 *= swellFactor;
-    adjustedVolumeM3 *= compactionFactor;
+    adjustedVolumeM3 *= compactionMultiplier;
   }
 
-  const wetMultiplier =
-    input.useAdvanced && input.isWet ? (material.wetDensityMultiplier ?? 1) : 1;
+  const wetMaterialPercentage =
+    input.wetMaterialPercentage ?? material.defaultWetMaterialPercentage;
+  const wetMaterialMultiplier =
+    input.useAdvanced ? percentageToMultiplier(wetMaterialPercentage) : 1;
 
-  const tons = adjustedVolumeM3 * material.densityTonsPerM3 * wetMultiplier;
+  const tons =
+    adjustedVolumeM3 * material.densityTonsPerM3 * wetMaterialMultiplier;
 
-  const truckCapacityTons =
-    input.truckCapacityTons && input.truckCapacityTons > 0
+  const enteredTruckCapacityTons =
+    input.useAdvanced && input.truckCapacityTons && input.truckCapacityTons > 0
       ? input.truckCapacityTons
       : DEFAULT_TRUCK_CAPACITY_TONS;
 
-  const truckLoads = tons / truckCapacityTons;
+  const effectiveTruckCapacityTons =
+    input.useAdvanced && input.isHalfLoad
+      ? enteredTruckCapacityTons * HALF_LOAD_CAPACITY_MULTIPLIER
+      : enteredTruckCapacityTons;
+
+  const truckLoads = tons / effectiveTruckCapacityTons;
 
   return {
     baseVolumeM3,

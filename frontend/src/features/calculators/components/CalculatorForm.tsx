@@ -1,17 +1,22 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { materials, getMaterialById } from '../config/materials';
-import { calculateProjectMaterial } from '../logic/calculator';
-import { CalculatorResults } from './CalculatorResults';
-import { AdvancedSettings } from './AdvancedSettings';
-import type {
-  CalculatorKind,
-  CalculatorInput,
-  UpdateCalculatorField,
-} from '../types/calculator';
+import SectionWrapper from '@/components/layout/SectionWrapper';
 import { calculatorConfigs } from '../config/calculators';
+import { getMaterialById, getMaterialsByIds } from '../config/materials';
+import { calculateProjectMaterial } from '../logic/calculator';
 import { normalizeCalculatorInput } from '../logic/normalizeInput';
+import { AdvancedSettings } from './AdvancedSettings';
+import { CalculatorResults } from './CalculatorResults';
+import classes from './CalculatorForm.module.scss';
+import type {
+  CalculatorEditableNumber,
+  CalculatorFormInput,
+  CalculatorKind,
+  CalculatorNumberField,
+  CalculatorSelectField,
+  CalculatorToggleField,
+} from '../types/calculator';
 
 type CalculatorFormProps = {
   kind: CalculatorKind;
@@ -20,24 +25,30 @@ type CalculatorFormProps = {
 export function CalculatorForm({ kind }: CalculatorFormProps) {
   const config = calculatorConfigs[kind];
 
-  const [input, setInput] = useState<CalculatorInput>({
+  const [input, setInput] = useState<CalculatorFormInput>({
     length: '',
     width: '',
     depth: '',
-    unitSystem: 'metric',
-    materialId: config.defaultMaterialId,
+    inputUnitSystem: config.defaults.inputUnitSystem,
+    outputUnitPreference: config.defaults.outputUnitPreference,
+    materialId: config.defaults.materialId,
     useAdvanced: false,
     swellFactor: '',
-    compactionFactor: '',
-    isWet: false,
-    truckCapacityTons: 21.5,
+    wetMaterialPercentage: '',
+    compactionPercentage: '',
+    isHalfLoad: false,
+    truckCapacityTons: config.defaults.truckCapacityTons,
   });
 
-  const allowedMaterials = materials.filter((material) =>
-    config.allowedMaterialIds.includes(material.id),
-  );
+  const allowedMaterials = useMemo(() => {
+    return getMaterialsByIds(config.allowedMaterialIds);
+  }, [config.allowedMaterialIds]);
 
   const material = getMaterialById(input.materialId);
+  const dimensionUnits =
+    input.inputUnitSystem === 'metric'
+      ? { length: 'm', width: 'm', depth: 'm' }
+      : { length: 'ft', width: 'ft', depth: 'in' };
 
   const result = useMemo(() => {
     if (!material) return null;
@@ -48,7 +59,30 @@ export function CalculatorForm({ kind }: CalculatorFormProps) {
     return calculateProjectMaterial(normalizedInput, material);
   }, [input, material]);
 
-  const updateField: UpdateCalculatorField = (field, value) => {
+  const updateNumberField = (
+    field: CalculatorNumberField,
+    value: CalculatorEditableNumber,
+  ) => {
+    setInput((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
+  };
+
+  const updateToggleField = (
+    field: CalculatorToggleField,
+    value: boolean,
+  ) => {
+    setInput((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
+  };
+
+  const updateSelectField = <K extends CalculatorSelectField>(
+    field: K,
+    value: CalculatorFormInput[K],
+  ) => {
     setInput((prev) => ({
       ...prev,
       [field]: value,
@@ -56,117 +90,231 @@ export function CalculatorForm({ kind }: CalculatorFormProps) {
   };
 
   return (
-    <div className="grid gap-6 lg:grid-cols-2">
-      <div className="space-y-4 rounded-2xl border p-6">
-        <h1 className="text-2xl font-bold">{config.title}</h1>
+    <SectionWrapper
+      className={classes.section}
+      containerClassName={classes.container}
+      spacing="loose"
+    >
+      <div className={classes.intro}>
+        <h1>{config.title}</h1>
         <p>{config.description}</p>
-
-        <label className="block">
-          <span className="block mb-1">Unit System</span>
-          <select
-            value={input.unitSystem}
-            onChange={(e) =>
-              updateField(
-                'unitSystem',
-                e.target.value as CalculatorInput['unitSystem'],
-              )
-            }
-            className="w-full rounded border px-3 py-2"
-          >
-            <option value="metric">{config.unitHints.metric}</option>
-            <option value="imperial">{config.unitHints.imperial}</option>
-          </select>
-        </label>
-
-        <label className="block">
-          <span className="block mb-1">{config.dimensionLabels.length}</span>
-          <input
-            type="number"
-            value={input.length}
-            onChange={(e) =>
-              updateField(
-                'length',
-                e.target.value === '' ? '' : Number(e.target.value),
-              )
-            }
-            className="w-full rounded border px-3 py-2"
-          />
-        </label>
-
-        <label className="block">
-          <span className="block mb-1">{config.dimensionLabels.width}</span>
-          <input
-            type="number"
-            value={input.width}
-            onChange={(e) =>
-              updateField(
-                'width',
-                e.target.value === '' ? '' : Number(e.target.value),
-              )
-            }
-            className="w-full rounded border px-3 py-2"
-          />
-        </label>
-
-        <label className="block">
-          <span className="block mb-1">{config.dimensionLabels.depth}</span>
-          <input
-            type="number"
-            value={input.depth}
-            onChange={(e) =>
-              updateField(
-                'depth',
-                e.target.value === '' ? '' : Number(e.target.value),
-              )
-            }
-            className="w-full rounded border px-3 py-2"
-          />
-        </label>
-
-        <label className="block">
-          <span className="block mb-1">Material</span>
-          <select
-            value={input.materialId}
-            onChange={(e) =>
-              updateField(
-                'materialId',
-                e.target.value as CalculatorInput['materialId'],
-              )
-            }
-            className="w-full rounded border px-3 py-2"
-          >
-            {allowedMaterials.map((material) => (
-              <option key={material.id} value={material.id}>
-                {material.name}
-              </option>
-            ))}
-          </select>
-        </label>
-
-        <label className="flex items-center gap-2">
-          <input
-            type="checkbox"
-            checked={input.useAdvanced}
-            onChange={(e) => updateField('useAdvanced', e.target.checked)}
-          />
-          <span>Use advanced settings</span>
-        </label>
-
-        {input.useAdvanced && (
-          <AdvancedSettings
-            swellFactor={input.swellFactor}
-            compactionFactor={input.compactionFactor}
-            isWet={input.isWet}
-            truckCapacityTons={input.truckCapacityTons}
-            onChange={updateField}
-            allowSwell={config.allowSwell}
-            allowCompaction={config.allowCompaction}
-            allowWetToggle={config.allowWetToggle}
-          />
-        )}
       </div>
 
-      <CalculatorResults result={result} />
-    </div>
+      <div className={classes.shell}>
+        <div className={classes.panel}>
+          <div className={classes.panelHeader}>
+            <h2>Project Inputs</h2>
+            <p>
+              Enter dimensions, choose the material, and adjust the advanced
+              settings only if the job needs them.
+            </p>
+          </div>
+
+          <div className={classes.formBody}>
+            <div className={classes.fieldGroup}>
+              <p className={classes.fieldGroupLabel}>Units</p>
+
+              <label className={classes.field}>
+                <span>{config.labels.inputUnits}</span>
+                <select
+                  value={input.inputUnitSystem}
+                  onChange={(e) =>
+                    updateSelectField(
+                      'inputUnitSystem',
+                      e.target.value as CalculatorFormInput['inputUnitSystem'],
+                    )
+                  }
+                  className={classes.selectControl}
+                >
+                  <option value="metric">{config.unitHints.metric}</option>
+                  <option value="imperial">{config.unitHints.imperial}</option>
+                </select>
+              </label>
+
+              <label className={classes.field}>
+                <span>{config.labels.outputUnits}</span>
+                <select
+                  value={input.outputUnitPreference}
+                  onChange={(e) =>
+                    updateSelectField(
+                      'outputUnitPreference',
+                      e.target.value as CalculatorFormInput['outputUnitPreference'],
+                    )
+                  }
+                  className={classes.selectControl}
+                >
+                  <option value="metric">Metric only</option>
+                  <option value="imperial">Imperial only</option>
+                  <option value="both">Metric and imperial</option>
+                </select>
+              </label>
+
+              <p className={classes.unitHint}>
+                Input units and output units are separate, so you can enter
+                field measurements one way and review results another way.
+              </p>
+            </div>
+
+            <div className={classes.fieldGroup}>
+              <p className={classes.fieldGroupLabel}>Dimensions</p>
+
+              <div className={classes.dimensionGrid}>
+                <label className={classes.field}>
+                  <span>
+                    {config.labels.dimensions.length} ({dimensionUnits.length})
+                  </span>
+                  <input
+                    type="number"
+                    inputMode="decimal"
+                    min="0"
+                    step="any"
+                    value={input.length}
+                    onChange={(e) =>
+                      updateNumberField(
+                        'length',
+                        e.target.value === '' ? '' : Number(e.target.value),
+                      )
+                    }
+                    className={classes.fieldControl}
+                  />
+                </label>
+
+                <label className={classes.field}>
+                  <span>
+                    {config.labels.dimensions.width} ({dimensionUnits.width})
+                  </span>
+                  <input
+                    type="number"
+                    inputMode="decimal"
+                    min="0"
+                    step="any"
+                    value={input.width}
+                    onChange={(e) =>
+                      updateNumberField(
+                        'width',
+                        e.target.value === '' ? '' : Number(e.target.value),
+                      )
+                    }
+                    className={classes.fieldControl}
+                  />
+                </label>
+
+                <label className={classes.field}>
+                  <span>
+                    {config.labels.dimensions.depth} ({dimensionUnits.depth})
+                  </span>
+                  <input
+                    type="number"
+                    inputMode="decimal"
+                    min="0"
+                    step="any"
+                    value={input.depth}
+                    onChange={(e) =>
+                      updateNumberField(
+                        'depth',
+                        e.target.value === '' ? '' : Number(e.target.value),
+                      )
+                    }
+                    className={classes.fieldControl}
+                  />
+                </label>
+              </div>
+            </div>
+
+            <div className={classes.fieldGroup}>
+              <p className={classes.fieldGroupLabel}>Material</p>
+
+              <label className={classes.field}>
+                <span>{config.labels.material}</span>
+                <select
+                  value={input.materialId}
+                  onChange={(e) =>
+                    updateSelectField(
+                      'materialId',
+                      e.target.value as CalculatorFormInput['materialId'],
+                    )
+                  }
+                  className={classes.selectControl}
+                >
+                  {allowedMaterials.map((materialOption) => (
+                    <option key={materialOption.id} value={materialOption.id}>
+                      {materialOption.name}
+                    </option>
+                  ))}
+                </select>
+              </label>
+
+              <p className={classes.materialNote}>
+                Only materials relevant to this calculator are shown to keep the
+                estimate focused and easier to use on site.
+              </p>
+            </div>
+
+            <label className={classes.toggleCard}>
+              <input
+                type="checkbox"
+                checked={input.useAdvanced}
+                onChange={(e) => updateToggleField('useAdvanced', e.target.checked)}
+              />
+              <span>{config.labels.useAdvanced}</span>
+            </label>
+
+            {input.useAdvanced && (
+              <AdvancedSettings
+                classes={{
+                  fieldGroup: classes.fieldGroup,
+                  fieldGroupLabel: classes.fieldGroupLabel,
+                  field: classes.field,
+                  fieldControl: classes.fieldControl,
+                  toggleCard: classes.toggleCard,
+                }}
+                labels={config.labels.advanced}
+                visibility={config.advancedSettings}
+                values={{
+                  swellFactor: input.swellFactor,
+                  wetMaterialPercentage: input.wetMaterialPercentage,
+                  compactionPercentage: input.compactionPercentage,
+                  truckCapacityTons: input.truckCapacityTons,
+                  isHalfLoad: input.isHalfLoad,
+                }}
+                onSwellFactorChange={(value) =>
+                  updateNumberField('swellFactor', value)
+                }
+                onWetMaterialPercentageChange={(value) =>
+                  updateNumberField('wetMaterialPercentage', value)
+                }
+                onCompactionPercentageChange={(value) =>
+                  updateNumberField('compactionPercentage', value)
+                }
+                onTruckCapacityTonsChange={(value) =>
+                  updateNumberField('truckCapacityTons', value)
+                }
+                onHalfLoadChange={(value) => updateToggleField('isHalfLoad', value)}
+              />
+            )}
+          </div>
+        </div>
+
+        <CalculatorResults
+          result={result}
+          outputUnitPreference={input.outputUnitPreference}
+          classes={{
+            resultsPanel: classes.resultsPanel,
+            resultsHeader: classes.resultsHeader,
+            resultsBody: classes.resultsBody,
+            resultsIntro: classes.resultsIntro,
+            placeholder: classes.placeholder,
+            resultsGrid: classes.resultsGrid,
+            resultCard: classes.resultCard,
+            resultCardPrimary: classes.resultCardPrimary,
+            resultLabel: classes.resultLabel,
+            resultValue: classes.resultValue,
+            resultValueSplit: classes.resultValueSplit,
+            resultMeta: classes.resultMeta,
+            resultDisclaimer: classes.resultDisclaimer,
+          }}
+        />
+      </div>
+    </SectionWrapper>
   );
 }

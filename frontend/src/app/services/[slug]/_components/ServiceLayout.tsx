@@ -24,12 +24,48 @@ interface ServiceLayoutProps {
   contractorCta: ContractorCtaContent | null;
 }
 
+const serviceCalculatorLinks: Partial<
+  Record<
+    ServicePage['slug'],
+    {
+      href: string;
+      title: string;
+      description: string;
+      actionLabel: string;
+    }
+  >
+> = {
+  'foundation-excavation': {
+    href: '/calculators/excavation',
+    title: 'Need a rough excavation quantity first?',
+    description:
+      'Use the Bellhouse excavation calculator to estimate volume, tonnage, and likely truck loads before requesting a quote.',
+    actionLabel: 'Use Excavation Calculator',
+  },
+  'site-preparation-land-grading': {
+    href: '/calculators/gravel',
+    title: 'Planning aggregate or grading quantities?',
+    description:
+      'The Bellhouse gravel calculator is a practical way to rough out imported stone, pad depth, and likely truck loads before site review.',
+    actionLabel: 'Use Gravel Calculator',
+  },
+  'dirt-gravel-delivery': {
+    href: '/calculators/gravel',
+    title: 'Need a quick material estimate before ordering?',
+    description:
+      'Use the Bellhouse gravel calculator to estimate aggregate quantity, weight, and rough truck count before requesting delivery.',
+    actionLabel: 'Use Gravel Calculator',
+  },
+};
+
 export default function ServiceLayout({
   service,
   linkedServiceAreas,
   relatedServices,
   contractorCta,
 }: ServiceLayoutProps) {
+  const calculatorLink = serviceCalculatorLinks[service.slug];
+
   return (
     <>
       <section className={classes.container}>
@@ -206,6 +242,24 @@ export default function ServiceLayout({
                 className={classes.btnSecondary}
               >
                 {contractorCta.secondaryLabel}
+              </Link>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {calculatorLink ? (
+        <section className={classes.calculatorSection}>
+          <div className={classes.calculatorShell}>
+            <p className={classes.eyebrow}>Planning tool</p>
+            <h2>{calculatorLink.title}</h2>
+            <p>{calculatorLink.description}</p>
+            <div className={classes.contractorActions}>
+              <Link href={calculatorLink.href} className={classes.btn}>
+                {calculatorLink.actionLabel}
+              </Link>
+              <Link href="/calculators" className={classes.btnSecondary}>
+                View All Calculators
               </Link>
             </div>
           </div>

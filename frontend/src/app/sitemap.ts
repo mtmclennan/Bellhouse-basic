@@ -5,6 +5,7 @@ import { serviceAreaPageList } from '@/lib/serviceAreas';
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://bellhouseexcavating.ca';
   const lastModified = new Date();
+  const calculatorSlugs = ['excavation', 'gravel', 'topsoil'] as const;
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
@@ -23,6 +24,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified,
       changeFrequency: 'yearly',
       priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/calculators`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/service-areas`,
@@ -64,5 +71,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
-  return [...staticPages, ...servicePages, ...serviceAreaPages];
+  const calculatorPages: MetadataRoute.Sitemap = calculatorSlugs.map((slug) => ({
+    url: `${baseUrl}/calculators/${slug}`,
+    lastModified,
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...servicePages, ...serviceAreaPages, ...calculatorPages];
 }

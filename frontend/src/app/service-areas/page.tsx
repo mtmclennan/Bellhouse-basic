@@ -107,6 +107,9 @@ export default function ServiceAreasPage() {
               <Link className={classes.secondaryAction} href="/services">
                 View core services
               </Link>
+              <Link className={classes.secondaryAction} href="/calculators">
+                Use Estimating Calculators
+              </Link>
             </div>
           </div>
           <div className={classes.heroMedia}>

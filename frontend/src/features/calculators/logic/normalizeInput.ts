@@ -1,32 +1,99 @@
-import type { CalculatorInput } from '../types/calculator';
-import type { CalculatorCalculationInput } from './calculator';
+import type {
+  CalculatorCalculationInput,
+  CalculatorEditableNumber,
+  CalculatorFormInput,
+} from '../types/calculator';
+
+function normalizeRequiredPositiveNumber(
+  value: CalculatorEditableNumber,
+): number | null {
+  if (value === '' || !Number.isFinite(value) || value <= 0) {
+    return null;
+  }
+
+  return value;
+}
+
+function normalizeOptionalPositiveNumber(
+  value: CalculatorEditableNumber,
+): number | undefined | null {
+  if (value === '') {
+    return undefined;
+  }
+
+  if (!Number.isFinite(value) || value <= 0) {
+    return null;
+  }
+
+  return value;
+}
+
+function normalizeOptionalNonNegativeNumber(
+  value: CalculatorEditableNumber,
+): number | undefined | null {
+  if (value === '') {
+    return undefined;
+  }
+
+  if (!Number.isFinite(value) || value < 0) {
+    return null;
+  }
+
+  return value;
+}
 
 export function normalizeCalculatorInput(
-  input: CalculatorInput,
+  input: CalculatorFormInput,
 ): CalculatorCalculationInput | null {
+  const length = normalizeRequiredPositiveNumber(input.length);
+  const width = normalizeRequiredPositiveNumber(input.width);
+  const depth = normalizeRequiredPositiveNumber(input.depth);
+
+  if (length === null || width === null || depth === null) {
+    return null;
+  }
+
+  if (!input.useAdvanced) {
+    return {
+      length,
+      width,
+      depth,
+      inputUnitSystem: input.inputUnitSystem,
+      materialId: input.materialId,
+      useAdvanced: false,
+      isHalfLoad: false,
+    };
+  }
+
+  const swellFactor = normalizeOptionalPositiveNumber(input.swellFactor);
+  const wetMaterialPercentage = normalizeOptionalNonNegativeNumber(
+    input.wetMaterialPercentage,
+  );
+  const compactionPercentage = normalizeOptionalNonNegativeNumber(
+    input.compactionPercentage,
+  );
+  const truckCapacityTons = normalizeOptionalPositiveNumber(input.truckCapacityTons);
+
   if (
-    input.length === '' ||
-    input.width === '' ||
-    input.depth === '' ||
-    input.length <= 0 ||
-    input.width <= 0 ||
-    input.depth <= 0
+    swellFactor === null ||
+    wetMaterialPercentage === null ||
+    compactionPercentage === null ||
+    truckCapacityTons === null
   ) {
     return null;
   }
 
   return {
-    length: input.length,
-    width: input.width,
-    depth: input.depth,
-    unitSystem: input.unitSystem,
+    length,
+    width,
+    depth,
+    inputUnitSystem: input.inputUnitSystem,
     materialId: input.materialId,
     useAdvanced: input.useAdvanced,
-    swellFactor: input.swellFactor === '' ? undefined : input.swellFactor,
-    compactionFactor:
-      input.compactionFactor === '' ? undefined : input.compactionFactor,
-    isWet: input.isWet,
-    truckCapacityTons:
-      input.truckCapacityTons === '' ? undefined : input.truckCapacityTons,
+    swellFactor,
+    wetMaterialPercentage,
+    compactionPercentage,
+    isHalfLoad: input.isHalfLoad,
+    truckCapacityTons,
   };
 }

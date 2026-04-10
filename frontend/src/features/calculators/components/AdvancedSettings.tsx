@@ -1,95 +1,143 @@
-import type {
-  CalculatorInput,
-  UpdateCalculatorField,
-} from '../types/calculator';
+import type { CalculatorEditableNumber } from '../types/calculator';
+
+type CalculatorStyleClasses = {
+  fieldGroup: string;
+  fieldGroupLabel: string;
+  field: string;
+  fieldControl: string;
+  toggleCard: string;
+};
 
 type AdvancedSettingsProps = {
-  swellFactor?: CalculatorInput['swellFactor'];
-  compactionFactor?: CalculatorInput['compactionFactor'];
-  isWet: CalculatorInput['isWet'];
-  truckCapacityTons?: CalculatorInput['truckCapacityTons'];
-  onChange: UpdateCalculatorField;
-  allowSwell: boolean;
-  allowCompaction: boolean;
-  allowWetToggle: boolean;
+  classes: CalculatorStyleClasses;
+  labels: {
+    swellFactor: string;
+    wetMaterialPercentage: string;
+    compactionPercentage: string;
+    truckCapacityTons: string;
+    halfLoadToggle: string;
+  };
+  visibility: {
+    swellFactor: boolean;
+    wetMaterialPercentage: boolean;
+    compactionPercentage: boolean;
+    truckCapacityTons: boolean;
+    halfLoadToggle: boolean;
+  };
+  values: {
+    swellFactor: CalculatorEditableNumber;
+    wetMaterialPercentage: CalculatorEditableNumber;
+    compactionPercentage: CalculatorEditableNumber;
+    truckCapacityTons: CalculatorEditableNumber;
+    isHalfLoad: boolean;
+  };
+  onSwellFactorChange: (value: CalculatorEditableNumber) => void;
+  onWetMaterialPercentageChange: (value: CalculatorEditableNumber) => void;
+  onCompactionPercentageChange: (value: CalculatorEditableNumber) => void;
+  onTruckCapacityTonsChange: (value: CalculatorEditableNumber) => void;
+  onHalfLoadChange: (value: boolean) => void;
 };
 
 export function AdvancedSettings({
-  swellFactor,
-  compactionFactor,
-  isWet,
-  truckCapacityTons,
-  onChange,
-  allowSwell,
-  allowCompaction,
-  allowWetToggle,
+  classes,
+  labels,
+  visibility,
+  values,
+  onSwellFactorChange,
+  onWetMaterialPercentageChange,
+  onCompactionPercentageChange,
+  onTruckCapacityTonsChange,
+  onHalfLoadChange,
 }: AdvancedSettingsProps) {
   return (
-    <div className="rounded-2xl border p-4 space-y-4">
-      <h3 className="font-semibold">Advanced Settings</h3>
+    <div className={classes.fieldGroup}>
+      <p className={classes.fieldGroupLabel}>Advanced Settings</p>
 
-      {allowSwell && (
-        <label className="block">
-          <span className="block mb-1">Swell Factor</span>
+      {visibility.swellFactor && (
+        <label className={classes.field}>
+          <span>{labels.swellFactor}</span>
           <input
             type="number"
+            inputMode="decimal"
             step="0.01"
-            value={swellFactor ?? ''}
+            value={values.swellFactor}
             onChange={(e) =>
-              onChange(
-                'swellFactor',
+              onSwellFactorChange(
                 e.target.value === '' ? '' : Number(e.target.value),
               )
             }
-            className="w-full rounded border px-3 py-2"
+            className={classes.fieldControl}
           />
         </label>
       )}
 
-      {allowCompaction && (
-        <label className="block">
-          <span className="block mb-1">Compaction Factor</span>
+      {visibility.compactionPercentage && (
+        <label className={classes.field}>
+          <span>{labels.compactionPercentage}</span>
           <input
             type="number"
-            step="0.01"
-            value={compactionFactor ?? ''}
+            inputMode="decimal"
+            step="0.1"
+            min="0"
+            value={values.compactionPercentage}
             onChange={(e) =>
-              onChange(
-                'compactionFactor',
+              onCompactionPercentageChange(
                 e.target.value === '' ? '' : Number(e.target.value),
               )
             }
-            className="w-full rounded border px-3 py-2"
+            className={classes.fieldControl}
           />
         </label>
       )}
 
-      {allowWetToggle && (
-        <label className="flex items-center gap-2">
+      {visibility.wetMaterialPercentage && (
+        <label className={classes.field}>
+          <span>{labels.wetMaterialPercentage}</span>
+          <input
+            type="number"
+            inputMode="decimal"
+            step="0.1"
+            min="0"
+            value={values.wetMaterialPercentage}
+            onChange={(e) =>
+              onWetMaterialPercentageChange(
+                e.target.value === '' ? '' : Number(e.target.value),
+              )
+            }
+            className={classes.fieldControl}
+          />
+        </label>
+      )}
+
+      {visibility.truckCapacityTons && (
+        <label className={classes.field}>
+          <span>{labels.truckCapacityTons}</span>
+          <input
+            type="number"
+            inputMode="decimal"
+            step="0.1"
+            min="0.1"
+            value={values.truckCapacityTons}
+            onChange={(e) =>
+              onTruckCapacityTonsChange(
+                e.target.value === '' ? '' : Number(e.target.value),
+              )
+            }
+            className={classes.fieldControl}
+          />
+        </label>
+      )}
+
+      {visibility.halfLoadToggle && (
+        <label className={classes.toggleCard}>
           <input
             type="checkbox"
-            checked={isWet}
-            onChange={(e) => onChange('isWet', e.target.checked)}
+            checked={values.isHalfLoad}
+            onChange={(e) => onHalfLoadChange(e.target.checked)}
           />
-          <span>Material is wet</span>
+          <span>{labels.halfLoadToggle}</span>
         </label>
       )}
-
-      <label className="block">
-        <span className="block mb-1">Truck Capacity (tonnes)</span>
-        <input
-          type="number"
-          step="0.1"
-          value={truckCapacityTons ?? ''}
-          onChange={(e) =>
-            onChange(
-              'truckCapacityTons',
-              e.target.value === '' ? '' : Number(e.target.value),
-            )
-          }
-          className="w-full rounded border px-3 py-2"
-        />
-      </label>
     </div>
   );
 }

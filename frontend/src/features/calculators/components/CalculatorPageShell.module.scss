@@ -1,0 +1,185 @@
+@use '../../../styles/abstracts/mixins' as m;
+@use '../../../styles/abstracts/variables' as v;
+
+.heroSection,
+.ctaSection {
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(v.$cat-yellow2, 0.12),
+      transparent 28%
+    ),
+    linear-gradient(180deg, #171717 0%, #101010 100%);
+}
+
+.heroContainer,
+.ctaContainer {
+  color: #fff;
+}
+
+.heroContent,
+.ctaContent,
+.supportIntro {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.heroContent {
+  max-width: 84rem;
+
+  h1 {
+    @include m.sectionHeading(4rem, 5.6rem);
+    margin: 0;
+    color: #fff;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1.8rem;
+    line-height: 1.72;
+    color: rgba(255, 255, 255, 0.84);
+  }
+}
+
+.eyebrow {
+  display: inline-flex;
+  width: fit-content;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: v.$cat-yellow2;
+}
+
+.supportIntro {
+  max-width: 82rem;
+  margin: 0 auto;
+  align-items: center;
+  text-align: center;
+
+  h2 {
+    @include m.sectionHeading(4rem, 5rem);
+    margin: 0;
+    color: v.$text-color-mid-dark;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1.8rem;
+    line-height: 1.72;
+    color: v.$text-color-dark;
+  }
+}
+
+.supportGrid {
+  display: grid;
+  gap: 1.8rem;
+
+  @include m.mediaDesktop {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.supportCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  padding: 2.4rem;
+  border-radius: 2rem;
+  border: 1px solid v.$grey-color-3;
+  background-color: #fff;
+  box-shadow: 0 1.4rem 3rem -2.6rem rgba(0, 0, 0, 0.24);
+
+  h3 {
+    margin: 0;
+    font-size: 2.4rem;
+    line-height: 1.2;
+    color: v.$text-color-mid-dark;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1.7rem;
+    line-height: 1.65;
+    color: v.$text-color-dark;
+  }
+}
+
+.ctaShell {
+  display: grid;
+  gap: 2.2rem;
+}
+
+.ctaContent {
+  max-width: 82rem;
+
+  h2 {
+    @include m.sectionHeading(4rem, 5rem);
+    margin: 0;
+    color: #fff;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1.8rem;
+    line-height: 1.72;
+    color: rgba(255, 255, 255, 0.84);
+
+    a {
+      color: #fff;
+      text-decoration: underline;
+      text-underline-offset: 0.22rem;
+
+      &:hover,
+      &:focus-visible {
+        color: v.$cat-yellow2;
+      }
+    }
+  }
+}
+
+.ctaPoints {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    position: relative;
+    padding-left: 1.8rem;
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.82);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0.85rem;
+      left: 0;
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 999px;
+      background-color: v.$cat-yellow2;
+    }
+  }
+}
+
+.ctaActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+  margin-top: 0.8rem;
+}
+
+.primaryAction {
+  @include m.btnMain;
+  @include m.focusRing();
+}
+
+.secondaryAction {
+  @include m.btnSec;
+  @include m.focusRing(rgba(v.$color-primary, 0.5));
+}

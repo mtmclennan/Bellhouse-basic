@@ -28,6 +28,11 @@ const Services = () => {
         actions={[
           { label: 'View All Service Areas', href: '/service-areas' },
           {
+            label: 'Use Estimating Calculators',
+            href: '/calculators',
+            variant: 'secondary',
+          },
+          {
             label: 'For Builders & Contractors',
             href: '/contractors',
             variant: 'secondary',
