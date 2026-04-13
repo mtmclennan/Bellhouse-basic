@@ -6,6 +6,8 @@ import type {
 type CalculatorStyleClasses = {
   advancedFields: string;
   advancedToggleGroup: string;
+  advancedActions: string;
+  resetButton: string;
   fieldGroupLabel: string;
   field: string;
   fieldControl: string;
@@ -46,6 +48,7 @@ type AdvancedSettingsProps = {
   onCompactionPercentageChange: (value: CalculatorEditableNumber) => void;
   onTruckCapacityTonsChange: (value: CalculatorEditableNumber) => void;
   onHalfLoadChange: (value: boolean) => void;
+  onResetDefaults?: () => void;
 };
 
 export function AdvancedSettings({
@@ -59,6 +62,7 @@ export function AdvancedSettings({
   onCompactionPercentageChange,
   onTruckCapacityTonsChange,
   onHalfLoadChange,
+  onResetDefaults,
 }: AdvancedSettingsProps) {
   return (
     <div className={classes.advancedFields}>
@@ -78,7 +82,7 @@ export function AdvancedSettings({
             }
             className={classes.fieldControl}
           />
-          <p className={classes.fieldNote}>Example: `1.25` adds 25%.</p>
+          <p className={classes.fieldNote}>Adjusts loose material quantity.</p>
         </div>
       )}
 
@@ -98,7 +102,7 @@ export function AdvancedSettings({
             }
             className={classes.fieldControl}
           />
-          <p className={classes.fieldNote}>Extra percentage for compacted placement.</p>
+          <p className={classes.fieldNote}>Adjusts compacted quantity.</p>
         </div>
       )}
 
@@ -114,7 +118,7 @@ export function AdvancedSettings({
             <option value="normal">Normal</option>
             <option value="wet">Wet</option>
           </select>
-          <p className={classes.fieldNote}>Changes estimated weight only.</p>
+          <p className={classes.fieldNote}>Affects weight only.</p>
         </div>
       )}
 
@@ -134,7 +138,7 @@ export function AdvancedSettings({
             }
             className={classes.fieldControl}
           />
-          <p className={classes.fieldNote}>Changes tonnage only.</p>
+          <p className={classes.fieldNote}>Affects weight only.</p>
         </div>
       )}
 
@@ -154,7 +158,7 @@ export function AdvancedSettings({
             }
             className={classes.fieldControl}
           />
-          <p className={classes.fieldNote}>Used for truck-load estimates only.</p>
+          <p className={classes.fieldNote}>Used for load estimates.</p>
         </div>
       )}
 
@@ -168,9 +172,21 @@ export function AdvancedSettings({
             />
             <span>{labels.halfLoadToggle}</span>
           </label>
-          <p className={classes.fieldNote}>Cuts load estimates to a 50% payload assumption.</p>
+          <p className={classes.fieldNote}>Cuts legal payload in half.</p>
         </div>
       )}
+
+      {onResetDefaults ? (
+        <div className={classes.advancedActions}>
+          <button
+            type="button"
+            className={classes.resetButton}
+            onClick={onResetDefaults}
+          >
+            Reset to material defaults
+          </button>
+        </div>
+      ) : null}
     </div>
   );
 }

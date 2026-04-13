@@ -112,12 +112,12 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
         depth: 'Excavation Depth',
       },
       advanced: {
-        swellFactor: 'Swell Factor',
+        swellFactor: 'Swell factor',
         moistureLevel: 'Moisture level',
-        wetMaterialPercentage: 'Wet Material Adjustment (%)',
-        compactionPercentage: 'Compaction Adjustment (%)',
-        truckCapacityTons: 'Truck Capacity (tons)',
-        halfLoadToggle: 'Half-load season / road restriction',
+        wetMaterialPercentage: 'Moisture level',
+        compactionPercentage: 'Compaction adjustment (%)',
+        truckCapacityTons: 'Truck payload (tons)',
+        halfLoadToggle: 'Half-load restrictions',
       },
     },
     unitHints: {

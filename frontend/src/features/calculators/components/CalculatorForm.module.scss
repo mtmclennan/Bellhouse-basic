@@ -358,6 +358,36 @@
   gap: 0.45rem;
 }
 
+.advancedActions {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.resetButton {
+  min-height: 4.2rem;
+  padding: 0.9rem 1.3rem;
+  border: 1px solid rgba(v.$text-color-mid-dark, 0.16);
+  border-radius: 999px;
+  background-color: rgba(v.$grey-color-0, 0.92);
+  color: rgba(v.$text-color-mid-dark, 0.9);
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.2;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease;
+  @include m.focusRing(rgba(v.$cat-yellow2, 0.24));
+
+  &:hover,
+  &:focus-visible {
+    border-color: rgba(v.$cat-yellow2, 0.34);
+    background-color: rgba(v.$cat-yellow2, 0.1);
+    color: v.$text-color-dark;
+  }
+}
+
 .toggleCard {
   display: flex;
   align-items: flex-start;
