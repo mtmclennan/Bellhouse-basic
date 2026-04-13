@@ -12,6 +12,16 @@
     linear-gradient(180deg, #171717 0%, #101010 100%);
 }
 
+.heroSection {
+  position: relative;
+  overflow: hidden;
+  padding-top: 11rem;
+
+  @include m.mediaDesktop {
+    padding-top: 22rem;
+  }
+}
+
 .heroContainer,
 .ctaContainer {
   color: #fff;
@@ -27,30 +37,57 @@
 
 .heroContent {
   max-width: 84rem;
+  padding: 1rem 0;
+
+  @include m.mediaDesktop {
+    gap: 2.6rem;
+    padding: 2rem 0;
+  }
 
   h1 {
-    @include m.sectionHeading(4rem, 5.6rem);
+    max-width: 16ch;
+    font-size: 5rem;
+    line-height: 0.98;
+    font-weight: 200;
     margin: 0;
     color: #fff;
+
+    @include m.mediaDesktop {
+      font-size: 7.6rem;
+    }
   }
 
   p {
     margin: 0;
     font-size: 1.8rem;
-    line-height: 1.72;
-    color: rgba(255, 255, 255, 0.84);
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.86);
+
+    @include m.mediaDesktop {
+      font-size: 2rem;
+    }
   }
 }
 
 .eyebrow {
   display: inline-flex;
+  align-items: center;
   width: fit-content;
+  padding: 0.9rem 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background-color: rgba(255, 255, 255, 0.05);
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: v.$cat-yellow2;
+}
+
+.supportIntro .eyebrow {
+  border-color: rgba(v.$cat-yellow2, 0.22);
+  background-color: rgba(v.$cat-yellow2, 0.12);
+  color: v.$text-color-mid-dark;
 }
 
 .supportIntro {

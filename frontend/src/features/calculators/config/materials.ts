@@ -6,6 +6,7 @@ export const materials: Material[] = [
     name: 'Native Soil',
     densityTonsPerM3: 1.8,
     defaultSwellFactor: 1.2,
+    defaultMoistureLevel: 'normal',
     defaultWetMaterialPercentage: 8,
   },
   {
@@ -13,6 +14,7 @@ export const materials: Material[] = [
     name: 'Clay',
     densityTonsPerM3: 1.9,
     defaultSwellFactor: 1.4,
+    defaultMoistureLevel: 'normal',
     defaultWetMaterialPercentage: 10,
   },
   {
@@ -21,6 +23,7 @@ export const materials: Material[] = [
     densityTonsPerM3: 2.2,
     defaultCompactionPercentage: 12,
     defaultSwellFactor: 1.05,
+    defaultMoistureLevel: 'normal',
     defaultWetMaterialPercentage: 3,
   },
   {
@@ -29,6 +32,7 @@ export const materials: Material[] = [
     densityTonsPerM3: 2.0,
     defaultCompactionPercentage: 15,
     defaultSwellFactor: 1.05,
+    defaultMoistureLevel: 'normal',
     defaultWetMaterialPercentage: 3,
   },
   {
@@ -36,6 +40,7 @@ export const materials: Material[] = [
     name: 'Topsoil',
     densityTonsPerM3: 1.4,
     defaultSwellFactor: 1.25,
+    defaultMoistureLevel: 'normal',
     defaultCompactionPercentage: 5,
     defaultWetMaterialPercentage: 10,
   },

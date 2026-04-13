@@ -1,7 +1,8 @@
 export type UnitSystem = 'metric' | 'imperial';
-export type OutputUnitPreference = 'same' | 'metric' | 'imperial' | 'both';
+export type OutputUnitPreference = 'metric' | 'imperial';
 export type MetricDimensionUnit = 'm' | 'cm' | 'mm';
 export type ImperialDimensionMode = 'feet-inches' | 'inches';
+export type MoistureLevel = 'dry' | 'normal' | 'wet';
 
 export type CalculatorKind = 'excavation' | 'gravel' | 'topsoil';
 
@@ -17,6 +18,7 @@ export type Material = {
   name: string;
   densityTonsPerM3: number;
   defaultSwellFactor?: number;
+  defaultMoistureLevel?: MoistureLevel;
   defaultCompactionPercentage?: number;
   defaultWetMaterialPercentage?: number;
 };
@@ -52,7 +54,8 @@ export type CalculatorToggleField = 'useAdvanced' | 'isHalfLoad';
 export type CalculatorSelectField =
   | 'inputUnitSystem'
   | 'outputUnitPreference'
-  | 'materialId';
+  | 'materialId'
+  | 'moistureLevel';
 
 export type CalculatorFormInput = {
   length: CalculatorDimensionFormInput;
@@ -61,6 +64,7 @@ export type CalculatorFormInput = {
   inputUnitSystem: UnitSystem;
   outputUnitPreference: OutputUnitPreference;
   materialId: MaterialId;
+  moistureLevel: MoistureLevel;
   useAdvanced: boolean;
   swellFactor: CalculatorEditableNumber;
   wetMaterialPercentage: CalculatorEditableNumber;
@@ -83,11 +87,11 @@ export type CalculatorCalculationInput = {
 };
 
 export type CalculatorResult = {
-  baseVolumeM3: number;
-  adjustedVolumeM3: number;
-  tons: number;
-  truckLoads: number;
-  cubicYards: number;
+  rawProjectVolumeM3: number;
+  adjustedLooseMaterialVolumeM3: number;
+  adjustedMaterialVolumeM3: number;
+  adjustedWeightTons: number;
+  estimatedTruckLoads: number;
 };
 
 export type CalculatorField = keyof CalculatorFormInput;

@@ -1,0 +1,92 @@
+@use '../../../styles/abstracts/mixins' as m;
+@use '../../../styles/abstracts/variables' as v;
+
+.wrapper {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.wrapperDark {
+  .label {
+    color: rgba(255, 255, 255, 0.76);
+  }
+
+  .optionLabel {
+    color: rgba(255, 255, 255, 0.62);
+  }
+
+  .optionLabelActive {
+    color: #fff;
+  }
+
+  .switch {
+    border-color: rgba(255, 255, 255, 0.14);
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+}
+
+.label {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: v.$text-color-mid-dark;
+}
+
+.row {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 1rem;
+}
+
+.optionLabel {
+  min-width: 6rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  color: rgba(v.$text-color-mid-dark, 0.6);
+  transition: color 0.15s ease;
+}
+
+.optionLabelActive {
+  color: v.$text-color-mid-dark;
+}
+
+.switch {
+  position: relative;
+  display: inline-flex;
+  width: 5.8rem;
+  height: 3.2rem;
+  align-items: center;
+  border: 1px solid rgba(v.$cat-yellow2, 0.35);
+  border-radius: 999px;
+  background-color: rgba(v.$cat-yellow2, 0.14);
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+  @include m.focusRing(rgba(v.$cat-yellow2, 0.28));
+
+  &[data-checked] {
+    background-color: rgba(v.$cat-yellow2, 0.26);
+    border-color: rgba(v.$cat-yellow2, 0.62);
+  }
+}
+
+.thumb {
+  display: inline-block;
+  width: 2.4rem;
+  height: 2.4rem;
+  transform: translateX(0.35rem);
+  border-radius: 999px;
+  background-color: #fff;
+  box-shadow: 0 0.5rem 1rem -0.6rem rgba(0, 0, 0, 0.45);
+  transition: transform 0.18s ease;
+
+  .switch[data-checked] & {
+    transform: translateX(2.65rem);
+  }
+}

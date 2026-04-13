@@ -1,12 +1,16 @@
-import type { CalculatorEditableNumber } from '../types/calculator';
+import type {
+  CalculatorEditableNumber,
+  MoistureLevel,
+} from '../types/calculator';
 
 type CalculatorStyleClasses = {
-  fieldGroup: string;
+  advancedFields: string;
+  advancedToggleGroup: string;
   fieldGroupLabel: string;
   field: string;
   fieldControl: string;
+  selectControl: string;
   fieldNote: string;
-  settingsNote: string;
   toggleCard: string;
 };
 
@@ -14,6 +18,7 @@ type AdvancedSettingsProps = {
   classes: CalculatorStyleClasses;
   labels: {
     swellFactor: string;
+    moistureLevel: string;
     wetMaterialPercentage: string;
     compactionPercentage: string;
     truckCapacityTons: string;
@@ -21,6 +26,7 @@ type AdvancedSettingsProps = {
   };
   visibility: {
     swellFactor: boolean;
+    moistureLevel: boolean;
     wetMaterialPercentage: boolean;
     compactionPercentage: boolean;
     truckCapacityTons: boolean;
@@ -28,12 +34,14 @@ type AdvancedSettingsProps = {
   };
   values: {
     swellFactor: CalculatorEditableNumber;
+    moistureLevel: MoistureLevel;
     wetMaterialPercentage: CalculatorEditableNumber;
     compactionPercentage: CalculatorEditableNumber;
     truckCapacityTons: CalculatorEditableNumber;
     isHalfLoad: boolean;
   };
   onSwellFactorChange: (value: CalculatorEditableNumber) => void;
+  onMoistureLevelChange: (value: MoistureLevel) => void;
   onWetMaterialPercentageChange: (value: CalculatorEditableNumber) => void;
   onCompactionPercentageChange: (value: CalculatorEditableNumber) => void;
   onTruckCapacityTonsChange: (value: CalculatorEditableNumber) => void;
@@ -46,20 +54,14 @@ export function AdvancedSettings({
   visibility,
   values,
   onSwellFactorChange,
+  onMoistureLevelChange,
   onWetMaterialPercentageChange,
   onCompactionPercentageChange,
   onTruckCapacityTonsChange,
   onHalfLoadChange,
 }: AdvancedSettingsProps) {
   return (
-    <div className={classes.fieldGroup}>
-      <p className={classes.fieldGroupLabel}>Advanced Settings</p>
-      <p className={classes.settingsNote}>
-        Use these only when the job needs extra hauling or material
-        adjustments. Percent fields are converted automatically, and half-load
-        mode changes truck-load estimates only.
-      </p>
-
+    <div className={classes.advancedFields}>
       {visibility.swellFactor && (
         <div className={classes.field}>
           <span>{labels.swellFactor}</span>
@@ -76,10 +78,7 @@ export function AdvancedSettings({
             }
             className={classes.fieldControl}
           />
-          <p className={classes.fieldNote}>
-            Example: `1.25` means the loose material takes up about 25% more
-            space than the bank volume.
-          </p>
+          <p className={classes.fieldNote}>Example: `1.25` adds 25%.</p>
         </div>
       )}
 
@@ -99,9 +98,23 @@ export function AdvancedSettings({
             }
             className={classes.fieldControl}
           />
-          <p className={classes.fieldNote}>
-            Enter the extra percentage needed for compacted placement.
-          </p>
+          <p className={classes.fieldNote}>Extra percentage for compacted placement.</p>
+        </div>
+      )}
+
+      {visibility.moistureLevel && (
+        <div className={classes.field}>
+          <span>{labels.moistureLevel}</span>
+          <select
+            value={values.moistureLevel}
+            onChange={(e) => onMoistureLevelChange(e.target.value as MoistureLevel)}
+            className={classes.selectControl}
+          >
+            <option value="dry">Dry</option>
+            <option value="normal">Normal</option>
+            <option value="wet">Wet</option>
+          </select>
+          <p className={classes.fieldNote}>Changes estimated weight only.</p>
         </div>
       )}
 
@@ -121,10 +134,7 @@ export function AdvancedSettings({
             }
             className={classes.fieldControl}
           />
-          <p className={classes.fieldNote}>
-            This moisture adjustment changes estimated tonnage only, not base
-            volume.
-          </p>
+          <p className={classes.fieldNote}>Changes tonnage only.</p>
         </div>
       )}
 
@@ -144,15 +154,12 @@ export function AdvancedSettings({
             }
             className={classes.fieldControl}
           />
-          <p className={classes.fieldNote}>
-            Used for load-count estimates only. It does not change project
-            volume or tonnage.
-          </p>
+          <p className={classes.fieldNote}>Used for truck-load estimates only.</p>
         </div>
       )}
 
       {visibility.halfLoadToggle && (
-        <div className={classes.fieldGroup}>
+        <div className={classes.advancedToggleGroup}>
           <label className={classes.toggleCard}>
             <input
               type="checkbox"
@@ -161,10 +168,7 @@ export function AdvancedSettings({
             />
             <span>{labels.halfLoadToggle}</span>
           </label>
-          <p className={classes.fieldNote}>
-            Applies a conservative 50% truck-payload assumption for road-legal
-            hauling estimates only.
-          </p>
+          <p className={classes.fieldNote}>Cuts load estimates to a 50% payload assumption.</p>
         </div>
       )}
     </div>

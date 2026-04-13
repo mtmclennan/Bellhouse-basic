@@ -13,10 +13,12 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
   const router = useRouter();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
-  const isServiceAreaRoute =
+  const isOverlayRoute =
     currentRoute === '/service-areas' ||
     currentRoute.startsWith('/service-areas/') ||
-    currentRoute.startsWith('/contractors');
+    currentRoute.startsWith('/contractors') ||
+    currentRoute === '/calculators' ||
+    currentRoute.startsWith('/calculators/');
 
   const homeClassname = currentRoute === '/' ? 'active' : 'non-active';
   const servicesClassname =
@@ -34,7 +36,7 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
   return (
     <Fragment>
       <header
-        className={`${classes.header} ${isServiceAreaRoute ? classes.headerOverlay : ''}`}
+        className={`${classes.header} ${isOverlayRoute ? classes.headerOverlay : ''}`}
       >
         <nav className={classes.nav}>
           <div className={classes.logo}>

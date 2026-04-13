@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@getbrevo/brevo": "^3.0.1",
+    "@headlessui/react": "^2.2.10",
     "@phosphor-icons/react": "^2.1.7",
     "form-data": "^4.0.1",
     "googleapis": "^144.0.0",

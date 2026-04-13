@@ -1,11 +1,12 @@
 import type { ReactNode } from 'react';
 import { m3ToCubicYards } from '../logic/conversions';
 import { formatNumber, formatTruckLoads } from '../utils/format';
+import { MetricImperialSwitch } from './MetricImperialSwitch';
 import type {
   CalculatorResult,
   OutputUnitPreference,
-  UnitSystem,
 } from '../types/calculator';
+import type { CalculatorConfig } from '../config/calculators';
 
 type CalculatorResultsStyleClasses = {
   resultsPanel: string;
@@ -13,7 +14,6 @@ type CalculatorResultsStyleClasses = {
   resultsHeaderTop: string;
   resultsControls: string;
   resultsBody: string;
-  resultsIntro: string;
   placeholder: string;
   resultsPrimaryGrid: string;
   resultsSecondary: string;
@@ -24,23 +24,36 @@ type CalculatorResultsStyleClasses = {
   resultValue: string;
   resultValueSplit: string;
   resultMeta: string;
+  assumptionsBlock: string;
+  assumptionsGrid: string;
+  assumptionItem: string;
+  assumptionLabel: string;
+  assumptionValue: string;
   resultDisclaimer: string;
+};
+
+type CalculatorAssumptions = {
+  material: string;
+  swellFactor: number;
+  truckPayloadTons: number;
+  moistureLevel?: string;
+  isHalfLoad?: boolean;
+  compactionPercentage?: number;
 };
 
 type CalculatorResultsProps = {
   result: CalculatorResult | null;
-  inputUnitSystem: UnitSystem;
   outputUnitPreference: OutputUnitPreference;
   onOutputUnitPreferenceChange: (value: OutputUnitPreference) => void;
   outputDisplayLabel: string;
-  availableOutputUnitPreferences: readonly OutputUnitPreference[];
+  resultPresentation: CalculatorConfig['resultPresentation'];
+  assumptions: CalculatorAssumptions | null;
   classes: CalculatorResultsStyleClasses;
 };
 
 function renderVolume(
   cubicMetres: number,
   outputUnitPreference: OutputUnitPreference,
-  resultValueSplitClassName: string,
 ): ReactNode {
   const cubicYards = m3ToCubicYards(cubicMetres);
 
@@ -52,157 +65,179 @@ function renderVolume(
     return `${formatNumber(cubicYards)} yd3`;
   }
 
-  return (
-    <span className={resultValueSplitClassName}>
-      <span>{formatNumber(cubicMetres)} m3</span>
-      <span aria-hidden="true">/</span>
-      <span>{formatNumber(cubicYards)} yd3</span>
-    </span>
-  );
-}
-
-function resolveOutputUnitPreference(
-  outputUnitPreference: OutputUnitPreference,
-  inputUnitSystem: UnitSystem,
-): Exclude<OutputUnitPreference, 'same'> {
-  if (outputUnitPreference === 'same') {
-    return inputUnitSystem;
-  }
-
-  return outputUnitPreference;
+  return `${formatNumber(cubicMetres)} m3`;
 }
 
 export function CalculatorResults({
   result,
-  inputUnitSystem,
   outputUnitPreference,
   onOutputUnitPreferenceChange,
   outputDisplayLabel,
-  availableOutputUnitPreferences,
+  resultPresentation,
+  assumptions,
   classes,
 }: CalculatorResultsProps) {
-  const resolvedOutputUnitPreference = resolveOutputUnitPreference(
-    outputUnitPreference,
-    inputUnitSystem,
+  const showsSeparateLooseMaterial = Boolean(
+    resultPresentation.adjustedVolumeLabel,
   );
+
+  const primaryVolumeValueM3 = result
+    ? showsSeparateLooseMaterial
+      ? result.rawProjectVolumeM3
+      : result.adjustedMaterialVolumeM3
+    : null;
 
   return (
     <div className={classes.resultsPanel}>
       <div className={classes.resultsHeader}>
         <div className={classes.resultsHeaderTop}>
-          <h2>Estimated Results</h2>
-          <label className={classes.resultsControls}>
-            <span>{outputDisplayLabel}</span>
-            <select
+          <h2>Results</h2>
+          <div className={classes.resultsControls}>
+            <MetricImperialSwitch
+              label={outputDisplayLabel}
               value={outputUnitPreference}
-              onChange={(e) =>
-                onOutputUnitPreferenceChange(
-                  e.target.value as OutputUnitPreference,
-                )
-              }
-            >
-              {availableOutputUnitPreferences.map((option) => (
-                <option key={option} value={option}>
-                  {option === 'same'
-                    ? 'Same as input'
-                    : option === 'metric'
-                      ? 'Metric only'
-                      : option === 'imperial'
-                        ? 'Imperial only'
-                        : 'Metric and imperial'}
-                </option>
-              ))}
-            </select>
-          </label>
+              onChange={onOutputUnitPreferenceChange}
+              metricLabel="Metric"
+              imperialLabel="Imperial"
+              tone="dark"
+            />
+          </div>
         </div>
-        <p>
-          Review the material volume, weight, and truck count in a format that
-          is easy to scan from the site or the office.
-        </p>
       </div>
 
       <div className={classes.resultsBody}>
         {!result ? (
           <div className={classes.placeholder}>
-            <p>
-              Enter complete project dimensions and keep any enabled advanced
-              settings valid to see estimated base volume, adjusted volume,
-              tonnage, and truck loads.
-            </p>
+            <p>Enter dimensions to see volume, material, weight, and truck loads.</p>
           </div>
         ) : (
           <>
-            <p className={classes.resultsIntro}>
-              The most useful numbers stay up front so you can check the job
-              quickly from the site, truck, or office.
-            </p>
-
             <div className={classes.resultsPrimaryGrid}>
-              <article
-                className={`${classes.resultCard} ${classes.resultCardPrimary}`}
-              >
-                <span className={classes.resultLabel}>Estimated Volume</span>
+              <article className={`${classes.resultCard} ${classes.resultCardPrimary}`}>
+                <span className={classes.resultLabel}>{resultPresentation.volumeLabel}</span>
                 <strong className={classes.resultValue}>
-                  {renderVolume(
-                    result.adjustedVolumeM3,
-                    resolvedOutputUnitPreference,
-                    classes.resultValueSplit,
-                  )}
+                  {renderVolume(primaryVolumeValueM3 ?? 0, outputUnitPreference)}
                 </strong>
-                <p className={classes.resultMeta}>
-                  Final material volume after the selected advanced settings are
-                  applied.
-                </p>
+                {resultPresentation.showCardMeta ? (
+                  <p className={classes.resultMeta}>Adjusted total material volume.</p>
+                ) : null}
               </article>
 
-              <article className={classes.resultCard}>
-                <span className={classes.resultLabel}>Estimated Weight</span>
+              {resultPresentation.adjustedVolumeLabel ? (
+                <article className={`${classes.resultCard} ${classes.resultCardPrimary}`}>
+                  <span className={classes.resultLabel}>
+                    {resultPresentation.adjustedVolumeLabel}
+                  </span>
+                  <strong className={classes.resultValue}>
+                    {renderVolume(
+                      result.adjustedLooseMaterialVolumeM3,
+                      outputUnitPreference,
+                    )}
+                  </strong>
+                </article>
+              ) : null}
+
+              <article className={`${classes.resultCard} ${classes.resultCardPrimary}`}>
+                <span className={classes.resultLabel}>{resultPresentation.weightLabel}</span>
                 <strong className={classes.resultValue}>
-                  {formatNumber(result.tons)} tonnes
+                  {formatNumber(result.adjustedWeightTons)} tonnes
                 </strong>
-                <p className={classes.resultMeta}>
-                  Tonnage includes the selected material density and any wet
-                  material percentage adjustment.
-                </p>
+                {resultPresentation.showCardMeta ? (
+                  <p className={classes.resultMeta}>
+                    Based on material density and wet adjustment.
+                  </p>
+                ) : null}
               </article>
 
-              <article className={classes.resultCard}>
-                <span className={classes.resultLabel}>Estimated Truck Loads</span>
+              <article className={`${classes.resultCard} ${classes.resultCardPrimary}`}>
+                <span className={classes.resultLabel}>
+                  {resultPresentation.truckLoadsLabel}
+                </span>
                 <strong className={classes.resultValue}>
-                  {formatTruckLoads(result.truckLoads)}
+                  {formatTruckLoads(result.estimatedTruckLoads)}
                 </strong>
-                <p className={classes.resultMeta}>
-                  Load count uses the truck capacity entered in advanced
-                  settings, including half-load mode if selected.
-                </p>
+                {resultPresentation.showCardMeta ? (
+                  <p className={classes.resultMeta}>
+                    Based on truck capacity and half-load mode if used.
+                  </p>
+                ) : null}
               </article>
             </div>
 
-            <div className={classes.resultsSecondary}>
-              <article
-                className={`${classes.resultCard} ${classes.resultCardMuted}`}
-              >
-                <span className={classes.resultLabel}>Base Volume</span>
-                <strong className={classes.resultValue}>
-                  {renderVolume(
-                    result.baseVolumeM3,
-                    resolvedOutputUnitPreference,
-                    classes.resultValueSplit,
-                  )}
-                </strong>
-                <p className={classes.resultMeta}>
-                  Straight calculated excavation or fill volume before advanced
-                  adjustments are applied.
-                </p>
-              </article>
-            </div>
+            {resultPresentation.secondaryVolumeLabel ? (
+              <div className={classes.resultsSecondary}>
+                <article
+                  className={`${classes.resultCard} ${classes.resultCardMuted}`}
+                >
+                  <span className={classes.resultLabel}>
+                    {resultPresentation.secondaryVolumeLabel}
+                  </span>
+                  <strong className={classes.resultValue}>
+                    {renderVolume(
+                      result.rawProjectVolumeM3,
+                      outputUnitPreference,
+                    )}
+                  </strong>
+                  {resultPresentation.showCardMeta ? (
+                    <p className={classes.resultMeta}>Before advanced adjustments.</p>
+                  ) : null}
+                </article>
+              </div>
+            ) : null}
           </>
         )}
 
+        {assumptions ? (
+          <div className={classes.assumptionsBlock}>
+            <span className={classes.assumptionLabel}>Active assumptions</span>
+            <div className={classes.assumptionsGrid}>
+              <div className={classes.assumptionItem}>
+                <span className={classes.assumptionLabel}>Material</span>
+                <span className={classes.assumptionValue}>
+                  {assumptions.material}
+                </span>
+              </div>
+              <div className={classes.assumptionItem}>
+                <span className={classes.assumptionLabel}>Swell factor</span>
+                <span className={classes.assumptionValue}>
+                  {formatNumber(assumptions.swellFactor)}
+                </span>
+              </div>
+              <div className={classes.assumptionItem}>
+                <span className={classes.assumptionLabel}>Truck payload</span>
+                <span className={classes.assumptionValue}>
+                  {formatNumber(assumptions.truckPayloadTons)} tons
+                </span>
+              </div>
+              {assumptions.moistureLevel ? (
+                <div className={classes.assumptionItem}>
+                  <span className={classes.assumptionLabel}>Moisture</span>
+                  <span className={classes.assumptionValue}>
+                    {assumptions.moistureLevel}
+                  </span>
+                </div>
+              ) : null}
+              {assumptions.isHalfLoad ? (
+                <div className={classes.assumptionItem}>
+                  <span className={classes.assumptionLabel}>Half-load mode</span>
+                  <span className={classes.assumptionValue}>On</span>
+                </div>
+              ) : null}
+              {assumptions.compactionPercentage !== undefined &&
+              assumptions.compactionPercentage !== 0 ? (
+                <div className={classes.assumptionItem}>
+                  <span className={classes.assumptionLabel}>Compaction</span>
+                  <span className={classes.assumptionValue}>
+                    {formatNumber(assumptions.compactionPercentage)}%
+                  </span>
+                </div>
+              ) : null}
+            </div>
+          </div>
+        ) : null}
+
         <p className={classes.resultDisclaimer}>
-          Estimates are based on typical material densities and conditions.
-          Actual quantities may vary depending on site conditions, moisture, and
-          hauling requirements.
+          Estimate only. Site conditions, moisture, compaction, and hauling limits can affect actual quantities.
         </p>
       </div>
     </div>

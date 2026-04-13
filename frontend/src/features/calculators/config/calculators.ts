@@ -8,6 +8,8 @@ import type {
   MetricDimensionUnit,
   UnitSystem,
 } from '../types/calculator';
+import { getMaterialById } from './materials';
+import { getMaterialDefaultAssumptions } from '../logic/calculator';
 
 type CalculatorFieldLabels = {
   inputUnits: string;
@@ -21,6 +23,7 @@ type CalculatorFieldLabels = {
   };
   advanced: {
     swellFactor: string;
+    moistureLevel: string;
     wetMaterialPercentage: string;
     compactionPercentage: string;
     truckCapacityTons: string;
@@ -30,6 +33,7 @@ type CalculatorFieldLabels = {
 
 type CalculatorAdvancedSettingVisibility = {
   swellFactor: boolean;
+  moistureLevel: boolean;
   wetMaterialPercentage: boolean;
   compactionPercentage: boolean;
   truckCapacityTons: boolean;
@@ -47,6 +51,15 @@ type CalculatorResultDisplaySettings = {
   options: readonly OutputUnitPreference[];
 };
 
+type CalculatorResultPresentation = {
+  volumeLabel: string;
+  adjustedVolumeLabel?: string;
+  weightLabel: string;
+  truckLoadsLabel: string;
+  secondaryVolumeLabel?: string;
+  showCardMeta: boolean;
+};
+
 export type CalculatorConfig = {
   kind: CalculatorKind;
   title: string;
@@ -60,6 +73,7 @@ export type CalculatorConfig = {
   };
   dimensionBehavior: Record<'length' | 'width' | 'depth', CalculatorDimensionBehavior>;
   resultDisplay: CalculatorResultDisplaySettings;
+  resultPresentation: CalculatorResultPresentation;
   advancedSettings: CalculatorAdvancedSettingVisibility;
 };
 
@@ -83,7 +97,7 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
     defaults: {
       materialId: 'native-soil',
       inputUnitSystem: 'metric',
-      outputUnitPreference: 'same',
+      outputUnitPreference: 'metric',
       truckCapacityTons: 21.5,
     },
     allowedMaterialIds: ['native-soil', 'clay'],
@@ -99,6 +113,7 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
       },
       advanced: {
         swellFactor: 'Swell Factor',
+        moistureLevel: 'Moisture level',
         wetMaterialPercentage: 'Wet Material Adjustment (%)',
         compactionPercentage: 'Compaction Adjustment (%)',
         truckCapacityTons: 'Truck Capacity (tons)',
@@ -127,11 +142,19 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
       },
     },
     resultDisplay: {
-      options: ['same', 'metric', 'imperial', 'both'],
+      options: ['metric', 'imperial'],
+    },
+    resultPresentation: {
+      volumeLabel: 'Excavation volume',
+      adjustedVolumeLabel: 'Estimated loose material',
+      weightLabel: 'Estimated weight',
+      truckLoadsLabel: 'Estimated truck loads',
+      showCardMeta: false,
     },
     advancedSettings: {
       swellFactor: true,
-      wetMaterialPercentage: true,
+      moistureLevel: true,
+      wetMaterialPercentage: false,
       compactionPercentage: true,
       truckCapacityTons: true,
       halfLoadToggle: true,
@@ -145,7 +168,7 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
     defaults: {
       materialId: 'granular-a',
       inputUnitSystem: 'metric',
-      outputUnitPreference: 'same',
+      outputUnitPreference: 'metric',
       truckCapacityTons: 21.5,
     },
     allowedMaterialIds: ['granular-a', 'granular-b'],
@@ -161,6 +184,7 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
       },
       advanced: {
         swellFactor: 'Swell Factor',
+        moistureLevel: 'Moisture level',
         wetMaterialPercentage: 'Wet Material Adjustment (%)',
         compactionPercentage: 'Compaction Adjustment (%)',
         truckCapacityTons: 'Truck Capacity (tons)',
@@ -189,10 +213,18 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
       },
     },
     resultDisplay: {
-      options: ['same', 'metric', 'imperial', 'both'],
+      options: ['metric', 'imperial'],
+    },
+    resultPresentation: {
+      volumeLabel: 'Estimated volume',
+      weightLabel: 'Estimated weight',
+      truckLoadsLabel: 'Estimated truck loads',
+      secondaryVolumeLabel: 'Base volume',
+      showCardMeta: true,
     },
     advancedSettings: {
       swellFactor: true,
+      moistureLevel: false,
       wetMaterialPercentage: true,
       compactionPercentage: true,
       truckCapacityTons: true,
@@ -207,7 +239,7 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
     defaults: {
       materialId: 'topsoil',
       inputUnitSystem: 'metric',
-      outputUnitPreference: 'same',
+      outputUnitPreference: 'metric',
       truckCapacityTons: 21.5,
     },
     allowedMaterialIds: ['topsoil'],
@@ -223,6 +255,7 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
       },
       advanced: {
         swellFactor: 'Swell Factor',
+        moistureLevel: 'Moisture level',
         wetMaterialPercentage: 'Wet Material Adjustment (%)',
         compactionPercentage: 'Compaction Adjustment (%)',
         truckCapacityTons: 'Truck Capacity (tons)',
@@ -251,10 +284,18 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
       },
     },
     resultDisplay: {
-      options: ['same', 'metric', 'imperial', 'both'],
+      options: ['metric', 'imperial'],
+    },
+    resultPresentation: {
+      volumeLabel: 'Estimated volume',
+      weightLabel: 'Estimated weight',
+      truckLoadsLabel: 'Estimated truck loads',
+      secondaryVolumeLabel: 'Base volume',
+      showCardMeta: true,
     },
     advancedSettings: {
       swellFactor: true,
+      moistureLevel: false,
       wetMaterialPercentage: true,
       compactionPercentage: true,
       truckCapacityTons: true,
@@ -270,6 +311,22 @@ export function getCalculatorConfig(kind: CalculatorKind): CalculatorConfig {
 export function createCalculatorFormInput(
   config: CalculatorConfig,
 ): CalculatorFormInput {
+  const defaultMaterial = getMaterialById(config.defaults.materialId);
+  const materialDefaults = defaultMaterial
+    ? getMaterialDefaultAssumptions(
+        config.kind,
+        defaultMaterial,
+        config.defaults.truckCapacityTons,
+      )
+    : {
+        swellFactor: 1,
+        moistureLevel: 'normal' as const,
+        wetMaterialPercentage: 0,
+        compactionPercentage: 0,
+        truckCapacityTons: config.defaults.truckCapacityTons,
+        isHalfLoad: false,
+      };
+
   return {
     length: createInitialDimensionInput(
       config.dimensionBehavior.length.defaultMetricUnit,
@@ -283,11 +340,14 @@ export function createCalculatorFormInput(
     inputUnitSystem: config.defaults.inputUnitSystem,
     outputUnitPreference: config.defaults.outputUnitPreference,
     materialId: config.defaults.materialId,
+    moistureLevel: materialDefaults.moistureLevel,
     useAdvanced: false,
-    swellFactor: '',
-    wetMaterialPercentage: '',
-    compactionPercentage: '',
-    isHalfLoad: false,
-    truckCapacityTons: config.defaults.truckCapacityTons,
+    swellFactor: materialDefaults.swellFactor,
+    wetMaterialPercentage: config.advancedSettings.wetMaterialPercentage
+      ? materialDefaults.wetMaterialPercentage
+      : '',
+    compactionPercentage: materialDefaults.compactionPercentage,
+    isHalfLoad: materialDefaults.isHalfLoad,
+    truckCapacityTons: materialDefaults.truckCapacityTons,
   };
 }

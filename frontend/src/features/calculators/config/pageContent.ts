@@ -27,36 +27,34 @@ export const calculatorPageContent: Record<
     eyebrow: 'Excavation estimating',
     pageTitle: 'Excavation calculator for rough cut, haul-out, and truck planning.',
     intro: [
-      'Use this calculator to work out a rough excavation quantity, tonnage, and likely truck count before the job is priced or the haul plan is finalized.',
-      'It is useful for foundation digs, site cuts, trenching-related volume checks, and general earthmoving where the next question is often how much material is coming out and how many loads that likely means.',
+      'Use this calculator for a quick excavation volume, tonnage, and truck-load estimate before the dig is priced or the haul plan is finalized.',
     ],
     supportHeading: 'What this excavation estimate is good for',
     supportDescription:
-      'The goal is to get a practical working number quickly, not to replace a site visit or a real excavation quote.',
+      'It is for quick planning, not final quoting.',
     supportItems: [
       {
         title: 'Useful for early haul planning',
         description:
-          'Rough tonnage and truck-load counts can help you judge whether a job is small, moderate, or likely to need more coordinated haul-out.',
+          'Use it to get a rough read on spoil quantity and likely truck count.',
       },
       {
         title: 'Site conditions still matter',
         description:
-          'Rock, wet ground, over-excavation, stockpile limits, access, and trucking distance can all change the actual scope once the site is reviewed.',
+          'Rock, wet ground, access, and over-excavation can all change the real number.',
       },
       {
         title: 'Half-load mode is only for road-legal hauling assumptions',
         description:
-          'Turning half-load mode on changes truck-load estimates only. It does not change excavation volume or estimated tonnage.',
+          'It changes load count only, not volume or tonnage.',
       },
     ],
     ctaTitle: 'Need Bellhouse to review the excavation properly?',
     ctaDescription:
-      'Send the location, scope, access conditions, and what the next trade needs so Bellhouse can review fit, likely sequencing, and hauling requirements.',
+      'Send the location, scope, and access details for a real job review.',
     ctaPoints: [
-      'Best used as an estimating tool before quote review.',
-      'Actual excavation quantities can shift with site conditions and machine access.',
-      'Half-load mode only reflects a more conservative hauling assumption.',
+      'Best for early estimating before quote review.',
+      'Site conditions can change actual quantities.',
     ],
     relatedServiceLink: {
       href: '/services/foundation-excavation',
@@ -67,36 +65,34 @@ export const calculatorPageContent: Record<
     eyebrow: 'Gravel estimating',
     pageTitle: 'Gravel calculator for base prep, pads, and imported aggregate.',
     intro: [
-      'Use this calculator to estimate gravel volume, tonnage, and truck loads for driveways, parking areas, building pads, access lanes, and similar aggregate work.',
-      'It is meant to help you get a workable material number before ordering stone or asking Bellhouse about imported aggregate, grading, or truck support.',
+      'Use this calculator for a quick gravel volume, tonnage, and truck-load estimate for pads, lanes, driveways, and base work.',
     ],
     supportHeading: 'How to use the gravel estimate properly',
     supportDescription:
-      'Gravel quantities are often close enough for planning at this stage, but the final material number still depends on what the ground actually needs.',
+      'It is useful for ordering and planning, not a final site review.',
     supportItems: [
       {
         title: 'Good for rough ordering and comparison',
         description:
-          'The estimate helps compare possible depths, materials, and likely truck count before the final base thickness is confirmed on site.',
+          'Compare depths, materials, and likely truck count quickly.',
       },
       {
         title: 'Subgrade and compaction change the real job',
         description:
-          'Soft spots, pumping ground, poor drainage, or added shaping can increase the real quantity beyond the first estimate.',
+          'Soft ground, drainage, and added shaping can increase the actual amount needed.',
       },
       {
         title: 'Half-load mode affects hauling assumptions only',
         description:
-          'Use half-load mode when you want a more conservative load estimate. It does not change the calculated gravel volume or tonnage.',
+          'It changes load count only, not gravel volume or tonnage.',
       },
     ],
     ctaTitle: 'Need Bellhouse to price gravel supply, grading, or delivery?',
     ctaDescription:
-      'Send the project location, dimensions, target depth, access conditions, and material type so Bellhouse can review the real site requirements.',
+      'Send the location, dimensions, depth, and access details for a real site review.',
     ctaPoints: [
-      'Useful for aggregate import, lane prep, and building pads.',
-      'Actual stone volume can change if the subgrade needs more correction.',
-      'Half-load mode is only about truck payload assumptions.',
+      'Useful for imported aggregate, pads, and lane prep.',
+      'Subgrade correction can change actual stone volume.',
     ],
     relatedServiceLink: {
       href: '/services/dirt-gravel-delivery',
@@ -107,36 +103,34 @@ export const calculatorPageContent: Record<
     eyebrow: 'Topsoil estimating',
     pageTitle: 'Topsoil calculator for coverage, finish grading, and material planning.',
     intro: [
-      'Use this calculator to estimate topsoil quantity, tonnage, and truck loads for spreading, finish grading, lawn prep, and similar surface work.',
-      'It is a practical way to get a rough material number before ordering soil or asking Bellhouse about grading, delivery, or final shaping.',
+      'Use this calculator for a quick topsoil quantity, tonnage, and truck-load estimate for coverage, finish grading, and lawn prep.',
     ],
     supportHeading: 'Where this topsoil estimate helps most',
     supportDescription:
-      'Topsoil work is often driven by final depth, finish expectations, and the shape of the site, so the calculator is best used as a planning guide.',
+      'Use it as a planning guide before final grading or delivery is confirmed.',
     supportItems: [
       {
         title: 'Useful for coverage planning',
         description:
-          'It helps compare how much topsoil may be needed across larger lawn areas, finish grades, or rough landscape prep.',
+          'Get a rough read on how much soil a larger area may need.',
       },
       {
         title: 'Depth and finish expectations affect the final number',
         description:
-          'Existing grade, cleanup needs, settlement, and how smooth the finished surface needs to be can all change actual material quantities.',
+          'Existing grade, cleanup, and finish expectations can change the real quantity.',
       },
       {
         title: 'Half-load mode only changes the load estimate',
         description:
-          'It is there for conservative road-legal hauling assumptions only. It does not reduce the estimated topsoil volume or weight.',
+          'It changes load count only, not topsoil volume or weight.',
       },
     ],
     ctaTitle: 'Need Bellhouse to quote topsoil delivery or finish grading?',
     ctaDescription:
-      'Send the project size, target depth, location, and finish expectations so Bellhouse can review the likely material need and the best next step.',
+      'Send the area, target depth, location, and finish expectations for a real review.',
     ctaPoints: [
-      'Best used for early planning before final grading review.',
-      'Actual topsoil quantities vary with existing grade and finish requirements.',
-      'Half-load mode only affects the truck-load count assumption.',
+      'Best for early planning before final grading review.',
+      'Existing grade and finish expectations can change actual quantities.',
     ],
     relatedServiceLink: {
       href: '/services/dirt-gravel-delivery',

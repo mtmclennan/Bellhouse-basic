@@ -1,5 +1,7 @@
 'use client';
 
+import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react';
+import { CaretDown } from '@phosphor-icons/react/dist/ssr';
 import { useMemo, useState } from 'react';
 import SectionWrapper from '@/components/layout/SectionWrapper';
 import {
@@ -7,10 +9,18 @@ import {
   getCalculatorConfig,
 } from '../config/calculators';
 import { getMaterialById, getMaterialsByIds } from '../config/materials';
-import { calculateProjectMaterial } from '../logic/calculator';
+import {
+  calculateProjectMaterial,
+  getMoistureLevelLabel,
+  getMaterialDefaultAssumptions,
+  resolveActiveCompactionPercentage,
+  resolveActiveSwellFactor,
+  resolveActiveTruckPayloadTons,
+} from '../logic/calculator';
 import { normalizeCalculatorInput } from '../logic/normalizeInput';
 import { AdvancedSettings } from './AdvancedSettings';
 import { CalculatorResults } from './CalculatorResults';
+import { MetricImperialSwitch } from './MetricImperialSwitch';
 import classes from './CalculatorForm.module.scss';
 import type {
   CalculatorDimensionKey,
@@ -41,17 +51,54 @@ export function CalculatorForm({ kind }: CalculatorFormProps) {
 
   const material = getMaterialById(input.materialId);
 
-  const result = useMemo(() => {
-    if (!material) return null;
-
-    const normalizedInput = normalizeCalculatorInput(
+  const normalizedInput = useMemo(() => {
+    return normalizeCalculatorInput(
       input,
-      config.dimensionBehavior,
+      config,
+      material,
     );
-    if (!normalizedInput) return null;
+  }, [config, input, material]);
+
+  const result = useMemo(() => {
+    if (!material || !normalizedInput) return null;
 
     return calculateProjectMaterial(normalizedInput, material);
-  }, [config.dimensionBehavior, input, material]);
+  }, [material, normalizedInput]);
+
+  const assumptions = useMemo(() => {
+    if (kind !== 'excavation' || !material || !normalizedInput) {
+      return null;
+    }
+
+    return {
+      material: material.name,
+      swellFactor: resolveActiveSwellFactor(normalizedInput, material),
+      truckPayloadTons: resolveActiveTruckPayloadTons(normalizedInput),
+      isHalfLoad: normalizedInput.useAdvanced && normalizedInput.isHalfLoad,
+      moistureLevel: config.advancedSettings.moistureLevel
+        ? getMoistureLevelLabel(input.moistureLevel)
+        : undefined,
+      compactionPercentage: resolveActiveCompactionPercentage(
+        normalizedInput,
+        material,
+      ),
+    };
+  }, [config.advancedSettings.moistureLevel, input.moistureLevel, kind, material, normalizedInput]);
+
+  const excavationAdvancedValues = useMemo(() => {
+    if (kind !== 'excavation') {
+      return null;
+    }
+
+    return {
+      swellFactor: input.swellFactor,
+      moistureLevel: input.moistureLevel,
+      wetMaterialPercentage: input.wetMaterialPercentage,
+      compactionPercentage: input.compactionPercentage,
+      truckCapacityTons: input.truckCapacityTons,
+      isHalfLoad: input.isHalfLoad,
+    };
+  }, [input.compactionPercentage, input.isHalfLoad, input.moistureLevel, input.swellFactor, input.truckCapacityTons, kind, input.wetMaterialPercentage]);
 
   const updateNumberField = (
     field: CalculatorNumberField,
@@ -100,6 +147,41 @@ export function CalculatorForm({ kind }: CalculatorFormProps) {
     }));
   };
 
+  const updateExcavationAdvancedNumberField = (
+    field: CalculatorNumberField,
+    value: CalculatorEditableNumber,
+  ) => {
+    setInput((prev) => ({
+      ...prev,
+      useAdvanced: true,
+      [field]: value,
+    }));
+  };
+
+  const updateExcavationAdvancedToggleField = (
+    field: CalculatorToggleField,
+    value: boolean,
+  ) => {
+    setInput((prev) => ({
+      ...prev,
+      useAdvanced: true,
+      [field]: value,
+    }));
+  };
+
+  const updateExcavationAdvancedSelectField = <
+    K extends Extract<CalculatorSelectField, 'moistureLevel'>
+  >(
+    field: K,
+    value: CalculatorFormInput[K],
+  ) => {
+    setInput((prev) => ({
+      ...prev,
+      useAdvanced: true,
+      [field]: value,
+    }));
+  };
+
   const updateSelectField = <K extends CalculatorSelectField>(
     field: K,
     value: CalculatorFormInput[K],
@@ -107,6 +189,51 @@ export function CalculatorForm({ kind }: CalculatorFormProps) {
     setInput((prev) => ({
       ...prev,
       [field]: value,
+    }));
+  };
+
+  const updateMaterialSelection = (materialId: CalculatorFormInput['materialId']) => {
+    setInput((prev) => {
+      const nextMaterial = getMaterialById(materialId);
+
+      if (!nextMaterial) {
+        return {
+          ...prev,
+          materialId,
+        };
+      }
+
+      const materialDefaults = getMaterialDefaultAssumptions(
+        kind,
+        nextMaterial,
+        config.defaults.truckCapacityTons,
+      );
+
+      return {
+        ...prev,
+        materialId,
+        moistureLevel: materialDefaults.moistureLevel,
+        swellFactor: materialDefaults.swellFactor,
+        wetMaterialPercentage: config.advancedSettings.wetMaterialPercentage
+          ? materialDefaults.wetMaterialPercentage
+          : '',
+        compactionPercentage: materialDefaults.compactionPercentage,
+        truckCapacityTons: materialDefaults.truckCapacityTons,
+        isHalfLoad: materialDefaults.isHalfLoad,
+      };
+    });
+  };
+
+  const updateInputUnitSystem = (
+    nextUnitSystem: CalculatorFormInput['inputUnitSystem'],
+  ) => {
+    setInput((prev) => ({
+      ...prev,
+      inputUnitSystem: nextUnitSystem,
+      outputUnitPreference:
+        prev.outputUnitPreference === prev.inputUnitSystem
+          ? nextUnitSystem
+          : prev.outputUnitPreference,
     }));
   };
 
@@ -125,47 +252,23 @@ export function CalculatorForm({ kind }: CalculatorFormProps) {
       containerClassName={classes.container}
       spacing="loose"
     >
-      <div className={classes.intro}>
-        <h1>{config.title}</h1>
-        <p>{config.description}</p>
-      </div>
-
       <div className={classes.shell}>
         <div className={classes.panel}>
           <div className={classes.panelHeader}>
-            <h2>Project Inputs</h2>
-            <p>
-              Enter field measurements in the format that makes the job easiest
-              to estimate, then review the output in the units you want.
-            </p>
+            <h2>Inputs</h2>
           </div>
 
           <div className={classes.formBody}>
             <div className={classes.fieldGroup}>
               <p className={classes.fieldGroupLabel}>Units</p>
 
-              <label className={classes.field}>
-                <span>{config.labels.inputUnits}</span>
-                <select
-                  value={input.inputUnitSystem}
-                  onChange={(e) =>
-                    updateSelectField(
-                      'inputUnitSystem',
-                      e.target.value as CalculatorFormInput['inputUnitSystem'],
-                    )
-                  }
-                  className={classes.selectControl}
-                >
-                  <option value="metric">{config.unitHints.metric}</option>
-                  <option value="imperial">{config.unitHints.imperial}</option>
-                </select>
-              </label>
-
-              <p className={classes.unitHint}>
-                Input units stay here in the project-input section. Result
-                display is controlled in the results panel so it does not affect
-                how you enter measurements.
-              </p>
+              <MetricImperialSwitch
+                label={config.labels.inputUnits}
+                value={input.inputUnitSystem}
+                onChange={updateInputUnitSystem}
+                metricLabel={config.unitHints.metric}
+                imperialLabel={config.unitHints.imperial}
+              />
             </div>
 
             <div className={classes.fieldGroup}>
@@ -284,12 +387,6 @@ export function CalculatorForm({ kind }: CalculatorFormProps) {
                   </div>
                 ))}
               </div>
-
-              <p className={classes.dimensionHint}>
-                Metric dimensions use one value and one unit selector. Imperial
-                entry uses feet and inches where it makes the most sense for the
-                calculator.
-              </p>
             </div>
 
             <div className={classes.fieldGroup}>
@@ -300,8 +397,7 @@ export function CalculatorForm({ kind }: CalculatorFormProps) {
                 <select
                   value={input.materialId}
                   onChange={(e) =>
-                    updateSelectField(
-                      'materialId',
+                    updateMaterialSelection(
                       e.target.value as CalculatorFormInput['materialId'],
                     )
                   }
@@ -314,76 +410,145 @@ export function CalculatorForm({ kind }: CalculatorFormProps) {
                   ))}
                 </select>
               </label>
-
-              <p className={classes.materialNote}>
-                Only materials relevant to this calculator are shown to keep the
-                estimate focused and easier to use on site.
-              </p>
             </div>
 
-            <label className={classes.toggleCard}>
-              <input
-                type="checkbox"
-                checked={input.useAdvanced}
-                onChange={(e) => updateToggleField('useAdvanced', e.target.checked)}
-              />
-              <span>{config.labels.useAdvanced}</span>
-            </label>
+            <Disclosure>
+              {({ open }) => (
+                <div className={classes.advancedSection}>
+                  <DisclosureButton className={classes.advancedTrigger}>
+                    <div className={classes.advancedTriggerCopy}>
+                      <span className={classes.fieldGroupLabel}>Advanced Options</span>
+                      <p className={classes.advancedTriggerNote}>
+                        Swell, moisture, compaction, and hauling overrides.
+                      </p>
+                    </div>
+                    <CaretDown
+                      size={18}
+                      weight="bold"
+                      className={`${classes.advancedTriggerIcon} ${
+                        open ? classes.advancedTriggerIconOpen : ''
+                      }`}
+                    />
+                  </DisclosureButton>
 
-            {input.useAdvanced && (
-              <AdvancedSettings
-                classes={{
-                  fieldGroup: classes.fieldGroup,
-                  fieldGroupLabel: classes.fieldGroupLabel,
-                  field: classes.field,
-                  fieldControl: classes.fieldControl,
-                  fieldNote: classes.fieldNote,
-                  settingsNote: classes.settingsNote,
-                  toggleCard: classes.toggleCard,
-                }}
-                labels={config.labels.advanced}
-                visibility={config.advancedSettings}
-                values={{
-                  swellFactor: input.swellFactor,
-                  wetMaterialPercentage: input.wetMaterialPercentage,
-                  compactionPercentage: input.compactionPercentage,
-                  truckCapacityTons: input.truckCapacityTons,
-                  isHalfLoad: input.isHalfLoad,
-                }}
-                onSwellFactorChange={(value) =>
-                  updateNumberField('swellFactor', value)
-                }
-                onWetMaterialPercentageChange={(value) =>
-                  updateNumberField('wetMaterialPercentage', value)
-                }
-                onCompactionPercentageChange={(value) =>
-                  updateNumberField('compactionPercentage', value)
-                }
-                onTruckCapacityTonsChange={(value) =>
-                  updateNumberField('truckCapacityTons', value)
-                }
-                onHalfLoadChange={(value) => updateToggleField('isHalfLoad', value)}
-              />
-            )}
+                  <DisclosurePanel className={classes.advancedPanel}>
+                    {kind === 'excavation' && excavationAdvancedValues ? (
+                      <AdvancedSettings
+                        classes={{
+                          advancedFields: classes.advancedFields,
+                          advancedToggleGroup: classes.advancedToggleGroup,
+                          fieldGroupLabel: classes.fieldGroupLabel,
+                          field: classes.field,
+                          fieldControl: classes.fieldControl,
+                          selectControl: classes.selectControl,
+                          fieldNote: classes.fieldNote,
+                          toggleCard: classes.toggleCard,
+                        }}
+                        labels={config.labels.advanced}
+                        visibility={config.advancedSettings}
+                        values={excavationAdvancedValues}
+                        onSwellFactorChange={(value) =>
+                          updateExcavationAdvancedNumberField('swellFactor', value)
+                        }
+                        onMoistureLevelChange={(value) =>
+                          updateExcavationAdvancedSelectField('moistureLevel', value)
+                        }
+                        onWetMaterialPercentageChange={(value) =>
+                          updateExcavationAdvancedNumberField('wetMaterialPercentage', value)
+                        }
+                        onCompactionPercentageChange={(value) =>
+                          updateExcavationAdvancedNumberField('compactionPercentage', value)
+                        }
+                        onTruckCapacityTonsChange={(value) =>
+                          updateExcavationAdvancedNumberField('truckCapacityTons', value)
+                        }
+                        onHalfLoadChange={(value) =>
+                          updateExcavationAdvancedToggleField('isHalfLoad', value)
+                        }
+                      />
+                    ) : (
+                      <>
+                        <label className={classes.toggleCard}>
+                          <input
+                            type="checkbox"
+                            checked={input.useAdvanced}
+                            onChange={(e) =>
+                              updateToggleField('useAdvanced', e.target.checked)
+                            }
+                          />
+                          <span>{config.labels.useAdvanced}</span>
+                        </label>
+                        {input.useAdvanced ? (
+                          <AdvancedSettings
+                            classes={{
+                              advancedFields: classes.advancedFields,
+                              advancedToggleGroup: classes.advancedToggleGroup,
+                              fieldGroupLabel: classes.fieldGroupLabel,
+                              field: classes.field,
+                              fieldControl: classes.fieldControl,
+                              selectControl: classes.selectControl,
+                              fieldNote: classes.fieldNote,
+                              toggleCard: classes.toggleCard,
+                            }}
+                            labels={config.labels.advanced}
+                            visibility={config.advancedSettings}
+                            values={{
+                              swellFactor: input.swellFactor,
+                              moistureLevel: input.moistureLevel,
+                              wetMaterialPercentage: input.wetMaterialPercentage,
+                              compactionPercentage: input.compactionPercentage,
+                              truckCapacityTons: input.truckCapacityTons,
+                              isHalfLoad: input.isHalfLoad,
+                            }}
+                            onSwellFactorChange={(value) =>
+                              updateNumberField('swellFactor', value)
+                            }
+                            onMoistureLevelChange={(value) =>
+                              updateSelectField('moistureLevel', value)
+                            }
+                            onWetMaterialPercentageChange={(value) =>
+                              updateNumberField('wetMaterialPercentage', value)
+                            }
+                            onCompactionPercentageChange={(value) =>
+                              updateNumberField('compactionPercentage', value)
+                            }
+                            onTruckCapacityTonsChange={(value) =>
+                              updateNumberField('truckCapacityTons', value)
+                            }
+                            onHalfLoadChange={(value) =>
+                              updateToggleField('isHalfLoad', value)
+                            }
+                          />
+                        ) : (
+                          <p className={classes.advancedPanelNote}>
+                            Turn on advanced options to adjust swell, moisture,
+                            compaction, truck payload, and half-load mode.
+                          </p>
+                        )}
+                      </>
+                    )}
+                  </DisclosurePanel>
+                </div>
+              )}
+            </Disclosure>
           </div>
         </div>
 
         <CalculatorResults
           result={result}
-          inputUnitSystem={input.inputUnitSystem}
           outputUnitPreference={input.outputUnitPreference}
           onOutputUnitPreferenceChange={(value) =>
             updateSelectField('outputUnitPreference', value)
           }
           outputDisplayLabel={config.labels.resultDisplay}
-          availableOutputUnitPreferences={config.resultDisplay.options}
+          resultPresentation={config.resultPresentation}
+          assumptions={assumptions}
           classes={{
             resultsPanel: classes.resultsPanel,
             resultsHeader: classes.resultsHeader,
             resultsHeaderTop: classes.resultsHeaderTop,
             resultsControls: classes.resultsControls,
             resultsBody: classes.resultsBody,
-            resultsIntro: classes.resultsIntro,
             placeholder: classes.placeholder,
             resultsPrimaryGrid: classes.resultsPrimaryGrid,
             resultsSecondary: classes.resultsSecondary,
@@ -394,6 +559,11 @@ export function CalculatorForm({ kind }: CalculatorFormProps) {
             resultValue: classes.resultValue,
             resultValueSplit: classes.resultValueSplit,
             resultMeta: classes.resultMeta,
+            assumptionsBlock: classes.assumptionsBlock,
+            assumptionsGrid: classes.assumptionsGrid,
+            assumptionItem: classes.assumptionItem,
+            assumptionLabel: classes.assumptionLabel,
+            assumptionValue: classes.assumptionValue,
             resultDisclaimer: classes.resultDisclaimer,
           }}
         />

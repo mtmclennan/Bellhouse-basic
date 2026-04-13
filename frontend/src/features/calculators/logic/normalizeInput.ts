@@ -1,16 +1,19 @@
 import type {
   CalculatorCalculationInput,
+  Material,
   CalculatorDimensionBehavior,
   CalculatorDimensionFormInput,
   CalculatorEditableNumber,
   CalculatorFormInput,
   CalculatorDimensionKey,
 } from '../types/calculator';
+import type { CalculatorConfig } from '../config/calculators';
 import {
   feetAndInchesToMeters,
   inchesToMeters,
   metricDimensionToMeters,
 } from './conversions';
+import { resolveMoistureLevelPercentage } from './calculator';
 
 function normalizeRequiredPositiveNumber(
   value: CalculatorEditableNumber,
@@ -116,22 +119,23 @@ function normalizeDimensionInput(
 
 export function normalizeCalculatorInput(
   input: CalculatorFormInput,
-  dimensionBehavior: Record<CalculatorDimensionKey, CalculatorDimensionBehavior>,
+  config: Pick<CalculatorConfig, 'advancedSettings' | 'dimensionBehavior'>,
+  material?: Material,
 ): CalculatorCalculationInput | null {
   const lengthM = normalizeDimensionInput(
     input.length,
     input.inputUnitSystem,
-    dimensionBehavior.length,
+    config.dimensionBehavior.length,
   );
   const widthM = normalizeDimensionInput(
     input.width,
     input.inputUnitSystem,
-    dimensionBehavior.width,
+    config.dimensionBehavior.width,
   );
   const depthM = normalizeDimensionInput(
     input.depth,
     input.inputUnitSystem,
-    dimensionBehavior.depth,
+    config.dimensionBehavior.depth,
   );
 
   if (lengthM === null || widthM === null || depthM === null) {
@@ -139,6 +143,13 @@ export function normalizeCalculatorInput(
   }
 
   if (!input.useAdvanced) {
+    const swellFactor = normalizeOptionalPositiveNumber(input.swellFactor);
+    const truckCapacityTons = normalizeOptionalPositiveNumber(input.truckCapacityTons);
+
+    if (swellFactor === null || truckCapacityTons === null) {
+      return null;
+    }
+
     return {
       lengthM,
       widthM,
@@ -146,13 +157,21 @@ export function normalizeCalculatorInput(
       materialId: input.materialId,
       useAdvanced: false,
       isHalfLoad: false,
+      swellFactor,
+      truckCapacityTons,
+      wetMaterialPercentage:
+        config.advancedSettings.moistureLevel && material
+          ? resolveMoistureLevelPercentage(input.moistureLevel, material)
+          : undefined,
     };
   }
 
   const swellFactor = normalizeOptionalPositiveNumber(input.swellFactor);
-  const wetMaterialPercentage = normalizeOptionalNonNegativeNumber(
-    input.wetMaterialPercentage,
-  );
+  const wetMaterialPercentage = config.advancedSettings.moistureLevel
+    ? material
+      ? resolveMoistureLevelPercentage(input.moistureLevel, material)
+      : null
+    : normalizeOptionalNonNegativeNumber(input.wetMaterialPercentage);
   const compactionPercentage = normalizeOptionalNonNegativeNumber(
     input.compactionPercentage,
   );

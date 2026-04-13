@@ -30,8 +30,8 @@
   align-items: center;
 
   @include m.mediaDesktop {
-    grid-template-columns: minmax(0, 1.12fr) minmax(30rem, 0.88fr);
-    gap: 4.2rem;
+    grid-template-columns: minmax(0, 1.22fr) minmax(30rem, 0.78fr);
+    gap: 4.8rem;
   }
 }
 
@@ -39,19 +39,38 @@
 .ctaContent {
   display: flex;
   flex-direction: column;
-  gap: 1.8rem;
+  gap: 2rem;
+}
+
+.heroContent {
+  padding: 1rem 0;
+
+  @include m.mediaDesktop {
+    gap: 2.6rem;
+    padding: 2rem 0;
+  }
 }
 
 .eyebrow,
 .sectionEyebrow {
   display: inline-flex;
+  align-items: center;
   width: fit-content;
   margin: 0;
-  font-size: 1.5rem;
+  padding: 0.9rem 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background-color: rgba(255, 255, 255, 0.05);
+  font-size: 1.3rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: v.$cat-yellow2;
+}
+
+.sectionEyebrow {
+  border-color: rgba(v.$cat-yellow2, 0.22);
+  background-color: rgba(v.$cat-yellow2, 0.12);
+  color: v.$text-color-mid-dark;
 }
 
 .heroContent h1,
@@ -61,22 +80,21 @@
 }
 
 .heroContent h1 {
-  max-width: 12ch;
-  font-size: 4.8rem;
+  max-width: 16ch;
+  font-size: 5rem;
   line-height: 0.98;
   font-weight: 200;
   color: #fff;
 
   @include m.mediaDesktop {
-    font-size: 7rem;
+    font-size: 7.6rem;
   }
 }
 
 .heroText,
 .ctaText,
 .sectionIntro p:last-child,
-.card p,
-.valueCard p {
+.card p {
   margin: 0;
   font-size: 1.8rem;
   line-height: 1.72;
@@ -87,11 +105,19 @@
   color: rgba(255, 255, 255, 0.84);
 }
 
+.heroText {
+  max-width: 64rem;
+
+  @include m.mediaDesktop {
+    font-size: 2rem;
+  }
+}
+
 .heroActions,
 .ctaActions {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.4rem;
+  gap: 1.6rem;
   margin-top: 0.8rem;
 }
 
@@ -108,11 +134,12 @@
 .heroCard {
   display: grid;
   gap: 1.2rem;
-  padding: 2.2rem;
+  padding: 2rem;
   border-radius: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.045) 100%);
   box-shadow: v.$box-shadow-dark;
+  backdrop-filter: blur(0.6rem);
 }
 
 .heroCardTitle {
@@ -153,7 +180,7 @@
 
 .sectionIntro {
   display: flex;
-  max-width: 76rem;
+  max-width: 70rem;
   margin: 0 auto;
   flex-direction: column;
   align-items: center;
@@ -170,21 +197,61 @@
   }
 }
 
-.valueGrid,
 .cardGrid {
   display: grid;
-  gap: 1.6rem;
+  gap: 1.8rem;
 }
 
 .card {
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
-  padding: 2.2rem;
+  gap: 1.3rem;
+  padding: 2rem;
   border-radius: 2rem;
-  border: 1px solid v.$grey-color-3;
-  background-color: #fff;
-  box-shadow: 0 1.4rem 3rem -2.6rem rgba(0, 0, 0, 0.24);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: #111;
+  box-shadow: 0 1.8rem 3.6rem -2.4rem rgba(0, 0, 0, 0.42);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+
+  &:hover {
+    transform: translateY(-0.4rem);
+    box-shadow: 0 2rem 3.4rem -2.6rem rgba(0, 0, 0, 0.4);
+    border-color: rgba(v.$cat-yellow2, 0.55);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(9, 10, 12, 0.18) 0%, rgba(8, 9, 10, 0.56) 56%, rgba(7, 8, 10, 0.78) 100%),
+      linear-gradient(135deg, rgba(9, 10, 12, 0.68) 0%, rgba(9, 10, 12, 0.28) 46%, rgba(9, 10, 12, 0.54) 100%),
+      var(--card-image);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 2.5rem;
+    line-height: 1.18;
+    color: #fff;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.86);
+  }
 }
 
 .cardGrid {
@@ -193,37 +260,17 @@
   }
 }
 
-.card {
-  text-decoration: none;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    border-color 0.2s ease;
-
-  &:hover,
-  &:focus-visible {
-    transform: translateY(-0.4rem);
-    box-shadow: 0 2rem 3.4rem -2.6rem rgba(0, 0, 0, 0.4);
-    border-color: rgba(v.$cat-yellow2, 0.55);
-  }
-
-  h3 {
-    margin: 0;
-    font-size: 2.5rem;
-    line-height: 1.18;
-    color: v.$text-color-mid-dark;
-  }
-
-  p {
-    color: v.$text-color-dark;
-  }
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .cardBestFor {
   margin: 0;
   font-size: 1.45rem;
   line-height: 1.55;
-  color: v.$text-color-mid-dark;
+  color: rgba(255, 255, 255, 0.74);
 }
 
 .cardIcon {
@@ -233,9 +280,10 @@
   width: 4.8rem;
   height: 4.8rem;
   border-radius: 999px;
-  background-color: rgba(v.$color-primary-dark, 0.92);
+  background-color: rgba(10, 10, 10, 0.78);
   color: v.$cat-yellow2;
   box-shadow: 0 1rem 2rem -1.2rem rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(0.6rem);
 }
 
 .cardMeta {
@@ -243,16 +291,78 @@
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: v.$grey-color-6;
+  color: rgba(255, 255, 255, 0.78);
 }
 
-.cardLink {
+.outputList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.outputChip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 3rem;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background-color: rgba(10, 10, 10, 0.45);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  backdrop-filter: blur(0.4rem);
+}
+
+.cardActions {
+  display: flex;
   margin-top: auto;
-  font-size: 1.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.4rem;
+}
+
+.cardPrimaryLink {
+  display: inline-flex;
+  min-height: 4.4rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.5rem;
+  border-radius: 999px;
+  background-color: v.$cat-yellow2;
+  font-size: 1.4rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  text-decoration: none;
   color: v.$text-color-mid-dark;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+  @include m.focusRing();
+
+  &:hover,
+  &:focus-visible {
+    background-color: #fff;
+    color: v.$text-color-mid-dark;
+  }
+}
+
+.cardSecondaryLink {
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-decoration: underline;
+  text-underline-offset: 0.22rem;
+  color: rgba(255, 255, 255, 0.92);
+  @include m.focusRing(rgba(v.$color-primary, 0.25));
+
+  &:hover,
+  &:focus-visible {
+    color: v.$cat-yellow2;
+  }
 }
 
 .ctaSection {
