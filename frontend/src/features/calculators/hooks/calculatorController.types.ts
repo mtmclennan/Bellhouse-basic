@@ -9,6 +9,7 @@ import type {
   CalculatorFormInput,
   CalculatorKind,
   CalculatorNumberField,
+  OutputUnitPreference,
   CalculatorResult,
   CalculatorSelectField,
   CalculatorToggleField,
@@ -21,15 +22,6 @@ export type CalculatorDimensionEntry = {
   label: string;
   behavior: CalculatorDimensionBehavior;
   value: CalculatorFormInput[CalculatorDimensionKey];
-};
-
-export type CalculatorControllerAssumptions = {
-  material: string;
-  swellFactor: number;
-  truckPayloadTons: number;
-  moistureLevel?: string;
-  isHalfLoad?: boolean;
-  compactionPercentage?: number;
 };
 
 export type CalculatorAdvancedValues = {
@@ -46,6 +38,110 @@ export type CalculatorAdvancedState = {
   hasManualOverrides: boolean;
   canResetToMaterialDefaults: boolean;
   statusMessage: string | null;
+};
+
+export type CalculatorUnitsSection = {
+  title: string;
+  label: string;
+  value: CalculatorFormInput['inputUnitSystem'];
+  metricLabel: string;
+  imperialLabel: string;
+  onChange: (value: CalculatorFormInput['inputUnitSystem']) => void;
+};
+
+export type CalculatorDimensionFieldModel = {
+  key: CalculatorDimensionKey;
+  label: string;
+  behavior: CalculatorDimensionBehavior;
+  inputUnitSystem: CalculatorFormInput['inputUnitSystem'];
+  value: CalculatorFormInput[CalculatorDimensionKey];
+  onValueChange: (
+    field: CalculatorDimensionValueField,
+    value: CalculatorEditableNumber,
+  ) => void;
+  onUnitChange: (value: MetricDimensionUnit) => void;
+};
+
+export type CalculatorDimensionsSection = {
+  title: string;
+  fields: CalculatorDimensionFieldModel[];
+};
+
+export type CalculatorMaterialSection = {
+  title: string;
+  label: string;
+  value: CalculatorFormInput['materialId'];
+  options: Material[];
+  onChange: (materialId: CalculatorFormInput['materialId']) => void;
+};
+
+export type CalculatorAdvancedFieldsModel = {
+  labels: CalculatorConfig['labels']['advanced'];
+  visibility: CalculatorConfig['advancedSettings'];
+  values: CalculatorAdvancedValues;
+  onSwellFactorChange: (value: CalculatorEditableNumber) => void;
+  onMoistureLevelChange: (value: CalculatorFormInput['moistureLevel']) => void;
+  onWetMaterialPercentageChange: (value: CalculatorEditableNumber) => void;
+  onCompactionPercentageChange: (value: CalculatorEditableNumber) => void;
+  onTruckCapacityTonsChange: (value: CalculatorEditableNumber) => void;
+  onHalfLoadChange: (value: boolean) => void;
+  onResetDefaults?: () => void;
+};
+
+export type CalculatorAdvancedShellModel = {
+  title: string;
+  note: string;
+};
+
+export type CalculatorAdvancedSection = {
+  shell: CalculatorAdvancedShellModel;
+  content:
+    | {
+        mode: 'managed';
+        statusMessage: string | null;
+        fields: CalculatorAdvancedFieldsModel;
+      }
+    | {
+        mode: 'standard';
+        enabled: boolean;
+        toggleLabel: string;
+        inactiveMessage: string;
+        onEnabledChange: (value: boolean) => void;
+        fields: CalculatorAdvancedFieldsModel | null;
+      };
+};
+
+export type CalculatorResultCardModel = {
+  label: string;
+  value: string;
+  meta?: string;
+  tone: 'primary' | 'muted';
+};
+
+export type CalculatorAssumptionItem = {
+  label: string;
+  value: string;
+};
+
+export type CalculatorAssumptionsSection = {
+  title: string;
+  items: CalculatorAssumptionItem[];
+};
+
+export type CalculatorResultsSection = {
+  title: string;
+  outputDisplay: {
+    label: string;
+    value: OutputUnitPreference;
+    onChange: (value: OutputUnitPreference) => void;
+    metricLabel: string;
+    imperialLabel: string;
+  };
+  placeholderMessage: string;
+  primaryCards: CalculatorResultCardModel[];
+  secondaryCards: CalculatorResultCardModel[];
+  assumptions: CalculatorAssumptionsSection | null;
+  disclaimer: string;
 };
 
 export type CalculatorControllerActions = {
@@ -91,20 +187,24 @@ export type CalculatorControllerActions = {
 };
 
 export type CalculatorController = {
+  kind: CalculatorKind;
   config: CalculatorConfig;
+  sections: {
+    inputPanel: {
+      title: string;
+      units: CalculatorUnitsSection;
+      dimensions: CalculatorDimensionsSection;
+      material: CalculatorMaterialSection;
+      advanced: CalculatorAdvancedSection;
+    };
+    results: CalculatorResultsSection;
+  };
   state: {
     input: CalculatorFormInput;
     material: Material | undefined;
     normalizedInput: ReturnType<typeof normalizeCalculatorInput>;
     result: CalculatorResult | null;
-    assumptions: CalculatorControllerAssumptions | null;
   };
-  options: {
-    allowedMaterials: Material[];
-    dimensionEntries: CalculatorDimensionEntry[];
-  };
-  advanced: CalculatorAdvancedState;
-  actions: CalculatorControllerActions;
 };
 
 export type CalculatorKindBehaviorParams = {
@@ -118,7 +218,7 @@ export type CalculatorKindBehaviorParams = {
 };
 
 export type CalculatorKindBehavior = {
-  assumptions: CalculatorControllerAssumptions | null;
+  assumptions: CalculatorAssumptionsSection | null;
   advanced: CalculatorAdvancedState;
   actions: Pick<
     CalculatorControllerActions,

@@ -49,19 +49,9 @@ export function CalculatorForm({ kind }: CalculatorFormProps) {
       spacing="loose"
     >
       <div className={classes.shell}>
-        <CalculatorInputPanel controller={controller} />
+        <CalculatorInputPanel section={controller.sections.inputPanel} />
 
-        <CalculatorResults
-          result={controller.state.result}
-          outputUnitPreference={controller.state.input.outputUnitPreference}
-          onOutputUnitPreferenceChange={(value) =>
-            controller.actions.updateSelectField('outputUnitPreference', value)
-          }
-          outputDisplayLabel={controller.config.labels.resultDisplay}
-          resultPresentation={controller.config.resultPresentation}
-          assumptions={controller.state.assumptions}
-          classes={resultStyleClasses}
-        />
+        <CalculatorResults section={controller.sections.results} classes={resultStyleClasses} />
       </div>
     </SectionWrapper>
   );

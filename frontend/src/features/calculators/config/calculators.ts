@@ -1,5 +1,6 @@
 import type {
   CalculatorDimensionBehavior,
+  CalculatorDimensionKey,
   CalculatorDimensionFormInput,
   CalculatorFormInput,
   CalculatorKind,
@@ -16,11 +17,7 @@ type CalculatorFieldLabels = {
   resultDisplay: string;
   material: string;
   useAdvanced: string;
-  dimensions: {
-    length: string;
-    width: string;
-    depth: string;
-  };
+  dimensions: Record<CalculatorDimensionKey, string>;
   advanced: {
     swellFactor: string;
     moistureLevel: string;
@@ -67,6 +64,7 @@ export type CalculatorConfig = {
   defaults: CalculatorDefaults;
   allowedMaterialIds: readonly MaterialId[];
   labels: CalculatorFieldLabels;
+  dimensionKeys: readonly CalculatorDimensionKey[];
   unitHints: {
     metric: string;
     imperial: string;
@@ -120,6 +118,7 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
         halfLoadToggle: 'Half-load restrictions',
       },
     },
+    dimensionKeys: ['length', 'width', 'depth'],
     unitHints: {
       metric: 'Metric',
       imperial: 'Imperial',
@@ -191,6 +190,7 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
         halfLoadToggle: 'Half-load season / road restriction',
       },
     },
+    dimensionKeys: ['length', 'width', 'depth'],
     unitHints: {
       metric: 'Metric',
       imperial: 'Imperial',
@@ -262,6 +262,7 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
         halfLoadToggle: 'Half-load season / road restriction',
       },
     },
+    dimensionKeys: ['length', 'width', 'depth'],
     unitHints: {
       metric: 'Metric',
       imperial: 'Imperial',

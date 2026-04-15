@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 import { getMaterialById } from '../../config/materials';
 import { getMaterialDefaultAssumptions, getMoistureLevelLabel } from '../../logic/calculator';
+import { formatNumber } from '../../utils/format';
 import type {
   CalculatorEditableNumber,
   CalculatorFormInput,
@@ -138,14 +139,45 @@ export function useExcavationCalculatorKindBehavior({
     }
 
     return {
-      material: material.name,
-      swellFactor: activeSettings.swellFactor,
-      truckPayloadTons: activeSettings.effectiveTruckPayloadTons,
-      isHalfLoad: activeSettings.isHalfLoad,
-      moistureLevel: config.advancedSettings.moistureLevel
-        ? getMoistureLevelLabel(activeSettings.moistureLevel)
-        : undefined,
-      compactionPercentage: activeSettings.compactionPercentage,
+      title: 'Active assumptions',
+      items: [
+        {
+          label: 'Material',
+          value: material.name,
+        },
+        {
+          label: 'Swell factor',
+          value: formatNumber(activeSettings.swellFactor),
+        },
+        {
+          label: 'Truck payload',
+          value: `${formatNumber(activeSettings.effectiveTruckPayloadTons)} tons`,
+        },
+        ...(config.advancedSettings.moistureLevel
+          ? [
+              {
+                label: 'Moisture',
+                value: getMoistureLevelLabel(activeSettings.moistureLevel),
+              },
+            ]
+          : []),
+        ...(activeSettings.isHalfLoad
+          ? [
+              {
+                label: 'Half-load mode',
+                value: 'On',
+              },
+            ]
+          : []),
+        ...(activeSettings.compactionPercentage !== 0
+          ? [
+              {
+                label: 'Compaction',
+                value: `${formatNumber(activeSettings.compactionPercentage)}%`,
+              },
+            ]
+          : []),
+      ],
     };
   }, [
     activeSettings,

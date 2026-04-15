@@ -1,12 +1,5 @@
-import type { ReactNode } from 'react';
-import { m3ToCubicYards } from '../logic/conversions';
-import { formatNumber, formatTruckLoads } from '../utils/format';
 import { MetricImperialSwitch } from './MetricImperialSwitch';
-import type {
-  CalculatorResult,
-  OutputUnitPreference,
-} from '../types/calculator';
-import type { CalculatorConfig } from '../config/calculators';
+import type { CalculatorResultsSection } from '../hooks/calculatorController.types';
 
 export type CalculatorResultsStyleClasses = {
   resultsPanel: string;
@@ -33,73 +26,27 @@ export type CalculatorResultsStyleClasses = {
   resultDisclaimer: string;
 };
 
-type CalculatorAssumptions = {
-  material: string;
-  swellFactor: number;
-  truckPayloadTons: number;
-  moistureLevel?: string;
-  isHalfLoad?: boolean;
-  compactionPercentage?: number;
-};
-
 type CalculatorResultsProps = {
-  result: CalculatorResult | null;
-  outputUnitPreference: OutputUnitPreference;
-  onOutputUnitPreferenceChange: (value: OutputUnitPreference) => void;
-  outputDisplayLabel: string;
-  resultPresentation: CalculatorConfig['resultPresentation'];
-  assumptions: CalculatorAssumptions | null;
+  section: CalculatorResultsSection;
   classes: CalculatorResultsStyleClasses;
 };
 
-function renderVolume(
-  cubicMetres: number,
-  outputUnitPreference: OutputUnitPreference,
-): ReactNode {
-  const cubicYards = m3ToCubicYards(cubicMetres);
-
-  if (outputUnitPreference === 'metric') {
-    return `${formatNumber(cubicMetres)} m3`;
-  }
-
-  if (outputUnitPreference === 'imperial') {
-    return `${formatNumber(cubicYards)} yd3`;
-  }
-
-  return `${formatNumber(cubicMetres)} m3`;
-}
-
 export function CalculatorResults({
-  result,
-  outputUnitPreference,
-  onOutputUnitPreferenceChange,
-  outputDisplayLabel,
-  resultPresentation,
-  assumptions,
+  section,
   classes,
 }: CalculatorResultsProps) {
-  const showsSeparateLooseMaterial = Boolean(
-    resultPresentation.adjustedVolumeLabel,
-  );
-
-  const primaryVolumeValueM3 = result
-    ? showsSeparateLooseMaterial
-      ? result.rawProjectVolumeM3
-      : result.adjustedMaterialVolumeM3
-    : null;
-
   return (
     <div className={classes.resultsPanel}>
       <div className={classes.resultsHeader}>
         <div className={classes.resultsHeaderTop}>
-          <h2>Results</h2>
+          <h2>{section.title}</h2>
           <div className={classes.resultsControls}>
             <MetricImperialSwitch
-              label={outputDisplayLabel}
-              value={outputUnitPreference}
-              onChange={onOutputUnitPreferenceChange}
-              metricLabel="Metric"
-              imperialLabel="Imperial"
+              label={section.outputDisplay.label}
+              value={section.outputDisplay.value}
+              onChange={section.outputDisplay.onChange}
+              metricLabel={section.outputDisplay.metricLabel}
+              imperialLabel={section.outputDisplay.imperialLabel}
               tone="dark"
             />
           </div>
@@ -107,139 +54,74 @@ export function CalculatorResults({
       </div>
 
       <div className={classes.resultsBody}>
-        {!result ? (
+        {section.primaryCards.length === 0 ? (
           <div className={classes.placeholder}>
-            <p>Enter dimensions to see volume, material, weight, and truck loads.</p>
+            <p>{section.placeholderMessage}</p>
           </div>
         ) : (
           <>
             <div className={classes.resultsPrimaryGrid}>
-              <article className={`${classes.resultCard} ${classes.resultCardPrimary}`}>
-                <span className={classes.resultLabel}>{resultPresentation.volumeLabel}</span>
-                <strong className={classes.resultValue}>
-                  {renderVolume(primaryVolumeValueM3 ?? 0, outputUnitPreference)}
-                </strong>
-                {resultPresentation.showCardMeta ? (
-                  <p className={classes.resultMeta}>Adjusted total material volume.</p>
-                ) : null}
-              </article>
-
-              {resultPresentation.adjustedVolumeLabel ? (
-                <article className={`${classes.resultCard} ${classes.resultCardPrimary}`}>
-                  <span className={classes.resultLabel}>
-                    {resultPresentation.adjustedVolumeLabel}
-                  </span>
-                  <strong className={classes.resultValue}>
-                    {renderVolume(
-                      result.adjustedLooseMaterialVolumeM3,
-                      outputUnitPreference,
-                    )}
-                  </strong>
-                </article>
-              ) : null}
-
-              <article className={`${classes.resultCard} ${classes.resultCardPrimary}`}>
-                <span className={classes.resultLabel}>{resultPresentation.weightLabel}</span>
-                <strong className={classes.resultValue}>
-                  {formatNumber(result.adjustedWeightTons)} tonnes
-                </strong>
-                {resultPresentation.showCardMeta ? (
-                  <p className={classes.resultMeta}>
-                    Based on material density and wet adjustment.
-                  </p>
-                ) : null}
-              </article>
-
-              <article className={`${classes.resultCard} ${classes.resultCardPrimary}`}>
-                <span className={classes.resultLabel}>
-                  {resultPresentation.truckLoadsLabel}
-                </span>
-                <strong className={classes.resultValue}>
-                  {formatTruckLoads(result.estimatedTruckLoads)}
-                </strong>
-                {resultPresentation.showCardMeta ? (
-                  <p className={classes.resultMeta}>
-                    Based on truck capacity and half-load mode if used.
-                  </p>
-                ) : null}
-              </article>
-            </div>
-
-            {resultPresentation.secondaryVolumeLabel ? (
-              <div className={classes.resultsSecondary}>
+              {section.primaryCards.map((card) => (
                 <article
-                  className={`${classes.resultCard} ${classes.resultCardMuted}`}
+                  key={`${card.label}-${card.value}`}
+                  className={`${classes.resultCard} ${
+                    card.tone === 'muted'
+                      ? classes.resultCardMuted
+                      : classes.resultCardPrimary
+                  }`}
                 >
-                  <span className={classes.resultLabel}>
-                    {resultPresentation.secondaryVolumeLabel}
-                  </span>
-                  <strong className={classes.resultValue}>
-                    {renderVolume(
-                      result.rawProjectVolumeM3,
-                      outputUnitPreference,
-                    )}
-                  </strong>
-                  {resultPresentation.showCardMeta ? (
-                    <p className={classes.resultMeta}>Before advanced adjustments.</p>
+                  <span className={classes.resultLabel}>{card.label}</span>
+                  <strong className={classes.resultValue}>{card.value}</strong>
+                  {card.meta ? (
+                    <p className={classes.resultMeta}>{card.meta}</p>
                   ) : null}
                 </article>
+              ))}
+            </div>
+
+            {section.secondaryCards.length > 0 ? (
+              <div className={classes.resultsSecondary}>
+                {section.secondaryCards.map((card) => (
+                  <article
+                    key={`${card.label}-${card.value}`}
+                    className={`${classes.resultCard} ${
+                      card.tone === 'muted'
+                        ? classes.resultCardMuted
+                        : classes.resultCardPrimary
+                    }`}
+                  >
+                    <span className={classes.resultLabel}>{card.label}</span>
+                    <strong className={classes.resultValue}>{card.value}</strong>
+                    {card.meta ? (
+                      <p className={classes.resultMeta}>{card.meta}</p>
+                    ) : null}
+                  </article>
+                ))}
               </div>
             ) : null}
           </>
         )}
 
-        {assumptions ? (
+        {section.assumptions ? (
           <div className={classes.assumptionsBlock}>
-            <span className={classes.assumptionsTitle}>Active assumptions</span>
+            <span className={classes.assumptionsTitle}>
+              {section.assumptions.title}
+            </span>
             <div className={classes.assumptionsGrid}>
-              <div className={classes.assumptionItem}>
-                <span className={classes.assumptionLabel}>Material</span>
-                <span className={classes.assumptionValue}>
-                  {assumptions.material}
-                </span>
-              </div>
-              <div className={classes.assumptionItem}>
-                <span className={classes.assumptionLabel}>Swell factor</span>
-                <span className={classes.assumptionValue}>
-                  {formatNumber(assumptions.swellFactor)}
-                </span>
-              </div>
-              <div className={classes.assumptionItem}>
-                <span className={classes.assumptionLabel}>Truck payload</span>
-                <span className={classes.assumptionValue}>
-                  {formatNumber(assumptions.truckPayloadTons)} tons
-                </span>
-              </div>
-              {assumptions.moistureLevel ? (
-                <div className={classes.assumptionItem}>
-                  <span className={classes.assumptionLabel}>Moisture</span>
-                  <span className={classes.assumptionValue}>
-                    {assumptions.moistureLevel}
-                  </span>
+              {section.assumptions.items.map((item) => (
+                <div
+                  key={`${item.label}-${item.value}`}
+                  className={classes.assumptionItem}
+                >
+                  <span className={classes.assumptionLabel}>{item.label}</span>
+                  <span className={classes.assumptionValue}>{item.value}</span>
                 </div>
-              ) : null}
-              {assumptions.isHalfLoad ? (
-                <div className={classes.assumptionItem}>
-                  <span className={classes.assumptionLabel}>Half-load mode</span>
-                  <span className={classes.assumptionValue}>On</span>
-                </div>
-              ) : null}
-              {assumptions.compactionPercentage !== undefined &&
-              assumptions.compactionPercentage !== 0 ? (
-                <div className={classes.assumptionItem}>
-                  <span className={classes.assumptionLabel}>Compaction</span>
-                  <span className={classes.assumptionValue}>
-                    {formatNumber(assumptions.compactionPercentage)}%
-                  </span>
-                </div>
-              ) : null}
+              ))}
             </div>
           </div>
         ) : null}
 
-        <p className={classes.resultDisclaimer}>
-          Estimate only. Site conditions, moisture, compaction, and hauling limits can affect actual quantities.
-        </p>
+        <p className={classes.resultDisclaimer}>{section.disclaimer}</p>
       </div>
     </div>
   );
