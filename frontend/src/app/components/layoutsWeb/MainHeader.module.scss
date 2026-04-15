@@ -159,7 +159,8 @@
 }
 
 .header a,
-.headerHome a {
+.headerHome a,
+.menuButton {
   letter-spacing: 0.15rem;
   color: v.$text-color-light;
 
@@ -167,6 +168,78 @@
     color: v.$color-primary;
     transform: scale(1.04);
     transition: all 0.2s ease;
+  }
+}
+
+.menuListItem {
+  position: relative;
+  list-style: none;
+}
+
+.menu {
+  position: relative;
+  display: inline-block;
+}
+
+.menuItems {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  z-index: 200;
+  min-width: 240px;
+  padding: 0.5rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transform-origin: top left;
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+}
+
+.menuItems[data-closed] {
+  opacity: 0;
+  transform: translateY(-6px) scale(0.98);
+}
+
+.menuItem {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+  padding: 0.7rem 0.9rem;
+  color: rgba(255, 255, 255, 0.88);
+  text-decoration: none;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+
+  &:hover,
+  &[data-focus] {
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+  }
+}
+.menuButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  padding: 0.75rem 1rem;
+  border: none;
+  font-size: 1.6rem;
+  border-radius: 5px;
+  background-color: transparent;
+
+  &:hover {
+    background-color: v.$color-primary;
+    color: v.$text-color-light;
   }
 }
 

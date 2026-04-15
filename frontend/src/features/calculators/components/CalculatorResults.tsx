@@ -8,7 +8,7 @@ import type {
 } from '../types/calculator';
 import type { CalculatorConfig } from '../config/calculators';
 
-type CalculatorResultsStyleClasses = {
+export type CalculatorResultsStyleClasses = {
   resultsPanel: string;
   resultsHeader: string;
   resultsHeaderTop: string;
@@ -25,6 +25,7 @@ type CalculatorResultsStyleClasses = {
   resultValueSplit: string;
   resultMeta: string;
   assumptionsBlock: string;
+  assumptionsTitle: string;
   assumptionsGrid: string;
   assumptionItem: string;
   assumptionLabel: string;
@@ -189,7 +190,7 @@ export function CalculatorResults({
 
         {assumptions ? (
           <div className={classes.assumptionsBlock}>
-            <span className={classes.assumptionLabel}>Active assumptions</span>
+            <span className={classes.assumptionsTitle}>Active assumptions</span>
             <div className={classes.assumptionsGrid}>
               <div className={classes.assumptionItem}>
                 <span className={classes.assumptionLabel}>Material</span>

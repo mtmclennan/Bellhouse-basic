@@ -2,13 +2,14 @@
 
 import Link from 'next/link';
 import classes from './MainHeader.module.scss';
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import logo from '../../../../public/assets/BellhouseLogo-text.png';
 import { Fragment, useEffect, useState } from 'react';
 import Hamburger from './Hamburger';
 import MobileMenu from './MobileMenu';
-import { Phone } from '@phosphor-icons/react';
+import { CaretDownIcon, Phone } from '@phosphor-icons/react';
 
 const MainHeader = ({ currentRoute }: { currentRoute?: string }) => {
   const router = useRouter();
@@ -57,39 +58,84 @@ const MainHeader = ({ currentRoute }: { currentRoute?: string }) => {
               />
             </Link>
           </div>
+
           <ul>
             <li>
               <Link className={homeClassname} href="/">
                 Home
               </Link>
             </li>
-            <li>
-              <Link className={aboutClassname} href="/about">
-                About
-              </Link>
-            </li>
+
             <li>
               <Link className={servicesClassname} href="/services">
                 Services
               </Link>
             </li>
+
+            <li className={classes.menuListItem}>
+              <Menu as="div" className={classes.menu}>
+                <MenuButton className={classes.menuButton}>
+                  <span>Resources</span>
+                  <CaretDownIcon size={16} color="#ffc302" weight="regular" />
+                </MenuButton>
+
+                <MenuItems transition className={classes.menuItems}>
+                  <MenuItem>
+                    <Link
+                      href="/calculators/excavation"
+                      className={classes.menuItem}
+                    >
+                      Excavation Calculator
+                    </Link>
+                  </MenuItem>
+
+                  <MenuItem>
+                    <Link
+                      href="/calculators/gravel"
+                      className={classes.menuItem}
+                    >
+                      Gravel Calculator
+                    </Link>
+                  </MenuItem>
+
+                  <MenuItem>
+                    <Link
+                      href="/calculators/topsoil"
+                      className={classes.menuItem}
+                    >
+                      Topsoil Calculator
+                    </Link>
+                  </MenuItem>
+                </MenuItems>
+              </Menu>
+            </li>
+
             <li>
               <Link className={contactClassname} href="/contact">
                 Contact
               </Link>
             </li>
+
+            <li>
+              <Link className={aboutClassname} href="/about">
+                About
+              </Link>
+            </li>
+
             <li className={classes.actionContainer}>
               <Link className={classes.headerHome_cta} href="/contact">
                 Request a Quote
               </Link>
             </li>
+
             <li>
               <a className={classes.phone} href="tel:5197528500">
-                <Phone size={24} color={'#ffc302'} weight={'duotone'} />
+                <Phone size={24} color="#ffc302" weight="duotone" />
                 <h3>519-752-8500</h3>
               </a>
             </li>
           </ul>
+
           <Hamburger
             showMenu={showMobileMenu}
             setShowMenu={setShowMobileMenu}
@@ -98,6 +144,7 @@ const MainHeader = ({ currentRoute }: { currentRoute?: string }) => {
       </header>
 
       <MobileMenu
+        setShowMenu={setShowMobileMenu}
         showMenu={showMobileMenu}
         homeClassname={homeClassname}
         servicesClassname={servicesClassname}
