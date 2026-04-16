@@ -2,157 +2,167 @@
 @use '../../../styles/abstracts/variables' as v;
 
 .footer {
-  background-color: v.$color-footer;
   width: 100%;
-  @include m.mediaDesktop {
-    padding: 5rem 10rem 0;
-  }
-  padding-top: 10rem;
-  display: grid;
-  grid-template-rows: 20rem 15rem 5rem;
-  align-items: center;
+  background-color: v.$color-footer;
   border-top: 1px solid v.$grey-color-8;
-}
+  padding: 5rem 2rem 2rem;
 
-.nav {
-  line-height: 2;
-  margin: 1em auto;
-}
-
-.nav li {
-  list-style: none;
-}
-
-.nav a {
-  font-weight: 600;
-  color: v.$grey-color-1;
-  letter-spacing: 0.2rem;
-}
-
-.nav a:hover,
-.nav a:focus {
-  color: v.$btn-main;
-}
-
-.copyright {
-  margin: 1em;
-  align-self: center;
-  justify-self: center;
-  & p {
-    text-align: center;
+  @include m.mediaDesktop {
+    padding: 6rem 8rem 2.5rem;
   }
+}
+
+.top {
+  display: grid;
+  gap: 4rem;
+
+  @include m.mediaDesktop {
+    grid-template-columns: minmax(24rem, 30rem) 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+
+  @include m.mediaDesktop {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+.logoLink {
+  display: inline-flex;
 }
 
 .logo {
-  margin: auto;
-  grid-column: 1/4;
-  @include m.mediaDesktop {
-    grid-row: 2/3;
-    max-width: 20rem;
-  }
-  width: 100%;
-  height: fit-content;
-  position: relative;
-}
-
-.logoContainer {
-  @include m.flexCenter(column);
-  text-align: center;
-  & h1 {
-    font-weight: 400;
-    line-height: 1;
-  }
+  width: auto;
+  height: auto;
+  max-width: 20rem;
 }
 
 .phone {
   @include m.flexCenter();
   gap: 1rem;
-  grid-row: 3/4;
-  & h3 {
-    font-size: 3rem;
-    font-weight: 100;
+  text-decoration: none;
+
+  span {
+    font-size: 2.4rem;
+    font-weight: 300;
     color: v.$btn-main;
+    line-height: 1;
+  }
+
+  &:hover span,
+  &:focus span {
+    opacity: 0.9;
+  }
+
+  @include m.mediaDesktop {
+    justify-content: flex-start;
   }
 }
 
 .review {
-  text-align: center;
-  font-size: 2rem;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: v.$grey-color-1;
+  text-decoration: none;
   transition:
-    transform 0.3s ease-in-out,
-    background 0.3s ease-in-out;
-  animation: pulse 1.5s infinite;
-  position: relative;
+    color 0.2s ease,
+    transform 0.2s ease;
 
   &:hover,
   &:focus {
     color: v.$btn-main;
+    transform: translateY(-1px);
   }
 }
 
-@media (min-width: 800px) {
-  .footer {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 4fr 1fr;
-    min-height: 30vh;
-    height: 100%;
-  }
-  .copyright {
-    grid-row: 2/3;
-    grid-column: 2/3;
+.linkGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .logo {
-    grid-row: 1/2;
-  }
-  .phone {
-    grid-row: 1/2;
-    grid-column: 3/4;
+  @include m.mediaDesktop {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 3rem 2.5rem;
   }
 }
 
-@keyframes pulse {
-  0% {
-    transform: scale(1);
+.linkColumn {
+  h3 {
+    margin: 0 0 1.2rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.08rem;
+    text-transform: uppercase;
+    color: v.$grey-color-1;
   }
-  50% {
-    transform: scale(1.01);
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
-  100% {
-    transform: scale(1);
+
+  li + li {
+    margin-top: 0.9rem;
+  }
+
+  a {
+    color: v.$grey-color-1;
+    text-decoration: none;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    opacity: 0.92;
+    transition:
+      color 0.2s ease,
+      opacity 0.2s ease;
+
+    &:hover,
+    &:focus {
+      color: v.$btn-main;
+      opacity: 1;
+    }
+  }
+}
+
+.bottom {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid v.$grey-color-8;
+  text-align: center;
+
+  p {
+    margin: 0;
+    color: v.$grey-color-1;
   }
 }
 
 .siteBy {
-  display: flex;
-  justify-content: center;
+  display: block;
+  margin-top: 0.8rem;
   font-size: 1.2rem;
-  margin-top: 1rem;
-  opacity: 0.4;
+  opacity: 0.45;
 
   a {
     color: inherit;
     text-decoration: none;
     transition: opacity 0.2s ease;
 
-    &:hover {
-      opacity: 0.75;
+    &:hover,
+    &:focus {
+      opacity: 0.8;
     }
-  }
-}
-
-.legal {
-  margin-top: 0.5rem;
-
-  text-align: center;
-  a {
-    font-size: 1.4rem;
-    text-decoration: underline;
-    color: v.$color-primary;
-  }
-
-  a:hover,
-  a:focus {
-    opacity: 0.8;
   }
 }

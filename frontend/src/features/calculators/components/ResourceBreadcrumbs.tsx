@@ -3,6 +3,7 @@ import classes from './ResourceBreadcrumbs.module.scss';
 
 type ResourceBreadcrumbsProps = {
   currentLabel?: string;
+  trail?: BreadcrumbItem[];
 };
 
 type BreadcrumbItem = {
@@ -14,12 +15,15 @@ const baseUrl = 'https://bellhouseexcavating.ca';
 
 export function ResourceBreadcrumbs({
   currentLabel,
+  trail,
 }: ResourceBreadcrumbsProps) {
-  const items: BreadcrumbItem[] = [
-    { name: 'Home', href: '/' },
-    { name: 'Resources', href: '/resources' },
-    ...(currentLabel ? [{ name: currentLabel }] : []),
-  ];
+  const items: BreadcrumbItem[] =
+    trail ??
+    [
+      { name: 'Home', href: '/' },
+      { name: 'Resources', href: '/resources' },
+      ...(currentLabel ? [{ name: currentLabel }] : []),
+    ];
 
   const structuredData = {
     '@context': 'https://schema.org',

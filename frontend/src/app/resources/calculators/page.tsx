@@ -1,23 +1,24 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import SectionWrapper from '@/components/layout/SectionWrapper';
+import { ResourceBreadcrumbs } from '@/features/calculators/components/ResourceBreadcrumbs';
 import { CalculatorResourceCardGrid } from '@/features/calculators/components/CalculatorResourceCardGrid';
 import { calculatorSeoConfig } from '@/features/calculators/config/seo';
 import { validateMetadata } from '@/lib/utils/seoValidation';
-import classes from './page.module.scss';
+import classes from '../../../app/calculators/page.module.scss';
 
 export const metadata: Metadata = {
   title: 'Excavation, Gravel & Topsoil Calculators | Bellhouse',
   description:
     'Use Bellhouse estimating calculators for excavation, gravel, and topsoil quantities, truck loads, and rough material planning.',
   alternates: {
-    canonical: 'https://bellhouseexcavating.ca/calculators',
+    canonical: 'https://bellhouseexcavating.ca/resources/calculators',
   },
   openGraph: {
     title: 'Excavation, Gravel & Topsoil Calculators | Bellhouse',
     description:
       'Bellhouse calculator hub for excavation, gravel, and topsoil estimating tools.',
-    url: 'https://bellhouseexcavating.ca/calculators',
+    url: 'https://bellhouseexcavating.ca/resources/calculators',
     siteName: 'Bellhouse Excavating',
     type: 'website',
   },
@@ -35,6 +36,13 @@ export default function CalculatorsPage() {
       >
         <div className={classes.heroShell}>
           <div className={classes.heroContent}>
+            <ResourceBreadcrumbs
+              trail={[
+                { name: 'Home', href: '/' },
+                { name: 'Resources', href: '/resources' },
+                { name: 'Calculators' },
+              ]}
+            />
             <p className={classes.eyebrow}>Bellhouse calculators</p>
             <h1>Estimating tools for excavation, gravel, and topsoil work.</h1>
             <p className={classes.heroText}>
@@ -108,13 +116,13 @@ export default function CalculatorsPage() {
               <Link className={classes.primaryAction} href="/contact">
                 Request a Quote
               </Link>
-              <Link className={classes.secondaryAction} href="tel:5197528500">
-                Call 519-752-8500
+              <Link className={classes.secondaryAction} href="/resources/blog">
+                Visit the Blog
               </Link>
             </div>
             <p className={classes.ctaNote}>
-              Looking for Bellhouse service coverage too? View the{' '}
-              <Link href="/service-areas">service areas page</Link>.
+              Looking for the full Bellhouse resource section? Visit{' '}
+              <Link href="/resources">all resources</Link>.
             </p>
           </div>
         </div>

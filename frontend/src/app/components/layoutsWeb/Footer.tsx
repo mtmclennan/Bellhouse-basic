@@ -3,74 +3,147 @@ import Link from 'next/link';
 import Image from 'next/image';
 import logo from '../../../../public/assets/BellhouseLogo-text.png';
 import { Phone } from '@phosphor-icons/react';
-import { usePathname } from 'next/navigation';
+
+const footerSections = [
+  {
+    title: 'Services',
+    links: [
+      { href: '/services', label: 'All Services' },
+      {
+        href: '/services/foundation-excavation',
+        label: 'Foundation Excavation',
+      },
+      {
+        href: '/services/site-preparation-land-grading',
+        label: 'Site Prep & Grading',
+      },
+      {
+        href: '/services/dirt-gravel-delivery',
+        label: 'Dirt & Gravel Delivery',
+      },
+      {
+        href: '/services/house-barn-demolition',
+        label: 'Demolition',
+      },
+    ],
+  },
+  {
+    title: 'Service Areas',
+    links: [
+      { href: '/service-areas', label: 'All Service Areas' },
+      { href: '/service-areas/brantford', label: 'Brantford' },
+      { href: '/service-areas/paris', label: 'Paris' },
+      { href: '/service-areas/hamilton', label: 'Hamilton' },
+      { href: '/service-areas/cambridge', label: 'Cambridge' },
+    ],
+  },
+  {
+    title: 'Contractors',
+    links: [
+      { href: '/contractors', label: 'Contractors' },
+      {
+        href: '/services/heavy-equipment-hauling',
+        label: 'Heavy Equipment Hauling',
+      },
+      {
+        href: '/services/dump-truck-rental',
+        label: 'Dump Truck Services',
+      },
+      {
+        href: '/services/volvo-a35-off-road-dump-truck-rental',
+        label: 'Off-Road Dump Truck',
+      },
+      {
+        href: '/services/site-preparation-land-grading',
+        label: 'Site Prep & Grading',
+      },
+    ],
+  },
+  {
+    title: 'Resources',
+    links: [
+      { href: '/resources', label: 'Resources Hub' },
+      { href: '/resources/calculators', label: 'Calculators' },
+      {
+        href: '/resources/calculators/excavation',
+        label: 'Excavation Calculator',
+      },
+      {
+        href: '/resources/calculators/gravel',
+        label: 'Gravel Calculator',
+      },
+      {
+        href: '/resources/calculators/topsoil',
+        label: 'Topsoil Calculator',
+      },
+      { href: '/resources/blog', label: 'Blog' },
+    ],
+  },
+  {
+    title: 'Company',
+    links: [
+      { href: '/about', label: 'About' },
+      { href: '/contact', label: 'Contact' },
+      { href: '/privacy-policy', label: 'Privacy Policy' },
+    ],
+  },
+];
 
 const Footer = () => {
-  const router = usePathname();
-  const currentRoute = router;
-
-  const homeClassname = currentRoute === '/' ? 'active' : 'non-active';
-  const servicesClassname =
-    currentRoute === '/services' ? 'active' : 'non-active';
-  const aboutClassname = currentRoute === '/about' ? 'active' : 'non-active';
-  const contactClassname =
-    currentRoute === '/contact' ? 'active' : 'non-active';
-
   const year = new Date().getFullYear();
+
   return (
     <footer className={classes.footer}>
-      <div className={classes.logoContainer}>
-        <div className={classes.logo}>
-          <Image
-            src={logo}
-            alt="Bellhouse Excavating"
-            width={200}
-            height={151}
-            style={{ width: 'auto', height: 'auto' }}
-          />
-        </div>
-      </div>
-      <a className={classes.phone} href="tel:5197528500">
-        <Phone size={30} color={'#ffc302'} weight={'duotone'} />
-        <h3>519-752-8500</h3>
-      </a>
-      <div className={classes.nav}>
-        <ul>
-          <li>
-            <Link className={homeClassname} href="/">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link className={servicesClassname} href="/services">
-              Services
-            </Link>
-          </li>
-          <li>
-            <Link className={aboutClassname} href="/about">
-              About
-            </Link>
-          </li>
-          <li>
-            <Link className={contactClassname} href="/contact">
-              Contact
-            </Link>
-          </li>
-        </ul>
-      </div>
-      <a
-        target="blank"
-        className={classes.review}
-        href="https://g.page/r/CZtOlkcv7cW2EBM/review"
-      >
-        Leave Us a Google Review{' '}
-      </a>
-      <div className={classes.copyright}>
-        <p>{`©${year} By BELLHOUSE EXCAVATING`}</p>
+      <div className={classes.top}>
+        <div className={classes.brand}>
+          <Link
+            href="/"
+            className={classes.logoLink}
+            aria-label="Bellhouse Excavating home"
+          >
+            <Image
+              src={logo}
+              alt="Bellhouse Excavating"
+              width={200}
+              height={151}
+              className={classes.logo}
+              priority={false}
+            />
+          </Link>
 
-        <div className={classes.legal}>
-          <Link href="/privacy-policy">Privacy Policy</Link>
+          <a className={classes.phone} href="tel:5197528500">
+            <Phone size={26} color="#ffc302" weight="duotone" />
+            <span>519-752-8500</span>
+          </a>
+
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            className={classes.review}
+            href="https://g.page/r/CZtOlkcv7cW2EBM/review"
+          >
+            Leave Us a Google Review
+          </a>
         </div>
+
+        <nav className={classes.linkGrid} aria-label="Footer navigation">
+          {footerSections.map((section) => (
+            <div key={section.title} className={classes.linkColumn}>
+              <h3>{section.title}</h3>
+              <ul>
+                {section.links.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href}>{link.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </nav>
+      </div>
+
+      <div className={classes.bottom}>
+        <p>{`© ${year} Bellhouse Excavating`}</p>
 
         <small className={classes.siteBy}>
           <a

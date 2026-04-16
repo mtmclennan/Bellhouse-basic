@@ -21,8 +21,6 @@ const LayoutHome = ({ children, background = 'on' }: LayoutProps) => {
     pathname?.startsWith('/service-areas/') ||
     pathname === '/contractors' ||
     pathname?.startsWith('/contractors/') ||
-    pathname === '/calculators' ||
-    pathname?.startsWith('/calculators/') ||
     pathname === '/resources' ||
     pathname?.startsWith('/resources/') ||
     pathname === '/about' ||

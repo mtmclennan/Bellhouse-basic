@@ -29,7 +29,7 @@ const Services = () => {
           { label: 'View All Service Areas', href: '/service-areas' },
           {
             label: 'Use Estimating Calculators',
-            href: '/calculators',
+            href: '/resources/calculators',
             variant: 'secondary',
           },
           {

@@ -27,11 +27,16 @@ const resourceHubFiles = [
   'src/features/calculators/config/resourceCards.tsx',
 ];
 const calculatorHubFiles = [
-  'src/app/calculators/page.tsx',
+  'src/app/resources/calculators/page.tsx',
   'src/app/calculators/page.module.scss',
   'src/features/calculators/components/CalculatorResourceCardGrid.tsx',
   'src/features/calculators/components/CalculatorResourceCardGrid.module.scss',
   'src/features/calculators/config/resourceCards.tsx',
+];
+const blogHubFiles = [
+  'src/app/resources/blog/page.tsx',
+  'src/app/resources/blog/[slug]/page.tsx',
+  'src/data/resourceBlog.ts',
 ];
 
 function getLastModified(relativePaths: string[]): Date | undefined {
@@ -66,8 +71,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     createSitemapEntry('/', ['src/app/page.tsx', 'src/app/Home-page.tsx'], 'yearly', 1),
     createSitemapEntry('/about', ['src/app/about/page.tsx', 'src/app/about/About-page.tsx'], 'yearly', 0.8),
     createSitemapEntry('/services', ['src/app/services/page.tsx', 'src/app/services/Services-page.tsx'], 'yearly', 0.9),
-    createSitemapEntry('/calculators', calculatorHubFiles, 'monthly', 0.8),
-    createSitemapEntry('/resources/', resourceHubFiles, 'monthly', 0.9),
+    createSitemapEntry('/resources', resourceHubFiles, 'monthly', 0.9),
+    createSitemapEntry('/resources/calculators', calculatorHubFiles, 'monthly', 0.9),
+    createSitemapEntry('/resources/blog', blogHubFiles, 'monthly', 0.7),
     createSitemapEntry('/service-areas', ['src/app/service-areas/page.tsx', 'src/lib/serviceAreas.ts'], 'weekly', 0.9),
     createSitemapEntry('/contractors', ['src/app/contractors/page.tsx', 'src/app/contractors/Contractors-page.tsx'], 'monthly', 0.9),
     createSitemapEntry('/contact', ['src/app/contact/page.tsx', 'src/app/contact/Contact-page.tsx'], 'yearly', 1),
@@ -113,10 +119,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     };
   });
 
+  const { resourceBlogPosts } = await import('@/data/resourceBlog');
+  const blogPostPages: MetadataRoute.Sitemap = resourceBlogPosts.map((post) => ({
+    url: `${baseUrl}/resources/blog/${post.slug}`,
+    lastModified: post.updatedAt ?? post.publishedAt,
+    changeFrequency: 'monthly',
+    priority: 0.6,
+  }));
+
   return [
     ...staticPages,
     ...servicePages,
     ...serviceAreaPages,
     ...resourceCalculatorPages,
+    ...blogPostPages,
   ];
 }

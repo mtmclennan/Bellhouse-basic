@@ -107,7 +107,10 @@ export default function ServiceAreasPage() {
               <Link className={classes.secondaryAction} href="/services">
                 View core services
               </Link>
-              <Link className={classes.secondaryAction} href="/calculators">
+              <Link
+                className={classes.secondaryAction}
+                href="/resources/calculators"
+              >
                 Use Estimating Calculators
               </Link>
             </div>

@@ -19,8 +19,6 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
     currentRoute === '/service-areas' ||
     currentRoute.startsWith('/service-areas/') ||
     currentRoute.startsWith('/contractors') ||
-    currentRoute === '/calculators' ||
-    currentRoute.startsWith('/calculators/') ||
     currentRoute === '/resources' ||
     currentRoute.startsWith('/resources/');
 

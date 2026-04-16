@@ -1,0 +1,137 @@
+@use '../../../../styles/abstracts/mixins' as m;
+@use '../../../../styles/abstracts/variables' as v;
+
+.heroSection {
+  position: relative;
+  overflow: hidden;
+  padding-top: 11rem;
+  background:
+    radial-gradient(circle at top left, rgba(v.$cat-yellow2, 0.14), transparent 26%),
+    linear-gradient(180deg, #191919 0%, #101010 100%);
+
+  @include m.mediaDesktop {
+    padding-top: 22rem;
+  }
+}
+
+.heroContainer {
+  color: #fff;
+}
+
+.heroContent {
+  display: flex;
+  max-width: 82rem;
+  flex-direction: column;
+  gap: 1.8rem;
+  padding: 1rem 0 2rem;
+
+  h1 {
+    margin: 0;
+    font-size: 5rem;
+    line-height: 0.98;
+    font-weight: 200;
+    color: #fff;
+
+    @include m.mediaDesktop {
+      font-size: 7.2rem;
+    }
+  }
+
+  p {
+    margin: 0;
+    font-size: 1.8rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.84);
+  }
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin: 0;
+  padding: 0.9rem 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background-color: rgba(255, 255, 255, 0.05);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: v.$cat-yellow2;
+}
+
+.meta {
+  margin: 0;
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.article {
+  display: grid;
+  gap: 3rem;
+}
+
+.intro,
+.section {
+  display: grid;
+  gap: 1.6rem;
+}
+
+.intro p,
+.section p {
+  margin: 0;
+  font-size: 1.8rem;
+  line-height: 1.72;
+  color: v.$text-color-dark;
+}
+
+.section h2 {
+  margin: 0;
+  @include m.sectionHeading(3.4rem, 4.4rem);
+  color: v.$text-color-mid-dark;
+}
+
+.ctaCard {
+  display: grid;
+  gap: 1.6rem;
+  padding: 2.4rem;
+  border-radius: 2rem;
+  border: 1px solid v.$grey-color-3;
+  background-color: #fff;
+  box-shadow: 0 1.4rem 3rem -2.6rem rgba(0, 0, 0, 0.24);
+
+  h2,
+  p {
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 2.6rem;
+    line-height: 1.2;
+    color: v.$text-color-mid-dark;
+  }
+
+  p {
+    font-size: 1.7rem;
+    line-height: 1.65;
+    color: v.$text-color-dark;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+}
+
+.primaryAction {
+  @include m.btnMain;
+  @include m.focusRing();
+}
+
+.secondaryAction {
+  @include m.btnSec;
+  @include m.focusRing(rgba(v.$color-primary, 0.5));
+}

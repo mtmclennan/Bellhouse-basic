@@ -23,7 +23,15 @@ export function CalculatorPageShell({ kind }: CalculatorPageShellProps) {
         spacing="loose"
       >
         <div className={classes.heroContent}>
-          <ResourceBreadcrumbs currentLabel={config.title} />
+          <ResourceBreadcrumbs
+            currentLabel={config.title}
+            trail={[
+              { name: 'Home', href: '/' },
+              { name: 'Resources', href: '/resources' },
+              { name: 'Calculators', href: '/resources/calculators' },
+              { name: config.title },
+            ]}
+          />
           <p className={classes.eyebrow}>{content.eyebrow}</p>
           <h1>{content.pageTitle}</h1>
           {content.intro.map((paragraph) => (
@@ -73,8 +81,8 @@ export function CalculatorPageShell({ kind }: CalculatorPageShellProps) {
         </div>
 
         <p className={classes.resourcesLink}>
-          Browse the full tool cluster in{' '}
-          <Link href="/resources">Bellhouse resources</Link>.
+          Browse the full calculator hub in{' '}
+          <Link href="/resources/calculators">Bellhouse calculators</Link>.
         </p>
       </SectionWrapper>
 
@@ -105,7 +113,10 @@ export function CalculatorPageShell({ kind }: CalculatorPageShellProps) {
             </div>
             <p>
               Need a different estimating tool first?{' '}
-              <Link href="/resources">Browse all Bellhouse resources</Link>.
+              <Link href="/resources/calculators">
+                Browse all Bellhouse calculators
+              </Link>
+              .
             </p>
           </div>
         </div>
