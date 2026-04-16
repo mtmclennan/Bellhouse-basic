@@ -87,7 +87,7 @@
 .supportIntro .eyebrow {
   border-color: rgba(v.$cat-yellow2, 0.22);
   background-color: rgba(v.$cat-yellow2, 0.12);
-  color: v.$text-color-mid-dark;
+  color: v.$text-color-light;
 }
 
 .supportIntro {
@@ -99,14 +99,14 @@
   h2 {
     @include m.sectionHeading(4rem, 5rem);
     margin: 0;
-    color: v.$text-color-mid-dark;
+    color: v.$text-color-light;
   }
 
   p {
     margin: 0;
     font-size: 1.8rem;
     line-height: 1.72;
-    color: v.$text-color-dark;
+    color: v.$text-color-light;
   }
 }
 

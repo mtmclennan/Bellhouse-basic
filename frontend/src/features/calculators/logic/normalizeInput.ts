@@ -156,6 +156,7 @@ export function normalizeCalculatorInput(
       depthM,
       materialId: input.materialId,
       useAdvanced: false,
+      applyCompaction: config.advancedSettings.compactionPercentage,
       isHalfLoad: false,
       swellFactor,
       truckCapacityTons,
@@ -172,15 +173,16 @@ export function normalizeCalculatorInput(
       ? resolveMoistureLevelPercentage(input.moistureLevel, material)
       : null
     : normalizeOptionalNonNegativeNumber(input.wetMaterialPercentage);
-  const compactionPercentage = normalizeOptionalNonNegativeNumber(
-    input.compactionPercentage,
-  );
+  const compactionPercentage = config.advancedSettings.compactionPercentage
+    ? normalizeOptionalNonNegativeNumber(input.compactionPercentage)
+    : undefined;
   const truckCapacityTons = normalizeOptionalPositiveNumber(input.truckCapacityTons);
 
   if (
     swellFactor === null ||
     wetMaterialPercentage === null ||
-    compactionPercentage === null ||
+    (config.advancedSettings.compactionPercentage &&
+      compactionPercentage === null) ||
     truckCapacityTons === null
   ) {
     return null;
@@ -192,6 +194,7 @@ export function normalizeCalculatorInput(
     depthM,
     materialId: input.materialId,
     useAdvanced: input.useAdvanced,
+    applyCompaction: config.advancedSettings.compactionPercentage,
     swellFactor,
     wetMaterialPercentage,
     compactionPercentage,

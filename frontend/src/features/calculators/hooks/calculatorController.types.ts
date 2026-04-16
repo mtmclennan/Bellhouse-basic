@@ -1,4 +1,4 @@
-import type { Dispatch, SetStateAction } from 'react';
+import type { Dispatch, ReactNode, SetStateAction } from 'react';
 import type { CalculatorConfig } from '../config/calculators';
 import { normalizeCalculatorInput } from '../logic/normalizeInput';
 import type {
@@ -112,20 +112,18 @@ export type CalculatorAdvancedSection = {
 };
 
 export type CalculatorResultCardModel = {
+  id: string;
   label: string;
-  value: string;
+  value: ReactNode;
+  supportingValue?: string;
   meta?: string;
   tone: 'primary' | 'muted';
 };
 
-export type CalculatorAssumptionItem = {
-  label: string;
-  value: string;
-};
-
 export type CalculatorAssumptionsSection = {
   title: string;
-  items: CalculatorAssumptionItem[];
+  summary: string;
+  items?: string[];
 };
 
 export type CalculatorResultsSection = {
@@ -194,7 +192,7 @@ export type CalculatorController = {
       title: string;
       units: CalculatorUnitsSection;
       dimensions: CalculatorDimensionsSection;
-      material: CalculatorMaterialSection;
+      material: CalculatorMaterialSection | null;
       advanced: CalculatorAdvancedSection;
     };
     results: CalculatorResultsSection;

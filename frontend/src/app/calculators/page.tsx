@@ -109,8 +109,8 @@ export default function CalculatorsPage() {
             <ul className={classes.heroCardList}>
               <li>Metric or imperial dimension entry, depending on the job</li>
               <li>Volume, tonnage, and truck-load estimates in one place</li>
-              <li>Result display that can stay with input units or switch</li>
-              <li>Estimate-first planning before a quote or site review</li>
+              <li>Material and hauling assumptions where they matter</li>
+              <li>Built for early planning before quote review</li>
             </ul>
           </div>
         </div>
@@ -121,9 +121,9 @@ export default function CalculatorsPage() {
           <p className={classes.sectionEyebrow}>Calculator hub</p>
           <h2>Choose the estimating tool that matches the work.</h2>
           <p>
-            Each calculator uses the same Bellhouse estimating framework, but
-            the materials, dimension entry, and settings stay focused on the
-            type of work you are actually pricing or planning.
+            Each calculator uses the same Bellhouse framework, but the inputs,
+            labels, materials, and assumptions stay focused on the type of work
+            you are actually pricing or planning.
           </p>
         </div>
 

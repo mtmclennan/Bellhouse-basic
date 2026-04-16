@@ -9,7 +9,7 @@ import type {
   MetricDimensionUnit,
   UnitSystem,
 } from '../types/calculator';
-import { getMaterialById } from './materials';
+import { excavationMaterialIds, getMaterialById } from './materials';
 import { getMaterialDefaultAssumptions } from '../logic/calculator';
 
 type CalculatorFieldLabels = {
@@ -48,13 +48,35 @@ type CalculatorResultDisplaySettings = {
   options: readonly OutputUnitPreference[];
 };
 
+type CalculatorResultCardId =
+  | 'volume'
+  | 'adjustedVolume'
+  | 'weight'
+  | 'truckLoads'
+  | 'secondaryVolume';
+
 type CalculatorResultPresentation = {
   volumeLabel: string;
   adjustedVolumeLabel?: string;
   weightLabel: string;
   truckLoadsLabel: string;
   secondaryVolumeLabel?: string;
+  primaryCardIds: readonly CalculatorResultCardId[];
+  secondaryCardIds?: readonly CalculatorResultCardId[];
   showCardMeta: boolean;
+};
+
+type CalculatorSectionCopy = {
+  inputPanelTitle: string;
+  unitsTitle: string;
+  dimensionsTitle: string;
+  materialTitle: string;
+  advancedTitle: string;
+  advancedNote: string;
+  advancedInactiveMessage: string;
+  resultsTitle: string;
+  resultsPlaceholder: string;
+  disclaimer: string;
 };
 
 export type CalculatorConfig = {
@@ -73,6 +95,7 @@ export type CalculatorConfig = {
   resultDisplay: CalculatorResultDisplaySettings;
   resultPresentation: CalculatorResultPresentation;
   advancedSettings: CalculatorAdvancedSettingVisibility;
+  sectionCopy: CalculatorSectionCopy;
 };
 
 function createInitialDimensionInput(
@@ -89,33 +112,33 @@ function createInitialDimensionInput(
 export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
   excavation: {
     kind: 'excavation',
-    title: 'Excavation Volume Calculator',
+    title: 'Excavation Calculator',
     description:
-      'Estimate excavation volume, weight, and truck loads for excavation projects.',
+      'Estimate cut volume, loose haul-out, tonnage, and truck loads for excavation work.',
     defaults: {
       materialId: 'native-soil',
       inputUnitSystem: 'metric',
       outputUnitPreference: 'metric',
       truckCapacityTons: 21.5,
     },
-    allowedMaterialIds: ['native-soil', 'clay'],
+    allowedMaterialIds: excavationMaterialIds,
     labels: {
-      inputUnits: 'Input Units',
-      resultDisplay: 'Result Display',
-      material: 'Excavated Material',
-      useAdvanced: 'Use advanced excavation settings',
+      inputUnits: 'Enter dimensions in',
+      resultDisplay: 'Show results in',
+      material: 'Material to haul',
+      useAdvanced: 'Adjust excavation assumptions',
       dimensions: {
-        length: 'Excavation Length',
-        width: 'Excavation Width',
-        depth: 'Excavation Depth',
+        length: 'Cut Length',
+        width: 'Cut Width',
+        depth: 'Cut Depth',
       },
       advanced: {
         swellFactor: 'Swell factor',
         moistureLevel: 'Moisture level',
         wetMaterialPercentage: 'Moisture level',
         compactionPercentage: 'Compaction adjustment (%)',
-        truckCapacityTons: 'Truck payload (tons)',
-        halfLoadToggle: 'Half-load restrictions',
+        truckCapacityTons: 'Legal truck payload (tons)',
+        halfLoadToggle: 'Half-load season / road restriction',
       },
     },
     dimensionKeys: ['length', 'width', 'depth'],
@@ -144,26 +167,43 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
       options: ['metric', 'imperial'],
     },
     resultPresentation: {
-      volumeLabel: 'Excavation volume',
-      adjustedVolumeLabel: 'Estimated loose material',
-      weightLabel: 'Estimated weight',
+      volumeLabel: 'In-place cut volume',
+      adjustedVolumeLabel: 'Loose material volume',
+      weightLabel: 'Estimated loose material weight',
       truckLoadsLabel: 'Estimated truck loads',
+      primaryCardIds: ['volume', 'adjustedVolume', 'truckLoads'],
+      secondaryCardIds: ['weight'],
       showCardMeta: false,
     },
     advancedSettings: {
       swellFactor: true,
       moistureLevel: true,
       wetMaterialPercentage: false,
-      compactionPercentage: true,
+      compactionPercentage: false,
       truckCapacityTons: true,
       halfLoadToggle: true,
+    },
+    sectionCopy: {
+      inputPanelTitle: 'Excavation details',
+      unitsTitle: 'Measurement system',
+      dimensionsTitle: 'Cut dimensions',
+      materialTitle: 'Material to haul',
+      advancedTitle: 'Excavation assumptions',
+      advancedNote: 'Swell, moisture, and hauling limits for removed material.',
+      advancedInactiveMessage:
+        'Open advanced settings to adjust swell, moisture, truck payload, and half-load mode.',
+      resultsTitle: 'Excavation estimate',
+      resultsPlaceholder:
+        'Enter the cut dimensions to see in-place cut volume, loose material volume, truck loads, and loose material weight.',
+      disclaimer:
+        'Planning estimate only. Results reflect loose excavated material after swell, not compacted fill. Over-excavation, groundwater, access, and hauling limits can change actual quantities.',
     },
   },
   gravel: {
     kind: 'gravel',
     title: 'Gravel Calculator',
     description:
-      'Estimate gravel volume, tonnage, and truck loads for driveways, pads, and base preparation.',
+      'Estimate imported aggregate volume, tonnage, and truck loads for pads, lanes, and base prep.',
     defaults: {
       materialId: 'granular-a',
       inputUnitSystem: 'metric',
@@ -172,21 +212,21 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
     },
     allowedMaterialIds: ['granular-a', 'granular-b'],
     labels: {
-      inputUnits: 'Input Units',
-      resultDisplay: 'Result Display',
-      material: 'Aggregate Type',
-      useAdvanced: 'Use advanced gravel settings',
+      inputUnits: 'Enter dimensions in',
+      resultDisplay: 'Show results in',
+      material: 'Aggregate type',
+      useAdvanced: 'Adjust gravel assumptions',
       dimensions: {
-        length: 'Project Length',
-        width: 'Project Width',
+        length: 'Area Length',
+        width: 'Area Width',
         depth: 'Gravel Depth',
       },
       advanced: {
-        swellFactor: 'Swell Factor',
+        swellFactor: 'Swell factor',
         moistureLevel: 'Moisture level',
-        wetMaterialPercentage: 'Wet Material Adjustment (%)',
-        compactionPercentage: 'Compaction Adjustment (%)',
-        truckCapacityTons: 'Truck Capacity (tons)',
+        wetMaterialPercentage: 'Wet material adjustment (%)',
+        compactionPercentage: 'Compaction adjustment (%)',
+        truckCapacityTons: 'Legal truck payload (tons)',
         halfLoadToggle: 'Half-load season / road restriction',
       },
     },
@@ -216,10 +256,12 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
       options: ['metric', 'imperial'],
     },
     resultPresentation: {
-      volumeLabel: 'Estimated volume',
-      weightLabel: 'Estimated weight',
+      volumeLabel: 'Adjusted volume',
+      weightLabel: 'Estimated tonnage',
       truckLoadsLabel: 'Estimated truck loads',
       secondaryVolumeLabel: 'Base volume',
+      primaryCardIds: ['volume', 'weight', 'truckLoads'],
+      secondaryCardIds: ['secondaryVolume'],
       showCardMeta: true,
     },
     advancedSettings: {
@@ -230,12 +272,27 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
       truckCapacityTons: true,
       halfLoadToggle: true,
     },
+    sectionCopy: {
+      inputPanelTitle: 'Gravel details',
+      unitsTitle: 'Measurement system',
+      dimensionsTitle: 'Area and depth',
+      materialTitle: 'Aggregate',
+      advancedTitle: 'Delivery assumptions',
+      advancedNote: 'Compaction, moisture, and hauling adjustments.',
+      advancedInactiveMessage:
+        'Open advanced settings to adjust compaction, wet material, truck payload, and half-load mode.',
+      resultsTitle: 'Material estimate',
+      resultsPlaceholder:
+        'Enter the coverage area and gravel depth to see adjusted volume, tonnage, and truck loads.',
+      disclaimer:
+        'Planning estimate only. Subgrade correction, compaction, and waste can change actual stone required.',
+    },
   },
   topsoil: {
     kind: 'topsoil',
     title: 'Topsoil Calculator',
     description:
-      'Estimate topsoil volume, weight, and truck loads for grading and landscaping projects.',
+      'Estimate topsoil coverage volume, tonnage, and truck loads for finish grading and placement.',
     defaults: {
       materialId: 'topsoil',
       inputUnitSystem: 'metric',
@@ -244,21 +301,21 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
     },
     allowedMaterialIds: ['topsoil'],
     labels: {
-      inputUnits: 'Input Units',
-      resultDisplay: 'Result Display',
-      material: 'Soil Type',
-      useAdvanced: 'Use advanced topsoil settings',
+      inputUnits: 'Enter dimensions in',
+      resultDisplay: 'Show results in',
+      material: 'Topsoil type',
+      useAdvanced: 'Adjust topsoil assumptions',
       dimensions: {
         length: 'Coverage Length',
         width: 'Coverage Width',
         depth: 'Topsoil Depth',
       },
       advanced: {
-        swellFactor: 'Swell Factor',
+        swellFactor: 'Swell factor',
         moistureLevel: 'Moisture level',
-        wetMaterialPercentage: 'Wet Material Adjustment (%)',
-        compactionPercentage: 'Compaction Adjustment (%)',
-        truckCapacityTons: 'Truck Capacity (tons)',
+        wetMaterialPercentage: 'Wet material adjustment (%)',
+        compactionPercentage: 'Compaction adjustment (%)',
+        truckCapacityTons: 'Legal truck payload (tons)',
         halfLoadToggle: 'Half-load season / road restriction',
       },
     },
@@ -288,10 +345,12 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
       options: ['metric', 'imperial'],
     },
     resultPresentation: {
-      volumeLabel: 'Estimated volume',
-      weightLabel: 'Estimated weight',
+      volumeLabel: 'Adjusted volume',
+      weightLabel: 'Estimated tonnage',
       truckLoadsLabel: 'Estimated truck loads',
       secondaryVolumeLabel: 'Base volume',
+      primaryCardIds: ['volume', 'weight', 'truckLoads'],
+      secondaryCardIds: ['secondaryVolume'],
       showCardMeta: true,
     },
     advancedSettings: {
@@ -301,6 +360,21 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
       compactionPercentage: true,
       truckCapacityTons: true,
       halfLoadToggle: true,
+    },
+    sectionCopy: {
+      inputPanelTitle: 'Topsoil details',
+      unitsTitle: 'Measurement system',
+      dimensionsTitle: 'Coverage and depth',
+      materialTitle: 'Material',
+      advancedTitle: 'Placement assumptions',
+      advancedNote: 'Compaction, moisture, and hauling adjustments.',
+      advancedInactiveMessage:
+        'Open advanced settings to adjust compaction, wet material, truck payload, and half-load mode.',
+      resultsTitle: 'Material estimate',
+      resultsPlaceholder:
+        'Enter the coverage area and target depth to see adjusted volume, tonnage, and truck loads.',
+      disclaimer:
+        'Planning estimate only. Existing grade, cleanup, and finish expectations can change actual topsoil required.',
     },
   },
 };

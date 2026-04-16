@@ -21,7 +21,9 @@ export function CalculatorInputPanel({ section }: CalculatorInputPanelProps) {
       <div className={classes.formBody}>
         <CalculatorUnitsSection section={section.units} />
         <CalculatorDimensionsSection section={section.dimensions} />
-        <CalculatorMaterialSection section={section.material} />
+        {section.material ? (
+          <CalculatorMaterialSection section={section.material} />
+        ) : null}
         <CalculatorAdvancedSection section={section.advanced} />
       </div>
     </div>

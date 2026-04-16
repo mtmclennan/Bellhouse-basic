@@ -3,7 +3,7 @@
 
 .wrapper {
   display: grid;
-  gap: 0.6rem;
+  gap: 0.45rem;
 }
 
 .wrapperDark {
@@ -25,6 +25,39 @@
   }
 }
 
+.wrapperCompact {
+  gap: 0.4rem;
+
+  .label {
+    font-size: 1.05rem;
+    letter-spacing: 0.1em;
+  }
+
+  .row {
+    gap: 0.65rem;
+  }
+
+  .optionLabel {
+    min-width: 4.8rem;
+    font-size: 1.18rem;
+  }
+
+  .switch {
+    width: 4.8rem;
+    height: 2.7rem;
+  }
+
+  .thumb {
+    width: 2rem;
+    height: 2rem;
+    transform: translateX(0.3rem);
+
+    .switch[data-checked] & {
+      transform: translateX(2.48rem);
+    }
+  }
+}
+
 .label {
   margin: 0;
   font-size: 1.2rem;
@@ -38,12 +71,12 @@
   display: inline-flex;
   width: fit-content;
   align-items: center;
-  gap: 1rem;
+  gap: 0.8rem;
 }
 
 .optionLabel {
-  min-width: 6rem;
-  font-size: 1.35rem;
+  min-width: 5.4rem;
+  font-size: 1.28rem;
   font-weight: 700;
   line-height: 1.2;
   text-align: center;
@@ -58,12 +91,12 @@
 .switch {
   position: relative;
   display: inline-flex;
-  width: 5.8rem;
-  height: 3.2rem;
+  width: 5.3rem;
+  height: 3rem;
   align-items: center;
   border: 1px solid rgba(v.$cat-yellow2, 0.35);
   border-radius: 999px;
-  background-color: rgba(v.$cat-yellow2, 0.14);
+  background-color: rgba(rgba(v.$text-color-dark, 0.82), 0.84);
   transition:
     background-color 0.18s ease,
     border-color 0.18s ease,
@@ -71,61 +104,90 @@
   @include m.focusRing(rgba(v.$cat-yellow2, 0.28));
 
   &[data-checked] {
-    background-color: rgba(v.$cat-yellow2, 0.26);
-    border-color: rgba(v.$cat-yellow2, 0.62);
+    background-color: rgba(v.$cat-yellow2, 0.96);
+    border-color: rgba(v.$cat-yellow2, 0.92);
   }
 }
 
 .thumb {
   display: inline-block;
-  width: 2.4rem;
-  height: 2.4rem;
-  transform: translateX(0.35rem);
+  width: 2.2rem;
+  height: 2.2rem;
+  transform: translateX(0.32rem);
   border-radius: 999px;
   background-color: #fff;
   box-shadow: 0 0.5rem 1rem -0.6rem rgba(0, 0, 0, 0.45);
   transition: transform 0.18s ease;
 
   .switch[data-checked] & {
-    transform: translateX(2.65rem);
+    transform: translateX(2.45rem);
   }
 }
 
 @media (max-width: 540px) {
   .wrapper {
-    gap: 0.55rem;
+    gap: 0.45rem;
   }
 
   .row {
-    width: 100%;
-    justify-content: space-between;
-    gap: 0.75rem;
+    width: fit-content;
+    max-width: 100%;
+    justify-content: flex-start;
+    gap: 0.65rem;
   }
 
   .optionLabel {
     min-width: 0;
-    flex: 1 1 0;
-    font-size: 1.28rem;
+    flex: 0 0 auto;
+    font-size: 1.2rem;
+  }
+
+  .wrapperCompact {
+    .optionLabel {
+      font-size: 1.12rem;
+    }
+
+    .row {
+      width: fit-content;
+      justify-content: flex-start;
+    }
   }
 }
 
 @media (max-width: 380px) {
   .optionLabel {
-    font-size: 1.2rem;
+    font-size: 1.14rem;
   }
 
   .switch {
-    width: 5.2rem;
-    height: 3rem;
+    width: 4.9rem;
+    height: 2.8rem;
   }
 
   .thumb {
-    width: 2.2rem;
-    height: 2.2rem;
-    transform: translateX(0.3rem);
+    width: 2rem;
+    height: 2rem;
+    transform: translateX(0.28rem);
 
     .switch[data-checked] & {
-      transform: translateX(2.38rem);
+      transform: translateX(2.22rem);
+    }
+  }
+
+  .wrapperCompact {
+    .switch {
+      width: 4.4rem;
+      height: 2.5rem;
+    }
+
+    .thumb {
+      width: 1.8rem;
+      height: 1.8rem;
+      transform: translateX(0.28rem);
+
+      .switch[data-checked] & {
+        transform: translateX(2.3rem);
+      }
     }
   }
 }

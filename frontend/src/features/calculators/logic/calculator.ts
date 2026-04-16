@@ -101,7 +101,7 @@ export function resolveActiveCompactionPercentage(
   input: CalculatorCalculationInput,
   material: Material,
 ) {
-  if (!input.useAdvanced) {
+  if (!input.applyCompaction || !input.useAdvanced) {
     return undefined;
   }
 
@@ -125,21 +125,19 @@ export function calculateProjectMaterial(
   input: CalculatorCalculationInput,
   material: Material,
 ): CalculatorResult {
+  // Shared volume flow starts with in-place dimensions, then applies any
+  // workflow-specific material adjustments such as excavation swell.
   const rawProjectVolumeM3 = input.lengthM * input.widthM * input.depthM;
 
-  let adjustedLooseMaterialVolumeM3 = rawProjectVolumeM3;
-
   const swellFactor = resolveActiveSwellFactor(input, material);
+  const adjustedLooseMaterialVolumeM3 = rawProjectVolumeM3 * swellFactor;
+
   const compactionPercentage = resolveActiveCompactionPercentage(input, material);
   const compactionMultiplier = percentageToMultiplier(compactionPercentage);
-
-  adjustedLooseMaterialVolumeM3 *= swellFactor;
-
-  let adjustedMaterialVolumeM3 = adjustedLooseMaterialVolumeM3;
-
-  if (input.useAdvanced) {
-    adjustedMaterialVolumeM3 *= compactionMultiplier;
-  }
+  const adjustedMaterialVolumeM3 =
+    input.applyCompaction && input.useAdvanced
+      ? adjustedLooseMaterialVolumeM3 * compactionMultiplier
+      : adjustedLooseMaterialVolumeM3;
 
   const wetMaterialPercentage = resolveActiveWetMaterialPercentage(input, material);
   const wetMaterialMultiplier = percentageToMultiplier(wetMaterialPercentage);

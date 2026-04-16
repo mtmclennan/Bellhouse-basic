@@ -1,5 +1,6 @@
 'use client';
 
+import { useMemo } from 'react';
 import { getMaterialById } from '../../config/materials';
 import { getMaterialDefaultAssumptions } from '../../logic/calculator';
 import type {
@@ -14,6 +15,7 @@ import type {
   CalculatorKindBehavior,
   CalculatorKindBehaviorParams,
 } from '../calculatorController.types';
+import { buildCalculatorAssumptions } from './buildCalculatorAssumptions';
 
 const defaultAdvancedState: CalculatorAdvancedState = {
   values: null,
@@ -25,8 +27,21 @@ const defaultAdvancedState: CalculatorAdvancedState = {
 export function useDefaultCalculatorKindBehavior({
   kind,
   config,
+  input,
+  material,
+  normalizedInput,
   setInput,
 }: CalculatorKindBehaviorParams): CalculatorKindBehavior {
+  const assumptions = useMemo(() => {
+    return buildCalculatorAssumptions({
+      kind,
+      config,
+      input,
+      material,
+      normalizedInput,
+    });
+  }, [config, input, kind, material, normalizedInput]);
+
   const updateAdvancedNumberField = (
     _field: CalculatorNumberField,
     _value: CalculatorEditableNumber,
@@ -79,7 +94,7 @@ export function useDefaultCalculatorKindBehavior({
   };
 
   return {
-    assumptions: null,
+    assumptions,
     advanced: defaultAdvancedState,
     actions: {
       updateAdvancedNumberField,

@@ -9,6 +9,10 @@ export type CalculatorKind = 'excavation' | 'gravel' | 'topsoil';
 export type MaterialId =
   | 'native-soil'
   | 'clay'
+  | 'sand'
+  | 'silt'
+  | 'gravel'
+  | 'mixed-fill'
   | 'granular-a'
   | 'granular-b'
   | 'topsoil';
@@ -79,6 +83,7 @@ export type CalculatorCalculationInput = {
   depthM: number;
   materialId: MaterialId;
   useAdvanced: boolean;
+  applyCompaction: boolean;
   swellFactor?: number;
   wetMaterialPercentage?: number;
   compactionPercentage?: number;

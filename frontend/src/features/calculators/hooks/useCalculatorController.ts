@@ -1,12 +1,17 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { createElement, Fragment, useMemo, useState } from 'react';
 import { createCalculatorFormInput, getCalculatorConfig } from '../config/calculators';
 import { getMaterialById, getMaterialsByIds } from '../config/materials';
 import { calculateProjectMaterial } from '../logic/calculator';
-import { m3ToCubicYards } from '../logic/conversions';
+import {
+  m3ToCubicYards,
+  tonnesToKilograms,
+  tonnesToPounds,
+  tonnesToShortTons,
+} from '../logic/conversions';
 import { normalizeCalculatorInput } from '../logic/normalizeInput';
-import { formatNumber, formatTruckLoads } from '../utils/format';
+import { formatNumber, formatTruckLoads, formatWholeNumber } from '../utils/format';
 import { useCalculatorKindBehavior } from './useCalculatorKindBehavior';
 import type {
   CalculatorAdvancedFieldsModel,
@@ -26,15 +31,125 @@ import type {
   MetricDimensionUnit,
 } from '../types/calculator';
 
+function formatCubicUnit(value: string, unitLabel: 'm' | 'yd') {
+  return createElement(
+    Fragment,
+    null,
+    value,
+    ' ',
+    unitLabel,
+    createElement('sup', null, '3'),
+  );
+}
+
 function formatVolume(
   cubicMetres: number,
   outputUnitPreference: CalculatorFormInput['outputUnitPreference'],
 ) {
   if (outputUnitPreference === 'imperial') {
-    return `${formatNumber(m3ToCubicYards(cubicMetres))} yd3`;
+    return formatCubicUnit(formatNumber(m3ToCubicYards(cubicMetres)), 'yd');
   }
 
-  return `${formatNumber(cubicMetres)} m3`;
+  return formatCubicUnit(formatNumber(cubicMetres), 'm');
+}
+
+function formatWeight(
+  metricTonnes: number,
+  outputUnitPreference: CalculatorFormInput['outputUnitPreference'],
+) {
+  if (outputUnitPreference === 'imperial') {
+    return `${formatNumber(tonnesToShortTons(metricTonnes))} short tons`;
+  }
+
+  return `${formatNumber(metricTonnes)} metric tonnes`;
+}
+
+function formatSupportingWeight(
+  metricTonnes: number,
+  outputUnitPreference: CalculatorFormInput['outputUnitPreference'],
+) {
+  if (outputUnitPreference === 'imperial') {
+    return `${formatWholeNumber(tonnesToPounds(metricTonnes))} lbs`;
+  }
+
+  return `${formatWholeNumber(tonnesToKilograms(metricTonnes))} kg`;
+}
+
+type ResultCardId =
+  | 'volume'
+  | 'adjustedVolume'
+  | 'weight'
+  | 'truckLoads'
+  | 'secondaryVolume';
+
+function buildResultCardMap(
+  config: CalculatorController['config'],
+  result: NonNullable<CalculatorController['state']['result']>,
+  outputUnitPreference: CalculatorFormInput['outputUnitPreference'],
+): Partial<Record<ResultCardId, CalculatorResultCardModel>> {
+  return {
+    volume: {
+      id: 'volume',
+      label: config.resultPresentation.volumeLabel,
+      value: formatVolume(
+        config.resultPresentation.adjustedVolumeLabel
+          ? result.rawProjectVolumeM3
+          : result.adjustedMaterialVolumeM3,
+        outputUnitPreference,
+      ),
+      meta: config.resultPresentation.showCardMeta
+        ? 'Adjusted total material volume.'
+        : undefined,
+      tone: 'primary',
+    },
+    adjustedVolume: config.resultPresentation.adjustedVolumeLabel
+      ? {
+          id: 'adjustedVolume',
+          label: config.resultPresentation.adjustedVolumeLabel,
+          value: formatVolume(
+            result.adjustedLooseMaterialVolumeM3,
+            outputUnitPreference,
+          ),
+          meta: config.resultPresentation.showCardMeta
+            ? 'Expanded volume to haul away.'
+            : undefined,
+          tone: 'primary',
+        }
+      : undefined,
+    weight: {
+      id: 'weight',
+      label: config.resultPresentation.weightLabel,
+      value: formatWeight(result.adjustedWeightTons, outputUnitPreference),
+      supportingValue: formatSupportingWeight(
+        result.adjustedWeightTons,
+        outputUnitPreference,
+      ),
+      meta: config.resultPresentation.showCardMeta
+        ? 'Based on material density and moisture.'
+        : undefined,
+      tone: 'muted',
+    },
+    truckLoads: {
+      id: 'truckLoads',
+      label: config.resultPresentation.truckLoadsLabel,
+      value: formatTruckLoads(result.estimatedTruckLoads),
+      meta: config.resultPresentation.showCardMeta
+        ? 'Rounded for quick hauling estimates.'
+        : undefined,
+      tone: 'primary',
+    },
+    secondaryVolume: config.resultPresentation.secondaryVolumeLabel
+      ? {
+          id: 'secondaryVolume',
+          label: config.resultPresentation.secondaryVolumeLabel,
+          value: formatVolume(result.rawProjectVolumeM3, outputUnitPreference),
+          meta: config.resultPresentation.showCardMeta
+            ? 'Before advanced adjustments.'
+            : undefined,
+          tone: 'muted',
+        }
+      : undefined,
+  };
 }
 
 export function useCalculatorController(kind: CalculatorKind): CalculatorController {
@@ -145,7 +260,7 @@ export function useCalculatorController(kind: CalculatorKind): CalculatorControl
   };
 
   const dimensionsSection = {
-    title: 'Dimensions',
+    title: config.sectionCopy.dimensionsTitle,
     fields: config.dimensionKeys.map((dimensionKey) => ({
       key: dimensionKey,
       label: config.labels.dimensions[dimensionKey],
@@ -207,64 +322,22 @@ export function useCalculatorController(kind: CalculatorKind): CalculatorControl
       : undefined,
   };
 
+  const resultCardMap = result
+    ? buildResultCardMap(config, result, input.outputUnitPreference)
+    : null;
+
   const primaryCards: CalculatorResultCardModel[] = result
-    ? [
-        {
-          label: config.resultPresentation.volumeLabel,
-          value: formatVolume(
-            config.resultPresentation.adjustedVolumeLabel
-              ? result.rawProjectVolumeM3
-              : result.adjustedMaterialVolumeM3,
-            input.outputUnitPreference,
-          ),
-          meta: config.resultPresentation.showCardMeta
-            ? 'Adjusted total material volume.'
-            : undefined,
-          tone: 'primary' as const,
-        },
-        ...(config.resultPresentation.adjustedVolumeLabel
-          ? [
-              {
-                label: config.resultPresentation.adjustedVolumeLabel,
-                value: formatVolume(
-                  result.adjustedLooseMaterialVolumeM3,
-                  input.outputUnitPreference,
-                ),
-                tone: 'primary' as const,
-              },
-            ]
-          : []),
-        {
-          label: config.resultPresentation.weightLabel,
-          value: `${formatNumber(result.adjustedWeightTons)} tonnes`,
-          meta: config.resultPresentation.showCardMeta
-            ? 'Based on material density and wet adjustment.'
-            : undefined,
-          tone: 'primary' as const,
-        },
-        {
-          label: config.resultPresentation.truckLoadsLabel,
-          value: formatTruckLoads(result.estimatedTruckLoads),
-          meta: config.resultPresentation.showCardMeta
-            ? 'Based on truck capacity and half-load mode if used.'
-            : undefined,
-          tone: 'primary' as const,
-        },
-      ]
+    ? config.resultPresentation.primaryCardIds.flatMap((cardId) => {
+        const card = resultCardMap?.[cardId];
+        return card ? [card] : [];
+      })
     : [];
 
-  const secondaryCards: CalculatorResultCardModel[] =
-    result && config.resultPresentation.secondaryVolumeLabel
-    ? [
-        {
-          label: config.resultPresentation.secondaryVolumeLabel,
-          value: formatVolume(result.rawProjectVolumeM3, input.outputUnitPreference),
-          meta: config.resultPresentation.showCardMeta
-            ? 'Before advanced adjustments.'
-            : undefined,
-          tone: 'muted' as const,
-        },
-      ]
+  const secondaryCards: CalculatorResultCardModel[] = result
+    ? (config.resultPresentation.secondaryCardIds ?? []).flatMap((cardId) => {
+        const card = resultCardMap?.[cardId];
+        return card ? [card] : [];
+      })
     : [];
 
   return {
@@ -272,9 +345,9 @@ export function useCalculatorController(kind: CalculatorKind): CalculatorControl
     config,
     sections: {
       inputPanel: {
-        title: 'Inputs',
+        title: config.sectionCopy.inputPanelTitle,
         units: {
-          title: 'Units',
+          title: config.sectionCopy.unitsTitle,
           label: config.labels.inputUnits,
           value: input.inputUnitSystem,
           metricLabel: config.unitHints.metric,
@@ -282,18 +355,21 @@ export function useCalculatorController(kind: CalculatorKind): CalculatorControl
           onChange: updateInputUnitSystem,
         },
         dimensions: dimensionsSection,
-        material: {
-          title: 'Material',
-          label: config.labels.material,
-          value: input.materialId,
-          options: allowedMaterials,
-          onChange: kindBehavior.actions.updateMaterialSelection,
-        },
+        material:
+          allowedMaterials.length > 1
+            ? {
+                title: config.sectionCopy.materialTitle,
+                label: config.labels.material,
+                value: input.materialId,
+                options: allowedMaterials,
+                onChange: kindBehavior.actions.updateMaterialSelection,
+              }
+            : null,
         advanced: kindBehavior.advanced.values
           ? {
               shell: {
-                title: 'Advanced Options',
-                note: 'Swell, moisture, compaction, and hauling overrides.',
+                title: config.sectionCopy.advancedTitle,
+                note: config.sectionCopy.advancedNote,
               },
               content: {
                 mode: 'managed',
@@ -303,15 +379,14 @@ export function useCalculatorController(kind: CalculatorKind): CalculatorControl
             }
           : {
               shell: {
-                title: 'Advanced Options',
-                note: 'Swell, moisture, compaction, and hauling overrides.',
+                title: config.sectionCopy.advancedTitle,
+                note: config.sectionCopy.advancedNote,
               },
               content: {
                 mode: 'standard',
                 enabled: input.useAdvanced,
                 toggleLabel: config.labels.useAdvanced,
-                inactiveMessage:
-                  'Turn on advanced options to adjust swell, moisture, compaction, truck payload, and half-load mode.',
+                inactiveMessage: config.sectionCopy.advancedInactiveMessage,
                 onEnabledChange: (value: boolean) =>
                   updateToggleField('useAdvanced', value),
                 fields: input.useAdvanced ? advancedManagedFields : null,
@@ -319,7 +394,7 @@ export function useCalculatorController(kind: CalculatorKind): CalculatorControl
             },
       },
       results: {
-        title: 'Results',
+        title: config.sectionCopy.resultsTitle,
         outputDisplay: {
           label: config.labels.resultDisplay,
           value: input.outputUnitPreference,
@@ -327,13 +402,11 @@ export function useCalculatorController(kind: CalculatorKind): CalculatorControl
           metricLabel: 'Metric',
           imperialLabel: 'Imperial',
         },
-        placeholderMessage:
-          'Enter dimensions to see volume, material, weight, and truck loads.',
+        placeholderMessage: config.sectionCopy.resultsPlaceholder,
         primaryCards,
         secondaryCards,
         assumptions: kindBehavior.assumptions,
-        disclaimer:
-          'Estimate only. Site conditions, moisture, compaction, and hauling limits can affect actual quantities.',
+        disclaimer: config.sectionCopy.disclaimer,
       },
     },
     state: {

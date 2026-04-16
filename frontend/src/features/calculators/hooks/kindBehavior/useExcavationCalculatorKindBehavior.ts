@@ -2,8 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import { getMaterialById } from '../../config/materials';
-import { getMaterialDefaultAssumptions, getMoistureLevelLabel } from '../../logic/calculator';
-import { formatNumber } from '../../utils/format';
+import { getMaterialDefaultAssumptions } from '../../logic/calculator';
 import type {
   CalculatorEditableNumber,
   CalculatorFormInput,
@@ -16,6 +15,7 @@ import type {
   CalculatorKindBehavior,
   CalculatorKindBehaviorParams,
 } from '../calculatorController.types';
+import { buildCalculatorAssumptions } from './buildCalculatorAssumptions';
 
 const inactiveAdvancedState: CalculatorAdvancedState = {
   values: null,
@@ -33,20 +33,12 @@ function resolveEditablePositiveValue(
     : fallback;
 }
 
-function resolveEditableNonNegativeValue(
-  value: CalculatorEditableNumber,
-  fallback: number,
-) {
-  return typeof value === 'number' && Number.isFinite(value) && value >= 0
-    ? value
-    : fallback;
-}
-
 export function useExcavationCalculatorKindBehavior({
   kind,
   config,
   input,
   material,
+  normalizedInput,
   result,
   setInput,
 }: CalculatorKindBehaviorParams): CalculatorKindBehavior {
@@ -82,20 +74,10 @@ export function useExcavationCalculatorKindBehavior({
         materialDefaults.swellFactor,
       ),
       moistureLevel: input.moistureLevel,
-      compactionPercentage: input.useAdvanced
-        ? resolveEditableNonNegativeValue(
-            input.compactionPercentage,
-            materialDefaults.compactionPercentage,
-          )
-        : 0,
       truckCapacityTons: enteredTruckPayloadTons,
-      effectiveTruckPayloadTons: isHalfLoadActive
-        ? enteredTruckPayloadTons * 0.5
-        : enteredTruckPayloadTons,
       isHalfLoad: isHalfLoadActive,
     };
   }, [
-    input.compactionPercentage,
     input.isHalfLoad,
     input.moistureLevel,
     input.swellFactor,
@@ -115,7 +97,7 @@ export function useExcavationCalculatorKindBehavior({
         swellFactor: activeSettings.swellFactor,
         moistureLevel: activeSettings.moistureLevel,
         wetMaterialPercentage: input.wetMaterialPercentage,
-        compactionPercentage: activeSettings.compactionPercentage,
+        compactionPercentage: 0,
         truckCapacityTons: activeSettings.truckCapacityTons,
         isHalfLoad: activeSettings.isHalfLoad,
       },
@@ -134,58 +116,18 @@ export function useExcavationCalculatorKindBehavior({
   ]);
 
   const assumptions = useMemo(() => {
-    if (!isExcavation || !material || !result || !activeSettings) {
+    if (!isExcavation || !result || !activeSettings) {
       return null;
     }
 
-    return {
-      title: 'Active assumptions',
-      items: [
-        {
-          label: 'Material',
-          value: material.name,
-        },
-        {
-          label: 'Swell factor',
-          value: formatNumber(activeSettings.swellFactor),
-        },
-        {
-          label: 'Truck payload',
-          value: `${formatNumber(activeSettings.effectiveTruckPayloadTons)} tons`,
-        },
-        ...(config.advancedSettings.moistureLevel
-          ? [
-              {
-                label: 'Moisture',
-                value: getMoistureLevelLabel(activeSettings.moistureLevel),
-              },
-            ]
-          : []),
-        ...(activeSettings.isHalfLoad
-          ? [
-              {
-                label: 'Half-load mode',
-                value: 'On',
-              },
-            ]
-          : []),
-        ...(activeSettings.compactionPercentage !== 0
-          ? [
-              {
-                label: 'Compaction',
-                value: `${formatNumber(activeSettings.compactionPercentage)}%`,
-              },
-            ]
-          : []),
-      ],
-    };
-  }, [
-    activeSettings,
-    config.advancedSettings.moistureLevel,
-    isExcavation,
-    material,
-    result,
-  ]);
+    return buildCalculatorAssumptions({
+      kind,
+      config,
+      input,
+      material,
+      normalizedInput,
+    });
+  }, [activeSettings, config, input, isExcavation, kind, material, normalizedInput, result]);
 
   const updateAdvancedNumberField = (
     field: CalculatorNumberField,
@@ -273,7 +215,7 @@ export function useExcavationCalculatorKindBehavior({
         moistureLevel: nextDefaults.moistureLevel,
         swellFactor: nextDefaults.swellFactor,
         wetMaterialPercentage: '',
-        compactionPercentage: nextDefaults.compactionPercentage,
+        compactionPercentage: 0,
         truckCapacityTons: nextDefaults.truckCapacityTons,
         isHalfLoad: nextDefaults.isHalfLoad,
       };
@@ -297,7 +239,7 @@ export function useExcavationCalculatorKindBehavior({
       moistureLevel: nextDefaults.moistureLevel,
       swellFactor: nextDefaults.swellFactor,
       wetMaterialPercentage: '',
-      compactionPercentage: nextDefaults.compactionPercentage,
+      compactionPercentage: 0,
       truckCapacityTons: nextDefaults.truckCapacityTons,
       isHalfLoad: nextDefaults.isHalfLoad,
     }));

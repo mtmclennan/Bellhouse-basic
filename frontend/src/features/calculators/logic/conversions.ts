@@ -3,6 +3,9 @@ import type { MetricDimensionUnit } from '../types/calculator';
 export const FEET_TO_METERS = 0.3048;
 export const INCHES_TO_METERS = 0.0254;
 export const M3_TO_CUBIC_YARDS = 1.30795;
+export const TONNES_TO_SHORT_TONS = 1.10231;
+export const TONNES_TO_KILOGRAMS = 1000;
+export const TONNES_TO_POUNDS = 2204.62;
 
 const METRIC_UNIT_TO_METERS: Record<MetricDimensionUnit, number> = {
   m: 1,
@@ -27,4 +30,16 @@ export function inchesToMeters(inches: number): number {
 
 export function m3ToCubicYards(m3: number): number {
   return m3 * M3_TO_CUBIC_YARDS;
+}
+
+export function tonnesToShortTons(tonnes: number): number {
+  return tonnes * TONNES_TO_SHORT_TONS;
+}
+
+export function tonnesToKilograms(tonnes: number): number {
+  return tonnes * TONNES_TO_KILOGRAMS;
+}
+
+export function tonnesToPounds(tonnes: number): number {
+  return tonnes * TONNES_TO_POUNDS;
 }

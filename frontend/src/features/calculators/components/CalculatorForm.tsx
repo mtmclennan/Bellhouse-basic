@@ -28,14 +28,14 @@ const resultStyleClasses = {
   resultCardMuted: classes.resultCardMuted,
   resultLabel: classes.resultLabel,
   resultValue: classes.resultValue,
+  resultSupportingValue: classes.resultSupportingValue,
   resultValueSplit: classes.resultValueSplit,
   resultMeta: classes.resultMeta,
   assumptionsBlock: classes.assumptionsBlock,
   assumptionsTitle: classes.assumptionsTitle,
-  assumptionsGrid: classes.assumptionsGrid,
-  assumptionItem: classes.assumptionItem,
-  assumptionLabel: classes.assumptionLabel,
-  assumptionValue: classes.assumptionValue,
+  assumptionsSummary: classes.assumptionsSummary,
+  assumptionsList: classes.assumptionsList,
+  assumptionsItem: classes.assumptionsItem,
   resultDisclaimer: classes.resultDisclaimer,
 } satisfies CalculatorResultsStyleClasses;
 

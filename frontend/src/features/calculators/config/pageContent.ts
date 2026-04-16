@@ -25,18 +25,18 @@ export const calculatorPageContent: Record<
 > = {
   excavation: {
     eyebrow: 'Excavation estimating',
-    pageTitle: 'Excavation calculator for rough cut, haul-out, and truck planning.',
+    pageTitle: 'Estimate excavation volume, loose haul-out, and truck loads.',
     intro: [
-      'Use this calculator for a quick excavation volume, tonnage, and truck-load estimate before the dig is priced or the haul plan is finalized.',
+      'Use this tool for a quick cut-and-haul estimate before the job is priced or the haul plan is finalized.',
     ],
     supportHeading: 'What this excavation estimate is good for',
     supportDescription:
       'It is for quick planning, not final quoting.',
     supportItems: [
       {
-        title: 'Useful for early haul planning',
+        title: 'Useful for early cut-and-haul planning',
         description:
-          'Use it to get a rough read on spoil quantity and likely truck count.',
+          'Use it to compare in-place cut volume against loose excavated volume and likely truck count.',
       },
       {
         title: 'Site conditions still matter',
@@ -63,9 +63,9 @@ export const calculatorPageContent: Record<
   },
   gravel: {
     eyebrow: 'Gravel estimating',
-    pageTitle: 'Gravel calculator for base prep, pads, and imported aggregate.',
+    pageTitle: 'Estimate gravel quantity, tonnage, and truck loads for base work.',
     intro: [
-      'Use this calculator for a quick gravel volume, tonnage, and truck-load estimate for pads, lanes, driveways, and base work.',
+      'Use this tool for quick aggregate planning on pads, lanes, driveways, and base prep before ordering or site review.',
     ],
     supportHeading: 'How to use the gravel estimate properly',
     supportDescription:
@@ -101,9 +101,9 @@ export const calculatorPageContent: Record<
   },
   topsoil: {
     eyebrow: 'Topsoil estimating',
-    pageTitle: 'Topsoil calculator for coverage, finish grading, and material planning.',
+    pageTitle: 'Estimate topsoil coverage, tonnage, and truck loads for grading work.',
     intro: [
-      'Use this calculator for a quick topsoil quantity, tonnage, and truck-load estimate for coverage, finish grading, and lawn prep.',
+      'Use this tool for early topsoil planning before final grading, delivery, or finish work is confirmed.',
     ],
     supportHeading: 'Where this topsoil estimate helps most',
     supportDescription:

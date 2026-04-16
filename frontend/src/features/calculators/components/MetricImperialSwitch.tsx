@@ -12,6 +12,7 @@ type MetricImperialSwitchProps = {
   metricLabel?: string;
   imperialLabel?: string;
   tone?: 'light' | 'dark';
+  size?: 'default' | 'compact';
 };
 
 export function MetricImperialSwitch({
@@ -21,6 +22,7 @@ export function MetricImperialSwitch({
   metricLabel = 'Metric',
   imperialLabel = 'Imperial',
   tone = 'light',
+  size = 'default',
 }: MetricImperialSwitchProps) {
   const isImperial = value === 'imperial';
 
@@ -28,6 +30,8 @@ export function MetricImperialSwitch({
     <div
       className={`${classes.wrapper} ${
         tone === 'dark' ? classes.wrapperDark : ''
+      } ${
+        size === 'compact' ? classes.wrapperCompact : ''
       }`}
     >
       <span className={classes.label}>{label}</span>

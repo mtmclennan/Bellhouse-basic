@@ -15,14 +15,14 @@ export type CalculatorResultsStyleClasses = {
   resultCardMuted: string;
   resultLabel: string;
   resultValue: string;
+  resultSupportingValue: string;
   resultValueSplit: string;
   resultMeta: string;
   assumptionsBlock: string;
   assumptionsTitle: string;
-  assumptionsGrid: string;
-  assumptionItem: string;
-  assumptionLabel: string;
-  assumptionValue: string;
+  assumptionsSummary: string;
+  assumptionsList: string;
+  assumptionsItem: string;
   resultDisclaimer: string;
 };
 
@@ -48,6 +48,7 @@ export function CalculatorResults({
               metricLabel={section.outputDisplay.metricLabel}
               imperialLabel={section.outputDisplay.imperialLabel}
               tone="dark"
+              size="compact"
             />
           </div>
         </div>
@@ -63,7 +64,7 @@ export function CalculatorResults({
             <div className={classes.resultsPrimaryGrid}>
               {section.primaryCards.map((card) => (
                 <article
-                  key={`${card.label}-${card.value}`}
+                  key={card.id}
                   className={`${classes.resultCard} ${
                     card.tone === 'muted'
                       ? classes.resultCardMuted
@@ -72,6 +73,11 @@ export function CalculatorResults({
                 >
                   <span className={classes.resultLabel}>{card.label}</span>
                   <strong className={classes.resultValue}>{card.value}</strong>
+                  {card.supportingValue ? (
+                    <p className={classes.resultSupportingValue}>
+                      {card.supportingValue}
+                    </p>
+                  ) : null}
                   {card.meta ? (
                     <p className={classes.resultMeta}>{card.meta}</p>
                   ) : null}
@@ -83,7 +89,7 @@ export function CalculatorResults({
               <div className={classes.resultsSecondary}>
                 {section.secondaryCards.map((card) => (
                   <article
-                    key={`${card.label}-${card.value}`}
+                    key={card.id}
                     className={`${classes.resultCard} ${
                       card.tone === 'muted'
                         ? classes.resultCardMuted
@@ -92,6 +98,11 @@ export function CalculatorResults({
                   >
                     <span className={classes.resultLabel}>{card.label}</span>
                     <strong className={classes.resultValue}>{card.value}</strong>
+                    {card.supportingValue ? (
+                      <p className={classes.resultSupportingValue}>
+                        {card.supportingValue}
+                      </p>
+                    ) : null}
                     {card.meta ? (
                       <p className={classes.resultMeta}>{card.meta}</p>
                     ) : null}
@@ -107,17 +118,16 @@ export function CalculatorResults({
             <span className={classes.assumptionsTitle}>
               {section.assumptions.title}
             </span>
-            <div className={classes.assumptionsGrid}>
-              {section.assumptions.items.map((item) => (
-                <div
-                  key={`${item.label}-${item.value}`}
-                  className={classes.assumptionItem}
-                >
-                  <span className={classes.assumptionLabel}>{item.label}</span>
-                  <span className={classes.assumptionValue}>{item.value}</span>
-                </div>
-              ))}
-            </div>
+            <p className={classes.assumptionsSummary}>{section.assumptions.summary}</p>
+            {section.assumptions.items?.length ? (
+              <ul className={classes.assumptionsList}>
+                {section.assumptions.items.map((item) => (
+                  <li key={item} className={classes.assumptionsItem}>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            ) : null}
           </div>
         ) : null}
 
