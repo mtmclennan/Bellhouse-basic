@@ -30,8 +30,8 @@ type BuildCalculatorAssumptionsParams = {
   normalizedInput: CalculatorCalculationInput | null;
 };
 
-function formatDensity(material: Material) {
-  return `${formatNumber(material.densityTonsPerM3)} t/m3`;
+function isDefined(value: string | null): value is string {
+  return value !== null;
 }
 
 function formatPayload(
@@ -39,8 +39,8 @@ function formatPayload(
   isHalfLoad: boolean,
 ) {
   return isHalfLoad
-    ? `${formatNumber(payloadTons, 1)} tons (half-load applied)`
-    : `${formatNumber(payloadTons, 1)} tons`;
+    ? `${formatNumber(payloadTons, 1)} metric tonnes (half-load applied)`
+    : `${formatNumber(payloadTons, 1)} metric tonnes`;
 }
 
 export function buildCalculatorAssumptions({
@@ -64,63 +64,64 @@ export function buildCalculatorAssumptions({
     normalizedInput,
     material,
   );
-
-  const items =
+  const summaryParts =
     kind === 'excavation'
       ? [
-          `Material to haul: ${material.name}`,
-          `Loose material density: ${formatDensity(material)}`,
-          `Swell factor: ${formatNumber(swellFactor)}x`,
+          `${material.name}`,
+          `${formatNumber(swellFactor)}x swell`,
+          `${getMoistureLevelLabel(input.moistureLevel).toLowerCase()} moisture`,
+          `${formatPayload(
+            truckPayload,
+            normalizedInput.useAdvanced && normalizedInput.isHalfLoad,
+          )} payload`,
         ]
       : [
-          `Material: ${material.name}`,
-          `Density: ${formatDensity(material)}`,
-          `Swell factor: ${formatNumber(swellFactor)}x`,
-        ];
+          `${material.name}`,
+          compactionPercentage !== undefined
+            ? `${formatNumber(compactionPercentage, 1)}% compaction`
+            : null,
+          wetMaterialPercentage !== undefined
+            ? `${formatNumber(wetMaterialPercentage, 1)}% wet material`
+            : null,
+          `${formatPayload(
+            truckPayload,
+            normalizedInput.useAdvanced && normalizedInput.isHalfLoad,
+          )} payload`,
+        ].filter(isDefined);
 
-  if (config.advancedSettings.moistureLevel) {
-    const moisturePercentage = resolveMoistureLevelPercentage(
-      input.moistureLevel,
-      material,
-    );
-    items.push(
-      `Moisture: ${getMoistureLevelLabel(input.moistureLevel)} (${formatNumber(
-        moisturePercentage,
-        1,
-      )}% weight adjustment)`,
-    );
-  } else if (config.advancedSettings.wetMaterialPercentage) {
-    items.push(
-      wetMaterialPercentage !== undefined
-        ? `Wet material adjustment: ${formatNumber(wetMaterialPercentage, 1)}%`
-        : 'Wet material adjustment: none',
-    );
-  }
-
-  if (config.advancedSettings.compactionPercentage) {
-    items.push(
-      compactionPercentage !== undefined
-        ? `Compaction adjustment: ${formatNumber(compactionPercentage, 1)}%`
-        : 'Compaction adjustment: none',
-    );
-  }
-
-  items.push(
-    `Truck payload: ${formatPayload(
-      truckPayload,
-      normalizedInput.useAdvanced && normalizedInput.isHalfLoad,
-    )}`,
-  );
-
-  const summaryByKind: Record<CalculatorKind, string> = {
-    excavation: `Based on ${material.name.toLowerCase()} removal and loose material quantities after swell, using the current hauling inputs below.`,
-    gravel: `Based on ${material.name.toLowerCase()} and the current ordering and hauling inputs below.`,
-    topsoil: `Based on ${material.name.toLowerCase()} and the current placement and hauling inputs below.`,
-  };
+  const detailItems =
+    normalizedInput.useAdvanced
+      ? kind === 'excavation'
+        ? [
+            `Material to haul: ${material.name}`,
+            `Swell factor: ${formatNumber(swellFactor)}x`,
+            `Moisture: ${getMoistureLevelLabel(input.moistureLevel)}`,
+            `Truck payload: ${formatPayload(
+              truckPayload,
+              normalizedInput.isHalfLoad,
+            )}`,
+          ]
+        : [
+            `Material: ${material.name}`,
+            compactionPercentage !== undefined
+              ? `Compaction adjustment: ${formatNumber(compactionPercentage, 1)}%`
+              : null,
+            wetMaterialPercentage !== undefined
+              ? `Wet material adjustment: ${formatNumber(
+                  wetMaterialPercentage,
+                  1,
+                )}%`
+              : null,
+            `Truck payload: ${formatPayload(
+              truckPayload,
+              normalizedInput.isHalfLoad,
+            )}`,
+          ].filter(isDefined)
+      : undefined;
 
   return {
-    title: kind === 'excavation' ? 'Loose Material Assumptions' : 'Assumptions',
-    summary: summaryByKind[kind],
-    items,
+    title: 'Estimate based on',
+    summary: summaryParts.join(', ') + '.',
+    items: detailItems,
   };
 }

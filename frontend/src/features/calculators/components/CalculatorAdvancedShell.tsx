@@ -18,19 +18,30 @@ export function CalculatorAdvancedShell({
     <Disclosure>
       {({ open }) => (
         <div className={classes.advancedSection}>
-          <DisclosureButton className={classes.advancedTrigger}>
-            <div className={classes.advancedTriggerCopy}>
-              <span className={classes.fieldGroupLabel}>{shell.title}</span>
-              <p className={classes.advancedTriggerNote}>{shell.note}</p>
-            </div>
-            <CaretDown
-              size={18}
-              weight="bold"
-              className={`${classes.advancedTriggerIcon} ${
-                open ? classes.advancedTriggerIconOpen : ''
-              }`}
-            />
-          </DisclosureButton>
+          <div className={classes.advancedTriggerRow}>
+            <DisclosureButton className={classes.advancedTrigger}>
+              <div className={classes.advancedTriggerCopy}>
+                <span className={classes.fieldGroupLabel}>{shell.title}</span>
+                <p className={classes.advancedTriggerNote}>{shell.note}</p>
+              </div>
+              <CaretDown
+                size={18}
+                weight="bold"
+                className={`${classes.advancedTriggerIcon} ${
+                  open ? classes.advancedTriggerIconOpen : ''
+                }`}
+              />
+            </DisclosureButton>
+
+            <label className={classes.advancedSwitch}>
+              <input
+                type="checkbox"
+                checked={shell.toggle.enabled}
+                onChange={(e) => shell.toggle.onChange(e.target.checked)}
+              />
+              <span>{shell.toggle.label}</span>
+            </label>
+          </div>
 
           <DisclosurePanel className={classes.advancedPanel}>
             {children}

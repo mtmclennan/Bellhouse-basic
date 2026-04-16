@@ -15,6 +15,7 @@ import type {
   RelatedServiceLinkItem,
   ServiceAreaLinkItem,
 } from '@/lib/servicePageLinks';
+import { calculatorSeoConfig } from '@/features/calculators/config/seo';
 import classes from './ServiceLayout.module.scss';
 
 interface ServiceLayoutProps {
@@ -28,33 +29,149 @@ const serviceCalculatorLinks: Partial<
   Record<
     ServicePage['slug'],
     {
-      href: string;
       title: string;
       description: string;
-      actionLabel: string;
+      links: {
+        href: string;
+        title: string;
+        description: string;
+        actionLabel: string;
+      }[];
     }
   >
 > = {
   'foundation-excavation': {
-    href: '/calculators/excavation',
     title: 'Need a rough excavation quantity first?',
     description:
-      'Use the Bellhouse excavation calculator to estimate volume, tonnage, and likely truck loads before requesting a quote.',
-    actionLabel: 'Use Excavation Calculator',
+      'For foundation digs, spoil removal, and early haul-out planning, the Bellhouse excavation calculator gives you a practical starting point before site review.',
+    links: [
+      {
+        href: calculatorSeoConfig.excavation.resourcePath,
+        title: 'Excavation calculator for foundation digs',
+        description:
+          'Estimate in-place cut volume, loose material to haul, estimated weight, and rough truck loads for foundation excavation work.',
+        actionLabel: 'Estimate Excavation Volume',
+      },
+    ],
+  },
+  'pond-digging-cleaning': {
+    title: 'Roughing out pond excavation quantities?',
+    description:
+      'Pond work often starts with a rough cut-and-haul estimate. The excavation calculator is a useful planning tool before final scope, access, and spoil handling are reviewed on site.',
+    links: [
+      {
+        href: calculatorSeoConfig.excavation.resourcePath,
+        title: 'Excavation calculator for pond digging',
+        description:
+          'Use it to rough out excavation volume, loose material, and likely truck loads for new pond digging, expansion, or sediment removal.',
+        actionLabel: 'Estimate Pond Excavation',
+      },
+    ],
+  },
+  'septic-system-installation': {
+    title: 'Need a rough excavation estimate before septic work starts?',
+    description:
+      'Septic jobs usually involve excavation, bedding material, and haul-out decisions. The excavation calculator helps with the cut side of the job before engineered details are finalized.',
+    links: [
+      {
+        href: calculatorSeoConfig.excavation.resourcePath,
+        title: 'Excavation calculator for septic installs',
+        description:
+          'Estimate excavation volume, loose spoil, and rough truck loads for septic tank digs, trenches, and related excavation work.',
+        actionLabel: 'Estimate Septic Excavation',
+      },
+    ],
+  },
+  'driveway-parking-lot-preparation': {
+    title: 'Planning driveway or parking lot base quantities?',
+    description:
+      'For driveway gravel, parking lot base, and compacted placement work, the Bellhouse gravel calculator gives you a practical starting quantity before final grading and drainage are reviewed.',
+    links: [
+      {
+        href: calculatorSeoConfig.gravel.resourcePath,
+        title: 'Gravel calculator for driveway base',
+        description:
+          'Estimate compacted gravel/base quantity, delivered weight, and likely truck loads for driveways, lanes, and parking lot prep.',
+        actionLabel: 'Estimate Gravel Base',
+      },
+    ],
   },
   'site-preparation-land-grading': {
-    href: '/calculators/gravel',
-    title: 'Planning aggregate or grading quantities?',
+    title: 'Planning site prep quantities before the job is priced?',
     description:
-      'The Bellhouse gravel calculator is a practical way to rough out imported stone, pad depth, and likely truck loads before site review.',
-    actionLabel: 'Use Gravel Calculator',
+      'Site prep can involve both compacted base and finish topsoil. These planning tools help you rough out the right material side of the work without mixing it up with excavation-only estimates.',
+    links: [
+      {
+        href: calculatorSeoConfig.gravel.resourcePath,
+        title: 'Gravel calculator for pads and access routes',
+        description:
+          'Useful for compacted base quantities on building pads, lanes, and imported aggregate needed during site preparation.',
+        actionLabel: 'Estimate Gravel Quantities',
+      },
+      {
+        href: calculatorSeoConfig.topsoil.resourcePath,
+        title: 'Topsoil calculator for finish grading',
+        description:
+          'Helpful when you need to plan placed topsoil coverage for final grading, yard shaping, and surface restoration.',
+        actionLabel: 'Estimate Topsoil Coverage',
+      },
+    ],
   },
   'dirt-gravel-delivery': {
-    href: '/calculators/gravel',
     title: 'Need a quick material estimate before ordering?',
     description:
-      'Use the Bellhouse gravel calculator to estimate aggregate quantity, weight, and rough truck count before requesting delivery.',
-    actionLabel: 'Use Gravel Calculator',
+      'If you are ordering aggregate or topsoil, these calculators help you rough out quantity, weight, and likely truck loads before delivery is scheduled.',
+    links: [
+      {
+        href: calculatorSeoConfig.gravel.resourcePath,
+        title: 'Gravel calculator for aggregate delivery',
+        description:
+          'Estimate compacted gravel/base quantity, delivered weight, and truck count for driveways, pads, lanes, and imported stone.',
+        actionLabel: 'Estimate Gravel Delivery',
+      },
+      {
+        href: calculatorSeoConfig.topsoil.resourcePath,
+        title: 'Topsoil calculator for coverage planning',
+        description:
+          'Rough out topsoil volume and load count for finish grading, lawn prep, and surface coverage before ordering.',
+        actionLabel: 'Estimate Topsoil Delivery',
+      },
+    ],
+  },
+  'dump-truck-rental': {
+    title: 'Need to rough out what the trucks will be moving?',
+    description:
+      'For dump truck hire, the useful question is usually whether you are hauling excavation spoil or bringing in compacted aggregate. These tools help you plan that more clearly before booking trucks.',
+    links: [
+      {
+        href: calculatorSeoConfig.excavation.resourcePath,
+        title: 'Excavation calculator for spoil haul-out',
+        description:
+          'Estimate loose excavated material, weight, and rough truck loads when trucks are needed for cut material and haul-off.',
+        actionLabel: 'Estimate Spoil Haul-Out',
+      },
+      {
+        href: calculatorSeoConfig.gravel.resourcePath,
+        title: 'Gravel calculator for imported aggregate',
+        description:
+          'Use it to rough out aggregate quantity, delivered tons, and likely truck counts for imported gravel or base material.',
+        actionLabel: 'Estimate Aggregate Loads',
+      },
+    ],
+  },
+  'volvo-a35-off-road-dump-truck-rental': {
+    title: 'Planning bulk on-site haul volumes?',
+    description:
+      'On larger earthmoving jobs, a quick excavation estimate can help frame how much material the off-road truck may need to move before production planning is finalized.',
+    links: [
+      {
+        href: calculatorSeoConfig.excavation.resourcePath,
+        title: 'Excavation calculator for bulk earthmoving',
+        description:
+          'Estimate excavation volume, loose material, and rough haul quantities for subdivision work, pond jobs, and large site cuts.',
+        actionLabel: 'Estimate Earthmoving Volume',
+      },
+    ],
   },
 };
 
@@ -254,12 +371,22 @@ export default function ServiceLayout({
             <p className={classes.eyebrow}>Planning tool</p>
             <h2>{calculatorLink.title}</h2>
             <p>{calculatorLink.description}</p>
+            <div className={classes.calculatorGrid}>
+              {calculatorLink.links.map((linkItem) => (
+                <div className={classes.calculatorCard} key={linkItem.href}>
+                  <h3>{linkItem.title}</h3>
+                  <p>{linkItem.description}</p>
+                  <div className={classes.contractorActions}>
+                    <Link href={linkItem.href} className={classes.btn}>
+                      {linkItem.actionLabel}
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
             <div className={classes.contractorActions}>
-              <Link href={calculatorLink.href} className={classes.btn}>
-                {calculatorLink.actionLabel}
-              </Link>
-              <Link href="/calculators" className={classes.btnSecondary}>
-                View All Calculators
+              <Link href="/resources" className={classes.btnSecondary}>
+                View All Resources
               </Link>
             </div>
           </div>

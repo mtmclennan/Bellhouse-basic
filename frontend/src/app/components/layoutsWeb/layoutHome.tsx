@@ -23,6 +23,8 @@ const LayoutHome = ({ children, background = 'on' }: LayoutProps) => {
     pathname?.startsWith('/contractors/') ||
     pathname === '/calculators' ||
     pathname?.startsWith('/calculators/') ||
+    pathname === '/resources' ||
+    pathname?.startsWith('/resources/') ||
     pathname === '/about' ||
     pathname?.startsWith('/about/');
 

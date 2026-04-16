@@ -1,181 +1,44 @@
 'use client';
 
-import { createElement, Fragment, useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { createCalculatorFormInput, getCalculatorConfig } from '../config/calculators';
-import { getMaterialById, getMaterialsByIds } from '../config/materials';
-import { calculateProjectMaterial } from '../logic/calculator';
-import {
-  m3ToCubicYards,
-  tonnesToKilograms,
-  tonnesToPounds,
-  tonnesToShortTons,
-} from '../logic/conversions';
-import { normalizeCalculatorInput } from '../logic/normalizeInput';
-import { formatNumber, formatTruckLoads, formatWholeNumber } from '../utils/format';
-import { useCalculatorKindBehavior } from './useCalculatorKindBehavior';
+import { buildCalculatorResultCardMap } from './buildCalculatorResultCards';
 import type {
   CalculatorAdvancedFieldsModel,
   CalculatorController,
-  CalculatorResultCardModel,
   CalculatorKindBehaviorParams,
 } from './calculatorController.types';
+import { useCalculatorCoreState } from './useCalculatorCoreState';
+import { useCalculatorKindBehavior } from './useCalculatorKindBehavior';
 import type {
   CalculatorDimensionKey,
   CalculatorDimensionValueField,
   CalculatorEditableNumber,
   CalculatorFormInput,
   CalculatorKind,
-  CalculatorNumberField,
-  CalculatorSelectField,
-  CalculatorToggleField,
   MetricDimensionUnit,
 } from '../types/calculator';
-
-function formatCubicUnit(value: string, unitLabel: 'm' | 'yd') {
-  return createElement(
-    Fragment,
-    null,
-    value,
-    ' ',
-    unitLabel,
-    createElement('sup', null, '3'),
-  );
-}
-
-function formatVolume(
-  cubicMetres: number,
-  outputUnitPreference: CalculatorFormInput['outputUnitPreference'],
-) {
-  if (outputUnitPreference === 'imperial') {
-    return formatCubicUnit(formatNumber(m3ToCubicYards(cubicMetres)), 'yd');
-  }
-
-  return formatCubicUnit(formatNumber(cubicMetres), 'm');
-}
-
-function formatWeight(
-  metricTonnes: number,
-  outputUnitPreference: CalculatorFormInput['outputUnitPreference'],
-) {
-  if (outputUnitPreference === 'imperial') {
-    return `${formatNumber(tonnesToShortTons(metricTonnes))} short tons`;
-  }
-
-  return `${formatNumber(metricTonnes)} metric tonnes`;
-}
-
-function formatSupportingWeight(
-  metricTonnes: number,
-  outputUnitPreference: CalculatorFormInput['outputUnitPreference'],
-) {
-  if (outputUnitPreference === 'imperial') {
-    return `${formatWholeNumber(tonnesToPounds(metricTonnes))} lbs`;
-  }
-
-  return `${formatWholeNumber(tonnesToKilograms(metricTonnes))} kg`;
-}
-
-type ResultCardId =
-  | 'volume'
-  | 'adjustedVolume'
-  | 'weight'
-  | 'truckLoads'
-  | 'secondaryVolume';
-
-function buildResultCardMap(
-  config: CalculatorController['config'],
-  result: NonNullable<CalculatorController['state']['result']>,
-  outputUnitPreference: CalculatorFormInput['outputUnitPreference'],
-): Partial<Record<ResultCardId, CalculatorResultCardModel>> {
-  return {
-    volume: {
-      id: 'volume',
-      label: config.resultPresentation.volumeLabel,
-      value: formatVolume(
-        config.resultPresentation.adjustedVolumeLabel
-          ? result.rawProjectVolumeM3
-          : result.adjustedMaterialVolumeM3,
-        outputUnitPreference,
-      ),
-      meta: config.resultPresentation.showCardMeta
-        ? 'Adjusted total material volume.'
-        : undefined,
-      tone: 'primary',
-    },
-    adjustedVolume: config.resultPresentation.adjustedVolumeLabel
-      ? {
-          id: 'adjustedVolume',
-          label: config.resultPresentation.adjustedVolumeLabel,
-          value: formatVolume(
-            result.adjustedLooseMaterialVolumeM3,
-            outputUnitPreference,
-          ),
-          meta: config.resultPresentation.showCardMeta
-            ? 'Expanded volume to haul away.'
-            : undefined,
-          tone: 'primary',
-        }
-      : undefined,
-    weight: {
-      id: 'weight',
-      label: config.resultPresentation.weightLabel,
-      value: formatWeight(result.adjustedWeightTons, outputUnitPreference),
-      supportingValue: formatSupportingWeight(
-        result.adjustedWeightTons,
-        outputUnitPreference,
-      ),
-      meta: config.resultPresentation.showCardMeta
-        ? 'Based on material density and moisture.'
-        : undefined,
-      tone: 'muted',
-    },
-    truckLoads: {
-      id: 'truckLoads',
-      label: config.resultPresentation.truckLoadsLabel,
-      value: formatTruckLoads(result.estimatedTruckLoads),
-      meta: config.resultPresentation.showCardMeta
-        ? 'Rounded for quick hauling estimates.'
-        : undefined,
-      tone: 'primary',
-    },
-    secondaryVolume: config.resultPresentation.secondaryVolumeLabel
-      ? {
-          id: 'secondaryVolume',
-          label: config.resultPresentation.secondaryVolumeLabel,
-          value: formatVolume(result.rawProjectVolumeM3, outputUnitPreference),
-          meta: config.resultPresentation.showCardMeta
-            ? 'Before advanced adjustments.'
-            : undefined,
-          tone: 'muted',
-        }
-      : undefined,
-  };
-}
 
 export function useCalculatorController(kind: CalculatorKind): CalculatorController {
   const config = getCalculatorConfig(kind);
 
-  const [input, setInput] = useState<CalculatorFormInput>(() =>
-    createCalculatorFormInput(config),
-  );
-
-  const allowedMaterials = useMemo(() => {
-    return getMaterialsByIds(config.allowedMaterialIds);
-  }, [config.allowedMaterialIds]);
-
-  const material = getMaterialById(input.materialId);
-
-  const normalizedInput = useMemo(() => {
-    return normalizeCalculatorInput(input, config, material);
-  }, [config, input, material]);
-
-  const result = useMemo(() => {
-    if (!material || !normalizedInput) {
-      return null;
-    }
-
-    return calculateProjectMaterial(normalizedInput, material);
-  }, [material, normalizedInput]);
+  const {
+    input,
+    setInput,
+    allowedMaterials,
+    material,
+    normalizedInput,
+    result,
+    updateNumberField,
+    updateDimensionValueField,
+    updateDimensionUnitField,
+    updateToggleField,
+    updateSelectField,
+    updateInputUnitSystem,
+  } = useCalculatorCoreState({
+    config,
+    createInitialInput: () => createCalculatorFormInput(config),
+  });
 
   const behaviorParams: CalculatorKindBehaviorParams = {
     kind,
@@ -188,76 +51,6 @@ export function useCalculatorController(kind: CalculatorKind): CalculatorControl
   };
 
   const kindBehavior = useCalculatorKindBehavior(kind, behaviorParams);
-
-  const updateNumberField = (
-    field: CalculatorNumberField,
-    value: CalculatorEditableNumber,
-  ) => {
-    setInput((prev) => ({
-      ...prev,
-      [field]: value,
-    }));
-  };
-
-  const updateDimensionValueField = (
-    dimension: CalculatorDimensionKey,
-    field: CalculatorDimensionValueField,
-    value: CalculatorEditableNumber,
-  ) => {
-    setInput((prev) => ({
-      ...prev,
-      [dimension]: {
-        ...prev[dimension],
-        [field]: value,
-      },
-    }));
-  };
-
-  const updateDimensionUnitField = (
-    dimension: CalculatorDimensionKey,
-    value: MetricDimensionUnit,
-  ) => {
-    setInput((prev) => ({
-      ...prev,
-      [dimension]: {
-        ...prev[dimension],
-        metricUnit: value,
-      },
-    }));
-  };
-
-  const updateToggleField = (
-    field: CalculatorToggleField,
-    value: boolean,
-  ) => {
-    setInput((prev) => ({
-      ...prev,
-      [field]: value,
-    }));
-  };
-
-  const updateSelectField = <K extends CalculatorSelectField>(
-    field: K,
-    value: CalculatorFormInput[K],
-  ) => {
-    setInput((prev) => ({
-      ...prev,
-      [field]: value,
-    }));
-  };
-
-  const updateInputUnitSystem = (
-    nextUnitSystem: CalculatorFormInput['inputUnitSystem'],
-  ) => {
-    setInput((prev) => ({
-      ...prev,
-      inputUnitSystem: nextUnitSystem,
-      outputUnitPreference:
-        prev.outputUnitPreference === prev.inputUnitSystem
-          ? nextUnitSystem
-          : prev.outputUnitPreference,
-    }));
-  };
 
   const dimensionsSection = {
     title: config.sectionCopy.dimensionsTitle,
@@ -322,23 +115,45 @@ export function useCalculatorController(kind: CalculatorKind): CalculatorControl
       : undefined,
   };
 
+  const showDetailedResults = input.useAdvanced;
+
   const resultCardMap = result
-    ? buildResultCardMap(config, result, input.outputUnitPreference)
+    ? buildCalculatorResultCardMap(
+        config,
+        result,
+        input.outputUnitPreference,
+        showDetailedResults,
+      )
     : null;
 
-  const primaryCards: CalculatorResultCardModel[] = result
-    ? config.resultPresentation.primaryCardIds.flatMap((cardId) => {
+  const primaryCards = result
+    ? (
+        showDetailedResults
+          ? config.resultPresentation.primaryCardIds
+          : config.resultPresentation.defaultPrimaryCardIds
+      ).flatMap((cardId) => {
         const card = resultCardMap?.[cardId];
         return card ? [card] : [];
       })
     : [];
 
-  const secondaryCards: CalculatorResultCardModel[] = result
-    ? (config.resultPresentation.secondaryCardIds ?? []).flatMap((cardId) => {
-        const card = resultCardMap?.[cardId];
-        return card ? [card] : [];
-      })
-    : [];
+  const secondaryCards =
+    result && showDetailedResults
+      ? (config.resultPresentation.secondaryCardIds ?? []).flatMap((cardId) => {
+          const card = resultCardMap?.[cardId];
+          return card ? [card] : [];
+        })
+      : [];
+
+  const advancedShell = {
+    title: config.sectionCopy.advancedTitle,
+    note: config.sectionCopy.advancedNote,
+    toggle: {
+      label: config.labels.useAdvanced,
+      enabled: input.useAdvanced,
+      onChange: (value: boolean) => updateToggleField('useAdvanced', value),
+    },
+  } satisfies CalculatorController['sections']['inputPanel']['advanced']['shell'];
 
   return {
     kind,
@@ -360,6 +175,7 @@ export function useCalculatorController(kind: CalculatorKind): CalculatorControl
             ? {
                 title: config.sectionCopy.materialTitle,
                 label: config.labels.material,
+                helperText: config.sectionCopy.materialHelperText,
                 value: input.materialId,
                 options: allowedMaterials,
                 onChange: kindBehavior.actions.updateMaterialSelection,
@@ -367,21 +183,17 @@ export function useCalculatorController(kind: CalculatorKind): CalculatorControl
             : null,
         advanced: kindBehavior.advanced.values
           ? {
-              shell: {
-                title: config.sectionCopy.advancedTitle,
-                note: config.sectionCopy.advancedNote,
-              },
+              shell: advancedShell,
               content: {
                 mode: 'managed',
+                enabled: input.useAdvanced,
                 statusMessage: kindBehavior.advanced.statusMessage,
+                inactiveMessage: config.sectionCopy.advancedInactiveMessage,
                 fields: advancedManagedFields,
               },
             }
           : {
-              shell: {
-                title: config.sectionCopy.advancedTitle,
-                note: config.sectionCopy.advancedNote,
-              },
+              shell: advancedShell,
               content: {
                 mode: 'standard',
                 enabled: input.useAdvanced,

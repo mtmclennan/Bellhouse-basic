@@ -1,0 +1,192 @@
+@use '../../../styles/abstracts/mixins' as m;
+@use '../../../styles/abstracts/variables' as v;
+
+.cardGrid {
+  display: grid;
+  gap: 1.8rem;
+
+  @include m.mediaDesktop {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  gap: 1.3rem;
+  padding: 2rem;
+  border-radius: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: #111;
+  box-shadow: 0 1.8rem 3.6rem -2.4rem rgba(0, 0, 0, 0.42);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+
+  &:hover {
+    transform: translateY(-0.4rem);
+    box-shadow: 0 2rem 3.4rem -2.6rem rgba(0, 0, 0, 0.4);
+    border-color: rgba(v.$cat-yellow2, 0.55);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(9, 10, 12, 0.18) 0%,
+        rgba(8, 9, 10, 0.56) 56%,
+        rgba(7, 8, 10, 0.78) 100%
+      ),
+      linear-gradient(
+        135deg,
+        rgba(9, 10, 12, 0.68) 0%,
+        rgba(9, 10, 12, 0.28) 46%,
+        rgba(9, 10, 12, 0.54) 100%
+      ),
+      var(--card-image);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 2.5rem;
+    line-height: 1.18;
+    color: #fff;
+  }
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cardIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.8rem;
+  height: 4.8rem;
+  border-radius: 999px;
+  background-color: rgba(10, 10, 10, 0.78);
+  color: v.$cat-yellow2;
+  box-shadow: 0 1rem 2rem -1.2rem rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(0.6rem);
+}
+
+.cardMeta {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.cardLead {
+  margin: 0;
+  font-size: 1.8rem;
+  line-height: 1.72;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.cardDetails {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.cardDetail {
+  margin: 0;
+  font-size: 1.45rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.detailLabel {
+  color: #fff;
+  font-weight: 700;
+}
+
+.outputList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.outputChip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 3rem;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background-color: rgba(10, 10, 10, 0.45);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  backdrop-filter: blur(0.4rem);
+}
+
+.cardActions {
+  display: flex;
+  margin-top: auto;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.4rem;
+}
+
+.cardPrimaryLink {
+  display: inline-flex;
+  min-height: 4.4rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.5rem;
+  border-radius: 999px;
+  background-color: v.$cat-yellow2;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: v.$text-color-mid-dark;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+  @include m.focusRing();
+
+  &:hover,
+  &:focus-visible {
+    background-color: #fff;
+    color: v.$text-color-mid-dark;
+  }
+}
+
+.cardSecondaryLink {
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-decoration: underline;
+  text-underline-offset: 0.22rem;
+  color: rgba(255, 255, 255, 0.92);
+  @include m.focusRing(rgba(v.$color-primary, 0.25));
+
+  &:hover,
+  &:focus-visible {
+    color: v.$cat-yellow2;
+  }
+}

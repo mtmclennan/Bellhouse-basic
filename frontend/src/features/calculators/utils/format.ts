@@ -5,7 +5,14 @@ export function formatNumber(value: number, digits = 2): string {
 
 export function formatTruckLoads(value: number): string {
   if (!Number.isFinite(value)) return '0';
-  return value.toFixed(1);
+
+  const roundedLoads = Math.ceil(value * 2) / 2;
+
+  if (Number.isInteger(roundedLoads)) {
+    return roundedLoads.toFixed(0);
+  }
+
+  return roundedLoads.toFixed(1);
 }
 
 export function formatWholeNumber(value: number): string {

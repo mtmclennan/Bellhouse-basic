@@ -3,7 +3,8 @@
 import Link from 'next/link';
 import classes from './MobileMenu.module.scss';
 import { Phone, ChatTextIcon, CaretDown } from '@phosphor-icons/react';
-import { useState } from 'react';
+import { useEffect, useId, useState } from 'react';
+import { resourceNavigationItems } from './resourcesNavigation';
 
 type MobileMenuProps = {
   homeClassname: string;
@@ -17,8 +18,29 @@ type MobileMenuProps = {
 
 const MobileMenu = ({ showMenu, setShowMenu }: MobileMenuProps) => {
   const menuClass = showMenu ? classes.menu : classes.menuHidden;
-
+  const resourcesPanelId = useId();
   const [resourcesOpen, setResourcesOpen] = useState(false);
+
+  useEffect(() => {
+    if (!showMenu) {
+      setResourcesOpen(false);
+    }
+  }, [showMenu]);
+
+  useEffect(() => {
+    const previousBodyOverflow = document.body.style.overflow;
+    const previousHtmlOverflow = document.documentElement.style.overflow;
+
+    if (showMenu) {
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+    }
+
+    return () => {
+      document.body.style.overflow = previousBodyOverflow;
+      document.documentElement.style.overflow = previousHtmlOverflow;
+    };
+  }, [showMenu]);
 
   return (
     <div className={menuClass}>
@@ -38,7 +60,10 @@ const MobileMenu = ({ showMenu, setShowMenu }: MobileMenuProps) => {
         {/* RESOURCES DROPDOWN */}
         <li className={classes.link}>
           <button
+            type="button"
             className={classes.dropdownToggle}
+            aria-expanded={resourcesOpen}
+            aria-controls={resourcesPanelId}
             onClick={() => setResourcesOpen(!resourcesOpen)}
           >
             <span>Resources</span>
@@ -49,25 +74,16 @@ const MobileMenu = ({ showMenu, setShowMenu }: MobileMenuProps) => {
           </button>
 
           {resourcesOpen && (
-            <div className={classes.subMenu}>
-              <Link
-                onClick={() => setShowMenu(false)}
-                href="/calculators/excavation"
-              >
-                Excavation Calculator
-              </Link>
-              <Link
-                onClick={() => setShowMenu(false)}
-                href="/calculators/gravel"
-              >
-                Gravel Calculator
-              </Link>
-              <Link
-                onClick={() => setShowMenu(false)}
-                href="/calculators/topsoil"
-              >
-                Topsoil Calculator
-              </Link>
+            <div className={classes.subMenu} id={resourcesPanelId}>
+              {resourceNavigationItems.map((item) => (
+                <Link
+                  key={item.href}
+                  onClick={() => setShowMenu(false)}
+                  href={item.href}
+                >
+                  {item.label}
+                </Link>
+              ))}
             </div>
           )}
         </li>

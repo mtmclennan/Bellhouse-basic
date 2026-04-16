@@ -11,6 +11,7 @@ import CallToAction from './components/webpage/CallToAction';
 import Link from 'next/link';
 import Reviews from './components/webpage/Reviews';
 import ServiceArea from './components/webpage/ServiceArea';
+import HomeResources from './components/webpage/HomeResources';
 
 const HomePage = () => {
   return (
@@ -60,6 +61,7 @@ const HomePage = () => {
       </div>
       <HomeAbout />
       <HomeServices />
+      <HomeResources />
       <Reviews reviews={reviews} />
       <CallToAction />
       <ServiceArea

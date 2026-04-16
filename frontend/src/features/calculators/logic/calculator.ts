@@ -79,6 +79,10 @@ export function resolveActiveSwellFactor(
   input: CalculatorCalculationInput,
   material: Material,
 ) {
+  if (input.workflowKind === 'compaction-based') {
+    return 1;
+  }
+
   return input.swellFactor ?? material.defaultSwellFactor ?? 1;
 }
 
@@ -101,7 +105,15 @@ export function resolveActiveCompactionPercentage(
   input: CalculatorCalculationInput,
   material: Material,
 ) {
-  if (!input.applyCompaction || !input.useAdvanced) {
+  if (input.workflowKind === 'swell-based') {
+    return undefined;
+  }
+
+  if (input.workflowKind === 'compaction-based') {
+    return input.compactionPercentage ?? material.defaultCompactionPercentage;
+  }
+
+  if (!input.useAdvanced) {
     return undefined;
   }
 
@@ -125,19 +137,37 @@ export function calculateProjectMaterial(
   input: CalculatorCalculationInput,
   material: Material,
 ): CalculatorResult {
-  // Shared volume flow starts with in-place dimensions, then applies any
-  // workflow-specific material adjustments such as excavation swell.
+  // Start from in-place dimensions, then let the calculator workflow decide
+  // whether this job behaves like excavation swell, compacted placement,
+  // or a combined adjusted-material workflow.
   const rawProjectVolumeM3 = input.lengthM * input.widthM * input.depthM;
 
   const swellFactor = resolveActiveSwellFactor(input, material);
-  const adjustedLooseMaterialVolumeM3 = rawProjectVolumeM3 * swellFactor;
-
   const compactionPercentage = resolveActiveCompactionPercentage(input, material);
   const compactionMultiplier = percentageToMultiplier(compactionPercentage);
-  const adjustedMaterialVolumeM3 =
-    input.applyCompaction && input.useAdvanced
-      ? adjustedLooseMaterialVolumeM3 * compactionMultiplier
-      : adjustedLooseMaterialVolumeM3;
+
+  let adjustedLooseMaterialVolumeM3 = rawProjectVolumeM3;
+  let adjustedMaterialVolumeM3 = rawProjectVolumeM3;
+
+  switch (input.workflowKind) {
+    case 'swell-based':
+      adjustedLooseMaterialVolumeM3 = rawProjectVolumeM3 * swellFactor;
+      adjustedMaterialVolumeM3 = adjustedLooseMaterialVolumeM3;
+      break;
+    case 'compaction-based':
+      adjustedLooseMaterialVolumeM3 = rawProjectVolumeM3;
+      adjustedMaterialVolumeM3 = input.useAdvanced
+        ? rawProjectVolumeM3 * compactionMultiplier
+        : rawProjectVolumeM3;
+      break;
+    case 'swell-then-compaction':
+    default:
+      adjustedLooseMaterialVolumeM3 = rawProjectVolumeM3 * swellFactor;
+      adjustedMaterialVolumeM3 = input.useAdvanced
+        ? adjustedLooseMaterialVolumeM3 * compactionMultiplier
+        : adjustedLooseMaterialVolumeM3;
+      break;
+  }
 
   const wetMaterialPercentage = resolveActiveWetMaterialPercentage(input, material);
   const wetMaterialMultiplier = percentageToMultiplier(wetMaterialPercentage);

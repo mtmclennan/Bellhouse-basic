@@ -29,7 +29,8 @@
 
 .heroContent,
 .ctaContent,
-.supportIntro {
+.supportIntro,
+.relatedIntro {
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
@@ -84,13 +85,15 @@
   color: v.$cat-yellow2;
 }
 
-.supportIntro .eyebrow {
+.supportIntro .eyebrow,
+.relatedIntro .eyebrow {
   border-color: rgba(v.$cat-yellow2, 0.22);
   background-color: rgba(v.$cat-yellow2, 0.12);
   color: v.$text-color-light;
 }
 
-.supportIntro {
+.supportIntro,
+.relatedIntro {
   max-width: 82rem;
   margin: 0 auto;
   align-items: center;
@@ -141,6 +144,66 @@
     font-size: 1.7rem;
     line-height: 1.65;
     color: v.$text-color-dark;
+  }
+}
+
+.relatedGrid {
+  display: grid;
+  gap: 1.8rem;
+
+  @include m.mediaDesktop {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.relatedCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  padding: 2.4rem;
+  border-radius: 2rem;
+  border: 1px solid v.$grey-color-3;
+  background-color: #fff;
+  box-shadow: 0 1.4rem 3rem -2.6rem rgba(0, 0, 0, 0.24);
+
+  h3 {
+    margin: 0;
+    font-size: 2.4rem;
+    line-height: 1.2;
+    color: v.$text-color-mid-dark;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1.7rem;
+    line-height: 1.65;
+    color: v.$text-color-dark;
+  }
+}
+
+.relatedActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: auto;
+}
+
+.resourcesLink {
+  margin: 1.6rem 0 0;
+  font-size: 1.7rem;
+  line-height: 1.65;
+  text-align: center;
+  color: v.$text-color-light;
+
+  a {
+    color: v.$text-color-light;
+    text-decoration: underline;
+    text-underline-offset: 0.22rem;
+
+    &:hover,
+    &:focus-visible {
+      color: v.$cat-yellow2;
+    }
   }
 }
 

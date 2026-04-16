@@ -30,40 +30,37 @@ export function CalculatorAdvancedSection({
   if (content.mode === 'managed') {
     return (
       <CalculatorAdvancedShell shell={section.shell}>
-        {content.statusMessage ? (
+        {!content.enabled ? (
+          <p className={classes.advancedPanelNote}>{content.inactiveMessage}</p>
+        ) : null}
+        {content.enabled && content.statusMessage ? (
           <p className={classes.advancedPanelNote}>{content.statusMessage}</p>
         ) : null}
-        <AdvancedSettings
-          classes={advancedSettingsClasses}
-          labels={content.fields.labels}
-          visibility={content.fields.visibility}
-          values={content.fields.values}
-          onSwellFactorChange={content.fields.onSwellFactorChange}
-          onMoistureLevelChange={content.fields.onMoistureLevelChange}
-          onWetMaterialPercentageChange={
-            content.fields.onWetMaterialPercentageChange
-          }
-          onCompactionPercentageChange={
-            content.fields.onCompactionPercentageChange
-          }
-          onTruckCapacityTonsChange={content.fields.onTruckCapacityTonsChange}
-          onHalfLoadChange={content.fields.onHalfLoadChange}
-          onResetDefaults={content.fields.onResetDefaults}
-        />
+        {content.enabled ? (
+          <AdvancedSettings
+            classes={advancedSettingsClasses}
+            labels={content.fields.labels}
+            visibility={content.fields.visibility}
+            values={content.fields.values}
+            onSwellFactorChange={content.fields.onSwellFactorChange}
+            onMoistureLevelChange={content.fields.onMoistureLevelChange}
+            onWetMaterialPercentageChange={
+              content.fields.onWetMaterialPercentageChange
+            }
+            onCompactionPercentageChange={
+              content.fields.onCompactionPercentageChange
+            }
+            onTruckCapacityTonsChange={content.fields.onTruckCapacityTonsChange}
+            onHalfLoadChange={content.fields.onHalfLoadChange}
+            onResetDefaults={content.fields.onResetDefaults}
+          />
+        ) : null}
       </CalculatorAdvancedShell>
     );
   }
 
   return (
     <CalculatorAdvancedShell shell={section.shell}>
-      <label className={classes.toggleCard}>
-        <input
-          type="checkbox"
-          checked={content.enabled}
-          onChange={(e) => content.onEnabledChange(e.target.checked)}
-        />
-        <span>{content.toggleLabel}</span>
-      </label>
       {content.fields ? (
         <AdvancedSettings
           classes={advancedSettingsClasses}

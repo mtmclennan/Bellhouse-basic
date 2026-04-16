@@ -3,6 +3,14 @@ export type OutputUnitPreference = 'metric' | 'imperial';
 export type MetricDimensionUnit = 'm' | 'cm' | 'mm';
 export type ImperialDimensionMode = 'feet-inches' | 'inches';
 export type MoistureLevel = 'dry' | 'normal' | 'wet';
+export type CalculatorWorkflowKind =
+  | 'swell-based'
+  | 'compaction-based'
+  | 'swell-then-compaction';
+export type CalculatorVolumeValueSource =
+  | 'rawProjectVolumeM3'
+  | 'adjustedLooseMaterialVolumeM3'
+  | 'adjustedMaterialVolumeM3';
 
 export type CalculatorKind = 'excavation' | 'gravel' | 'topsoil';
 
@@ -83,7 +91,7 @@ export type CalculatorCalculationInput = {
   depthM: number;
   materialId: MaterialId;
   useAdvanced: boolean;
-  applyCompaction: boolean;
+  workflowKind: CalculatorWorkflowKind;
   swellFactor?: number;
   wetMaterialPercentage?: number;
   compactionPercentage?: number;

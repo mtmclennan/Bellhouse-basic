@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import SectionWrapper from '@/components/layout/SectionWrapper';
 import { calculatorPageContent } from '../config/pageContent';
+import { calculatorConfigs } from '../config/calculators';
 import type { CalculatorKind } from '../types/calculator';
 import { CalculatorForm } from './CalculatorForm';
+import { ResourceBreadcrumbs } from './ResourceBreadcrumbs';
 import classes from './CalculatorPageShell.module.scss';
 
 type CalculatorPageShellProps = {
@@ -11,6 +13,7 @@ type CalculatorPageShellProps = {
 
 export function CalculatorPageShell({ kind }: CalculatorPageShellProps) {
   const content = calculatorPageContent[kind];
+  const config = calculatorConfigs[kind];
 
   return (
     <>
@@ -20,6 +23,7 @@ export function CalculatorPageShell({ kind }: CalculatorPageShellProps) {
         spacing="loose"
       >
         <div className={classes.heroContent}>
+          <ResourceBreadcrumbs currentLabel={config.title} />
           <p className={classes.eyebrow}>{content.eyebrow}</p>
           <h1>{content.pageTitle}</h1>
           {content.intro.map((paragraph) => (
@@ -32,7 +36,7 @@ export function CalculatorPageShell({ kind }: CalculatorPageShellProps) {
 
       <SectionWrapper>
         <div className={classes.supportIntro}>
-          <p className={classes.eyebrow}>Estimator notes</p>
+          <p className={classes.eyebrow}>Calculator guide</p>
           <h2>{content.supportHeading}</h2>
           <p>{content.supportDescription}</p>
         </div>
@@ -45,6 +49,33 @@ export function CalculatorPageShell({ kind }: CalculatorPageShellProps) {
             </article>
           ))}
         </div>
+      </SectionWrapper>
+
+      <SectionWrapper>
+        <div className={classes.relatedIntro}>
+          <p className={classes.eyebrow}>Related tools</p>
+          <h2>{content.relatedToolsHeading}</h2>
+          <p>{content.relatedToolsDescription}</p>
+        </div>
+
+        <div className={classes.relatedGrid}>
+          {content.relatedTools.map((tool) => (
+            <article className={classes.relatedCard} key={tool.href}>
+              <h3>{tool.title}</h3>
+              <p>{tool.description}</p>
+              <div className={classes.relatedActions}>
+                <Link className={classes.primaryAction} href={tool.href}>
+                  {tool.actionLabel}
+                </Link>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <p className={classes.resourcesLink}>
+          Browse the full tool cluster in{' '}
+          <Link href="/resources">Bellhouse resources</Link>.
+        </p>
       </SectionWrapper>
 
       <SectionWrapper
@@ -74,7 +105,7 @@ export function CalculatorPageShell({ kind }: CalculatorPageShellProps) {
             </div>
             <p>
               Need a different estimating tool first?{' '}
-              <Link href="/calculators">View all Bellhouse calculators</Link>.
+              <Link href="/resources">Browse all Bellhouse resources</Link>.
             </p>
           </div>
         </div>

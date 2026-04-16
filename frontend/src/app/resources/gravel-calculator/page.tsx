@@ -1,8 +1,8 @@
 import { CalculatorPageShell } from '@/features/calculators/components/CalculatorPageShell';
 import { getCalculatorMetadata } from '@/features/calculators/config/seo';
 
-export const metadata = getCalculatorMetadata('excavation');
+export const metadata = getCalculatorMetadata('gravel');
 
-export default function ExcavationCalculatorPage() {
-  return <CalculatorPageShell kind="excavation" />;
+export default function ResourceGravelCalculatorPage() {
+  return <CalculatorPageShell kind="gravel" />;
 }

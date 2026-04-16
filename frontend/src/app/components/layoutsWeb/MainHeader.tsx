@@ -1,13 +1,15 @@
-'use cilent';
+'use client';
 import Link from 'next/link';
 import classes from './MainHeader.module.scss';
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import logo from '../../../../public/assets/BellhouseLogo-text-LS.png';
 import { Fragment, useEffect, useState } from 'react';
 import Hamburger from './Hamburger';
 import MobileMenu from './MobileMenu';
-import { Phone } from '@phosphor-icons/react';
+import { CaretDownIcon, Phone } from '@phosphor-icons/react';
+import { resourceNavigationItems } from './resourcesNavigation';
 
 const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
   const router = useRouter();
@@ -18,7 +20,9 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
     currentRoute.startsWith('/service-areas/') ||
     currentRoute.startsWith('/contractors') ||
     currentRoute === '/calculators' ||
-    currentRoute.startsWith('/calculators/');
+    currentRoute.startsWith('/calculators/') ||
+    currentRoute === '/resources' ||
+    currentRoute.startsWith('/resources/');
 
   const homeClassname = currentRoute === '/' ? 'active' : 'non-active';
   const servicesClassname =
@@ -65,6 +69,24 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
                 Services
               </Link>
             </li>
+            <li className={classes.menuListItem}>
+              <Menu as="div" className={classes.menu}>
+                <MenuButton className={classes.menuButton}>
+                  <span>Resources</span>
+                  <CaretDownIcon size={16} color="#ffc302" weight="regular" />
+                </MenuButton>
+
+                <MenuItems transition className={classes.menuItems}>
+                  {resourceNavigationItems.map((item) => (
+                    <MenuItem key={item.href}>
+                      <Link href={item.href} className={classes.menuItem}>
+                        {item.label}
+                      </Link>
+                    </MenuItem>
+                  ))}
+                </MenuItems>
+              </Menu>
+            </li>
             <li>
               <Link legacyBehavior={true} href="/about">
                 About
@@ -96,6 +118,7 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
 
       <MobileMenu
         showMenu={showMobileMenu}
+        setShowMenu={setShowMobileMenu}
         homeClassname={homeClassname}
         servicesClassname={servicesClassname}
         aboutClassname={aboutClassname}

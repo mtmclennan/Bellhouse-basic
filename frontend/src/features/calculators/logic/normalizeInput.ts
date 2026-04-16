@@ -119,7 +119,10 @@ function normalizeDimensionInput(
 
 export function normalizeCalculatorInput(
   input: CalculatorFormInput,
-  config: Pick<CalculatorConfig, 'advancedSettings' | 'dimensionBehavior'>,
+  config: Pick<
+    CalculatorConfig,
+    'advancedSettings' | 'dimensionBehavior' | 'workflow'
+  >,
   material?: Material,
 ): CalculatorCalculationInput | null {
   const lengthM = normalizeDimensionInput(
@@ -156,7 +159,7 @@ export function normalizeCalculatorInput(
       depthM,
       materialId: input.materialId,
       useAdvanced: false,
-      applyCompaction: config.advancedSettings.compactionPercentage,
+      workflowKind: config.workflow.kind,
       isHalfLoad: false,
       swellFactor,
       truckCapacityTons,
@@ -194,11 +197,11 @@ export function normalizeCalculatorInput(
     depthM,
     materialId: input.materialId,
     useAdvanced: input.useAdvanced,
-    applyCompaction: config.advancedSettings.compactionPercentage,
-    swellFactor,
-    wetMaterialPercentage,
-    compactionPercentage,
+    workflowKind: config.workflow.kind,
+    swellFactor: swellFactor ?? undefined,
+    wetMaterialPercentage: wetMaterialPercentage ?? undefined,
+    compactionPercentage: compactionPercentage ?? undefined,
     isHalfLoad: input.isHalfLoad,
-    truckCapacityTons,
+    truckCapacityTons: truckCapacityTons ?? undefined,
   };
 }

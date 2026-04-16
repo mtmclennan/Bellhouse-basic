@@ -1,57 +1,10 @@
 import type { Metadata } from 'next';
-import type { CSSProperties } from 'react';
 import Link from 'next/link';
-import {
-  CompassTool,
-  Shovel,
-  Stack,
-} from '@phosphor-icons/react/dist/ssr';
 import SectionWrapper from '@/components/layout/SectionWrapper';
-import { calculatorConfigs } from '@/features/calculators/config/calculators';
+import { CalculatorResourceCardGrid } from '@/features/calculators/components/CalculatorResourceCardGrid';
+import { calculatorSeoConfig } from '@/features/calculators/config/seo';
 import { validateMetadata } from '@/lib/utils/seoValidation';
 import classes from './page.module.scss';
-
-const calculatorCards = [
-  {
-    slug: 'excavation',
-    href: '/calculators/excavation',
-    serviceHref: '/services/foundation-excavation',
-    serviceLabel: 'Related service: Foundation excavation',
-    imageSrc: '/assets/calculators/excavation-calculator.webp',
-    icon: <Shovel size={26} weight="fill" />,
-    meta: 'Excavation estimating',
-    blurb:
-      'Estimate excavation volume, tonnage, and truck loads for foundation digs, cut work, and general earthmoving.',
-    bestFor: 'Best for: digs, cut-and-fill, and haul-out planning',
-    outputs: ['Volume', 'Tonnage', 'Truck loads'],
-  },
-  {
-    slug: 'gravel',
-    href: '/calculators/gravel',
-    serviceHref: '/services/dirt-gravel-delivery',
-    serviceLabel: 'Related service: Dirt and gravel delivery',
-    imageSrc: '/assets/calculators/gravel-calculator.webp',
-    icon: <Stack size={26} weight="fill" />,
-    meta: 'Aggregate estimating',
-    blurb:
-      'Work out gravel quantities, tonnage, and likely truck loads for pads, lanes, base prep, and imported aggregate.',
-    bestFor: 'Best for: driveways, pads, lanes, and base prep',
-    outputs: ['Volume', 'Tonnage', 'Truck loads'],
-  },
-  {
-    slug: 'topsoil',
-    href: '/calculators/topsoil',
-    serviceHref: '/services/site-preparation-land-grading',
-    serviceLabel: 'Related service: Site prep and grading',
-    imageSrc: '/assets/calculators/Topsoil-calculator.webp',
-    icon: <CompassTool size={26} weight="fill" />,
-    meta: 'Topsoil estimating',
-    blurb:
-      'Estimate topsoil coverage, weight, and load count for grading, finish shaping, and landscape prep.',
-    bestFor: 'Best for: finish grading, coverage checks, and topsoil planning',
-    outputs: ['Volume', 'Tonnage', 'Truck loads'],
-  },
-] as const;
 
 export const metadata: Metadata = {
   title: 'Excavation, Gravel & Topsoil Calculators | Bellhouse',
@@ -95,7 +48,10 @@ export default function CalculatorsPage() {
               based on site conditions.
             </p>
             <div className={classes.heroActions}>
-              <Link className={classes.primaryAction} href="/calculators/excavation">
+              <Link
+                className={classes.primaryAction}
+                href={calculatorSeoConfig.excavation.resourcePath}
+              >
                 Start With Excavation
               </Link>
               <Link className={classes.secondaryAction} href="/contact">
@@ -127,40 +83,7 @@ export default function CalculatorsPage() {
           </p>
         </div>
 
-        <div className={classes.cardGrid}>
-          {calculatorCards.map((card) => {
-            const cardStyle = {
-              ['--card-image' as const]: `url("${card.imageSrc}")`,
-            } as CSSProperties;
-
-            return (
-            <article className={classes.card} key={card.slug} style={cardStyle}>
-              <div className={classes.cardHeader}>
-                <span className={classes.cardIcon}>{card.icon}</span>
-                <span className={classes.cardMeta}>{card.meta}</span>
-              </div>
-              <h3>{calculatorConfigs[card.slug].title}</h3>
-              <p>{card.blurb}</p>
-              <p className={classes.cardBestFor}>{card.bestFor}</p>
-              <div className={classes.outputList} aria-label={`${calculatorConfigs[card.slug].title} outputs`}>
-                {card.outputs.map((output) => (
-                  <span className={classes.outputChip} key={output}>
-                    {output}
-                  </span>
-                ))}
-              </div>
-              <div className={classes.cardActions}>
-                <Link className={classes.cardPrimaryLink} href={card.href}>
-                  Open Calculator
-                </Link>
-                <Link className={classes.cardSecondaryLink} href={card.serviceHref}>
-                  {card.serviceLabel}
-                </Link>
-              </div>
-            </article>
-            );
-          })}
-        </div>
+        <CalculatorResourceCardGrid />
       </SectionWrapper>
 
       <SectionWrapper

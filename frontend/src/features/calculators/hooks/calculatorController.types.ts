@@ -70,6 +70,7 @@ export type CalculatorDimensionsSection = {
 export type CalculatorMaterialSection = {
   title: string;
   label: string;
+  helperText?: string;
   value: CalculatorFormInput['materialId'];
   options: Material[];
   onChange: (materialId: CalculatorFormInput['materialId']) => void;
@@ -91,6 +92,11 @@ export type CalculatorAdvancedFieldsModel = {
 export type CalculatorAdvancedShellModel = {
   title: string;
   note: string;
+  toggle: {
+    label: string;
+    enabled: boolean;
+    onChange: (value: boolean) => void;
+  };
 };
 
 export type CalculatorAdvancedSection = {
@@ -98,7 +104,9 @@ export type CalculatorAdvancedSection = {
   content:
     | {
         mode: 'managed';
+        enabled: boolean;
         statusMessage: string | null;
+        inactiveMessage: string;
         fields: CalculatorAdvancedFieldsModel;
       }
     | {

@@ -456,6 +456,46 @@
   @extend .contractorCtaShell;
 }
 
+.calculatorGrid {
+  display: grid;
+  gap: 1.8rem;
+  margin-top: 3rem;
+
+  @include m.mediaDesktop {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.calculatorCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  padding: 2rem;
+  border-radius: 1.4rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(v.$cat-yellow2, 0.22);
+  text-align: left;
+
+  h3 {
+    margin: 0;
+    font-size: 2.4rem;
+    line-height: 1.15;
+    color: #fff;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1.7rem;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  .contractorActions {
+    justify-content: flex-start;
+    margin-top: auto;
+  }
+}
+
 .contractorActions {
   display: flex;
   flex-wrap: wrap;

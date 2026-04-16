@@ -27,6 +27,9 @@ export function CalculatorMaterialSection({
             </option>
           ))}
         </select>
+        {section.helperText ? (
+          <p className={classes.fieldNote}>{section.helperText}</p>
+        ) : null}
       </label>
     </div>
   );

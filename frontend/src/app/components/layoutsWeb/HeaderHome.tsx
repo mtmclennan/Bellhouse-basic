@@ -10,6 +10,7 @@ import { Fragment, useEffect, useState } from 'react';
 import Hamburger from './Hamburger';
 import MobileMenu from './MobileMenu';
 import { CaretDownIcon, Phone } from '@phosphor-icons/react';
+import { resourceNavigationItems } from './resourcesNavigation';
 
 const MainHeader = ({ currentRoute }: { currentRoute?: string }) => {
   const router = useRouter();
@@ -22,6 +23,8 @@ const MainHeader = ({ currentRoute }: { currentRoute?: string }) => {
     currentRoute?.startsWith('/contractors/') ||
     currentRoute === '/calculators' ||
     currentRoute?.startsWith('/calculators/') ||
+    currentRoute === '/resources' ||
+    currentRoute?.startsWith('/resources/') ||
     currentRoute === '/about' ||
     currentRoute?.startsWith('/about/');
 
@@ -80,32 +83,13 @@ const MainHeader = ({ currentRoute }: { currentRoute?: string }) => {
                 </MenuButton>
 
                 <MenuItems transition className={classes.menuItems}>
-                  <MenuItem>
-                    <Link
-                      href="/calculators/excavation"
-                      className={classes.menuItem}
-                    >
-                      Excavation Calculator
-                    </Link>
-                  </MenuItem>
-
-                  <MenuItem>
-                    <Link
-                      href="/calculators/gravel"
-                      className={classes.menuItem}
-                    >
-                      Gravel Calculator
-                    </Link>
-                  </MenuItem>
-
-                  <MenuItem>
-                    <Link
-                      href="/calculators/topsoil"
-                      className={classes.menuItem}
-                    >
-                      Topsoil Calculator
-                    </Link>
-                  </MenuItem>
+                  {resourceNavigationItems.map((item) => (
+                    <MenuItem key={item.href}>
+                      <Link href={item.href} className={classes.menuItem}>
+                        {item.label}
+                      </Link>
+                    </MenuItem>
+                  ))}
                 </MenuItems>
               </Menu>
             </li>

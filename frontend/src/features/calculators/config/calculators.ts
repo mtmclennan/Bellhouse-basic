@@ -4,6 +4,8 @@ import type {
   CalculatorDimensionFormInput,
   CalculatorFormInput,
   CalculatorKind,
+  CalculatorVolumeValueSource,
+  CalculatorWorkflowKind,
   MaterialId,
   OutputUnitPreference,
   MetricDimensionUnit,
@@ -57,13 +59,21 @@ type CalculatorResultCardId =
 
 type CalculatorResultPresentation = {
   volumeLabel: string;
+  volumeValueSource: CalculatorVolumeValueSource;
   adjustedVolumeLabel?: string;
+  adjustedVolumeValueSource?: CalculatorVolumeValueSource;
   weightLabel: string;
   truckLoadsLabel: string;
   secondaryVolumeLabel?: string;
+  secondaryVolumeValueSource?: CalculatorVolumeValueSource;
+  defaultPrimaryCardIds: readonly CalculatorResultCardId[];
   primaryCardIds: readonly CalculatorResultCardId[];
   secondaryCardIds?: readonly CalculatorResultCardId[];
   showCardMeta: boolean;
+};
+
+type CalculatorWorkflow = {
+  kind: CalculatorWorkflowKind;
 };
 
 type CalculatorSectionCopy = {
@@ -71,6 +81,7 @@ type CalculatorSectionCopy = {
   unitsTitle: string;
   dimensionsTitle: string;
   materialTitle: string;
+  materialHelperText?: string;
   advancedTitle: string;
   advancedNote: string;
   advancedInactiveMessage: string;
@@ -92,6 +103,7 @@ export type CalculatorConfig = {
     imperial: string;
   };
   dimensionBehavior: Record<'length' | 'width' | 'depth', CalculatorDimensionBehavior>;
+  workflow: CalculatorWorkflow;
   resultDisplay: CalculatorResultDisplaySettings;
   resultPresentation: CalculatorResultPresentation;
   advancedSettings: CalculatorAdvancedSettingVisibility;
@@ -126,7 +138,7 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
       inputUnits: 'Enter dimensions in',
       resultDisplay: 'Show results in',
       material: 'Material to haul',
-      useAdvanced: 'Adjust excavation assumptions',
+      useAdvanced: 'Use advanced features',
       dimensions: {
         length: 'Cut Length',
         width: 'Cut Width',
@@ -137,7 +149,7 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
         moistureLevel: 'Moisture level',
         wetMaterialPercentage: 'Moisture level',
         compactionPercentage: 'Compaction adjustment (%)',
-        truckCapacityTons: 'Legal truck payload (tons)',
+        truckCapacityTons: 'Legal truck payload (metric tonnes)',
         halfLoadToggle: 'Half-load season / road restriction',
       },
     },
@@ -163,16 +175,21 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
         imperialMode: 'feet-inches',
       },
     },
+    workflow: {
+      kind: 'swell-based',
+    },
     resultDisplay: {
       options: ['metric', 'imperial'],
     },
     resultPresentation: {
-      volumeLabel: 'In-place cut volume',
-      adjustedVolumeLabel: 'Loose material volume',
-      weightLabel: 'Estimated loose material weight',
-      truckLoadsLabel: 'Estimated truck loads',
-      primaryCardIds: ['volume', 'adjustedVolume', 'truckLoads'],
-      secondaryCardIds: ['weight'],
+      volumeLabel: 'Excavation volume',
+      volumeValueSource: 'rawProjectVolumeM3',
+      adjustedVolumeLabel: 'Loose material',
+      adjustedVolumeValueSource: 'adjustedLooseMaterialVolumeM3',
+      weightLabel: 'Estimated weight',
+      truckLoadsLabel: 'Truck loads',
+      defaultPrimaryCardIds: ['volume', 'adjustedVolume', 'weight', 'truckLoads'],
+      primaryCardIds: ['volume', 'adjustedVolume', 'weight', 'truckLoads'],
       showCardMeta: false,
     },
     advancedSettings: {
@@ -188,13 +205,15 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
       unitsTitle: 'Measurement system',
       dimensionsTitle: 'Cut dimensions',
       materialTitle: 'Material to haul',
-      advancedTitle: 'Excavation assumptions',
+      materialHelperText:
+        'Excavated material expands when broken loose, so swell affects loose volume and hauling.',
+      advancedTitle: 'Advanced features',
       advancedNote: 'Swell, moisture, and hauling limits for removed material.',
       advancedInactiveMessage:
-        'Open advanced settings to adjust swell, moisture, truck payload, and half-load mode.',
+        'Turn on advanced features to adjust swell, moisture, truck payload, and half-load mode.',
       resultsTitle: 'Excavation estimate',
       resultsPlaceholder:
-        'Enter the cut dimensions to see in-place cut volume, loose material volume, truck loads, and loose material weight.',
+        'Enter the cut dimensions to see excavation volume, loose material, estimated weight, and truck loads.',
       disclaimer:
         'Planning estimate only. Results reflect loose excavated material after swell, not compacted fill. Over-excavation, groundwater, access, and hauling limits can change actual quantities.',
     },
@@ -215,7 +234,7 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
       inputUnits: 'Enter dimensions in',
       resultDisplay: 'Show results in',
       material: 'Aggregate type',
-      useAdvanced: 'Adjust gravel assumptions',
+      useAdvanced: 'Use advanced features',
       dimensions: {
         length: 'Area Length',
         width: 'Area Width',
@@ -226,7 +245,7 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
         moistureLevel: 'Moisture level',
         wetMaterialPercentage: 'Wet material adjustment (%)',
         compactionPercentage: 'Compaction adjustment (%)',
-        truckCapacityTons: 'Legal truck payload (tons)',
+        truckCapacityTons: 'Legal truck payload (metric tonnes)',
         halfLoadToggle: 'Half-load season / road restriction',
       },
     },
@@ -252,20 +271,26 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
         imperialMode: 'inches',
       },
     },
+    workflow: {
+      kind: 'compaction-based',
+    },
     resultDisplay: {
       options: ['metric', 'imperial'],
     },
     resultPresentation: {
-      volumeLabel: 'Adjusted volume',
-      weightLabel: 'Estimated tonnage',
-      truckLoadsLabel: 'Estimated truck loads',
+      volumeLabel: 'Compacted base volume',
+      volumeValueSource: 'adjustedMaterialVolumeM3',
+      weightLabel: 'Estimated weight',
+      truckLoadsLabel: 'Truck loads',
       secondaryVolumeLabel: 'Base volume',
+      secondaryVolumeValueSource: 'rawProjectVolumeM3',
+      defaultPrimaryCardIds: ['volume', 'weight', 'truckLoads'],
       primaryCardIds: ['volume', 'weight', 'truckLoads'],
       secondaryCardIds: ['secondaryVolume'],
       showCardMeta: true,
     },
     advancedSettings: {
-      swellFactor: true,
+      swellFactor: false,
       moistureLevel: false,
       wetMaterialPercentage: true,
       compactionPercentage: true,
@@ -277,13 +302,13 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
       unitsTitle: 'Measurement system',
       dimensionsTitle: 'Area and depth',
       materialTitle: 'Aggregate',
-      advancedTitle: 'Delivery assumptions',
+      advancedTitle: 'Advanced features',
       advancedNote: 'Compaction, moisture, and hauling adjustments.',
       advancedInactiveMessage:
-        'Open advanced settings to adjust compaction, wet material, truck payload, and half-load mode.',
+        'Turn on advanced features to adjust compaction, wet material, truck payload, and half-load mode.',
       resultsTitle: 'Material estimate',
       resultsPlaceholder:
-        'Enter the coverage area and gravel depth to see adjusted volume, tonnage, and truck loads.',
+        'Enter the coverage area and gravel depth to see compacted base volume, estimated weight, and truck loads.',
       disclaimer:
         'Planning estimate only. Subgrade correction, compaction, and waste can change actual stone required.',
     },
@@ -304,7 +329,7 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
       inputUnits: 'Enter dimensions in',
       resultDisplay: 'Show results in',
       material: 'Topsoil type',
-      useAdvanced: 'Adjust topsoil assumptions',
+      useAdvanced: 'Use advanced features',
       dimensions: {
         length: 'Coverage Length',
         width: 'Coverage Width',
@@ -315,7 +340,7 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
         moistureLevel: 'Moisture level',
         wetMaterialPercentage: 'Wet material adjustment (%)',
         compactionPercentage: 'Compaction adjustment (%)',
-        truckCapacityTons: 'Legal truck payload (tons)',
+        truckCapacityTons: 'Legal truck payload (metric tonnes)',
         halfLoadToggle: 'Half-load season / road restriction',
       },
     },
@@ -341,20 +366,26 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
         imperialMode: 'inches',
       },
     },
+    workflow: {
+      kind: 'compaction-based',
+    },
     resultDisplay: {
       options: ['metric', 'imperial'],
     },
     resultPresentation: {
-      volumeLabel: 'Adjusted volume',
-      weightLabel: 'Estimated tonnage',
-      truckLoadsLabel: 'Estimated truck loads',
-      secondaryVolumeLabel: 'Base volume',
+      volumeLabel: 'Placed topsoil volume',
+      volumeValueSource: 'adjustedMaterialVolumeM3',
+      weightLabel: 'Estimated weight',
+      truckLoadsLabel: 'Truck loads',
+      secondaryVolumeLabel: 'Area volume',
+      secondaryVolumeValueSource: 'rawProjectVolumeM3',
+      defaultPrimaryCardIds: ['volume', 'weight', 'truckLoads'],
       primaryCardIds: ['volume', 'weight', 'truckLoads'],
       secondaryCardIds: ['secondaryVolume'],
       showCardMeta: true,
     },
     advancedSettings: {
-      swellFactor: true,
+      swellFactor: false,
       moistureLevel: false,
       wetMaterialPercentage: true,
       compactionPercentage: true,
@@ -366,13 +397,13 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
       unitsTitle: 'Measurement system',
       dimensionsTitle: 'Coverage and depth',
       materialTitle: 'Material',
-      advancedTitle: 'Placement assumptions',
+      advancedTitle: 'Advanced features',
       advancedNote: 'Compaction, moisture, and hauling adjustments.',
       advancedInactiveMessage:
-        'Open advanced settings to adjust compaction, wet material, truck payload, and half-load mode.',
+        'Turn on advanced features to adjust compaction, wet material, truck payload, and half-load mode.',
       resultsTitle: 'Material estimate',
       resultsPlaceholder:
-        'Enter the coverage area and target depth to see adjusted volume, tonnage, and truck loads.',
+        'Enter the coverage area and target depth to see placed topsoil volume, estimated weight, and truck loads.',
       disclaimer:
         'Planning estimate only. Existing grade, cleanup, and finish expectations can change actual topsoil required.',
     },
