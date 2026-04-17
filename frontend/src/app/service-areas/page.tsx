@@ -17,7 +17,7 @@ import {
   defaultHeroImage,
 } from '@/components/service-areas/visuals';
 import { serviceAreaPageList } from '@/lib/serviceAreas';
-import { validateMetadata } from '@/lib/utils/seoValidation';
+import { createPageMetadata } from '@/lib/siteMetadata';
 import classes from './page.module.scss';
 
 const servicesOffered = [
@@ -56,25 +56,14 @@ const valuePoints = [
   },
 ];
 
-export const metadata: Metadata = {
-  title:
-    'Excavation Service Areas in Southern Ontario | Bellhouse',
+export const metadata: Metadata = createPageMetadata({
+  title: 'Excavation Service Areas in Southern Ontario | Bellhouse',
   description:
     'Explore Bellhouse service areas for excavation, grading, hauling, and site work across Brantford, Hamilton, Cambridge, Paris, and nearby communities.',
-  alternates: {
-    canonical: 'https://bellhouseexcavating.ca/service-areas',
-  },
-  openGraph: {
-    title:
-      'Excavation Service Areas in Southern Ontario | Bellhouse',
-    description:
-      'Explore Bellhouse service areas for excavation, grading, hauling, and site work across Southern Ontario communities.',
-    url: 'https://bellhouseexcavating.ca/service-areas',
-    siteName: 'Bellhouse Excavating',
-    type: 'website',
-  },
-};
-validateMetadata(metadata.title, metadata.description);
+  pathname: '/service-areas',
+  openGraphDescription:
+    'Explore Bellhouse service areas for excavation, grading, hauling, and site work across Southern Ontario communities.',
+});
 
 export default function ServiceAreasPage() {
   return (
@@ -114,6 +103,17 @@ export default function ServiceAreasPage() {
                 Use Estimating Calculators
               </Link>
             </div>
+            <p className={classes.heroSupportCopy}>
+              Still roughing out quantities before you send the local job
+              details? Start with the{' '}
+              <Link href="/resources/calculators/excavation">
+                excavation calculator
+              </Link>{' '}
+              for cut and haul-out planning, the{' '}
+              <Link href="/resources/calculators/gravel">gravel calculator</Link>{' '}
+              for imported base and access routes, or browse{' '}
+              <Link href="/resources/calculators">all Bellhouse calculators</Link>.
+            </p>
           </div>
           <div className={classes.heroMedia}>
             <div className={classes.heroImageFrame}>

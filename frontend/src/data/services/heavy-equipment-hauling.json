@@ -3,32 +3,32 @@
   "slug": "heavy-equipment-hauling",
 
   "meta": {
-    "title": "Heavy Equipment Hauling & Float Service | Bellhouse",
-    "description": "Bellhouse moves excavators, dozers, and site equipment safely across Brantford and nearby areas with professional float service."
+    "title": "Heavy Equipment Float Service | Bellhouse",
+    "description": "Bellhouse provides operator-backed float service for excavators, skid steers, dozers, and site equipment across Brantford and nearby Southern Ontario jobs."
   },
 
   "card": {
-    "title": "Heavy Equipment Hauling & Float Truck Services",
-    "description": "Transport heavy machinery safely with our professional float truck services.",
+    "title": "Heavy Equipment Float Service",
+    "description": "Operator-backed float service for moving excavators, skid steers, dozers, and site equipment on schedule.",
     "image": "/assets/truck-hauling-heavy-equipment.jpg",
-    "alt": "A float truck transporting an excavator to a construction site in Brant County."
+    "alt": "A float truck transporting an excavator to an active jobsite."
   },
 
   "hero": {
-    "heading": "Heavy Equipment Hauling & Floating Services",
-    "subheading": "Safe, Secure, and Efficient Transportation for Construction Machinery",
+    "heading": "Heavy Equipment Float Service",
+    "subheading": "Bellhouse float service for excavators, skid steers, dozers, and site machines that need to arrive on schedule.",
     "image": "/assets/equipment-floating-trucking-services.png",
     "alt": "A low-bed float truck loaded with heavy equipment, ready for transport."
   },
 
   "intro": {
-    "heading": "Reliable Heavy Equipment Hauling for Your Construction Needs",
-    "content": "Bellhouse Excavating provides professional heavy equipment floating services to transport machinery safely and efficiently. We move excavators, skid steers, dozers, and other equipment with proper tie-downs, safe loading procedures, and experienced operators.",
+    "heading": "Machine transport for active job sites and working properties",
+    "content": "Bellhouse provides float service when the real need is getting a machine moved safely and on time, not just finding a truck. That can mean shifting equipment between contractor jobs, delivering machines to a rural property, moving a dozer onto a site-prep job, or getting an excavator in place before the next phase starts.",
     "keypoints": [
-      "Fully insured hauling services",
-      "Safe loading and unloading procedures",
-      "Experienced, licensed operators",
-      "Reliable transport across Brant County and surrounding areas"
+      "Bellhouse driver and securement handled for you",
+      "Excavators, skid steers, dozers, and similar site equipment",
+      "Useful for contractor schedules, farm properties, and moving machines between jobs",
+      "Pickup, delivery, unload, and placement handled around the site plan"
     ]
   },
 
@@ -83,66 +83,65 @@
   },
 
   "process": {
-    "heading": "How Our Hauling Process Works",
-    "subheading": "Fast, predictable, and safe from start to finish.",
+    "heading": "How Bellhouse float service works",
+    "subheading": "The key questions are what machine is moving, where it is going, and what the site needs when it arrives.",
     "steps": [
       {
-        "title": "Pickup & Pre-Trip Inspection",
-        "description": "We inspect the equipment and plan secure loading."
+        "title": "Confirm the machine, pickup point, and destination",
+        "description": "Bellhouse reviews the equipment type, access, delivery timing, and whether the machine is moving between jobs, yards, or rural properties."
       },
       {
-        "title": "Safe Loading & Tie-Down",
-        "description": "Your equipment is secured using proper load-rated gear."
+        "title": "Load and secure the equipment",
+        "description": "The machine is loaded and tied down with the right securement procedures for the move."
       },
       {
-        "title": "Transport to Destination",
-        "description": "We haul machinery safely to its next job site or storage location."
+        "title": "Transport the machine to site",
+        "description": "Bellhouse moves the equipment to the next job, yard, or property in line with the planned timing."
       },
       {
-        "title": "Unload & Placement",
-        "description": "We unload equipment exactly where you need it."
+        "title": "Unload and place it where it needs to work",
+        "description": "We unload the machine so the next phase can start instead of leaving the equipment move half-finished."
       }
     ]
   },
 
   "serviceArea": {
     "heading": "Service Area",
-    "content": "We provide equipment hauling throughout Brant County and nearby regions.",
+    "content": "Bellhouse float service is available across linked service areas where machines need to move safely between jobs, yards, rural properties, and active construction sites.",
     "locations": [
       "Paris",
       "Brantford",
-      "Brant County",
-      "St. George",
-      "Burford",
       "Hamilton",
       "Cambridge",
-      "Ayr",
-      "Woodstock"
+      "Woodstock",
+      "Ancaster",
+      "Waterdown",
+      "Simcoe"
     ]
   },
 
   "faq": {
-    "heading": "Frequently Asked Questions",
+    "heading": "Float service questions",
     "items": [
       {
-        "question": "What equipment can you haul?",
-        "answer": "Excavators, skid steers, tractors, small dozers, and similar machinery."
+        "question": "What kinds of machines can Bellhouse move?",
+        "answer": "Excavators, skid steers, dozers, tractors, and similar site equipment are common fits. If the machine has special transport requirements, Bellhouse can review the move before scheduling."
       },
       {
-        "question": "Are you insured?",
-        "answer": "Yes, all hauling is fully insured for your protection."
+        "question": "Is this a good fit for live contractor schedules and rural properties too?",
+        "answer": "Yes. Bellhouse float service is used for contractor-led jobsite moves, rural and farm property deliveries, and machine shifts between active projects where timing matters."
       },
       {
-        "question": "How far do you haul?",
-        "answer": "We service Brant County and surrounding areas. Longer hauls available on request."
+        "question": "Can Bellhouse unload the machine where it needs to work?",
+        "answer": "Yes. Bellhouse unloads the equipment at the destination so the move supports the job instead of just dropping the machine somewhere nearby."
       }
     ]
   },
 
   "cta": {
-    "heading": "Need Equipment Hauled?",
-    "subheading": "Get a reliable, insured hauling service for your machinery.",
-    "button": "Request Hauling Quote"
+    "heading": "Need a machine moved on schedule?",
+    "subheading": "Send Bellhouse the machine type, pickup point, destination, and timing if you need float service tied to the job plan.",
+    "button": "Request Float Service Quote"
   }
 }
 

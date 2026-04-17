@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
+import { createPageMetadata } from '@/lib/siteMetadata';
 import classes from './PrivacyPolicy.module.scss';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: 'Privacy Policy | Bellhouse Excavating',
   description:
     'Privacy Policy for Bellhouse Excavating outlining how we collect, use, and protect personal information.',
-};
+  pathname: '/privacy-policy',
+});
 
 export default function PrivacyPolicyPage() {
   return (

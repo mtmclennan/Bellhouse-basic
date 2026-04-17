@@ -1,4 +1,5 @@
 import { applyServiceAreaImages } from './serviceAreaImages';
+import { createPageMetadata } from './siteMetadata';
 
 export type ServiceAreaImage = {
   src: string;
@@ -2031,23 +2032,14 @@ export function getServiceAreaPage(slug: string): ServiceAreaPage | undefined {
   return serviceAreaPages[slug as ServiceAreaSlug];
 }
 
-export function getServiceAreaMetadata(page: ServiceAreaPage, baseUrl: string) {
-  const canonicalUrl = `${baseUrl}/service-areas/${page.slug}`;
-
-  return {
+export function getServiceAreaMetadata(page: ServiceAreaPage) {
+  return createPageMetadata({
     title: page.metaTitle,
     description: page.metaDescription,
-    alternates: {
-      canonical: canonicalUrl,
-    },
-    openGraph: {
-      title: page.openGraphTitle ?? page.metaTitle,
-      description: page.openGraphDescription ?? page.metaDescription,
-      url: canonicalUrl,
-      siteName: 'Bellhouse Excavating',
-      type: 'website' as const,
-    },
-  };
+    pathname: `/service-areas/${page.slug}`,
+    openGraphTitle: page.openGraphTitle ?? page.metaTitle,
+    openGraphDescription: page.openGraphDescription ?? page.metaDescription,
+  });
 }
 
 export function getServiceAreaServicePath(

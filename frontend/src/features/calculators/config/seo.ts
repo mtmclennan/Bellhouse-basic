@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
+import { createPageMetadata } from '@/lib/siteMetadata';
 import { validateMetadata } from '@/lib/utils/seoValidation';
 import type { CalculatorKind } from '../types/calculator';
-
-const baseUrl = 'https://bellhouseexcavating.ca';
 
 export const calculatorSeoConfig: Record<
   CalculatorKind,
@@ -37,24 +36,11 @@ export function getCalculatorMetadata(
   canonicalPath: string = calculatorSeoConfig[kind].resourcePath,
 ): Metadata {
   const config = calculatorSeoConfig[kind];
-  const canonicalUrl = `${baseUrl}${canonicalPath}`;
+  validateMetadata(config.title, config.description);
 
-  const metadata: Metadata = {
+  return createPageMetadata({
     title: config.title,
     description: config.description,
-    alternates: {
-      canonical: canonicalUrl,
-    },
-    openGraph: {
-      title: config.title,
-      description: config.description,
-      url: canonicalUrl,
-      siteName: 'Bellhouse Excavating',
-      type: 'website',
-    },
-  };
-
-  validateMetadata(metadata.title, metadata.description);
-
-  return metadata;
+    pathname: canonicalPath,
+  });
 }

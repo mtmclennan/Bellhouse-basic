@@ -57,6 +57,12 @@
   }
 }
 
+.breadcrumbs {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
 .btn {
   @include m.btnMain;
   margin-top: 2rem;

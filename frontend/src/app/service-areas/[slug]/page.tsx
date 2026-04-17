@@ -12,8 +12,6 @@ type ServiceAreaPageProps = {
   params: Promise<{ slug: string }>;
 };
 
-const baseUrl = 'https://bellhouseexcavating.ca';
-
 export async function generateMetadata({
   params,
 }: ServiceAreaPageProps): Promise<Metadata> {
@@ -28,7 +26,7 @@ export async function generateMetadata({
   }
 
   validateMetadata(page.metaTitle, page.metaDescription);
-  return getServiceAreaMetadata(page, baseUrl);
+  return getServiceAreaMetadata(page);
 }
 
 export default async function ServiceAreaPage({

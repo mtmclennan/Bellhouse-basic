@@ -1,20 +1,21 @@
 import Link from 'next/link';
+import { getCanonicalUrl } from '@/lib/siteMetadata';
 import classes from './ResourceBreadcrumbs.module.scss';
 
 type ResourceBreadcrumbsProps = {
   currentLabel?: string;
+  currentPath?: string;
   trail?: BreadcrumbItem[];
 };
 
-type BreadcrumbItem = {
+export type BreadcrumbItem = {
   name: string;
-  href?: string;
+  href: string;
 };
 
-const baseUrl = 'https://bellhouseexcavating.ca';
-
-export function ResourceBreadcrumbs({
+export function SiteBreadcrumbs({
   currentLabel,
+  currentPath,
   trail,
 }: ResourceBreadcrumbsProps) {
   const items: BreadcrumbItem[] =
@@ -22,7 +23,9 @@ export function ResourceBreadcrumbs({
     [
       { name: 'Home', href: '/' },
       { name: 'Resources', href: '/resources' },
-      ...(currentLabel ? [{ name: currentLabel }] : []),
+      ...(currentLabel && currentPath
+        ? [{ name: currentLabel, href: currentPath }]
+        : []),
     ];
 
   const structuredData = {
@@ -32,7 +35,7 @@ export function ResourceBreadcrumbs({
       '@type': 'ListItem',
       position: index + 1,
       name: item.name,
-      item: `${baseUrl}${item.href ?? '/resources'}`,
+      item: getCanonicalUrl(item.href),
     })),
   };
 
@@ -49,10 +52,8 @@ export function ResourceBreadcrumbs({
                   <span className={classes.current} aria-current="page">
                     {item.name}
                   </span>
-                ) : item.href ? (
-                  <Link href={item.href}>{item.name}</Link>
                 ) : (
-                  item.name
+                  <Link href={item.href}>{item.name}</Link>
                 )}
                 {!isCurrent ? <span className={classes.separator}>/</span> : null}
               </li>
@@ -67,3 +68,5 @@ export function ResourceBreadcrumbs({
     </>
   );
 }
+
+export const ResourceBreadcrumbs = SiteBreadcrumbs;

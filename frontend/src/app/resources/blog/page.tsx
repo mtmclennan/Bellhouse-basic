@@ -3,28 +3,18 @@ import Link from 'next/link';
 import SectionWrapper from '@/components/layout/SectionWrapper';
 import { ResourceBreadcrumbs } from '@/features/calculators/components/ResourceBreadcrumbs';
 import { resourceBlogPosts } from '@/data/resourceBlog';
-import { validateMetadata } from '@/lib/utils/seoValidation';
-import classes from '../../calculators/page.module.scss';
+import { createPageMetadata } from '@/lib/siteMetadata';
+import classes from '../_shared/resourcesShell.module.scss';
 import shellClasses from '@/features/calculators/components/CalculatorPageShell.module.scss';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: 'Excavation Blog & Project Articles | Bellhouse',
   description:
     'Browse Bellhouse blog articles and practical excavation project guidance under the main resources section.',
-  alternates: {
-    canonical: 'https://bellhouseexcavating.ca/resources/blog',
-  },
-  openGraph: {
-    title: 'Excavation Blog & Project Articles | Bellhouse',
-    description:
-      'Bellhouse blog hub for practical excavation, site work, and project-planning articles.',
-    url: 'https://bellhouseexcavating.ca/resources/blog',
-    siteName: 'Bellhouse Excavating',
-    type: 'website',
-  },
-};
-
-validateMetadata(metadata.title, metadata.description);
+  pathname: '/resources/blog',
+  openGraphDescription:
+    'Bellhouse blog hub for practical excavation, site work, and project-planning articles under the canonical resource structure.',
+});
 
 export default function ResourceBlogPage() {
   return (
@@ -40,7 +30,7 @@ export default function ResourceBlogPage() {
               trail={[
                 { name: 'Home', href: '/' },
                 { name: 'Resources', href: '/resources' },
-                { name: 'Blog' },
+                { name: 'Blog', href: '/resources/blog' },
               ]}
             />
             <p className={classes.eyebrow}>Bellhouse blog</p>

@@ -7,6 +7,7 @@ import { Phone } from '@phosphor-icons/react';
 const footerSections = [
   {
     title: 'Services',
+    description: 'Core excavation, grading, hauling, and site support.',
     links: [
       { href: '/services', label: 'All Services' },
       {
@@ -29,6 +30,7 @@ const footerSections = [
   },
   {
     title: 'Service Areas',
+    description: 'Local coverage pages across Southern Ontario.',
     links: [
       { href: '/service-areas', label: 'All Service Areas' },
       { href: '/service-areas/brantford', label: 'Brantford' },
@@ -39,8 +41,9 @@ const footerSections = [
   },
   {
     title: 'Contractors',
+    description: 'Builder, developer, and active jobsite support.',
     links: [
-      { href: '/contractors', label: 'Contractors' },
+      { href: '/contractors', label: 'Contractor Hub' },
       {
         href: '/services/heavy-equipment-hauling',
         label: 'Heavy Equipment Hauling',
@@ -61,6 +64,7 @@ const footerSections = [
   },
   {
     title: 'Resources',
+    description: 'Planning tools and articles under one resource hub.',
     links: [
       { href: '/resources', label: 'Resources Hub' },
       { href: '/resources/calculators', label: 'Calculators' },
@@ -81,6 +85,7 @@ const footerSections = [
   },
   {
     title: 'Company',
+    description: 'Business details and direct contact paths.',
     links: [
       { href: '/about', label: 'About' },
       { href: '/contact', label: 'Contact' },
@@ -111,6 +116,12 @@ const Footer = () => {
             />
           </Link>
 
+          <p className={classes.brandCopy}>
+            Excavation, trucking, and site work support for homeowners,
+            builders, and contractors across Brantford and nearby Southern
+            Ontario communities.
+          </p>
+
           <a className={classes.phone} href="tel:5197528500">
             <Phone size={26} color="#ffc302" weight="duotone" />
             <span>519-752-8500</span>
@@ -128,8 +139,9 @@ const Footer = () => {
 
         <nav className={classes.linkGrid} aria-label="Footer navigation">
           {footerSections.map((section) => (
-            <div key={section.title} className={classes.linkColumn}>
+            <section key={section.title} className={classes.linkColumn}>
               <h3>{section.title}</h3>
+              <p>{section.description}</p>
               <ul>
                 {section.links.map((link) => (
                   <li key={link.href}>
@@ -137,13 +149,13 @@ const Footer = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+            </section>
           ))}
         </nav>
       </div>
 
       <div className={classes.bottom}>
-        <p>{`© ${year} Bellhouse Excavating`}</p>
+        <p>{`Copyright ${year} Bellhouse Excavating`}</p>
 
         <small className={classes.siteBy}>
           <a

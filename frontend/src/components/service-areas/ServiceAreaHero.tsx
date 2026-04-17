@@ -2,6 +2,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import SectionWrapper from '@/components/layout/SectionWrapper';
 import type { ServiceAreaImage } from '@/lib/serviceAreas';
+import {
+  SiteBreadcrumbs,
+  type BreadcrumbItem,
+} from '@/features/calculators/components/ResourceBreadcrumbs';
 import classes from './ServiceAreaHero.module.scss';
 
 type HeroAction = {
@@ -24,6 +28,7 @@ type ServiceAreaHeroProps = {
   image?: ServiceAreaImage;
   contactNote?: ContactNote;
   badges?: string[];
+  breadcrumbTrail?: BreadcrumbItem[];
 };
 
 export default function ServiceAreaHero({
@@ -34,6 +39,7 @@ export default function ServiceAreaHero({
   image,
   contactNote,
   badges = ['Excavation', 'Hauling', 'Float Service'],
+  breadcrumbTrail,
 }: ServiceAreaHeroProps) {
   return (
     <SectionWrapper
@@ -43,6 +49,11 @@ export default function ServiceAreaHero({
     >
       <div className={classes.shell}>
         <div className={classes.content}>
+          {breadcrumbTrail ? (
+            <div className={classes.breadcrumbs}>
+              <SiteBreadcrumbs trail={breadcrumbTrail} />
+            </div>
+          ) : null}
           {eyebrow ? <p className={classes.eyebrow}>{eyebrow}</p> : null}
           <h1 className={classes.title}>{title}</h1>
           <p className={classes.description}>{description}</p>

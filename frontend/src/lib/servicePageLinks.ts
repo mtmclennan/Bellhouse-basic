@@ -43,7 +43,7 @@ const relatedServiceMap: Record<string, string[]> = {
     'foundation-excavation',
     'dump-truck-rental',
     'dirt-gravel-delivery',
-    'volvo-a35-off-road-dump-truck-rental',
+    'heavy-equipment-hauling',
   ],
   'dump-truck-rental': [
     'dirt-gravel-delivery',
@@ -77,6 +77,7 @@ const relatedServiceMap: Record<string, string[]> = {
   'house-barn-demolition': [
     'dump-truck-rental',
     'site-preparation-land-grading',
+    'dirt-gravel-delivery',
     'foundation-excavation',
   ],
   'septic-system-installation': [

@@ -3,6 +3,7 @@ import ServiceLayout from './_components/ServiceLayout';
 import { validateMetadata } from '../../../lib/utils/seoValidation';
 import { getServiceBySlug } from '@/data/services/index';
 import { getAllServices } from '@/data/services/index';
+import { createPageMetadata } from '@/lib/siteMetadata';
 import {
   getContractorCta,
   getLinkedServiceAreas,
@@ -29,10 +30,11 @@ export async function generateMetadata({ params }: ServicePageProps) {
     service.meta.description,
   );
 
-  return {
-    title: validated.title,
-    description: validated.description,
-  };
+  return createPageMetadata({
+    title: String(validated.title),
+    description: String(validated.description),
+    pathname: `/services/${service.slug}`,
+  });
 }
 
 export default async function ServicePage({ params }: ServicePageProps) {

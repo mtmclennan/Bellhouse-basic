@@ -16,6 +16,7 @@ import type {
   ServiceAreaLinkItem,
 } from '@/lib/servicePageLinks';
 import { calculatorSeoConfig } from '@/features/calculators/config/seo';
+import { SiteBreadcrumbs } from '@/features/calculators/components/ResourceBreadcrumbs';
 import classes from './ServiceLayout.module.scss';
 
 interface ServiceLayoutProps {
@@ -139,9 +140,9 @@ const serviceCalculatorLinks: Partial<
     ],
   },
   'dump-truck-rental': {
-    title: 'Need to rough out what the trucks will be moving?',
+    title: 'Need to rough out what the operator-backed trucks will be moving?',
     description:
-      'For dump truck hire, the useful question is usually whether you are hauling excavation spoil or bringing in compacted aggregate. These tools help you plan that more clearly before booking trucks.',
+      'For Bellhouse dump truck service, the useful question is usually whether you are hauling excavation spoil or bringing in compacted aggregate. These tools help you plan that more clearly before scheduling trucks and operators.',
     links: [
       {
         href: calculatorSeoConfig.excavation.resourcePath,
@@ -156,6 +157,48 @@ const serviceCalculatorLinks: Partial<
         description:
           'Use it to rough out aggregate quantity, delivered tons, and likely truck counts for imported gravel or base material.',
         actionLabel: 'Estimate Aggregate Loads',
+      },
+    ],
+  },
+  'house-barn-demolition': {
+    title: 'Planning what happens after demolition?',
+    description:
+      'If the next step after teardown is rebuilding, base prep, or surface restoration, these calculators help rough out the material side before the site is reviewed in person.',
+    links: [
+      {
+        href: calculatorSeoConfig.gravel.resourcePath,
+        title: 'Gravel calculator for rebuild pads and access',
+        description:
+          'Useful when a demolition job is being followed by a driveway base, pad, lane, or imported aggregate work.',
+        actionLabel: 'Estimate Gravel Base',
+      },
+      {
+        href: calculatorSeoConfig.topsoil.resourcePath,
+        title: 'Topsoil calculator for cleanup and restoration',
+        description:
+          'Helpful when the property will need finish grading or topsoil coverage after the demolition and rough cleanup are complete.',
+        actionLabel: 'Estimate Topsoil Coverage',
+      },
+    ],
+  },
+  'heavy-equipment-hauling': {
+    title: 'Planning the site work before the machines move?',
+    description:
+      'If the machine move is tied to excavation, pad prep, or imported aggregate, these tools can help you rough out the material side before Bellhouse schedules the float service.',
+    links: [
+      {
+        href: calculatorSeoConfig.excavation.resourcePath,
+        title: 'Excavation calculator for cut and haul planning',
+        description:
+          'Useful when the float service is supporting excavation, pond work, or other cut-and-haul jobs that need rough quantities first.',
+        actionLabel: 'Estimate Excavation Volume',
+      },
+      {
+        href: calculatorSeoConfig.gravel.resourcePath,
+        title: 'Gravel calculator for pads and access routes',
+        description:
+          'Helpful when the machine move is tied to site prep, working pads, access lanes, or imported base material.',
+        actionLabel: 'Estimate Gravel Quantities',
       },
     ],
   },
@@ -182,6 +225,14 @@ export default function ServiceLayout({
   contractorCta,
 }: ServiceLayoutProps) {
   const calculatorLink = serviceCalculatorLinks[service.slug];
+  const breadcrumbTrail = [
+    { name: 'Home', href: '/' },
+    { name: 'Services', href: '/services' },
+    {
+      name: service.hero.heading,
+      href: `/services/${service.slug}`,
+    },
+  ];
 
   return (
     <>
@@ -201,6 +252,9 @@ export default function ServiceLayout({
         </div>
 
         <div className={classes.hero}>
+          <div className={classes.breadcrumbs}>
+            <SiteBreadcrumbs trail={breadcrumbTrail} />
+          </div>
           <h1>{service.hero.heading}</h1>
           <h3>{service.hero.subheading}</h3>
 

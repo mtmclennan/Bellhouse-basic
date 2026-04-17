@@ -4,28 +4,18 @@ import SectionWrapper from '@/components/layout/SectionWrapper';
 import { ResourceBreadcrumbs } from '@/features/calculators/components/ResourceBreadcrumbs';
 import { CalculatorResourceCardGrid } from '@/features/calculators/components/CalculatorResourceCardGrid';
 import { resourceBlogPosts } from '@/data/resourceBlog';
-import { validateMetadata } from '@/lib/utils/seoValidation';
-import classes from '../calculators/page.module.scss';
+import { createPageMetadata } from '@/lib/siteMetadata';
+import classes from './_shared/resourcesShell.module.scss';
 import shellClasses from '@/features/calculators/components/CalculatorPageShell.module.scss';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: 'Excavation Resources, Calculators & Articles | Bellhouse',
   description:
     'Explore Bellhouse resources for excavation planning, including calculator tools and practical project articles tied to Bellhouse services.',
-  alternates: {
-    canonical: 'https://bellhouseexcavating.ca/resources',
-  },
-  openGraph: {
-    title: 'Excavation Resources, Calculators & Articles | Bellhouse',
-    description:
-      'Bellhouse resource hub for calculators, planning tools, and practical excavation articles.',
-    url: 'https://bellhouseexcavating.ca/resources',
-    siteName: 'Bellhouse Excavating',
-    type: 'website',
-  },
-};
-
-validateMetadata(metadata.title, metadata.description);
+  pathname: '/resources',
+  openGraphDescription:
+    'Bellhouse resource hub for calculators, planning tools, and practical excavation articles under one nested section.',
+});
 
 export default function ResourcesPage() {
   return (
@@ -40,7 +30,7 @@ export default function ResourcesPage() {
             <ResourceBreadcrumbs
               trail={[
                 { name: 'Home', href: '/' },
-                { name: 'Resources' },
+                { name: 'Resources', href: '/resources' },
               ]}
             />
             <p className={classes.eyebrow}>Bellhouse resources</p>

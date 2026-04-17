@@ -8,10 +8,12 @@ import serviceData from '../../../data/services.json';
 export default function HomeServices() {
   return (
     <section className={classes.container}>
-      <h2>Reliable Excavation and Trucking Services</h2>
+      <h2>Browse the service scope after you know the path.</h2>
       <p className={classes.intro}>
-        Serving residential and commercial clients across Brantford and
-        Southern Ontario.
+        Bellhouse handles residential site work, rural access and grading, and
+        contractor-led excavation support across Southern Ontario. Use the
+        service pages when you already know the scope, then move into local
+        pages, contractor support, or planning tools as needed.
       </p>
       <ul className={classes.grid}>
         {serviceData.map((service) => (
@@ -26,7 +28,7 @@ export default function HomeServices() {
         ))}
       </ul>
       <div className={classes.cta}>
-        <h3>Need excavation, hauling, or site support?</h3>
+        <h3>Need a clearer next step before choosing a service?</h3>
         <h4>519-752-8500</h4>
         <div className={classes.actions}>
           <Link className={classes.primaryAction} href="/services">
@@ -37,6 +39,12 @@ export default function HomeServices() {
           </Link>
           <Link className={classes.secondaryAction} href="/contractors">
             For Builders & Contractors
+          </Link>
+          <Link
+            className={classes.secondaryAction}
+            href="/resources/calculators"
+          >
+            Use Planning Tools
           </Link>
         </div>
       </div>

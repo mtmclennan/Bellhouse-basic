@@ -3,130 +3,129 @@
   "slug": "dump-truck-rental",
 
   "meta": {
-    "title": "Dump Truck Rental & Hauling Services | Brant County",
-    "description": "Reliable dump truck rentals with experienced operators in Brant County. Hire our fleet for construction, excavation, and bulk material hauling projects."
+    "title": "Operator-Backed Dump Truck Hauling | Bellhouse",
+    "description": "Bellhouse provides operator-backed dump truck hauling for spoil, gravel, demolition debris, and active jobsite support across Southern Ontario."
   },
 
   "card": {
-    "title": "Dump Truck Rental & Hauling Services",
-    "description": "Dump trucks for hire with experienced operators for material hauling and site support.",
+    "title": "Operator-Backed Dump Truck Service",
+    "description": "Tri-axle dump trucks with Bellhouse operators for spoil haul-out, aggregate delivery, and active site support.",
     "image": "/assets/dump-truck-delivery-service.jpg",
-    "alt": "A dump truck on-site, ready for material hauling and excavation work."
+    "alt": "A Bellhouse tri-axle dump truck hauling material on an active jobsite."
   },
 
   "hero": {
-    "heading": "Dump Truck Rental & Hauling Services",
-    "subheading": "Professional Dump Truck Hire for Contractors & Construction Projects",
+    "heading": "Operator-Backed Dump Truck Service",
+    "subheading": "Bellhouse tri-axle trucks and operators for excavation spoil, imported aggregate, demolition debris, and busy jobsite schedules.",
     "image": "/assets/tri-axle-dump-truck-services.png",
-    "alt": "A fleet of dump trucks lined up, available for hire in Brant County."
+    "alt": "A Bellhouse dump truck lined up for hauling support."
   },
 
   "intro": {
-    "heading": "Hire Reliable Dump Trucks with Skilled Operators",
-    "content": "Bellhouse Excavating offers dump truck rental services for contractors, builders, and property owners. Our tri-axle fleet is available with professional operators to haul aggregates, excavation spoil, and demolition debris.",
+    "heading": "Truck support for contractors, builders, and property owners",
+    "content": "This is Bellhouse dump truck service, not bare truck rental. We send tri-axle trucks with Bellhouse operators to haul excavation spoil out, bring gravel or fill back in, move demolition debris, and keep active jobs from stalling between phases.",
     "keypoints": [
-      "Tri-axle dump trucks with operators",
-      "Hauling for aggregates, fill, and debris",
-      "Day-rate and project-rate options",
-      "Ideal for excavation and site development support"
+      "Bellhouse operator included with every truck",
+      "Spoil haul-out and demolition debris removal",
+      "Aggregate, fill, and material delivery back to site",
+      "Useful for contractor-led work, rural jobs, and larger residential projects"
     ]
   },
 
   "includes": {
-    "heading": "Dump Truck Rental Includes",
-    "subheading": "Flexible hauling support for a wide range of construction projects.",
+    "heading": "What Bellhouse dump truck service is used for",
+    "subheading": "Practical hauling support when the site depends on trucks showing up at the right time.",
     "items": [
       {
-        "title": "Material Delivery",
-        "description": "We can supply and deliver gravel, sand, topsoil, and fill."
+        "title": "Excavation Spoil Haul-Out",
+        "description": "We haul out cut material from foundation digs, trenching, pond work, demolition cleanup, and general site excavation."
       },
       {
-        "title": "Spoil & Debris Removal",
-        "description": "Hauling away excavation material, broken concrete, and demolition debris."
+        "title": "Aggregate, Fill, and Material Delivery",
+        "description": "Granular base, gravel, topsoil, fill, and other site materials can be delivered when the next phase needs them."
       },
       {
-        "title": "On-Site Hauling Support",
-        "description": "Trucks available to support large excavation and grading projects."
+        "title": "Demolition Debris Hauling",
+        "description": "Wood, concrete, rubble, and teardown debris can be loaded and removed as part of structure demolition and site cleanup."
       },
       {
-        "title": "Multiple Load Hauling",
-        "description": "Efficient turnarounds for projects that require several loads per day."
+        "title": "Jobsite Truck Support",
+        "description": "Useful when builders and contractors need reliable truck cycles tied to excavation, grading, and production schedules."
       }
     ]
   },
 
   "equipment": {
-    "heading": "Dump Truck Fleet",
-    "subheading": "Modern trucks maintained for reliable daily use.",
+    "heading": "Bellhouse tri-axle fleet",
+    "subheading": "Road-ready hauling capacity backed by Bellhouse operators and scheduling.",
     "items": [
       {
         "icon": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp",
         "title": "Tri-Axle Dump Trucks",
-        "description": "Capable of hauling up to approximately 21.5 tons per load, depending on material and regulations."
+        "description": "Bellhouse tri-axle trucks are used for spoil export, aggregate delivery, demolition debris, and site material movement with legal payloads based on material and road conditions."
       }
     ]
   },
 
   "process": {
-    "heading": "How Truck Rental Works",
-    "subheading": "Simple booking and reliable hauling.",
+    "heading": "How Bellhouse truck support works",
+    "subheading": "A straightforward process built around material, access, and the number of truck cycles the job actually needs.",
     "steps": [
       {
-        "title": "Request a Quote",
-        "description": "Tell us your material, location, and rough volume."
+        "title": "Share the material, location, and schedule",
+        "description": "Tell Bellhouse what needs to be hauled, where the trucks are going, and whether the work is spoil haul-out, delivery, or both."
       },
       {
-        "title": "Schedule Truck & Operator",
-        "description": "We book dates and times that align with your site schedule."
+        "title": "Confirm truck timing and access",
+        "description": "We review access, load type, disposal or pickup points, and how the trucks need to fit into the rest of the work."
       },
       {
-        "title": "Hauling & Delivery",
-        "description": "Our operator delivers or removes material as planned."
+        "title": "Run the hauling plan",
+        "description": "Bellhouse operators handle the truck cycles so spoil leaves cleanly and imported material arrives when the site is ready."
       },
       {
-        "title": "Project Wrap-Up",
-        "description": "Final loads are completed and the site is left clean and accessible."
+        "title": "Wrap up the final loads",
+        "description": "Once the hauling side is complete, the site is left ready for the next crew, the next delivery, or the next construction step."
       }
     ]
   },
 
   "serviceArea": {
     "heading": "Service Area",
-    "content": "Dump truck rentals are available across Brant County and surrounding communities.",
+    "content": "Bellhouse dump truck support is available across linked Southern Ontario service areas where excavation, material delivery, and truck timing need to stay coordinated.",
     "locations": [
-      "Paris",
       "Brantford",
-      "Brant County",
-      "St. George",
-      "Burford",
-      "Ayr",
-      "Cambridge",
+      "Paris",
       "Hamilton",
+      "Cambridge",
+      "Ancaster",
+      "Waterdown",
+      "Simcoe",
       "Woodstock"
     ]
   },
 
   "faq": {
-    "heading": "Frequently Asked Questions",
+    "heading": "Dump truck service questions",
     "items": [
       {
-        "question": "Do trucks come with an operator?",
-        "answer": "Yes, all dump truck rentals include an experienced operator."
+        "question": "Can I rent a Bellhouse dump truck without an operator?",
+        "answer": "No. Bellhouse provides operator-backed truck service only. The trucks are scheduled with Bellhouse operators so hauling stays tied to the job, the material, and the site conditions."
       },
       {
-        "question": "Can I hire trucks by the day?",
-        "answer": "Yes, we offer day rates and project-based pricing."
+        "question": "Do you only haul spoil, or can you deliver material too?",
+        "answer": "Both. Bellhouse can haul excavated spoil out, then bring gravel, fill, topsoil, or other specified material back in if that is what the project needs next."
       },
       {
-        "question": "Do you supply material as well?",
-        "answer": "Yes, we can both supply and haul aggregates or simply provide hauling for your material."
+        "question": "Is this only for contractors?",
+        "answer": "No. Contractor-led work is a common fit, but Bellhouse also supports larger residential, rural, and demolition-related jobs when the access, material, and hauling needs are a good match for tri-axle service."
       }
     ]
   },
 
   "cta": {
-    "heading": "Need Dump Truck Support?",
-    "subheading": "Book a dump truck with an experienced operator.",
-    "button": "Request Truck Rental Quote"
+    "heading": "Need operator-backed truck support?",
+    "subheading": "Send the material, location, and schedule if you need Bellhouse trucks for spoil haul-out, aggregate delivery, or jobsite support.",
+    "button": "Request Trucking Quote"
   }
 }

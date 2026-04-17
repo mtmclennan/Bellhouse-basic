@@ -7,14 +7,13 @@ import {
   getResourceBlogPost,
   resourceBlogPosts,
 } from '@/data/resourceBlog';
+import { createPageMetadata } from '@/lib/siteMetadata';
 import { validateMetadata } from '@/lib/utils/seoValidation';
 import classes from './page.module.scss';
 
 type BlogPageProps = {
   params: Promise<{ slug: string }>;
 };
-
-const baseUrl = 'https://bellhouseexcavating.ca';
 
 export async function generateMetadata({
   params,
@@ -31,20 +30,12 @@ export async function generateMetadata({
 
   validateMetadata(post.title, post.description);
 
-  return {
+  return createPageMetadata({
     title: post.title,
     description: post.description,
-    alternates: {
-      canonical: `${baseUrl}/resources/blog/${post.slug}`,
-    },
-    openGraph: {
-      title: post.title,
-      description: post.description,
-      url: `${baseUrl}/resources/blog/${post.slug}`,
-      siteName: 'Bellhouse Excavating',
-      type: 'article',
-    },
-  };
+    pathname: `/resources/blog/${post.slug}`,
+    openGraphType: 'article',
+  });
 }
 
 export default async function ResourceBlogPostPage({
@@ -70,7 +61,7 @@ export default async function ResourceBlogPostPage({
               { name: 'Home', href: '/' },
               { name: 'Resources', href: '/resources' },
               { name: 'Blog', href: '/resources/blog' },
-              { name: post.title },
+              { name: post.title, href: `/resources/blog/${post.slug}` },
             ]}
           />
           <p className={classes.eyebrow}>Bellhouse resource article</p>
