@@ -3,32 +3,32 @@
   "slug": "house-barn-demolition",
 
   "meta": {
-    "title": "House, Barn & Outbuilding Demolition | Bellhouse",
-    "description": "Bellhouse handles house, barn, and outbuilding demolition, debris haul-out, and rough cleanup for rural properties and rebuild sites across Southern Ontario."
+    "title": "House & Barn Demolition | Brant County, Brantford",
+    "description": "Safe and efficient house & barn demolition services in Brant County. Professional structure removal, site cleanup, and debris disposal."
   },
 
   "card": {
-    "title": "House, Barn, and Outbuilding Demolition",
-    "description": "Controlled demolition, debris hauling, and rough site cleanup for houses, barns, and outbuildings.",
+    "title": "House & Barn Demolition Services",
+    "description": "Full or partial demolition of houses, barns, and outbuildings, including cleanup and disposal.",
     "image": "/assets/house-demolition-excavator-paris-ontario.jpg",
-    "alt": "An excavator demolishing an older barn on a rural property."
+    "alt": "An excavator demolishing an old barn, preparing the site for redevelopment."
   },
 
   "hero": {
-    "heading": "House, Barn, and Outbuilding Demolition",
-    "subheading": "Controlled teardown, debris haul-out, and rough site cleanup for rural properties, rebuilds, and outdated structures.",
+    "heading": "House & Barn Demolition Services",
+    "subheading": "Safe, Efficient, and Responsible Structure Demolition",
     "image": "/assets/house-demolition-excavator-brant-county.png",
-    "alt": "An excavator tearing down a structure and clearing the site."
+    "alt": "An excavator tearing down an old house, clearing debris for site preparation."
   },
 
   "intro": {
-    "heading": "Demolition that clears the site for what comes next",
-    "content": "Bellhouse handles demolition when the goal is to remove an old structure safely, manage the debris properly, and leave the property ready for the next use. That might be a rebuild, a cleanup on a rural property, a barn removal, or clearing an outdated outbuilding that no longer fits the site.",
+    "heading": "Professional Demolition for Residential & Agricultural Structures",
+    "content": "Bellhouse Excavating provides safe, controlled demolition for houses, barns, garages, and outbuildings. From teardown to debris removal, we handle the heavy lifting so your site is cleared and ready for its next use.",
     "keypoints": [
-      "House, barn, garage, and outbuilding demolition",
-      "Strong fit for rural properties and rebuild sites",
-      "Debris loading, haul-out, and disposal coordination",
-      "Rough site cleanup and grading after teardown"
+      "Complete or selective demolition",
+      "Safe teardown with experienced operators",
+      "Efficient debris removal and disposal",
+      "Site grading and preparation after demolition"
     ]
   },
 
@@ -101,20 +101,22 @@
 
   "serviceArea": {
     "heading": "Service Area",
-    "content": "Bellhouse demolition work is available across linked service areas where rural properties, rebuild sites, and larger lots need teardown and cleanup tied together.",
+    "content": "Demolition services available throughout Brant County and neighbouring communities.",
     "locations": [
       "Paris",
       "Brantford",
-      "Simcoe",
+      "Brant County",
+      "St. George",
+      "Burford",
+      "Ayr",
       "Hamilton",
       "Cambridge",
-      "Woodstock",
-      "Ancaster"
+      "Woodstock"
     ]
   },
 
   "faq": {
-    "heading": "Demolition questions",
+    "heading": "Frequently Asked Questions",
     "items": [
       {
         "question": "Do you handle permits?",
@@ -132,8 +134,8 @@
   },
 
   "cta": {
-    "heading": "Need an old structure cleared off the property?",
-    "subheading": "Send Bellhouse the location, structure type, and what needs to happen after demolition if you want a direct read on fit and next steps.",
+    "heading": "Need a Structure Removed?",
+    "subheading": "Get a demolition quote for your house, barn, or outbuilding.",
     "button": "Request Demolition Quote"
   }
 }

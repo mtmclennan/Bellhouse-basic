@@ -4,17 +4,27 @@ import SectionWrapper from '@/components/layout/SectionWrapper';
 import { ResourceBreadcrumbs } from '@/features/calculators/components/ResourceBreadcrumbs';
 import { CalculatorResourceCardGrid } from '@/features/calculators/components/CalculatorResourceCardGrid';
 import { calculatorSeoConfig } from '@/features/calculators/config/seo';
-import { createPageMetadata } from '@/lib/siteMetadata';
-import classes from '../_shared/resourcesShell.module.scss';
+import { validateMetadata } from '@/lib/utils/seoValidation';
+import classes from '../../../app/calculators/page.module.scss';
 
-export const metadata: Metadata = createPageMetadata({
+export const metadata: Metadata = {
   title: 'Excavation, Gravel & Topsoil Calculators | Bellhouse',
   description:
     'Use Bellhouse estimating calculators for excavation, gravel, and topsoil quantities, truck loads, and rough material planning.',
-  pathname: '/resources/calculators',
-  openGraphDescription:
-    'Bellhouse calculator hub for excavation, gravel, and topsoil estimating tools with the final canonical nested route structure.',
-});
+  alternates: {
+    canonical: 'https://bellhouseexcavating.ca/resources/calculators',
+  },
+  openGraph: {
+    title: 'Excavation, Gravel & Topsoil Calculators | Bellhouse',
+    description:
+      'Bellhouse calculator hub for excavation, gravel, and topsoil estimating tools.',
+    url: 'https://bellhouseexcavating.ca/resources/calculators',
+    siteName: 'Bellhouse Excavating',
+    type: 'website',
+  },
+};
+
+validateMetadata(metadata.title, metadata.description);
 
 export default function CalculatorsPage() {
   return (
@@ -30,7 +40,7 @@ export default function CalculatorsPage() {
               trail={[
                 { name: 'Home', href: '/' },
                 { name: 'Resources', href: '/resources' },
-                { name: 'Calculators', href: '/resources/calculators' },
+                { name: 'Calculators' },
               ]}
             />
             <p className={classes.eyebrow}>Bellhouse calculators</p>

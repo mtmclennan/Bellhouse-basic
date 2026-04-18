@@ -26,9 +26,12 @@ const MainHeader = ({ currentRoute }: { currentRoute?: string }) => {
     currentRoute === '/about' ||
     currentRoute?.startsWith('/about/');
 
+  const homeClassname = currentRoute === '/' ? 'active' : 'non-active';
   const servicesClassname =
     currentRoute === '/services' ? 'active' : 'non-active';
   const aboutClassname = currentRoute === '/about' ? 'active' : 'non-active';
+  const careersClassname =
+    currentRoute === '/careers' ? 'active' : 'non-active';
   const contactClassname =
     currentRoute === '/contact' ? 'active' : 'non-active';
 
@@ -59,17 +62,15 @@ const MainHeader = ({ currentRoute }: { currentRoute?: string }) => {
 
           <ul>
             <li>
-              <Link className={servicesClassname} href="/services">
-                Services
+              <Link className={homeClassname} href="/">
+                Home
               </Link>
             </li>
 
             <li>
-              <Link href="/service-areas">Service Areas</Link>
-            </li>
-
-            <li>
-              <Link href="/contractors">Contractors</Link>
+              <Link className={servicesClassname} href="/services">
+                Services
+              </Link>
             </li>
 
             <li className={classes.menuListItem}>
@@ -92,14 +93,14 @@ const MainHeader = ({ currentRoute }: { currentRoute?: string }) => {
             </li>
 
             <li>
-              <Link className={aboutClassname} href="/about">
-                About
+              <Link className={contactClassname} href="/contact">
+                Contact
               </Link>
             </li>
 
             <li>
-              <Link className={contactClassname} href="/contact">
-                Contact
+              <Link className={aboutClassname} href="/about">
+                About
               </Link>
             </li>
 
@@ -127,6 +128,11 @@ const MainHeader = ({ currentRoute }: { currentRoute?: string }) => {
       <MobileMenu
         setShowMenu={setShowMobileMenu}
         showMenu={showMobileMenu}
+        homeClassname={homeClassname}
+        servicesClassname={servicesClassname}
+        aboutClassname={aboutClassname}
+        contactClassname={contactClassname}
+        careersClassname={careersClassname}
       />
     </Fragment>
   );

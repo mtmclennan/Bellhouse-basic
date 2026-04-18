@@ -5,7 +5,7 @@ import Image from 'next/image';
 import logo from '../../public/assets/BellhouseLogo-text.png';
 import { Phone } from '@phosphor-icons/react';
 import reviews from '@/data/reviews.json';
-import AudiencePaths from '@/app/components/webpage/AudiencePaths';
+import HomeAbout from '@/app/components/webpage/HomeAbout';
 import HomeServices from '@/app/components/webpage/HomeServices';
 import CallToAction from './components/webpage/CallToAction';
 import Link from 'next/link';
@@ -39,20 +39,17 @@ const HomePage = () => {
             </h1>
 
             <h2 className="hero-desktop">
-              Residential site work, farm and rural grading, and
-              contractor-led excavation support across Brantford and nearby
-              Southern Ontario communities.
+              Foundation excavation, dump truck hauling, and site work for
+              residential and commercial projects across Brantford, Hamilton,
+              and surrounding areas.
             </h2>
 
             <div className="hero__button-container">
               <Link href={'/contact'} id="cta-link">
                 Get a Free On-Site Quote
               </Link>
-              <Link id="cta-btn" href={'/service-areas'}>
-                View Service Areas
-              </Link>
-              <Link id="cta-btn" href={'/resources/calculators'}>
-                Open Planning Tools
+              <Link id="cta-btn" href={'/services'}>
+                View Services
               </Link>
               <Link className="hero-phone__mobile" href="tel:5197528500">
                 <Phone size={30} />
@@ -62,25 +59,14 @@ const HomePage = () => {
           </div>
         </section>
       </div>
-      <AudiencePaths
-        heading="Choose the Bellhouse path that fits the work."
-        intro="Start with the audience route that matches the job instead of guessing from a long service list. That gets homeowners, rural property owners, and contractor-led projects to the right next page faster."
-        footnote={
-          <>
-            Need to scan the full scope first? Browse{' '}
-            <Link href="/services">all Bellhouse services</Link> or go straight
-            to the <Link href="/resources/calculators">calculator hub</Link>{' '}
-            for early planning numbers.
-          </>
-        }
-      />
+      <HomeAbout />
       <HomeServices />
       <HomeResources />
       <Reviews reviews={reviews} />
       <CallToAction />
       <ServiceArea
         heading="Excavation Services Across Brant County & Southern Ontario"
-        subtext="Choose a local Bellhouse page to see service fit, access realities, and the best next step for excavation, hauling, grading, or truck-supported site work."
+        subtext="Proudly serving Brantford, Paris, Hamilton, Cambridge, and nearby communities with over 40 years of local excavation experience."
         locations={[
           { label: 'Brantford', href: '/service-areas/brantford' },
           { label: 'Paris', href: '/service-areas/paris' },
@@ -91,11 +77,6 @@ const HomePage = () => {
         ]}
         actions={[
           { label: 'View All Service Areas', href: '/service-areas' },
-          {
-            label: 'Use Estimating Calculators',
-            href: '/resources/calculators',
-            variant: 'secondary',
-          },
           {
             label: 'For Builders & Contractors',
             href: '/contractors',

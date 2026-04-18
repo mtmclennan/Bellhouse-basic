@@ -324,21 +324,6 @@ const areaLinks: NavLinkItem[] = [
   { href: '/service-areas/paris', label: 'Paris' },
 ];
 
-const planningToolLinks: NavLinkItem[] = [
-  {
-    href: '/resources/calculators/excavation',
-    label: 'Excavation Calculator',
-  },
-  {
-    href: '/resources/calculators/gravel',
-    label: 'Gravel Calculator',
-  },
-  {
-    href: '/resources/calculators',
-    label: 'All Planning Tools',
-  },
-];
-
 const heroDescription =
   'Bellhouse works with builders, GCs, concrete crews, and developers across Brantford, Paris, Hamilton, Cambridge, and nearby Southern Ontario areas for excavation, grading, site prep, truck hauling, spoil export, aggregate and material import, and operator-backed equipment.';
 
@@ -354,11 +339,6 @@ export default function ContractorsPage() {
           {
             href: '/service-areas',
             label: 'View Service Areas',
-            variant: 'secondary',
-          },
-          {
-            href: '/resources/calculators',
-            label: 'Open Planning Tools',
             variant: 'secondary',
           },
         ]}
@@ -610,20 +590,6 @@ export default function ContractorsPage() {
               <li>Added equipment, float work, and Volvo A35 capacity</li>
             </ul>
             <div className={classes.supportingNav}>
-              <div className={classes.supportingNavGroup}>
-                <p className={classes.supportingNavLabel}>Planning tools</p>
-                <div className={classes.supportingNavLinks}>
-                  {planningToolLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className={classes.supportingNavLinkLight}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
               <div className={classes.supportingNavGroup}>
                 <p className={classes.supportingNavLabel}>Related services</p>
                 <div className={classes.supportingNavLinks}>

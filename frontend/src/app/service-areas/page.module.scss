@@ -74,29 +74,6 @@
   }
 }
 
-.heroSupportCopy {
-  max-width: 66rem;
-  margin: 0;
-  font-size: 1.7rem;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.8);
-
-  a {
-    color: v.$cat-yellow2;
-    font-weight: 700;
-    text-decoration: none;
-
-    &:hover,
-    &:focus-visible {
-      text-decoration: underline;
-    }
-  }
-
-  @include m.mediaDesktop {
-    font-size: 1.8rem;
-  }
-}
-
 .heroActions {
   display: flex;
   flex-wrap: wrap;

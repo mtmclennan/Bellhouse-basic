@@ -2,14 +2,15 @@ import React from 'react';
 import Contact from './Contact-page';
 import { Metadata } from 'next';
 import Script from 'next/script';
-import { createPageMetadata } from '@/lib/siteMetadata';
+import { validateMetadata } from '@/lib/utils/seoValidation';
 
-export const metadata: Metadata = createPageMetadata({
+export const metadata: Metadata = {
   title: 'Contact Bellhouse Excavating | Brantford, ON',
   description:
     'Contact Bellhouse Excavating for excavation, grading, hauling, and site work pricing across Brantford and nearby Southern Ontario areas.',
-  pathname: '/contact',
-});
+};
+
+validateMetadata(metadata.title, metadata.description);
 
 export default function page() {
   return (

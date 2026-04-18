@@ -3,112 +3,115 @@
   "slug": "pond-digging-cleaning",
 
   "meta": {
-    "title": "Pond Digging, Expansion, and Cleanout | Bellhouse",
-    "description": "Bellhouse handles rural pond digging, expansion, and cleanout for farm properties, drainage improvements, and large private lots across Southern Ontario."
+    "title": "Pond Digging & Cleaning Services | Brant County | Bellhouse",
+    "description": "Professional pond digging and maintenance services in Brant County. Excavation, restoration, and cleaning for residential, commercial, and agricultural ponds."
   },
 
   "card": {
-    "title": "Pond Digging, Expansion, and Cleanout",
-    "description": "Rural pond excavation and cleanup for farm water storage, drainage improvement, and larger private land projects.",
+    "title": "Pond Digging & Cleaning Services",
+    "description": "Custom pond excavation, dredging, and cleaning for farms and residential properties.",
     "image": "/assets/pond-digging-cleaning-brant-county.jpg",
-    "alt": "An excavator digging a pond on rural land."
+    "alt": "An excavator digging a new pond on rural land."
   },
 
   "hero": {
-    "heading": "Pond Digging, Expansion, and Cleanout",
-    "subheading": "Bellhouse excavates and restores rural ponds for farm use, drainage improvement, wildlife habitat, and larger private properties.",
+    "heading": "Pond Digging & Cleaning Services",
+    "subheading": "Custom Pond Excavation & Maintenance for Healthy Water Management",
     "image": "/assets/pond-digging-cleaning-services-brant-county.png",
-    "alt": "A Bellhouse excavator shaping a pond on a rural property."
+    "alt": "A large pond under construction, shaped by an excavator."
   },
 
   "intro": {
-    "heading": "Pond work for farms, acreages, and larger rural properties",
-    "content": "Bellhouse handles pond digging when the job is really about land use, drainage, and material movement, not a decorative water feature brochure. That can mean a new farm pond, a pond expansion, sediment removal from an older pond, or reshaping banks and surrounding grades so the area works better long term.",
+    "heading": "Create, Expand, or Restore Your Pond with Expert Excavation",
+    "content": "Bellhouse Excavating provides complete pond digging and pond cleaning services, from new pond construction to sediment removal and shoreline reshaping. Whether you want a farm pond, wildlife pond, or decorative feature, we can build or restore it.",
     "keypoints": [
-      "New pond excavation and pond enlargement",
-      "Sediment cleanout and pond deepening",
-      "Bank reshaping, spoil handling, and grade correction",
-      "Useful for farm properties, drainage improvement, and larger rural sites"
+      "New pond excavation",
+      "Pond deepening and expansion",
+      "Sediment removal and dredging",
+      "Shoreline reshaping and drainage improvements"
     ]
   },
 
   "includes": {
-    "heading": "What Bellhouse pond work covers",
-    "subheading": "Excavation and cleanup work tied to water capacity, drainage, access, and what happens to the removed material.",
+    "heading": "Pond Excavation & Cleaning Includes",
+    "subheading": "Complete pond creation and restoration services.",
     "items": [
       {
-        "title": "New Pond Excavation",
-        "description": "Bellhouse digs new ponds for rural and farm properties where drainage, water storage, land shaping, or habitat improvement are part of the property plan."
+        "title": "New Pond Construction",
+        "description": "Custom pond digging based on drainage, depth, and land use."
       },
       {
-        "title": "Pond Expansion and Deepening",
-        "description": "We enlarge existing ponds or cut them deeper when more capacity or better function is needed."
+        "title": "Sediment Removal",
+        "description": "We remove silt buildup to restore water depth and improve clarity."
       },
       {
-        "title": "Sediment and Organic Material Removal",
-        "description": "Older ponds can lose depth and function as silt builds up. Bellhouse can remove accumulated material and restore a more workable shape."
+        "title": "Pond Expansion",
+        "description": "We dig additional sections to increase water capacity."
       },
       {
-        "title": "Shoreline and Surrounding Grade Reshaping",
-        "description": "Banks, slopes, and drainage around the pond can be reshaped so the site works better after the excavation is done."
+        "title": "Shoreline Reshaping",
+        "description": "We shape natural slopes and improve drainage for longevity."
       }
     ]
   },
 
   "equipment": {
-    "heading": "Equipment used for pond projects",
-    "subheading": "Machines suited to excavation, spoil movement, and shaping larger rural properties.",
+    "heading": "Equipment Used for Pond Projects",
+    "subheading": "Powerful machines for moving large amounts of soil and sediment.",
     "items": [
       {
         "icon": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp",
         "title": "Excavator",
-        "description": "Used for pond digging, sediment removal, bank shaping, and controlled excavation around water."
+        "description": "Used for digging ponds, removing sediment, and shaping shorelines."
       },
       {
         "icon": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp",
         "title": "Tri-Axle Dump Trucks",
-        "description": "Bellhouse trucks can haul spoil away or support other material movement when the pond work generates more excavated material than the site can keep."
+        "description": "Hauling away excess material and bringing in aggregates."
       }
     ]
   },
 
   "process": {
-    "heading": "How Bellhouse pond projects are handled",
-    "subheading": "The useful first questions are about site access, drainage, spoil handling, and how the pond is meant to function.",
+    "heading": "How Our Pond Services Work",
+    "subheading": "Clear, efficient steps from design to completion.",
     "steps": [
       {
-        "title": "Review the property and pond goal",
-        "description": "Bellhouse looks at access, drainage, water movement, site conditions, and whether the job is a new pond, expansion, or cleanout."
+        "title": "Site Assessment",
+        "description": "We evaluate drainage, soil type, and access for excavation."
       },
       {
-        "title": "Excavate or clean out the pond",
-        "description": "We dig, deepen, enlarge, or remove accumulated material based on the shape and function the property needs."
+        "title": "Excavation & Shaping",
+        "description": "We dig the pond to required depth and create natural slopes."
       },
       {
-        "title": "Manage spoil and shape the banks",
-        "description": "Removed material is handled according to the site plan, and surrounding grades are shaped so the finished pond ties into the property properly."
+        "title": "Sediment Removal (If Applicable)",
+        "description": "We remove silt and organic buildup to restore depth."
       },
       {
-        "title": "Leave the area in working condition",
-        "description": "Bellhouse leaves the pond and surrounding area ready for the next property-use step instead of leaving the site half-shaped and unfinished."
+        "title": "Final Grading",
+        "description": "We shape shorelines and ensure proper water management."
       }
     ]
   },
 
   "serviceArea": {
     "heading": "Service Area",
-    "content": "Bellhouse pond excavation work is strongest across linked service areas where farm, rural, and larger-lot properties need practical digging and cleanout support.",
+    "content": "Pond digging and cleaning services available across Brant County and surrounding rural areas.",
     "locations": [
       "Paris",
       "Brantford",
-      "Simcoe",
-      "Woodstock",
-      "Waterdown"
+      "Brant County",
+      "St. George",
+      "Burford",
+      "Ayr",
+      "Norfolk County",
+      "Woodstock"
     ]
   },
 
   "faq": {
-    "heading": "Pond digging and cleanout questions",
+    "heading": "Frequently Asked Questions",
     "items": [
       {
         "question": "How deep can you dig a pond?",
@@ -126,8 +129,8 @@
   },
 
   "cta": {
-    "heading": "Need a pond project scoped out?",
-    "subheading": "Send the property location, the type of pond work, and what the land needs to do better if you want Bellhouse to review fit and next steps.",
-    "button": "Request Pond Project Quote"
+    "heading": "Ready to Build or Restore Your Pond?",
+    "subheading": "Get a custom quote for pond digging or cleaning.",
+    "button": "Request Pond Quote"
   }
 }

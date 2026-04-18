@@ -2,16 +2,30 @@
 
 import Link from 'next/link';
 import classes from './MobileMenu.module.scss';
-import { Phone, ChatTextIcon } from '@phosphor-icons/react';
-import { useEffect } from 'react';
+import { Phone, ChatTextIcon, CaretDown } from '@phosphor-icons/react';
+import { useEffect, useId, useState } from 'react';
+import { resourceNavigationItems } from './resourcesNavigation';
 
 type MobileMenuProps = {
+  homeClassname: string;
+  servicesClassname: string;
+  careersClassname: string;
+  aboutClassname: string;
+  contactClassname: string;
   showMenu: boolean;
   setShowMenu: (show: boolean) => void;
 };
 
 const MobileMenu = ({ showMenu, setShowMenu }: MobileMenuProps) => {
   const menuClass = showMenu ? classes.menu : classes.menuHidden;
+  const resourcesPanelId = useId();
+  const [resourcesOpen, setResourcesOpen] = useState(false);
+
+  useEffect(() => {
+    if (!showMenu) {
+      setResourcesOpen(false);
+    }
+  }, [showMenu]);
 
   useEffect(() => {
     const previousBodyOverflow = document.body.style.overflow;
@@ -43,28 +57,35 @@ const MobileMenu = ({ showMenu, setShowMenu }: MobileMenuProps) => {
           </Link>
         </li>
 
+        {/* RESOURCES DROPDOWN */}
         <li className={classes.link}>
-          <Link onClick={() => setShowMenu(false)} href="/service-areas">
-            Service Areas
-          </Link>
-        </li>
+          <button
+            type="button"
+            className={classes.dropdownToggle}
+            aria-expanded={resourcesOpen}
+            aria-controls={resourcesPanelId}
+            onClick={() => setResourcesOpen(!resourcesOpen)}
+          >
+            <span>Resources</span>
+            <CaretDown
+              size={18}
+              className={resourcesOpen ? classes.rotate : ''}
+            />
+          </button>
 
-        <li className={classes.link}>
-          <Link onClick={() => setShowMenu(false)} href="/contractors">
-            Contractors
-          </Link>
-        </li>
-
-        <li className={classes.link}>
-          <Link onClick={() => setShowMenu(false)} href="/resources">
-            Resources
-          </Link>
-        </li>
-
-        <li className={classes.link}>
-          <Link onClick={() => setShowMenu(false)} href="/resources/calculators">
-            Calculators
-          </Link>
+          {resourcesOpen && (
+            <div className={classes.subMenu} id={resourcesPanelId}>
+              {resourceNavigationItems.map((item) => (
+                <Link
+                  key={item.href}
+                  onClick={() => setShowMenu(false)}
+                  href={item.href}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          )}
         </li>
 
         <li className={classes.link}>

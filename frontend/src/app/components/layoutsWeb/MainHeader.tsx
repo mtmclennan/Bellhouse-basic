@@ -22,6 +22,15 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
     currentRoute === '/resources' ||
     currentRoute.startsWith('/resources/');
 
+  const homeClassname = currentRoute === '/' ? 'active' : 'non-active';
+  const servicesClassname =
+    currentRoute === '/services' ? 'active' : 'non-active';
+  const aboutClassname = currentRoute === '/about' ? 'active' : 'non-active';
+  const careersClassname =
+    currentRoute === '/careers' ? 'active' : 'non-active';
+  const contactClassname =
+    currentRoute === '/contact' ? 'active' : 'non-active';
+
   useEffect(() => {
     setShowMobileMenu(false);
   }, [currentRoute]);
@@ -49,18 +58,13 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
           </div>
           <ul>
             <li>
+              <Link legacyBehavior={true} href="/">
+                Home
+              </Link>
+            </li>
+            <li>
               <Link legacyBehavior={true} href="/services">
                 Services
-              </Link>
-            </li>
-            <li>
-              <Link legacyBehavior={true} href="/service-areas">
-                Service Areas
-              </Link>
-            </li>
-            <li>
-              <Link legacyBehavior={true} href="/contractors">
-                Contractors
               </Link>
             </li>
             <li className={classes.menuListItem}>
@@ -82,13 +86,13 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
               </Menu>
             </li>
             <li>
-              <Link legacyBehavior={true} href="/contact">
-                Contact
+              <Link legacyBehavior={true} href="/about">
+                About
               </Link>
             </li>
             <li>
-              <Link legacyBehavior={true} href="/about">
-                About
+              <Link legacyBehavior={true} href="/contact">
+                Contact
               </Link>
             </li>
           </ul>
@@ -110,7 +114,15 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
         </nav>
       </header>
 
-      <MobileMenu showMenu={showMobileMenu} setShowMenu={setShowMobileMenu} />
+      <MobileMenu
+        showMenu={showMobileMenu}
+        setShowMenu={setShowMobileMenu}
+        homeClassname={homeClassname}
+        servicesClassname={servicesClassname}
+        aboutClassname={aboutClassname}
+        contactClassname={contactClassname}
+        careersClassname={careersClassname}
+      />
     </Fragment>
   );
 };

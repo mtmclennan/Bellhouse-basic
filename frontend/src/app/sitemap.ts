@@ -3,9 +3,9 @@ import path from 'path';
 import { MetadataRoute } from 'next';
 import { getAllServices } from '@/data/services/index';
 import { calculatorSeoConfig } from '@/features/calculators/config/seo';
-import { getCanonicalUrl } from '@/lib/siteMetadata';
 import { serviceAreaPageList } from '@/lib/serviceAreas';
 
+const baseUrl = 'https://bellhouseexcavating.ca';
 const appRoot = process.cwd();
 const serviceLayoutFiles = [
   'src/app/services/[slug]/page.tsx',
@@ -28,7 +28,7 @@ const resourceHubFiles = [
 ];
 const calculatorHubFiles = [
   'src/app/resources/calculators/page.tsx',
-  'src/app/resources/_shared/resourcesShell.module.scss',
+  'src/app/calculators/page.module.scss',
   'src/features/calculators/components/CalculatorResourceCardGrid.tsx',
   'src/features/calculators/components/CalculatorResourceCardGrid.module.scss',
   'src/features/calculators/config/resourceCards.tsx',
@@ -59,7 +59,7 @@ function createSitemapEntry(
   priority: number,
 ): MetadataRoute.Sitemap[number] {
   return {
-    url: getCanonicalUrl(pathname),
+    url: `${baseUrl}${pathname}`,
     lastModified: getLastModified(relativePaths),
     changeFrequency,
     priority,
@@ -81,7 +81,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
 
   const servicePages: MetadataRoute.Sitemap = getAllServices().map((service) => ({
-    url: getCanonicalUrl(`/services/${service.slug}`),
+    url: `${baseUrl}/services/${service.slug}`,
     lastModified: getLastModified([
       `src/data/services/${service.slug}.json`,
       ...serviceLayoutFiles,
@@ -91,7 +91,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   const serviceAreaPages: MetadataRoute.Sitemap = serviceAreaPageList.map((page) => ({
-    url: getCanonicalUrl(`/service-areas/${page.slug}`),
+    url: `${baseUrl}/service-areas/${page.slug}`,
     lastModified: getLastModified([
       'src/app/service-areas/[slug]/page.tsx',
       'src/lib/serviceAreas.ts',
@@ -109,7 +109,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const routeSegment = calculator.resourcePath.replace(/^\/resources\/|\/$/g, '');
 
     return {
-      url: getCanonicalUrl(calculator.resourcePath),
+      url: `${baseUrl}${calculator.resourcePath}`,
       lastModified: getLastModified([
         `src/app/resources/${routeSegment}/page.tsx`,
         ...sharedCalculatorFiles,
@@ -121,7 +121,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const { resourceBlogPosts } = await import('@/data/resourceBlog');
   const blogPostPages: MetadataRoute.Sitemap = resourceBlogPosts.map((post) => ({
-    url: getCanonicalUrl(`/resources/blog/${post.slug}`),
+    url: `${baseUrl}/resources/blog/${post.slug}`,
     lastModified: post.updatedAt ?? post.publishedAt,
     changeFrequency: 'monthly',
     priority: 0.6,

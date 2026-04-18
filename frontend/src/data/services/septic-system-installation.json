@@ -3,142 +3,149 @@
   "slug": "septic-system-installation",
 
   "meta": {
-    "title": "Septic Excavation & Installation | Bellhouse",
-    "description": "Bellhouse handles septic excavation and installation for rural homes, farm properties, and new builds across Brantford and nearby Southern Ontario areas."
+    "title": "Septic System Installation | Brant County | Bellhouse",
+    "description": "Expert septic system installation in Brant County. Reliable, compliant solutions for homes & businesses."
   },
 
   "card": {
-    "title": "Septic Excavation and Installation",
-    "description": "Septic tank excavation, drainage bed installation, and final grading for rural homes, farm properties, and new builds.",
+    "title": "Septic System Installation Services",
+    "description": "Complete septic system excavation, tank placement, and drainage bed installation.",
     "image": "/assets/septic-system-installation-contractor.jpg",
-    "alt": "An excavator digging for a septic system installation on a rural property."
+    "alt": "An excavator digging a trench for a new septic system installation."
   },
 
   "hero": {
-    "heading": "Septic Excavation and Installation",
-    "subheading": "Bellhouse installs septic systems for rural homes, farm properties, and new builds based on the approved design and site conditions.",
+    "heading": "Septic System Installation Services",
+    "subheading": "Efficient & Compliant Septic Solutions for Residential & Commercial Needs",
     "image": "/assets/septic-system-installation-contractor.png",
-    "alt": "A Bellhouse excavator preparing a rural site for septic tank and bed installation."
+    "alt": "A backhoe digging for septic tank placement at a construction site."
   },
 
   "intro": {
-    "heading": "Septic work for rural properties and new construction",
-    "content": "Bellhouse handles the excavation and installation side of septic work once the design and approvals are in place. That includes digging for the tank, preparing bedding, installing the drainage bed layout, backfilling carefully, and leaving the site graded for the next stage of the build or the finished property.",
+    "heading": "Professional Septic System Installation for Homes & Businesses",
+    "content": "Bellhouse Excavating installs septic tanks, drainage beds, and complete systems according to local codes and engineering guidelines. We provide safe excavation, proper grading, and long-lasting installations.",
     "keypoints": [
-      "Rural homes, farm properties, and new-build septic installs",
-      "Tank excavation, bedding, and placement",
-      "Drainage bed trenching and material placement to plan",
-      "Backfill and final grading tied to the rest of the site work"
+      "Septic tank excavation and proper placement",
+      "Fully engineered drainage bed installation",
+      "Regulation-compliant depth and slope",
+      "Fast and reliable service"
     ]
   },
 
   "includes": {
-    "heading": "What Bellhouse handles on a septic installation",
-    "subheading": "The excavation and install side of the job, carried out to the approved layout and elevations.",
+    "heading": "Septic System Installation Scope",
+    "subheading": "We install complete septic systems from excavation to final grading.",
     "items": [
       {
-        "title": "Tank Excavation and Bedding",
-        "description": "Bellhouse digs to the required depth, prepares the base properly, and sets the system up for the specified tank installation."
+        "title": "Tank Excavation & Placement",
+        "description": "Digging to engineered depth and placing tanks with proper bedding."
       },
       {
-        "title": "Drainage Bed and Trench Installation",
-        "description": "We excavate and install the septic bed components according to the approved design, materials, and slope requirements."
+        "title": "Trench & Drainage Field Installation",
+        "description": "We follow engineered designs for lateral pipes, stone, and filter cloth."
       },
       {
-        "title": "Controlled Backfill and Protection",
-        "description": "Backfill is handled carefully so tanks, piping, and bed components are not damaged or shifted during installation."
+        "title": "Soil Backfilling",
+        "description": "Controlled backfills that protect tanks and pipes from shifting."
       },
       {
-        "title": "Final Grade and Site Tie-In",
-        "description": "Bellhouse leaves the area shaped to work with drainage, access, and the rest of the property or build sequence."
+        "title": "Final Grading",
+        "description": "We shape the area for proper drainage and long-term performance."
       }
     ]
   },
 
   "equipment": {
-    "heading": "Equipment used for septic installation",
-    "subheading": "Accurate excavation and layout tools for septic work where grade, depth, and slope have to be right.",
+    "heading": "Equipment Used",
+    "subheading": "Precision equipment for accurate septic excavation and site preparation.",
     "items": [
       {
         "icon": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp",
         "title": "Excavator",
-        "description": "Used for tank excavation, bed trenching, material handling, and careful placement work around the system."
+        "description": "Used for septic tank excavation, trenching, and controlled material placement."
       },
       {
         "icon": "/assets/services/bellhouse-laser-level-gps-rover-precision-layout-tools.webp",
-        "title": "Laser and GPS Layout Tools",
-        "description": "Used to confirm elevations, slope, and layout details so the installed system matches the approved design."
+        "title": "Laser & GPS Survey Equipment",
+        "description": "Ensures accurate elevations, slopes, and system layout to meet septic design requirements."
       },
       {
         "icon": "/assets/services/bellhouse-skid-steer-equipment-illustration.webp",
         "title": "Skid Steer",
-        "description": "Helpful for finish grading, cleanup, and shaping the surrounding area once the system is installed."
+        "description": "Used for fine grading, final shaping, and preparing surfaces for topsoil and grass."
       },
       {
         "icon": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp",
         "title": "Tri-Axle Dump Trucks",
-        "description": "Used when bedding materials, drainage bed stone, or spoil hauling are part of the septic job."
+        "description": "Transporting sand, gravel, and removing excess excavated material."
       }
     ]
   },
 
   "process": {
-    "heading": "How Bellhouse septic installation work is handled",
-    "subheading": "A practical sequence built around the approved system design and the realities of the site.",
+    "heading": "How Our Septic Installation Works",
+    "subheading": "A reliable workflow that ensures proper function and long-term performance.",
     "steps": [
       {
-        "title": "Review the design, approvals, and access",
-        "description": "Bellhouse starts by confirming the septic layout, elevations, access conditions, and what other site work has to line up with the installation."
+        "title": "Site Review & Engineering Plans",
+        "description": "We review septic designs and confirm elevations."
       },
       {
-        "title": "Excavate for the tank and bed",
-        "description": "We dig the tank area and drainage bed trenches to the specified depth, shape, and layout requirements."
+        "title": "Tank Excavation",
+        "description": "We dig and prepare the tank bed to spec."
       },
       {
-        "title": "Install, backfill, and tie the work together",
-        "description": "The system components are installed to plan, then backfilled and protected carefully so the finished work stays stable."
+        "title": "Tank Placement",
+        "description": "We install tanks with proper bedding and leveling."
       },
       {
-        "title": "Leave the site ready for the next phase",
-        "description": "Bellhouse finishes the grade and leaves the area ready for building, restoration, or the next step in the overall project."
+        "title": "Drainage Field Installation",
+        "description": "We trench, place pipes, stone, and protective layers."
+      },
+      {
+        "title": "Backfill & Grade",
+        "description": "We backfill in controlled lifts and shape final grade."
       }
     ]
   },
 
   "serviceArea": {
     "heading": "Service Area",
-    "content": "Bellhouse septic installation work is a strong fit across linked service areas where rural properties, farm sites, and new builds need excavation and grading tied to the approved system layout.",
+    "content": "Septic installation available across Brant County and surrounding regions.",
     "locations": [
       "Paris",
       "Brantford",
-      "Simcoe",
-      "Woodstock",
-      "Ancaster",
-      "Waterdown"
+      "Brant County",
+      "St. George",
+      "Burford",
+      "Ayr",
+      "Cambridge",
+      "Hamilton",
+      "Woodstock"
     ]
   },
 
   "faq": {
-    "heading": "Septic installation questions",
+    "heading": "Frequently Asked Questions",
     "items": [
       {
-        "question": "Does Bellhouse design the septic system or handle permits?",
-        "answer": "No. The design and approvals need to be in place first. Bellhouse handles the excavation and installation side of the work and can coordinate with your engineer, designer, or septic supplier."
+        "question": "Do you handle engineering?",
+        "answer": "Engineering must be completed before installation, but we work directly with your engineer."
       },
       {
-        "question": "Is this mainly for rural homes and farm properties?",
-        "answer": "Yes. Bellhouse septic work is most often tied to rural homes, farm properties, replacement systems, and new builds where private septic is part of the site plan."
+        "question": "Can you replace failing systems?",
+        "answer": "Yes, we remove and replace outdated systems."
       },
       {
-        "question": "Can Bellhouse replace an existing septic system?",
-        "answer": "Yes, if the replacement has been properly designed and approved. Bellhouse can remove and replace failing systems where the new layout and installation details are already established."
+        "question": "Do you install tanks for new builds?",
+        "answer": "Yes, we work with builders and homeowners."
       }
     ]
   },
 
   "cta": {
-    "heading": "Need septic excavation and installation scheduled?",
-    "subheading": "Send the property location, project type, and approved septic details if you need Bellhouse to handle the installation side of the job.",
-    "button": "Request Septic Installation Quote"
+    "heading": "Need a Septic System Installed?",
+    "subheading": "Get a professional quote for excavation and installation.",
+    "button": "Request Septic Quote"
   }
 }

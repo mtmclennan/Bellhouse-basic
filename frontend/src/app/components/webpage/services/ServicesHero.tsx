@@ -23,12 +23,13 @@ export default function ServicesHero() {
       </div>
       <div className={classes.hero}>
         <h1>
-          Excavation, hauling, and site services across Southern Ontario.
+          Professional <span className={classes.text}>Excavating </span>
+          Services in Brant County
         </h1>
         <h2>
-          Start here if you need to sort between residential work, farm or
-          rural jobs, and commercial or contractor-led site support before
-          getting into the full service list.
+          Expert excavation, grading, hauling, and site support for residential,
+          commercial, and contractor-led work across Brant County and nearby
+          Southern Ontario communities.
         </h2>
         <div className={classes.actions}>
           <Link className={classes.btn} href={'/contact'}>
@@ -39,9 +40,6 @@ export default function ServicesHero() {
           </Link>
           <Link className={classes.btnSecondary} href={'/contractors'}>
             For Builders & Contractors
-          </Link>
-          <Link className={classes.btnSecondary} href={'/resources/calculators'}>
-            Open Planning Tools
           </Link>
         </div>
       </div>

@@ -22,14 +22,6 @@ export type CalculatorPageContent = {
   ctaTitle: string;
   ctaDescription: string;
   ctaPoints: string[];
-  nextStepsHeading: string;
-  nextStepsDescription: string;
-  nextSteps: Array<{
-    href: string;
-    title: string;
-    description: string;
-    actionLabel: string;
-  }>;
   relatedServiceLink: {
     href: string;
     label: string;
@@ -91,38 +83,12 @@ export const calculatorPageContent: Record<
         actionLabel: 'Open Topsoil Calculator',
       },
     ],
-    ctaTitle: 'Move this excavation estimate into a workable dig plan',
+    ctaTitle: 'Need Bellhouse to review the excavation properly?',
     ctaDescription:
-      'Send the site address, cut dimensions, and access details so Bellhouse can review haul-out, truck access, and what the excavation really needs.',
+      'Send the location, scope, and access details for a real job review.',
     ctaPoints: [
-      'Useful for foundation digs, trenching, spoil haul-out, and cut work.',
-      'Groundwater, over-excavation, access, and truck limits can change the real number.',
-    ],
-    nextStepsHeading: 'Move this excavation estimate into the right next step',
-    nextStepsDescription:
-      'Most excavation jobs split three ways after the rough number is done: review the dig itself, confirm Bellhouse covers the location, or route a builder-led scope through the contractor path.',
-    nextSteps: [
-      {
-        href: '/services/foundation-excavation',
-        title: 'Review the dig, trench, or cut work',
-        description:
-          'Best when you already know the job needs excavation and want Bellhouse to look at access, haul-out, spoil handling, and what the cut really involves.',
-        actionLabel: 'View Excavation Service',
-      },
-      {
-        href: '/service-areas',
-        title: 'Check local excavation coverage',
-        description:
-          'Use the service-area hub when you are comparing locations, checking coverage, or finding the right Bellhouse page for the property.',
-        actionLabel: 'Explore Service Areas',
-      },
-      {
-        href: '/contractors',
-        title: 'Route builder-led or phased site work',
-        description:
-          'Use the contractor path for active jobs where excavation, trucking, and schedule coordination need to stay under one working plan.',
-        actionLabel: 'Open Contractor Path',
-      },
+      'Best for early estimating before quote review.',
+      'Site conditions can change actual quantities.',
     ],
     relatedServiceLink: {
       href: '/services/foundation-excavation',
@@ -180,45 +146,12 @@ export const calculatorPageContent: Record<
         actionLabel: 'Open Topsoil Calculator',
       },
     ],
-    ctaTitle: 'Turn this gravel estimate into a delivery and site plan',
+    ctaTitle: 'Need Bellhouse to price gravel supply, grading, or delivery?',
     ctaDescription:
-      'Send the location, dimensions, target depth, and site access so Bellhouse can review the aggregate plan against the real job.',
+      'Send the location, dimensions, depth, and access details for a real site review.',
     ctaPoints: [
-      'Useful for driveways, pads, lanes, and imported aggregate work.',
-      'Subgrade correction and drainage can change the real stone requirement.',
-    ],
-    nextStepsHeading: 'Choose the right Bellhouse path after the gravel number',
-    nextStepsDescription:
-      'Gravel estimates usually lead into one of four next moves: aggregate delivery, grading and base prep, local coverage, or a contractor path for active jobs and repeat work.',
-    nextSteps: [
-      {
-        href: '/services/dirt-gravel-delivery',
-        title: 'Book gravel delivery with the right truck plan',
-        description:
-          'Best when you need Bellhouse to review aggregate type, quantity, access, and delivery timing for a driveway, pad, lane, or yard.',
-        actionLabel: 'View Gravel Delivery Service',
-      },
-      {
-        href: '/services/site-preparation-land-grading',
-        title: 'Tie the stone number into site prep and grading',
-        description:
-          'Useful when the gravel is only one part of a larger prep scope that also needs stripping, shaping, drainage correction, or pad grading.',
-        actionLabel: 'View Site Prep Service',
-      },
-      {
-        href: '/service-areas',
-        title: 'Check local delivery and site coverage',
-        description:
-          'Use the service-area hub to confirm Bellhouse coverage and pick the best local page before you send the job location.',
-        actionLabel: 'Explore Service Areas',
-      },
-      {
-        href: '/contractors',
-        title: 'Route aggregate and access work through contractors',
-        description:
-          'Use the contractor path for builder-led site prep, commercial yards, access routes, and jobs that need trucks and grading aligned with production.',
-        actionLabel: 'Open Contractor Path',
-      },
+      'Useful for imported aggregate, pads, and lane prep.',
+      'Subgrade correction can change actual stone volume.',
     ],
     relatedServiceLink: {
       href: '/services/dirt-gravel-delivery',
@@ -276,45 +209,12 @@ export const calculatorPageContent: Record<
         actionLabel: 'Open Gravel Calculator',
       },
     ],
-    ctaTitle: 'Turn this topsoil estimate into finish grading or delivery',
+    ctaTitle: 'Need Bellhouse to quote topsoil delivery or finish grading?',
     ctaDescription:
-      'Send the area, target depth, location, and finish expectations so Bellhouse can review how the topsoil plan fits the real site.',
+      'Send the area, target depth, location, and finish expectations for a real review.',
     ctaPoints: [
-      'Best for early planning before finish grading and material delivery are scheduled.',
-      'Existing grade, cleanup, and final surface expectations can change actual quantities.',
-    ],
-    nextStepsHeading: 'Move from a topsoil estimate to the right finishing path',
-    nextStepsDescription:
-      'Topsoil work usually leads into finish grading, delivery planning, local service checks, or a contractor route when the surface work is part of a larger active site.',
-    nextSteps: [
-      {
-        href: '/services/site-preparation-land-grading',
-        title: 'Review finish grading and surface shaping',
-        description:
-          'Best when the topsoil number needs to turn into real finish grading, yard shaping, or restored final surfaces around the project.',
-        actionLabel: 'View Grading Service',
-      },
-      {
-        href: '/services/dirt-gravel-delivery',
-        title: 'Book topsoil delivery and placement support',
-        description:
-          'Useful when Bellhouse should review material volume, truck access, and whether the topsoil needs to be delivered or placed in stages.',
-        actionLabel: 'View Delivery Service',
-      },
-      {
-        href: '/service-areas',
-        title: 'Check local coverage before final grading',
-        description:
-          'Use the service-area hub when the next question is local availability, site access, or the best Bellhouse page for the property.',
-        actionLabel: 'Explore Service Areas',
-      },
-      {
-        href: '/contractors',
-        title: 'Route builder and light-commercial finish work',
-        description:
-          'Use the contractor path for subdivision, infill, facility, or site-finish work where topsoil, grading, and truck timing need to stay coordinated.',
-        actionLabel: 'Open Contractor Path',
-      },
+      'Best for early planning before final grading review.',
+      'Existing grade and finish expectations can change actual quantities.',
     ],
     relatedServiceLink: {
       href: '/services/dirt-gravel-delivery',

@@ -2,7 +2,6 @@ import Link from 'next/link';
 import SectionWrapper from '@/components/layout/SectionWrapper';
 import { calculatorPageContent } from '../config/pageContent';
 import { calculatorConfigs } from '../config/calculators';
-import { calculatorSeoConfig } from '../config/seo';
 import type { CalculatorKind } from '../types/calculator';
 import { CalculatorForm } from './CalculatorForm';
 import { ResourceBreadcrumbs } from './ResourceBreadcrumbs';
@@ -30,10 +29,7 @@ export function CalculatorPageShell({ kind }: CalculatorPageShellProps) {
               { name: 'Home', href: '/' },
               { name: 'Resources', href: '/resources' },
               { name: 'Calculators', href: '/resources/calculators' },
-              {
-                name: config.title,
-                href: calculatorSeoConfig[kind].resourcePath,
-              },
+              { name: config.title },
             ]}
           />
           <p className={classes.eyebrow}>{content.eyebrow}</p>
@@ -96,7 +92,7 @@ export function CalculatorPageShell({ kind }: CalculatorPageShellProps) {
       >
         <div className={classes.ctaShell}>
           <div className={classes.ctaContent}>
-            <p className={classes.eyebrow}>Bellhouse next step</p>
+            <p className={classes.eyebrow}>Need a real quote?</p>
             <h2>{content.ctaTitle}</h2>
             <p>{content.ctaDescription}</p>
             <ul className={classes.ctaPoints}>
@@ -116,35 +112,12 @@ export function CalculatorPageShell({ kind }: CalculatorPageShellProps) {
               </Link>
             </div>
             <p>
-              Need a different path first?{' '}
+              Need a different estimating tool first?{' '}
               <Link href="/resources/calculators">
                 Browse all Bellhouse calculators
-              </Link>{' '}
-              or check <Link href="/service-areas">service areas</Link> and the{' '}
-              <Link href="/contractors">contractor page</Link>.
+              </Link>
+              .
             </p>
-          </div>
-
-          <div className={classes.nextStepsPanel}>
-            <div className={classes.nextStepsIntro}>
-              <p className={classes.eyebrow}>After the estimate</p>
-              <h3>{content.nextStepsHeading}</h3>
-              <p>{content.nextStepsDescription}</p>
-            </div>
-
-            <div className={classes.nextStepsGrid}>
-              {content.nextSteps.map((step) => (
-                <article className={classes.nextStepCard} key={step.href}>
-                  <h4>{step.title}</h4>
-                  <p>{step.description}</p>
-                  <div className={classes.relatedActions}>
-                    <Link className={classes.secondaryAction} href={step.href}>
-                      {step.actionLabel}
-                    </Link>
-                  </div>
-                </article>
-              ))}
-            </div>
           </div>
         </div>
       </SectionWrapper>
