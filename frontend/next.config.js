@@ -22,6 +22,11 @@ const nextConfig = {
         destination: '/services/volvo-a35-off-road-dump-truck-rental',
         permanent: true,
       },
+      {
+        source: '/reviews',
+        destination: 'https://share.google/lvu10qIGJZBT3HhxH',
+        permanent: false,
+      },
     ];
   },
 };

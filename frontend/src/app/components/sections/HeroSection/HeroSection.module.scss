@@ -1,0 +1,256 @@
+@use '../../../../styles/abstracts/mixins' as m;
+@use '../../../../styles/abstracts/variables' as v;
+
+.section {
+  position: relative;
+  min-height: calc(100vh - 7rem);
+  overflow: hidden;
+  isolation: isolate;
+  @include m.flexCenter();
+  padding: 9rem 1.6rem 5rem;
+
+  @include m.mediaDesktop {
+    min-height: calc(100vh - 10rem);
+    padding: 15rem 2rem 6rem;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 112rem;
+  margin: 0 auto;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.overlay--dark {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.6) 30%,
+    rgba(0, 0, 0, 0.72) 100%
+  );
+}
+
+.overlay--light {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.72) 0%,
+    rgba(255, 255, 255, 0.7) 30%,
+    rgba(255, 255, 255, 0.78) 100%
+  );
+}
+
+.overlay--transparent {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.12) 30%,
+    rgba(0, 0, 0, 0.22) 100%
+  );
+}
+
+.overlay--none {
+  display: none;
+}
+
+.content {
+  @include m.flexCenter(column);
+  gap: 1.8rem;
+  text-align: center;
+  animation: heroContentIn 0.8s ease-out both;
+}
+
+.align--left .content {
+  text-align: left;
+  align-items: flex-start;
+}
+
+.align--center .content {
+  text-align: center;
+  align-items: center;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: v.$btn-main;
+}
+
+.heading {
+  margin: 0;
+  max-width: 100rem;
+  font-size: 4.4rem;
+  line-height: 1.04;
+  font-weight: 800;
+  text-wrap: balance;
+
+  @include m.mediaDesktop {
+    font-size: 7.6rem;
+  }
+}
+
+.subheadline {
+  max-width: 88rem;
+  margin: 0;
+  font-size: 1.95rem;
+  line-height: 1.65;
+  font-weight: 400;
+  text-wrap: pretty;
+
+  @include m.mediaDesktop {
+    font-size: 2.3rem;
+  }
+}
+
+.actions {
+  @include m.flexCenter();
+  flex-wrap: wrap;
+  gap: 1.4rem;
+  margin-top: 0.8rem;
+
+  @include m.mediaPhone {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+.primaryBtn {
+  @include m.btnMain;
+}
+
+.secondaryBtn {
+  @include m.btnSec;
+}
+
+.supportRow {
+  @include m.flexCenter(column);
+  gap: 1.2rem;
+  margin-top: 0.6rem;
+
+  @include m.mediaDesktop {
+    flex-direction: row;
+    gap: 2rem;
+  }
+}
+
+.phoneLink {
+  @include m.flexCenter();
+  gap: 0.7rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: inherit;
+  opacity: 0.95;
+}
+
+.reviewLink {
+  @include m.flexCenter();
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  font-size: 1.5rem;
+  line-height: 1.4;
+  color: inherit;
+  opacity: 0.96;
+}
+
+.stars {
+  @include m.flexCenter();
+  gap: 0.2rem;
+  color: v.$btn-main;
+}
+
+.reviewText {
+  font-weight: 600;
+}
+
+.reviewCta {
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+.proofList {
+  @include m.flexCenter();
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1.2rem 0 0;
+  padding: 0;
+}
+
+.proofItem {
+  list-style: none;
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.4;
+  padding: 0.8rem 1.2rem;
+  border-radius: 999px;
+}
+
+.overlay--dark .overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.6) 30%,
+    rgba(0, 0, 0, 0.72) 100%
+  );
+}
+
+.overlay--light .overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.72) 0%,
+    rgba(255, 255, 255, 0.7) 30%,
+    rgba(255, 255, 255, 0.78) 100%
+  );
+}
+
+.overlay--transparent .overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.12) 30%,
+    rgba(0, 0, 0, 0.22) 100%
+  );
+}
+
+.overlay--none .overlay {
+  display: none;
+}
+
+.theme--dark {
+  color: v.$grey-color-1;
+
+  .proofItem {
+    color: v.$grey-color-1;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+}
+
+.theme--light {
+  color: v.$text-color-dark;
+
+  .proofItem {
+    color: v.$text-color-dark;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+@keyframes heroContentIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

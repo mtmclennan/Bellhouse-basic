@@ -3,171 +3,121 @@
 
 .header {
   width: 100%;
-  height: 5rem;
   position: fixed;
-  overflow-anchor: none;
   top: 0;
   left: 0;
-  padding: 0 2%;
-  align-items: center;
-  justify-content: space-between;
-  background-color: v.$transparent;
-  z-index: 220;
-  border-bottom: 1px solid rgba(189, 189, 189, 0.144);
-
-  & h1 {
-    font-weight: 400;
-    font-size: 2rem;
-    line-height: 1;
-  }
-
-  @include m.mediaDesktop {
-    position: relative;
-  }
+  z-index: 320;
+  overflow-anchor: none;
 }
 
 .headerOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 220;
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.34) 0%,
-    rgba(0, 0, 0, 0.12) 72%,
+    rgba(0, 0, 0, 0.62) 0%,
+    rgba(0, 0, 0, 0.24) 72%,
     rgba(0, 0, 0, 0) 100%
   );
-  border-bottom-color: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(4px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
 
   @include m.mediaDesktop {
     position: absolute;
+    z-index: 220;
   }
 }
 
-.headerHome {
-  display: grid;
+.headerSolid {
+  background-color: rgba(0, 0, 0, 0.82);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+}
+
+.nav {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   height: 7rem;
-  background-color: v.$transparent;
+  padding: 0 1rem;
+  color: v.$grey-color-1;
 
   @include m.mediaDesktop {
-    grid-template-rows: 15rem 10rem;
-    grid-template-columns: 1fr;
-    height: 20rem;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 100;
+    height: 10rem;
+    padding: 0 1.2rem;
+  }
+}
 
-    & h1 {
-      font-weight: 400;
-      font-size: 3rem;
-      line-height: 1;
+.logoWrap {
+  @include m.flexCenter();
+  margin: 0;
+  width: 9.5rem;
+  flex-shrink: 0;
+  position: relative;
+  cursor: pointer;
+
+  a {
+    display: block;
+    width: 100%;
+    max-width: 7rem;
+    padding-top: 1.2rem;
+    position: relative;
+    height: auto;
+
+    @include m.mediaDesktop {
+      width: 20rem;
+      max-width: 20rem;
+      height: 100%;
+      padding-top: 0;
     }
   }
 }
 
-.headerClear {
-  background-color: rgba(0, 0, 0, 0.082);
-}
-
-.linksLarger {
-  margin: auto;
-}
-
-.nav,
-.navHome {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  font-weight: 500;
-  color: v.$grey-color-1;
-}
-
-.nav {
-  height: 5rem;
-}
-
-.navHome {
-  height: 100%;
+.logoImg {
+  display: block;
   width: 100%;
-  padding: 0 1.2rem;
-  align-items: center;
-  justify-content: space-between;
-
-  & ul {
-    margin: 0 4rem 0 auto;
-    @include m.flexCenter();
-  }
-}
-
-.logo,
-.logoHome {
-  display: flex;
-  align-items: center;
-  margin-right: auto;
-  cursor: pointer;
-}
-
-.logoHome {
-  display: none;
-  width: 10.5rem;
   height: auto;
-  position: relative;
-  margin: 0;
-
-  & a {
-    display: block;
-    width: 100%;
-    padding-top: 2rem;
-    max-width: 15rem;
-    position: relative;
-    height: auto;
-  }
-
-  @include m.mediaDesktop {
-    display: block;
-    grid-row: 1 / 4;
-    width: 20rem;
-    max-width: 20rem;
-    height: 100%;
-  }
 }
 
-.logo {
-  padding: 2rem;
-
-  & a {
-    @include m.flexCenter();
-    position: relative;
-  }
-
-  width: 23rem;
-}
-
-.header ul,
-.headerHome ul {
+.desktopNav {
   display: none;
   list-style: none;
+  margin: 0 4rem 0 auto;
   padding: 0;
+  align-items: center;
+
+  @include m.mediaDesktop {
+    @include m.flexCenter();
+  }
+
+  li {
+    margin: 1em;
+  }
+
+  a {
+    letter-spacing: 0.15rem;
+    color: v.$text-color-light;
+    transition:
+      color 0.2s ease,
+      transform 0.2s ease;
+
+    &:hover {
+      color: v.$color-primary;
+      transform: scale(1.04);
+    }
+  }
 }
 
-.header li,
-.headerHome li {
-  margin: 1em;
-}
+.rightSide {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-right: 0;
 
-.header a,
-.headerHome a,
-.menuButton {
-  letter-spacing: 0.15rem;
-  color: v.$text-color-light;
-
-  &:hover {
-    color: v.$color-primary;
-    transform: scale(1.04);
-    transition: all 0.2s ease;
+  @include m.mediaDesktop {
+    gap: 3rem;
+    margin-right: 3rem;
   }
 }
 
@@ -181,6 +131,30 @@
   display: inline-block;
 }
 
+.menuButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+  color: v.$text-color-light;
+  font-size: 1.6rem;
+  letter-spacing: 0.15rem;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+
+  &:hover {
+    background-color: v.$color-primary;
+    color: v.$text-color-light;
+    transform: scale(1.04);
+  }
+}
+
 .menuItems {
   position: absolute;
   top: calc(100% + 10px);
@@ -188,12 +162,11 @@
   z-index: 200;
   min-width: 240px;
   padding: 0.5rem;
-  border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
   background: rgba(10, 10, 10, 0.95);
   backdrop-filter: blur(12px);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
-
   opacity: 1;
   transform: translateY(0) scale(1);
   transform-origin: top left;
@@ -210,8 +183,8 @@
 .menuItem {
   display: block;
   width: 100%;
-  border-radius: 10px;
   padding: 0.7rem 0.9rem;
+  border-radius: 10px;
   color: rgba(255, 255, 255, 0.88);
   text-decoration: none;
   transition:
@@ -222,110 +195,109 @@
   &[data-focus] {
     background: rgba(255, 255, 255, 0.08);
     color: #ffffff;
+    transform: none;
   }
 }
-.menuButton {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  background: transparent;
-  cursor: pointer;
-  position: relative;
+
+.headerCta {
+  display: none;
   padding: 0.75rem 1rem;
-  border: none;
-  font-size: 1.6rem;
+  border: 1px solid v.$color-primary;
   border-radius: 5px;
-  background-color: transparent;
-
-  &:hover {
-    background-color: v.$color-primary;
-    color: v.$text-color-light;
-  }
-}
-
-.header_cta,
-.headerHome_cta {
-  padding: 0.75rem 1rem;
-  flex-grow: 0;
+  background-color: v.$color-neutral-dark;
   color: v.$grey-color-1;
   font-size: 1.4rem;
-  background-color: v.$color-neutral-dark;
-  border: 1px solid v.$color-primary;
   font-weight: 400;
-  border-radius: 5px;
-  transition: all 0.2s ease;
-}
+  white-space: nowrap;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
 
-.header_cta:hover,
-.headerHome_cta:hover {
-  color: v.$color-primary;
-  background-color: v.$grey-color-7;
-  transform: scale(1.05);
-  border-color: v.$color-primary;
-}
-
-.actionContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-@media (min-width: 800px) {
-  .header ul,
-  .headerHome ul {
-    display: flex;
+  @include m.mediaDesktop {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .actionContainer {
-    margin-left: auto;
-  }
-}
-
-@media (max-width: 800px) {
-  .header ul,
-  .actionContainer {
-    display: none;
+  &:hover {
+    color: v.$color-primary;
+    background-color: v.$grey-color-7;
+    border-color: v.$color-primary;
+    transform: scale(1.05);
   }
 }
 
 .phone {
-  @include m.flexCenter();
-  gap: 1rem;
+  display: none;
 
-  & h3 {
+  @include m.mediaDesktop {
+    @include m.flexCenter();
+    gap: 1rem;
+    display: inline-flex;
+  }
+
+  span {
     color: v.$btn-main;
     font-size: 2.4rem;
     font-weight: 100;
   }
 }
 
-.headerHomeOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 320;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.62) 0%,
-    rgba(0, 0, 0, 0.24) 72%,
-    rgba(0, 0, 0, 0) 100%
-  );
-  border-bottom-color: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(6px);
+.mobileCall {
+  @include m.flexCenter();
+  gap: 0.5rem;
+  margin-right: 8rem;
+  min-height: 4.2rem;
+  padding: 0 1.2rem;
+  border: 1px solid rgba(255, 195, 2, 0.55);
+  border-radius: 999px;
+  background-color: rgba(0, 0, 0, 0.45);
+  color: v.$btn-main;
+  font-size: 1.4rem;
+  font-weight: 600;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    background-color: rgba(255, 195, 2, 0.12);
+    border-color: v.$color-primary;
+    transform: translateY(-1px);
+  }
 
   @include m.mediaDesktop {
-    position: absolute;
-    z-index: 220;
+    display: none;
   }
 }
 
-.logoHomeMobileVisible {
-  display: block;
-}
+@media (max-width: 420px) {
+  .nav {
+    padding: 0 0.8rem;
+  }
 
-.logoImg {
-  width: 100%;
-  height: auto;
-  display: block;
+  .logoWrap {
+    width: 8.8rem;
+
+    a {
+      max-width: 6.5rem;
+    }
+  }
+
+  .mobileCall {
+    padding: 0 1rem;
+
+    span {
+      font-size: 1.3rem;
+    }
+  }
+
+  .rightSide {
+    gap: 0.6rem;
+  }
 }

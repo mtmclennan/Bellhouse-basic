@@ -1,0 +1,334 @@
+@use '../../../../styles/abstracts/variables' as v;
+@use '../../../../styles/abstracts/mixins' as m;
+
+.section {
+  width: 100%;
+  padding: 6.5rem 2rem;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.container {
+  width: 95%;
+  max-width: 110rem;
+  margin: 0 auto;
+}
+
+.headerBlock,
+.locationItemWrap,
+.actions {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.eyebrow {
+  margin: 0 0 1rem;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: v.$btn-main;
+}
+
+.heading {
+  font-size: 4rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+  line-height: 1.15;
+
+  @include m.mediaDesktop {
+    font-size: 5rem;
+  }
+}
+
+.subtext {
+  font-size: 1.8rem;
+  text-align: center;
+  max-width: 76rem;
+  margin: 0 auto 3.8rem;
+  line-height: 1.65;
+}
+
+.locationList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.4rem;
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+
+  @include m.mediaDesktop {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.6rem;
+  }
+}
+
+.locationItemWrap {
+  list-style: none;
+}
+
+.locationItem,
+.locationLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 5.4rem;
+  width: 100%;
+  padding: 1.2rem 1.4rem;
+  border-radius: 1rem;
+  font-size: 1.75rem;
+  line-height: 1.35;
+  text-align: center;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.locationItem {
+  text-decoration: none;
+}
+
+.locationLink {
+  text-decoration: none;
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-2px);
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.6rem;
+  margin-top: 3.4rem;
+}
+
+.primaryAction {
+  @include m.btnMain;
+}
+
+.secondaryAction {
+  @include m.btnSec;
+}
+
+/* Variants */
+.variantLight {
+  background-color: v.$grey-color-0;
+  color: v.$text-color-dark;
+
+  .heading {
+    color: v.$text-color-dark;
+  }
+
+  .subtext {
+    color: v.$text-color-mid-dark;
+  }
+
+  .locationItem {
+    color: v.$text-color-dark;
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+  }
+
+  .locationLink {
+    color: v.$text-color-dark;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(v.$cat-yellow2, 0.28);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.06);
+
+    &:hover,
+    &:focus-visible {
+      color: v.$text-color-dark;
+      border-color: rgba(v.$cat-yellow2, 0.55);
+      background: rgba(255, 255, 255, 1);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.08);
+    }
+  }
+}
+
+.variantDark {
+  background-color: v.$color-primary-dark;
+  color: v.$grey-color-1;
+
+  .heading {
+    color: v.$color-primary;
+  }
+
+  .subtext {
+    color: rgba(v.$text-color-light, 0.94);
+  }
+
+  .locationItem {
+    color: v.$grey-color-2;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .locationLink {
+    color: v.$color-primary;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(v.$cat-yellow2, 0.22);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
+
+    &:hover,
+    &:focus-visible {
+      color: v.$cat-yellow2;
+      border-color: rgba(v.$cat-yellow2, 0.45);
+      background: rgba(255, 255, 255, 0.12);
+    }
+  }
+}
+
+.variantTransparent {
+  background-color: transparent;
+  color: v.$grey-color-1;
+
+  .heading {
+    color: v.$color-primary;
+  }
+
+  .subtext {
+    color: rgba(v.$text-color-light, 0.95);
+  }
+
+  .locationItem {
+    color: v.$grey-color-2;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(2px);
+  }
+
+  .locationLink {
+    color: v.$color-primary;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(v.$cat-yellow2, 0.22);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
+    backdrop-filter: blur(3px);
+
+    &:hover,
+    &:focus-visible {
+      color: v.$cat-yellow2;
+      border-color: rgba(v.$cat-yellow2, 0.45);
+      background: rgba(255, 255, 255, 0.12);
+    }
+  }
+}
+
+/* Tones */
+.toneDefault {
+}
+
+.toneSoft {
+  &.variantLight {
+    background-color: rgba(255, 255, 255, 0.35);
+  }
+
+  &.variantDark {
+    background-color: rgba(0, 0, 0, 0.18);
+  }
+
+  &.variantTransparent {
+    .locationItem,
+    .locationLink {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+  }
+}
+
+.toneMuted {
+  &.variantLight {
+    background-color: rgba(240, 240, 240, 0.72);
+  }
+
+  &.variantDark {
+    background-color: rgba(0, 0, 0, 0.42);
+  }
+
+  &.variantTransparent {
+    .locationItem,
+    .locationLink {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+}
+
+/* Entrance animation */
+.isVisible .headerBlock {
+  animation: serviceAreaFadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.isVisible .locationItemWrap {
+  animation: serviceAreaFadeUp 0.82s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.isVisible .locationItemWrap:nth-child(1) {
+  animation-delay: 0.24s;
+}
+.isVisible .locationItemWrap:nth-child(2) {
+  animation-delay: 0.32s;
+}
+.isVisible .locationItemWrap:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.isVisible .locationItemWrap:nth-child(4) {
+  animation-delay: 0.48s;
+}
+.isVisible .locationItemWrap:nth-child(5) {
+  animation-delay: 0.56s;
+}
+.isVisible .locationItemWrap:nth-child(6) {
+  animation-delay: 0.64s;
+}
+
+.isVisible .actions {
+  animation: serviceAreaFadeUp 0.78s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.74s;
+}
+
+@keyframes serviceAreaFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .locationList {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .headerBlock,
+  .locationItemWrap,
+  .actions {
+    opacity: 1;
+    transform: none;
+  }
+
+  .isVisible .headerBlock,
+  .isVisible .locationItemWrap,
+  .isVisible .actions {
+    animation: none;
+  }
+
+  .locationItem,
+  .locationLink {
+    transition: none;
+  }
+}

@@ -2,29 +2,27 @@
   {
     "id": 1,
     "slug": "foundation-excavation",
-
+    "featuredOnHome": true,
+    "category": "excavation",
     "meta": {
       "title": "Foundation Excavation & Backfilling in Brant County | Bellhouse Excavating",
       "description": "Professional foundation excavation and backfilling for new builds, additions, and structural projects across Brantford, Paris, and Hamilton. Reliable, precise, and built for contractors."
     },
-
     "card": {
       "title": "Foundation Excavation & Backfilling",
       "description": "Accurate foundation digs and reliable backfilling for residential and commercial builds.",
       "image": "/assets/foundation-excavation-machinery.jpg",
       "alt": "Excavator digging foundation trench for residential construction"
     },
-
     "hero": {
       "heading": "Foundation Excavation & Backfilling",
       "subheading": "Precision excavation for new home builds, additions, garages, and structural projects.",
       "image": "/assets/foundation-excavating-backfill.png",
       "alt": "excavator digging and backfilling a foundation"
     },
-
     "intro": {
       "heading": "Professional Foundation Excavation and Backfilling",
-      "content": "Your foundation sets the stage for the entire structure. Our team provides accurate, safe, and efficient foundation excavation and backfilling for builders, contractors, and homeowners throughout Brant County and the surrounding area. We ensure the right depth, clean lines, proper soil handling, and reliable compaction—everything required for a strong, stable foundation.",
+      "content": "Your foundation sets the stage for the entire structure. Our team provides accurate, safe, and efficient foundation excavation and backfilling for builders, contractors, and homeowners throughout Brant County and the surrounding area. We ensure the right depth, clean lines, proper soil handling, and reliable compaction\u2014everything required for a strong, stable foundation.",
       "keypoints": [
         "Full foundation digs for new builds and additions",
         "Basement walkouts and structural excavation",
@@ -32,7 +30,6 @@
         "Experienced operators and modern equipment"
       ]
     },
-
     "includes": {
       "heading": "Foundation Excavation Scope",
       "subheading": "We handle every stage of the excavation, from layout to spoil removal to final grading, so your foundation is structurally ready and builder-approved.",
@@ -63,7 +60,6 @@
         }
       ]
     },
-
     "equipment": {
       "heading": "Equipment Used for Foundation Excavation",
       "subheading": "Reliable equipment chosen for accuracy, efficiency, and safe excavation on every job site.",
@@ -90,7 +86,6 @@
         }
       ]
     },
-
     "process": {
       "heading": "How Our Excavation Process Works",
       "subheading": "A clear, predictable workflow that keeps your project on schedule from start to finish.",
@@ -121,10 +116,9 @@
         }
       ]
     },
-
     "serviceArea": {
       "heading": "Service Area",
-      "content": "We provide excavation, foundation digging, backfilling, and dump truck services throughout Brant County, Brantford, Hamilton, Cambridge, Kitchener–Waterloo, and surrounding Southern Ontario communities.",
+      "content": "We provide excavation, foundation digging, backfilling, and dump truck services throughout Brant County, Brantford, Hamilton, Cambridge, Kitchener\u2013Waterloo, and surrounding Southern Ontario communities.",
       "locations": [
         "Paris",
         "Brantford",
@@ -161,18 +155,16 @@
         },
         {
           "question": "How far ahead should I book?",
-          "answer": "Most projects book 1–3 weeks in advance, depending on the season."
+          "answer": "Most projects book 1\u20133 weeks in advance, depending on the season."
         }
       ]
     },
-
     "cta": {
       "heading": "Ready to Start Your Excavation?",
       "subheading": "Get a fast, accurate estimate for your foundation project.",
       "button": "Get a Free Estimate"
     }
   },
-
   {
     "id": 2,
     "meta": {
@@ -186,6 +178,8 @@
       "alt": "A float truck transporting an excavator to a construction site in Brant County."
     },
     "slug": "heavy-equipment-hauling",
+    "featuredOnHome": true,
+    "category": "hauling",
     "hero": {
       "heading": "Heavy Equipment Hauling & Floating Services",
       "subheading": "Safe, Secure, and Efficient Transportation for Construction Machinery",
@@ -216,6 +210,8 @@
       "alt": "A tri-axle dump truck unloading gravel at a construction site."
     },
     "slug": "dirt-gravel-delivery",
+    "featuredOnHome": true,
+    "category": "hauling",
     "hero": {
       "heading": "Dirt & Gravel Delivery Services",
       "subheading": "Fast, Reliable Aggregate Delivery for Construction & Landscaping",
@@ -246,6 +242,8 @@
       "alt": "A skid steer grading a driveway before gravel installation."
     },
     "slug": "driveway-parking-lot-preparation",
+    "featuredOnHome": true,
+    "category": "sitework",
     "hero": {
       "heading": "Driveway & Parking Lot Preparation",
       "subheading": "Precision Site Grading & Compaction for Long-Lasting Surfaces",
@@ -276,6 +274,8 @@
       "alt": "An excavator digging a trench for a new septic system installation."
     },
     "slug": "septic-system-installation",
+    "featuredOnHome": false,
+    "category": "excavation",
     "hero": {
       "heading": "Septic System Installation Services",
       "subheading": "Efficient & Compliant Septic Solutions for Residential & Commercial Needs",
@@ -293,7 +293,6 @@
       ]
     }
   },
-
   {
     "id": 6,
     "meta": {
@@ -307,6 +306,8 @@
       "alt": "Bellhouse Excavating Volvo A35 off-road dump truck working on a large earthmoving site."
     },
     "slug": "volvo-a35-off-road-dump-truck-rental",
+    "featuredOnHome": false,
+    "category": "hauling",
     "hero": {
       "heading": "Volvo A35 Off-Road Dump Truck Rental with Operator",
       "subheading": "Production hauling for bulk material movement on large, rough, or soft-ground job sites.",
@@ -324,7 +325,6 @@
       ]
     }
   },
-
   {
     "id": 8,
     "meta": {
@@ -338,6 +338,8 @@
       "alt": "An excavator digging a new pond on rural land."
     },
     "slug": "pond-digging-cleaning",
+    "featuredOnHome": false,
+    "category": "excavation",
     "hero": {
       "heading": "Pond Digging & Cleaning Services",
       "subheading": "Custom Pond Excavation & Maintenance for Sustainable Water Management",
@@ -368,6 +370,8 @@
       "alt": "An excavator demolishing an old barn, preparing the site for redevelopment."
     },
     "slug": "house-barn-demolition",
+    "featuredOnHome": true,
+    "category": "sitework",
     "hero": {
       "heading": "House & Barn Demolition Services",
       "subheading": "Safe, Efficient, and Environmentally Responsible Structure Demolition",
@@ -398,6 +402,8 @@
       "alt": "A bulldozer grading land for site preparation and foundation work."
     },
     "slug": "site-preparation-land-grading",
+    "featuredOnHome": true,
+    "category": "excavation",
     "hero": {
       "heading": "Site Preparation & Land Grading Services",
       "subheading": "Precision Grading & Land Clearing for a Strong Construction Foundation",
@@ -428,6 +434,8 @@
       "alt": "A dump truck on-site, ready for material hauling and excavation work."
     },
     "slug": "dump-truck-rental",
+    "featuredOnHome": false,
+    "category": "hauling",
     "hero": {
       "heading": "Dump Truck Rental & Hauling Services",
       "subheading": "Professional Dump Truck Hire for Contractors & Construction Projects",

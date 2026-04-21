@@ -1,0 +1,202 @@
+@use '../../../../styles/abstracts/variables' as v;
+@use '../../../../styles/abstracts/mixins' as m;
+
+.section {
+  padding: 6rem 0 5rem;
+}
+
+.container {
+  @include m.flexCenter(column);
+  width: 95%;
+  max-width: 120rem;
+  margin: 0 auto;
+
+  h2 {
+    font-size: 4.2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+
+    @include m.mediaDesktop {
+      font-size: 5rem;
+    }
+  }
+}
+
+.eyebrow {
+  margin: 0 0 1rem;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: v.$btn-main;
+}
+
+.intro {
+  max-width: 82rem;
+  margin: 0 auto 3.5rem;
+  font-size: 1.8rem;
+  line-height: 1.65;
+  text-align: center;
+}
+
+.grid {
+  width: 100%;
+  display: flex;
+  gap: 1.6rem;
+  padding: 0 0 1rem;
+  margin: 0;
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+    height: 0.8rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+  }
+
+  @include m.mediaDesktop {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+    overflow: visible;
+    scroll-snap-type: none;
+    padding: 0;
+  }
+
+  > li {
+    flex: 0 0 85%;
+    min-width: 85%;
+    scroll-snap-align: start;
+
+    @include m.mediaTablet {
+      flex: 0 0 48%;
+      min-width: 48%;
+    }
+
+    @include m.mediaDesktop {
+      flex: unset;
+      min-width: 0;
+    }
+  }
+}
+
+.footer {
+  margin-top: 3.5rem;
+  text-align: center;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.6rem;
+}
+
+.primaryAction {
+  @include m.btnMain;
+}
+
+.secondaryAction {
+  @include m.btnSec;
+}
+
+.variantLight {
+  background-color: v.$grey-color-0;
+  color: v.$text-color-mid-dark;
+}
+
+.variantDark {
+  background-color: v.$color-primary-dark;
+  color: v.$grey-color-1;
+}
+
+.variantTransparent {
+  background-color: transparent;
+  color: v.$grey-color-1;
+}
+
+.toneDefault {
+}
+
+.toneSoft {
+  &.variantLight {
+    background-color: rgba(255, 255, 255, 0.35);
+  }
+
+  &.variantDark {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+.toneMuted {
+  &.variantLight {
+    background-color: rgba(240, 240, 240, 0.72);
+  }
+
+  &.variantDark {
+    background-color: rgba(0, 0, 0, 0.45);
+  }
+}
+.grid > li {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.isVisible > li {
+  animation: serviceCardIn 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.isVisible > li:nth-child(1) {
+  animation-delay: 0.4s;
+}
+.isVisible > li:nth-child(2) {
+  animation-delay: 0.48s;
+}
+.isVisible > li:nth-child(3) {
+  animation-delay: 0.66s;
+}
+.isVisible > li:nth-child(4) {
+  animation-delay: 0.74s;
+}
+.isVisible > li:nth-child(5) {
+  animation-delay: 0.82s;
+}
+.isVisible > li:nth-child(6) {
+  animation-delay: 0.9s;
+}
+
+@keyframes serviceCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grid > li {
+    opacity: 1;
+    transform: none;
+  }
+
+  .isVisible > li {
+    animation: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .grid > li {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

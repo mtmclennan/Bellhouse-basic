@@ -1,0 +1,307 @@
+@use '../../../../styles/abstracts/variables' as v;
+@use '../../../../styles/abstracts/mixins' as m;
+
+.section {
+  padding: 6rem 1.5rem;
+
+  @include m.mediaDesktop {
+    padding: 7rem 2rem;
+  }
+}
+
+.container {
+  max-width: 110rem;
+  margin: 0 auto;
+}
+
+.headerBlock,
+.cardItem,
+.footerCta {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.eyebrow {
+  margin: 0 0 1rem;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: v.$btn-main;
+}
+
+.heading {
+  font-size: 3.4rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+
+  @include m.mediaDesktop {
+    font-size: 5.8rem;
+  }
+}
+
+.subtext {
+  max-width: 78rem;
+  margin: 0 auto 1.6rem;
+  text-align: center;
+  font-size: 1.8rem;
+  line-height: 1.6;
+}
+
+.summary {
+  margin: 0 auto 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.summaryStars {
+  display: inline-flex;
+  gap: 0.2rem;
+  color: v.$btn-main;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  @include m.mediaDesktop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  padding: 2.3rem;
+  border-radius: 1.2rem;
+  text-align: left;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.quoteIcon {
+  display: inline-flex;
+  opacity: 0.85;
+}
+
+.stars {
+  display: flex;
+  gap: 0.3rem;
+  color: v.$btn-main;
+}
+
+.text {
+  font-size: 1.7rem;
+  line-height: 1.65;
+  flex-grow: 1;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: auto;
+}
+
+.name {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.source {
+  font-size: 1.4rem;
+  opacity: 0.72;
+}
+
+.footerCta {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.footerLink {
+  font-size: 1.7rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+}
+
+/* Light */
+.variantLight {
+  background-color: v.$grey-color-0;
+  color: v.$text-color-dark;
+
+  .subtext,
+  .text {
+    color: v.$text-color-mid-dark;
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+  }
+
+  .footerLink {
+    color: v.$text-color-dark;
+  }
+}
+
+/* Dark */
+.variantDark {
+  background: #202020;
+  color: v.$grey-color-1;
+
+  .subtext,
+  .text {
+    color: rgba(255, 255, 255, 0.88);
+  }
+
+  .card {
+    background: #262626;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  }
+
+  .footerLink {
+    color: v.$grey-color-1;
+  }
+}
+
+/* Transparent */
+.variantTransparent {
+  background: transparent;
+  color: v.$grey-color-1;
+
+  .subtext,
+  .text {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(3px);
+  }
+
+  .footerLink {
+    color: v.$grey-color-1;
+  }
+}
+
+/* Tone modifiers */
+.toneDefault {
+}
+
+.toneSoft {
+  &.variantLight {
+    background-color: rgba(255, 255, 255, 0.35);
+  }
+
+  &.variantDark {
+    background-color: rgba(0, 0, 0, 0.18);
+  }
+
+  &.variantTransparent {
+    .card {
+      background-color: rgba(255, 255, 255, 0.06);
+    }
+  }
+}
+
+.toneMuted {
+  &.variantLight {
+    background-color: rgba(240, 240, 240, 0.72);
+  }
+
+  &.variantDark {
+    background-color: rgba(0, 0, 0, 0.42);
+  }
+
+  &.variantTransparent {
+    .card {
+      background-color: rgba(255, 255, 255, 0.12);
+    }
+  }
+}
+
+/* Entrance animation */
+.isVisible .headerBlock {
+  animation: testimonialsFadeUp 0.72s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.isVisible .cardItem {
+  animation: testimonialsFadeUp 0.78s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.isVisible .cardItem:nth-child(1) {
+  animation-delay: 0.16s;
+}
+.isVisible .cardItem:nth-child(2) {
+  animation-delay: 0.28s;
+}
+.isVisible .cardItem:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.isVisible .footerCta {
+  animation: testimonialsFadeUp 0.72s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes testimonialsFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .headerBlock,
+  .cardItem,
+  .footerCta {
+    opacity: 1;
+    transform: none;
+  }
+
+  .isVisible .headerBlock,
+  .isVisible .cardItem,
+  .isVisible .footerCta {
+    animation: none;
+  }
+
+  .card {
+    transition: none;
+  }
+}

@@ -1,83 +1,118 @@
 @use '../../../styles/abstracts/variables' as v;
 @use '../../../styles/abstracts/mixins' as m;
 
+.card,
+.large {
+  width: 100%;
+  list-style: none;
+}
+
+.cardLink {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 1.4rem;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-3px);
+  }
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.cardLink:hover .image,
+.cardLink:focus-visible .image {
+  transform: scale(1.03);
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
 .card {
-  @include m.flexCenter(column);
-  width: 35rem;
-  cursor: pointer;
-  & h3 {
-    // text-align: center;
+  .cardLink {
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .content {
+    padding: 2rem 1.8rem 2.2rem;
+  }
+
+  h3 {
     font-size: 2.1rem;
     font-weight: 500;
     color: v.$color-primary;
     margin-bottom: 1rem;
+    line-height: 1.25;
   }
 
-  & p {
-    color: v.$grey-color-5;
+  p {
+    color: v.$grey-color-4;
     font-size: 1.6rem;
-    margin-bottom: 1rem;
-  }
-
-  & a {
-    color: v.$btn-main;
+    line-height: 1.65;
+    margin-bottom: 1.6rem;
   }
 }
 
 .large {
-  @include m.flexCenter(column);
-  // --angle: 315deg;
-  // background: linear-gradient(
-  //   var(--angle),
-  //   rgb(0% 0% 0%),
-  //   rgb(13.3% 13.3% 13.3%),
-  //   rgb(20% 20% 20%)
-  // );
-  background-color: v.$color-primary-dark;
-  cursor: pointer;
-  padding-bottom: 1rem;
-  max-width: 53rem;
-  @include m.mediaDesktop {
-    padding: 4rem;
-    border-radius: 15px;
-    width: 53rem;
-    min-height: 70rem;
+  .cardLink {
+    background-color: v.$color-primary-dark;
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
-  & h3 {
-    text-align: center;
-    font-size: 3rem;
+
+  .content {
+    padding: 2rem 2rem 2.4rem;
+
+    @include m.mediaDesktop {
+      padding: 2.4rem 2.6rem 2.8rem;
+    }
+  }
+
+  h3 {
+    font-size: 2.6rem;
     font-weight: 700;
     color: v.$color-primary;
-    margin: 1rem 0;
+    margin-bottom: 1rem;
+    line-height: 1.2;
   }
 
-  & p {
+  p {
     color: v.$text-color-light;
-    font-size: 2rem;
-  }
-
-  & div {
-    @include m.flexCenter(column);
-  }
-
-  & a {
-    display: inline-block;
-    margin-top: 2rem;
-    padding: 1rem 2rem;
-    border-radius: 10px;
-    color: v.$btn-main;
-    border: 2px solid v.$btn-main;
-  }
-  &:hover {
-    transform: scale(1.02);
+    font-size: 1.8rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
   }
 }
 
-.image {
-  width: 100%;
-  border-radius: 15px 15px 15px 15px;
-}
-
-.imageContainer {
-  width: 100%;
+.linkText {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: v.$btn-main;
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
 }

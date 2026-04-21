@@ -11,8 +11,7 @@ type CallToActionProps = {
 
 export default function CallToAction({
   heading = 'Need excavation, grading, or hauling?',
-  text =
-    'Talk with Bellhouse about excavation, site prep, trucking, and material hauling across Brantford and nearby Southern Ontario areas.',
+  text = 'Talk with Bellhouse about excavation, site prep, trucking, and material hauling across Brantford and nearby Southern Ontario areas.',
   buttonLabel = 'Request a Quote',
   href = '/contact',
 }: CallToActionProps) {

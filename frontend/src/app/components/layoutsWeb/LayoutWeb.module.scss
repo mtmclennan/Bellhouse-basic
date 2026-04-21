@@ -7,19 +7,17 @@
   min-height: 100vh;
   height: 100%;
   padding: 1rem;
-
-  // padding-bottom: 5rem;
   background-color: v.$transparent;
 }
 
-// .containerHome {
-//   @include m.mediaDesktop {
-//     margin-bottom: 0;
-//   }
-// }
-
 .container {
+  padding-top: 7rem;
+
   @include m.mediaDesktop {
-    margin-top: 0;
+    padding-top: 15rem;
   }
+}
+
+.containerHome {
+  padding-top: 0;
 }

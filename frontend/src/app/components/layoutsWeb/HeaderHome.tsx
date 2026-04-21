@@ -1,66 +1,74 @@
 'use client';
 
 import Link from 'next/link';
-import classes from './MainHeader.module.scss';
-import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
-import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import { Fragment, useEffect, useMemo, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
+import { CaretDownIcon, Phone } from '@phosphor-icons/react';
+
+import classes from './MainHeader.module.scss';
 import logo from '../../../../public/assets/BellhouseLogo-text.png';
-import { Fragment, useEffect, useState } from 'react';
 import Hamburger from './Hamburger';
 import MobileMenu from './MobileMenu';
-import { CaretDownIcon, Phone } from '@phosphor-icons/react';
 import { resourceNavigationItems } from './resourcesNavigation';
 
-const MainHeader = ({ currentRoute }: { currentRoute?: string }) => {
-  const router = useRouter();
+const MainHeader = () => {
+  const pathname = usePathname();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-
-  const isOverlayHeroRoute =
-    currentRoute === '/service-areas' ||
-    currentRoute?.startsWith('/service-areas/') ||
-    currentRoute === '/contractors' ||
-    currentRoute?.startsWith('/contractors/') ||
-    currentRoute === '/resources' ||
-    currentRoute?.startsWith('/resources/') ||
-    currentRoute === '/about' ||
-    currentRoute?.startsWith('/about/');
-
-  const homeClassname = currentRoute === '/' ? 'active' : 'non-active';
-  const servicesClassname =
-    currentRoute === '/services' ? 'active' : 'non-active';
-  const aboutClassname = currentRoute === '/about' ? 'active' : 'non-active';
-  const careersClassname =
-    currentRoute === '/careers' ? 'active' : 'non-active';
-  const contactClassname =
-    currentRoute === '/contact' ? 'active' : 'non-active';
 
   useEffect(() => {
     setShowMobileMenu(false);
-  }, [currentRoute]);
+  }, [pathname]);
+
+  const isOverlayHeroRoute = useMemo(() => {
+    if (!pathname) return false;
+
+    return (
+      pathname === '/' ||
+      pathname === '/service-areas' ||
+      pathname.startsWith('/service-areas/') ||
+      pathname === '/contractors' ||
+      pathname.startsWith('/contractors/') ||
+      pathname === '/resources' ||
+      pathname.startsWith('/resources/') ||
+      pathname === '/about' ||
+      pathname.startsWith('/about/')
+    );
+  }, [pathname]);
+
+  const getNavClass = (href: string) =>
+    pathname === href ? 'active' : 'non-active';
+
+  const homeClassname = getNavClass('/');
+  const servicesClassname = getNavClass('/services');
+  const aboutClassname = getNavClass('/about');
+  const careersClassname = getNavClass('/careers');
+  const contactClassname = getNavClass('/contact');
 
   return (
     <Fragment>
       <header
-        className={`${classes.headerHome} ${isOverlayHeroRoute ? classes.headerHomeOverlay : ''}`}
+        className={`${classes.header} ${
+          isOverlayHeroRoute ? classes.headerOverlay : classes.headerSolid
+        }`}
       >
-        <nav className={classes.navHome}>
-          <div
-            className={`${classes.logoHome} ${isOverlayHeroRoute ? classes.logoHomeMobileVisible : ''}`}
-          >
-            <Link href="/">
+        <nav className={classes.nav}>
+          <div className={classes.logoWrap}>
+            <Link href="/" aria-label="Bellhouse Excavating home">
               <Image
                 src={logo}
                 alt="Bellhouse Excavating"
                 width={200}
                 height={151}
-                sizes="(max-width: 800px) 220px, 300px"
+                sizes="(max-width: 800px) 150px, 200px"
                 className={classes.logoImg}
+                priority
               />
             </Link>
           </div>
 
-          <ul>
+          <ul className={classes.desktopNav}>
             <li>
               <Link className={homeClassname} href="/">
                 Home
@@ -103,25 +111,32 @@ const MainHeader = ({ currentRoute }: { currentRoute?: string }) => {
                 About
               </Link>
             </li>
-
-            <li className={classes.actionContainer}>
-              <Link className={classes.headerHome_cta} href="/contact">
-                Request a Quote
-              </Link>
-            </li>
-
-            <li>
-              <a className={classes.phone} href="tel:5197528500">
-                <Phone size={24} color="#ffc302" weight="duotone" />
-                <h3>519-752-8500</h3>
-              </a>
-            </li>
           </ul>
 
-          <Hamburger
-            showMenu={showMobileMenu}
-            setShowMenu={setShowMobileMenu}
-          />
+          <div className={classes.rightSide}>
+            <a className={classes.phone} href="tel:5197528500">
+              <Phone size={22} color="#ffc302" weight="duotone" />
+              <span>519-752-8500</span>
+            </a>
+
+            <Link className={classes.headerCta} href="/contact">
+              Request a Quote
+            </Link>
+
+            <a
+              className={classes.mobileCall}
+              href="tel:5197528500"
+              aria-label="Call Bellhouse Excavating"
+            >
+              <Phone size={16} weight="duotone" />
+              <span>Call</span>
+            </a>
+
+            <Hamburger
+              showMenu={showMobileMenu}
+              setShowMenu={setShowMobileMenu}
+            />
+          </div>
         </nav>
       </header>
 

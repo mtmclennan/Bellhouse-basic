@@ -22,11 +22,10 @@ const LayoutHome = ({ children, background = 'on' }: LayoutProps) => {
     pathname === '/contractors' ||
     pathname?.startsWith('/contractors/') ||
     pathname === '/resources' ||
-    pathname?.startsWith('/resources/') ||
-    pathname === '/about' ||
-    pathname?.startsWith('/about/');
+    pathname?.startsWith('/resources/');
 
-  const showBackground = isServicesPage || isOverlayHeroRoute ? 'off' : background;
+  const showBackground =
+    isServicesPage || isOverlayHeroRoute ? 'off' : background;
 
   return (
     <Fragment>
@@ -42,7 +41,7 @@ const LayoutHome = ({ children, background = 'on' }: LayoutProps) => {
           />
         </div>
       )}
-      <HeaderHome currentRoute={`${pathname ? pathname : '/'}`} />
+      <HeaderHome />
       <main className={classes.containerHome}>{children}</main>
       <Footer />
     </Fragment>
