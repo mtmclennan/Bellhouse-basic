@@ -40,6 +40,7 @@ export type HeroSectionData = {
   align?: 'left' | 'center';
   theme?: 'dark' | 'light';
   overlay?: 'dark' | 'light' | 'transparent' | 'none';
+  density?: 'default' | 'compact';
 };
 
 export type ProofIcon =

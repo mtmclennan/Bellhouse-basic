@@ -52,6 +52,7 @@ export const homeHeroData: HeroSectionData = {
     { label: 'Residential, Commercial & Contractor Work' },
     { label: 'Serving Brantford, Brant County & Nearby Areas' },
   ],
+  density: 'compact',
   theme: 'dark',
   overlay: 'transparent',
   align: 'center',

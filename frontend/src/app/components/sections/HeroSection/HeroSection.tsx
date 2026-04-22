@@ -26,12 +26,14 @@ export default function HeroSection({ data }: Props) {
     align = 'center',
     theme = 'dark',
     overlay = 'transparent',
+    density = 'default',
   } = data;
 
   const sectionClassName = [
     classes.section,
     classes[`theme--${theme}`],
     classes[`align--${align}`],
+    classes[`density--${density}`],
   ].join(' ');
 
   const overlayClassMap = {
@@ -41,7 +43,6 @@ export default function HeroSection({ data }: Props) {
     none: classes.overlayNone,
   };
 
-  console.log(overlay);
   return (
     <section className={sectionClassName}>
       <div
