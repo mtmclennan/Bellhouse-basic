@@ -108,11 +108,9 @@
     ),
     #111;
   box-shadow: 0 1.8rem 3.6rem -2.4rem rgba(0, 0, 0, 0.44);
-  opacity: 0;
-  transform: translateY(2rem) scale(0.985);
+  opacity: 1;
+  transform: none;
   transition:
-    opacity 0.45s ease,
-    transform 0.45s ease,
     box-shadow 0.25s ease,
     border-color 0.25s ease;
 
@@ -140,7 +138,7 @@
 
 .cardVisible {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: none;
 }
 
 .content {

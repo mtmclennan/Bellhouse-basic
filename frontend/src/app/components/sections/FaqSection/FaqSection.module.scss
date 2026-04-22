@@ -109,11 +109,8 @@
   gap: 1.2rem;
   margin-bottom: 2.6rem;
   text-align: center;
-  opacity: 0;
-  transform: translateY(2rem);
-  transition:
-    opacity 0.45s ease,
-    transform 0.45s ease;
+  opacity: 1;
+  transform: none;
 
   h2 {
     margin: 0;
@@ -124,8 +121,6 @@
 }
 
 .introVisible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .eyebrow {
@@ -153,11 +148,11 @@
   background: var(--section-card-bg);
   box-shadow: var(--section-card-shadow);
   backdrop-filter: blur(0.2rem);
-  opacity: 0;
-  transform: translateY(2rem);
+  opacity: 0.96;
+  transform: translateY(8px);
   transition:
-    opacity 0.45s ease,
-    transform 0.45s ease,
+    opacity 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
     border-color 0.2s ease,
     box-shadow 0.2s ease;
 
@@ -277,17 +272,11 @@
   display: flex;
   justify-content: center;
   margin-top: 2.4rem;
-  opacity: 0;
-  transform: translateY(2rem);
-  transition:
-    opacity 0.45s ease,
-    transform 0.45s ease;
-  transition-delay: 0.14s;
+  opacity: 1;
+  transform: none;
 }
 
 .footerVisible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .footerAction {

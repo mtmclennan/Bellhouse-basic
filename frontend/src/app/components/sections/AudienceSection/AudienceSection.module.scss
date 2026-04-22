@@ -18,8 +18,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  opacity: 0;
-  transform: translateY(16px);
 
   h2 {
     margin: 1rem 0 2rem;
@@ -41,8 +39,6 @@
   text-align: center;
   font-size: 1.8rem;
   line-height: 1.75;
-  opacity: 0;
-  transform: translateY(16px);
 }
 
 .grid {
@@ -59,8 +55,11 @@
 }
 
 .cardItem {
-  opacity: 0;
-  transform: translateY(16px);
+  opacity: 0.9;
+  transform: translateY(10px);
+  transition:
+    opacity 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .card {
@@ -178,8 +177,6 @@
 .footer {
   margin-top: 3rem;
   text-align: center;
-  opacity: 0;
-  transform: translateY(16px);
 }
 
 .footerLink {
@@ -353,68 +350,36 @@
   }
 }
 
-/* Entrance animation */
-.isVisible .headerBlock {
-  animation: audienceFadeUp 0.72s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-.isVisible .intro {
-  animation: audienceFadeUp 0.78s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  animation-delay: 0.12s;
-}
-
 .isVisible .cardItem {
-  animation: audienceFadeUp 0.78s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .isVisible .cardItem:nth-child(1) {
-  animation-delay: 0.24s;
+  transition-delay: 0.08s;
 }
 .isVisible .cardItem:nth-child(2) {
-  animation-delay: 0.34s;
+  transition-delay: 0.16s;
 }
 .isVisible .cardItem:nth-child(3) {
-  animation-delay: 0.44s;
+  transition-delay: 0.24s;
 }
 .isVisible .cardItem:nth-child(4) {
-  animation-delay: 0.54s;
-}
-
-.isVisible .footer {
-  animation: audienceFadeUp 0.72s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  animation-delay: 0.64s;
-}
-
-@keyframes audienceFadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  transition-delay: 0.32s;
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .cardItem,
   .headerBlock,
   .intro,
-  .cardItem,
   .footer {
     opacity: 1;
     transform: none;
   }
 
-  .isVisible .headerBlock,
-  .isVisible .intro,
-  .isVisible .cardItem,
-  .isVisible .footer {
-    animation: none;
-  }
-
   .card,
-  .cardCta {
+  .cardCta,
+  .cardItem {
     transition: none;
   }
 }

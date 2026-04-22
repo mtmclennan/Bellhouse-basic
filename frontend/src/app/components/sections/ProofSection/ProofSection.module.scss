@@ -63,7 +63,9 @@
   gap: 1.8rem;
   padding: 2.4rem;
   border-radius: 1.8rem;
+  opacity: 0.92;
   transition:
+    opacity 0.42s cubic-bezier(0.22, 1, 0.36, 1),
     background-color 0.2s ease,
     border-color 0.2s ease,
     box-shadow 0.2s ease,
@@ -285,70 +287,33 @@
   }
 }
 
-.headerBlock,
-.intro,
-.grid > .card,
-.footer {
-  opacity: 0;
-  transform: translateY(16px);
-}
-
-.isVisible .headerBlock {
-  animation: proofFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-.isVisible .intro {
-  animation: proofFadeUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  animation-delay: 0.12s;
-}
-
 .isVisible .grid > .card {
-  animation: proofFadeUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 1;
 }
 
 .isVisible .grid > .card:nth-child(1) {
-  animation-delay: 0.2s;
+  transition-delay: 0.06s;
 }
 .isVisible .grid > .card:nth-child(2) {
-  animation-delay: 0.28s;
+  transition-delay: 0.12s;
 }
 .isVisible .grid > .card:nth-child(3) {
-  animation-delay: 0.36s;
+  transition-delay: 0.18s;
 }
 .isVisible .grid > .card:nth-child(4) {
-  animation-delay: 0.44s;
-}
-
-.isVisible .footer {
-  animation: proofFadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  animation-delay: 1s;
-}
-
-@keyframes proofFadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  transition-delay: 0.24s;
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .grid > .card,
   .headerBlock,
   .intro,
-  .grid > .card,
   .footer {
     opacity: 1;
     transform: none;
   }
 
-  .isVisible .headerBlock,
-  .isVisible .intro,
-  .isVisible .grid > .card,
-  .isVisible .footer {
-    animation: none;
+  .grid > .card {
+    transition: none;
   }
 }

@@ -68,11 +68,8 @@
   gap: 1.2rem;
   margin-bottom: 2.8rem;
   text-align: center;
-  opacity: 0;
-  transform: translateY(2rem);
-  transition:
-    opacity 0.45s ease,
-    transform 0.45s ease;
+  opacity: 1;
+  transform: none;
 
   h2 {
     margin: 0;
@@ -83,8 +80,6 @@
 }
 
 .introVisible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .eyebrow {
@@ -107,17 +102,8 @@
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   justify-items: center;
   text-align: center;
-  opacity: 0;
-  transform: translateY(2rem);
-  transition:
-    opacity 0.45s ease,
-    transform 0.45s ease;
-  transition-delay: 0.18s;
-}
-
-.footerVisible {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
 .footerCopy {
@@ -125,6 +111,9 @@
   font-size: 1.6rem;
   line-height: 1.55;
   color: rgba(v.$text-color-light, 0.84);
+}
+
+.footerVisible {
 }
 
 .footerActions {
@@ -149,33 +138,6 @@
 .variantDark .eyebrow,
 .variantTransparent .eyebrow {
   @include m.sectionEyebrowDark;
-}
-
-.intro {
-  opacity: 0;
-  transform: translateY(2rem);
-  transition:
-    opacity 0.45s ease,
-    transform 0.45s ease;
-}
-
-.introVisible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.footer {
-  opacity: 0;
-  transform: translateY(2rem);
-  transition:
-    opacity 0.45s ease,
-    transform 0.45s ease;
-  transition-delay: 0.18s;
-}
-
-.footerVisible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 @media (prefers-reduced-motion: reduce) {

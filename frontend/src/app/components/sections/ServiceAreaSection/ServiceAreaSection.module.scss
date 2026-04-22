@@ -18,18 +18,21 @@
 .headerBlock,
 .locationItemWrap,
 .actions {
-  opacity: 0;
-  transform: translateY(16px);
+  opacity: 1;
+  transform: none;
+}
+
+.locationItemWrap {
+  opacity: 0.92;
+  transform: translateY(10px);
+  transition:
+    opacity 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .eyebrow {
   margin: 0 0 1rem;
   text-align: center;
-  font-size: 1.4rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: v.$btn-main;
 }
 
 .heading {
@@ -139,6 +142,11 @@
     color: rgba(v.$text-color-dark, 0.88);
   }
 
+  .eyebrow {
+    @include m.sectionEyebrowLight;
+    margin: 0 auto 1rem;
+  }
+
   .locationItem {
     color: rgba(v.$text-color-dark, 0.84);
     background: linear-gradient(
@@ -193,6 +201,11 @@
     color: rgba(v.$text-color-light, 0.94);
   }
 
+  .eyebrow {
+    @include m.sectionEyebrowDark;
+    margin: 0 auto 1rem;
+  }
+
   .locationItem {
     color: v.$grey-color-2;
     background: rgba(255, 255, 255, 0.06);
@@ -224,6 +237,11 @@
 
   .subtext {
     color: rgba(v.$text-color-light, 0.95);
+  }
+
+  .eyebrow {
+    @include m.sectionEyebrowDark;
+    margin: 0 auto 1rem;
   }
 
   .locationItem {
@@ -299,49 +317,28 @@
   }
 }
 
-/* Entrance animation */
-.isVisible .headerBlock {
-  animation: serviceAreaFadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
 .isVisible .locationItemWrap {
-  animation: serviceAreaFadeUp 0.82s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .isVisible .locationItemWrap:nth-child(1) {
-  animation-delay: 0.24s;
+  transition-delay: 0.06s;
 }
 .isVisible .locationItemWrap:nth-child(2) {
-  animation-delay: 0.32s;
+  transition-delay: 0.12s;
 }
 .isVisible .locationItemWrap:nth-child(3) {
-  animation-delay: 0.4s;
+  transition-delay: 0.18s;
 }
 .isVisible .locationItemWrap:nth-child(4) {
-  animation-delay: 0.48s;
+  transition-delay: 0.24s;
 }
 .isVisible .locationItemWrap:nth-child(5) {
-  animation-delay: 0.56s;
+  transition-delay: 0.3s;
 }
 .isVisible .locationItemWrap:nth-child(6) {
-  animation-delay: 0.64s;
-}
-
-.isVisible .actions {
-  animation: serviceAreaFadeUp 0.78s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  animation-delay: 0.74s;
-}
-
-@keyframes serviceAreaFadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  transition-delay: 0.36s;
 }
 
 @media (max-width: 480px) {
@@ -358,14 +355,9 @@
     transform: none;
   }
 
-  .isVisible .headerBlock,
-  .isVisible .locationItemWrap,
-  .isVisible .actions {
-    animation: none;
-  }
-
   .locationItem,
-  .locationLink {
+  .locationLink,
+  .locationItemWrap {
     transition: none;
   }
 }

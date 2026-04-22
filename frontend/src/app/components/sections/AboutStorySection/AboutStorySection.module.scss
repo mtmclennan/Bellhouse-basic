@@ -75,11 +75,8 @@
   display: grid;
   gap: 2.6rem;
   align-items: center;
-  opacity: 0;
-  transform: translateY(2rem);
-  transition:
-    opacity 0.45s ease,
-    transform 0.45s ease;
+  opacity: 1;
+  transform: none;
 
   @include m.mediaDesktop {
     grid-template-columns: minmax(0, 1.15fr) minmax(32rem, 0.95fr);
@@ -223,12 +220,8 @@
     ),
     #111;
   box-shadow: 0 1.6rem 3.2rem -2.4rem rgba(0, 0, 0, 0.42);
-  opacity: 0;
-  transform: translateY(2rem);
-  transition:
-    opacity 0.45s ease,
-    transform 0.45s ease;
-  transition-delay: 0.14s;
+  opacity: 1;
+  transform: none;
 
   @include m.mediaDesktop {
     margin-top: 3rem;
@@ -394,10 +387,10 @@
 
 .topGridVisible {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
 .historyBlockVisible {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
