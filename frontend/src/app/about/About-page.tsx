@@ -24,11 +24,11 @@ const About = () => {
     <Fragment>
       <HeroSection data={aboutHeroData} />
       <AboutStorySection data={aboutStorySection} />
-      <ServicesSection data={aboutServicesSection} />
       <ProofSection data={aboutProofSection} />
-      <ServiceAreasSection data={aboutServiceAreasSection} />
       <FaqSection data={aboutFaqSection} />
       <TestimonialsSection data={aboutTestimonialsSection} />
+      <ServicesSection data={aboutServicesSection} />
+      <ServiceAreasSection data={aboutServiceAreasSection} />
       <FinalCtaSection data={aboutFinalCtaSection} />
     </Fragment>
   );

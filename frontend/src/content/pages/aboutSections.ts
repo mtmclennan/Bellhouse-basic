@@ -92,15 +92,15 @@ export const aboutStorySection: AboutStorySectionData = {
     href: '/contractors',
   },
   backgroundVariant: 'light',
-  backgroundTone: 'default',
+  backgroundTone: 'soft',
 };
 
 export const aboutServicesSection: ServicesSectionData = {
   _type: 'servicesSection',
-  eyebrow: 'Core Work',
-  heading: 'Core work Bellhouse handles most often',
+  eyebrow: 'Selected Services',
+  heading: 'Services Bellhouse handles most often',
   intro:
-    'If Bellhouse looks like the right fit, these are the services homeowners, builders, and contractors call for most often across local projects and active sites.',
+    'If Bellhouse looks like the right fit, these are some of the excavation, trucking, and site-support services handled most often across local projects and active sites.',
   items: aboutFeaturedServices,
   actions: [
     {
@@ -108,19 +108,14 @@ export const aboutServicesSection: ServicesSectionData = {
       href: '/services',
       variant: 'primary',
     },
-    {
-      label: 'Talk About Your Project',
-      href: '/contact',
-      variant: 'secondary',
-    },
   ],
   backgroundVariant: 'dark',
-  backgroundTone: 'default',
+  backgroundTone: 'muted',
 };
 
 export const aboutProofSection: ProofSectionData = {
   _type: 'proofSection',
-  eyebrow: 'How Bellhouse Works',
+  eyebrow: 'Why Bellhouse',
   heading: 'The kind of site support Bellhouse is known for',
   intro: [
     'Bellhouse is known for practical site work, dependable scheduling, and coordination that helps projects keep moving.',
@@ -148,7 +143,7 @@ export const aboutProofSection: ProofSectionData = {
     },
   ],
   backgroundVariant: 'light',
-  backgroundTone: 'soft',
+  backgroundTone: 'default',
 };
 
 export const aboutServiceAreasSection: ServiceAreasSectionData = {
@@ -173,14 +168,9 @@ export const aboutServiceAreasSection: ServiceAreasSectionData = {
       href: '/service-areas',
       variant: 'primary',
     },
-    {
-      label: 'Contractor Project Support',
-      href: '/contractors',
-      variant: 'secondary',
-    },
   ],
-  backgroundVariant: 'dark',
-  backgroundTone: 'muted',
+  backgroundVariant: 'light',
+  backgroundTone: 'soft',
 };
 
 export const aboutTestimonialsSection: TestimonialsSectionData = {
@@ -196,7 +186,7 @@ export const aboutTestimonialsSection: TestimonialsSectionData = {
     href: '/reviews',
   },
   backgroundVariant: 'dark',
-  backgroundTone: 'default',
+  backgroundTone: 'soft',
 };
 
 export const aboutFinalCtaSection: FinalCtaSectionData = {
@@ -270,6 +260,6 @@ export const aboutFaqSection: FaqSectionData = {
     label: 'Talk About Your Project',
     href: '/contact',
   },
-  backgroundVariant: 'light',
-  backgroundTone: 'default',
+  backgroundVariant: 'dark',
+  backgroundTone: 'soft',
 };
