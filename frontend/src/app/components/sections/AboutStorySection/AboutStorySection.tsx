@@ -9,7 +9,12 @@ import {
   Truck,
   UsersThree,
 } from '@phosphor-icons/react';
-import type { AboutStorySectionData, ProofIcon } from '@/types/sections';
+import type {
+  AboutStorySectionData,
+  ProofIcon,
+  RichTextParagraph,
+  RichTextPart,
+} from '@/types/sections';
 import classes from './AboutStorySection.module.scss';
 
 type AboutStorySectionProps = {
@@ -36,6 +41,30 @@ function renderStoryIcon(icon?: ProofIcon) {
     default:
       return null;
   }
+}
+
+function isRichTextLink(part: RichTextPart): part is Exclude<RichTextPart, string> {
+  return typeof part !== 'string';
+}
+
+function renderRichParagraph(paragraph: RichTextParagraph, keyPrefix: string) {
+  if (typeof paragraph === 'string') {
+    return <p key={keyPrefix}>{paragraph}</p>;
+  }
+
+  return (
+    <p key={keyPrefix}>
+      {paragraph.map((part, index) =>
+        isRichTextLink(part) ? (
+          <Link key={`${keyPrefix}-link-${index}`} href={part.href}>
+            {part.label}
+          </Link>
+        ) : (
+          <span key={`${keyPrefix}-text-${index}`}>{part}</span>
+        ),
+      )}
+    </p>
+  );
 }
 
 export default function AboutStorySection({ data }: AboutStorySectionProps) {
@@ -116,9 +145,9 @@ export default function AboutStorySection({ data }: AboutStorySectionProps) {
             <h2>{heading}</h2>
 
             <div className={classes.copy}>
-              {intro.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
+              {intro.map((paragraph, index) =>
+                renderRichParagraph(paragraph, `intro-${index}`),
+              )}
             </div>
 
             {proofItems.length > 0 ? (
@@ -224,9 +253,9 @@ export default function AboutStorySection({ data }: AboutStorySectionProps) {
           }`}
         >
           {historyHeading ? <h3>{historyHeading}</h3> : null}
-          {history.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
+          {history.map((paragraph, index) =>
+            renderRichParagraph(paragraph, `history-${index}`),
+          )}
 
           {historyHighlights.length > 0 ? (
             <div className={classes.historyHighlights}>

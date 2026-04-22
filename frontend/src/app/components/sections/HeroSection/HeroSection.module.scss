@@ -22,6 +22,16 @@
   }
 }
 
+.density--tight {
+  min-height: auto;
+  padding: 9rem 1.6rem 2.5rem;
+
+  @include m.mediaDesktop {
+    min-height: auto;
+    padding: 12rem 2rem 3.5rem;
+  }
+}
+
 .container {
   width: 100%;
   max-width: 112rem;

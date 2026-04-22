@@ -3,6 +3,14 @@ export type SectionLink = {
   href: string;
 };
 
+export type RichTextLink = {
+  label: string;
+  href: string;
+};
+
+export type RichTextPart = string | RichTextLink;
+export type RichTextParagraph = string | RichTextPart[];
+
 export type SectionActionLink = {
   label: string;
   href: string;
@@ -40,7 +48,7 @@ export type HeroSectionData = {
   align?: 'left' | 'center';
   theme?: 'dark' | 'light';
   overlay?: 'dark' | 'light' | 'transparent' | 'none';
-  density?: 'default' | 'compact';
+  density?: 'default' | 'compact' | 'tight';
 };
 
 export type ProofIcon =
@@ -222,14 +230,14 @@ export type AboutStorySectionData = {
   _type: 'aboutStorySection';
   eyebrow?: string;
   heading: string;
-  intro: string[];
+  intro: RichTextParagraph[];
   proofItems?: AboutStoryProofItem[];
   image: AboutStoryImage;
   supportingImage?: AboutStoryImage;
   supportingImageLabel?: string;
   imageBadges?: string[];
   historyHeading?: string;
-  history: string[];
+  history: RichTextParagraph[];
   historyHighlights?: AboutStoryHighlightItem[];
   primaryAction?: SectionLink;
   secondaryAction?: SectionLink;
@@ -240,7 +248,7 @@ export type AboutStorySectionData = {
 export type FaqItemData = {
   id?: string;
   question: string;
-  answer: string | string[];
+  answer: RichTextParagraph | RichTextParagraph[];
 };
 
 export type FaqSectionData = {

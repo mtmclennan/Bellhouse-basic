@@ -3,7 +3,12 @@
 import Link from 'next/link';
 import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { CaretDown, CaretUp } from '@phosphor-icons/react';
-import type { FaqItemData, FaqSectionData } from '@/types/sections';
+import type {
+  FaqItemData,
+  FaqSectionData,
+  RichTextParagraph,
+  RichTextPart,
+} from '@/types/sections';
 import classes from './FaqSection.module.scss';
 
 type FaqSectionProps = {
@@ -13,6 +18,30 @@ type FaqSectionProps = {
 
 function normalizeAnswer(answer: FaqItemData['answer']) {
   return Array.isArray(answer) ? answer : [answer];
+}
+
+function isRichTextLink(part: RichTextPart): part is Exclude<RichTextPart, string> {
+  return typeof part !== 'string';
+}
+
+function renderAnswerParagraph(paragraph: RichTextParagraph, key: string) {
+  if (typeof paragraph === 'string') {
+    return <p key={key}>{paragraph}</p>;
+  }
+
+  return (
+    <p key={key}>
+      {paragraph.map((part, index) =>
+        isRichTextLink(part) ? (
+          <Link key={`${key}-link-${index}`} href={part.href}>
+            {part.label}
+          </Link>
+        ) : (
+          <span key={`${key}-text-${index}`}>{part}</span>
+        ),
+      )}
+    </p>
+  );
 }
 
 export default function FaqSection({ data, defaultOpenId }: FaqSectionProps) {
@@ -143,9 +172,10 @@ export default function FaqSection({ data, defaultOpenId }: FaqSectionProps) {
                   <div className={classes.answerInner}>
                     {normalizeAnswer(item.answer).map(
                       (paragraph, paragraphIndex) => (
-                        <p key={`${item.id}-paragraph-${paragraphIndex}`}>
-                          {paragraph}
-                        </p>
+                        renderAnswerParagraph(
+                          paragraph,
+                          `${item.id}-paragraph-${paragraphIndex}`,
+                        )
                       ),
                     )}
                   </div>

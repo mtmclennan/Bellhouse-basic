@@ -112,6 +112,14 @@
     font-size: 1.68rem;
     line-height: 1.68;
     color: rgba(v.$grey-color-4, 0.92);
+
+    a {
+      color: inherit;
+      font-weight: 700;
+      text-decoration: underline;
+      text-decoration-color: rgba(v.$cat-yellow2, 0.58);
+      text-underline-offset: 0.22rem;
+    }
   }
 }
 
@@ -382,6 +390,14 @@
     font-size: 1.66rem;
     line-height: 1.68;
     color: rgba(v.$grey-color-4, 0.9);
+
+    a {
+      color: inherit;
+      font-weight: 700;
+      text-decoration: underline;
+      text-decoration-color: rgba(v.$cat-yellow2, 0.58);
+      text-underline-offset: 0.22rem;
+    }
   }
 
   &::before {

@@ -1,71 +1,19 @@
 'use client';
 
-import { Fragment, useRef } from 'react';
-import Image from 'next/image';
-import logo from '../../../public/assets/BellhouseLogo-text.png';
-
+import { Fragment } from 'react';
 import Link from 'next/link';
 import FAQAccordion from '../components/FAQAccordion';
 import classes from '../components/webpage/Faq.module.scss';
 import LocalExperts from '../components/webpage/LocalExperts';
 import ContactForm from '../components/forms/ContactForm';
+import HeroSection from '../components/sections/HeroSection/HeroSection';
+import { contactHeroData } from '@/content/pages/contactSections';
 
 const Contact = () => {
-  const contactFormRef = useRef<{ scrollToForm: () => void } | null>(null);
   return (
     <Fragment>
-      <section className="contact-hero__section">
-        {/* <div className="logo__wrapper">
-            <Image alt="Excavator logo" src={logo} fill />
-          </div> */}
-        <div className="contact-hero">
-          <div className="hero-logo__mobile">
-            <Image
-              src={logo}
-              alt="Bellhouse Excavating logo"
-              quality={80}
-              width={160}
-              height={124}
-              style={{
-                width: 'auto',
-                height: 'auto',
-              }}
-              sizes="(max-width: 375px) 120px, (max-width: 768px) 160px, 200px"
-            />
-          </div>
-          <h1>
-            Contact <span className="font-thin">BELLHOUSE</span>
-            <span className="text text-yellow"> EXCAVATING</span>
-          </h1>
-          <span>
-            <i>Reliable. Efficient. Ready to Get to Work.</i>
-          </span>
-          <p>
-            Have a question or need a free estimate for your project? Our team
-            is ready to help! Whether you need excavation, dump truck services,
-            or equipment rentals, we&apos;re here to discuss your project and provide
-            a competitive quote.
-          </p>
-          <h3>Reach Out and Let&apos;s Get Digging</h3>
-
-          <div className="contact-hero__cta">
-            <Link href="tel:5197528500" className="btn btn-call">
-              (519) 752-8500
-            </Link>
-
-            <Link href="sms:5197528500" className="btn btn-text">
-              Text Us
-            </Link>
-          </div>
-          <p className="text-sm">
-            Text us photos of your project location for quicker pricing.
-          </p>
-          <button onClick={() => contactFormRef.current?.scrollToForm()}>
-            Request a Quote
-          </button>
-        </div>
-      </section>
-      <ContactForm ref={contactFormRef} />
+      <HeroSection data={contactHeroData} />
+      <ContactForm sectionId="contact-form" />
       <LocalExperts colorDark={true} />
       <FAQAccordion
         heading="Questions Before You Reach Out?"

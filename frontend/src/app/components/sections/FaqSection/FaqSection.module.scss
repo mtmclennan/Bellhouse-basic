@@ -253,6 +253,14 @@
     line-height: 1.68;
     color: var(--section-body-color);
 
+    a {
+      color: inherit;
+      font-weight: 700;
+      text-decoration: underline;
+      text-decoration-color: rgba(v.$cat-yellow2, 0.58);
+      text-underline-offset: 0.22rem;
+    }
+
     & + p {
       margin-top: 1.2rem;
     }
