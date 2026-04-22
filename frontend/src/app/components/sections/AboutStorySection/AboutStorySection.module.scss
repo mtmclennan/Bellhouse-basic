@@ -73,20 +73,20 @@
 
 .topGrid {
   display: grid;
-  gap: 2.6rem;
+  gap: 3.2rem;
   align-items: center;
   opacity: 1;
   transform: none;
 
   @include m.mediaDesktop {
     grid-template-columns: minmax(0, 1.15fr) minmax(32rem, 0.95fr);
-    gap: 4rem;
+    gap: 4.8rem;
   }
 }
 
 .copyBlock {
   display: grid;
-  gap: 1.35rem;
+  gap: 1.7rem;
 
   h2 {
     margin: 0;
@@ -102,21 +102,72 @@
 
 .copy {
   display: grid;
-  gap: 1.15rem;
+  max-width: 62rem;
+  gap: 1rem;
 
   p {
     margin: 0;
-    font-size: 1.76rem;
-    line-height: 1.64;
+    font-size: 1.72rem;
+    line-height: 1.62;
     color: rgba(v.$grey-color-4, 0.92);
   }
+}
+
+.proofList {
+  display: grid;
+  gap: 1.1rem;
+  padding-top: 0.8rem;
+}
+
+.proofItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0 0 1.05rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.proofItem:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.proofIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.8rem;
+  height: 3.8rem;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background-color: rgba(v.$cat-yellow2, 0.12);
+  color: v.$cat-yellow2;
+}
+
+.proofBody {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.proofLabel {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  color: v.$grey-color-1;
+}
+
+.proofDetail {
+  font-size: 1.34rem;
+  line-height: 1.5;
+  color: rgba(v.$grey-color-4, 0.86);
 }
 
 .actions {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  padding-top: 0.6rem;
+  padding-top: 1rem;
 }
 
 .primaryAction {
@@ -129,6 +180,12 @@
 
 .mediaBlock {
   display: flex;
+}
+
+.mediaColumn {
+  display: grid;
+  gap: 2rem;
+  width: 100%;
 }
 
 .imageFrame {
@@ -204,12 +261,89 @@
   }
 }
 
+.mediaTrustCard {
+  width: 100%;
+  display: grid;
+  gap: 1.1rem;
+  padding: 1.5rem 1.5rem 1.55rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 1.6rem;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.02) 100%
+    ),
+    rgba(10, 10, 10, 0.94);
+  box-shadow: 0 1.6rem 3.2rem -2rem rgba(0, 0, 0, 0.44);
+  backdrop-filter: blur(0.4rem);
+}
+
+.mediaTrustEyebrow {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  color: rgba(v.$cat-yellow2, 0.92);
+  font-size: 1.12rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.mediaTrustItems {
+  display: grid;
+  gap: 1rem;
+}
+
+.mediaTrustItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mediaTrustItem:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+
+.mediaTrustIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background-color: rgba(v.$cat-yellow2, 0.12);
+  color: v.$cat-yellow2;
+}
+
+.mediaTrustBody {
+  display: grid;
+  gap: 0.3rem;
+
+  strong {
+    font-size: 1.34rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #fff;
+  }
+
+  span {
+    font-size: 1.24rem;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.82);
+  }
+}
+
 .historyBlock {
   position: relative;
   display: grid;
-  gap: 1.4rem;
-  margin-top: 2.4rem;
-  padding: 2.2rem 2rem;
+  gap: 1.5rem;
+  margin-top: 3.2rem;
+  padding: 2.6rem 2.4rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 2rem;
   background:
@@ -224,8 +358,8 @@
   transform: none;
 
   @include m.mediaDesktop {
-    margin-top: 3rem;
-    padding: 2.8rem;
+    margin-top: 4rem;
+    padding: 3rem;
   }
 
   h3 {
@@ -261,23 +395,86 @@
   }
 }
 
+.historyHighlights {
+  display: grid;
+  gap: 1.2rem;
+  padding-top: 0.6rem;
+
+  @include m.mediaDesktop {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.historyHighlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  min-height: 100%;
+  padding: 1.45rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.historyHighlightIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.6rem;
+  height: 3.6rem;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background-color: rgba(v.$cat-yellow2, 0.12);
+  color: v.$cat-yellow2;
+}
+
+.historyHighlightBody {
+  display: grid;
+  gap: 0.35rem;
+
+  h4 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: v.$grey-color-1;
+  }
+
+  p {
+    font-size: 1.45rem;
+    line-height: 1.52;
+    color: rgba(v.$grey-color-4, 0.84);
+  }
+}
+
 /* LIGHT MODE OVERRIDES */
 .variantLight .copyBlock h2,
+.variantLight .proofLabel,
 .variantLight .historyBlock h3 {
   color: v.$text-color-dark;
 }
 
 .variantLight .copy p,
-.variantLight .historyBlock p {
+.variantLight .proofDetail,
+.variantLight .historyBlock p,
+.variantLight .historyHighlightBody p {
   color: rgba(v.$text-color-dark, 0.88);
 }
 
+.variantLight .proofItem,
 .variantLight .imageFrame,
-.variantLight .historyBlock {
+.variantLight .historyBlock,
+.variantLight .historyHighlight {
   border-color: rgba(111, 83, 0, 0.14);
   box-shadow:
     0 1.6rem 3.2rem -2.1rem rgba(67, 49, 12, 0.18),
     0 0.4rem 1rem rgba(0, 0, 0, 0.05);
+}
+
+.variantLight .proofItem {
+  box-shadow: none;
+  background: none;
+  border-bottom-color: rgba(111, 83, 0, 0.16);
 }
 
 .variantLight .historyBlock {
@@ -298,6 +495,59 @@
       rgba(243, 234, 218, 0.08) 100%
     ),
     #111;
+}
+
+.variantLight .proofIcon,
+.variantLight .historyHighlightIcon {
+  background-color: rgba(111, 83, 0, 0.1);
+  color: #6d5300;
+}
+
+.variantLight .historyHighlight {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(247, 241, 232, 0.94) 100%
+    ),
+    #fff;
+}
+
+.variantLight .historyHighlightBody h4 {
+  color: v.$text-color-dark;
+}
+
+.variantLight .mediaTrustCard {
+  border-color: rgba(111, 83, 0, 0.16);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.96) 0%,
+      rgba(245, 238, 227, 0.98) 100%
+    ),
+    #fff;
+  box-shadow:
+    0 1.6rem 3.2rem -2rem rgba(67, 49, 12, 0.22),
+    0 0.4rem 1rem rgba(0, 0, 0, 0.06);
+}
+
+.variantLight .mediaTrustEyebrow,
+.variantLight .mediaTrustIcon {
+  color: #6d5300;
+}
+
+.variantLight .mediaTrustIcon {
+  background-color: rgba(111, 83, 0, 0.1);
+}
+
+.variantLight .mediaTrustBody {
+  strong {
+    color: #4c4030;
+  }
+
+  span {
+    color: rgba(v.$text-color-dark, 0.82);
+  }
 }
 
 .variantLight .eyebrow {
@@ -351,6 +601,10 @@
     font-size: 3.2rem;
   }
 
+  .proofList {
+    grid-template-columns: 1fr;
+  }
+
   .copy p,
   .historyBlock p {
     font-size: 1.62rem;
@@ -362,12 +616,30 @@
   }
 
   .topGrid {
-    gap: 2.2rem;
+    gap: 3rem;
   }
 
   .historyBlock {
-    margin-top: 2rem;
-    padding: 2rem 1.7rem;
+    margin-top: 3rem;
+    padding: 2.3rem 1.9rem;
+  }
+
+  .proofItem,
+  .historyHighlight {
+    padding: 1.3rem 1.35rem;
+  }
+
+  .proofDetail,
+  .historyHighlightBody p {
+    font-size: 1.34rem;
+  }
+
+  .historyHighlightBody h4 {
+    font-size: 1.42rem;
+  }
+
+  .mediaTrustItems {
+    grid-template-columns: 1fr;
   }
 
   .actions {

@@ -510,3 +510,25 @@ Every Bellhouse page or calculator should feel purposeful, credible, and specifi
 Do not make pages longer by repeating the same message in different sections.
 Do not create structure for its own sake.
 Build pages and tools that are clear, useful, and easy for real customers or contractors to act on.
+
+## Bellhouse Brand / Messaging Guardrails
+
+- Do not describe Bellhouse as family-run. Darryl bought the business from Dan Bellhouse and is not related to the Bellhouse family.
+- Do not rely on repeated generic phrases like “since 1982” or “licensed and insured” as primary differentiators.
+- Prefer specific, credible differentiators that reflect how Bellhouse is experienced by customers.
+
+### Core differentiators
+
+- Friendly, personable service
+- Customers genuinely enjoy working with Darryl
+- Pride in workmanship
+- Pride in keeping trucks and equipment clean and well maintained
+- Professional drivers who work efficiently and safely
+- Dependable hauling support without unnecessary delays between loads
+- Practical, straightforward, credible communication
+
+### Tone guidance
+
+- Keep messaging grounded, clear, and contractor-focused
+- Prefer real operational strengths over vague marketing language
+- Avoid cliché contractor copy and exaggerated claims

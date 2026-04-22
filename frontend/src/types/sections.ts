@@ -206,15 +206,31 @@ export type AboutStoryImage = {
   height?: number;
 };
 
+export type AboutStoryProofItem = {
+  label: string;
+  detail?: string;
+  icon?: ProofIcon;
+};
+
+export type AboutStoryHighlightItem = {
+  title: string;
+  text: string;
+  icon?: ProofIcon;
+};
+
 export type AboutStorySectionData = {
   _type: 'aboutStorySection';
   eyebrow?: string;
   heading: string;
   intro: string[];
+  proofItems?: AboutStoryProofItem[];
   image: AboutStoryImage;
+  supportingImage?: AboutStoryImage;
+  supportingImageLabel?: string;
   imageBadges?: string[];
   historyHeading?: string;
   history: string[];
+  historyHighlights?: AboutStoryHighlightItem[];
   primaryAction?: SectionLink;
   secondaryAction?: SectionLink;
   backgroundVariant?: 'light' | 'dark' | 'transparent';

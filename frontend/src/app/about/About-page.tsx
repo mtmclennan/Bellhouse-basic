@@ -4,7 +4,6 @@ import FinalCtaSection from '@/app/components/sections/FinalCtaSection/FinalCtaS
 import HeroSection from '@/app/components/sections/HeroSection/HeroSection';
 import ProofSection from '@/app/components/sections/ProofSection/ProofSection';
 import ServiceAreasSection from '@/app/components/sections/ServiceAreaSection/ServiceAreaSection';
-import ServicesSection from '@/app/components/sections/ServicesSection/ServicesSection';
 import TestimonialsSection from '@/app/components/sections/TestimonialsSection/TestimonialsSection';
 import { aboutFaqSection } from '@/content/pages/aboutSections';
 
@@ -13,7 +12,6 @@ import {
   aboutHeroData,
   aboutProofSection,
   aboutServiceAreasSection,
-  aboutServicesSection,
   aboutStorySection,
   aboutTestimonialsSection,
 } from '@/content/pages/aboutSections';
@@ -27,7 +25,6 @@ const About = () => {
       <ProofSection data={aboutProofSection} />
       <FaqSection data={aboutFaqSection} />
       <TestimonialsSection data={aboutTestimonialsSection} />
-      <ServicesSection data={aboutServicesSection} />
       <ServiceAreasSection data={aboutServiceAreasSection} />
       <FinalCtaSection data={aboutFinalCtaSection} />
     </Fragment>

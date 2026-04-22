@@ -37,7 +37,7 @@ export const aboutHeroData: HeroSectionData = {
   eyebrow: 'About Bellhouse Excavating',
   headline: 'Built on field experience since 1982',
   subheadline:
-    'Bellhouse Excavating supports Brantford, Brant County, and nearby communities with excavation, grading, trucking, material delivery, and practical site support for homeowners, contractors, farms, and commercial work.',
+    'Bellhouse Excavating is a local Brantford-area company known for practical site work, dependable scheduling, and field-led support across Brant County and nearby job sites.',
   primaryAction: {
     label: 'Request an Estimate',
     href: '/contact',
@@ -52,9 +52,9 @@ export const aboutHeroData: HeroSectionData = {
   },
   proofItems: [
     { label: 'Since 1982' },
-    { label: 'Excavation + Trucking' },
+    { label: 'Local Field Experience' },
     { label: 'Licensed & Insured' },
-    { label: 'Serving Brantford & Nearby Areas' },
+    { label: 'Brant County & Nearby' },
   ],
   theme: 'dark',
   overlay: 'transparent',
@@ -66,9 +66,20 @@ export const aboutStorySection: AboutStorySectionData = {
   eyebrow: 'Local Experience',
   heading: 'A local excavation company built on real field experience',
   intro: [
-    'Since 1982, Bellhouse Excavating has worked across Brantford, Brant County, Paris, Hamilton-area communities, Cambridge, Woodstock, and nearby job sites. The company has stayed in rotation by doing practical site work, keeping schedules dependable, and showing up with equipment ready to work.',
-    'Bellhouse handles foundation excavation, site preparation and grading, dump truck hauling, material delivery, and equipment floating for residential, commercial, agricultural, and contractor-led work.',
-    'That includes homeowners who need the site handled properly, builders who need the next stage ready on time, and contractors who want excavation and trucking kept on one plan.',
+    'Since 1982, Bellhouse Excavating has stayed in rotation across Brantford, Brant County, and nearby job sites by doing practical work, planning around real site conditions, and showing up ready to work.',
+    'That local experience shows up in how Bellhouse works: straightforward planning, dependable site timing, and field support that helps the next step move without unnecessary delays.',
+  ],
+  proofItems: [
+    {
+      icon: 'truck',
+      label: 'One-Plan Site Support',
+      detail: 'Digging, haul-out, delivery, and support equipment coordinated together.',
+    },
+    {
+      icon: 'users',
+      label: 'Built for Working Sites',
+      detail: 'Support that fits smaller local jobs and active contractor-led work.',
+    },
   ],
   image: {
     src: darryl,
@@ -76,12 +87,22 @@ export const aboutStorySection: AboutStorySectionData = {
     width: 600,
     height: 600,
   },
-  imageBadges: ['Excavation', 'Grading', 'Hauling'],
+  imageBadges: ['Brant County Work', 'Field-Led Planning'],
   historyHeading: 'What that experience means on site',
   history: [
     'In 2020, Darryl, a long-time Bellhouse employee with hands-on excavation experience, took over management of the company. That continuity matters. Bellhouse kept the local reputation it had built while staying focused on modern equipment, site-specific planning, and straightforward communication.',
-    'The work stays grounded in what real projects need: a foundation cut to grade, spoil hauled out on time, imported material delivered when the site is ready, and the next trade able to move in without rework.',
-    'That is what Bellhouse is known for on smaller local jobs and active contractor-led sites.',
+  ],
+  historyHighlights: [
+    {
+      icon: 'clock',
+      title: 'Scheduled around real site timing',
+      text: 'Work planned around access, sequencing, and when the next trade needs the site ready.',
+    },
+    {
+      icon: 'truck',
+      title: 'Digging and truck support on one plan',
+      text: 'Spoil haul-out, imported material, and float support can be coordinated through one company.',
+    },
   ],
   primaryAction: {
     label: 'Talk About Your Project',
@@ -118,7 +139,7 @@ export const aboutProofSection: ProofSectionData = {
   eyebrow: 'Why Bellhouse',
   heading: 'The kind of site support Bellhouse is known for',
   intro: [
-    'Bellhouse is known for practical site work, dependable scheduling, and coordination that helps projects keep moving.',
+    'Bellhouse is known for practical field decisions, dependable scheduling, and coordination that helps jobs stay ready for the next step.',
   ],
   items: [
     {
@@ -128,13 +149,13 @@ export const aboutProofSection: ProofSectionData = {
     },
     {
       icon: 'truck',
-      title: 'Excavation + Trucking Together',
+      title: 'One-Plan Site Support',
       text: 'Digging, haul-out, imported material, and support equipment coordinated through one company.',
     },
     {
       icon: 'users',
-      title: 'Built for Real Projects',
-      text: 'Support for homeowners, farms, contractors, and commercial work without overcomplicating the job.',
+      title: 'Built for Working Sites',
+      text: 'Support that fits smaller local jobs and active contractor-led work without overcomplicating the plan.',
     },
     {
       icon: 'shield',
@@ -149,10 +170,9 @@ export const aboutProofSection: ProofSectionData = {
 export const aboutServiceAreasSection: ServiceAreasSectionData = {
   _type: 'serviceAreasSection',
   eyebrow: 'Where Bellhouse Works',
-  heading:
-    'Local excavation and trucking support across Brant County and nearby areas',
+  heading: 'Brantford, Brant County, and nearby job sites',
   subtext:
-    'Bellhouse supports excavation, grading, hauling, and site work across Brantford, Paris, Hamilton, Cambridge, Woodstock, St. George, Burford, and nearby communities.',
+    'If your project is in one of these nearby areas, Bellhouse can quickly confirm service fit and next steps.',
   locations: [
     { label: 'Brantford', href: '/service-areas/brantford' },
     { label: 'Paris', href: '/service-areas/paris' },
@@ -161,13 +181,6 @@ export const aboutServiceAreasSection: ServiceAreasSectionData = {
     { label: 'Woodstock' },
     { label: 'St. George' },
     { label: 'Burford' },
-  ],
-  actions: [
-    {
-      label: 'View Service Areas',
-      href: '/service-areas',
-      variant: 'primary',
-    },
   ],
   backgroundVariant: 'light',
   backgroundTone: 'soft',
@@ -178,7 +191,7 @@ export const aboutTestimonialsSection: TestimonialsSectionData = {
   eyebrow: 'Testimonials',
   heading: 'What customers say about working with Bellhouse',
   subtext:
-    'Feedback from homeowners and local customers who have used Bellhouse for excavation, hauling, and site work.',
+    'Feedback from local customers who have worked with Bellhouse on excavation and site-support projects.',
   reviewSummary: '5.0 on Google from local customers',
   items: reviews,
   footerLink: {
@@ -192,26 +205,26 @@ export const aboutTestimonialsSection: TestimonialsSectionData = {
 export const aboutFinalCtaSection: FinalCtaSectionData = {
   _type: 'finalCtaSection',
   eyebrow: 'Get Started',
-  heading: 'Need excavation, grading, hauling, or site support?',
-  text: 'Talk with Bellhouse about your project, service area, schedule, and site requirements before the work starts moving.',
+  heading: 'Want to know if Bellhouse is the right fit for your project?',
+  text: 'Share your location, scope, and timing. Bellhouse can help confirm fit, outline practical next steps, and tell you whether a quote or site visit makes sense.',
   primaryAction: {
-    label: 'Request an Estimate',
+    label: 'Talk About Your Project',
     href: '/contact',
   },
   secondaryAction: {
-    label: 'View Services',
-    href: '/services',
+    label: 'Contractor Project Support',
+    href: '/contractors',
   },
   phone: {
     label: '519-752-8500',
     href: 'tel:5197528500',
   },
   proofItems: [
-    { label: 'Since 1982' },
-    { label: 'Licensed & Insured' },
-    { label: 'Excavation + Trucking' },
+    { label: 'Project Fit Check' },
+    { label: 'Local Service Area' },
+    { label: 'Quote or Site Visit' },
   ],
-  note: 'For repeat project support, contractor coordination, and local site work, Bellhouse can help.',
+  note: 'Bellhouse can review the job and help you decide the most practical next step before work starts moving.',
   backgroundVariant: 'dark',
   backgroundTone: 'default',
 };
@@ -221,29 +234,29 @@ export const aboutFaqSection: FaqSectionData = {
   eyebrow: 'FAQ',
   heading: 'Questions about Bellhouse Excavating',
   subtext:
-    'Helpful answers for homeowners, builders, contractors, farms, and commercial customers considering Bellhouse for excavation, grading, hauling, and site support.',
+    'Helpful answers for people deciding whether Bellhouse is the right fit for their project, location, and timeline.',
   items: [
     {
       question: 'What kind of work does Bellhouse Excavating handle?',
       answer: [
-        'Bellhouse handles excavation, grading, foundation work, material hauling, dump truck services, equipment floating, and related site support for residential, contractor-led, agricultural, and commercial projects.',
+        'Bellhouse handles excavation, grading, foundation work, material hauling, dump truck services, equipment floating, and related site support for local projects that need practical field coordination.',
         'That includes work such as foundation excavation, driveway and parking lot prep, site grading, haul-out, and material delivery.',
       ],
     },
     {
       question: 'Does Bellhouse work with homeowners as well as contractors?',
       answer:
-        'Yes. Bellhouse supports homeowners, builders, contractors, farms, and commercial projects that need practical excavation, trucking, and site coordination.',
+        'Yes. Bellhouse works on smaller local jobs, contractor-led work, and active sites that need excavation, hauling, or site support handled practically.',
     },
     {
       question: 'What areas does Bellhouse serve?',
       answer:
-        'Bellhouse regularly supports work in Brantford, Brant County, Paris, St. George, Burford, Cambridge, Hamilton, Woodstock, and nearby communities.',
+        'Bellhouse regularly supports work in Brantford, Brant County, Paris, Cambridge, Hamilton-area communities, St. George, Burford, Woodstock, and nearby job sites.',
     },
     {
       question: 'Does Bellhouse handle excavation and trucking together?',
       answer:
-        'Yes. Bellhouse can coordinate excavation, haul-out, imported material, and truck support together, which helps keep projects more organized and practical on site.',
+        'Yes. Bellhouse can coordinate digging, haul-out, imported material, and truck support together, which helps keep the work more organized and practical on site.',
     },
     {
       question: 'How do I know if Bellhouse is the right fit for my project?',
