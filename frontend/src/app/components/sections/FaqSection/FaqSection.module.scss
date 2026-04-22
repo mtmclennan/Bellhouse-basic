@@ -100,13 +100,9 @@
 
   h2 {
     margin: 0;
-    font-size: 3.4rem;
+    @include m.sectionHeadingStrong(3.6rem, 5rem);
     line-height: 1.08;
     color: var(--section-heading-color);
-
-    @include m.mediaDesktop {
-      font-size: 4.8rem;
-    }
   }
 }
 
@@ -116,18 +112,7 @@
 }
 
 .eyebrow {
-  display: inline-flex;
-  width: fit-content;
   margin: 0 auto;
-  padding: 0.8rem 1.1rem;
-  border: 1px solid rgba(111, 83, 0, 0.18);
-  border-radius: 999px;
-  background-color: rgba(111, 83, 0, 0.08);
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #674e00;
 }
 
 .subtext {
@@ -268,7 +253,16 @@
 }
 
 .footerAction {
-  @include m.btnMain;
+  @include m.btnSectionPrimary;
+}
+
+.variantLight .eyebrow {
+  @include m.sectionEyebrowLight;
+}
+
+.variantDark .eyebrow,
+.variantTransparent .eyebrow {
+  @include m.sectionEyebrowDark;
 }
 
 @media (hover: hover) and (pointer: fine) {

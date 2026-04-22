@@ -17,14 +17,9 @@
   h2 {
     margin: 1rem 0 2rem;
     text-align: center;
-    font-size: 4rem;
-    font-weight: 100;
-    line-height: 1.2;
+    @include m.sectionHeadingStrong(3.6rem, 5rem);
+    line-height: 1.12;
     max-width: 95rem;
-
-    @include m.mediaDesktop {
-      font-size: 5rem;
-    }
   }
 }
 
@@ -34,18 +29,8 @@
 }
 
 .eyebrow {
-  min-height: 3.6rem;
   margin: 0 auto;
-  padding: 0.7rem 1.2rem;
-  border-radius: 999px;
-  border: 1px solid rgba(v.$cat-yellow2, 0.32);
-  background-color: rgba(v.$cat-yellow2, 0.1);
   text-align: center;
-  font-size: 1.35rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #5c4300;
 }
 
 .intro {
@@ -77,7 +62,7 @@
   align-items: flex-start;
   gap: 1.8rem;
   padding: 2.4rem;
-  border-radius: 1.4rem;
+  border-radius: 1.8rem;
   transition:
     background-color 0.2s ease,
     border-color 0.2s ease,
@@ -172,9 +157,7 @@
   }
 
   .eyebrow {
-    border-color: rgba(133, 102, 24, 0.18);
-    background-color: rgba(122, 90, 0, 0.1);
-    color: #6f5300;
+    @include m.sectionEyebrowLight;
   }
 }
 
@@ -207,9 +190,7 @@
   }
 
   .eyebrow {
-    border-color: rgba(v.$cat-yellow2, 0.28);
-    background-color: rgba(v.$cat-yellow2, 0.08);
-    color: v.$cat-yellow2;
+    @include m.sectionEyebrowDark;
   }
 }
 
@@ -243,9 +224,7 @@
   }
 
   .eyebrow {
-    border-color: rgba(v.$cat-yellow2, 0.28);
-    background-color: rgba(v.$cat-yellow2, 0.08);
-    color: v.$cat-yellow2;
+    @include m.sectionEyebrowDark;
   }
 }
 

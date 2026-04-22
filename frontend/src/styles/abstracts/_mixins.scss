@@ -115,6 +115,56 @@
   }
 }
 
+@mixin btnSectionPrimary {
+  padding: 1.15rem 1.5rem;
+  border-radius: 10px;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: v.$btn-main-text2;
+  background-color: v.$btn-main;
+  border: 2px solid v.$btn-main-border2;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+
+  &:hover,
+  &:focus {
+    background-color: v.$btn-main-hover;
+    transform: translateY(-1px);
+  }
+
+  @include mediaPhone {
+    font-size: 1.55rem;
+  }
+}
+
+@mixin btnSectionSecondary {
+  padding: 1.15rem 1.5rem;
+  border-radius: 10px;
+  font-size: 1.7rem;
+  font-weight: 600;
+  background-color: rgba(v.$grey-color-6, 0.7);
+  color: v.$btn-text;
+  border: 2px solid rgba(v.$grey-color-7, 0.6);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+
+  &:hover,
+  &:focus {
+    background-color: rgba(v.$grey-color-5, 0.92);
+    border-color: rgba(v.$grey-color-7, 0.78);
+    transform: translateY(-1px);
+  }
+
+  @include mediaPhone {
+    font-size: 1.55rem;
+  }
+}
+
 @mixin sectionHeading($mobile: 3.6rem, $desktop: 5rem) {
   font-size: $mobile;
   line-height: 1.1;
@@ -123,6 +173,49 @@
   @include mediaDesktop {
     font-size: $desktop;
   }
+}
+
+@mixin sectionHeadingStrong($mobile: 3.6rem, $desktop: 5rem) {
+  font-size: $mobile;
+  line-height: 1.08;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+
+  @include mediaDesktop {
+    font-size: $desktop;
+  }
+}
+
+@mixin sectionEyebrowDark {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 3.6rem;
+  padding: 0.7rem 1.2rem;
+  border: 1px solid rgba(v.$cat-yellow2, 0.28);
+  border-radius: 999px;
+  background-color: rgba(v.$cat-yellow2, 0.08);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: v.$cat-yellow2;
+}
+
+@mixin sectionEyebrowLight {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 3.6rem;
+  padding: 0.7rem 1.2rem;
+  border: 1px solid rgba(111, 83, 0, 0.18);
+  border-radius: 999px;
+  background-color: rgba(111, 83, 0, 0.08);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #674e00;
 }
 
 @mixin textLink($color: v.$text-color-mid-dark, $hoverColor: v.$grey-color-7) {
