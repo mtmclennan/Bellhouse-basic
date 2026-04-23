@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from 'react';
 import {
   Buildings,
   Clock,
+  ShieldCheck,
   Truck,
   UsersThree,
 } from '@phosphor-icons/react';

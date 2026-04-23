@@ -32,6 +32,43 @@
     ]
   },
 
+  "fit": {
+    "heading": "Where This Site Prep Work Adds the Most Value",
+    "subheading": "Best fit for projects that need practical grading decisions, stable pads, and clear access before the next phase of construction starts.",
+    "items": [
+      {
+        "title": "Raw lots that need build-ready grades",
+        "description": "A good fit when the site still needs stripping, rough grade correction, and usable elevations established before foundation, utility, or framing crews step in.",
+        "projectTypes": [
+          "New build lots",
+          "Barn and shop sites",
+          "Rural residential starts"
+        ],
+        "outcome": "Gets the site into a cleaner, more buildable condition instead of leaving grading and stripping spread across multiple small scopes."
+      },
+      {
+        "title": "Pads, drainage shaping, and access routes",
+        "description": "Works well when the job needs more than surface smoothing and actually depends on stable pads, sensible water movement, and dependable route prep for trucks and machines.",
+        "projectTypes": [
+          "Building pads",
+          "Drainage swales",
+          "Access lanes"
+        ],
+        "outcome": "Supports a site that drains properly and stays workable for material delivery, concrete, and follow-on trades."
+      },
+      {
+        "title": "Contractor-led site prep with material movement",
+        "description": "A strong fit for active projects where cut, fill, imported aggregate, and on-site material handling all need to stay aligned with schedule instead of being split between crews.",
+        "projectTypes": [
+          "Grade-controlled prep",
+          "Imported base",
+          "Truck-supported site work"
+        ],
+        "outcome": "Helps keep prep, grading, and haul coordination moving as one operation rather than separate call-outs."
+      }
+    ]
+  },
+
   "includes": {
     "heading": "Site Prep & Grading Includes",
     "subheading": "Everything required to turn raw land into a build-ready site.",
@@ -158,5 +195,42 @@
     "heading": "Need Your Site Ready for Construction?",
     "subheading": "Get a quote for site preparation and grading.",
     "button": "Request Site Prep Quote"
+  },
+
+  "layout": {
+    "hero": {
+      "emphasis": "high",
+      "eyebrow": "Build-ready site preparation",
+      "proofChips": [
+        "Topsoil stripping and rough grading",
+        "Building pads, access routes and drainage",
+        "Grade control for active job sites"
+      ],
+      "secondaryLabel": "For Builders & Contractors",
+      "secondaryHref": "/contractors"
+    },
+    "finalCta": {
+      "mode": "mixed"
+    },
+    "sections": [
+      "intro",
+      {
+        "id": "fit",
+        "emphasis": "high"
+      },
+      "proof",
+      {
+        "id": "resources",
+        "emphasis": "high"
+      },
+      "contractorCta",
+      "process",
+      "localIntent",
+      "equipment",
+      "faq",
+      "relatedServices",
+      "reviews",
+      "finalCta"
+    ]
   }
 }

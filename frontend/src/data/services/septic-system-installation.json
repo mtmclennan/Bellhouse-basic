@@ -147,5 +147,23 @@
     "heading": "Need a Septic System Installed?",
     "subheading": "Get a professional quote for excavation and installation.",
     "button": "Request Septic Quote"
+  },
+
+  "layout": {
+    "sections": [
+      "intro",
+      {
+        "id": "proof",
+        "emphasis": "high"
+      },
+      "process",
+      "equipment",
+      "localIntent",
+      "resources",
+      "faq",
+      "relatedServices",
+      "reviews",
+      "finalCta"
+    ]
   }
 }

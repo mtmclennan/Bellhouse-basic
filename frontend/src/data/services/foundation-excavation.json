@@ -32,6 +32,43 @@
     ]
   },
 
+  "fit": {
+    "heading": "When Bellhouse Is the Right Crew for the Dig",
+    "subheading": "Best fit for foundation work that needs accurate elevations, spoil handled cleanly, and backfill support that keeps the next trade moving.",
+    "items": [
+      {
+        "title": "New homes, garages, and additions",
+        "description": "A strong fit when you need a crew that can cut to plan, manage spoil without leaving the site buried, and leave the excavation ready for footing and wall work.",
+        "projectTypes": [
+          "New home foundations",
+          "Garage additions",
+          "Structural additions"
+        ],
+        "outcome": "Keeps layout, excavation, and haul-out coordinated so the build can move straight into the foundation phase."
+      },
+      {
+        "title": "Walkouts, stepped grades, and awkward access",
+        "description": "Useful on sites where slope, staging, or tighter access affects how the dig has to be sequenced and how material is moved around the lot.",
+        "projectTypes": [
+          "Basement walkouts",
+          "Sloped lots",
+          "Tight residential access"
+        ],
+        "outcome": "Helps avoid messy rework on access, spoil placement, and drainage shaping before concrete work begins."
+      },
+      {
+        "title": "Backfill and post-foundation coordination",
+        "description": "A practical fit when the same job needs controlled backfill, compaction, rough grading, and a clean handoff after waterproofing and foundation work are complete.",
+        "projectTypes": [
+          "Granular backfill",
+          "Lift compaction",
+          "Drainage grading"
+        ],
+        "outcome": "Brings the site back to a stable, workable condition instead of leaving backfill and grading for separate cleanup later."
+      }
+    ]
+  },
+
   "includes": {
     "heading": "Foundation Excavation Scope",
     "subheading": "We handle every stage of the excavation, from layout to spoil removal to final grading, so your foundation is structurally ready and builder-approved.",
@@ -169,6 +206,43 @@
     "heading": "Ready to Start Your Excavation?",
     "subheading": "Get a fast, accurate estimate for your foundation project.",
     "button": "Get a Free Estimate"
+  },
+
+  "layout": {
+    "hero": {
+      "emphasis": "high",
+      "eyebrow": "Builders, additions & new foundations",
+      "proofChips": [
+        "Layout to engineered elevations",
+        "Spoil haul-out and backfill support",
+        "Fit for contractor-led schedules"
+      ],
+      "secondaryLabel": "For Builders & Contractors",
+      "secondaryHref": "/contractors"
+    },
+    "finalCta": {
+      "mode": "mixed"
+    },
+    "sections": [
+      "intro",
+      {
+        "id": "fit",
+        "emphasis": "high"
+      },
+      {
+        "id": "proof",
+        "emphasis": "high"
+      },
+      "process",
+      "contractorCta",
+      "resources",
+      "equipment",
+      "localIntent",
+      "faq",
+      "relatedServices",
+      "reviews",
+      "finalCta"
+    ]
   }
 }
 

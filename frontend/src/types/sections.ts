@@ -1,3 +1,5 @@
+import type { StaticImageData } from 'next/image';
+
 export type SectionLink = {
   label: string;
   href: string;
@@ -29,7 +31,7 @@ export type HeroProofItem = {
 };
 
 export type HeroImage = {
-  src: string;
+  src: string | StaticImageData;
   alt: string;
   width?: number;
   height?: number;
@@ -240,7 +242,7 @@ export type FinalCtaSectionData = {
 };
 
 export type AboutStoryImage = {
-  src: string;
+  src: string | StaticImageData;
   alt: string;
   width?: number;
   height?: number;

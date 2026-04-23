@@ -148,6 +148,39 @@
     "heading": "Need a Volvo A35 on Site?",
     "subheading": "Contact Bellhouse Excavating for off-road dump truck rental with operator.",
     "button": "Request a Quote"
+  },
+
+  "layout": {
+    "hero": {
+      "emphasis": "high",
+      "eyebrow": "Large-site hauling support",
+      "proofChips": [
+        "Volvo A35 with operator",
+        "Built for rough ground and bulk movement",
+        "Useful on active contractor-led earthworks"
+      ],
+      "secondaryLabel": "For Builders & Contractors",
+      "secondaryHref": "/contractors"
+    },
+    "finalCta": {
+      "mode": "contractor"
+    },
+    "sections": [
+      "intro",
+      {
+        "id": "contractorCta",
+        "emphasis": "high"
+      },
+      "equipment",
+      "proof",
+      "resources",
+      "process",
+      "localIntent",
+      "faq",
+      "relatedServices",
+      "reviews",
+      "finalCta"
+    ]
   }
 }
 

@@ -2,22 +2,20 @@ import type { ServicePage } from '@/types/interfaces';
 
 export type ServiceAreaLinkItem = {
   label: string;
-  href?: string;
+  href: string;
+};
+
+export type ServiceLocalIntentContent = {
+  paragraph: string;
+  linkedAreas: ServiceAreaLinkItem[];
+  viewAllHref: string;
+  viewAllLabel: string;
 };
 
 export type RelatedServiceLinkItem = {
   title: string;
   description: string;
   href: string;
-};
-
-export type ContractorCtaContent = {
-  title: string;
-  description: string;
-  primaryLabel: string;
-  primaryHref: string;
-  secondaryLabel: string;
-  secondaryHref: string;
 };
 
 const liveServiceAreaMap: Record<string, string> = {
@@ -92,15 +90,6 @@ const relatedServiceMap: Record<string, string[]> = {
   ],
 };
 
-const contractorFocusedSlugs = new Set([
-  'foundation-excavation',
-  'site-preparation-land-grading',
-  'dump-truck-rental',
-  'heavy-equipment-hauling',
-  'volvo-a35-off-road-dump-truck-rental',
-  'dirt-gravel-delivery',
-]);
-
 function getUniqueItems<T>(items: T[], getKey: (item: T) => string) {
   return items.filter((item, index, allItems) => {
     const key = getKey(item);
@@ -108,16 +97,68 @@ function getUniqueItems<T>(items: T[], getKey: (item: T) => string) {
   });
 }
 
-export function getLinkedServiceAreas(service: ServicePage): ServiceAreaLinkItem[] {
-  const locations = service.serviceArea?.locations ?? [];
+function normalizeSentence(text: string) {
+  return text.trim().replace(/\s+/g, ' ').replace(/\.+$/, '.');
+}
 
-  return getUniqueItems(
-    locations.map((label) => ({
+function formatAreaLabelList(labels: string[]) {
+  if (labels.length === 0) {
+    return '';
+  }
+
+  if (labels.length === 1) {
+    return labels[0];
+  }
+
+  if (labels.length === 2) {
+    return `${labels[0]} and ${labels[1]}`;
+  }
+
+  return `${labels.slice(0, -1).join(', ')}, and ${labels[labels.length - 1]}`;
+}
+
+function buildOverflowCoverageSentence(labels: string[]) {
+  if (labels.length === 0) {
+    return undefined;
+  }
+
+  const visibleLabels = labels.slice(0, 4);
+  const labelList = formatAreaLabelList(visibleLabels);
+
+  if (labels.length > visibleLabels.length) {
+    return `Also serving ${labelList}, and other nearby Bellhouse service areas.`;
+  }
+
+  return `Also serving ${labelList}.`;
+}
+
+export function getServiceLocalIntent(
+  service: ServicePage,
+): ServiceLocalIntentContent | null {
+  if (!service.serviceArea) {
+    return null;
+  }
+
+  const locations = service.serviceArea.locations ?? [];
+  const uniqueLocations = getUniqueItems(locations, (location) => location);
+  const linkedAreas = uniqueLocations
+    .map((label) => ({
       label,
       href: liveServiceAreaMap[label],
-    })),
-    (item) => item.label,
-  );
+    }))
+    .filter((item): item is ServiceAreaLinkItem => Boolean(item.href));
+  const overflowLabels = uniqueLocations.filter((label) => !liveServiceAreaMap[label]);
+  const overflowSentence = buildOverflowCoverageSentence(overflowLabels);
+  const baseParagraph = normalizeSentence(service.serviceArea.content);
+
+  return {
+    paragraph: overflowSentence
+      ? `${baseParagraph} ${overflowSentence}`
+      : baseParagraph,
+    linkedAreas,
+    viewAllHref: '/service-areas',
+    viewAllLabel: 'View All Service Areas',
+  };
 }
 
 export function getRelatedServiceLinks(
@@ -134,20 +175,4 @@ export function getRelatedServiceLinks(
       description: candidate.card.description,
       href: `/services/${candidate.slug}`,
     }));
-}
-
-export function getContractorCta(service: ServicePage): ContractorCtaContent | null {
-  if (!contractorFocusedSlugs.has(service.slug)) {
-    return null;
-  }
-
-  return {
-    title: 'Builders and contractors can send project details for review',
-    description:
-      'If your project needs excavation, trucking, material delivery, or equipment support lined up around a real schedule, Bellhouse can review the site, scope, and timing.',
-    primaryLabel: 'Send Project Details',
-    primaryHref: '/contractors#contractor-form',
-    secondaryLabel: 'Call 519-752-8500',
-    secondaryHref: 'tel:5197528500',
-  };
 }

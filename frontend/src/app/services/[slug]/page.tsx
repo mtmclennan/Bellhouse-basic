@@ -4,8 +4,7 @@ import { validateMetadata } from '../../../lib/utils/seoValidation';
 import { getServiceBySlug } from '@/data/services/index';
 import { getAllServices } from '@/data/services/index';
 import {
-  getContractorCta,
-  getLinkedServiceAreas,
+  getServiceLocalIntent,
   getRelatedServiceLinks,
 } from '@/lib/servicePageLinks';
 
@@ -46,9 +45,8 @@ export default async function ServicePage({ params }: ServicePageProps) {
   return (
     <ServiceLayout
       service={service}
-      linkedServiceAreas={getLinkedServiceAreas(service)}
+      localIntent={getServiceLocalIntent(service)}
       relatedServices={getRelatedServiceLinks(service, allServices)}
-      contractorCta={getContractorCta(service)}
     />
   );
 }

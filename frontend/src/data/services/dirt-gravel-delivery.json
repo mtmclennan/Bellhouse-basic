@@ -119,6 +119,31 @@
     "heading": "Need Aggregates Delivered?",
     "subheading": "Get a fast quote for dirt or gravel delivery.",
     "button": "Get Delivery Quote"
+  },
+
+  "layout": {
+    "hero": {
+      "emphasis": "compact",
+      "secondaryLabel": "For Builders & Contractors",
+      "secondaryHref": "/contractors"
+    },
+    "finalCta": {
+      "mode": "mixed"
+    },
+    "sections": [
+      "intro",
+      {
+        "id": "resources",
+        "emphasis": "high"
+      },
+      "proof",
+      "contractorCta",
+      "localIntent",
+      "faq",
+      "relatedServices",
+      "reviews",
+      "finalCta"
+    ]
   }
 }
 

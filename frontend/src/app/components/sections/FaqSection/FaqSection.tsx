@@ -17,7 +17,7 @@ type FaqSectionProps = {
 };
 
 function normalizeAnswer(answer: FaqItemData['answer']) {
-  return Array.isArray(answer) ? answer : [answer];
+  return (Array.isArray(answer) ? answer : [answer]) as RichTextParagraph[];
 }
 
 function isRichTextLink(part: RichTextPart): part is Exclude<RichTextPart, string> {

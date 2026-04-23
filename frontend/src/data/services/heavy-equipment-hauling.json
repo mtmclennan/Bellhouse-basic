@@ -143,6 +143,38 @@
     "heading": "Need Equipment Hauled?",
     "subheading": "Get a reliable, insured hauling service for your machinery.",
     "button": "Request Hauling Quote"
+  },
+
+  "layout": {
+    "hero": {
+      "emphasis": "compact",
+      "eyebrow": "Float service for active sites",
+      "proofChips": [
+        "Secure loading and tie-down",
+        "Machine moves between yards and job sites",
+        "Planned around working schedules"
+      ],
+      "secondaryLabel": "For Builders & Contractors",
+      "secondaryHref": "/contractors"
+    },
+    "finalCta": {
+      "mode": "contractor"
+    },
+    "sections": [
+      "intro",
+      {
+        "id": "equipment",
+        "emphasis": "high"
+      },
+      "proof",
+      "contractorCta",
+      "process",
+      "localIntent",
+      "faq",
+      "relatedServices",
+      "reviews",
+      "finalCta"
+    ]
   }
 }
 

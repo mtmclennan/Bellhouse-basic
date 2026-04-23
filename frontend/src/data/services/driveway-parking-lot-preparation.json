@@ -32,6 +32,43 @@
     ]
   },
 
+  "fit": {
+    "heading": "When This Prep Work Is Worth Bringing Bellhouse In",
+    "subheading": "Best fit for surfaces that need more than a quick top-up and actually require grade correction, stable base, and proper compaction before the next layer goes down.",
+    "items": [
+      {
+        "title": "Driveway rebuilds with soft spots or drainage issues",
+        "description": "A practical fit when an existing driveway is holding water, rutting, or breaking down because the grade and base underneath were never corrected properly.",
+        "projectTypes": [
+          "Drainage correction",
+          "Subgrade repair",
+          "Driveway rebuilds"
+        ],
+        "outcome": "Addresses the underlying grade and base problem instead of just dressing up the surface for a short-term fix."
+      },
+      {
+        "title": "Widening jobs and fresh granular base installs",
+        "description": "Useful when the work includes cutting back edges, importing stone, placing base in lifts, and tying new prep into an existing driveway or lane cleanly.",
+        "projectTypes": [
+          "Driveway widening",
+          "New gravel base",
+          "Lane extensions"
+        ],
+        "outcome": "Leaves a more uniform driving surface that is ready for gravel use or paving without patchwork transitions."
+      },
+      {
+        "title": "Small parking areas and contractor-ready prep",
+        "description": "A strong fit for parking lots, yard entrances, and other traffic areas that need usable slopes, compacted base, and a clear handoff to the paving contractor or finish surface crew.",
+        "projectTypes": [
+          "Parking-lot prep",
+          "Commercial entrances",
+          "Paving-ready base"
+        ],
+        "outcome": "Creates a surface that is easier for the next crew to pave, top, or finish without regrading on arrival."
+      }
+    ]
+  },
+
   "includes": {
     "heading": "Driveway & Parking Lot Prep Includes",
     "subheading": "Everything required to build a stable, long-lasting surface.",
@@ -162,6 +199,39 @@
     "heading": "Ready to Build a Better Driveway?",
     "subheading": "Get a quote for grading and site preparation today.",
     "button": "Request a Quote"
+  },
+
+  "layout": {
+    "hero": {
+      "eyebrow": "Driveway base prep & lot grading",
+      "proofChips": [
+        "Slope correction and drainage control",
+        "Granular base placed and compacted in lifts",
+        "Residential driveways and commercial parking areas"
+      ]
+    },
+    "finalCta": {
+      "mode": "mixed"
+    },
+    "sections": [
+      "intro",
+      {
+        "id": "fit",
+        "emphasis": "high"
+      },
+      "proof",
+      {
+        "id": "resources",
+        "emphasis": "high"
+      },
+      "process",
+      "localIntent",
+      "equipment",
+      "faq",
+      "relatedServices",
+      "reviews",
+      "finalCta"
+    ]
   }
 }
 

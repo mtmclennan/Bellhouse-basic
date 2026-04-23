@@ -137,5 +137,21 @@
     "heading": "Need a Structure Removed?",
     "subheading": "Get a demolition quote for your house, barn, or outbuilding.",
     "button": "Request Demolition Quote"
+  },
+
+  "layout": {
+    "sections": [
+      "intro",
+      {
+        "id": "proof",
+        "emphasis": "high"
+      },
+      "process",
+      "localIntent",
+      "faq",
+      "relatedServices",
+      "reviews",
+      "finalCta"
+    ]
   }
 }

@@ -132,5 +132,22 @@
     "heading": "Ready to Build or Restore Your Pond?",
     "subheading": "Get a custom quote for pond digging or cleaning.",
     "button": "Request Pond Quote"
+  },
+
+  "layout": {
+    "sections": [
+      "intro",
+      {
+        "id": "resources",
+        "emphasis": "high"
+      },
+      "proof",
+      "process",
+      "localIntent",
+      "faq",
+      "relatedServices",
+      "reviews",
+      "finalCta"
+    ]
   }
 }

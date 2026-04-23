@@ -24,6 +24,75 @@ export interface ServiceRequest {
   requestDate: string;
 }
 
+export type ServiceSectionId =
+  | 'intro'
+  | 'fit'
+  | 'proof'
+  | 'equipment'
+  | 'process'
+  | 'localIntent'
+  | 'contractorCta'
+  | 'resources'
+  | 'faq'
+  | 'relatedServices'
+  | 'reviews'
+  | 'finalCta';
+
+export type ServiceSectionEmphasis = 'low' | 'standard' | 'high';
+
+export interface ServiceLayoutSection {
+  id: ServiceSectionId;
+  enabled?: boolean;
+  emphasis?: ServiceSectionEmphasis;
+}
+
+export interface ServiceHeroLayoutConfig {
+  emphasis?: 'compact' | 'standard' | 'high';
+  eyebrow?: string;
+  summary?: string;
+  proofChips?: string[];
+  primaryLabel?: string;
+  primaryHref?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+}
+
+export interface ServiceModuleCtaLayoutConfig {
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  primaryLabel?: string;
+  primaryHref?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+}
+
+export interface ServiceResourcesLayoutConfig {
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  viewAllLabel?: string;
+  viewAllHref?: string;
+}
+
+export interface ServiceFinalCtaLayoutConfig {
+  mode?: 'quote' | 'contact' | 'contractor' | 'mixed';
+  heading?: string;
+  subheading?: string;
+  primaryLabel?: string;
+  primaryHref?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+}
+
+export interface ServicePageLayout {
+  hero?: ServiceHeroLayoutConfig;
+  contractorCta?: ServiceModuleCtaLayoutConfig;
+  resources?: ServiceResourcesLayoutConfig;
+  finalCta?: ServiceFinalCtaLayoutConfig;
+  sections?: Array<ServiceSectionId | ServiceLayoutSection>;
+}
+
 export interface ServicePage {
   meta: {
     title: string;
@@ -50,6 +119,17 @@ export interface ServicePage {
     heading: string;
     content: string;
     keypoints: string[];
+  };
+
+  fit?: {
+    heading: string;
+    subheading?: string;
+    items: {
+      title: string;
+      description: string;
+      projectTypes?: string[];
+      outcome?: string;
+    }[];
   };
 
   includes?: {
@@ -99,6 +179,8 @@ export interface ServicePage {
     subheading: string;
     button: string;
   };
+
+  layout?: ServicePageLayout;
 }
 
 export interface Service {
