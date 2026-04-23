@@ -99,10 +99,10 @@
 }
 
 .densityCompact {
-  padding: 3.6rem 1.5rem 4.4rem;
+  padding: 4.4rem 1.5rem 5.2rem;
 
   @include m.mediaDesktop {
-    padding: 4.6rem 2rem 5.4rem;
+    padding: 5.2rem 2rem 6rem;
   }
 
   .inner {
@@ -110,14 +110,14 @@
   }
 
   .card {
-    gap: 1.8rem;
-    padding: 1.8rem;
-    border-radius: 1.7rem;
+    gap: 1.6rem;
+    padding: 1.7rem;
+    border-radius: 0.8rem;
 
     @include m.mediaDesktop {
       grid-template-columns: minmax(0, 1.35fr) minmax(34rem, 0.8fr);
-      gap: 2.2rem;
-      padding: 2.2rem;
+      gap: 2rem;
+      padding: 2.1rem;
     }
   }
 
@@ -127,7 +127,7 @@
     h2 {
       max-width: 62rem;
       @include m.sectionHeadingStrong(2.8rem, 3.8rem);
-      line-height: 1.08;
+      line-height: 1.1;
     }
   }
 
@@ -150,7 +150,7 @@
   .actionPanel {
     gap: 0.8rem;
     padding: 1.25rem;
-    border-radius: 1.35rem;
+    border-radius: 0.8rem;
   }
 
   .primaryAction,
@@ -176,7 +176,7 @@
   gap: 2.2rem;
   padding: 2.4rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 2rem;
+  border-radius: 0.8rem;
   background:
     linear-gradient(
       180deg,
@@ -271,7 +271,7 @@
   gap: 1rem;
   padding: 1.6rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 1.6rem;
+  border-radius: 0.8rem;
   background:
     linear-gradient(
       180deg,

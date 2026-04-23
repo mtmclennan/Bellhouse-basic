@@ -85,15 +85,24 @@ export type ServicesSectionCard = {
   href: string;
 };
 
+export type ServicesSectionGroup = {
+  id: string;
+  heading: string;
+  description?: RichTextParagraph;
+  items: ServicesSectionCard[];
+};
+
 export type ServicesSectionData = {
   _type: 'servicesSection';
   eyebrow?: string;
   heading: string;
-  intro?: string;
-  items: ServicesSectionCard[];
+  intro?: RichTextParagraph;
+  items?: ServicesSectionCard[];
+  groups?: ServicesSectionGroup[];
   actions?: SectionActionLink[];
   backgroundVariant?: 'light' | 'dark' | 'transparent';
   backgroundTone?: 'default' | 'soft' | 'muted';
+  cardSize?: 'default' | 'large';
 };
 
 export type AudienceSectionItem = {

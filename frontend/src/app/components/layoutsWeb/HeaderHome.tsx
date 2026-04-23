@@ -16,9 +16,21 @@ import { resourceNavigationItems } from './resourcesNavigation';
 const MainHeader = () => {
   const pathname = usePathname();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [isAtTop, setIsAtTop] = useState(true);
 
   useEffect(() => {
     setShowMobileMenu(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    const updateScrollState = () => {
+      setIsAtTop(window.scrollY < 8);
+    };
+
+    updateScrollState();
+    window.addEventListener('scroll', updateScrollState, { passive: true });
+
+    return () => window.removeEventListener('scroll', updateScrollState);
   }, [pathname]);
 
   const isOverlayHeroRoute = useMemo(() => {
@@ -50,7 +62,11 @@ const MainHeader = () => {
     <Fragment>
       <header
         className={`${classes.header} ${
-          isOverlayHeroRoute ? classes.headerOverlay : classes.headerSolid
+          isAtTop
+            ? classes.headerTop
+            : isOverlayHeroRoute
+              ? classes.headerOverlay
+              : classes.headerSolid
         }`}
       >
         <nav className={classes.nav}>

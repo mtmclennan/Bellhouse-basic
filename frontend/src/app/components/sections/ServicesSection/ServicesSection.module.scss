@@ -2,22 +2,28 @@
 @use '../../../../styles/abstracts/mixins' as m;
 
 .section {
-  padding: 6rem 0 5rem;
+  padding: 5.6rem 0 6.4rem;
+
+  @include m.mediaDesktop {
+    padding: 6.6rem 0 7.6rem;
+  }
 }
 
 .container {
   @include m.flexCenter(column);
   width: 95%;
-  max-width: 120rem;
+  max-width: 118rem;
   margin: 0 auto;
 
   h2 {
-    font-size: 4.2rem;
-    margin-bottom: 2rem;
+    font-size: 3.8rem;
+    font-weight: 760;
+    line-height: 1.08;
+    margin-bottom: 1.4rem;
     text-align: center;
 
     @include m.mediaDesktop {
-      font-size: 5rem;
+      font-size: 4.8rem;
     }
   }
 }
@@ -34,10 +40,23 @@
 
 .intro {
   max-width: 82rem;
-  margin: 0 auto 3.5rem;
-  font-size: 1.8rem;
-  line-height: 1.65;
+  margin: 0 auto 4rem;
+  font-size: 1.72rem;
+  line-height: 1.62;
   text-align: center;
+}
+
+.inlineLink {
+  color: v.$btn-main;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 0.1rem;
+  text-underline-offset: 0.25rem;
+
+  &:hover,
+  &:focus-visible {
+    color: v.$cat-yellow;
+  }
 }
 
 .grid {
@@ -86,6 +105,71 @@
   }
 }
 
+.groups {
+  width: 100%;
+  display: grid;
+  gap: 3.6rem;
+
+  @include m.mediaDesktop {
+    gap: 5.2rem;
+  }
+}
+
+.group {
+  width: 100%;
+}
+
+.groupHeader {
+  max-width: 76rem;
+  margin-bottom: 1.5rem;
+  padding-left: 1.3rem;
+  border-left: 3px solid rgba(v.$cat-yellow2, 0.74);
+
+  h3 {
+    margin: 0 0 0.7rem;
+    color: v.$color-primary;
+    font-size: 2.7rem;
+    font-weight: 720;
+    line-height: 1.2;
+
+    @include m.mediaDesktop {
+      font-size: 3.4rem;
+    }
+  }
+
+  p {
+    max-width: 68rem;
+    margin: 0;
+    color: rgba(v.$text-color-light, 0.88);
+    font-size: 1.62rem;
+    line-height: 1.58;
+  }
+}
+
+.groupGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  overflow: visible;
+  scroll-snap-type: none;
+  padding: 0;
+  gap: 1.3rem;
+
+  > li {
+    flex: unset;
+    min-width: 0;
+    scroll-snap-align: unset;
+  }
+
+  @include m.mediaDesktop {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.8rem;
+  }
+
+  @include m.mediaWideDesktop {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 .footer {
   margin-top: 3.5rem;
   text-align: center;
@@ -112,7 +196,14 @@
 }
 
 .variantDark {
-  background-color: v.$color-primary-dark;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(20, 20, 20, 1) 0%,
+      rgba(28, 28, 28, 1) 42%,
+      rgba(23, 23, 23, 1) 100%
+    ),
+    v.$color-primary-dark;
   color: v.$grey-color-1;
 }
 
@@ -140,7 +231,14 @@
   }
 
   &.variantDark {
-    background-color: rgba(0, 0, 0, 0.45);
+    background:
+      linear-gradient(
+        180deg,
+        rgba(18, 18, 18, 1) 0%,
+        rgba(25, 25, 25, 1) 48%,
+        rgba(20, 20, 20, 1) 100%
+      ),
+      v.$color-primary-dark;
   }
 }
 .grid > li {

@@ -10,7 +10,7 @@
     },
     "card": {
       "title": "Foundation Excavation & Backfilling",
-      "description": "Accurate foundation digs and reliable backfilling for residential and commercial builds.",
+      "description": "Foundation digs, basement walkouts, backfill, and spoil handling for new builds, additions, and structural work.",
       "image": "/assets/foundation-excavation-machinery.jpg",
       "alt": "Excavator digging foundation trench for residential construction"
     },
@@ -173,7 +173,7 @@
     },
     "card": {
       "title": "Heavy Equipment Hauling & Float Truck Services",
-      "description": "Transport heavy machinery safely with our professional float truck services. Reliable hauling for excavators, loaders, and construction equipment.",
+      "description": "Float service for moving excavators, loaders, and other machinery between yards, job sites, and contractor projects.",
       "image": "/assets/truck-hauling-heavy-equipment.jpg",
       "alt": "A float truck transporting an excavator to a construction site in Brant County."
     },
@@ -205,7 +205,7 @@
     },
     "card": {
       "title": "Dump Truck Services - Dirt & Gravel Delivery",
-      "description": "Bulk delivery of gravel, topsoil, sand, and aggregates. Reliable dump truck services for construction and landscaping projects.",
+      "description": "Bulk gravel, topsoil, sand, or fill delivered by dump truck for driveways, grading, landscaping, and construction prep.",
       "image": "/assets/dump-truck-delivery-service.jpg",
       "alt": "A tri-axle dump truck unloading gravel at a construction site."
     },
@@ -237,7 +237,7 @@
     },
     "card": {
       "title": "Driveway & Parking Lot Preparation",
-      "description": "Expert site grading and compaction for stable driveways and parking lots. Preparing surfaces for concrete, asphalt, or gravel installation.",
+      "description": "Grading, base prep, and compaction for gravel, asphalt, or concrete driveways and parking areas.",
       "image": "/assets/driveway-parking-lot-construction.jpg",
       "alt": "A skid steer grading a driveway before gravel installation."
     },
@@ -269,7 +269,7 @@
     },
     "card": {
       "title": "Septic System Installation Services",
-      "description": "Complete septic system installation, from excavation to drainage setup. Reliable solutions for homes, farms, and businesses.",
+      "description": "Excavation and placement support for new or replacement septic systems, including tank holes, trenches, and drainage areas.",
       "image": "/assets/septic-system-installation-contractor.jpg",
       "alt": "An excavator digging a trench for a new septic system installation."
     },
@@ -301,7 +301,7 @@
     },
     "card": {
       "title": "Volvo A35 Off-Road Dump Truck Rental",
-      "description": "Articulated off-road dump truck rental with operator for bulk material hauling on large and difficult job sites.",
+      "description": "Operator-run Volvo A35 for moving large volumes across rough, soft, or off-road sites where road trucks are not the right fit.",
       "image": "/assets/off-road-dump-truck-rental.jpg",
       "alt": "Bellhouse Excavating Volvo A35 off-road dump truck working on a large earthmoving site."
     },
@@ -333,7 +333,7 @@
     },
     "card": {
       "title": "Pond Digging & Cleaning Services",
-      "description": "Expert pond excavation and cleaning for farm, residential, and commercial properties. Enhance water quality and ensure proper drainage.",
+      "description": "Dig new ponds, clean out sediment, or reshape rural water features where drainage, access, and spoil handling matter.",
       "image": "/assets/pond-digging-cleaning-brant-county.jpg",
       "alt": "An excavator digging a new pond on rural land."
     },
@@ -365,7 +365,7 @@
     },
     "card": {
       "title": "House & Barn Demolition Services",
-      "description": "Full or partial demolition of houses, barns, and outbuildings. We handle permits, debris removal, and site preparation.",
+      "description": "Tear down houses, barns, sheds, and outbuildings with debris loading, haul-away, and rough grading after removal.",
       "image": "/assets/house-demolition-excavator-paris-ontario.jpg",
       "alt": "An excavator demolishing an old barn, preparing the site for redevelopment."
     },
@@ -397,7 +397,7 @@
     },
     "card": {
       "title": "Site Preparation & Land Grading Services",
-      "description": "Expert land grading, leveling, and excavation to prepare your site for construction. Ensuring stability and proper drainage.",
+      "description": "Clear, shape, and grade land for building pads, drainage, access, and the next construction phase.",
       "image": "/assets/site-preparation-dozer-brant-county.jpg",
       "alt": "A bulldozer grading land for site preparation and foundation work."
     },
@@ -429,7 +429,7 @@
     },
     "card": {
       "title": "Dump Truck Rental & Hauling Services",
-      "description": "Dump trucks available for hire with professional operators. Ideal for excavation, site preparation, and bulk material transport.",
+      "description": "Hire dump trucks with operators for spoil haul-out, imported material, and repeat loads when your crew already has work underway.",
       "image": "/assets/dump-truck-delivery-service.jpg",
       "alt": "A dump truck on-site, ready for material hauling and excavation work."
     },

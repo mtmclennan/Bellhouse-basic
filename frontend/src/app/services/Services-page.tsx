@@ -1,46 +1,23 @@
-'use client';
-
-import React from 'react';
-import ServicesHero from '@/app/components/webpage/services/ServicesHero';
-import ServicesGrid from '@/app/components/webpage/services/ServicesGrid';
-import CallToAction from '@/app/components/webpage/CallToAction';
-import ServiceArea from '@/app/components/webpage/ServiceArea';
+import { Fragment } from 'react';
+import FinalCtaSection from '@/app/components/sections/FinalCtaSection/FinalCtaSection';
+import HeroSection from '@/app/components/sections/HeroSection/HeroSection';
+import ServiceAreasSection from '@/app/components/sections/ServiceAreaSection/ServiceAreaSection';
+import ServicesSection from '@/app/components/sections/ServicesSection/ServicesSection';
+import {
+  servicesFinalCtaSection,
+  servicesHeroData,
+  servicesServiceAreasSection,
+  servicesServicesSection,
+} from '@/content/pages/servicesSections';
 
 const Services = () => {
   return (
-    <>
-      <ServicesHero />
-      <ServicesGrid dark />
-      <ServiceArea
-        heading="Service Areas for Excavation, Hauling, and Site Work"
-        subtext="Bellhouse handles excavation, grading, truck hauling, material delivery, and equipment moves across Brantford, Paris, Hamilton, Cambridge, and nearby Southern Ontario communities."
-        locations={[
-          { label: 'Brantford', href: '/service-areas/brantford' },
-          { label: 'Paris', href: '/service-areas/paris' },
-          { label: 'Hamilton', href: '/service-areas/hamilton' },
-          { label: 'Cambridge', href: '/service-areas/cambridge' },
-          { label: 'Ancaster', href: '/service-areas/ancaster' },
-          { label: 'Woodstock', href: '/service-areas/woodstock' },
-          'Brant County',
-          'St. George',
-          'Burford',
-        ]}
-        actions={[
-          { label: 'View All Service Areas', href: '/service-areas' },
-          {
-            label: 'Use Estimating Calculators',
-            href: '/resources/calculators',
-            variant: 'secondary',
-          },
-          {
-            label: 'For Builders & Contractors',
-            href: '/contractors',
-            variant: 'secondary',
-          },
-        ]}
-      />
-      <CallToAction />
-    </>
+    <Fragment>
+      <HeroSection data={servicesHeroData} />
+      <ServicesSection data={servicesServicesSection} />
+      <ServiceAreasSection data={servicesServiceAreasSection} />
+      <FinalCtaSection data={servicesFinalCtaSection} />
+    </Fragment>
   );
 };
 

@@ -8,6 +8,7 @@
     flex-direction: row;
     min-height: calc(100vh - 20rem);
     gap: 4rem;
+    padding-top: 14rem;
   }
 }
 
@@ -22,7 +23,7 @@
   @include m.mediaDesktop {
     width: 650px;
     height: auto;
-    margin-top: -10rem;
+    margin-top: 0;
     margin-right: 2rem;
   }
 }
@@ -43,7 +44,7 @@
     line-height: 1.05;
 
     @include m.mediaDesktop {
-      margin-top: -15rem;
+      margin-top: 0;
       font-size: 8rem;
     }
   }

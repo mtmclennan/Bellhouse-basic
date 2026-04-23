@@ -128,4 +128,3 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
 };
 
 export default MainHeader;
-

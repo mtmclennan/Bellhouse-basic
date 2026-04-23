@@ -4,22 +4,51 @@ import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 
 import classes from './ServicesSection.module.scss';
-import type { ServicesSectionData } from '@/types/sections';
+import type {
+  RichTextLink,
+  RichTextParagraph,
+  RichTextPart,
+  ServicesSectionData,
+} from '@/types/sections';
 import ServiceCard from '@/app/components/webpage/ServiceCard';
 
 type ServicesSectionProps = {
   data: ServicesSectionData;
 };
 
+function isRichTextLink(part: RichTextPart): part is RichTextLink {
+  return typeof part !== 'string';
+}
+
+function renderRichText(paragraph: RichTextParagraph) {
+  if (typeof paragraph === 'string') return paragraph;
+
+  return paragraph.map((part, index) =>
+    isRichTextLink(part) ? (
+      <Link
+        href={part.href}
+        className={classes.inlineLink}
+        key={`${part.href}-${part.label}-${index}`}
+      >
+        {part.label}
+      </Link>
+    ) : (
+      <React.Fragment key={`${part}-${index}`}>{part}</React.Fragment>
+    ),
+  );
+}
+
 export default function ServicesSection({ data }: ServicesSectionProps) {
   const {
     eyebrow,
     heading,
     intro,
-    items,
+    items = [],
+    groups = [],
     actions = [],
     backgroundVariant = 'dark',
     backgroundTone = 'default',
+    cardSize = 'default',
   } = data;
 
   const [isVisible, setIsVisible] = useState(false);
@@ -71,20 +100,62 @@ export default function ServicesSection({ data }: ServicesSectionProps) {
 
         <h2>{heading}</h2>
 
-        {intro && <p className={classes.intro}>{intro}</p>}
+        {intro && <p className={classes.intro}>{renderRichText(intro)}</p>}
 
-        <ul className={`${classes.grid} ${isVisible ? classes.isVisible : ''}`}>
-          {items.map((item) => (
-            <ServiceCard
-              key={item.id}
-              image={item.image}
-              alt={item.alt}
-              description={item.description}
-              link={item.href}
-              title={item.title}
-            />
-          ))}
-        </ul>
+        {groups.length > 0 ? (
+          <div className={classes.groups}>
+            {groups.map((group) => (
+              <section
+                key={group.id}
+                className={classes.group}
+                aria-labelledby={`services-section-group-${group.id}`}
+              >
+                <div className={classes.groupHeader}>
+                  <h3 id={`services-section-group-${group.id}`}>
+                    {group.heading}
+                  </h3>
+                  {group.description ? (
+                    <p>{renderRichText(group.description)}</p>
+                  ) : null}
+                </div>
+
+                <ul
+                  className={`${classes.grid} ${classes.groupGrid} ${
+                    isVisible ? classes.isVisible : ''
+                  }`}
+                >
+                  {group.items.map((item) => (
+                    <ServiceCard
+                      key={item.id}
+                      image={item.image}
+                      alt={item.alt}
+                      description={item.description}
+                      link={item.href}
+                      title={item.title}
+                      large={cardSize === 'large'}
+                    />
+                  ))}
+                </ul>
+              </section>
+            ))}
+          </div>
+        ) : (
+          <ul
+            className={`${classes.grid} ${isVisible ? classes.isVisible : ''}`}
+          >
+            {items.map((item) => (
+              <ServiceCard
+                key={item.id}
+                image={item.image}
+                alt={item.alt}
+                description={item.description}
+                link={item.href}
+                title={item.title}
+                large={cardSize === 'large'}
+              />
+            ))}
+          </ul>
+        )}
 
         {!!actions.length && (
           <div className={classes.footer}>

@@ -657,44 +657,6 @@ button {
   }
 }
 
-.services {
-  padding: 2rem 0;
-  min-height: 50vh;
-  background-color: v.$grey-color-0;
-  color: v.$grey-color-7;
-
-  & h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-
-  & ul {
-    @include m.flexCenter();
-    gap: 2rem;
-    flex-wrap: wrap;
-  }
-
-  & li {
-    max-width: 750px;
-  }
-}
-
-.services__content {
-  padding: 2rem;
-  max-width: 80rem;
-  color: v.$text-color-dark;
-  line-height: 1.75;
-
-  & h3 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    text-align: center;
-  }
-  & li {
-    padding: 2rem 0;
-  }
-}
-
 .reviews {
   padding: 2rem;
   @include m.flexCenter();
@@ -864,17 +826,6 @@ button {
   }
 }
 
-.services__hero {
-  min-height: 30vh;
-  padding-top: 6rem;
-  @include m.flexCenter(column);
-  & h1 {
-    text-align: center;
-    padding: 3rem;
-    font-size: 4rem;
-  }
-}
-
 .logo__wrapper {
   width: 15rem;
   aspect-ratio: 19/16;
@@ -906,74 +857,6 @@ button {
     font-size: 2.4rem;
     font-weight: 100;
     display: block;
-  }
-}
-
-.services__introCopy {
-  max-width: 92rem;
-  margin: 1rem auto 0;
-  padding: 0 2rem;
-  text-align: center;
-  color: v.$text-color-light;
-  font-size: 2rem;
-  line-height: 1.7;
-}
-
-.services__actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.6rem;
-  margin: 2.4rem auto 0;
-}
-
-.services__action {
-  text-decoration: none;
-}
-
-.services__action--primary {
-  @include m.btnMain;
-}
-
-.services__action--secondary {
-  @include m.btnSec;
-}
-
-.services__services {
-  @include m.flexCenter(column);
-  min-height: 100vh;
-
-  padding-top: 4rem;
-
-  @include m.mediaDesktop {
-    padding-top: 8rem;
-  }
-
-  & h2 {
-    font-size: 5rem;
-    text-align: center;
-    margin-bottom: 2rem;
-    @include m.mediaDesktop {
-      font-size: 6rem;
-      margin: 0;
-    }
-  }
-}
-
-.services__grid {
-  // max-width: 140rem;
-  padding: 1rem;
-  display: grid;
-  gap: 1rem;
-  grid-area: 1fr;
-  @include m.mediaDesktop {
-    align-items: start;
-
-    grid-template-columns: 1fr 1fr;
-    padding: 8rem;
-  }
-  @include m.mediaWideDesktop {
-    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
