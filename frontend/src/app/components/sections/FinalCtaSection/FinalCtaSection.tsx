@@ -22,6 +22,7 @@ export default function FinalCtaSection({ data }: FinalCtaSectionProps) {
     note,
     backgroundVariant = 'dark',
     backgroundTone = 'default',
+    density = 'default',
   } = data;
 
   const [isVisible, setIsVisible] = useState(false);
@@ -58,12 +59,22 @@ export default function FinalCtaSection({ data }: FinalCtaSectionProps) {
     muted: classes.toneMuted,
   };
 
+  const densityClassMap = {
+    default: '',
+    compact: classes.densityCompact,
+  };
+
   return (
     <section
       ref={sectionRef}
-      className={`${classes.section} ${variantClassMap[backgroundVariant]} ${
-        toneClassMap[backgroundTone]
-      }`}
+      className={[
+        classes.section,
+        variantClassMap[backgroundVariant],
+        toneClassMap[backgroundTone],
+        densityClassMap[density],
+      ]
+        .filter(Boolean)
+        .join(' ')}
     >
       <div className={classes.inner}>
         <div

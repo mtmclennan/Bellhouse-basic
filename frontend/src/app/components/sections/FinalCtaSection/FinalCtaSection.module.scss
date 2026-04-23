@@ -98,6 +98,73 @@
   }
 }
 
+.densityCompact {
+  padding: 3.6rem 1.5rem 4.4rem;
+
+  @include m.mediaDesktop {
+    padding: 4.6rem 2rem 5.4rem;
+  }
+
+  .inner {
+    width: min(108rem, 100%);
+  }
+
+  .card {
+    gap: 1.8rem;
+    padding: 1.8rem;
+    border-radius: 1.7rem;
+
+    @include m.mediaDesktop {
+      grid-template-columns: minmax(0, 1.35fr) minmax(34rem, 0.8fr);
+      gap: 2.2rem;
+      padding: 2.2rem;
+    }
+  }
+
+  .content {
+    gap: 1rem;
+
+    h2 {
+      max-width: 62rem;
+      @include m.sectionHeadingStrong(2.8rem, 3.8rem);
+      line-height: 1.08;
+    }
+  }
+
+  .text {
+    max-width: 64rem;
+    font-size: 1.62rem;
+    line-height: 1.58;
+  }
+
+  .proofList {
+    gap: 0.7rem;
+  }
+
+  .proofChip {
+    min-height: 2.9rem;
+    padding: 0.38rem 0.85rem;
+    font-size: 1.18rem;
+  }
+
+  .actionPanel {
+    gap: 0.8rem;
+    padding: 1.25rem;
+    border-radius: 1.35rem;
+  }
+
+  .primaryAction,
+  .secondaryAction,
+  .phoneLink {
+    min-height: 4.1rem;
+  }
+
+  .note {
+    margin-top: 0;
+    font-size: 1.32rem;
+  }
+}
+
 .inner {
   width: min(114rem, 100%);
   margin: 0 auto;

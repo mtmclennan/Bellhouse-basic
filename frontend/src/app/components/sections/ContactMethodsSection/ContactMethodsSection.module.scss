@@ -1,0 +1,258 @@
+@use '../../../../styles/abstracts/mixins' as m;
+@use '../../../../styles/abstracts/variables' as v;
+
+.section {
+  padding: 4.8rem 1.5rem;
+
+  @include m.mediaDesktop {
+    padding: 5.8rem 2rem;
+  }
+}
+
+.inner {
+  width: min(110rem, 100%);
+  margin: 0 auto;
+  display: grid;
+  gap: 2.4rem;
+}
+
+.introBlock {
+  display: grid;
+  gap: 1.2rem;
+  max-width: 82rem;
+  margin: 0 auto;
+  text-align: center;
+
+  h2 {
+    margin: 0;
+    @include m.sectionHeadingStrong(3.3rem, 4.6rem);
+    color: var(--contact-method-heading);
+  }
+
+  p {
+    margin: 0;
+    font-size: 1.7rem;
+    line-height: 1.62;
+    color: var(--contact-method-body);
+  }
+}
+
+.eyebrow {
+  margin: 0 auto;
+}
+
+.fitText {
+  font-weight: 650;
+}
+
+.methodGrid {
+  display: grid;
+  gap: 1.4rem;
+
+  @include m.mediaDesktop {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.methodCard {
+  display: grid;
+  gap: 1.2rem;
+  align-content: start;
+  padding: 1.7rem;
+  border-radius: 1.6rem;
+  border: 1px solid var(--contact-method-card-border);
+  background: var(--contact-method-card-bg);
+  box-shadow: var(--contact-method-card-shadow);
+
+  p {
+    margin: 0;
+    font-size: 1.55rem;
+    line-height: 1.58;
+    color: var(--contact-method-body);
+  }
+}
+
+.methodTop {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  h3 {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 1.25;
+    color: var(--contact-method-heading);
+  }
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background-color: var(--contact-method-icon-bg);
+  color: var(--contact-method-icon-color);
+}
+
+.methodAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-height: 4rem;
+  margin-top: 0.2rem;
+  padding: 0.85rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid var(--contact-method-action-border);
+  background-color: var(--contact-method-action-bg);
+  color: var(--contact-method-action-color);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-1px);
+    border-color: var(--contact-method-action-border-hover);
+    background-color: var(--contact-method-action-bg-hover);
+    color: var(--contact-method-action-color-hover);
+  }
+}
+
+.supportingLinks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.supportingPrimary,
+.supportingSecondary {
+  @include m.btnSectionSecondary;
+  font-size: 1.45rem;
+}
+
+.supportingPrimary {
+  @include m.btnSectionPrimary;
+}
+
+.variantDark,
+.variantTransparent {
+  --contact-method-heading: #fff;
+  --contact-method-body: #{rgba(255, 255, 255, 0.82)};
+  --contact-method-card-bg:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.045) 0%,
+      rgba(255, 255, 255, 0.018) 100%
+    ),
+    rgba(20, 19, 17, 0.9);
+  --contact-method-card-border: #{rgba(v.$cat-yellow2, 0.13)};
+  --contact-method-card-shadow: 0 1.2rem 2.6rem -2.2rem rgba(0, 0, 0, 0.38);
+  --contact-method-icon-bg: #{rgba(v.$cat-yellow2, 0.12)};
+  --contact-method-icon-color: #{v.$cat-yellow2};
+  --contact-method-action-border: #{rgba(v.$cat-yellow2, 0.22)};
+  --contact-method-action-bg: #{rgba(v.$cat-yellow2, 0.08)};
+  --contact-method-action-color: #{v.$cat-yellow2};
+  --contact-method-action-border-hover: #{rgba(v.$cat-yellow2, 0.48)};
+  --contact-method-action-bg-hover: #{rgba(v.$cat-yellow2, 0.12)};
+  --contact-method-action-color-hover: #fff;
+  color: #fff;
+}
+
+.variantDark {
+  background:
+    radial-gradient(
+      circle at 20% 0%,
+      rgba(v.$cat-yellow2, 0.08),
+      transparent 28%
+    ),
+    linear-gradient(180deg, #171715 0%, #11100f 100%);
+
+  .eyebrow {
+    @include m.sectionEyebrowDark;
+  }
+}
+
+.variantTransparent {
+  background: transparent;
+
+  .eyebrow {
+    @include m.sectionEyebrowDark;
+  }
+}
+
+.variantLight {
+  --contact-method-heading: #{v.$text-color-dark};
+  --contact-method-body: #{rgba(v.$text-color-dark, 0.84)};
+  --contact-method-card-bg:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.96) 0%,
+      rgba(246, 241, 232, 0.96) 100%
+    ),
+    #fff;
+  --contact-method-card-border: rgba(92, 72, 17, 0.12);
+  --contact-method-card-shadow:
+    0 1.4rem 2.8rem -2.2rem rgba(73, 54, 16, 0.14),
+    0 0.45rem 1rem rgba(0, 0, 0, 0.04);
+  --contact-method-icon-bg: #{rgba(v.$cat-yellow2, 0.16)};
+  --contact-method-icon-color: #6b5100;
+  --contact-method-action-border: #{rgba(92, 72, 17, 0.14)};
+  --contact-method-action-bg: #{rgba(v.$cat-yellow2, 0.18)};
+  --contact-method-action-color: #{v.$text-color-dark};
+  --contact-method-action-border-hover: #{rgba(92, 72, 17, 0.28)};
+  --contact-method-action-bg-hover: #{rgba(v.$cat-yellow2, 0.26)};
+  --contact-method-action-color-hover: #{v.$text-color-dark};
+  background: linear-gradient(180deg, #ede5d8 0%, #e3d9c9 100%);
+
+  .eyebrow {
+    @include m.sectionEyebrowLight;
+  }
+}
+
+.toneSoft {
+  .methodCard {
+    background: var(--contact-method-card-bg);
+  }
+}
+
+.toneMuted {
+  .introBlock p,
+  .methodCard p {
+    color: rgba(255, 255, 255, 0.72);
+  }
+}
+
+.variantLight.toneMuted {
+  .introBlock p,
+  .methodCard p {
+    color: rgba(v.$text-color-dark, 0.76);
+  }
+}
+
+@media (max-width: 699px) {
+  .section {
+    padding: 4.2rem 1.5rem;
+  }
+
+  .methodAction,
+  .supportingPrimary,
+  .supportingSecondary {
+    width: 100%;
+  }
+
+  .supportingLinks {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}

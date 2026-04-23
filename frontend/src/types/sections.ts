@@ -152,6 +152,28 @@ export type ServiceAreasSectionData = {
   backgroundTone?: 'default' | 'soft' | 'muted';
 };
 
+export type ContactMethodIcon = 'call' | 'text' | 'form';
+
+export type ContactMethodsSectionMethod = {
+  id: string;
+  title: string;
+  text: string;
+  action: SectionLink;
+  icon?: ContactMethodIcon;
+};
+
+export type ContactMethodsSectionData = {
+  _type: 'contactMethodsSection';
+  eyebrow?: string;
+  heading: string;
+  intro: string;
+  fitText?: string;
+  methods: ContactMethodsSectionMethod[];
+  supportingLinks?: SectionActionLink[];
+  backgroundVariant?: 'light' | 'dark' | 'transparent';
+  backgroundTone?: 'default' | 'soft' | 'muted';
+};
+
 export type ResourcesSectionData = {
   _type: 'resourcesSection';
   eyebrow?: string;
@@ -205,6 +227,7 @@ export type FinalCtaSectionData = {
   note?: string;
   backgroundVariant?: 'light' | 'dark' | 'transparent';
   backgroundTone?: 'default' | 'soft' | 'muted';
+  density?: 'default' | 'compact';
 };
 
 export type AboutStoryImage = {

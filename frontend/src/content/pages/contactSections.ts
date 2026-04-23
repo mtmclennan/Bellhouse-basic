@@ -1,5 +1,7 @@
 import type {
+  ContactMethodsSectionData,
   FaqSectionData,
+  FinalCtaSectionData,
   HeroSectionData,
   ServiceAreasSectionData,
 } from '@/types/sections';
@@ -33,31 +35,6 @@ export const contactHeroData: HeroSectionData = {
   align: 'center',
 };
 
-type ContactMethod = {
-  id: 'call' | 'text' | 'form';
-  label: string;
-  text: string;
-  actionLabel: string;
-  actionHref: string;
-};
-
-type ContactLinkGroup = {
-  title: string;
-  links: {
-    label: string;
-    href: string;
-  }[];
-};
-
-export const contactBusinessContextData: {
-  heading: string;
-  summary: string;
-} = {
-  heading: 'Bellhouse Excavating',
-  summary:
-    'Based in Paris and regularly working across Brantford and Brant County for excavation, grading, hauling, and site-work support.',
-};
-
 export const contactTrustPanelData: {
   text: string;
   quote: {
@@ -75,45 +52,81 @@ export const contactTrustPanelData: {
   },
 };
 
-export const contactSupportData: {
+export const contactMethodsSection: ContactMethodsSectionData = {
+  _type: 'contactMethodsSection',
+  eyebrow: 'Choose the Best Way to Reach Out',
+  heading: 'Call, text, or send the job details.',
+  intro:
+    'Bellhouse is a fit for foundation excavation, site grading, hauling, material delivery, backfill, and related site work across Brantford, Paris, Brant County, and nearby serviced areas.',
+  fitText:
+    'Use the option that matches how much detail you have ready and how quickly you need an answer.',
+  methods: [
+    {
+      id: 'call',
+      title: 'Call',
+      text: 'Best for urgent timing, scheduling questions, or a quick fit check before you send details.',
+      action: {
+        label: 'Call 519-752-8500',
+        href: 'tel:5197528500',
+      },
+      icon: 'call',
+    },
+    {
+      id: 'text',
+      title: 'Text',
+      text: 'Best for photos, a site address, a location pin, or quick context about access or material conditions.',
+      action: {
+        label: 'Text 519-752-8500',
+        href: 'sms:5197528500',
+      },
+      icon: 'text',
+    },
+    {
+      id: 'form',
+      title: 'Quote form',
+      text: 'Best when you want Bellhouse to review the scope, location, and timing together before following up.',
+      action: {
+        label: 'Use the quote form',
+        href: '#contact-form',
+      },
+      icon: 'form',
+    },
+  ],
+  supportingLinks: [
+    {
+      label: 'For Builders & Contractors',
+      href: '/contractors',
+      variant: 'secondary',
+    },
+    {
+      label: 'View Service Areas',
+      href: '/service-areas',
+      variant: 'secondary',
+    },
+    {
+      label: 'Planning Calculators',
+      href: '/resources/calculators',
+      variant: 'secondary',
+    },
+  ],
+  backgroundVariant: 'dark',
+  backgroundTone: 'soft',
+};
+
+export const contactFormSupportData: {
   eyebrow: string;
   heading: string;
   intro: string;
-  methods: ContactMethod[];
   planning: {
     title: string;
     items: string[];
     responseNote: string;
   };
-  linkGroups: ContactLinkGroup[];
 } = {
-  eyebrow: 'Before You Reach Out',
-  heading: 'Use the contact option that fits the job.',
+  eyebrow: 'Before You Submit',
+  heading: 'Send the details that help Bellhouse respond clearly.',
   intro:
-    'Bellhouse is a fit for foundation excavation, site grading, hauling, material delivery, backfill, and related site work across Brantford, Paris, Brant County, and nearby serviced areas. Reach out the way that matches the timing, how much site detail you have ready, and whether you need a quick answer or a full quote review.',
-  methods: [
-    {
-      id: 'call',
-      label: 'Call',
-      text: 'Urgent timing, scheduling questions, or a quick fit check.',
-      actionLabel: 'Call 519-752-8500',
-      actionHref: 'tel:5197528500',
-    },
-    {
-      id: 'text',
-      label: 'Text',
-      text: 'Photos, an address, a location pin, or quick site context.',
-      actionLabel: 'Text 519-752-8500',
-      actionHref: 'sms:5197528500',
-    },
-    {
-      id: 'form',
-      label: 'Quote form',
-      text: 'Scope, location, and timing for a fuller project review.',
-      actionLabel: 'Use the quote form',
-      actionHref: '#contact-form',
-    },
-  ],
+    'The form works best when you can share the project location, the type of work, and any timing or access notes that may affect scheduling or pricing.',
   planning: {
     title: 'What helps Bellhouse review the job',
     items: [
@@ -125,42 +138,6 @@ export const contactSupportData: {
     responseNote:
       'After submission, Bellhouse reviews the location, scope, and timing, then follows up by phone or email, usually within one business day.',
   },
-  linkGroups: [
-    {
-      title: 'Relevant services',
-      links: [
-        {
-          label: 'Foundation excavation',
-          href: '/services/foundation-excavation',
-        },
-        {
-          label: 'Site prep and grading',
-          href: '/services/site-preparation-land-grading',
-        },
-        {
-          label: 'Dirt and gravel delivery',
-          href: '/services/dirt-gravel-delivery',
-        },
-      ],
-    },
-    {
-      title: 'Other useful paths',
-      links: [
-        {
-          label: 'Builder and contractor support',
-          href: '/contractors',
-        },
-        {
-          label: 'Equipment hauling',
-          href: '/services/heavy-equipment-hauling',
-        },
-        {
-          label: 'Read customer reviews',
-          href: '/reviews',
-        },
-      ],
-    },
-  ],
 };
 
 export const contactServiceAreasSection: ServiceAreasSectionData = {
@@ -238,4 +215,33 @@ export const contactFaqSection: FaqSectionData = {
   ],
   backgroundVariant: 'light',
   backgroundTone: 'soft',
+};
+
+export const contactFinalCtaSection: FinalCtaSectionData = {
+  _type: 'finalCtaSection',
+  eyebrow: 'Ready to Reach Out?',
+  heading: 'Send the job details or talk it through.',
+  text:
+    'If the location, scope, or timing is still rough, that is fine. Bellhouse can help confirm fit and the best next step before the work is scheduled.',
+  primaryAction: {
+    label: 'Back to Quote Form',
+    href: '#contact-form',
+  },
+  secondaryAction: {
+    label: 'Text 519-752-8500',
+    href: 'sms:5197528500',
+  },
+  phone: {
+    label: 'Call 519-752-8500',
+    href: 'tel:5197528500',
+  },
+  proofItems: [
+    { label: 'Brantford' },
+    { label: 'Paris' },
+    { label: 'Brant County' },
+  ],
+  note: 'Calling is best for urgent timing. Use the form when you want Bellhouse to review the details together.',
+  backgroundVariant: 'dark',
+  backgroundTone: 'soft',
+  density: 'compact',
 };
