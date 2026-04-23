@@ -91,6 +91,28 @@
     rgba(22, 20, 17, 0.9);
 }
 
+.variantLight.toneSoft {
+  background: linear-gradient(
+    180deg,
+    rgba(239, 232, 219, 0.98) 0%,
+    rgba(226, 217, 202, 0.98) 100%
+  );
+
+  --section-card-bg:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.98) 0%,
+      rgba(246, 241, 232, 0.98) 100%
+    ),
+    #fff;
+  --section-card-border: rgba(92, 72, 17, 0.12);
+  --section-card-shadow:
+    0 1.6rem 3rem -2.2rem rgba(73, 54, 16, 0.14),
+    0 0.45rem 1rem rgba(0, 0, 0, 0.04);
+  --section-hover-bg: #{rgba(111, 83, 0, 0.04)};
+  --section-icon-color: #{#6b5100};
+}
+
 .toneMuted {
   --section-body-color: #{rgba(v.$grey-color-4, 0.76)};
 }

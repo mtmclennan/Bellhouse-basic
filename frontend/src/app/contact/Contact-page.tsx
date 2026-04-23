@@ -2,92 +2,132 @@
 
 import { Fragment } from 'react';
 import Link from 'next/link';
-import FAQAccordion from '../components/FAQAccordion';
-import classes from '../components/webpage/Faq.module.scss';
-import LocalExperts from '../components/webpage/LocalExperts';
+import { ChatText, ClipboardText, PhoneCall } from '@phosphor-icons/react';
 import ContactForm from '../components/forms/ContactForm';
+import FaqSection from '../components/sections/FaqSection/FaqSection';
 import HeroSection from '../components/sections/HeroSection/HeroSection';
-import { contactHeroData } from '@/content/pages/contactSections';
+import ServiceAreasSection from '../components/sections/ServiceAreaSection/ServiceAreaSection';
+import SectionWrapper from '@/components/layout/SectionWrapper';
+import {
+  contactBusinessContextData,
+  contactFaqSection,
+  contactHeroData,
+  contactSupportData,
+  contactTrustPanelData,
+  contactServiceAreasSection,
+} from '@/content/pages/contactSections';
+import pageClasses from './Contact-page.module.scss';
+
+function renderMethodIcon(methodId: 'call' | 'text' | 'form') {
+  const iconProps = { size: 24, weight: 'fill' as const };
+
+  switch (methodId) {
+    case 'call':
+      return <PhoneCall {...iconProps} />;
+    case 'text':
+      return <ChatText {...iconProps} />;
+    case 'form':
+      return <ClipboardText {...iconProps} />;
+    default:
+      return null;
+  }
+}
 
 const Contact = () => {
   return (
     <Fragment>
       <HeroSection data={contactHeroData} />
-      <ContactForm sectionId="contact-form" />
-      <LocalExperts colorDark={true} />
-      <FAQAccordion
-        heading="Questions Before You Reach Out?"
-        subheading="Here are a few quick answers to the things people usually ask before calling."
-        items={[
-          {
-            id: 'service-area',
-            question: 'What areas do you serve?',
-            answer: (
-              <p>
-                We provide excavation and hauling services throughout Brantford,
-                Brant County, Woodstock, Hamilton, Cambridge,
-                Kitchener-Waterloo, Halton, and surrounding areas.
+      <SectionWrapper
+        spacing="tight"
+        className={pageClasses.formSection}
+        containerClassName={pageClasses.formSectionContainer}
+      >
+        <div className={pageClasses.formShell}>
+          <aside className={pageClasses.supportPanel}>
+            <p className={pageClasses.eyebrow}>{contactSupportData.eyebrow}</p>
+            <h2 className={pageClasses.supportHeading}>
+              {contactSupportData.heading}
+            </h2>
+            <p className={pageClasses.supportIntro}>
+              {contactSupportData.intro}
+            </p>
+
+            <div className={pageClasses.businessSummaryLine}>
+              <strong>{contactBusinessContextData.heading}</strong>
+              <span>{contactBusinessContextData.summary}</span>
+            </div>
+
+            <section className={pageClasses.contactGuideCard}>
+              {contactSupportData.methods.map((method) => (
+                <div key={method.id} className={pageClasses.methodRow}>
+                  <div className={pageClasses.methodLabelWrap}>
+                    <span className={pageClasses.methodIcon} aria-hidden="true">
+                      {renderMethodIcon(method.id)}
+                    </span>
+                    <h3 className={pageClasses.methodTitle}>{method.label}</h3>
+                  </div>
+                  <p className={pageClasses.methodText}>{method.text}</p>
+                  <Link
+                    href={method.actionHref}
+                    className={pageClasses.methodLink}
+                  >
+                    {method.actionLabel}
+                  </Link>
+                </div>
+              ))}
+            </section>
+
+            <section className={pageClasses.planningCard}>
+              <h3 className={pageClasses.detailTitle}>
+                {contactSupportData.planning.title}
+              </h3>
+              <ul className={pageClasses.detailList}>
+                {contactSupportData.planning.items.map((item) => (
+                  <li key={item} className={pageClasses.detailItem}>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p className={pageClasses.responseNote}>
+                {contactSupportData.planning.responseNote}
               </p>
-            ),
-          },
-          {
-            id: 'free-estimates',
-            question: 'Do you offer free estimates?',
-            answer: (
-              <p>
-                Yes. All estimates are free and no-obligation. We&apos;ll review your
-                project details and provide clear pricing before any work
-                begins.
-              </p>
-            ),
-          },
-          {
-            id: 'response-time',
-            question: 'How quickly will you respond?',
-            answer: (
-              <p>
-                We typically respond within one business day. Urgent requests
-                are prioritized whenever possible.
-              </p>
-            ),
-          },
-          {
-            id: 'project-size',
-            question: 'Is my project too small?',
-            answer: (
-              <p>
-                No. We handle everything from small residential jobs to larger
-                commercial and agricultural projects.
-              </p>
-            ),
-          },
-          {
-            id: 'what-to-provide',
-            question: 'What information should I include when contacting you?',
-            answer: (
-              <p>
-                A brief description of the work, the project location, and any
-                known timelines is usually enough to get started.
-              </p>
-            ),
-          },
-        ]}
-        cta={
-          <div className={classes.call}>
-            <h3>Still have questions?</h3>
-            <h3>
-              <Link href="tel:5197528500" className={classes.inlineLink}>
-                Call
-              </Link>{' '}
-              or{' '}
-              <Link href="sms:5197528500" className={classes.inlineLink}>
-                text
-              </Link>{' '}
-              <span className="text-yellow">519-752-8500</span>
-            </h3>
+              <div className={pageClasses.linkList}>
+                {contactSupportData.linkGroups.flatMap((group) =>
+                  group.links.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={pageClasses.supportLink}
+                    >
+                      {link.label}
+                    </Link>
+                  )),
+                )}
+              </div>
+            </section>
+          </aside>
+
+          <div className={pageClasses.formPane}>
+            <div className={pageClasses.formColumn}>
+              <ContactForm embedded={true} sectionId="contact-form" />
+              <section className={pageClasses.trustPanel}>
+                <p className={pageClasses.trustIntro}>
+                  {contactTrustPanelData.text}
+                </p>
+                <p className={pageClasses.trustQuoteText}>
+                  &ldquo;{contactTrustPanelData.quote.text}&rdquo;
+                </p>
+                <p className={pageClasses.trustQuoteMeta}>
+                  {contactTrustPanelData.quote.name} |{' '}
+                  {contactTrustPanelData.quote.source}
+                </p>
+              </section>
+            </div>
           </div>
-        }
-      />
+        </div>
+      </SectionWrapper>
+      <ServiceAreasSection data={contactServiceAreasSection} />
+      <FaqSection data={contactFaqSection} />
     </Fragment>
   );
 };

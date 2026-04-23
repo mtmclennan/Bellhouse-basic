@@ -5,9 +5,25 @@ import Script from 'next/script';
 import { validateMetadata } from '@/lib/utils/seoValidation';
 
 export const metadata: Metadata = {
-  title: 'Contact Bellhouse Excavating | Brantford, ON',
+  title: 'Contact Bellhouse Excavating | Brantford, Paris & Brant County',
   description:
-    'Contact Bellhouse Excavating for excavation, grading, hauling, and site work pricing across Brantford and nearby Southern Ontario areas.',
+    'Contact Bellhouse Excavating for excavation, grading, hauling, and site-work quotes in Brantford, Paris, Brant County, and nearby serviced areas. Call, text, or send project details.',
+  alternates: {
+    canonical: 'https://bellhouseexcavating.ca/contact',
+  },
+  openGraph: {
+    title:
+      'Contact Bellhouse Excavating | Brantford, Paris & Brant County',
+    description:
+      'Call, text, or request a quote from Bellhouse Excavating for excavation, grading, hauling, and site work in Brantford, Paris, Brant County, and nearby serviced areas.',
+    url: 'https://bellhouseexcavating.ca/contact',
+    siteName: 'Bellhouse Excavating',
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 validateMetadata(metadata.title, metadata.description);

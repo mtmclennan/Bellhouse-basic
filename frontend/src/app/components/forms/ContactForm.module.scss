@@ -40,6 +40,10 @@
   margin: 0;
   height: 100%;
   border-radius: 2rem;
+  border: 1px solid rgba(92, 72, 17, 0.12);
+  box-shadow:
+    0 1.8rem 3.4rem -2.2rem rgba(0, 0, 0, 0.22),
+    0 0.5rem 1.2rem rgba(0, 0, 0, 0.04);
 }
 
 .embeddedForm .formHeader h2,
@@ -159,10 +163,32 @@
   transform: scale(1.03);
 }
 
+.embeddedForm button {
+  @include m.btnSectionPrimary;
+  width: 100%;
+  justify-content: center;
+  min-height: 5rem;
+  margin-top: 0;
+  border-radius: 1rem;
+}
+
+.embeddedForm button:hover,
+.embeddedForm button:focus {
+  transform: translateY(-1px);
+}
+
 .buttonContainer {
   display: flex;
   justify-content: center;
   margin-top: 1rem;
+}
+
+.embeddedForm .buttonContainer {
+  margin-top: 0.4rem;
+}
+
+.embeddedForm .status {
+  text-align: left;
 }
 
 .status {
