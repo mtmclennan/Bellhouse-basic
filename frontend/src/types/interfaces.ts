@@ -97,6 +97,8 @@ export interface ServicePage {
   meta: {
     title: string;
     description: string;
+    openGraphTitle?: string;
+    openGraphDescription?: string;
   };
 
   card: {
