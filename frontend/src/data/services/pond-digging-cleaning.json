@@ -137,12 +137,10 @@
   "layout": {
     "sections": [
       "intro",
-      {
-        "id": "resources",
-        "emphasis": "high"
-      },
+      "resources",
       "proof",
       "process",
+      "equipment",
       "localIntent",
       "faq",
       "relatedServices",

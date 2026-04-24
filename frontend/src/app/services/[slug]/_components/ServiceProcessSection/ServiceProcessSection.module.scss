@@ -1,0 +1,73 @@
+@use '../../../../../styles/abstracts/variables' as v;
+@use '../../../../../styles/abstracts/mixins' as m;
+
+.processSection {
+  color: v.$grey-color-1;
+}
+
+.processSectionLight {
+  color: v.$text-color-dark;
+
+  .processShell {
+    color: v.$text-color-dark;
+  }
+
+  .processList p {
+    color: rgba(v.$text-color-dark, 0.9);
+  }
+}
+
+.processSectionDark {
+  color: v.$grey-color-1;
+}
+
+.processShell {
+  color: v.$grey-color-1;
+
+  h2 {
+    @include m.headingLevel2;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+}
+
+.processList {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 80rem;
+  width: 100%;
+  margin: 4rem auto 0;
+
+  p {
+    color: rgba(v.$text-color-light, 0.94);
+  }
+
+  @include m.mediaDesktop {
+    margin-top: 6rem;
+  }
+}
+
+.processItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  padding-bottom: 2rem;
+  border-left: 4px solid v.$cat-yellow2;
+  padding-left: 2rem;
+}
+
+.stepNumber {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: v.$cat-yellow2;
+  color: v.$text-color-dark;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+}

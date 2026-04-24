@@ -2,15 +2,33 @@
 @use '../../../../styles/abstracts/mixins' as m;
 
 .section {
-  padding: 6rem 1.5rem;
+  --testimonial-body-color: #{rgba(v.$text-color-dark, 0.92)};
+  --testimonial-meta-color: #{rgba(v.$text-color-dark, 0.68)};
+  padding-block: 6rem;
 
   @include m.mediaDesktop {
-    padding: 7rem 2rem;
+    padding-block: 7rem;
+  }
+}
+
+.densityCompact {
+  padding-block: 5rem;
+
+  @include m.mediaDesktop {
+    padding-block: 5.8rem;
+  }
+}
+
+.densityRelaxed {
+  padding-block: 7rem;
+
+  @include m.mediaDesktop {
+    padding-block: 8rem;
   }
 }
 
 .container {
-  max-width: 110rem;
+  width: min(calc(100% - 3.2rem), 110rem);
   margin: 0 auto;
 }
 
@@ -21,6 +39,43 @@
   transform: none;
 }
 
+.headerCenter {
+  text-align: center;
+
+  .eyebrow,
+  .subtext,
+  .summary {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.headerLeft {
+  text-align: left;
+
+  .eyebrow,
+  .heading,
+  .subtext,
+  .summary {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .heading,
+  .subtext,
+  .summary {
+    text-align: left;
+  }
+
+  .subtext {
+    max-width: 68rem;
+  }
+
+  .summary {
+    justify-content: flex-start;
+  }
+}
+
 .cardItem {
   opacity: 0.9;
   transform: translateY(10px);
@@ -29,13 +84,27 @@
     transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+.cardItemFeatured {
+  @include m.mediaDesktop {
+    grid-column: span 2;
+
+    .card {
+      padding: 2.8rem;
+    }
+
+    .text {
+      font-size: 1.82rem;
+    }
+  }
+}
+
 .eyebrow {
   margin: 0 0 1rem;
   text-align: center;
 }
 
 .heading {
-  @include m.sectionHeadingStrong(3.6rem, 5rem);
+  @include m.headingLevel2;
   text-align: center;
   margin-bottom: 1rem;
 }
@@ -57,6 +126,11 @@
   font-size: 1.6rem;
   font-weight: 600;
   text-align: center;
+}
+
+.headerLeft .eyebrow {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .summaryStars {
@@ -119,6 +193,7 @@
   font-size: 1.7rem;
   line-height: 1.65;
   flex-grow: 1;
+  color: var(--testimonial-body-color);
 }
 
 .footer {
@@ -135,7 +210,7 @@
 
 .source {
   font-size: 1.4rem;
-  opacity: 0.72;
+  color: var(--testimonial-meta-color);
 }
 
 .footerCta {
@@ -154,10 +229,12 @@
 .variantLight {
   background-color: v.$grey-color-0;
   color: v.$text-color-dark;
+  --testimonial-body-color: #{rgba(v.$text-color-dark, 0.92)};
+  --testimonial-meta-color: #{rgba(v.$text-color-dark, 0.68)};
 
   .subtext,
   .text {
-    color: v.$text-color-mid-dark;
+    color: var(--testimonial-body-color);
   }
 
   .card {
@@ -182,10 +259,12 @@
 .variantDark {
   background: #202020;
   color: v.$grey-color-1;
+  --testimonial-body-color: #{rgba(v.$text-color-light, 0.94)};
+  --testimonial-meta-color: #{rgba(v.$text-color-light, 0.72)};
 
   .subtext,
   .text {
-    color: rgba(255, 255, 255, 0.88);
+    color: var(--testimonial-body-color);
   }
 
   .card {
@@ -208,10 +287,12 @@
 .variantTransparent {
   background: transparent;
   color: v.$grey-color-1;
+  --testimonial-body-color: #{rgba(v.$text-color-light, 0.95)};
+  --testimonial-meta-color: #{rgba(v.$text-color-light, 0.76)};
 
   .subtext,
   .text {
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--testimonial-body-color);
   }
 
   .card {
@@ -258,11 +339,26 @@
 
   &.variantDark {
     background-color: rgba(0, 0, 0, 0.42);
+    --testimonial-body-color: #{rgba(v.$text-color-light, 0.9)};
+    --testimonial-meta-color: #{rgba(v.$text-color-light, 0.68)};
+
+    .subtext,
+    .text {
+      color: var(--testimonial-body-color);
+    }
   }
 
   &.variantTransparent {
+    --testimonial-body-color: #{rgba(v.$text-color-light, 0.92)};
+    --testimonial-meta-color: #{rgba(v.$text-color-light, 0.72)};
+
     .card {
       background-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .subtext,
+    .text {
+      color: var(--testimonial-body-color);
     }
   }
 }

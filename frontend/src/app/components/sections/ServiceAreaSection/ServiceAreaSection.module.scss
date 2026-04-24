@@ -3,19 +3,34 @@
 
 .section {
   width: 100%;
-  padding: 5.8rem 2rem 6.4rem;
+  padding-block: 5.8rem 6.4rem;
   transition:
     background-color 0.25s ease,
     color 0.25s ease;
 
   @include m.mediaDesktop {
-    padding: 6.8rem 2rem 7.2rem;
+    padding-block: 6.8rem 7.2rem;
+  }
+}
+
+.densityCompact {
+  padding-block: 5rem 5.6rem;
+
+  @include m.mediaDesktop {
+    padding-block: 5.8rem 6.2rem;
+  }
+}
+
+.densityRelaxed {
+  padding-block: 6.6rem 7rem;
+
+  @include m.mediaDesktop {
+    padding-block: 7.4rem 8rem;
   }
 }
 
 .container {
-  width: 95%;
-  max-width: 110rem;
+  width: min(calc(100% - 3.2rem), 110rem);
   margin: 0 auto;
 }
 
@@ -40,15 +55,9 @@
 }
 
 .heading {
-  font-size: 3.6rem;
-  font-weight: 700;
+  @include m.headingLevel2;
   text-align: center;
   margin-bottom: 1rem;
-  line-height: 1.15;
-
-  @include m.mediaDesktop {
-    font-size: 4.6rem;
-  }
 }
 
 .subtext {
@@ -61,12 +70,16 @@
 
 .locationList {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 1.4rem;
   max-width: 90rem;
   margin: 0 auto;
   padding: 0;
   list-style: none;
+
+  @media (min-width: 700px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 
   @include m.mediaDesktop {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -193,7 +206,7 @@
   }
 
   .locationItem {
-    color: v.$grey-color-2;
+    color: rgba(v.$text-color-light, 0.9);
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(255, 255, 255, 0.08);
   }
@@ -231,7 +244,7 @@
   }
 
   .locationItem {
-    color: v.$grey-color-2;
+    color: rgba(v.$text-color-light, 0.92);
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(2px);
@@ -330,12 +343,6 @@
 }
 .isVisible .locationItemWrap:nth-child(6) {
   transition-delay: 0.36s;
-}
-
-@media (max-width: 480px) {
-  .locationList {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

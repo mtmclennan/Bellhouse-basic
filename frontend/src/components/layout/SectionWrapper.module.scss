@@ -3,31 +3,63 @@
 
 .section {
   width: 100%;
-  padding: 6rem 0;
+  padding-block: 6rem;
 
   @include m.mediaDesktop {
-    padding: 8rem 0;
+    padding-block: 8rem;
+  }
+}
+
+.space4 {
+  padding-block: 4rem;
+
+  @include m.mediaDesktop {
+    padding-block: 4rem;
+  }
+}
+
+.space6 {
+  padding-block: 6rem;
+
+  @include m.mediaDesktop {
+    padding-block: 6rem;
+  }
+}
+
+.space8 {
+  padding-block: 8rem;
+
+  @include m.mediaDesktop {
+    padding-block: 8rem;
+  }
+}
+
+.space10 {
+  padding-block: 10rem;
+
+  @include m.mediaDesktop {
+    padding-block: 10rem;
   }
 }
 
 .tight {
-  padding: 4rem 0;
+  padding-block: 4rem;
 
   @include m.mediaDesktop {
-    padding: 5rem 0;
+    padding-block: 5rem;
   }
 }
 
 .loose {
-  padding: 8rem 0;
+  padding-block: 8rem;
 
   @include m.mediaDesktop {
-    padding: 10rem 0;
+    padding-block: 10rem;
   }
 }
 
 .container {
-  width: min(95%, 110rem);
+  width: min(calc(100% - 3.2rem), 110rem);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -36,5 +68,121 @@
 
   @include m.mediaDesktop {
     gap: 3.2rem;
+  }
+}
+
+.headingBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.headingCenter {
+  align-items: center;
+  text-align: center;
+}
+
+.headingLeft {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.eyebrow {
+  display: inline-flex;
+  width: fit-content;
+  margin: 0;
+}
+
+.title {
+  margin: 0;
+  max-width: 95rem;
+  @include m.headingLevel2;
+}
+
+.subtext {
+  margin: 0;
+  max-width: 90rem;
+  font-size: 1.9rem;
+  line-height: 1.55;
+}
+
+.variantLight {
+  color: v.$text-color-dark;
+  background: linear-gradient(180deg, #f1ece4 0%, #e8e1d4 100%);
+
+  .title,
+  .subtext {
+    color: v.$text-color-dark;
+  }
+
+  .eyebrow {
+    @include m.sectionEyebrowLight;
+  }
+}
+
+.variantDark {
+  color: v.$grey-color-1;
+  background: linear-gradient(180deg, #1d1d1d 0%, #111 100%);
+
+  .title {
+    color: v.$grey-color-1;
+  }
+
+  .subtext {
+    color: rgba(v.$text-color-light, 0.95);
+  }
+
+  .eyebrow {
+    @include m.sectionEyebrowDark;
+  }
+}
+
+.variantTransparent {
+  .title {
+    color: inherit;
+  }
+
+  .subtext {
+    color: inherit;
+  }
+
+  .eyebrow {
+    @include m.sectionEyebrowDark;
+  }
+}
+
+.toneDefault {
+}
+
+.toneSoft {
+  &.variantLight {
+    background:
+      radial-gradient(
+        circle at 12% 8%,
+        rgba(v.$cat-yellow2, 0.14),
+        transparent 24%
+      ),
+      linear-gradient(180deg, #f3ede4 0%, #ebe3d7 100%);
+  }
+
+  &.variantDark {
+    background:
+      radial-gradient(
+        circle at 18% 10%,
+        rgba(v.$cat-yellow2, 0.1),
+        transparent 28%
+      ),
+      linear-gradient(180deg, #222 0%, #141414 100%);
+  }
+}
+
+.toneMuted {
+  &.variantLight {
+    background: linear-gradient(180deg, #e9e0d1 0%, #ddd3c4 100%);
+  }
+
+  &.variantDark {
+    background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
   }
 }

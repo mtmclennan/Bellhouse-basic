@@ -4,13 +4,35 @@ import type { ServicePage } from '../../types/interfaces';
 
 const dir = path.join(process.cwd(), 'src/data/services');
 
-type ServiceRecord = ServicePage | ServicePage[];
+function getFileSlug(filePath: string) {
+  return path.basename(filePath, '.json');
+}
 
-function readServiceFile(filePath: string): ServicePage[] {
+function readServiceFile(filePath: string): ServicePage {
   const raw = fs.readFileSync(filePath, 'utf8');
-  const parsed = JSON.parse(raw) as ServiceRecord;
+  const parsed = JSON.parse(raw) as ServicePage | ServicePage[];
 
-  return Array.isArray(parsed) ? parsed : [parsed];
+  if (Array.isArray(parsed)) {
+    throw new Error(
+      `Service data file "${path.basename(filePath)}" must contain exactly one service record.`,
+    );
+  }
+
+  if (typeof parsed?.slug !== 'string' || parsed.slug.length === 0) {
+    throw new Error(
+      `Service data file "${path.basename(filePath)}" is missing a valid slug.`,
+    );
+  }
+
+  const expectedSlug = getFileSlug(filePath);
+
+  if (parsed.slug !== expectedSlug) {
+    throw new Error(
+      `Service data filename "${expectedSlug}.json" must match slug "${parsed.slug}".`,
+    );
+  }
+
+  return parsed;
 }
 
 function getServiceId(service: ServicePage) {
@@ -27,7 +49,7 @@ export function getAllServices(): ServicePage[] {
 
   return files
     .filter((file) => file.endsWith('.json'))
-    .flatMap((file) => {
+    .map((file) => {
       const fullPath = path.join(dir, file);
       return readServiceFile(fullPath);
     })
@@ -40,10 +62,9 @@ export function getAllServices(): ServicePage[] {
 export function getServiceBySlug(slug: string): ServicePage | null {
   const filePath = path.join(dir, `${slug}.json`);
 
-  if (fs.existsSync(filePath)) {
-    const directMatch = readServiceFile(filePath).find((service) => service.slug === slug);
-    if (directMatch) return directMatch;
+  if (!fs.existsSync(filePath)) {
+    return null;
   }
 
-  return getAllServices().find((service) => service.slug === slug) ?? null;
+  return readServiceFile(filePath);
 }

@@ -225,14 +225,8 @@
     },
     "sections": [
       "intro",
-      {
-        "id": "fit",
-        "emphasis": "high"
-      },
-      {
-        "id": "proof",
-        "emphasis": "high"
-      },
+      "fit",
+      "proof",
       "process",
       "contractorCta",
       "resources",

@@ -3,23 +3,41 @@
 
 .section {
   position: relative;
-  padding: 5.5rem 1.5rem;
+  --resources-body-color: #{rgba(v.$text-color-light, 0.94)};
+  --resources-meta-color: #{rgba(v.$text-color-light, 0.82)};
+  padding-block: 5.5rem;
 
   @include m.mediaDesktop {
-    padding: 7rem 2rem;
+    padding-block: 7rem;
+  }
+}
+
+.densityCompact {
+  padding-block: 4.8rem;
+
+  @include m.mediaDesktop {
+    padding-block: 5.8rem;
+  }
+}
+
+.densityRelaxed {
+  padding-block: 6.4rem;
+
+  @include m.mediaDesktop {
+    padding-block: 7.8rem;
   }
 }
 
 .variantLight {
+  --resources-body-color: #{rgba(v.$text-color-dark, 0.92)};
+  --resources-meta-color: #{rgba(v.$text-color-dark, 0.72)};
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0.96) 0%,
     rgba(248, 248, 248, 0.98) 100%
   );
 
-  .intro h2,
-  .copy,
-  .footerCopy {
+  .intro h2 {
     color: v.$text-color-dark;
   }
 
@@ -52,14 +70,17 @@
 }
 
 .toneMuted {
-  .copy,
-  .footerCopy {
-    color: rgba(v.$text-color-light, 0.76);
-  }
+  --resources-body-color: #{rgba(v.$text-color-light, 0.9)};
+  --resources-meta-color: #{rgba(v.$text-color-light, 0.76)};
+}
+
+.variantLight.toneMuted {
+  --resources-body-color: #{rgba(v.$text-color-dark, 0.88)};
+  --resources-meta-color: #{rgba(v.$text-color-dark, 0.68)};
 }
 
 .inner {
-  width: min(118rem, 100%);
+  width: min(calc(100% - 3.2rem), 110rem);
   margin: 0 auto;
 }
 
@@ -67,15 +88,39 @@
   display: grid;
   gap: 1.2rem;
   margin-bottom: 2.8rem;
-  text-align: center;
   opacity: 1;
   transform: none;
 
   h2 {
     margin: 0;
-    @include m.sectionHeadingStrong(3.6rem, 5rem);
+    @include m.headingLevel2;
     line-height: 1.08;
     color: v.$text-color-light;
+  }
+}
+
+.introCenter {
+  text-align: center;
+
+  .eyebrow,
+  .copy {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.introLeft {
+  justify-items: flex-start;
+  text-align: left;
+
+  .eyebrow,
+  .copy {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .copy {
+    max-width: 68rem;
   }
 }
 
@@ -91,7 +136,7 @@
   margin: 0 auto;
   font-size: 1.8rem;
   line-height: 1.6;
-  color: rgba(v.$text-color-light, 0.88);
+  color: var(--resources-body-color);
 }
 
 .footer {
@@ -110,7 +155,7 @@
   margin: 0;
   font-size: 1.6rem;
   line-height: 1.55;
-  color: rgba(v.$text-color-light, 0.84);
+  color: var(--resources-meta-color);
 }
 
 .footerVisible {
@@ -138,6 +183,11 @@
 .variantDark .eyebrow,
 .variantTransparent .eyebrow {
   @include m.sectionEyebrowDark;
+}
+
+.introLeft .eyebrow {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {

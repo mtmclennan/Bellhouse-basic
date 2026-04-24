@@ -1,0 +1,33 @@
+@use '../../../../../styles/abstracts/variables' as v;
+@use '../../../../../styles/abstracts/mixins' as m;
+
+.introShell {
+  @include m.flexCenter(column);
+  text-align: center;
+  color: v.$text-color-dark;
+}
+
+.introContent {
+  @include m.flexCenter(column);
+  max-width: 90rem;
+
+  p {
+    font-size: 1.8rem;
+    margin-bottom: 4rem;
+    color: v.$text-color-dark;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    @include m.flexCenter();
+    justify-content: flex-start;
+    font-size: 1.8rem;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    color: v.$text-color-dark;
+  }
+}

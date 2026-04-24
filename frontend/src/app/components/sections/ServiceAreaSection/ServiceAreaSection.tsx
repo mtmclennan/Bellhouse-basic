@@ -17,9 +17,11 @@ export default function ServiceAreasSection({
     heading,
     subtext,
     locations,
+    locationLinkLabelPrefix,
     actions = [],
     backgroundVariant = 'dark',
     backgroundTone = 'default',
+    density = 'default',
   } = data;
 
   const [isVisible, setIsVisible] = useState(false);
@@ -56,10 +58,17 @@ export default function ServiceAreasSection({
     muted: styles.toneMuted,
   };
 
+  const densityClassMap = {
+    compact: styles.densityCompact,
+    default: '',
+    relaxed: styles.densityRelaxed,
+  };
+
   const sectionClassName = [
     styles.section,
     variantClassMap[backgroundVariant],
     toneClassMap[backgroundTone],
+    densityClassMap[density],
     isVisible ? styles.isVisible : '',
   ]
     .filter(Boolean)
@@ -90,7 +99,9 @@ export default function ServiceAreasSection({
               <li key={key} className={styles.locationItemWrap}>
                 {location.href ? (
                   <Link className={styles.locationLink} href={location.href}>
-                    {location.label}
+                    {locationLinkLabelPrefix
+                      ? `${locationLinkLabelPrefix}${location.label}`
+                      : location.label}
                   </Link>
                 ) : (
                   <span className={styles.locationItem}>{location.label}</span>

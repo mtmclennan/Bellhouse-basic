@@ -3,14 +3,18 @@
 
 .section {
   position: relative;
-  padding: 5.5rem 1.5rem;
+  --cta-body-color: #{rgba(v.$text-color-light, 0.94)};
+  --cta-meta-color: #{rgba(v.$text-color-light, 0.82)};
+  padding-block: 5.5rem;
 
   @include m.mediaDesktop {
-    padding: 7rem 2rem;
+    padding-block: 7rem;
   }
 }
 
 .variantLight {
+  --cta-body-color: #{rgba(v.$text-color-dark, 0.92)};
+  --cta-meta-color: #{rgba(v.$text-color-dark, 0.74)};
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0.96) 0%,
@@ -29,9 +33,7 @@
     box-shadow: 0 1.4rem 3rem -2.4rem rgba(0, 0, 0, 0.14);
   }
 
-  .content h2,
-  .text,
-  .note {
+  .content h2 {
     color: v.$text-color-dark;
   }
 
@@ -92,10 +94,13 @@
 }
 
 .toneMuted {
-  .text,
-  .note {
-    color: rgba(v.$text-color-light, 0.76);
-  }
+  --cta-body-color: #{rgba(v.$text-color-light, 0.9)};
+  --cta-meta-color: #{rgba(v.$text-color-light, 0.76)};
+}
+
+.variantLight.toneMuted {
+  --cta-body-color: #{rgba(v.$text-color-dark, 0.88)};
+  --cta-meta-color: #{rgba(v.$text-color-dark, 0.68)};
 }
 
 .densityCompact {
@@ -106,7 +111,7 @@
   }
 
   .inner {
-    width: min(108rem, 100%);
+    width: min(calc(100% - 3.2rem), 110rem);
   }
 
   .card {
@@ -126,7 +131,7 @@
 
     h2 {
       max-width: 62rem;
-      @include m.sectionHeadingStrong(2.8rem, 3.8rem);
+      @include m.headingLevel2(2.8rem, 3.8rem);
       line-height: 1.1;
     }
   }
@@ -166,7 +171,7 @@
 }
 
 .inner {
-  width: min(114rem, 100%);
+  width: min(calc(100% - 3.2rem), 110rem);
   margin: 0 auto;
 }
 
@@ -225,7 +230,7 @@
   h2 {
     margin: 0;
     max-width: 76rem;
-    @include m.sectionHeadingStrong(3.6rem, 5rem);
+    @include m.headingLevel2;
     line-height: 1.04;
     color: v.$text-color-light;
   }
@@ -241,7 +246,7 @@
   margin: 0;
   font-size: 1.8rem;
   line-height: 1.65;
-  color: rgba(v.$text-color-light, 0.86);
+  color: var(--cta-body-color);
 }
 
 .proofList {
@@ -323,7 +328,7 @@
   margin: 0.2rem 0 0;
   font-size: 1.4rem;
   line-height: 1.55;
-  color: rgba(v.$text-color-light, 0.78);
+  color: var(--cta-meta-color);
   text-align: center;
 
   @include m.mediaDesktop {

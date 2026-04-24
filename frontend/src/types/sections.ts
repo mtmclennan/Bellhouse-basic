@@ -145,6 +145,8 @@ export type TestimonialsSectionData = {
   footerLink?: SectionLink;
   backgroundVariant?: 'light' | 'dark' | 'transparent';
   backgroundTone?: 'default' | 'soft' | 'muted';
+  density?: 'compact' | 'default' | 'relaxed';
+  headingAlign?: 'left' | 'center';
 };
 
 export type ServiceAreaLocation = {
@@ -158,9 +160,31 @@ export type ServiceAreasSectionData = {
   heading: string;
   subtext?: string;
   locations: ServiceAreaLocation[];
+  locationLinkLabelPrefix?: string;
   actions?: SectionActionLink[];
   backgroundVariant?: 'light' | 'dark' | 'transparent';
   backgroundTone?: 'default' | 'soft' | 'muted';
+  density?: 'compact' | 'default' | 'relaxed';
+};
+
+export type CardGridSectionCard = {
+  title: string;
+  description: string;
+  tags?: string[];
+  outcome?: string;
+};
+
+export type CardGridSectionData = {
+  _type: 'cardGridSection';
+  eyebrow?: string;
+  heading: string;
+  subtext?: string;
+  cards: CardGridSectionCard[];
+  backgroundVariant?: 'light' | 'dark' | 'transparent';
+  backgroundTone?: 'default' | 'soft' | 'muted';
+  density?: 'compact' | 'default' | 'relaxed';
+  headingAlign?: 'left' | 'center';
+  layoutStyle?: 'default' | 'proof' | 'fit';
 };
 
 export type ContactMethodIcon = 'call' | 'text' | 'form';
@@ -195,6 +219,8 @@ export type ResourcesSectionData = {
   footerActions?: SectionActionLink[];
   backgroundVariant?: 'light' | 'dark' | 'transparent';
   backgroundTone?: 'default' | 'soft' | 'muted';
+  density?: 'compact' | 'default' | 'relaxed';
+  headingAlign?: 'left' | 'center';
 };
 
 export type BackgroundVariant = 'light' | 'dark' | 'transparent';
@@ -294,4 +320,6 @@ export type FaqSectionData = {
   footerLink?: SectionLink;
   backgroundVariant?: 'light' | 'dark' | 'transparent';
   backgroundTone?: 'default' | 'soft' | 'muted';
+  density?: 'compact' | 'default' | 'relaxed';
+  headingAlign?: 'left' | 'center';
 };

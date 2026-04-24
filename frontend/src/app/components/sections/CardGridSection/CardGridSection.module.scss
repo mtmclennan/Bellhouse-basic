@@ -1,0 +1,245 @@
+@use '../../../../styles/abstracts/mixins' as m;
+@use '../../../../styles/abstracts/variables' as v;
+
+.section {
+  position: relative;
+  --card-grid-body-color: #{rgba(v.$text-color-dark, 0.92)};
+  --card-grid-meta-color: #{rgba(v.$text-color-dark, 0.76)};
+}
+
+.shell {
+  width: 100%;
+}
+
+.layoutProof {
+  .grid {
+    gap: 1.8rem;
+    margin-top: 0.6rem;
+
+    @include m.mediaDesktop {
+      gap: 2.4rem;
+      margin-top: 2.2rem;
+    }
+  }
+
+  .card {
+    min-height: 0;
+    gap: 0.9rem;
+  }
+}
+
+.layoutFit {
+  .grid {
+    gap: 2.2rem;
+    margin-top: 0.8rem;
+
+    @include m.mediaDesktop {
+      gap: 3.2rem;
+      margin-top: 2.8rem;
+    }
+  }
+
+  .card {
+    gap: 1.3rem;
+    min-height: 18rem;
+    padding: 2.3rem;
+  }
+
+  .cardHeading {
+    align-items: flex-start;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  width: 100%;
+  margin-top: 1rem;
+
+  @include m.mediaDesktop {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  min-height: 15rem;
+  padding: 2rem;
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+
+  &:hover,
+  &:focus-within {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+  }
+}
+
+.cardHeading {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  h3 {
+    margin: 0;
+    @include m.headingLevel3;
+  }
+}
+
+.icon {
+  flex-shrink: 0;
+}
+
+.cardDescription {
+  margin: 0;
+  font-size: 1.8rem;
+  line-height: 1.45;
+  color: var(--card-grid-body-color);
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.tag {
+  display: inline-flex;
+  width: fit-content;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.outcome {
+  margin: auto 0 0;
+  font-size: 1.6rem;
+  line-height: 1.55;
+  color: var(--card-grid-meta-color);
+}
+
+.variantLight {
+  color: v.$text-color-dark;
+  --card-grid-body-color: #{rgba(v.$text-color-dark, 0.92)};
+  --card-grid-meta-color: #{rgba(v.$text-color-dark, 0.76)};
+
+  .card {
+    background: linear-gradient(
+      180deg,
+      rgba(252, 251, 248, 0.98) 0%,
+      rgba(246, 243, 236, 0.98) 100%
+    );
+    border: 1px solid rgba(88, 72, 33, 0.16);
+  }
+
+  .icon,
+  .outcome strong {
+    color: #7a5a00;
+  }
+
+  .tag {
+    border: 1px solid rgba(111, 83, 0, 0.22);
+    background: rgba(122, 90, 0, 0.08);
+    color: #584b2d;
+  }
+}
+
+.variantDark {
+  color: v.$grey-color-1;
+  --card-grid-body-color: #{rgba(v.$text-color-light, 0.95)};
+  --card-grid-meta-color: #{rgba(v.$text-color-light, 0.82)};
+
+  .card {
+    background: rgba(v.$color-neutral-dark, 0.3);
+    border: 1px solid rgba(v.$cat-yellow2, 0.3);
+  }
+
+  .icon,
+  .outcome strong {
+    color: rgba(v.$cat-yellow2, 0.9);
+  }
+
+  .tag {
+    border: 1px solid rgba(v.$cat-yellow2, 0.42);
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.88);
+  }
+}
+
+.variantTransparent {
+  color: v.$grey-color-1;
+  --card-grid-body-color: #{rgba(v.$text-color-light, 0.96)};
+  --card-grid-meta-color: #{rgba(v.$text-color-light, 0.84)};
+
+  .card {
+    background: rgba(v.$color-neutral-dark, 0.3);
+    border: 1px solid rgba(v.$cat-yellow2, 0.9);
+  }
+
+  .icon,
+  .outcome strong {
+    color: rgba(v.$cat-yellow2, 0.9);
+  }
+
+  .tag {
+    border: 1px solid rgba(v.$cat-yellow2, 0.42);
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.88);
+  }
+}
+
+.toneDefault {
+}
+
+.toneSoft {
+  &.variantLight {
+    .card {
+      border-color: rgba(111, 83, 0, 0.14);
+    }
+  }
+
+  &.variantDark,
+  &.variantTransparent {
+    .card {
+      border-color: rgba(v.$cat-yellow2, 0.45);
+    }
+  }
+}
+
+.toneMuted {
+  &.variantLight {
+    --card-grid-body-color: #{rgba(v.$text-color-dark, 0.88)};
+    --card-grid-meta-color: #{rgba(v.$text-color-dark, 0.72)};
+
+    .card {
+      background: linear-gradient(180deg, #f1eadf 0%, #e9dfd1 100%);
+    }
+  }
+
+  &.variantDark,
+  &.variantTransparent {
+    --card-grid-meta-color: #{rgba(v.$text-color-light, 0.78)};
+
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.14);
+    }
+
+    .tag {
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+  }
+}

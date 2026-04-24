@@ -38,14 +38,6 @@ export type ServiceSectionId =
   | 'reviews'
   | 'finalCta';
 
-export type ServiceSectionEmphasis = 'low' | 'standard' | 'high';
-
-export interface ServiceLayoutSection {
-  id: ServiceSectionId;
-  enabled?: boolean;
-  emphasis?: ServiceSectionEmphasis;
-}
-
 export interface ServiceHeroLayoutConfig {
   emphasis?: 'compact' | 'standard' | 'high';
   eyebrow?: string;
@@ -90,7 +82,7 @@ export interface ServicePageLayout {
   contractorCta?: ServiceModuleCtaLayoutConfig;
   resources?: ServiceResourcesLayoutConfig;
   finalCta?: ServiceFinalCtaLayoutConfig;
-  sections?: Array<ServiceSectionId | ServiceLayoutSection>;
+  sections?: ServiceSectionId[];
 }
 
 export interface ServicePage {

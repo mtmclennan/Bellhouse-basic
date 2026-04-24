@@ -214,15 +214,9 @@
     },
     "sections": [
       "intro",
-      {
-        "id": "fit",
-        "emphasis": "high"
-      },
+      "fit",
       "proof",
-      {
-        "id": "resources",
-        "emphasis": "high"
-      },
+      "resources",
       "contractorCta",
       "process",
       "localIntent",

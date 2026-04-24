@@ -53,6 +53,8 @@ export default function FaqSection({ data, defaultOpenId }: FaqSectionProps) {
     footerLink,
     backgroundVariant = 'light',
     backgroundTone = 'default',
+    density = 'default',
+    headingAlign = 'center',
   } = data;
 
   const uid = useId();
@@ -107,20 +109,30 @@ export default function FaqSection({ data, defaultOpenId }: FaqSectionProps) {
     muted: classes.toneMuted,
   };
 
+  const densityClassMap = {
+    compact: classes.densityCompact,
+    default: '',
+    relaxed: classes.densityRelaxed,
+  };
+
+  const introClassName = [
+    classes.intro,
+    headingAlign === 'left' ? classes.introLeft : classes.introCenter,
+    isVisible ? classes.introVisible : '',
+  ]
+    .filter(Boolean)
+    .join(' ');
+
   return (
     <section
       ref={sectionRef}
       className={`${classes.section} ${variantClassMap[backgroundVariant]} ${
         toneClassMap[backgroundTone]
-      }`}
+      } ${densityClassMap[density]}`}
       aria-labelledby={`${uid}-heading`}
     >
       <div className={classes.inner}>
-        <div
-          className={`${classes.intro} ${
-            isVisible ? classes.introVisible : ''
-          }`}
-        >
+        <div className={introClassName}>
           {eyebrow ? <p className={classes.eyebrow}>{eyebrow}</p> : null}
 
           <h2 id={`${uid}-heading`}>{heading}</h2>

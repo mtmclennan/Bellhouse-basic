@@ -186,30 +186,58 @@
   }
 }
 
-@mixin sectionEyebrowDark {
+@mixin headingLevel1($mobile: 4.6rem, $desktop: 6.4rem) {
+  font-size: $mobile;
+  line-height: 1;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+
+  @include mediaDesktop {
+    font-size: $desktop;
+  }
+}
+
+@mixin headingLevel2($mobile: 3.6rem, $desktop: 5.6rem) {
+  @include sectionHeadingStrong($mobile, $desktop);
+}
+
+@mixin headingLevel3($mobile: 2.25rem, $desktop: 3rem) {
+  font-size: $mobile;
+  line-height: 1.18;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+
+  @include mediaDesktop {
+    font-size: $desktop;
+  }
+}
+
+@mixin sectionEyebrowBase {
   display: inline-flex;
   align-items: center;
   width: fit-content;
   min-height: 3.6rem;
-  padding: 0.7rem 1.2rem;
-  border: 1px solid rgba(v.$cat-yellow2, 0.28);
   border-radius: 999px;
-  background-color: rgba(v.$cat-yellow2, 0.08);
   font-size: 1.3rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+}
+
+@mixin sectionEyebrowDark {
+  @include sectionEyebrowBase;
+  min-height: 3.6rem;
+  padding: 0.7rem 1.2rem;
+  border: 1px solid rgba(v.$cat-yellow2, 0.28);
+  background-color: rgba(v.$cat-yellow2, 0.08);
   color: v.$cat-yellow2;
 }
 
 @mixin sectionEyebrowLight {
-  display: inline-flex;
-  align-items: center;
-  width: fit-content;
+  @include sectionEyebrowBase;
   min-height: 3.6rem;
   padding: 0.72rem 1.25rem;
   border: 1px solid rgba(111, 83, 0, 0.18);
-  border-radius: 999px;
   background:
     linear-gradient(
       180deg,
@@ -221,10 +249,6 @@
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.42),
     0 0.6rem 1.4rem -1rem rgba(67, 49, 12, 0.2);
-  font-size: 1.3rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
   color: #4d4232;
 }
 

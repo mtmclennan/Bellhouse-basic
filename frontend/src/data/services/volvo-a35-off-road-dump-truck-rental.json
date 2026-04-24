@@ -167,10 +167,7 @@
     },
     "sections": [
       "intro",
-      {
-        "id": "contractorCta",
-        "emphasis": "high"
-      },
+      "contractorCta",
       "equipment",
       "proof",
       "resources",
@@ -183,5 +180,3 @@
     ]
   }
 }
-
-

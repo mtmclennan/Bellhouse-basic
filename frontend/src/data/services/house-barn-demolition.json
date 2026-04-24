@@ -142,11 +142,9 @@
   "layout": {
     "sections": [
       "intro",
-      {
-        "id": "proof",
-        "emphasis": "high"
-      },
+      "proof",
       "process",
+      "equipment",
       "localIntent",
       "faq",
       "relatedServices",

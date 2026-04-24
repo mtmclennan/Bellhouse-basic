@@ -23,6 +23,8 @@ export default function TestimonialsSection({
     footerLink,
     backgroundVariant = 'dark',
     backgroundTone = 'default',
+    density = 'default',
+    headingAlign = 'center',
   } = data;
 
   const [isVisible, setIsVisible] = useState(false);
@@ -59,10 +61,24 @@ export default function TestimonialsSection({
     muted: styles.toneMuted,
   };
 
+  const densityClassMap = {
+    compact: styles.densityCompact,
+    default: '',
+    relaxed: styles.densityRelaxed,
+  };
+
+  const headerClassName = [
+    styles.headerBlock,
+    headingAlign === 'left' ? styles.headerLeft : styles.headerCenter,
+  ]
+    .filter(Boolean)
+    .join(' ');
+
   const sectionClassName = [
     styles.section,
     variantClassMap[backgroundVariant],
     toneClassMap[backgroundTone],
+    densityClassMap[density],
     isVisible ? styles.isVisible : '',
   ]
     .filter(Boolean)
@@ -75,7 +91,7 @@ export default function TestimonialsSection({
       aria-labelledby="testimonials-section-heading"
     >
       <div className={styles.container}>
-        <div className={styles.headerBlock}>
+        <div className={headerClassName}>
           {eyebrow && <p className={styles.eyebrow}>{eyebrow}</p>}
 
           <h2 id="testimonials-section-heading" className={styles.heading}>
@@ -97,10 +113,12 @@ export default function TestimonialsSection({
         </div>
 
         <ul className={styles.grid}>
-          {items.map((review) => (
+          {items.map((review, index) => (
             <li
               key={`${review.name}-${review.source}-${review.text.slice(0, 20)}`}
-              className={styles.cardItem}
+              className={`${styles.cardItem} ${
+                items.length >= 3 && index === 0 ? styles.cardItemFeatured : ''
+              }`}
             >
               <article className={styles.card}>
                 <div className={styles.cardTop}>

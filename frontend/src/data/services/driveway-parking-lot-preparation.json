@@ -215,15 +215,9 @@
     },
     "sections": [
       "intro",
-      {
-        "id": "fit",
-        "emphasis": "high"
-      },
+      "fit",
       "proof",
-      {
-        "id": "resources",
-        "emphasis": "high"
-      },
+      "resources",
       "process",
       "localIntent",
       "equipment",

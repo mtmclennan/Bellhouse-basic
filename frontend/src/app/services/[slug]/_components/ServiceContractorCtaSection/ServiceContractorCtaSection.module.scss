@@ -1,0 +1,57 @@
+@use '../../../../../styles/abstracts/variables' as v;
+@use '../../../../../styles/abstracts/mixins' as m;
+
+.contractorCtaSection {
+  color: v.$text-color-dark;
+}
+
+.contractorCtaSectionLight {
+  color: v.$text-color-dark;
+}
+
+.contractorCtaSectionDark {
+  color: v.$grey-color-1;
+
+  .contractorCtaShell {
+    border: 1px solid rgba(v.$cat-yellow2, 0.24);
+    box-shadow: 0 2rem 3.6rem -2.6rem rgba(0, 0, 0, 0.52);
+  }
+}
+
+.contractorCtaShell {
+  width: 100%;
+  padding: 3rem;
+  border-radius: 1.8rem;
+  background: rgba(v.$color-neutral-dark, 0.94);
+  box-shadow: 0 1.8rem 3.2rem -2.6rem rgba(0, 0, 0, 0.6);
+  text-align: center;
+
+  h2 {
+    @include m.headingLevel2;
+    color: #fff;
+  }
+
+  p:last-of-type {
+    margin: 2rem auto 0;
+    max-width: 72rem;
+    font-size: 1.8rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.92);
+  }
+}
+
+.contractorActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.6rem;
+  margin-top: 3rem;
+}
+
+.btn {
+  @include m.btnMain;
+}
+
+.btnSecondary {
+  @include m.btnSec;
+}

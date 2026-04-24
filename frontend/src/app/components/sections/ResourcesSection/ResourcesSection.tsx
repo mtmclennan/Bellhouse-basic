@@ -20,6 +20,8 @@ export default function ResourcesSection({ data }: ResourcesSectionProps) {
     footerActions = [],
     backgroundVariant = 'dark',
     backgroundTone = 'default',
+    density = 'default',
+    headingAlign = 'center',
   } = data;
 
   const [isVisible, setIsVisible] = useState(false);
@@ -56,19 +58,29 @@ export default function ResourcesSection({ data }: ResourcesSectionProps) {
     muted: classes.toneMuted,
   };
 
+  const densityClassMap = {
+    compact: classes.densityCompact,
+    default: '',
+    relaxed: classes.densityRelaxed,
+  };
+
+  const introClassName = [
+    classes.intro,
+    headingAlign === 'left' ? classes.introLeft : classes.introCenter,
+    isVisible ? classes.introVisible : '',
+  ]
+    .filter(Boolean)
+    .join(' ');
+
   return (
     <section
       ref={sectionRef}
       className={`${classes.section} ${variantClassMap[backgroundVariant]} ${
         toneClassMap[backgroundTone]
-      }`}
+      } ${densityClassMap[density]}`}
     >
       <div className={classes.inner}>
-        <div
-          className={`${classes.intro} ${
-            isVisible ? classes.introVisible : ''
-          }`}
-        >
+        <div className={introClassName}>
           {eyebrow ? <p className={classes.eyebrow}>{eyebrow}</p> : null}
           <h2>{heading}</h2>
           {subtext ? <p className={classes.copy}>{subtext}</p> : null}

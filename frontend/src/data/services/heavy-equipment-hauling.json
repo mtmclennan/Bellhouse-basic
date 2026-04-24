@@ -162,10 +162,7 @@
     },
     "sections": [
       "intro",
-      {
-        "id": "equipment",
-        "emphasis": "high"
-      },
+      "equipment",
       "proof",
       "contractorCta",
       "process",

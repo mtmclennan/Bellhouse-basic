@@ -1,7 +1,6 @@
 import type {
   ServiceFinalCtaLayoutConfig,
   ServiceHeroLayoutConfig,
-  ServiceLayoutSection,
   ServicePage,
   ServiceSectionId,
 } from '@/types/interfaces';
@@ -221,37 +220,18 @@ const defaultSectionOrder: ServiceSectionId[] = [
   'finalCta',
 ];
 
-function normalizeSectionConfig(
-  section: ServiceSectionId | ServiceLayoutSection,
-): ServiceLayoutSection {
-  if (typeof section === 'string') {
-    return {
-      id: section,
-      enabled: true,
-      emphasis: 'standard',
-    };
-  }
-
-  return {
-    id: section.id,
-    enabled: section.enabled ?? true,
-    emphasis: section.emphasis ?? 'standard',
-  };
-}
-
-export function getServicePageSections(service: ServicePage): ServiceLayoutSection[] {
+export function getServicePageSections(service: ServicePage): ServiceSectionId[] {
   const configuredSections = service.layout?.sections ?? defaultSectionOrder;
   const seen = new Set<ServiceSectionId>();
 
   return configuredSections
-    .map((section) => normalizeSectionConfig(section))
     .filter((section) => {
-      if (seen.has(section.id)) {
+      if (seen.has(section)) {
         return false;
       }
 
-      seen.add(section.id);
-      return section.enabled;
+      seen.add(section);
+      return true;
     });
 }
 
