@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import type { RelatedServiceLinkItem } from '@/lib/servicePageLinks';
+import type { ServiceRelatedServicesSectionData } from '@/types/serviceSections';
 import type { ServiceSectionAppearance } from '../serviceSectionTypes';
 import ServiceCardGrid from '../primitives/ServiceCardGrid/ServiceCardGrid';
 import ServiceSectionWrapper from '../primitives/ServiceSectionWrapper/ServiceSectionWrapper';
@@ -9,11 +10,13 @@ import classes from './ServiceRelatedServicesSection.module.scss';
 interface ServiceRelatedServicesSectionProps {
   relatedServices: RelatedServiceLinkItem[];
   appearance: ServiceSectionAppearance;
+  section?: ServiceRelatedServicesSectionData;
 }
 
 export default function ServiceRelatedServicesSection({
   relatedServices,
   appearance,
+  section,
 }: ServiceRelatedServicesSectionProps) {
   if (relatedServices.length === 0) {
     return null;
@@ -36,8 +39,8 @@ export default function ServiceRelatedServicesSection({
       className={relatedServicesSectionClassName}
       containerClassName={classes.relatedServicesShell}
       heading={{
-        eyebrow: 'Related services',
-        title: 'Related excavation and hauling services',
+        eyebrow: section?.eyebrow ?? 'Related services',
+        title: section?.heading ?? 'Related excavation and hauling services',
         align: 'left',
       }}
     >

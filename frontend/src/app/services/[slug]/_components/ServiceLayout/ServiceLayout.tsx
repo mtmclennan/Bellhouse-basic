@@ -13,6 +13,7 @@ import {
 } from '@/lib/servicePageLayout';
 import {
   getResolvedServiceHeroConfig,
+  type ResolvedServiceSection,
   getResolvedServiceSections,
 } from '@/lib/services/resolveServicePage';
 import ServiceHeroSection from '../ServiceHeroSection/ServiceHeroSection';
@@ -132,22 +133,22 @@ const sectionSurfaceRules: Record<ServiceSectionId, ServiceSectionSurfaceRule> =
 };
 
 function resolveServiceSectionAppearances(
-  sections: ServiceSectionId[],
-): Record<ServiceSectionId, ServiceSectionAppearance> {
-  const appearances = {} as Record<ServiceSectionId, ServiceSectionAppearance>;
+  sections: ResolvedServiceSection[],
+): ServiceSectionAppearance[] {
+  const appearances: ServiceSectionAppearance[] = [];
   let previousFamily: ServiceSectionSurfaceFamily = 'dark';
 
-  for (const sectionId of sections) {
-    const rule = sectionSurfaceRules[sectionId];
+  for (const section of sections) {
+    const rule = sectionSurfaceRules[section.surfaceId];
     const backgroundVariant: ServiceSectionSurfaceFamily =
       rule.preferred === previousFamily && rule.alternate
         ? rule.alternate
         : rule.preferred;
 
-    appearances[sectionId] = {
+    appearances.push({
       backgroundVariant,
       backgroundTone: rule.tones[backgroundVariant],
-    };
+    });
 
     previousFamily = backgroundVariant;
   }
@@ -174,7 +175,7 @@ export default function ServiceLayout({
         service={service}
         localIntent={localIntent}
         relatedServices={relatedServices}
-        configuredSections={configuredSections}
+        resolvedSections={configuredSections}
         sectionAppearances={sectionAppearances}
         contractorCtaConfig={contractorCtaConfig}
         resourcesConfig={resourcesConfig}

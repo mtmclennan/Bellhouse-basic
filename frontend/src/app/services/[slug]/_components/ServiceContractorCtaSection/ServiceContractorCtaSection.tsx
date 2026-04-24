@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import type { ResolvedServiceContractorCtaConfig } from '@/lib/servicePageLayout';
+import type { ServiceContractorCtaSectionData } from '@/types/serviceSections';
 import type { ServiceSectionAppearance } from '../serviceSectionTypes';
 import ServiceSectionWrapper from '../primitives/ServiceSectionWrapper/ServiceSectionWrapper';
 import classes from './ServiceContractorCtaSection.module.scss';
@@ -8,15 +9,32 @@ import classes from './ServiceContractorCtaSection.module.scss';
 interface ServiceContractorCtaSectionProps {
   contractorCta: ResolvedServiceContractorCtaConfig | null;
   appearance: ServiceSectionAppearance;
+  section?: ServiceContractorCtaSectionData;
+}
+
+function hasAction(
+  action: ResolvedServiceContractorCtaConfig['primaryAction'] | undefined,
+): action is NonNullable<ResolvedServiceContractorCtaConfig['primaryAction']> {
+  return Boolean(action?.label && action?.href);
 }
 
 export default function ServiceContractorCtaSection({
   contractorCta,
   appearance,
+  section,
 }: ServiceContractorCtaSectionProps) {
-  if (!contractorCta) {
+  if (!contractorCta && !section) {
     return null;
   }
+
+  const actions =
+    section?.actions.map((action) => ({
+      label: action.label,
+      href: action.href,
+    })) ?? [
+      contractorCta?.primaryAction,
+      contractorCta?.secondaryAction,
+    ].filter(hasAction);
 
   const contractorSectionClassName = [
     classes.contractorCtaSection,
@@ -35,24 +53,22 @@ export default function ServiceContractorCtaSection({
       className={contractorSectionClassName}
       containerClassName={classes.contractorCtaShell}
       heading={{
-        eyebrow: contractorCta.eyebrow,
-        title: contractorCta.title,
-        subtext: contractorCta.description,
+        eyebrow: section?.eyebrow ?? contractorCta?.eyebrow,
+        title: section?.heading ?? contractorCta?.title,
+        subtext: section?.body ?? contractorCta?.description,
         align: 'center',
       }}
     >
       <div className={classes.contractorActions}>
-        <Link href={contractorCta.primaryAction.href} className={classes.btn}>
-          {contractorCta.primaryAction.label}
-        </Link>
-        {contractorCta.secondaryAction ? (
+        {actions.map((action, index) => (
           <Link
-            href={contractorCta.secondaryAction.href}
-            className={classes.btnSecondary}
+            key={`${action.href}-${action.label}`}
+            href={action.href}
+            className={index === 0 ? classes.btn : classes.btnSecondary}
           >
-            {contractorCta.secondaryAction.label}
+            {action.label}
           </Link>
-        ) : null}
+        ))}
       </div>
     </ServiceSectionWrapper>
   );

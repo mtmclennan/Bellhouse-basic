@@ -32,6 +32,21 @@ const sectionTypeToLegacyId: Partial<Record<ServiceSection['type'], ServiceSecti
   finalCta: 'finalCta',
 };
 
+export type ResolvedServiceSection =
+  | {
+      mode: 'legacy';
+      id: ServiceSectionId;
+      surfaceId: ServiceSectionId;
+      key: string;
+    }
+  | {
+      mode: 'v2';
+      id: ServiceSectionId;
+      surfaceId: ServiceSectionId;
+      key: string;
+      section: ServiceSection;
+    };
+
 function isServiceSection(value: unknown): value is ServiceSection {
   return Boolean(
     value &&
@@ -103,15 +118,21 @@ export function getResolvedServiceHeroConfig(
 
 export function getResolvedServiceSections(
   service: ServicePage | ServicePageWithV2,
-): ServiceSectionId[] {
+): ResolvedServiceSection[] {
   if (!hasServicePageV2Sections(service)) {
-    return getServicePageSections(service as ServicePage);
+    return getServicePageSections(service as ServicePage).map((sectionId) => ({
+      mode: 'legacy',
+      id: sectionId,
+      surfaceId: sectionId,
+      key: `legacy-${sectionId}`,
+    }));
   }
 
-  const orderedSections: ServiceSectionId[] = [];
+  const orderedSections: ResolvedServiceSection[] = [];
   const seen = new Set<ServiceSectionId>();
 
-  for (const section of service.sections) {
+  for (let index = 0; index < service.sections.length; index += 1) {
+    const section = service.sections[index];
     const legacySectionId = sectionTypeToLegacyId[section.type];
 
     if (!legacySectionId || seen.has(legacySectionId)) {
@@ -119,10 +140,21 @@ export function getResolvedServiceSections(
     }
 
     seen.add(legacySectionId);
-    orderedSections.push(legacySectionId);
+    orderedSections.push({
+      mode: 'v2',
+      id: legacySectionId,
+      surfaceId: legacySectionId,
+      key: section.id ?? `v2-${section.type}-${index}`,
+      section,
+    });
   }
 
   return orderedSections.length > 0
     ? orderedSections
-    : getServicePageSections(service as ServicePage);
+    : getServicePageSections(service as ServicePage).map((sectionId) => ({
+        mode: 'legacy',
+        id: sectionId,
+        surfaceId: sectionId,
+        key: `legacy-${sectionId}`,
+      }));
 }
