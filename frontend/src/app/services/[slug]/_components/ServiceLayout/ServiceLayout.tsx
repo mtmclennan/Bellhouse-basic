@@ -7,12 +7,14 @@ import type {
   ServiceLocalIntentContent,
 } from '@/lib/servicePageLinks';
 import {
-  getServicePageSections,
   resolveServiceContractorCtaConfig,
   resolveServiceFinalCtaConfig,
-  resolveServiceHeroConfig,
   resolveServiceResourcesConfig,
 } from '@/lib/servicePageLayout';
+import {
+  getResolvedServiceHeroConfig,
+  getResolvedServiceSections,
+} from '@/lib/services/resolveServicePage';
 import ServiceHeroSection from '../ServiceHeroSection/ServiceHeroSection';
 import ServiceSectionRenderer from '../ServiceSectionRenderer/ServiceSectionRenderer';
 import type { ServiceSectionAppearance } from '../serviceSectionTypes';
@@ -158,11 +160,11 @@ export default function ServiceLayout({
   localIntent,
   relatedServices,
 }: ServiceLayoutProps) {
-  const heroConfig = resolveServiceHeroConfig(service);
+  const heroConfig = getResolvedServiceHeroConfig(service);
   const contractorCtaConfig = resolveServiceContractorCtaConfig(service);
   const resourcesConfig = resolveServiceResourcesConfig(service);
   const finalCtaConfig = resolveServiceFinalCtaConfig(service);
-  const configuredSections = getServicePageSections(service);
+  const configuredSections = getResolvedServiceSections(service);
   const sectionAppearances = resolveServiceSectionAppearances(configuredSections);
 
   return (

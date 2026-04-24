@@ -1,6 +1,8 @@
 {
   "id": 1,
   "slug": "foundation-excavation",
+  "title": "Foundation Excavation & Backfilling",
+  "navTitle": "Foundation Excavation",
 
   "meta": {
     "title": "Foundation Excavation & Backfilling | Bellhouse",
@@ -15,11 +17,295 @@
   },
 
   "hero": {
+    "eyebrow": "Builders, additions & new foundations",
     "heading": "Foundation Excavation & Backfilling",
+    "summary": "Precision excavation for new home builds, additions, garages, and structural projects.",
     "subheading": "Precision excavation for new home builds, additions, garages, and structural projects.",
+    "actions": [
+      {
+        "label": "Get a Free Estimate",
+        "href": "/contact",
+        "variant": "primary"
+      },
+      {
+        "label": "For Builders & Contractors",
+        "href": "/contractors",
+        "variant": "secondary"
+      }
+    ],
+    "proofPoints": [
+      "Layout to engineered elevations",
+      "Spoil haul-out and backfill support",
+      "Fit for contractor-led schedules"
+    ],
+    "emphasis": "high",
     "image": "/assets/foundation-excavating-backfill.png",
     "alt": "excavator digging and backfilling a foundation"
   },
+
+  "sections": [
+    {
+      "type": "intro",
+      "heading": "Professional Foundation Excavation and Backfilling",
+      "body": "Your foundation sets the stage for the entire structure. Our team provides accurate, safe, and efficient foundation excavation and backfilling for builders, contractors, and homeowners throughout Brant County and the surrounding area. We ensure the right depth, clean lines, proper soil handling, and reliable compaction - everything required for a strong, stable foundation.",
+      "bullets": [
+        "Full foundation digs for new builds and additions",
+        "Basement walkouts and structural excavation",
+        "Clean, precise backfilling and compaction",
+        "Experienced operators and modern equipment"
+      ]
+    },
+    {
+      "type": "projectFit",
+      "heading": "When Bellhouse Is the Right Crew for the Dig",
+      "subheading": "Best fit for foundation work that needs accurate elevations, spoil handled cleanly, and backfill support that keeps the next trade moving.",
+      "cards": [
+        {
+          "title": "New homes, garages, and additions",
+          "body": "A strong fit when you need a crew that can cut to plan, manage spoil without leaving the site buried, and leave the excavation ready for footing and wall work.",
+          "tags": [
+            "New home foundations",
+            "Garage additions",
+            "Structural additions"
+          ],
+          "outcome": "Keeps layout, excavation, and haul-out coordinated so the build can move straight into the foundation phase."
+        },
+        {
+          "title": "Walkouts, stepped grades, and awkward access",
+          "body": "Useful on sites where slope, staging, or tighter access affects how the dig has to be sequenced and how material is moved around the lot.",
+          "tags": [
+            "Basement walkouts",
+            "Sloped lots",
+            "Tight residential access"
+          ],
+          "outcome": "Helps avoid messy rework on access, spoil placement, and drainage shaping before concrete work begins."
+        },
+        {
+          "title": "Backfill and post-foundation coordination",
+          "body": "A practical fit when the same job needs controlled backfill, compaction, rough grading, and a clean handoff after waterproofing and foundation work are complete.",
+          "tags": [
+            "Granular backfill",
+            "Lift compaction",
+            "Drainage grading"
+          ],
+          "outcome": "Brings the site back to a stable, workable condition instead of leaving backfill and grading for separate cleanup later."
+        }
+      ]
+    },
+    {
+      "type": "scope",
+      "heading": "Foundation Excavation Scope",
+      "subheading": "We handle every stage of the excavation, from layout to spoil removal to final grading, so your foundation is structurally ready and builder-approved.",
+      "items": [
+        {
+          "title": "Full Basement & Addition Excavation",
+          "body": "We dig to engineered depth and specifications, ensuring accurate grades, clean edges, and safe soil management."
+        },
+        {
+          "title": "Over-Excavation & Soil Removal",
+          "body": "When poor soil is discovered, we remove unsuitable material and haul it away with our triaxle fleet."
+        },
+        {
+          "title": "Professional Backfilling",
+          "body": "We supply and place granular A or B material, ensuring proper lift thickness and long-term stability around the foundation."
+        },
+        {
+          "title": "Compaction for Structural Stability",
+          "body": "Using a diesel plate tamper or roller, we compact the backfill to prevent future settling and drainage issues."
+        },
+        {
+          "title": "Rough Grading for Drainage",
+          "body": "We shape the site around the home to direct water away from the structure and prepare the area for landscaping or construction."
+        },
+        {
+          "title": "Trucking & Spoil Removal",
+          "body": "Our three triaxle dump trucks haul away all excess soil, keeping your site clean and ready for the next phase."
+        }
+      ]
+    },
+    {
+      "type": "process",
+      "heading": "How Our Excavation Process Works",
+      "subheading": "A clear, predictable workflow that keeps your project on schedule from start to finish.",
+      "steps": [
+        {
+          "title": "Site Layout & Planning",
+          "body": "We review engineering drawings, confirm elevations, and establish accurate dig lines before any ground is broken."
+        },
+        {
+          "title": "Excavation to Required Depth",
+          "body": "We excavate to engineered specifications, ensuring clean walls, correct depth, and proper soil management."
+        },
+        {
+          "title": "Spoil Removal & Trucking",
+          "body": "Excess soil is hauled away using our dump trucks or supplemental rentals as needed."
+        },
+        {
+          "title": "Fine Grading & Shaping",
+          "body": "We clean up the excavation, prepare the base, and ensure everything is ready for footings or foundation work."
+        },
+        {
+          "title": "Backfilling After Foundation Work",
+          "body": "Once the foundation is complete, we place material in controlled lifts to protect walls and ensure long-term stability."
+        },
+        {
+          "title": "Final Grading for Drainage",
+          "body": "We shape the surrounding area to promote proper drainage and prepare the site for its next phase."
+        }
+      ]
+    },
+    {
+      "type": "contractorCta",
+      "eyebrow": "For builders and contractors",
+      "heading": "Builders and contractors can send project details for review",
+      "body": "If your project needs excavation, trucking, material delivery, or equipment support lined up around a real schedule, Bellhouse can review the site, scope, and timing.",
+      "actions": [
+        {
+          "label": "Send Project Details",
+          "href": "/contractors#contractor-form",
+          "variant": "primary"
+        },
+        {
+          "label": "Call 519-752-8500",
+          "href": "tel:5197528500",
+          "variant": "secondary"
+        }
+      ]
+    },
+    {
+      "type": "resources",
+      "eyebrow": "Planning tool",
+      "heading": "Need a rough excavation quantity first?",
+      "body": "For foundation digs, spoil removal, and early haul-out planning, the Bellhouse excavation calculator gives you a practical starting point before site review.",
+      "cards": [
+        {
+          "title": "Excavation calculator for foundation digs",
+          "body": "Estimate in-place cut volume, loose material to haul, estimated weight, and rough truck loads for foundation excavation work.",
+          "href": "/resources/calculators/excavation",
+          "label": "Estimate Excavation Volume"
+        }
+      ],
+      "actions": [
+        {
+          "label": "View All Resources",
+          "href": "/resources",
+          "variant": "secondary"
+        }
+      ]
+    },
+    {
+      "type": "equipment",
+      "heading": "Equipment Used for Foundation Excavation",
+      "subheading": "Reliable equipment chosen for accuracy, efficiency, and safe excavation on every job site.",
+      "items": [
+        {
+          "name": "Mid-Size Excavator",
+          "body": "Ideal for residential and commercial foundation digs, providing precise and efficient earthmoving.",
+          "image": {
+            "src": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp",
+            "alt": "Mid-Size Excavator"
+          }
+        },
+        {
+          "name": "Tri-Axle Dump Trucks",
+          "body": "Used for spoil removal and material delivery, keeping your site clean and project on schedule.",
+          "image": {
+            "src": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp",
+            "alt": "Tri-Axle Dump Trucks"
+          }
+        },
+        {
+          "name": "Diesel Plate Tamper",
+          "body": "Ensures proper compaction around the foundation for long-term stability.",
+          "image": {
+            "src": "/assets/services/bellhouse-plate-compactor-excavation-compaction-tool.webp",
+            "alt": "Diesel Plate Tamper"
+          }
+        },
+        {
+          "name": "Precision Layout Tools",
+          "body": "We use a rotary laser level and GPS rover for accurate site layout, elevation checks, and cut/fill measurements, ensuring every excavation meets engineered specifications.",
+          "image": {
+            "src": "/assets/services/bellhouse-laser-level-gps-rover-precision-layout-tools.webp",
+            "alt": "Precision Layout Tools"
+          }
+        }
+      ]
+    },
+    {
+      "type": "serviceAreas",
+      "heading": "Service Area",
+      "body": "We provide excavation, foundation digging, backfilling, and dump truck services throughout Brant County, Brantford, Hamilton, Cambridge, Kitchener-Waterloo, and surrounding Southern Ontario communities.",
+      "areaSlugs": [
+        "paris",
+        "brantford",
+        "hamilton",
+        "ancaster",
+        "cambridge",
+        "waterloo",
+        "woodstock",
+        "ayr",
+        "simcoe"
+      ]
+    },
+    {
+      "type": "faq",
+      "heading": "Frequently Asked Questions",
+      "items": [
+        {
+          "question": "Do you remove all excess soil?",
+          "answer": "Yes. Our triaxle fleet hauls away all spoil material as part of our excavation service."
+        },
+        {
+          "question": "Can you work in tight backyards?",
+          "answer": "In most cases, yes. We assess access during the estimate and plan equipment size accordingly."
+        },
+        {
+          "question": "Do you handle compaction?",
+          "answer": "Yes. We use plate tampers or rollers depending on the project requirements."
+        },
+        {
+          "question": "How far ahead should I book?",
+          "answer": "Most projects book 1-3 weeks in advance, depending on the season."
+        }
+      ]
+    },
+    {
+      "type": "relatedServices",
+      "eyebrow": "Related services",
+      "heading": "Related excavation and hauling services",
+      "serviceSlugs": [
+        "site-preparation-land-grading",
+        "dump-truck-rental",
+        "dirt-gravel-delivery",
+        "heavy-equipment-hauling"
+      ]
+    },
+    {
+      "type": "reviews",
+      "eyebrow": "Testimonials",
+      "heading": "What customers say about Bellhouse",
+      "subheading": "Feedback from local homeowners, builders, and job-site customers Bellhouse has worked with.",
+      "limit": 6
+    },
+    {
+      "type": "finalCta",
+      "heading": "Ready to Start Your Excavation?",
+      "body": "Get a fast, accurate estimate for your foundation project.",
+      "actions": [
+        {
+          "label": "Get a Free Estimate",
+          "href": "/contact",
+          "variant": "primary"
+        },
+        {
+          "label": "Send Project Details",
+          "href": "/contractors#contractor-form",
+          "variant": "secondary"
+        }
+      ]
+    }
+  ],
 
   "intro": {
     "heading": "Professional Foundation Excavation and Backfilling",
@@ -209,38 +495,8 @@
   },
 
   "layout": {
-    "hero": {
-      "emphasis": "high",
-      "eyebrow": "Builders, additions & new foundations",
-      "proofChips": [
-        "Layout to engineered elevations",
-        "Spoil haul-out and backfill support",
-        "Fit for contractor-led schedules"
-      ],
-      "secondaryLabel": "For Builders & Contractors",
-      "secondaryHref": "/contractors"
-    },
     "finalCta": {
       "mode": "mixed"
-    },
-    "sections": [
-      "intro",
-      "fit",
-      "proof",
-      "process",
-      "contractorCta",
-      "resources",
-      "equipment",
-      "localIntent",
-      "faq",
-      "relatedServices",
-      "reviews",
-      "finalCta"
-    ]
+    }
   }
 }
-
-
-
-
-
