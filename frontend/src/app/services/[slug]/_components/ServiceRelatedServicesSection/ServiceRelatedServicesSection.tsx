@@ -3,7 +3,6 @@ import Link from 'next/link';
 import type { RelatedServiceLinkItem } from '@/lib/servicePageLinks';
 import type { ServiceRelatedServicesSectionData } from '@/types/serviceSections';
 import type { ServiceSectionAppearance } from '../serviceSectionTypes';
-import ServiceCardGrid from '../primitives/ServiceCardGrid/ServiceCardGrid';
 import ServiceSectionWrapper from '../primitives/ServiceSectionWrapper/ServiceSectionWrapper';
 import classes from './ServiceRelatedServicesSection.module.scss';
 
@@ -44,19 +43,18 @@ export default function ServiceRelatedServicesSection({
         align: 'left',
       }}
     >
-      <ServiceCardGrid className={classes.relatedServicesGrid}>
+      <ul className={classes.relatedServicesList}>
         {relatedServices.map((relatedService) => (
-          <Link
-            className={classes.relatedServiceCard}
-            href={relatedService.href}
-            key={relatedService.href}
-          >
-            <h3>{relatedService.title}</h3>
-            <p>{relatedService.description}</p>
-            <span className={classes.relatedServiceAction}>View Service</span>
-          </Link>
+          <li className={classes.relatedServiceItem} key={relatedService.href}>
+            <Link className={classes.relatedServiceCard} href={relatedService.href}>
+              <div className={classes.relatedServiceMeta}>Related service</div>
+              <h3>{relatedService.title}</h3>
+              <p>{relatedService.description}</p>
+              <span className={classes.relatedServiceAction}>View service</span>
+            </Link>
+          </li>
         ))}
-      </ServiceCardGrid>
+      </ul>
     </ServiceSectionWrapper>
   );
 }

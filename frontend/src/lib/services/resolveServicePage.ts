@@ -17,10 +17,40 @@ type ServicePageWithV2 = ServicePage &
     sections?: ServiceSection[];
   };
 
-const sectionTypeToLegacyId: Partial<Record<ServiceSection['type'], ServiceSectionId>> = {
+// TODO: Replace this internal fallback with Bellhouse's direct Google Business reviews URL.
+export const SERVICE_HERO_GOOGLE_REVIEW_URL_TODO = '/reviews';
+
+const SERVICE_HERO_TRUST_DEFAULTS = {
+  phone: {
+    label: 'Call or text Bellhouse',
+    href: 'tel:5197528500',
+  },
+  review: {
+    rating: 5,
+    reviewCount: 12,
+    href: SERVICE_HERO_GOOGLE_REVIEW_URL_TODO,
+    label: 'Read Reviews',
+  },
+} satisfies Pick<ResolvedServiceHeroConfig, 'phone' | 'review'>;
+
+const DEFAULT_V2_PRIMARY_ACTION = {
+  label: 'Get a Free Estimate',
+  href: '/contact',
+};
+
+export type ResolvedServiceSurfaceId =
+  | ServiceSectionId
+  | 'proofStrip'
+  | 'problemsPrevented'
+  | 'outcomes';
+
+const sectionTypeToResolvedId: Record<ServiceSection['type'], ResolvedServiceSurfaceId> = {
+  proofStrip: 'proofStrip',
   intro: 'intro',
   projectFit: 'fit',
   scope: 'proof',
+  problemsPrevented: 'problemsPrevented',
+  outcomes: 'outcomes',
   equipment: 'equipment',
   process: 'process',
   serviceAreas: 'localIntent',
@@ -41,10 +71,11 @@ export type ResolvedServiceSection =
     }
   | {
       mode: 'v2';
-      id: ServiceSectionId;
-      surfaceId: ServiceSectionId;
+      id: ResolvedServiceSurfaceId;
+      surfaceId: ResolvedServiceSurfaceId;
       key: string;
       section: ServiceSection;
+      legacyId?: ServiceSectionId;
     };
 
 function isServiceSection(value: unknown): value is ServiceSection {
@@ -63,6 +94,21 @@ export function hasServicePageV2Sections(
     && (service as ServicePageWithV2).sections!.every(isServiceSection);
 }
 
+export function getServiceSectionByType<TType extends ServiceSection['type']>(
+  service: ServicePage | ServicePageWithV2,
+  type: TType,
+): Extract<ServiceSection, { type: TType }> | undefined {
+  if (!hasServicePageV2Sections(service)) {
+    return undefined;
+  }
+
+  return service.sections.find(
+    (
+      section,
+    ): section is Extract<ServiceSection, { type: TType }> => section.type === type,
+  );
+}
+
 function mapV2ActionToLegacyAction(action?: ServiceAction) {
   if (!action?.label || !action?.href) {
     return undefined;
@@ -74,46 +120,53 @@ function mapV2ActionToLegacyAction(action?: ServiceAction) {
   };
 }
 
-function hasV2HeroOverrides(hero: Partial<ServiceHeroSectionData>) {
-  return Boolean(
-    typeof hero.summary === 'string'
-      || typeof hero.eyebrow === 'string'
-      || Array.isArray(hero.proofPoints)
-      || Array.isArray(hero.actions)
-      || typeof hero.emphasis === 'string',
-  );
+function withServiceHeroTrustDefaults(
+  config: Omit<ResolvedServiceHeroConfig, 'phone' | 'review'> &
+    Partial<Pick<ResolvedServiceHeroConfig, 'phone' | 'review'>>,
+): ResolvedServiceHeroConfig {
+  return {
+    ...config,
+    phone: config.phone ?? SERVICE_HERO_TRUST_DEFAULTS.phone,
+    review: config.review ?? SERVICE_HERO_TRUST_DEFAULTS.review,
+  };
+}
+
+function resolveLegacyServiceHeroConfig(
+  service: ServicePage | ServicePageWithV2,
+): ResolvedServiceHeroConfig {
+  return withServiceHeroTrustDefaults(resolveServiceHeroConfig(service as ServicePage));
+}
+
+function resolveV2ServiceHeroConfig(
+  service: ServicePageWithV2 & { sections: ServiceSection[] },
+): ResolvedServiceHeroConfig {
+  const hero = service.hero as Partial<ServiceHeroSectionData> & {
+    subheading?: string;
+  };
+  const actions = Array.isArray(hero.actions) ? hero.actions : [];
+
+  return withServiceHeroTrustDefaults({
+    emphasis: hero.emphasis ?? 'standard',
+    eyebrow: hero.eyebrow,
+    summary: hero.summary ?? hero.subheading ?? '',
+    proofChips:
+      hero.proofPoints && hero.proofPoints.length > 0
+        ? hero.proofPoints.slice(0, 4)
+        : [],
+    primaryAction:
+      mapV2ActionToLegacyAction(actions[0]) ?? DEFAULT_V2_PRIMARY_ACTION,
+    secondaryAction: mapV2ActionToLegacyAction(actions[1]),
+  });
 }
 
 export function getResolvedServiceHeroConfig(
   service: ServicePage | ServicePageWithV2,
 ): ResolvedServiceHeroConfig {
-  const legacyHeroConfig = resolveServiceHeroConfig(service as ServicePage);
-
-  if (!hasServicePageV2Sections(service)) {
-    return legacyHeroConfig;
+  if (hasServicePageV2Sections(service)) {
+    return resolveV2ServiceHeroConfig(service);
   }
 
-  const hero = service.hero as Partial<ServiceHeroSectionData>;
-
-  if (!hasV2HeroOverrides(hero)) {
-    return legacyHeroConfig;
-  }
-
-  const actions = Array.isArray(hero.actions) ? hero.actions : [];
-
-  return {
-    emphasis: hero.emphasis ?? legacyHeroConfig.emphasis,
-    eyebrow: hero.eyebrow ?? legacyHeroConfig.eyebrow,
-    summary: hero.summary ?? legacyHeroConfig.summary,
-    proofChips:
-      hero.proofPoints && hero.proofPoints.length > 0
-        ? hero.proofPoints.slice(0, 4)
-        : legacyHeroConfig.proofChips,
-    primaryAction:
-      mapV2ActionToLegacyAction(actions[0]) ?? legacyHeroConfig.primaryAction,
-    secondaryAction:
-      mapV2ActionToLegacyAction(actions[1]) ?? legacyHeroConfig.secondaryAction,
-  };
+  return resolveLegacyServiceHeroConfig(service);
 }
 
 export function getResolvedServiceSections(
@@ -129,23 +182,29 @@ export function getResolvedServiceSections(
   }
 
   const orderedSections: ResolvedServiceSection[] = [];
-  const seen = new Set<ServiceSectionId>();
+  const seen = new Set<ResolvedServiceSurfaceId>();
 
   for (let index = 0; index < service.sections.length; index += 1) {
     const section = service.sections[index];
-    const legacySectionId = sectionTypeToLegacyId[section.type];
+    const resolvedId = sectionTypeToResolvedId[section.type];
 
-    if (!legacySectionId || seen.has(legacySectionId)) {
+    if (seen.has(resolvedId)) {
       continue;
     }
 
-    seen.add(legacySectionId);
+    seen.add(resolvedId);
     orderedSections.push({
       mode: 'v2',
-      id: legacySectionId,
-      surfaceId: legacySectionId,
+      id: resolvedId,
+      surfaceId: resolvedId,
       key: section.id ?? `v2-${section.type}-${index}`,
       section,
+      legacyId:
+        resolvedId === 'proofStrip'
+        || resolvedId === 'problemsPrevented'
+        || resolvedId === 'outcomes'
+          ? undefined
+          : resolvedId,
     });
   }
 

@@ -1,4 +1,6 @@
 import type { ServicePage } from '@/types/interfaces';
+import { getServiceAreaPage } from '@/lib/serviceAreas';
+import { getServiceSectionByType } from '@/lib/services/resolveServicePage';
 
 export type ServiceAreaLinkItem = {
   label: string;
@@ -132,9 +134,44 @@ function buildOverflowCoverageSentence(labels: string[]) {
   return `Also serving ${labelList}.`;
 }
 
+function getServiceAreaLinkFromSlug(slug: string): ServiceAreaLinkItem | undefined {
+  const page = getServiceAreaPage(slug);
+
+  if (!page) {
+    return undefined;
+  }
+
+  return {
+    label: page.city,
+    href: `/service-areas/${page.slug}`,
+  };
+}
+
 export function getServiceLocalIntent(
   service: ServicePage,
 ): ServiceLocalIntentContent | null {
+  const serviceAreasSection = getServiceSectionByType(service, 'serviceAreas');
+
+  if (serviceAreasSection) {
+    const linkedAreas = (serviceAreasSection.areaSlugs ?? [])
+      .map((slug) => getServiceAreaLinkFromSlug(slug))
+      .filter((item): item is ServiceAreaLinkItem => Boolean(item));
+    const paragraph = serviceAreasSection.body
+      ? normalizeSentence(serviceAreasSection.body)
+      : '';
+
+    if (!paragraph && linkedAreas.length === 0) {
+      return null;
+    }
+
+    return {
+      paragraph,
+      linkedAreas,
+      viewAllHref: '/service-areas',
+      viewAllLabel: 'View All Service Areas',
+    };
+  }
+
   if (!service.serviceArea) {
     return null;
   }
@@ -165,7 +202,8 @@ export function getRelatedServiceLinks(
   service: ServicePage,
   allServices: ServicePage[],
 ): RelatedServiceLinkItem[] {
-  const relatedSlugs = relatedServiceMap[service.slug] ?? [];
+  const relatedServicesSection = getServiceSectionByType(service, 'relatedServices');
+  const relatedSlugs = relatedServicesSection?.serviceSlugs ?? relatedServiceMap[service.slug] ?? [];
 
   return relatedSlugs
     .map((slug) => allServices.find((candidate) => candidate.slug === slug))

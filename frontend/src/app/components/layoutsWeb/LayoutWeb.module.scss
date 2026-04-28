@@ -6,8 +6,11 @@
   margin: auto;
   min-height: 100vh;
   height: 100%;
-  padding: 1rem;
+
   background-color: v.$transparent;
+  @include m.mediaTablet {
+    padding: 1rem;
+  }
 }
 
 .container {

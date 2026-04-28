@@ -14,6 +14,7 @@ import {
 import {
   getResolvedServiceHeroConfig,
   type ResolvedServiceSection,
+  type ResolvedServiceSurfaceId,
   getResolvedServiceSections,
 } from '@/lib/services/resolveServicePage';
 import ServiceHeroSection from '../ServiceHeroSection/ServiceHeroSection';
@@ -34,7 +35,15 @@ type ServiceSectionSurfaceRule = {
   tones: Record<ServiceSectionSurfaceFamily, BackgroundTone>;
 };
 
-const sectionSurfaceRules: Record<ServiceSectionId, ServiceSectionSurfaceRule> = {
+const sectionSurfaceRules: Record<ResolvedServiceSurfaceId, ServiceSectionSurfaceRule> = {
+  proofStrip: {
+    preferred: 'light',
+    alternate: 'dark',
+    tones: {
+      light: 'default',
+      dark: 'default',
+    },
+  },
   intro: {
     preferred: 'light',
     tones: {
@@ -54,16 +63,32 @@ const sectionSurfaceRules: Record<ServiceSectionId, ServiceSectionSurfaceRule> =
     preferred: 'light',
     alternate: 'dark',
     tones: {
+      light: 'default',
+      dark: 'default',
+    },
+  },
+  problemsPrevented: {
+    preferred: 'dark',
+    alternate: 'light',
+    tones: {
       light: 'soft',
-      dark: 'soft',
+      dark: 'default',
+    },
+  },
+  outcomes: {
+    preferred: 'light',
+    alternate: 'dark',
+    tones: {
+      light: 'soft',
+      dark: 'muted',
     },
   },
   equipment: {
     preferred: 'light',
     alternate: 'dark',
     tones: {
-      light: 'soft',
-      dark: 'soft',
+      light: 'default',
+      dark: 'default',
     },
   },
   process: {
@@ -71,7 +96,7 @@ const sectionSurfaceRules: Record<ServiceSectionId, ServiceSectionSurfaceRule> =
     alternate: 'light',
     tones: {
       light: 'muted',
-      dark: 'soft',
+      dark: 'default',
     },
   },
   localIntent: {
@@ -86,32 +111,32 @@ const sectionSurfaceRules: Record<ServiceSectionId, ServiceSectionSurfaceRule> =
     preferred: 'dark',
     alternate: 'light',
     tones: {
-      light: 'muted',
-      dark: 'soft',
+      light: 'default',
+      dark: 'default',
     },
   },
   resources: {
     preferred: 'light',
     alternate: 'dark',
     tones: {
-      light: 'muted',
-      dark: 'soft',
+      light: 'default',
+      dark: 'default',
     },
   },
   faq: {
     preferred: 'dark',
     alternate: 'light',
     tones: {
-      light: 'soft',
-      dark: 'soft',
+      light: 'default',
+      dark: 'default',
     },
   },
   relatedServices: {
     preferred: 'light',
     alternate: 'dark',
     tones: {
-      light: 'soft',
-      dark: 'soft',
+      light: 'default',
+      dark: 'default',
     },
   },
   reviews: {

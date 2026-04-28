@@ -1,1 +1,163 @@
-/* Reserved for future service problem-prevention variants. */
+@use '../../../../../styles/abstracts/variables' as v;
+@use '../../../../../styles/abstracts/mixins' as m;
+
+.problemsSection {
+  color: v.$text-color-dark;
+}
+
+.problemsSectionLight {
+  color: v.$text-color-dark;
+
+  .problemRow {
+    border-color: rgba(88, 72, 33, 0.14);
+    background:
+      linear-gradient(
+        180deg,
+        rgba(252, 251, 248, 0.94) 0%,
+        rgba(246, 243, 236, 0.92) 100%
+      );
+    box-shadow:
+      0 1.5rem 3rem -2.5rem rgba(64, 50, 20, 0.16),
+      0 0.4rem 1rem rgba(0, 0, 0, 0.04);
+  }
+
+  .problemIndex {
+    color: #7a5a00;
+    border-color: rgba(111, 83, 0, 0.18);
+    background: rgba(122, 90, 0, 0.08);
+  }
+
+  .solutionPanel {
+    border-color: rgba(88, 72, 33, 0.12);
+    background: rgba(255, 255, 255, 0.54);
+  }
+
+  .problemText {
+    color: rgba(v.$text-color-dark, 0.94);
+  }
+
+  .solutionText {
+    color: rgba(v.$text-color-dark, 0.84);
+  }
+
+  .kicker {
+    color: #6f5300;
+  }
+}
+
+.problemsSectionDark {
+  color: v.$grey-color-1;
+
+  .problemRow {
+    border-color: rgba(v.$cat-yellow2, 0.18);
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.06) 0%,
+        rgba(255, 255, 255, 0.03) 100%
+      ),
+      rgba(20, 20, 18, 0.86);
+    box-shadow: 0 1.8rem 3.2rem -2.6rem rgba(0, 0, 0, 0.56);
+  }
+
+  .problemIndex {
+    color: rgba(v.$cat-yellow2, 0.95);
+    border-color: rgba(v.$cat-yellow2, 0.26);
+    background: rgba(v.$cat-yellow2, 0.08);
+  }
+
+  .solutionPanel {
+    border-color: rgba(v.$cat-yellow2, 0.16);
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .problemText,
+  .solutionText {
+    color: rgba(v.$text-color-light, 0.94);
+  }
+
+  .kicker {
+    color: rgba(v.$cat-yellow2, 0.92);
+  }
+}
+
+.problemsShell {
+  gap: 2rem;
+}
+
+.problemList {
+  display: grid;
+  gap: 1.4rem;
+  width: 100%;
+}
+
+.problemRow {
+  display: grid;
+  gap: 1.6rem;
+  width: 100%;
+  min-height: 100%;
+  padding: 1.8rem;
+  border: 1px solid rgba(v.$color-primary, 0.14);
+  border-radius: 1.8rem;
+
+  @include m.mediaDesktop {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    align-items: start;
+    gap: 2rem;
+    padding: 2rem;
+  }
+}
+
+.problemIntro {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1.2rem;
+  align-items: start;
+}
+
+.problemIndex {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 4rem;
+  height: 4rem;
+  padding: 0 0.9rem;
+  border: 1px solid rgba(v.$color-primary, 0.16);
+  border-radius: 999px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.14em;
+}
+
+.problemBlock {
+  min-width: 0;
+}
+
+.solutionPanel {
+  padding: 1.5rem 1.6rem;
+  border: 1px solid rgba(v.$color-primary, 0.16);
+  border-radius: 1.4rem;
+}
+
+.kicker {
+  margin: 0 0 0.8rem;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: v.$color-primary;
+}
+
+.problemText,
+.solutionText {
+  margin: 0;
+  font-size: 1.68rem;
+  line-height: 1.62;
+  color: rgba(v.$text-color-dark, 0.9);
+}
+
+.problemText {
+  font-weight: 600;
+}

@@ -20,6 +20,8 @@
 
 .contractorCtaShell {
   width: 100%;
+  max-width: 96rem;
+  margin-inline: auto;
   padding: 3rem;
   border-radius: 1.8rem;
   background: rgba(v.$color-neutral-dark, 0.94);
@@ -46,12 +48,18 @@
   justify-content: center;
   gap: 1.6rem;
   margin-top: 3rem;
+
+  @include m.mediaPhone {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
 
 .btn {
-  @include m.btnMain;
+  @include m.btnSectionPrimary;
 }
 
 .btnSecondary {
-  @include m.btnSec;
+  @include m.btnSectionSecondary;
 }

@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import logo from '../../../../../../public/assets/BellhouseLogo-text.png';
 import type { ServicePage } from '@/types/interfaces';
 import type { ResolvedServiceHeroConfig } from '@/lib/servicePageLayout';
 import ServiceSectionWrapper from '../primitives/ServiceSectionWrapper/ServiceSectionWrapper';
@@ -12,71 +11,129 @@ interface ServiceHeroSectionProps {
   heroConfig: ResolvedServiceHeroConfig;
 }
 
+function formatRating(rating: number) {
+  return rating.toFixed(1);
+}
+
 export default function ServiceHeroSection({
   service,
   heroConfig,
 }: ServiceHeroSectionProps) {
+  const hasSecondaryAction = Boolean(heroConfig.secondaryAction);
+  const hasProofChips = heroConfig.proofChips.length > 0;
+  const hasTrustRow = Boolean(heroConfig.phone || heroConfig.review);
+  const heroContainerClassName = [classes.shell, classes.heroContainer]
+    .filter(Boolean)
+    .join(' ');
+  const isExternalReviewLink = Boolean(
+    heroConfig.review?.href?.startsWith('http://') ||
+      heroConfig.review?.href?.startsWith('https://'),
+  );
+
   return (
-    <section className={classes.container} data-hero-emphasis={heroConfig.emphasis}>
+    <section
+      className={classes.section}
+      data-hero-emphasis={heroConfig.emphasis}
+    >
       <ServiceSectionWrapper
         as="div"
         spacing="10"
-        className={classes.heroSection}
-        containerClassName={classes.heroShell}
+        className={classes.inner}
+        containerClassName={heroContainerClassName}
       >
-        <div className={classes.heroContent}>
-          <div className={classes.heroBrand}>
-            <div className={classes.heroBrandMark}>
-              <Image
-                src={logo}
-                alt="Bellhouse Excavating logo"
-                quality={80}
-                width={200}
-                height={155}
-                sizes="(max-width: 375px) 120px, (max-width: 768px) 160px, 200px"
-                style={{ width: 'auto', height: 'auto' }}
-              />
-            </div>
+        <div className={classes.copyPanel}>
+          <nav className={classes.breadcrumbs} aria-label="Breadcrumb">
+            <ol>
+              <li>
+                <Link href="/">Home</Link>
+              </li>
+              <li>
+                <Link href="/services">Services</Link>
+              </li>
+              <li aria-current="page">{service.hero.heading}</li>
+            </ol>
+          </nav>
+
+          {heroConfig.eyebrow ? (
+            <p className={classes.eyebrow}>{heroConfig.eyebrow}</p>
+          ) : null}
+
+          <div className={classes.headingGroup}>
+            <h1>{service.hero.heading}</h1>
+            <p className={classes.summary}>{heroConfig.summary}</p>
           </div>
 
-          <div className={classes.heroCopy}>
-            {heroConfig.eyebrow ? (
-              <p className={classes.heroEyebrow}>{heroConfig.eyebrow}</p>
-            ) : null}
+          <div className={classes.actions}>
+            <Link
+              href={heroConfig.primaryAction.href}
+              className={classes.primaryButton}
+            >
+              {heroConfig.primaryAction.label}
+            </Link>
 
-            <div className={classes.hero}>
-              <h1>{service.hero.heading}</h1>
-              <p className={classes.heroSummary}>{heroConfig.summary}</p>
-            </div>
-
-            <div className={classes.heroActions}>
-              <Link href={heroConfig.primaryAction.href} className={classes.btn}>
-                {heroConfig.primaryAction.label}
+            {hasSecondaryAction && heroConfig.secondaryAction ? (
+              <Link
+                href={heroConfig.secondaryAction.href}
+                className={classes.secondaryButton}
+              >
+                {heroConfig.secondaryAction.label}
               </Link>
-              {heroConfig.secondaryAction ? (
+            ) : null}
+          </div>
+
+          {hasTrustRow ? (
+            <div className={classes.trustRow}>
+              {heroConfig.phone ? (
                 <Link
-                  href={heroConfig.secondaryAction.href}
-                  className={classes.btnSecondary}
+                  href={heroConfig.phone.href}
+                  className={classes.phoneLink}
                 >
-                  {heroConfig.secondaryAction.label}
+                  <span className={classes.phoneIcon} aria-hidden="true">
+                    Call
+                  </span>
+                  <span>{heroConfig.phone.label}</span>
+                </Link>
+              ) : null}
+
+              {heroConfig.review ? (
+                <Link
+                  href={heroConfig.review.href}
+                  className={classes.reviewLink}
+                  target={isExternalReviewLink ? '_blank' : undefined}
+                  rel={isExternalReviewLink ? 'noopener noreferrer' : undefined}
+                >
+                  <span className={classes.stars} aria-hidden="true">
+                    {Array.from({ length: 5 }).map((_, index) => (
+                      <span key={`hero-review-star-${index}`}>{'\u2605'}</span>
+                    ))}
+                  </span>
+                  <span>
+                    {formatRating(heroConfig.review.rating)} on Google (
+                    {heroConfig.review.reviewCount}{' '}
+                    {heroConfig.review.reviewCount === 1 ? 'review' : 'reviews'}
+                    )
+                  </span>
+                  <span className={classes.reviewCta}>
+                    {heroConfig.review.label ?? 'Read Reviews'}
+                  </span>
                 </Link>
               ) : null}
             </div>
+          ) : null}
 
-            {heroConfig.proofChips.length > 0 ? (
-              <div className={classes.heroProofList}>
-                {heroConfig.proofChips.map((chip) => (
-                  <span key={chip} className={classes.heroProofChip}>
-                    {chip}
-                  </span>
-                ))}
-              </div>
-            ) : null}
-          </div>
+          {hasProofChips ? (
+            <ul className={classes.proofList} aria-label="Service highlights">
+              {heroConfig.proofChips.map((chip) => (
+                <li key={chip} className={classes.proofItem}>
+                  {chip}
+                </li>
+              ))}
+            </ul>
+          ) : null}
         </div>
 
-        <div className={classes.heroMedia}>
-          <div className={classes.heroImageFrame}>
+        <div className={classes.mediaPanel}>
+          <div className={classes.imageFrame}>
             <Image
               className={classes.image}
               src={service.hero.image}
@@ -86,7 +143,7 @@ export default function ServiceHeroSection({
               priority
               sizes="(max-width: 768px) 100vw, 42vw"
             />
-            <div className={classes.heroImageOverlay} />
+            <div className={classes.imageOverlay} aria-hidden="true" />
           </div>
         </div>
       </ServiceSectionWrapper>

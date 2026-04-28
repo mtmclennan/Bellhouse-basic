@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 
 import type { ServicePage } from '@/types/interfaces';
+import { getServiceAreaPage } from '@/lib/serviceAreas';
+import { getServiceSectionByType } from '@/lib/services/resolveServicePage';
 
 const defaultBaseUrl = 'https://bellhouseexcavating.ca';
 const businessId = `${defaultBaseUrl}/#business`;
@@ -30,6 +32,16 @@ function getPrimaryImageAlt(service: ServicePage) {
 }
 
 function getUniqueLocations(service: ServicePage) {
+  const serviceAreasSection = getServiceSectionByType(service, 'serviceAreas');
+
+  if (serviceAreasSection?.areaSlugs?.length) {
+    const areaLabels = serviceAreasSection.areaSlugs
+      .map((slug) => getServiceAreaPage(slug)?.city)
+      .filter((label): label is string => Boolean(label));
+
+    return areaLabels.filter((location, index) => areaLabels.indexOf(location) === index);
+  }
+
   const locations = service.serviceArea?.locations ?? [];
 
   return locations.filter((location, index) => locations.indexOf(location) === index);
@@ -48,29 +60,34 @@ function mapLocationToPlace(location: string) {
 }
 
 function getServiceTypes(service: ServicePage) {
+  const introSection = getServiceSectionByType(service, 'intro');
+  const scopeSection = getServiceSectionByType(service, 'scope');
   const values = [
     service.card.title,
-    ...service.intro.keypoints,
-    ...(service.includes?.items.map((item) => item.title) ?? []),
+    ...(introSection?.bullets ?? service.intro?.keypoints ?? []),
+    ...(scopeSection?.items.map((item) => item.title) ?? service.includes?.items.map((item) => item.title) ?? []),
   ].filter(Boolean);
 
   return values.filter((value, index) => values.indexOf(value) === index).slice(0, 8);
 }
 
 function getOfferCatalog(service: ServicePage) {
-  if (!service.includes?.items.length) {
+  const scopeSection = getServiceSectionByType(service, 'scope');
+  const scopeItems = scopeSection?.items ?? service.includes?.items;
+
+  if (!scopeItems?.length) {
     return undefined;
   }
 
   return {
     '@type': 'OfferCatalog',
     name: `${service.card.title} scope`,
-    itemListElement: service.includes.items.slice(0, 6).map((item) => ({
+    itemListElement: scopeItems.slice(0, 6).map((item) => ({
       '@type': 'Offer',
       itemOffered: {
         '@type': 'Service',
         name: item.title,
-        description: item.description,
+        description: 'body' in item ? item.body : item.description,
       },
     })),
   };
@@ -119,7 +136,8 @@ export function getServicePageSchemaGraph(
   const pageUrl = getServicePageUrl(service, baseUrl);
   const imageUrl = getAbsoluteUrl(getPrimaryImage(service), baseUrl);
   const areaServed = getUniqueLocations(service).map(mapLocationToPlace);
-  const faqItems = service.faq?.items ?? [];
+  const faqSection = getServiceSectionByType(service, 'faq');
+  const faqItems = faqSection?.items ?? service.faq?.items ?? [];
 
   const graph: Array<Record<string, unknown>> = [
     {

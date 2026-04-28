@@ -6,6 +6,7 @@ import classes from './CardGridSection.module.scss';
 
 type CardGridSectionProps = {
   data: CardGridSectionData;
+  containerSize?: 'default' | 'wide';
 };
 
 const variantClassMap = {
@@ -20,7 +21,10 @@ const toneClassMap = {
   muted: classes.toneMuted,
 };
 
-export default function CardGridSection({ data }: CardGridSectionProps) {
+export default function CardGridSection({
+  data,
+  containerSize = 'default',
+}: CardGridSectionProps) {
   const {
     eyebrow,
     heading,
@@ -49,11 +53,18 @@ export default function CardGridSection({ data }: CardGridSectionProps) {
     relaxed: '8',
   } as const;
 
+  const shellClassName = [
+    classes.shell,
+    containerSize === 'wide' ? classes.shellWide : '',
+  ]
+    .filter(Boolean)
+    .join(' ');
+
   return (
     <SectionWrapper
       spacing={spacingByDensity[density]}
       className={sectionClassName}
-      containerClassName={classes.shell}
+      containerClassName={shellClassName}
       backgroundVariant={backgroundVariant}
       backgroundTone={backgroundTone}
       heading={{

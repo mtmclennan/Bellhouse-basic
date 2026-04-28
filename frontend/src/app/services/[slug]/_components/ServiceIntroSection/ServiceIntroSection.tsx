@@ -1,5 +1,3 @@
-import { Star } from '@phosphor-icons/react/dist/ssr';
-
 import type { ServicePage } from '@/types/interfaces';
 import type { ServiceIntroSectionData } from '@/types/serviceSections';
 import type { ServiceSectionAppearance } from '../serviceSectionTypes';
@@ -17,28 +15,41 @@ export default function ServiceIntroSection({
   appearance,
   section,
 }: ServiceIntroSectionProps) {
+  const heading = section?.heading ?? service.intro.heading;
+  const body = section?.body ?? service.intro.content;
+  const bullets = section?.bullets ?? service.intro.keypoints;
+
   return (
     <ServiceSectionWrapper
       spacing="6"
       backgroundVariant={appearance.backgroundVariant}
       backgroundTone={appearance.backgroundTone}
       containerClassName={classes.introShell}
-      heading={{
-        title: section?.heading ?? service.intro.heading,
-        align: 'center',
-      }}
     >
-      <div className={classes.introContent}>
-        <p>{section?.body ?? service.intro.content}</p>
+      <div className={classes.introLayout}>
+        <div className={classes.introCopy}>
+          <p className={classes.eyebrow}>Service overview</p>
+          <h2>{heading}</h2>
+          <p className={classes.body}>{body}</p>
+        </div>
 
-        <ul>
-          {(section?.bullets ?? service.intro.keypoints).map((point) => (
-            <li key={point}>
-              <Star size={24} color="#ffc302" weight="fill" />
-              <span>{point}</span>
-            </li>
-          ))}
-        </ul>
+        {bullets.length > 0 ? (
+          <aside
+            className={classes.highlightPanel}
+            aria-label="Service highlights"
+          >
+            <p className={classes.panelTitle}>What this includes</p>
+
+            <ul className={classes.highlightList}>
+              {bullets.map((point) => (
+                <li key={point}>
+                  <span className={classes.marker} aria-hidden="true" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </aside>
+        ) : null}
       </div>
     </ServiceSectionWrapper>
   );

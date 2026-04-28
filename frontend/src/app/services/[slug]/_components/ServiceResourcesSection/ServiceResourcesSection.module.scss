@@ -1,1 +1,169 @@
-/* Uses shared ResourcesSection styles. */
+@use '../../../../../styles/abstracts/mixins' as m;
+@use '../../../../../styles/abstracts/variables' as v;
+
+.resourcesSection {
+  --resource-card-background: rgba(255, 255, 255, 0.78);
+  --resource-card-border: rgba(82, 66, 25, 0.16);
+  --resource-card-shadow: 0 1.6rem 3rem -2.8rem rgba(69, 54, 18, 0.22);
+  --resource-heading-color: #{v.$text-color-dark};
+  --resource-body-color: #{rgba(v.$text-color-dark, 0.82)};
+  --resource-meta-color: #{rgba(v.$text-color-dark, 0.62)};
+  --resource-type-background: #{rgba(v.$cat-yellow2, 0.14)};
+  --resource-type-color: #5a491b;
+  --resource-action-color: #{v.$text-color-dark};
+  --resource-action-hover: #5f4b0f;
+}
+
+.resourcesSectionDark {
+  --resource-card-background: rgba(255, 255, 255, 0.05);
+  --resource-card-border: rgba(255, 255, 255, 0.1);
+  --resource-card-shadow: 0 1.8rem 3rem -2.8rem rgba(0, 0, 0, 0.28);
+  --resource-heading-color: #{v.$grey-color-1};
+  --resource-body-color: #{rgba(v.$text-color-light, 0.9)};
+  --resource-meta-color: #{rgba(v.$text-color-light, 0.62)};
+  --resource-type-background: #{rgba(v.$cat-yellow2, 0.1)};
+  --resource-type-color: #{v.$cat-yellow2};
+  --resource-action-color: #{v.$grey-color-1};
+  --resource-action-hover: #{v.$cat-yellow2};
+}
+
+.resourcesSectionLight {
+}
+
+.resourcesShell {
+}
+
+.resourcesLayout {
+  display: grid;
+  gap: 1.8rem;
+}
+
+.resourceList {
+  display: grid;
+  gap: 1.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include m.mediaDesktop {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.resourceItem {
+  list-style: none;
+}
+
+.resourceCard {
+  display: grid;
+  gap: 1.4rem;
+  min-height: 100%;
+  padding: 2rem;
+  border: 1px solid var(--resource-card-border);
+  border-radius: 1.4rem;
+  background: var(--resource-card-background);
+  box-shadow: var(--resource-card-shadow);
+}
+
+.resourceMetaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.resourceType {
+  display: inline-flex;
+  align-items: center;
+  min-height: 3rem;
+  padding: 0 1rem;
+  border-radius: 999px;
+  background: var(--resource-type-background);
+  color: var(--resource-type-color);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.resourceIndex {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--resource-meta-color);
+}
+
+.resourceBody {
+  display: grid;
+  gap: 0.9rem;
+
+  h3 {
+    margin: 0;
+    color: var(--resource-heading-color);
+    font-size: 2.4rem;
+    line-height: 1.14;
+    font-weight: 650;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    margin: 0;
+    color: var(--resource-body-color);
+    font-size: 1.65rem;
+    line-height: 1.6;
+  }
+}
+
+.resourceAction {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  gap: 0.65rem;
+  margin-top: auto;
+  color: var(--resource-action-color);
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.26rem;
+  transition: color 0.2s ease;
+  @include m.focusRing();
+
+  &::after {
+    content: '>';
+    font-size: 1.45rem;
+  }
+
+  &:hover,
+  &:focus-visible {
+    color: var(--resource-action-hover);
+  }
+}
+
+.resourcesActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start;
+  padding-top: 0.2rem;
+}
+
+.primaryAction {
+  @include m.btnSectionPrimary;
+}
+
+.secondaryAction {
+  @include m.btnSectionSecondary;
+}
+
+@include m.mediaPhone {
+  .resourceCard {
+    padding: 1.8rem;
+  }
+
+  .resourceBody h3 {
+    font-size: 2.15rem;
+  }
+}

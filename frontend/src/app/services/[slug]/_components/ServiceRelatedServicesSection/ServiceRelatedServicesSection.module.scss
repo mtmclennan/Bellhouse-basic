@@ -1,98 +1,122 @@
 @use '../../../../../styles/abstracts/variables' as v;
 @use '../../../../../styles/abstracts/mixins' as m;
 
-.relatedServicesSection {}
+.relatedServicesSection {
+  --related-service-card-background: rgba(255, 255, 255, 0.72);
+  --related-service-card-border: rgba(88, 69, 20, 0.16);
+  --related-service-card-shadow: 0 1.6rem 2.8rem -2.8rem rgba(69, 54, 18, 0.18);
+  --related-service-title-color: #{v.$text-color-dark};
+  --related-service-body-color: #{rgba(v.$text-color-dark, 0.8)};
+  --related-service-meta-color: #{rgba(v.$text-color-dark, 0.6)};
+  --related-service-action-color: #5d4a15;
+}
 
-.relatedServicesSectionLight {}
+.relatedServicesSectionLight {
+}
 
 .relatedServicesSectionDark {
-  .relatedServiceCard {
-    background-color: rgba(255, 255, 255, 0.08);
-    border-color: rgba(v.$cat-yellow2, 0.22);
-    color: v.$grey-color-1;
-    box-shadow: 0 1.4rem 2.8rem -2.2rem rgba(0, 0, 0, 0.42);
-  }
-
-  .relatedServiceCard p {
-    color: rgba(v.$text-color-light, 0.94);
-  }
-
-  .relatedServiceAction {
-    color: v.$cat-yellow2;
-  }
+  --related-service-card-background: rgba(255, 255, 255, 0.05);
+  --related-service-card-border: rgba(255, 255, 255, 0.1);
+  --related-service-card-shadow: none;
+  --related-service-title-color: #{v.$grey-color-1};
+  --related-service-body-color: #{rgba(v.$text-color-light, 0.88)};
+  --related-service-meta-color: #{rgba(v.$text-color-light, 0.6)};
+  --related-service-action-color: #{v.$cat-yellow2};
 }
 
 .relatedServicesShell {
-  @include m.flexCenter(column);
-  width: 100%;
+}
 
-  h2 {
-    @include m.headingLevel2;
-    margin-bottom: 1rem;
+.relatedServicesList {
+  display: grid;
+  gap: 1.2rem;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include m.mediaDesktop {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-.relatedServicesGrid {
-  display: grid;
-  gap: 1.6rem;
-  width: 100%;
-  margin-top: 0.2rem;
-
-  @include m.mediaDesktop {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 2rem;
-  }
+.relatedServiceItem {
+  list-style: none;
 }
 
 .relatedServiceCard {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  min-height: 19rem;
-  padding: 2.2rem;
-  border-radius: 1.4rem;
-  background-color: rgba(v.$color-primary-light, 0.42);
-  border: 1px solid rgba(v.$cat-yellow2, 0.3);
-  color: v.$text-color-dark;
+  display: grid;
+  gap: 0.9rem;
+  min-height: 100%;
+  padding: 1.9rem;
+  border-radius: 1.25rem;
+  background: var(--related-service-card-background);
+  border: 1px solid var(--related-service-card-border);
+  box-shadow: var(--related-service-card-shadow);
+  color: inherit;
   text-decoration: none;
-  box-shadow: 0 1.2rem 2.6rem -2.6rem rgba(0, 0, 0, 0.45);
   transition:
-    transform 0.15s ease,
-    box-shadow 0.15s ease,
-    border-color 0.15s ease;
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.2s ease;
+  @include m.focusRing();
 
   &:hover,
   &:focus-visible {
-    transform: translateY(-4px);
-    border-color: rgba(v.$cat-yellow2, 0.65);
-    box-shadow: 0 1.8rem 3rem -2.2rem rgba(0, 0, 0, 0.45);
+    transform: translateY(-1px);
   }
 
   h3 {
-    @include m.headingLevel3;
+    margin: 0;
+    color: var(--related-service-title-color);
+    font-size: 2.2rem;
+    line-height: 1.18;
+    font-weight: 650;
+    letter-spacing: -0.02em;
   }
 
   p {
-    font-size: 1.7rem;
-    line-height: 1.55;
+    margin: 0;
+    color: var(--related-service-body-color);
+    font-size: 1.62rem;
+    line-height: 1.58;
   }
 }
 
+.relatedServicesSectionLight .relatedServiceCard:hover,
+.relatedServicesSectionLight .relatedServiceCard:focus-visible {
+  border-color: rgba(88, 69, 20, 0.28);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.relatedServicesSectionDark .relatedServiceCard:hover,
+.relatedServicesSectionDark .relatedServiceCard:focus-visible {
+  border-color: rgba(v.$cat-yellow2, 0.34);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.relatedServiceMeta {
+  color: var(--related-service-meta-color);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 .relatedServiceAction {
-  margin-top: auto;
   display: inline-flex;
-  width: fit-content;
   align-items: center;
   gap: 0.6rem;
-  padding-bottom: 0.2rem;
-  border-bottom: 2px solid v.$cat-yellow2;
-  font-size: 1.4rem;
+  width: fit-content;
+  margin-top: 0.1rem;
+  color: var(--related-service-action-color);
+  font-size: 1.35rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 
   &::after {
     content: '>';
-    font-size: 1.6rem;
+    font-size: 1.35rem;
   }
 }

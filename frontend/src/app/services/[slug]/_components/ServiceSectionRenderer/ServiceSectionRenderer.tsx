@@ -19,9 +19,13 @@ import ServiceEquipmentSection from '../ServiceEquipmentSection/ServiceEquipment
 import ServiceFaqSection from '../ServiceFaqSection/ServiceFaqSection';
 import ServiceFinalCtaSection from '../ServiceFinalCtaSection/ServiceFinalCtaSection';
 import ServiceIntroSection from '../ServiceIntroSection/ServiceIntroSection';
+import ServiceOutcomesSection from '../ServiceOutcomesSection/ServiceOutcomesSection';
 import ServiceProcessSection from '../ServiceProcessSection/ServiceProcessSection';
+import ServiceProblemsPreventedSection from '../ServiceProblemsPreventedSection/ServiceProblemsPreventedSection';
+import ServiceProofStripSection from '../ServiceProofStripSection/ServiceProofStripSection';
 import ServiceProjectFitSection from '../ServiceProjectFitSection/ServiceProjectFitSection';
 import ServiceRelatedServicesSection from '../ServiceRelatedServicesSection/ServiceRelatedServicesSection';
+import ServiceRiskReadinessSection from '../ServiceRiskReadinessSection/ServiceRiskReadinessSection';
 import ServiceResourcesSection from '../ServiceResourcesSection/ServiceResourcesSection';
 import ServiceReviewsSection from '../ServiceReviewsSection/ServiceReviewsSection';
 import ServiceScopeSection from '../ServiceScopeSection/ServiceScopeSection';
@@ -110,6 +114,13 @@ export default function ServiceSectionRenderer({
     appearance: ServiceSectionAppearance,
   ): ReactNode => {
     switch (resolvedSection.section.type) {
+      case 'proofStrip':
+        return (
+          <ServiceProofStripSection
+            appearance={appearance}
+            section={resolvedSection.section}
+          />
+        );
       case 'intro':
         return (
           <ServiceIntroSection
@@ -130,6 +141,20 @@ export default function ServiceSectionRenderer({
         return (
           <ServiceScopeSection
             service={service}
+            appearance={appearance}
+            section={resolvedSection.section}
+          />
+        );
+      case 'problemsPrevented':
+        return (
+          <ServiceProblemsPreventedSection
+            appearance={appearance}
+            section={resolvedSection.section}
+          />
+        );
+      case 'outcomes':
+        return (
+          <ServiceOutcomesSection
             appearance={appearance}
             section={resolvedSection.section}
           />
@@ -206,23 +231,51 @@ export default function ServiceSectionRenderer({
             section={resolvedSection.section}
           />
         );
-      case 'proofStrip':
-      case 'problemsPrevented':
-      case 'outcomes':
-        return null;
       default:
-        return renderLegacySection(resolvedSection.id, appearance);
+        return resolvedSection.legacyId
+          ? renderLegacySection(resolvedSection.legacyId, appearance)
+          : null;
     }
   };
 
-  return resolvedSections.map((resolvedSection, index) => {
+  const renderedSections: ReactNode[] = [];
+
+  for (let index = 0; index < resolvedSections.length; index += 1) {
+    const resolvedSection = resolvedSections[index];
+    const nextSection = resolvedSections[index + 1];
     const appearance = sectionAppearances[index];
+
+    if (
+      resolvedSection.mode === 'v2' &&
+      resolvedSection.section.type === 'problemsPrevented' &&
+      nextSection?.mode === 'v2' &&
+      nextSection.section.type === 'outcomes'
+    ) {
+      const problemsSection = resolvedSection.section;
+      const outcomesSection = nextSection.section;
+
+      renderedSections.push(
+        <Fragment key={`${resolvedSection.key}-${nextSection.key}`}>
+          <ServiceRiskReadinessSection
+            appearance={appearance}
+            problemsSection={problemsSection}
+            outcomesSection={outcomesSection}
+          />
+        </Fragment>,
+      );
+      index += 1;
+      continue;
+    }
 
     const content =
       resolvedSection.mode === 'legacy'
         ? renderLegacySection(resolvedSection.id, appearance)
         : renderV2Section(resolvedSection, appearance);
 
-    return <Fragment key={resolvedSection.key}>{content}</Fragment>;
-  });
+    renderedSections.push(
+      <Fragment key={resolvedSection.key}>{content}</Fragment>,
+    );
+  }
+
+  return renderedSections;
 }

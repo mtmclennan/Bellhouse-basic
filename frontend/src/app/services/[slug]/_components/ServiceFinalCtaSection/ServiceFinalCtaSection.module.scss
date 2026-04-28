@@ -1,1 +1,157 @@
-/* Uses shared FinalCtaSection styles. */
+@use '../../../../../styles/abstracts/mixins' as m;
+@use '../../../../../styles/abstracts/variables' as v;
+
+.finalCtaSection {
+  --final-cta-card-background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0.025) 100%
+    ),
+    rgba(17, 16, 14, 0.96);
+  --final-cta-card-border: rgba(255, 255, 255, 0.1);
+  --final-cta-card-shadow: 0 1.8rem 3.2rem -2.8rem rgba(0, 0, 0, 0.34);
+  --final-cta-heading-color: #{v.$grey-color-1};
+  --final-cta-body-color: #{rgba(v.$text-color-light, 0.9)};
+  --final-cta-meta-color: #{rgba(v.$text-color-light, 0.7)};
+  --final-cta-panel-background: rgba(255, 255, 255, 0.04);
+  --final-cta-panel-border: rgba(255, 255, 255, 0.08);
+  --final-cta-chip-background: rgba(v.$cat-yellow2, 0.08);
+  --final-cta-chip-border: rgba(v.$cat-yellow2, 0.24);
+  --final-cta-chip-color: #{v.$cat-yellow2};
+}
+
+.finalCtaSectionLight {
+  --final-cta-card-background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.94) 0%,
+      rgba(246, 241, 233, 0.98) 100%
+    ),
+    #fff;
+  --final-cta-card-border: rgba(88, 69, 20, 0.16);
+  --final-cta-card-shadow: 0 1.5rem 3rem -2.8rem rgba(66, 50, 16, 0.18);
+  --final-cta-heading-color: #{v.$text-color-dark};
+  --final-cta-body-color: #{rgba(v.$text-color-dark, 0.84)};
+  --final-cta-meta-color: #{rgba(v.$text-color-dark, 0.66)};
+  --final-cta-panel-background: rgba(255, 255, 255, 0.72);
+  --final-cta-panel-border: rgba(88, 69, 20, 0.14);
+  --final-cta-chip-background: rgba(v.$cat-yellow2, 0.12);
+  --final-cta-chip-border: rgba(88, 69, 20, 0.18);
+  --final-cta-chip-color: #5b4812;
+}
+
+.finalCtaSectionDark {
+}
+
+.finalCtaShell {
+}
+
+.finalCtaCard {
+  display: grid;
+  gap: 1.8rem;
+  padding: 2rem;
+  border: 1px solid var(--final-cta-card-border);
+  border-radius: 1.45rem;
+  background: var(--final-cta-card-background);
+  box-shadow: var(--final-cta-card-shadow);
+
+  @include m.mediaDesktop {
+    grid-template-columns: minmax(0, 1.45fr) minmax(28rem, 0.82fr);
+    align-items: center;
+    gap: 2.4rem;
+    padding: 2.4rem;
+  }
+}
+
+.content {
+  display: grid;
+  gap: 1.2rem;
+
+  h2 {
+    margin: 0;
+    color: var(--final-cta-heading-color);
+    @include m.headingLevel2(3.2rem, 4.3rem);
+    line-height: 1.06;
+    max-width: 68rem;
+  }
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--final-cta-chip-color);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.body {
+  margin: 0;
+  max-width: 66rem;
+  color: var(--final-cta-body-color);
+  font-size: 1.72rem;
+  line-height: 1.62;
+}
+
+.supportChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  padding-top: 0.2rem;
+}
+
+.supportChip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 3rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid var(--final-cta-chip-border);
+  background: var(--final-cta-chip-background);
+  color: var(--final-cta-chip-color);
+  font-size: 1.18rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.actionPanel {
+  display: grid;
+  gap: 0.9rem;
+  padding: 1.45rem;
+  border: 1px solid var(--final-cta-panel-border);
+  border-radius: 1.1rem;
+  background: var(--final-cta-panel-background);
+}
+
+.primaryAction {
+  @include m.btnSectionPrimary;
+  display: inline-flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.secondaryAction {
+  @include m.btnSectionSecondary;
+  display: inline-flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.note {
+  margin: 0.25rem 0 0;
+  color: var(--final-cta-meta-color);
+  font-size: 1.4rem;
+  line-height: 1.55;
+}
+
+@include m.mediaPhone {
+  .finalCtaCard {
+    padding: 1.7rem;
+  }
+
+  .actionPanel {
+    padding: 1.2rem;
+  }
+}

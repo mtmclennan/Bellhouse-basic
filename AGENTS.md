@@ -532,3 +532,39 @@ Build pages and tools that are clear, useful, and easy for real customers or con
 - Keep messaging grounded, clear, and contractor-focused
 - Prefer real operational strengths over vague marketing language
 - Avoid cliché contractor copy and exaggerated claims
+
+## Service Section Container Rule
+
+For service page components under `src/app/services/[slug]/_components`, `ServiceSectionWrapper` owns page-level containment.
+
+Do not set these properties on classes passed to `containerClassName`:
+
+- `width`
+- `max-width`
+- `margin-inline`
+- `margin-left`
+- `margin-right`
+- `padding-inline`
+
+unless the component is an intentional exception, such as the service hero.
+
+Classes passed through `containerClassName` should control internal layout only:
+
+- `display`
+- `grid-template-columns`
+- `gap`
+- `align-items`
+- `justify-items`
+
+Bad:
+
+```scss
+.sectionShell {
+  width: 100%;
+  max-width: 118rem;
+  margin-inline: auto;
+  padding-inline: 3.2rem;
+  display: grid;
+  gap: 2rem;
+}
+```

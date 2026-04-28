@@ -1,1 +1,144 @@
-/* Uses shared ServiceAreaSection styles. */
+@use '../../../../../styles/abstracts/mixins' as m;
+@use '../../../../../styles/abstracts/variables' as v;
+
+.serviceAreasSection {
+  --service-area-card-background: rgba(255, 255, 255, 0.72);
+  --service-area-card-border: rgba(88, 69, 20, 0.16);
+  --service-area-card-shadow: 0 1.6rem 2.6rem -2.8rem rgba(67, 51, 18, 0.16);
+  --service-area-heading-color: #{v.$text-color-dark};
+  --service-area-copy-color: #{rgba(v.$text-color-dark, 0.8)};
+  --service-area-meta-color: #{rgba(v.$text-color-dark, 0.62)};
+  --service-area-action-color: #5d4a15;
+}
+
+.serviceAreasSectionDark {
+  --service-area-card-background: rgba(255, 255, 255, 0.05);
+  --service-area-card-border: rgba(255, 255, 255, 0.1);
+  --service-area-card-shadow: none;
+  --service-area-heading-color: #{v.$grey-color-1};
+  --service-area-copy-color: #{rgba(v.$text-color-light, 0.88)};
+  --service-area-meta-color: #{rgba(v.$text-color-light, 0.62)};
+  --service-area-action-color: #{v.$cat-yellow2};
+}
+
+.serviceAreasSectionLight {
+}
+
+.serviceAreasShell {
+}
+
+.serviceAreasLayout {
+  display: grid;
+  gap: 1.8rem;
+}
+
+.coverageMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.8rem 1.2rem;
+  color: var(--service-area-meta-color);
+
+  span,
+  strong {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  strong {
+    color: var(--service-area-heading-color);
+  }
+}
+
+.locationList {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @media (min-width: 700px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include m.mediaDesktop {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.locationItem {
+  list-style: none;
+}
+
+.locationLink,
+.locationStatic {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.7rem;
+  padding: 1.45rem 1.55rem;
+  border-radius: 1.15rem;
+  border: 1px solid var(--service-area-card-border);
+  background: var(--service-area-card-background);
+  box-shadow: var(--service-area-card-shadow);
+}
+
+.locationLink {
+  color: inherit;
+  text-decoration: none;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.2s ease;
+  @include m.focusRing();
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-1px);
+  }
+}
+
+.serviceAreasSectionLight .locationLink:hover,
+.serviceAreasSectionLight .locationLink:focus-visible {
+  border-color: rgba(88, 69, 20, 0.28);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.serviceAreasSectionDark .locationLink:hover,
+.serviceAreasSectionDark .locationLink:focus-visible {
+  border-color: rgba(v.$cat-yellow2, 0.34);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.locationName {
+  color: var(--service-area-heading-color);
+  font-size: 1.8rem;
+  line-height: 1.35;
+  font-weight: 650;
+}
+
+.locationAction {
+  color: var(--service-area-action-color);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start;
+}
+
+.primaryAction {
+  @include m.btnSectionPrimary;
+}
+
+.secondaryAction {
+  @include m.btnSectionSecondary;
+}

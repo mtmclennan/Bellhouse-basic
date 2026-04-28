@@ -41,6 +41,19 @@ export type ResolvedServiceHeroConfig = {
   proofChips: string[];
   primaryAction: ServiceAction;
   secondaryAction?: ServiceAction;
+  review?: {
+    rating: number;
+    reviewCount: number;
+    href: string;
+    label?: string;
+  };
+
+  phone?: {
+    label: string;
+    href: string;
+  };
+
+  serviceAreaLine?: string;
 };
 
 export type ResolvedServiceFinalCtaConfig = {
@@ -220,19 +233,20 @@ const defaultSectionOrder: ServiceSectionId[] = [
   'finalCta',
 ];
 
-export function getServicePageSections(service: ServicePage): ServiceSectionId[] {
+export function getServicePageSections(
+  service: ServicePage,
+): ServiceSectionId[] {
   const configuredSections = service.layout?.sections ?? defaultSectionOrder;
   const seen = new Set<ServiceSectionId>();
 
-  return configuredSections
-    .filter((section) => {
-      if (seen.has(section)) {
-        return false;
-      }
+  return configuredSections.filter((section) => {
+    if (seen.has(section)) {
+      return false;
+    }
 
-      seen.add(section);
-      return true;
-    });
+    seen.add(section);
+    return true;
+  });
 }
 
 function createAction(label: string | undefined, href: string | undefined) {
@@ -298,7 +312,10 @@ export function resolveServiceHeroConfig(
         ? heroConfig.proofChips.slice(0, 4)
         : fallbackProofChips,
     primaryAction: {
-      label: heroConfig?.primaryLabel ?? service.cta?.button ?? 'Get a Free Estimate',
+      label:
+        heroConfig?.primaryLabel ??
+        service.cta?.button ??
+        'Get a Free Estimate',
       href: heroConfig?.primaryHref ?? '/contact',
     },
     secondaryAction: createAction(
@@ -333,8 +350,8 @@ export function resolveServiceContractorCtaConfig(
     isContractorFocusedService(service) ||
     Boolean(
       contractorCtaConfig?.title ||
-        contractorCtaConfig?.description ||
-        contractorCtaConfig?.primaryLabel,
+      contractorCtaConfig?.description ||
+      contractorCtaConfig?.primaryLabel,
     );
 
   if (!shouldShowContractorCta) {
@@ -397,11 +414,10 @@ function getDefaultFinalCtaConfig(
       subheading:
         service.cta?.subheading ??
         'Send the site details, scope, and timing and Bellhouse can review contractor support.',
-      primaryAction:
-        contractorCtaConfig?.primaryAction ?? {
-          label: 'Send Project Details',
-          href: '/contractors#contractor-form',
-        },
+      primaryAction: contractorCtaConfig?.primaryAction ?? {
+        label: 'Send Project Details',
+        href: '/contractors#contractor-form',
+      },
       secondaryAction:
         contractorCtaConfig?.secondaryAction ??
         createAction(service.cta?.button ?? 'Request a Quote', '/contact'),
@@ -420,7 +436,8 @@ function getDefaultFinalCtaConfig(
         href: '/contact',
       },
       secondaryAction:
-        contractorCtaConfig?.primaryAction ?? getPlanningSecondaryAction(resourcesConfig),
+        contractorCtaConfig?.primaryAction ??
+        getPlanningSecondaryAction(resourcesConfig),
     };
   }
 

@@ -16,15 +16,39 @@
     color: v.$grey-color-1;
   }
 
-  .equipmentItem {
-    border-bottom-color: rgba(v.$cat-yellow2, 0.3);
-  }
-
   .equipmentIcon {
-    background: rgba(255, 255, 255, 0.06);
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.08) 0%,
+        rgba(255, 255, 255, 0.03) 100%
+      ),
+      rgba(255, 255, 255, 0.04);
+    border-color: rgba(v.$cat-yellow2, 0.18);
+    box-shadow:
+      0 1.2rem 2.4rem -2rem rgba(0, 0, 0, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
   }
 
-  .eqText p {
+  .equipmentItem {
+    border-color: rgba(v.$cat-yellow2, 0.18);
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.06) 0%,
+        rgba(255, 255, 255, 0.03) 100%
+      ),
+      rgba(20, 20, 18, 0.86);
+    box-shadow: 0 1.8rem 3.2rem -2.6rem rgba(0, 0, 0, 0.56);
+  }
+
+  .itemRole,
+  .itemIndex {
+    color: rgba(v.$cat-yellow2, 0.92);
+  }
+
+  .eqText h3,
+  .itemDescription {
     color: rgba(v.$text-color-light, 0.94);
   }
 }
@@ -34,77 +58,129 @@
 }
 
 .heading {
-  text-align: center;
-  font-size: 1.7rem;
-  margin-bottom: 4rem;
+  max-width: 78rem;
 
-  @include m.mediaDesktop {
-    margin-bottom: 6rem;
-  }
-
-  h2 {
-    @include m.headingLevel2;
-    margin-bottom: 1rem;
+  h2,
+  p {
+    text-align: left;
   }
 }
 
 .equipmentGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: 1.6rem;
   width: 100%;
   margin: 0 auto;
 
   @include m.mediaDesktop {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.8rem;
   }
 }
 
 .equipmentItem {
-  @include m.flexCenter(column);
-  text-align: center;
-  gap: 2rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid rgba(111, 83, 0, 0.32);
+  display: grid;
+  gap: 1.6rem;
+  min-height: 100%;
+  padding: 1.8rem;
+  border: 1px solid rgba(88, 72, 33, 0.14);
+  border-radius: 1.8rem;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(252, 251, 248, 0.95) 0%,
+      rgba(246, 243, 236, 0.92) 100%
+    );
+  box-shadow:
+    0 1.6rem 3rem -2.5rem rgba(64, 50, 20, 0.18),
+    0 0.4rem 1rem rgba(0, 0, 0, 0.04);
 
   @include m.mediaDesktop {
-    flex-direction: row;
-    text-align: left;
-    align-items: flex-start;
+    padding: 2rem;
+  }
+}
+
+.itemTopRow {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 1.4rem;
+
+  @include m.mediaDesktop {
+    gap: 1.6rem;
   }
 }
 
 .equipmentIcon {
-  width: 150px;
-  height: 150px;
+  width: 8.8rem;
+  height: 8.8rem;
   flex-shrink: 0;
-  border-radius: 2rem;
-  background: rgba(v.$color-primary, 0.08);
+  border-radius: 1.6rem;
+  border: 1px solid rgba(111, 83, 0, 0.14);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.92) 0%,
+      rgba(249, 246, 240, 0.92) 100%
+    );
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.72),
+    0 1rem 2rem -1.7rem rgba(67, 49, 12, 0.2);
 
   img,
   svg {
-    width: 150px;
-    height: 150px;
+    width: 8.8rem;
+    height: 8.8rem;
     color: v.$color-primary;
-    border-radius: 2rem;
+    border-radius: 1.6rem;
   }
 }
 
 .eqText {
-  flex: 1;
+  min-width: 0;
 
   h3 {
-    @include m.headingLevel3;
-    margin-bottom: 0.4rem;
+    margin: 0.35rem 0 0;
+    @include m.headingLevel3(2.15rem, 2.55rem);
+    line-height: 1.14;
+    color: v.$text-color-dark;
   }
+}
 
-  p {
-    font-size: 1.7rem;
-    line-height: 1.45;
-    color: rgba(v.$text-color-dark, 0.9);
+.itemRole {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6f5300;
+}
+
+.itemIndex {
+  display: none;
+
+  @include m.mediaDesktop {
+    display: inline-flex;
+    justify-self: end;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(v.$text-color-dark, 0.42);
   }
+}
+
+.itemDescription {
+  margin: 0;
+  padding-top: 1.4rem;
+  border-top: 1px solid rgba(88, 72, 33, 0.12);
+  font-size: 1.68rem;
+  line-height: 1.62;
+  color: rgba(v.$text-color-dark, 0.86);
 }

@@ -1,1 +1,133 @@
-/* Reserved for future service outcome variants. */
+@use '../../../../../styles/abstracts/variables' as v;
+@use '../../../../../styles/abstracts/mixins' as m;
+
+.outcomesSection {
+  color: v.$text-color-dark;
+}
+
+.outcomesSectionLight {
+  color: v.$text-color-dark;
+
+  .outcomeBand {
+    border-color: rgba(88, 72, 33, 0.12);
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.9) 0%,
+        rgba(248, 245, 239, 0.92) 100%
+      );
+    box-shadow:
+      0 1.4rem 2.8rem -2.5rem rgba(64, 50, 20, 0.14),
+      0 0.35rem 0.9rem rgba(0, 0, 0, 0.04);
+  }
+
+  .outcomeLabel {
+    color: rgba(v.$text-color-dark, 0.56);
+  }
+
+  .outcomeMarker {
+    background: rgba(122, 90, 0, 0.14);
+    box-shadow: 0 0 0 0.5rem rgba(122, 90, 0, 0.08);
+  }
+
+  .outcomeBand p:last-child {
+    color: rgba(v.$text-color-dark, 0.84);
+  }
+}
+
+.outcomesSectionDark {
+  color: v.$grey-color-1;
+
+  .outcomeBand {
+    border-color: rgba(v.$cat-yellow2, 0.16);
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.05) 0%,
+        rgba(255, 255, 255, 0.025) 100%
+      ),
+      rgba(20, 20, 18, 0.84);
+    box-shadow: 0 1.8rem 3rem -2.5rem rgba(0, 0, 0, 0.52);
+  }
+
+  .outcomeBand h3,
+  .outcomeBand p:last-child {
+    color: rgba(v.$text-color-light, 0.95);
+  }
+
+  .outcomeLabel {
+    color: rgba(v.$cat-yellow2, 0.88);
+  }
+
+  .outcomeMarker {
+    background: rgba(v.$cat-yellow2, 0.8);
+    box-shadow: 0 0 0 0.5rem rgba(v.$cat-yellow2, 0.08);
+  }
+}
+
+.outcomesShell {
+  gap: 2rem;
+}
+
+.outcomesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.4rem;
+  width: 100%;
+
+  @include m.mediaDesktop {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.6rem;
+  }
+}
+
+.outcomeBand {
+  min-height: 100%;
+  padding: 1.8rem;
+  border: 1px solid rgba(v.$color-primary, 0.14);
+  border-radius: 1.8rem;
+  background: rgba(v.$color-primary, 0.04);
+  box-shadow: 0 1.8rem 3rem -2.4rem rgba(0, 0, 0, 0.12);
+
+  @include m.mediaDesktop {
+    padding: 2rem;
+  }
+
+  h3 {
+    margin: 0.9rem 0 0;
+    @include m.headingLevel3(2.1rem, 2.45rem);
+    line-height: 1.16;
+    color: v.$text-color-dark;
+  }
+
+  p:last-child {
+    margin: 1.3rem 0 0;
+    font-size: 1.66rem;
+    line-height: 1.62;
+    color: rgba(v.$text-color-dark, 0.88);
+  }
+}
+
+.outcomeTopRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.outcomeLabel {
+  margin: 0;
+  font-size: 1.18rem;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.outcomeMarker {
+  width: 0.9rem;
+  height: 0.9rem;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: rgba(v.$color-primary, 0.2);
+}

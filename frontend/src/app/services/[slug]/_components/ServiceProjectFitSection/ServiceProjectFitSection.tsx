@@ -41,5 +41,5 @@ export default function ServiceProjectFitSection({
     layoutStyle: 'fit',
   };
 
-  return <CardGridSection data={fitSectionData} />;
+  return <CardGridSection data={fitSectionData} containerSize="wide" />;
 }

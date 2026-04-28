@@ -1,8 +1,8 @@
-import SharedFaqSection from '@/app/components/sections/FaqSection/FaqSection';
 import type { ServicePage } from '@/types/interfaces';
-import type { FaqSectionData } from '@/types/sections';
 import type { ServiceFaqSectionData } from '@/types/serviceSections';
 import type { ServiceSectionAppearance } from '../serviceSectionTypes';
+import ServiceSectionWrapper from '../primitives/ServiceSectionWrapper/ServiceSectionWrapper';
+import classes from './ServiceFaqSection.module.scss';
 
 interface ServiceFaqSectionProps {
   service: ServicePage;
@@ -10,28 +10,78 @@ interface ServiceFaqSectionProps {
   section?: ServiceFaqSectionData;
 }
 
+function getAnswerParagraphs(answer: string) {
+  return answer
+    .split(/\n\s*\n/)
+    .map((paragraph) => paragraph.trim())
+    .filter(Boolean);
+}
+
 export default function ServiceFaqSection({
   service,
   appearance,
   section,
 }: ServiceFaqSectionProps) {
-  if (!service.faq && !section) {
+  const items = section?.items ?? service.faq?.items ?? [];
+
+  if ((!service.faq && !section) || items.length === 0) {
     return null;
   }
 
-  const faqSectionData: FaqSectionData = {
-    _type: 'faqSection',
-    heading: section?.heading ?? service.faq?.heading ?? '',
-    subtext: section?.subheading ?? 'Clear, helpful answers for builders and homeowners.',
-    items: (section?.items ?? service.faq?.items ?? []).map((item) => ({
-      question: item.question,
-      answer: item.answer,
-    })),
-    backgroundVariant: appearance.backgroundVariant,
-    backgroundTone: appearance.backgroundTone,
-    density: 'relaxed',
-    headingAlign: 'left',
-  };
+  const sectionClassName = [
+    classes.faqSection,
+    appearance.backgroundVariant === 'dark'
+      ? classes.faqSectionDark
+      : classes.faqSectionLight,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
-  return <SharedFaqSection data={faqSectionData} />;
+  return (
+    <ServiceSectionWrapper
+      spacing="6"
+      backgroundVariant={appearance.backgroundVariant}
+      backgroundTone={appearance.backgroundTone}
+      className={sectionClassName}
+      containerClassName={classes.faqShell}
+      heading={{
+        eyebrow: section?.eyebrow ?? 'FAQ',
+        title: section?.heading ?? service.faq?.heading ?? '',
+        subtext:
+          section?.subheading ?? 'Clear, practical answers for homeowners and contractors.',
+        align: 'left',
+      }}
+    >
+      <div className={classes.faqLayout}>
+        <div className={classes.faqMeta}>
+          <span>Common questions</span>
+          <strong>{items.length} answers</strong>
+        </div>
+
+        <div className={classes.faqList}>
+          {items.map((item, index) => (
+            <details
+              className={classes.faqItem}
+              key={`${item.question}-${index}`}
+              open={index === 0}
+            >
+              <summary className={classes.faqQuestion}>
+                <span className={classes.faqQuestionIndex}>
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <span className={classes.faqQuestionText}>{item.question}</span>
+                <span className={classes.faqToggle} aria-hidden="true" />
+              </summary>
+
+              <div className={classes.faqAnswer}>
+                {getAnswerParagraphs(item.answer).map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </ServiceSectionWrapper>
+  );
 }
