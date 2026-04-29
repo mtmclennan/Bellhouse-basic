@@ -3,6 +3,7 @@ import {
   resolveServiceHeroConfig,
   type ResolvedServiceHeroConfig,
 } from '@/lib/servicePageLayout';
+import { SERVICE_SITE_CONTEXT } from '@/lib/services/serviceSiteContext';
 import type { ServicePage, ServiceSectionId } from '@/types/interfaces';
 import type { ServicePageV2 } from '@/types/servicePage';
 import type {
@@ -17,19 +18,15 @@ type ServicePageWithV2 = ServicePage &
     sections?: ServiceSection[];
   };
 
-// TODO: Replace this internal fallback with Bellhouse's direct Google Business reviews URL.
-export const SERVICE_HERO_GOOGLE_REVIEW_URL_TODO =
-  'https://share.google/Zx6sYT0Cq8lkyoQZd';
-
 const SERVICE_HERO_TRUST_DEFAULTS = {
   phone: {
-    label: 'Call or Text Bellhouse',
-    href: 'tel:5197528500',
+    label: SERVICE_SITE_CONTEXT.business.phoneLabel,
+    href: SERVICE_SITE_CONTEXT.business.phoneHref,
   },
   review: {
-    rating: 5,
-    reviewCount: 3,
-    href: SERVICE_HERO_GOOGLE_REVIEW_URL_TODO,
+    rating: SERVICE_SITE_CONTEXT.business.reviewRating,
+    reviewCount: SERVICE_SITE_CONTEXT.business.reviewCount,
+    href: SERVICE_SITE_CONTEXT.business.reviewsHref,
     label: 'Read Reviews',
   },
 } satisfies Pick<ResolvedServiceHeroConfig, 'phone' | 'review'>;
