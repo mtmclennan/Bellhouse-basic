@@ -7,6 +7,12 @@
     "title": "Foundation Excavation & Backfilling | Bellhouse",
     "description": "Bellhouse provides foundation excavation and backfilling for new builds, additions, and contractor-led projects across Brantford and nearby areas."
   },
+  "visuals": {
+    "background": {
+      "src": "/assets/services/foundation-excavation/foundation-excavation-background.webp",
+      "position": "center top"
+    }
+  },
   "card": {
     "title": "Foundation Excavation & Backfilling",
     "description": "Accurate foundation digs and reliable backfilling for residential and commercial builds.",

@@ -109,7 +109,11 @@
 
 .variantLight {
   color: v.$text-color-dark;
-  background: linear-gradient(180deg, #f1ece4 0%, #e8e1d4 100%);
+  background-color: #ece4d8;
+  background-image: var(
+    --service-surface-light-default,
+    linear-gradient(180deg, #f1ece4 0%, #e8e1d4 100%)
+  );
 
   .title,
   .subtext {
@@ -123,14 +127,18 @@
 
 .variantDark {
   color: v.$grey-color-1;
-  background: linear-gradient(180deg, #1d1d1d 0%, #111 100%);
+  background-color: #171717;
+  background-image: var(
+    --service-surface-dark-default,
+    linear-gradient(180deg, #1d1d1d 0%, #111 100%)
+  );
 
   .title {
-    color: v.$grey-color-1;
+    color: #fff;
   }
 
   .subtext {
-    color: rgba(v.$text-color-light, 0.95);
+    color: rgba(v.$grey-color-1, 0.92);
   }
 
   .eyebrow {
@@ -157,32 +165,38 @@
 
 .toneSoft {
   &.variantLight {
-    background:
-      radial-gradient(
-        circle at 12% 8%,
-        rgba(v.$cat-yellow2, 0.14),
-        transparent 24%
-      ),
-      linear-gradient(180deg, #f3ede4 0%, #ebe3d7 100%);
+    background-color: #efe7db;
+    background-image: var(
+      --service-surface-light-soft,
+      radial-gradient(circle at 12% 8%, rgba(v.$cat-yellow2, 0.14), transparent 24%),
+      linear-gradient(180deg, #f3ede4 0%, #ebe3d7 100%)
+    );
   }
 
   &.variantDark {
-    background:
-      radial-gradient(
-        circle at 18% 10%,
-        rgba(v.$cat-yellow2, 0.1),
-        transparent 28%
-      ),
-      linear-gradient(180deg, #222 0%, #141414 100%);
+    background-color: #1a1a1a;
+    background-image: var(
+      --service-surface-dark-soft,
+      radial-gradient(circle at 18% 10%, rgba(v.$cat-yellow2, 0.1), transparent 28%),
+      linear-gradient(180deg, #222 0%, #141414 100%)
+    );
   }
 }
 
 .toneMuted {
   &.variantLight {
-    background: linear-gradient(180deg, #e9e0d1 0%, #ddd3c4 100%);
+    background-color: #e1d5c8;
+    background-image: var(
+      --service-surface-light-muted,
+      linear-gradient(180deg, #e9e0d1 0%, #ddd3c4 100%)
+    );
   }
 
   &.variantDark {
-    background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
+    background-color: #202020;
+    background-image: var(
+      --service-surface-dark-muted,
+      linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%)
+    );
   }
 }

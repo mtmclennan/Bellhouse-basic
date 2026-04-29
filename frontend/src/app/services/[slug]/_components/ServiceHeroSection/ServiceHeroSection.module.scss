@@ -142,6 +142,7 @@
   h1 {
     margin: 0;
     max-width: 13ch;
+    color: #fff;
     @include m.headingLevel1;
     text-wrap: balance;
   }

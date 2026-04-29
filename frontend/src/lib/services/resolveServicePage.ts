@@ -18,16 +18,17 @@ type ServicePageWithV2 = ServicePage &
   };
 
 // TODO: Replace this internal fallback with Bellhouse's direct Google Business reviews URL.
-export const SERVICE_HERO_GOOGLE_REVIEW_URL_TODO = '/reviews';
+export const SERVICE_HERO_GOOGLE_REVIEW_URL_TODO =
+  'https://share.google/Zx6sYT0Cq8lkyoQZd';
 
 const SERVICE_HERO_TRUST_DEFAULTS = {
   phone: {
-    label: 'Call or text Bellhouse',
+    label: 'Call or Text Bellhouse',
     href: 'tel:5197528500',
   },
   review: {
     rating: 5,
-    reviewCount: 12,
+    reviewCount: 3,
     href: SERVICE_HERO_GOOGLE_REVIEW_URL_TODO,
     label: 'Read Reviews',
   },
@@ -45,7 +46,10 @@ export type ResolvedServiceSurfaceId =
   | 'problemsPrevented'
   | 'outcomes';
 
-const sectionTypeToResolvedId: Record<ServiceSection['type'], ResolvedServiceSurfaceId> = {
+const sectionTypeToResolvedId: Record<
+  ServiceSection['type'],
+  ResolvedServiceSurfaceId
+> = {
   proofStrip: 'proofStrip',
   intro: 'intro',
   projectFit: 'fit',
@@ -83,17 +87,19 @@ export type ResolvedServiceSection =
 function isServiceSection(value: unknown): value is ServiceSection {
   return Boolean(
     value &&
-      typeof value === 'object' &&
-      'type' in value &&
-      typeof (value as { type?: unknown }).type === 'string',
+    typeof value === 'object' &&
+    'type' in value &&
+    typeof (value as { type?: unknown }).type === 'string',
   );
 }
 
 export function hasServicePageV2Sections(
   service: ServicePage | ServicePageWithV2,
 ): service is ServicePageWithV2 & { sections: ServiceSection[] } {
-  return Array.isArray((service as ServicePageWithV2).sections)
-    && (service as ServicePageWithV2).sections!.every(isServiceSection);
+  return (
+    Array.isArray((service as ServicePageWithV2).sections) &&
+    (service as ServicePageWithV2).sections!.every(isServiceSection)
+  );
 }
 
 export function getServiceSectionByType<TType extends ServiceSection['type']>(
@@ -105,9 +111,8 @@ export function getServiceSectionByType<TType extends ServiceSection['type']>(
   }
 
   return service.sections.find(
-    (
-      section,
-    ): section is Extract<ServiceSection, { type: TType }> => section.type === type,
+    (section): section is Extract<ServiceSection, { type: TType }> =>
+      section.type === type,
   );
 }
 
@@ -136,7 +141,9 @@ function withServiceHeroTrustDefaults(
 function resolveLegacyServiceHeroConfig(
   service: ServicePage | ServicePageWithV2,
 ): ResolvedServiceHeroConfig {
-  return withServiceHeroTrustDefaults(resolveServiceHeroConfig(service as ServicePage));
+  return withServiceHeroTrustDefaults(
+    resolveServiceHeroConfig(service as ServicePage),
+  );
 }
 
 function resolveV2ServiceHeroConfig(
@@ -202,10 +209,10 @@ export function getResolvedServiceSections(
       key: section.id ?? `v2-${section.type}-${index}`,
       section,
       legacyId:
-        resolvedId === 'proofStrip'
-        || resolvedId === 'jobsiteProof'
-        || resolvedId === 'problemsPrevented'
-        || resolvedId === 'outcomes'
+        resolvedId === 'proofStrip' ||
+        resolvedId === 'jobsiteProof' ||
+        resolvedId === 'problemsPrevented' ||
+        resolvedId === 'outcomes'
           ? undefined
           : resolvedId,
     });

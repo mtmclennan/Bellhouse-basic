@@ -1,4 +1,5 @@
 import type { ServiceHeroSectionData, ServiceSection } from './serviceSections';
+import type { ServiceVisualsConfig } from './interfaces';
 
 export type ServicePageV2 = {
   slug: string;
@@ -13,5 +14,6 @@ export type ServicePageV2 = {
     description: string;
   };
   hero: ServiceHeroSectionData;
+  visuals?: ServiceVisualsConfig;
   sections: ServiceSection[];
 };

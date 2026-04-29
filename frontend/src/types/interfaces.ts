@@ -85,6 +85,15 @@ export interface ServicePageLayout {
   sections?: ServiceSectionId[];
 }
 
+export interface ServiceVisualBackgroundConfig {
+  src: string;
+  position?: string;
+}
+
+export interface ServiceVisualsConfig {
+  background?: ServiceVisualBackgroundConfig;
+}
+
 export interface ServicePage {
   meta: {
     title: string;
@@ -173,6 +182,8 @@ export interface ServicePage {
     subheading: string;
     button: string;
   };
+
+  visuals?: ServiceVisualsConfig;
 
   layout?: ServicePageLayout;
 }

@@ -27,7 +27,7 @@ export default function ServiceHeroSection({
     .join(' ');
   const isExternalReviewLink = Boolean(
     heroConfig.review?.href?.startsWith('http://') ||
-      heroConfig.review?.href?.startsWith('https://'),
+    heroConfig.review?.href?.startsWith('https://'),
   );
 
   return (
@@ -88,9 +88,9 @@ export default function ServiceHeroSection({
                   href={heroConfig.phone.href}
                   className={classes.phoneLink}
                 >
-                  <span className={classes.phoneIcon} aria-hidden="true">
+                  {/* <span className={classes.phoneIcon} aria-hidden="true">
                     Call
-                  </span>
+                  </span> */}
                   <span>{heroConfig.phone.label}</span>
                 </Link>
               ) : null}

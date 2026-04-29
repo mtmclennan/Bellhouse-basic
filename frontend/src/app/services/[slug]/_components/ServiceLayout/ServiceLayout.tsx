@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 
 import type { ServicePage, ServiceSectionId } from '@/types/interfaces';
 import type { BackgroundTone, BackgroundVariant } from '@/types/sections';
@@ -20,6 +20,7 @@ import {
 import ServiceHeroSection from '../ServiceHeroSection/ServiceHeroSection';
 import ServiceSectionRenderer from '../ServiceSectionRenderer/ServiceSectionRenderer';
 import type { ServiceSectionAppearance } from '../serviceSectionTypes';
+import classes from './ServiceLayout.module.scss';
 
 interface ServiceLayoutProps {
   service: ServicePage;
@@ -200,20 +201,32 @@ export default function ServiceLayout({
   const finalCtaConfig = resolveServiceFinalCtaConfig(service);
   const configuredSections = getResolvedServiceSections(service);
   const sectionAppearances = resolveServiceSectionAppearances(configuredSections);
+  const backgroundConfig = service.visuals?.background;
+  const backgroundStyle: CSSProperties | undefined = backgroundConfig
+    ? {
+        ['--service-background-image' as string]: `url("${backgroundConfig.src}")`,
+        ['--service-background-position' as string]:
+          backgroundConfig.position ?? 'center center',
+      }
+    : undefined;
 
   return (
-    <>
-      <ServiceHeroSection service={service} heroConfig={heroConfig} />
-      <ServiceSectionRenderer
-        service={service}
-        localIntent={localIntent}
-        relatedServices={relatedServices}
-        resolvedSections={configuredSections}
-        sectionAppearances={sectionAppearances}
-        contractorCtaConfig={contractorCtaConfig}
-        resourcesConfig={resourcesConfig}
-        finalCtaConfig={finalCtaConfig}
-      />
-    </>
+    <div className={classes.servicePage} style={backgroundStyle}>
+      {backgroundConfig ? <div className={classes.serviceBackground} aria-hidden="true" /> : null}
+
+      <div className={classes.serviceContent}>
+        <ServiceHeroSection service={service} heroConfig={heroConfig} />
+        <ServiceSectionRenderer
+          service={service}
+          localIntent={localIntent}
+          relatedServices={relatedServices}
+          resolvedSections={configuredSections}
+          sectionAppearances={sectionAppearances}
+          contractorCtaConfig={contractorCtaConfig}
+          resourcesConfig={resourcesConfig}
+          finalCtaConfig={finalCtaConfig}
+        />
+      </div>
+    </div>
   );
 }

@@ -1,2 +1,58 @@
-/* Layout-level styles are intentionally minimal.
-   Section-specific styles live in their paired section folders. */
+@use '../../../../../styles/abstracts/variables' as v;
+
+.servicePage {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  --service-background-image: none;
+  --service-background-position: center top;
+  --service-surface-light-default:
+    linear-gradient(180deg, rgba(241, 236, 228, 0.9) 0%, rgba(232, 225, 212, 0.94) 100%);
+  --service-surface-light-soft:
+    radial-gradient(circle at 12% 8%, rgba(v.$cat-yellow2, 0.1), transparent 24%),
+    linear-gradient(180deg, rgba(243, 237, 228, 0.88) 0%, rgba(235, 227, 215, 0.93) 100%);
+  --service-surface-light-muted:
+    linear-gradient(180deg, rgba(233, 224, 209, 0.9) 0%, rgba(221, 211, 196, 0.94) 100%);
+  --service-surface-dark-default:
+    linear-gradient(180deg, rgba(29, 29, 29, 0.92) 0%, rgba(17, 17, 17, 0.95) 100%);
+  --service-surface-dark-soft:
+    radial-gradient(circle at 18% 10%, rgba(v.$cat-yellow2, 0.08), transparent 28%),
+    linear-gradient(180deg, rgba(34, 34, 34, 0.9) 0%, rgba(20, 20, 20, 0.95) 100%);
+  --service-surface-dark-muted:
+    linear-gradient(180deg, rgba(42, 42, 42, 0.92) 0%, rgba(26, 26, 26, 0.95) 100%);
+}
+
+.serviceBackground {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(10, 10, 10, 0.54) 0%,
+      rgba(10, 10, 10, 0.66) 28%,
+      rgba(247, 247, 244, 0.88) 62%,
+      rgba(247, 247, 244, 0.95) 100%
+    ),
+    var(--service-background-image),
+    radial-gradient(
+      circle at 18% 12%,
+      rgba(v.$cat-yellow2, 0.11) 0%,
+      rgba(v.$cat-yellow2, 0) 24%
+    ),
+    radial-gradient(
+      circle at 84% 18%,
+      rgba(45, 120, 255, 0.08) 0%,
+      rgba(45, 120, 255, 0) 22%
+    );
+  background-position: center center, var(--service-background-position), center center, center center;
+  background-repeat: no-repeat;
+  background-size: cover, cover, 140rem 140rem, 120rem 120rem;
+  filter: saturate(0.96) contrast(1.04);
+}
+
+.serviceContent {
+  position: relative;
+  z-index: 1;
+}
