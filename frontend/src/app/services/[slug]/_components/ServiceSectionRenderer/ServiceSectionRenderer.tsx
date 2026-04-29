@@ -19,6 +19,7 @@ import ServiceEquipmentSection from '../ServiceEquipmentSection/ServiceEquipment
 import ServiceFaqSection from '../ServiceFaqSection/ServiceFaqSection';
 import ServiceFinalCtaSection from '../ServiceFinalCtaSection/ServiceFinalCtaSection';
 import ServiceIntroSection from '../ServiceIntroSection/ServiceIntroSection';
+import ServiceJobsiteProofSection from '../ServiceJobsiteProofSection/ServiceJobsiteProofSection';
 import ServiceOutcomesSection from '../ServiceOutcomesSection/ServiceOutcomesSection';
 import ServiceProcessSection from '../ServiceProcessSection/ServiceProcessSection';
 import ServiceProblemsPreventedSection from '../ServiceProblemsPreventedSection/ServiceProblemsPreventedSection';
@@ -141,6 +142,13 @@ export default function ServiceSectionRenderer({
         return (
           <ServiceScopeSection
             service={service}
+            appearance={appearance}
+            section={resolvedSection.section}
+          />
+        );
+      case 'jobsiteProof':
+        return (
+          <ServiceJobsiteProofSection
             appearance={appearance}
             section={resolvedSection.section}
           />

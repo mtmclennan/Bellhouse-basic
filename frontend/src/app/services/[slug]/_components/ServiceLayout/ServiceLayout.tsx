@@ -67,6 +67,14 @@ const sectionSurfaceRules: Record<ResolvedServiceSurfaceId, ServiceSectionSurfac
       dark: 'default',
     },
   },
+  jobsiteProof: {
+    preferred: 'dark',
+    alternate: 'light',
+    tones: {
+      light: 'soft',
+      dark: 'default',
+    },
+  },
   problemsPrevented: {
     preferred: 'dark',
     alternate: 'light',

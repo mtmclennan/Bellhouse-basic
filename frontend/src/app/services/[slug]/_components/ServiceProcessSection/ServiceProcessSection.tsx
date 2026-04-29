@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import type { ServicePage } from '@/types/interfaces';
 import type { ServiceProcessSectionData } from '@/types/serviceSections';
 import type { ServiceSectionAppearance } from '../serviceSectionTypes';
@@ -19,6 +21,7 @@ export default function ServiceProcessSection({
     return null;
   }
 
+  const hasMedia = Boolean(section?.image?.src);
   const processSectionClassName = [
     classes.processSection,
     appearance.backgroundVariant === 'light'
@@ -41,16 +44,41 @@ export default function ServiceProcessSection({
         align: 'center',
       }}
     >
-      <div className={classes.processList}>
-        {(section?.steps ?? service.process?.steps ?? []).map((step, index) => (
-          <div key={step.title} className={classes.processItem}>
-            <div className={classes.stepNumber}>{index + 1}</div>
-            <div>
-              <h3>{step.title}</h3>
-              <p>{'body' in step ? step.body : step.description}</p>
+      <div
+        className={`${classes.processLayout} ${
+          hasMedia ? classes.processLayoutWithMedia : ''
+        }`}
+      >
+        <div className={classes.processList}>
+          {(section?.steps ?? service.process?.steps ?? []).map((step, index) => (
+            <div key={step.title} className={classes.processItem}>
+              <div className={classes.stepNumber}>{index + 1}</div>
+              <div>
+                <h3>{step.title}</h3>
+                <p>{'body' in step ? step.body : step.description}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+
+        {section?.image?.src ? (
+          <aside className={classes.mediaPanel} aria-label="Process support image">
+            <div className={classes.imageFrame}>
+              <Image
+                src={section.image.src}
+                alt={section.image.alt}
+                width={1600}
+                height={900}
+                className={classes.image}
+                sizes="(max-width: 1000px) 100vw, 38vw"
+              />
+            </div>
+
+            {section.caption ? (
+              <p className={classes.caption}>{section.caption}</p>
+            ) : null}
+          </aside>
+        ) : null}
       </div>
     </ServiceSectionWrapper>
   );

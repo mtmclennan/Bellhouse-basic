@@ -63,6 +63,14 @@ export type ServiceScopeSectionData = ServiceBaseSection & {
   }>;
 };
 
+export type ServiceJobsiteProofSectionData = ServiceBaseSection & {
+  type: 'jobsiteProof';
+  heading: string;
+  body?: string;
+  image: ServiceImage;
+  caption?: string;
+};
+
 export type ServiceProblemsPreventedSectionData = ServiceBaseSection & {
   type: 'problemsPrevented';
   items: Array<{
@@ -90,6 +98,8 @@ export type ServiceEquipmentSectionData = ServiceBaseSection & {
 
 export type ServiceProcessSectionData = ServiceBaseSection & {
   type: 'process';
+  image?: ServiceImage;
+  caption?: string;
   steps: Array<{
     title: string;
     body: string;
@@ -99,6 +109,8 @@ export type ServiceProcessSectionData = ServiceBaseSection & {
 export type ServiceContractorCtaSectionData = ServiceBaseSection & {
   type: 'contractorCta';
   body: string;
+  image?: ServiceImage;
+  caption?: string;
   actions: ServiceAction[];
 };
 
@@ -149,6 +161,7 @@ export type ServiceSection =
   | ServiceIntroSectionData
   | ServiceProjectFitSectionData
   | ServiceScopeSectionData
+  | ServiceJobsiteProofSectionData
   | ServiceProblemsPreventedSectionData
   | ServiceOutcomesSectionData
   | ServiceEquipmentSectionData

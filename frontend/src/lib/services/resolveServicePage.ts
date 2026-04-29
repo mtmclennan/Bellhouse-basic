@@ -41,6 +41,7 @@ const DEFAULT_V2_PRIMARY_ACTION = {
 export type ResolvedServiceSurfaceId =
   | ServiceSectionId
   | 'proofStrip'
+  | 'jobsiteProof'
   | 'problemsPrevented'
   | 'outcomes';
 
@@ -49,6 +50,7 @@ const sectionTypeToResolvedId: Record<ServiceSection['type'], ResolvedServiceSur
   intro: 'intro',
   projectFit: 'fit',
   scope: 'proof',
+  jobsiteProof: 'jobsiteProof',
   problemsPrevented: 'problemsPrevented',
   outcomes: 'outcomes',
   equipment: 'equipment',
@@ -201,6 +203,7 @@ export function getResolvedServiceSections(
       section,
       legacyId:
         resolvedId === 'proofStrip'
+        || resolvedId === 'jobsiteProof'
         || resolvedId === 'problemsPrevented'
         || resolvedId === 'outcomes'
           ? undefined

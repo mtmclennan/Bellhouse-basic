@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 import type { ResolvedServiceContractorCtaConfig } from '@/lib/servicePageLayout';
@@ -27,6 +28,7 @@ export default function ServiceContractorCtaSection({
     return null;
   }
 
+  const hasMedia = Boolean(section?.image?.src);
   const actions =
     section?.actions.map((action) => ({
       label: action.label,
@@ -52,23 +54,55 @@ export default function ServiceContractorCtaSection({
       backgroundTone={appearance.backgroundTone}
       className={contractorSectionClassName}
       containerClassName={classes.contractorCtaShell}
-      heading={{
-        eyebrow: section?.eyebrow ?? contractorCta?.eyebrow,
-        title: section?.heading ?? contractorCta?.title,
-        subtext: section?.body ?? contractorCta?.description,
-        align: 'center',
-      }}
     >
-      <div className={classes.contractorActions}>
-        {actions.map((action, index) => (
-          <Link
-            key={`${action.href}-${action.label}`}
-            href={action.href}
-            className={index === 0 ? classes.btn : classes.btnSecondary}
-          >
-            {action.label}
-          </Link>
-        ))}
+      <div
+        className={`${classes.contractorPanel} ${
+          hasMedia ? classes.contractorPanelWithMedia : ''
+        }`}
+      >
+        <div className={classes.copyPanel}>
+          {section?.eyebrow ?? contractorCta?.eyebrow ? (
+            <p className={classes.eyebrow}>
+              {section?.eyebrow ?? contractorCta?.eyebrow}
+            </p>
+          ) : null}
+
+          <h2>{section?.heading ?? contractorCta?.title}</h2>
+          <p className={classes.body}>
+            {section?.body ?? contractorCta?.description}
+          </p>
+
+          <div className={classes.contractorActions}>
+            {actions.map((action, index) => (
+              <Link
+                key={`${action.href}-${action.label}`}
+                href={action.href}
+                className={index === 0 ? classes.btn : classes.btnSecondary}
+              >
+                {action.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {section?.image?.src ? (
+          <aside className={classes.mediaPanel} aria-label="Contractor support image">
+            <div className={classes.imageFrame}>
+              <Image
+                src={section.image.src}
+                alt={section.image.alt}
+                width={1600}
+                height={900}
+                className={classes.image}
+                sizes="(max-width: 1000px) 100vw, 38vw"
+              />
+            </div>
+
+            {section.caption ? (
+              <p className={classes.caption}>{section.caption}</p>
+            ) : null}
+          </aside>
+        ) : null}
       </div>
     </ServiceSectionWrapper>
   );

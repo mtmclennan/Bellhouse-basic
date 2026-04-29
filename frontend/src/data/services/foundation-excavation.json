@@ -35,8 +35,8 @@
       "Fit for contractor-led schedules"
     ],
     "emphasis": "high",
-    "image": "/assets/foundation-excavating-backfill.png",
-    "alt": "Excavator digging and backfilling a foundation"
+    "image": "/assets/services/foundation-excavation/garage-foundation-excavation-residential-site-brant.webp",
+    "alt": "Bellhouse excavator digging a residential garage foundation excavation beside an existing structure"
   },
   "sections": [
     {
@@ -134,6 +134,17 @@
           "body": "Our three triaxle dump trucks haul away all excess soil, keeping your site clean and ready for the next phase."
         }
       ]
+    },
+    {
+      "type": "jobsiteProof",
+      "eyebrow": "Built for real site conditions",
+      "heading": "Clean excavation starts with access, elevations, and material handling.",
+      "body": "Bellhouse plans the dig around footing depth, spoil movement, site access, and the next trade on site so excavation work supports the build instead of slowing it down.",
+      "image": {
+        "src": "/assets/services/foundation-excavation/Foundation-footings-excavation-paris.webp",
+        "alt": "Bellhouse excavator working beside a new foundation footing excavation on an active residential build site"
+      },
+      "caption": "Real foundation excavation work planned around access, footing depth, spoil handling, and the next phase of the build."
     },
     {
       "type": "problemsPrevented",
@@ -248,6 +259,11 @@
       "eyebrow": "For builders and contractors",
       "heading": "Builders and contractors can send project details for review",
       "body": "If your project needs excavation, trucking, material delivery, or equipment support lined up around a real schedule, Bellhouse can review the site, scope, and timing.",
+      "image": {
+        "src": "/assets/services/foundation-excavation/foundation-backfilling-lifts-ontario-garage-house.webp",
+        "alt": "Backfilling around a foundation wall during a residential excavation project in Ontario"
+      },
+      "caption": "Backfilling and site shaping are coordinated so the site is ready for the next phase.",
       "actions": [
         {
           "label": "Send Project Details",
