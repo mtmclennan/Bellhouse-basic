@@ -1,42 +1,29 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import type { ResolvedServiceContractorCtaConfig } from '@/lib/servicePageLayout';
 import type { ServiceContractorCtaSectionData } from '@/types/serviceSections';
 import type { ServiceSectionAppearance } from '../serviceSectionTypes';
 import ServiceSectionWrapper from '../primitives/ServiceSectionWrapper/ServiceSectionWrapper';
 import classes from './ServiceContractorCtaSection.module.scss';
 
 interface ServiceContractorCtaSectionProps {
-  contractorCta: ResolvedServiceContractorCtaConfig | null;
+  section: ServiceContractorCtaSectionData;
   appearance: ServiceSectionAppearance;
-  section?: ServiceContractorCtaSectionData;
-}
-
-function hasAction(
-  action: ResolvedServiceContractorCtaConfig['primaryAction'] | undefined,
-): action is NonNullable<ResolvedServiceContractorCtaConfig['primaryAction']> {
-  return Boolean(action?.label && action?.href);
 }
 
 export default function ServiceContractorCtaSection({
-  contractorCta,
   appearance,
   section,
 }: ServiceContractorCtaSectionProps) {
-  if (!contractorCta && !section) {
+  if (!section.body && section.actions.length === 0) {
     return null;
   }
 
-  const hasMedia = Boolean(section?.image?.src);
-  const actions =
-    section?.actions.map((action) => ({
-      label: action.label,
-      href: action.href,
-    })) ?? [
-      contractorCta?.primaryAction,
-      contractorCta?.secondaryAction,
-    ].filter(hasAction);
+  const hasMedia = Boolean(section.image?.src);
+  const actions = section.actions.map((action) => ({
+    label: action.label,
+    href: action.href,
+  }));
 
   const contractorSectionClassName = [
     classes.contractorCtaSection,
@@ -61,16 +48,12 @@ export default function ServiceContractorCtaSection({
         }`}
       >
         <div className={classes.copyPanel}>
-          {section?.eyebrow ?? contractorCta?.eyebrow ? (
-            <p className={classes.eyebrow}>
-              {section?.eyebrow ?? contractorCta?.eyebrow}
-            </p>
+          {section.eyebrow ? (
+            <p className={classes.eyebrow}>{section.eyebrow}</p>
           ) : null}
 
-          <h2>{section?.heading ?? contractorCta?.title}</h2>
-          <p className={classes.body}>
-            {section?.body ?? contractorCta?.description}
-          </p>
+          <h2>{section.heading}</h2>
+          <p className={classes.body}>{section.body}</p>
 
           <div className={classes.contractorActions}>
             {actions.map((action, index) => (
@@ -85,7 +68,7 @@ export default function ServiceContractorCtaSection({
           </div>
         </div>
 
-        {section?.image?.src ? (
+        {section.image?.src ? (
           <aside className={classes.mediaPanel} aria-label="Contractor support image">
             <div className={classes.imageFrame}>
               <Image

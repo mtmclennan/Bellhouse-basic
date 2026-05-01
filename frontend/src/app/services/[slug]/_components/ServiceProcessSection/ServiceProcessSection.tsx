@@ -1,27 +1,24 @@
 import Image from 'next/image';
 
-import type { ServicePage } from '@/types/interfaces';
 import type { ServiceProcessSectionData } from '@/types/serviceSections';
 import type { ServiceSectionAppearance } from '../serviceSectionTypes';
 import ServiceSectionWrapper from '../primitives/ServiceSectionWrapper/ServiceSectionWrapper';
 import classes from './ServiceProcessSection.module.scss';
 
 interface ServiceProcessSectionProps {
-  service: ServicePage;
+  section: ServiceProcessSectionData;
   appearance: ServiceSectionAppearance;
-  section?: ServiceProcessSectionData;
 }
 
 export default function ServiceProcessSection({
-  service,
   appearance,
   section,
 }: ServiceProcessSectionProps) {
-  if (!service.process && !section) {
+  if (!section.steps.length) {
     return null;
   }
 
-  const hasMedia = Boolean(section?.image?.src);
+  const hasMedia = Boolean(section.image?.src);
   const processSectionClassName = [
     classes.processSection,
     appearance.backgroundVariant === 'light'
@@ -39,8 +36,8 @@ export default function ServiceProcessSection({
       className={processSectionClassName}
       containerClassName={classes.processShell}
       heading={{
-        title: section?.heading ?? service.process?.heading ?? '',
-        subtext: section?.subheading ?? service.process?.subheading,
+        title: section.heading ?? '',
+        subtext: section.subheading,
         align: 'center',
       }}
     >
@@ -50,18 +47,18 @@ export default function ServiceProcessSection({
         }`}
       >
         <div className={classes.processList}>
-          {(section?.steps ?? service.process?.steps ?? []).map((step, index) => (
+          {section.steps.map((step, index) => (
             <div key={step.title} className={classes.processItem}>
               <div className={classes.stepNumber}>{index + 1}</div>
               <div>
                 <h3>{step.title}</h3>
-                <p>{'body' in step ? step.body : step.description}</p>
+                <p>{step.body}</p>
               </div>
             </div>
           ))}
         </div>
 
-        {section?.image?.src ? (
+        {section.image?.src ? (
           <aside className={classes.mediaPanel} aria-label="Process support image">
             <div className={classes.imageFrame}>
               <Image

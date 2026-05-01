@@ -568,3 +568,21 @@ Bad:
   gap: 2rem;
 }
 ```
+
+## Bellhouse service-area page QA rules
+
+For every service-area page:
+
+- The page must target a real local search intent.
+- The city page must have a distinct local angle, not swapped city-name copy.
+- Each section must have one clear purpose.
+- Do not repeat the same value proposition across hero, intro, services, why-choose, and CTA.
+- Keep content useful to real customers first, SEO second.
+- Include clear CTA paths: request a quote, call, and text where supported.
+- FAQ questions must have complete visible answers.
+- Internal links should naturally connect to core services, nearby service areas, and contact.
+- Images should match the local/project context and include descriptive alt text.
+- Metadata must be unique per city.
+- Schema must be accurate and must not imply Bellhouse has offices in every service city.
+- Reuse existing components before creating new ones.
+- Keep the existing SASS-based styling system.

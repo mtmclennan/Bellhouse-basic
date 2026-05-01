@@ -10,6 +10,8 @@ import {
   getRelatedServiceLinks,
 } from '@/lib/servicePageLinks';
 import { getServicePageMetadata } from '@/lib/servicePageSeo';
+import { getServicePage } from '@/lib/services/getServicePage';
+import { buildServiceMetadata } from '@/lib/services/serviceSeo';
 
 interface ServicePageProps {
   params: Promise<{ slug: string }>;
@@ -19,6 +21,21 @@ export async function generateMetadata({
   params,
 }: ServicePageProps): Promise<Metadata> {
   const { slug } = await params;
+
+  if (slug === 'foundation-excavation') {
+    const page = getServicePage(slug);
+
+    if (!page) {
+      return {
+        title: 'Service Not Found | Bellhouse Excavating',
+        description: 'Requested service does not exist.',
+      };
+    }
+
+    validateMetadata(page.meta.title, page.meta.description);
+    return buildServiceMetadata(page);
+  }
+
   const service = getServiceBySlug(slug);
 
   if (!service) {
@@ -34,6 +51,20 @@ export async function generateMetadata({
 
 export default async function ServicePage({ params }: ServicePageProps) {
   const { slug } = await params;
+
+  if (slug === 'foundation-excavation') {
+    const page = getServicePage(slug);
+
+    if (!page) return notFound();
+
+    return (
+      <>
+        <ServicePageSchema service={page} />
+        <ServiceLayout mode="cms" page={page} />
+      </>
+    );
+  }
+
   const service = getServiceBySlug(slug);
 
   if (!service) return notFound();
@@ -44,6 +75,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
     <>
       <ServicePageSchema service={service} />
       <ServiceLayout
+        mode="legacy"
         service={service}
         localIntent={getServiceLocalIntent(service)}
         relatedServices={getRelatedServiceLinks(service, allServices)}

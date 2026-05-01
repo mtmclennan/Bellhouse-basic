@@ -1,39 +1,32 @@
 import CardGridSection from '@/app/components/sections/CardGridSection/CardGridSection';
-import type { ServicePage } from '@/types/interfaces';
 import type { CardGridSectionData } from '@/types/sections';
 import type { ServiceProjectFitSectionData } from '@/types/serviceSections';
 import type { ServiceSectionAppearance } from '../serviceSectionTypes';
 
 interface ServiceProjectFitSectionProps {
-  service: ServicePage;
+  section: ServiceProjectFitSectionData;
   appearance: ServiceSectionAppearance;
-  section?: ServiceProjectFitSectionData;
 }
 
 export default function ServiceProjectFitSection({
-  service,
   appearance,
   section,
 }: ServiceProjectFitSectionProps) {
-  if (!service.fit && !section) {
+  if (!section.cards.length) {
     return null;
   }
 
   const fitSectionData: CardGridSectionData = {
     _type: 'cardGridSection',
-    eyebrow: section?.eyebrow ?? 'Project fit',
-    heading: section?.heading ?? service.fit?.heading ?? '',
-    subtext: section?.subheading ?? service.fit?.subheading,
-    cards: (section?.cards ?? service.fit?.items ?? []).map((item) => {
-      const isV2Card = 'body' in item;
-
-      return {
-        title: item.title,
-        description: isV2Card ? item.body : item.description,
-        tags: isV2Card ? item.tags : item.projectTypes,
-        outcome: item.outcome,
-      };
-    }),
+    eyebrow: section.eyebrow ?? 'Project fit',
+    heading: section.heading ?? '',
+    subtext: section.subheading,
+    cards: section.cards.map((item) => ({
+      title: item.title,
+      description: item.body,
+      tags: item.tags,
+      outcome: item.outcome,
+    })),
     backgroundVariant: appearance.backgroundVariant,
     backgroundTone: appearance.backgroundTone,
     density: 'default',

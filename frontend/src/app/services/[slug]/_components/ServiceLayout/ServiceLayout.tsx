@@ -1,4 +1,4 @@
-import type { CSSProperties, ReactNode } from 'react';
+import type { CSSProperties } from 'react';
 
 import type { ServicePage, ServiceSectionId } from '@/types/interfaces';
 import type { BackgroundTone, BackgroundVariant } from '@/types/sections';
@@ -17,16 +17,27 @@ import {
   type ResolvedServiceSurfaceId,
   getResolvedServiceSections,
 } from '@/lib/services/resolveServicePage';
+import { SERVICE_SITE_CONTEXT } from '@/lib/services/serviceSiteContext';
+import type { CmsServicePage } from '@/types/services/cms';
+import type { ServiceBlock } from '@/types/services/blocks';
 import ServiceHeroSection from '../ServiceHeroSection/ServiceHeroSection';
 import ServiceSectionRenderer from '../ServiceSectionRenderer/ServiceSectionRenderer';
 import type { ServiceSectionAppearance } from '../serviceSectionTypes';
 import classes from './ServiceLayout.module.scss';
 
-interface ServiceLayoutProps {
+type LegacyServiceLayoutProps = {
+  mode: 'legacy';
   service: ServicePage;
   localIntent: ServiceLocalIntentContent | null;
   relatedServices: RelatedServiceLinkItem[];
-}
+};
+
+type CmsServiceLayoutProps = {
+  mode: 'cms';
+  page: CmsServicePage;
+};
+
+type ServiceLayoutProps = LegacyServiceLayoutProps | CmsServiceLayoutProps;
 
 type ServiceSectionSurfaceFamily = Extract<BackgroundVariant, 'light' | 'dark'>;
 
@@ -190,17 +201,222 @@ function resolveServiceSectionAppearances(
   return appearances;
 }
 
+const cmsSectionSurfaceRules: Record<ServiceBlock['type'], ServiceSectionSurfaceRule> = {
+  proofStrip: {
+    preferred: 'light',
+    alternate: 'dark',
+    tones: {
+      light: 'default',
+      dark: 'default',
+    },
+  },
+  intro: {
+    preferred: 'light',
+    tones: {
+      light: 'soft',
+      dark: 'soft',
+    },
+  },
+  projectFit: {
+    preferred: 'dark',
+    alternate: 'light',
+    tones: {
+      light: 'soft',
+      dark: 'soft',
+    },
+  },
+  scope: {
+    preferred: 'light',
+    alternate: 'dark',
+    tones: {
+      light: 'default',
+      dark: 'default',
+    },
+  },
+  jobsiteProof: {
+    preferred: 'dark',
+    alternate: 'light',
+    tones: {
+      light: 'soft',
+      dark: 'default',
+    },
+  },
+  problemsPrevented: {
+    preferred: 'dark',
+    alternate: 'light',
+    tones: {
+      light: 'soft',
+      dark: 'default',
+    },
+  },
+  outcomes: {
+    preferred: 'light',
+    alternate: 'dark',
+    tones: {
+      light: 'soft',
+      dark: 'muted',
+    },
+  },
+  equipment: {
+    preferred: 'light',
+    alternate: 'dark',
+    tones: {
+      light: 'default',
+      dark: 'default',
+    },
+  },
+  process: {
+    preferred: 'dark',
+    alternate: 'light',
+    tones: {
+      light: 'muted',
+      dark: 'default',
+    },
+  },
+  serviceAreas: {
+    preferred: 'light',
+    alternate: 'dark',
+    tones: {
+      light: 'muted',
+      dark: 'soft',
+    },
+  },
+  contractorCta: {
+    preferred: 'dark',
+    alternate: 'light',
+    tones: {
+      light: 'default',
+      dark: 'default',
+    },
+  },
+  resources: {
+    preferred: 'light',
+    alternate: 'dark',
+    tones: {
+      light: 'default',
+      dark: 'default',
+    },
+  },
+  faq: {
+    preferred: 'dark',
+    alternate: 'light',
+    tones: {
+      light: 'default',
+      dark: 'default',
+    },
+  },
+  relatedServices: {
+    preferred: 'light',
+    alternate: 'dark',
+    tones: {
+      light: 'default',
+      dark: 'default',
+    },
+  },
+  reviews: {
+    preferred: 'dark',
+    alternate: 'light',
+    tones: {
+      light: 'muted',
+      dark: 'muted',
+    },
+  },
+  finalCta: {
+    preferred: 'dark',
+    alternate: 'light',
+    tones: {
+      light: 'muted',
+      dark: 'default',
+    },
+  },
+};
+
+function resolveCmsSectionAppearances(
+  sections: CmsServicePage['sections'],
+): ServiceSectionAppearance[] {
+  const appearances: ServiceSectionAppearance[] = [];
+  let previousFamily: ServiceSectionSurfaceFamily = 'dark';
+
+  for (const section of sections) {
+    const rule = cmsSectionSurfaceRules[section.type];
+    const backgroundVariant: ServiceSectionSurfaceFamily =
+      rule.preferred === previousFamily && rule.alternate
+        ? rule.alternate
+        : rule.preferred;
+
+    appearances.push({
+      backgroundVariant,
+      backgroundTone: rule.tones[backgroundVariant],
+    });
+
+    previousFamily = backgroundVariant;
+  }
+
+  return appearances;
+}
+
 export default function ServiceLayout({
-  service,
-  localIntent,
-  relatedServices,
+  ...props
 }: ServiceLayoutProps) {
-  const heroConfig = getResolvedServiceHeroConfig(service);
+  if (props.mode === 'cms') {
+    const { page } = props;
+    const sectionAppearances = resolveCmsSectionAppearances(page.sections);
+    const backgroundConfig = page.visuals?.background;
+    const backgroundStyle: CSSProperties | undefined = backgroundConfig
+      ? {
+          ['--service-background-image' as string]: `url("${backgroundConfig.src}")`,
+          ['--service-background-position' as string]:
+            backgroundConfig.position ?? 'center center',
+        }
+      : undefined;
+
+    return (
+      <div className={classes.servicePage} style={backgroundStyle}>
+        {backgroundConfig ? <div className={classes.serviceBackground} aria-hidden="true" /> : null}
+
+        <div className={classes.serviceContent}>
+          <ServiceHeroSection
+            mode="cms"
+            hero={page.hero}
+            breadcrumbLabel={page.hero.heading}
+            business={SERVICE_SITE_CONTEXT.business}
+          />
+          <ServiceSectionRenderer
+            mode="cms"
+            sections={page.sections}
+            sectionAppearances={sectionAppearances}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  const { service, localIntent, relatedServices } = props;
+  const heroSection = (
+    <ServiceHeroSection
+      mode="legacy"
+      service={service}
+      heroConfig={getResolvedServiceHeroConfig(service)}
+    />
+  );
   const contractorCtaConfig = resolveServiceContractorCtaConfig(service);
   const resourcesConfig = resolveServiceResourcesConfig(service);
   const finalCtaConfig = resolveServiceFinalCtaConfig(service);
   const configuredSections = getResolvedServiceSections(service);
   const sectionAppearances = resolveServiceSectionAppearances(configuredSections);
+  const sectionRenderer = (
+    <ServiceSectionRenderer
+      mode="legacy"
+      service={service}
+      localIntent={localIntent}
+      relatedServices={relatedServices}
+      resolvedSections={configuredSections}
+      sectionAppearances={sectionAppearances}
+      contractorCtaConfig={contractorCtaConfig}
+      resourcesConfig={resourcesConfig}
+      finalCtaConfig={finalCtaConfig}
+    />
+  );
   const backgroundConfig = service.visuals?.background;
   const backgroundStyle: CSSProperties | undefined = backgroundConfig
     ? {
@@ -215,17 +431,8 @@ export default function ServiceLayout({
       {backgroundConfig ? <div className={classes.serviceBackground} aria-hidden="true" /> : null}
 
       <div className={classes.serviceContent}>
-        <ServiceHeroSection service={service} heroConfig={heroConfig} />
-        <ServiceSectionRenderer
-          service={service}
-          localIntent={localIntent}
-          relatedServices={relatedServices}
-          resolvedSections={configuredSections}
-          sectionAppearances={sectionAppearances}
-          contractorCtaConfig={contractorCtaConfig}
-          resourcesConfig={resourcesConfig}
-          finalCtaConfig={finalCtaConfig}
-        />
+        {heroSection}
+        {sectionRenderer}
       </div>
     </div>
   );

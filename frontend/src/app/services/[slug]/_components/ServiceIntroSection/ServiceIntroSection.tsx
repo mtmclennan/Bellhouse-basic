@@ -1,23 +1,20 @@
-import type { ServicePage } from '@/types/interfaces';
 import type { ServiceIntroSectionData } from '@/types/serviceSections';
 import type { ServiceSectionAppearance } from '../serviceSectionTypes';
 import ServiceSectionWrapper from '../primitives/ServiceSectionWrapper/ServiceSectionWrapper';
 import classes from './ServiceIntroSection.module.scss';
 
 interface ServiceIntroSectionProps {
-  service: ServicePage;
+  section: ServiceIntroSectionData;
   appearance: ServiceSectionAppearance;
-  section?: ServiceIntroSectionData;
 }
 
 export default function ServiceIntroSection({
-  service,
-  appearance,
   section,
+  appearance,
 }: ServiceIntroSectionProps) {
-  const heading = section?.heading ?? service.intro.heading;
-  const body = section?.body ?? service.intro.content;
-  const bullets = section?.bullets ?? service.intro.keypoints;
+  const heading = section.heading ?? '';
+  const body = section.body;
+  const bullets = section.bullets ?? [];
 
   return (
     <ServiceSectionWrapper

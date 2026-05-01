@@ -1,15 +1,20 @@
 import Link from 'next/link';
 
-import type { RelatedServiceLinkItem } from '@/lib/servicePageLinks';
 import type { ServiceRelatedServicesSectionData } from '@/types/serviceSections';
 import type { ServiceSectionAppearance } from '../serviceSectionTypes';
 import ServiceSectionWrapper from '../primitives/ServiceSectionWrapper/ServiceSectionWrapper';
 import classes from './ServiceRelatedServicesSection.module.scss';
 
+type RelatedServiceCard = {
+  title: string;
+  description: string;
+  href: string;
+};
+
 interface ServiceRelatedServicesSectionProps {
-  relatedServices: RelatedServiceLinkItem[];
+  section: ServiceRelatedServicesSectionData;
+  relatedServices: RelatedServiceCard[];
   appearance: ServiceSectionAppearance;
-  section?: ServiceRelatedServicesSectionData;
 }
 
 export default function ServiceRelatedServicesSection({

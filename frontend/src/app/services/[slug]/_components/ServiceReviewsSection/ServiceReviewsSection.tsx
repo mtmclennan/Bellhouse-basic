@@ -1,16 +1,23 @@
-import reviews from '@/data/reviews.json';
+import type {
+  ServiceBusinessContext,
+  ServiceReview,
+} from '@/lib/services/serviceSiteContext';
 import type { ServiceReviewsSectionData } from '@/types/serviceSections';
 import type { ServiceSectionAppearance } from '../serviceSectionTypes';
 import ServiceSectionWrapper from '../primitives/ServiceSectionWrapper/ServiceSectionWrapper';
 import classes from './ServiceReviewsSection.module.scss';
 
 interface ServiceReviewsSectionProps {
+  section: ServiceReviewsSectionData;
   appearance: ServiceSectionAppearance;
-  section?: ServiceReviewsSectionData;
+  reviews: ServiceReview[];
+  business: ServiceBusinessContext;
 }
 
-function getReviewSummary(items: typeof reviews) {
-  const sourceLabels = Array.from(new Set(items.map((review) => review.source)));
+function getReviewSummary(items: ServiceReview[]) {
+  const sourceLabels = Array.from(
+    new Set(items.map((review) => review.source)),
+  );
 
   if (sourceLabels.length === 0) {
     return 'Local customer feedback';
@@ -27,14 +34,21 @@ function getReviewSummary(items: typeof reviews) {
   return `${items.length} local reviews from ${sourcesLabel}`;
 }
 
+function getStarLabel(rating: number) {
+  return `${rating} star review`;
+}
+
+function getStars(rating: number) {
+  return '\u2605'.repeat(rating);
+}
+
 export default function ServiceReviewsSection({
   appearance,
   section,
+  reviews,
+  business,
 }: ServiceReviewsSectionProps) {
-  const visibleReviews =
-    typeof section?.limit === 'number' ? reviews.slice(0, section.limit) : reviews;
-
-  if (visibleReviews.length === 0) {
+  if (reviews.length === 0) {
     return null;
   }
 
@@ -55,10 +69,10 @@ export default function ServiceReviewsSection({
       className={sectionClassName}
       containerClassName={classes.reviewsShell}
       heading={{
-        eyebrow: section?.eyebrow ?? 'Testimonials',
-        title: section?.heading ?? 'What customers say about Bellhouse',
+        eyebrow: section.eyebrow ?? 'Testimonials',
+        title: section.heading ?? 'What customers say about Bellhouse',
         subtext:
-          section?.subheading ??
+          section.subheading ??
           'Feedback from local homeowners, builders, and job-site customers Bellhouse has worked with.',
         align: 'left',
       }}
@@ -66,19 +80,16 @@ export default function ServiceReviewsSection({
       <div className={classes.reviewsIntroBar}>
         <div className={classes.reviewSummary}>
           <span className={classes.reviewStars} aria-hidden="true">
-            {'★★★★★'}
+            {getStars(Math.round(business.reviewRating))}
           </span>
-          <strong>5.0 rating</strong>
-          <span>{getReviewSummary(visibleReviews)}</span>
+          <strong>{business.reviewRating.toFixed(1)} rating</strong>
+          <span>{getReviewSummary(reviews)}</span>
         </div>
       </div>
 
       <ul className={classes.reviewList}>
-        {visibleReviews.map((review, index) => (
-          <li
-            className={classes.reviewItem}
-            key={`${review.name}-${review.source}-${review.text.slice(0, 24)}`}
-          >
+        {reviews.map((review, index) => (
+          <li className={classes.reviewItem} key={review.id}>
             <article className={classes.reviewCard}>
               <div className={classes.reviewMeta}>
                 <span className={classes.reviewIndex}>
@@ -91,8 +102,11 @@ export default function ServiceReviewsSection({
 
               <div className={classes.reviewFooter}>
                 <span className={classes.reviewName}>{review.name}</span>
-                <span className={classes.reviewRating} aria-label={`${review.rating} star review`}>
-                  {'★'.repeat(review.rating)}
+                <span
+                  className={classes.reviewRating}
+                  aria-label={getStarLabel(review.rating)}
+                >
+                  {getStars(review.rating)}
                 </span>
               </div>
             </article>

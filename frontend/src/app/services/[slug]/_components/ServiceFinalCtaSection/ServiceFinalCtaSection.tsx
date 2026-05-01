@@ -1,43 +1,13 @@
 import Link from 'next/link';
 
-import type { ResolvedServiceFinalCtaConfig } from '@/lib/servicePageLayout';
 import type { ServiceFinalCtaSectionData } from '@/types/serviceSections';
 import type { ServiceSectionAppearance } from '../serviceSectionTypes';
 import ServiceSectionWrapper from '../primitives/ServiceSectionWrapper/ServiceSectionWrapper';
 import classes from './ServiceFinalCtaSection.module.scss';
 
 interface ServiceFinalCtaSectionProps {
-  finalCtaConfig: ResolvedServiceFinalCtaConfig;
+  section: ServiceFinalCtaSectionData;
   appearance: ServiceSectionAppearance;
-  section?: ServiceFinalCtaSectionData;
-}
-
-function getPrimaryAction(
-  section: ServiceFinalCtaSectionData | undefined,
-  finalCtaConfig: ResolvedServiceFinalCtaConfig,
-) {
-  if (section?.actions?.[0]) {
-    return {
-      label: section.actions[0].label,
-      href: section.actions[0].href,
-    };
-  }
-
-  return finalCtaConfig.primaryAction;
-}
-
-function getSecondaryAction(
-  section: ServiceFinalCtaSectionData | undefined,
-  finalCtaConfig: ResolvedServiceFinalCtaConfig,
-) {
-  if (section?.actions?.[1]) {
-    return {
-      label: section.actions[1].label,
-      href: section.actions[1].href,
-    };
-  }
-
-  return finalCtaConfig.secondaryAction;
 }
 
 function getSupportChips(
@@ -58,12 +28,15 @@ function getSupportChips(
 }
 
 export default function ServiceFinalCtaSection({
-  finalCtaConfig,
   appearance,
   section,
 }: ServiceFinalCtaSectionProps) {
-  const primaryAction = getPrimaryAction(section, finalCtaConfig);
-  const secondaryAction = getSecondaryAction(section, finalCtaConfig);
+  const [primaryAction, secondaryAction] = section.actions;
+
+  if (!primaryAction) {
+    return null;
+  }
+
   const supportChips = getSupportChips(
     primaryAction.label,
     secondaryAction?.label,
@@ -89,10 +62,8 @@ export default function ServiceFinalCtaSection({
       <div className={classes.finalCtaCard}>
         <div className={classes.content}>
           <p className={classes.eyebrow}>Ready to get Bellhouse involved?</p>
-          <h2>{section?.heading ?? finalCtaConfig.heading}</h2>
-          <p className={classes.body}>
-            {section?.body ?? finalCtaConfig.subheading}
-          </p>
+          <h2>{section.heading}</h2>
+          <p className={classes.body}>{section.body}</p>
 
           <div className={classes.supportChips}>
             {supportChips.map((chip) => (

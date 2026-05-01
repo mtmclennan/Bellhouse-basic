@@ -1,13 +1,11 @@
-import type { ServicePage } from '@/types/interfaces';
 import type { ServiceFaqSectionData } from '@/types/serviceSections';
 import type { ServiceSectionAppearance } from '../serviceSectionTypes';
 import ServiceSectionWrapper from '../primitives/ServiceSectionWrapper/ServiceSectionWrapper';
 import classes from './ServiceFaqSection.module.scss';
 
 interface ServiceFaqSectionProps {
-  service: ServicePage;
+  section: ServiceFaqSectionData;
   appearance: ServiceSectionAppearance;
-  section?: ServiceFaqSectionData;
 }
 
 function getAnswerParagraphs(answer: string) {
@@ -18,13 +16,12 @@ function getAnswerParagraphs(answer: string) {
 }
 
 export default function ServiceFaqSection({
-  service,
   appearance,
   section,
 }: ServiceFaqSectionProps) {
-  const items = section?.items ?? service.faq?.items ?? [];
+  const items = section.items;
 
-  if ((!service.faq && !section) || items.length === 0) {
+  if (items.length === 0) {
     return null;
   }
 
@@ -45,10 +42,11 @@ export default function ServiceFaqSection({
       className={sectionClassName}
       containerClassName={classes.faqShell}
       heading={{
-        eyebrow: section?.eyebrow ?? 'FAQ',
-        title: section?.heading ?? service.faq?.heading ?? '',
+        eyebrow: section.eyebrow ?? 'FAQ',
+        title: section.heading ?? '',
         subtext:
-          section?.subheading ?? 'Clear, practical answers for homeowners and contractors.',
+          section.subheading ??
+          'Clear, practical answers for homeowners and contractors.',
         align: 'left',
       }}
     >

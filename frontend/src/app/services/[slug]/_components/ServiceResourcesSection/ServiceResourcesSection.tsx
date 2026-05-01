@@ -1,15 +1,13 @@
 import Link from 'next/link';
 
-import type { ResolvedServiceResourcesConfig } from '@/lib/servicePageLayout';
 import type { ServiceResourcesSectionData } from '@/types/serviceSections';
 import type { ServiceSectionAppearance } from '../serviceSectionTypes';
 import ServiceSectionWrapper from '../primitives/ServiceSectionWrapper/ServiceSectionWrapper';
 import classes from './ServiceResourcesSection.module.scss';
 
 interface ServiceResourcesSectionProps {
-  resourcesConfig: ResolvedServiceResourcesConfig | null;
+  section: ServiceResourcesSectionData;
   appearance: ServiceSectionAppearance;
-  section?: ServiceResourcesSectionData;
 }
 
 type ResourceItem = {
@@ -34,43 +32,26 @@ function getResourceTypeLabel(href: string, title: string) {
 }
 
 export default function ServiceResourcesSection({
-  resourcesConfig,
   appearance,
   section,
 }: ServiceResourcesSectionProps) {
-  if (!resourcesConfig && !section) {
+  if (!section.cards.length && !section.actions?.length) {
     return null;
   }
 
-  const items: ResourceItem[] = (section?.cards ?? resourcesConfig?.links ?? []).map(
-    (linkItem) => {
-      const isV2Card = 'body' in linkItem;
-
-      return {
-        href: linkItem.href,
-        title: linkItem.title,
-        description: isV2Card ? linkItem.body : linkItem.description,
-        label:
-          (isV2Card ? linkItem.label : linkItem.actionLabel) ?? 'View resource',
-      };
-    },
-  );
+  const items: ResourceItem[] = section.cards.map((linkItem) => ({
+    href: linkItem.href,
+    title: linkItem.title,
+    description: linkItem.body,
+    label: linkItem.label ?? 'View resource',
+  }));
 
   const actions =
-    section?.actions?.map((action) => ({
+    section.actions?.map((action) => ({
       label: action.label,
       href: action.href,
       variant: action.variant === 'text' ? 'secondary' : action.variant,
-    })) ??
-    (resourcesConfig
-      ? [
-          {
-            label: resourcesConfig.viewAllAction.label,
-            href: resourcesConfig.viewAllAction.href,
-            variant: 'secondary' as const,
-          },
-        ]
-      : []);
+    })) ?? [];
 
   const sectionClassName = [
     classes.resourcesSection,
@@ -89,9 +70,9 @@ export default function ServiceResourcesSection({
       className={sectionClassName}
       containerClassName={classes.resourcesShell}
       heading={{
-        eyebrow: section?.eyebrow ?? resourcesConfig?.eyebrow,
-        title: section?.heading ?? resourcesConfig?.title ?? '',
-        subtext: section?.subheading ?? resourcesConfig?.description,
+        eyebrow: section.eyebrow,
+        title: section.heading ?? '',
+        subtext: section.subheading,
         align: 'left',
       }}
     >

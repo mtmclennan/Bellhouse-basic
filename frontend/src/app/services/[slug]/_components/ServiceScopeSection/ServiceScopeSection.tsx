@@ -1,27 +1,20 @@
-import type { ServicePage } from '@/types/interfaces';
 import type { ServiceScopeSectionData } from '@/types/serviceSections';
 import type { ServiceSectionAppearance } from '../serviceSectionTypes';
 import ServiceSectionWrapper from '../primitives/ServiceSectionWrapper/ServiceSectionWrapper';
 import classes from './ServiceScopeSection.module.scss';
 
 interface ServiceScopeSectionProps {
-  service: ServicePage;
+  section: ServiceScopeSectionData;
   appearance: ServiceSectionAppearance;
-  section?: ServiceScopeSectionData;
 }
 
 export default function ServiceScopeSection({
-  service,
   appearance,
   section,
 }: ServiceScopeSectionProps) {
-  if (!service.includes && !section) {
-    return null;
-  }
-
-  const items = (section?.items ?? service.includes?.items ?? []).map((item) => ({
+  const items = section.items.map((item) => ({
     title: item.title,
-    description: 'body' in item ? item.body : item.description,
+    description: item.body,
   }));
 
   if (!items.length) {
@@ -45,8 +38,8 @@ export default function ServiceScopeSection({
       className={sectionClassName}
       containerClassName={classes.scopeShell}
       heading={{
-        title: section?.heading ?? service.includes?.heading ?? '',
-        subtext: section?.subheading ?? service.includes?.subheading,
+        title: section.heading ?? '',
+        subtext: section.subheading,
         align: 'left',
       }}
     >

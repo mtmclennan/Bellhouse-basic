@@ -1,16 +1,14 @@
 import Image from 'next/image';
 import { Gear } from '@phosphor-icons/react/dist/ssr';
 
-import type { ServicePage } from '@/types/interfaces';
 import type { ServiceEquipmentSectionData } from '@/types/serviceSections';
 import type { ServiceSectionAppearance } from '../serviceSectionTypes';
 import ServiceSectionWrapper from '../primitives/ServiceSectionWrapper/ServiceSectionWrapper';
 import classes from './ServiceEquipmentSection.module.scss';
 
 interface ServiceEquipmentSectionProps {
-  service: ServicePage;
+  section: ServiceEquipmentSectionData;
   appearance: ServiceSectionAppearance;
-  section?: ServiceEquipmentSectionData;
 }
 
 function getEquipmentRole(title: string, description: string) {
@@ -56,11 +54,10 @@ function getEquipmentRole(title: string, description: string) {
 }
 
 export default function ServiceEquipmentSection({
-  service,
   appearance,
   section,
 }: ServiceEquipmentSectionProps) {
-  if (!service.equipment && !section) {
+  if (!section.items.length) {
     return null;
   }
 
@@ -73,16 +70,12 @@ export default function ServiceEquipmentSection({
     .filter(Boolean)
     .join(' ');
 
-  const items = (section?.items ?? service.equipment?.items ?? []).map((item) => {
-    const isV2Item = 'name' in item;
-
-    return {
-      title: isV2Item ? item.name : item.title,
-      description: isV2Item ? item.body : item.description,
-      imageSrc: isV2Item ? item.image?.src : item.icon,
-      imageAlt: isV2Item ? item.image?.alt ?? item.name : item.title,
-    };
-  });
+  const items = section.items.map((item) => ({
+    title: item.name,
+    description: item.body,
+    imageSrc: item.image?.src,
+    imageAlt: item.image?.alt ?? item.name,
+  }));
 
   return (
     <ServiceSectionWrapper
@@ -92,8 +85,8 @@ export default function ServiceEquipmentSection({
       className={equipmentSectionClassName}
       containerClassName={classes.equipmentShell}
       heading={{
-        title: section?.heading ?? service.equipment?.heading ?? '',
-        subtext: section?.subheading ?? service.equipment?.subheading,
+        title: section.heading ?? '',
+        subtext: section.subheading,
         align: 'left',
         className: classes.heading,
       }}

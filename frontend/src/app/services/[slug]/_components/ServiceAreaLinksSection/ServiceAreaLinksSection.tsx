@@ -1,61 +1,42 @@
 import Link from 'next/link';
 
-import type { ServicePage } from '@/types/interfaces';
 import type { ServiceAreasSectionData as ServiceAreasSectionPayload } from '@/types/serviceSections';
-import type { ServiceLocalIntentContent } from '@/lib/servicePageLinks';
-import { getServiceAreaPage } from '@/lib/serviceAreas';
 import type { ServiceSectionAppearance } from '../serviceSectionTypes';
 import ServiceSectionWrapper from '../primitives/ServiceSectionWrapper/ServiceSectionWrapper';
 import classes from './ServiceAreaLinksSection.module.scss';
-
-interface ServiceAreaLinksSectionProps {
-  service: ServicePage;
-  localIntent: ServiceLocalIntentContent | null;
-  appearance: ServiceSectionAppearance;
-  section?: ServiceAreasSectionPayload;
-}
 
 type ServiceAreaLink = {
   label: string;
   href?: string;
 };
 
+type ServiceAreaAction = {
+  label: string;
+  href: string;
+  variant?: 'primary' | 'secondary';
+};
+
+interface ServiceAreaLinksSectionProps {
+  section: ServiceAreasSectionPayload;
+  appearance: ServiceSectionAppearance;
+  areaLinks: ServiceAreaLink[];
+  viewAllAction?: ServiceAreaAction;
+}
+
 export default function ServiceAreaLinksSection({
-  service,
-  localIntent,
   appearance,
   section,
+  areaLinks,
+  viewAllAction,
 }: ServiceAreaLinksSectionProps) {
-  const v2Locations: ServiceAreaLink[] = (section?.areaSlugs ?? [])
-    .map((slug) => {
-      const page = getServiceAreaPage(slug);
-
-      if (!page) {
-        return undefined;
-      }
-
-      return {
-        label: page.city,
-        href: `/service-areas/${page.slug}`,
-      };
-    })
-    .filter((item): item is NonNullable<typeof item> => Boolean(item));
-
-  if (!section && !service.serviceArea && !localIntent) {
+  if (!section.body && areaLinks.length === 0) {
     return null;
   }
 
-  const locations: ServiceAreaLink[] = section
-    ? v2Locations
-    : (localIntent?.linkedAreas ?? []).map((location) => ({
-        label: location.label,
-        href: location.href,
-      }));
-
   const actions = [
-    {
-      label: localIntent?.viewAllLabel ?? 'View All Service Areas',
-      href: localIntent?.viewAllHref ?? '/service-areas',
+    viewAllAction ?? {
+      label: 'View All Service Areas',
+      href: '/service-areas',
       variant: 'secondary' as const,
     },
   ];
@@ -79,22 +60,22 @@ export default function ServiceAreaLinksSection({
       className={sectionClassName}
       containerClassName={classes.serviceAreasShell}
       heading={{
-        eyebrow: section?.eyebrow ?? 'Coverage',
-        title: section?.heading ?? service.serviceArea?.heading ?? '',
-        subtext: section?.body ?? localIntent?.paragraph ?? '',
+        eyebrow: section.eyebrow ?? 'Coverage',
+        title: section.heading ?? '',
+        subtext: section.body ?? '',
         align: 'left',
       }}
     >
       <div className={classes.serviceAreasLayout}>
-        {locations.length > 0 ? (
+        {areaLinks.length > 0 ? (
           <div className={classes.coverageMeta}>
             <span>Coverage links</span>
-            <strong>{locations.length} nearby service areas</strong>
+            <strong>{areaLinks.length} nearby service areas</strong>
           </div>
         ) : null}
 
         <ul className={classes.locationList}>
-          {locations.map((location) => {
+          {areaLinks.map((location) => {
             const key = `${location.label}-${location.href ?? 'nolink'}`;
             const accessibleLabel = `${locationLinkLabelPrefix}${location.label}`;
 

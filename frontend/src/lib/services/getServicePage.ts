@@ -1,4 +1,4 @@
-import { getServiceBySlug } from '@/data/services';
+import { getServiceBySlug } from '@/data/services/index';
 import type { ServiceBlock } from '@/types/services/blocks';
 import type { CmsServicePage } from '@/types/services/cms';
 import type { LegacyServicePage } from '@/types/services/legacy';

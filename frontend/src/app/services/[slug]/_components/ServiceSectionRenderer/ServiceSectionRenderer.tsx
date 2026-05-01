@@ -12,6 +12,22 @@ import type {
   ResolvedServiceResourcesConfig,
 } from '@/lib/servicePageLayout';
 import type { ResolvedServiceSection } from '@/lib/services/resolveServicePage';
+import type { CmsServicePage } from '@/types/services/cms';
+import type {
+  ServiceAreasSectionData,
+  ServiceContractorCtaSectionData,
+  ServiceEquipmentSectionData,
+  ServiceFaqSectionData,
+  ServiceFinalCtaSectionData,
+  ServiceIntroSectionData,
+  ServiceProcessSectionData,
+  ServiceProjectFitSectionData,
+  ServiceRelatedServicesSectionData,
+  ServiceResourcesSectionData,
+  ServiceReviewsSectionData,
+  ServiceScopeSectionData,
+} from '@/types/serviceSections';
+import { SERVICE_SITE_CONTEXT } from '@/lib/services/serviceSiteContext';
 import type { ServiceSectionAppearance } from '../serviceSectionTypes';
 import ServiceAreaLinksSection from '../ServiceAreaLinksSection/ServiceAreaLinksSection';
 import ServiceContractorCtaSection from '../ServiceContractorCtaSection/ServiceContractorCtaSection';
@@ -31,7 +47,13 @@ import ServiceResourcesSection from '../ServiceResourcesSection/ServiceResources
 import ServiceReviewsSection from '../ServiceReviewsSection/ServiceReviewsSection';
 import ServiceScopeSection from '../ServiceScopeSection/ServiceScopeSection';
 
-interface ServiceSectionRendererProps {
+type ServiceAreaLink = {
+  label: string;
+  href?: string;
+};
+
+type LegacyServiceSectionRendererProps = {
+  mode: 'legacy';
   service: ServicePage;
   localIntent: ServiceLocalIntentContent | null;
   relatedServices: RelatedServiceLinkItem[];
@@ -40,74 +62,508 @@ interface ServiceSectionRendererProps {
   contractorCtaConfig: ResolvedServiceContractorCtaConfig | null;
   resourcesConfig: ResolvedServiceResourcesConfig | null;
   finalCtaConfig: ResolvedServiceFinalCtaConfig;
-}
+};
+
+type CmsServiceSectionRendererProps = {
+  mode: 'cms';
+  sections: CmsServicePage['sections'];
+  sectionAppearances: ServiceSectionAppearance[];
+};
+
+type ServiceSectionRendererProps =
+  | LegacyServiceSectionRendererProps
+  | CmsServiceSectionRendererProps;
 
 export default function ServiceSectionRenderer({
-  service,
-  localIntent,
-  relatedServices,
-  resolvedSections,
-  sectionAppearances,
-  contractorCtaConfig,
-  resourcesConfig,
-  finalCtaConfig,
+  ...props
 }: ServiceSectionRendererProps) {
+  const { sectionAppearances } = props;
+  const getLegacyProps = (): LegacyServiceSectionRendererProps => {
+    if (props.mode !== 'legacy') {
+      throw new Error('Legacy service section requested while rendering CMS sections.');
+    }
+
+    return props;
+  };
+
+  const getLegacyIntroSection = (): ServiceIntroSectionData => {
+    const { service } = getLegacyProps();
+
+    return {
+      type: 'intro',
+      heading: service.intro.heading,
+      body: service.intro.content,
+      bullets: service.intro.keypoints,
+    };
+  };
+
+  const getLegacyScopeSection = (): ServiceScopeSectionData => {
+    const { service } = getLegacyProps();
+
+    return {
+      type: 'scope',
+      heading: service.includes?.heading,
+      subheading: service.includes?.subheading,
+      items: (service.includes?.items ?? []).map((item) => ({
+        title: item.title,
+        body: item.description,
+      })),
+    };
+  };
+
+  const getLegacyProcessSection = (): ServiceProcessSectionData => {
+    const { service } = getLegacyProps();
+
+    return {
+      type: 'process',
+      heading: service.process?.heading,
+      subheading: service.process?.subheading,
+      steps: (service.process?.steps ?? []).map((step) => ({
+        title: step.title,
+        body: step.description,
+      })),
+    };
+  };
+
+  const getLegacyFaqSection = (): ServiceFaqSectionData => {
+    const { service } = getLegacyProps();
+
+    return {
+      type: 'faq',
+      heading: service.faq?.heading,
+      items: (service.faq?.items ?? []).map((item) => ({
+        question: item.question,
+        answer: item.answer,
+      })),
+    };
+  };
+
+  const getLegacyEquipmentSection = (): ServiceEquipmentSectionData => {
+    const { service } = getLegacyProps();
+
+    return {
+      type: 'equipment',
+      heading: service.equipment?.heading,
+      subheading: service.equipment?.subheading,
+      items: (service.equipment?.items ?? []).map((item) => ({
+        name: item.title,
+        body: item.description,
+        image: item.icon
+          ? {
+              src: item.icon,
+              alt: item.title,
+            }
+          : undefined,
+      })),
+    };
+  };
+
+  const getLegacyProjectFitSection = (): ServiceProjectFitSectionData => {
+    const { service } = getLegacyProps();
+
+    return {
+      type: 'projectFit',
+      heading: service.fit?.heading,
+      subheading: service.fit?.subheading,
+      cards: (service.fit?.items ?? []).map((item) => ({
+        title: item.title,
+        body: item.description,
+        tags: item.projectTypes,
+        outcome: item.outcome,
+      })),
+    };
+  };
+
+  const getServiceAreaLinksFromSlugs = (
+    areaSlugs: string[] = [],
+  ): ServiceAreaLink[] =>
+    areaSlugs
+      .map((slug) => SERVICE_SITE_CONTEXT.areaIndex[slug])
+      .filter((item): item is NonNullable<typeof item> => Boolean(item));
+
+  const getLegacyServiceAreasSection = (): ServiceAreasSectionData => {
+    const { service, localIntent } = getLegacyProps();
+
+    return {
+      type: 'serviceAreas',
+      heading: service.serviceArea?.heading,
+      body: localIntent?.paragraph ?? service.serviceArea?.content,
+    };
+  };
+
+  const getLegacyServiceAreaLinks = (): ServiceAreaLink[] => {
+    const { localIntent } = getLegacyProps();
+
+    return (localIntent?.linkedAreas ?? []).map((location) => ({
+      label: location.label,
+      href: location.href,
+    }));
+  };
+
+  const getLegacyResourcesSection = (): ServiceResourcesSectionData => {
+    const { resourcesConfig } = getLegacyProps();
+
+    return {
+      type: 'resources',
+      eyebrow: resourcesConfig?.eyebrow,
+      heading: resourcesConfig?.title,
+      subheading: resourcesConfig?.description,
+      cards: (resourcesConfig?.links ?? []).map((item) => ({
+        title: item.title,
+        body: item.description,
+        href: item.href,
+        label: item.actionLabel,
+      })),
+      actions: resourcesConfig
+        ? [
+            {
+              label: resourcesConfig.viewAllAction.label,
+              href: resourcesConfig.viewAllAction.href,
+              variant: 'secondary',
+            },
+          ]
+        : undefined,
+    };
+  };
+
+  const getLegacyRelatedServicesSection =
+    (): ServiceRelatedServicesSectionData => ({
+      type: 'relatedServices',
+      serviceSlugs: [],
+    });
+
+  const getRelatedServiceLinksFromSlugs = (
+    serviceSlugs: string[] = [],
+  ): RelatedServiceLinkItem[] =>
+    serviceSlugs
+      .map((slug) => SERVICE_SITE_CONTEXT.serviceIndex[slug])
+      .filter((item): item is NonNullable<typeof item> => Boolean(item));
+
+  const getLegacyReviewsSection = (): ServiceReviewsSectionData => ({
+    type: 'reviews',
+  });
+
+  const getLegacyContractorCtaSection =
+    (): ServiceContractorCtaSectionData | null => {
+      const { contractorCtaConfig } = getLegacyProps();
+
+      if (!contractorCtaConfig) {
+        return null;
+      }
+
+      const actions: ServiceContractorCtaSectionData['actions'] = [
+        {
+          label: contractorCtaConfig.primaryAction.label,
+          href: contractorCtaConfig.primaryAction.href,
+          variant: 'primary' as const,
+        },
+      ];
+
+      if (contractorCtaConfig.secondaryAction) {
+        actions.push({
+          label: contractorCtaConfig.secondaryAction.label,
+          href: contractorCtaConfig.secondaryAction.href,
+          variant: 'secondary' as const,
+        });
+      }
+
+      return {
+        type: 'contractorCta',
+        eyebrow: contractorCtaConfig.eyebrow,
+        heading: contractorCtaConfig.title,
+        body: contractorCtaConfig.description,
+        actions,
+      };
+    };
+
+  const getLegacyFinalCtaSection = (): ServiceFinalCtaSectionData | null => {
+    const { finalCtaConfig } = getLegacyProps();
+
+    if (!finalCtaConfig) {
+      return null;
+    }
+
+    const actions: ServiceFinalCtaSectionData['actions'] = [
+      {
+        label: finalCtaConfig.primaryAction.label,
+        href: finalCtaConfig.primaryAction.href,
+        variant: 'primary',
+      },
+    ];
+
+    if (finalCtaConfig.secondaryAction) {
+      actions.push({
+        label: finalCtaConfig.secondaryAction.label,
+        href: finalCtaConfig.secondaryAction.href,
+        variant: 'secondary',
+      });
+    }
+
+    return {
+      type: 'finalCta',
+      heading: finalCtaConfig.heading,
+      body: finalCtaConfig.subheading,
+      actions,
+    };
+  };
+
+  const getReviewsForSection = (section: ServiceReviewsSectionData) => {
+    const reviews = section.reviewIds?.length
+      ? section.reviewIds
+          .map((reviewId) =>
+            SERVICE_SITE_CONTEXT.reviews.find((review) => review.id === reviewId),
+          )
+          .filter((review): review is NonNullable<typeof review> =>
+            Boolean(review),
+          )
+      : SERVICE_SITE_CONTEXT.reviews;
+
+    return typeof section.limit === 'number'
+      ? reviews.slice(0, section.limit)
+      : reviews;
+  };
+
   const renderLegacySection = (
     sectionId: ServiceSectionId,
     appearance: ServiceSectionAppearance,
   ): ReactNode => {
     const sectionRenderers: Record<ServiceSectionId, () => ReactNode> = {
       intro: () => (
-        <ServiceIntroSection service={service} appearance={appearance} />
+        <ServiceIntroSection
+          section={getLegacyIntroSection()}
+          appearance={appearance}
+        />
       ),
       fit: () => (
-        <ServiceProjectFitSection service={service} appearance={appearance} />
+        <ServiceProjectFitSection
+          section={getLegacyProjectFitSection()}
+          appearance={appearance}
+        />
       ),
       proof: () => (
-        <ServiceScopeSection service={service} appearance={appearance} />
+        <ServiceScopeSection
+          section={getLegacyScopeSection()}
+          appearance={appearance}
+        />
       ),
       equipment: () => (
-        <ServiceEquipmentSection service={service} appearance={appearance} />
+        <ServiceEquipmentSection
+          section={getLegacyEquipmentSection()}
+          appearance={appearance}
+        />
       ),
       process: () => (
-        <ServiceProcessSection service={service} appearance={appearance} />
-      ),
-      localIntent: () => (
-        <ServiceAreaLinksSection
-          service={service}
-          localIntent={localIntent}
+        <ServiceProcessSection
+          section={getLegacyProcessSection()}
           appearance={appearance}
         />
       ),
-      contractorCta: () => (
-        <ServiceContractorCtaSection
-          contractorCta={contractorCtaConfig}
-          appearance={appearance}
-        />
-      ),
+      localIntent: () => {
+        const { localIntent } = getLegacyProps();
+
+        return (
+          <ServiceAreaLinksSection
+            section={getLegacyServiceAreasSection()}
+            areaLinks={getLegacyServiceAreaLinks()}
+            viewAllAction={
+              localIntent
+                ? {
+                    label: localIntent.viewAllLabel,
+                    href: localIntent.viewAllHref,
+                    variant: 'secondary',
+                  }
+                : undefined
+            }
+            appearance={appearance}
+          />
+        );
+      },
+      contractorCta: () => {
+        const section = getLegacyContractorCtaSection();
+
+        return section ? (
+          <ServiceContractorCtaSection
+            section={section}
+            appearance={appearance}
+          />
+        ) : null;
+      },
       resources: () => (
         <ServiceResourcesSection
-          resourcesConfig={resourcesConfig}
+          section={getLegacyResourcesSection()}
           appearance={appearance}
         />
       ),
-      faq: () => <ServiceFaqSection service={service} appearance={appearance} />,
-      relatedServices: () => (
-        <ServiceRelatedServicesSection
-          relatedServices={relatedServices}
+      faq: () => (
+        <ServiceFaqSection
+          section={getLegacyFaqSection()}
           appearance={appearance}
         />
       ),
-      reviews: () => <ServiceReviewsSection appearance={appearance} />,
-      finalCta: () => (
-        <ServiceFinalCtaSection
-          finalCtaConfig={finalCtaConfig}
-          appearance={appearance}
-        />
-      ),
+      relatedServices: () => {
+        const { relatedServices } = getLegacyProps();
+
+        return (
+          <ServiceRelatedServicesSection
+            section={getLegacyRelatedServicesSection()}
+            relatedServices={relatedServices}
+            appearance={appearance}
+          />
+        );
+      },
+      reviews: () => {
+        const section = getLegacyReviewsSection();
+
+        return (
+          <ServiceReviewsSection
+            section={section}
+            reviews={getReviewsForSection(section)}
+            business={SERVICE_SITE_CONTEXT.business}
+            appearance={appearance}
+          />
+        );
+      },
+      finalCta: () => {
+        const section = getLegacyFinalCtaSection();
+
+        return section ? (
+          <ServiceFinalCtaSection
+            section={section}
+            appearance={appearance}
+          />
+        ) : null;
+      },
     };
 
     return sectionRenderers[sectionId]();
+  };
+
+  const renderCmsSection = (
+    section: CmsServicePage['sections'][number],
+    appearance: ServiceSectionAppearance,
+  ): ReactNode => {
+    switch (section.type) {
+      case 'proofStrip':
+        return (
+          <ServiceProofStripSection
+            appearance={appearance}
+            section={section}
+          />
+        );
+      case 'intro':
+        return (
+          <ServiceIntroSection
+            appearance={appearance}
+            section={section}
+          />
+        );
+      case 'projectFit':
+        return (
+          <ServiceProjectFitSection
+            appearance={appearance}
+            section={section}
+          />
+        );
+      case 'scope':
+        return (
+          <ServiceScopeSection
+            appearance={appearance}
+            section={section}
+          />
+        );
+      case 'jobsiteProof':
+        return (
+          <ServiceJobsiteProofSection
+            appearance={appearance}
+            section={section}
+          />
+        );
+      case 'problemsPrevented':
+        return (
+          <ServiceProblemsPreventedSection
+            appearance={appearance}
+            section={section}
+          />
+        );
+      case 'outcomes':
+        return (
+          <ServiceOutcomesSection
+            appearance={appearance}
+            section={section}
+          />
+        );
+      case 'equipment':
+        return (
+          <ServiceEquipmentSection
+            appearance={appearance}
+            section={section}
+          />
+        );
+      case 'process':
+        return (
+          <ServiceProcessSection
+            appearance={appearance}
+            section={section}
+          />
+        );
+      case 'serviceAreas':
+        return (
+          <ServiceAreaLinksSection
+            appearance={appearance}
+            section={section}
+            areaLinks={getServiceAreaLinksFromSlugs(section.areaSlugs)}
+          />
+        );
+      case 'contractorCta':
+        return (
+          <ServiceContractorCtaSection
+            appearance={appearance}
+            section={section}
+          />
+        );
+      case 'resources':
+        return (
+          <ServiceResourcesSection
+            appearance={appearance}
+            section={section}
+          />
+        );
+      case 'faq':
+        return (
+          <ServiceFaqSection
+            appearance={appearance}
+            section={section}
+          />
+        );
+      case 'relatedServices':
+        return (
+          <ServiceRelatedServicesSection
+            relatedServices={getRelatedServiceLinksFromSlugs(
+              section.serviceSlugs,
+            )}
+            appearance={appearance}
+            section={section}
+          />
+        );
+      case 'reviews':
+        return (
+          <ServiceReviewsSection
+            appearance={appearance}
+            section={section}
+            reviews={getReviewsForSection(section)}
+            business={SERVICE_SITE_CONTEXT.business}
+          />
+        );
+      case 'finalCta':
+        return (
+          <ServiceFinalCtaSection
+            appearance={appearance}
+            section={section}
+          />
+        );
+      default:
+        return null;
+    }
   };
 
   const renderV2Section = (
@@ -125,7 +581,6 @@ export default function ServiceSectionRenderer({
       case 'intro':
         return (
           <ServiceIntroSection
-            service={service}
             appearance={appearance}
             section={resolvedSection.section}
           />
@@ -133,7 +588,6 @@ export default function ServiceSectionRenderer({
       case 'projectFit':
         return (
           <ServiceProjectFitSection
-            service={service}
             appearance={appearance}
             section={resolvedSection.section}
           />
@@ -141,7 +595,6 @@ export default function ServiceSectionRenderer({
       case 'scope':
         return (
           <ServiceScopeSection
-            service={service}
             appearance={appearance}
             section={resolvedSection.section}
           />
@@ -170,7 +623,6 @@ export default function ServiceSectionRenderer({
       case 'equipment':
         return (
           <ServiceEquipmentSection
-            service={service}
             appearance={appearance}
             section={resolvedSection.section}
           />
@@ -178,7 +630,6 @@ export default function ServiceSectionRenderer({
       case 'process':
         return (
           <ServiceProcessSection
-            service={service}
             appearance={appearance}
             section={resolvedSection.section}
           />
@@ -186,16 +637,16 @@ export default function ServiceSectionRenderer({
       case 'serviceAreas':
         return (
           <ServiceAreaLinksSection
-            service={service}
-            localIntent={localIntent}
             appearance={appearance}
             section={resolvedSection.section}
+            areaLinks={getServiceAreaLinksFromSlugs(
+              resolvedSection.section.areaSlugs,
+            )}
           />
         );
       case 'contractorCta':
         return (
           <ServiceContractorCtaSection
-            contractorCta={contractorCtaConfig}
             appearance={appearance}
             section={resolvedSection.section}
           />
@@ -203,7 +654,6 @@ export default function ServiceSectionRenderer({
       case 'resources':
         return (
           <ServiceResourcesSection
-            resourcesConfig={resourcesConfig}
             appearance={appearance}
             section={resolvedSection.section}
           />
@@ -211,7 +661,6 @@ export default function ServiceSectionRenderer({
       case 'faq':
         return (
           <ServiceFaqSection
-            service={service}
             appearance={appearance}
             section={resolvedSection.section}
           />
@@ -219,7 +668,9 @@ export default function ServiceSectionRenderer({
       case 'relatedServices':
         return (
           <ServiceRelatedServicesSection
-            relatedServices={relatedServices}
+            relatedServices={getRelatedServiceLinksFromSlugs(
+              resolvedSection.section.serviceSlugs,
+            )}
             appearance={appearance}
             section={resolvedSection.section}
           />
@@ -229,12 +680,13 @@ export default function ServiceSectionRenderer({
           <ServiceReviewsSection
             appearance={appearance}
             section={resolvedSection.section}
+            reviews={getReviewsForSection(resolvedSection.section)}
+            business={SERVICE_SITE_CONTEXT.business}
           />
         );
       case 'finalCta':
         return (
           <ServiceFinalCtaSection
-            finalCtaConfig={finalCtaConfig}
             appearance={appearance}
             section={resolvedSection.section}
           />
@@ -242,10 +694,19 @@ export default function ServiceSectionRenderer({
       default:
         return resolvedSection.legacyId
           ? renderLegacySection(resolvedSection.legacyId, appearance)
-          : null;
+        : null;
     }
   };
 
+  if (props.mode === 'cms') {
+    return props.sections.map((section, index) => (
+      <Fragment key={section.id ?? `cms-${section.type}-${index}`}>
+        {renderCmsSection(section, sectionAppearances[index])}
+      </Fragment>
+    ));
+  }
+
+  const { resolvedSections } = props;
   const renderedSections: ReactNode[] = [];
 
   for (let index = 0; index < resolvedSections.length; index += 1) {

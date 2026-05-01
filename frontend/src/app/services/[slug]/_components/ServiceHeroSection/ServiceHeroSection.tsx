@@ -3,37 +3,135 @@ import Link from 'next/link';
 
 import type { ServicePage } from '@/types/interfaces';
 import type { ResolvedServiceHeroConfig } from '@/lib/servicePageLayout';
+import { SERVICE_SITE_CONTEXT } from '@/lib/services/serviceSiteContext';
+import type { CmsServicePage } from '@/types/services/cms';
 import ServiceSectionWrapper from '../primitives/ServiceSectionWrapper/ServiceSectionWrapper';
 import classes from './ServiceHeroSection.module.scss';
 
-interface ServiceHeroSectionProps {
-  service: ServicePage;
-  heroConfig: ResolvedServiceHeroConfig;
-}
+type RenderHero = {
+  eyebrow?: string;
+  heading: string;
+  summary: string;
+  image: string;
+  alt: string;
+  primaryAction: {
+    label: string;
+    href: string;
+  };
+  secondaryAction?: {
+    label: string;
+    href: string;
+  };
+  proofChips: string[];
+  phone?: {
+    label: string;
+    href: string;
+  };
+  review?: {
+    rating: number;
+    reviewCount: number;
+    href: string;
+    label?: string;
+  };
+  emphasis: 'compact' | 'standard' | 'high';
+  breadcrumbLabel: string;
+};
+
+type ServiceHeroSectionProps =
+  | {
+      mode: 'cms';
+      hero: CmsServicePage['hero'];
+      breadcrumbLabel: string;
+      business: typeof SERVICE_SITE_CONTEXT.business;
+    }
+  | {
+      mode: 'legacy';
+      service: ServicePage;
+      heroConfig: ResolvedServiceHeroConfig;
+    };
+
+const defaultPrimaryAction = {
+  label: 'Get a Free Estimate',
+  href: '/contact',
+} as const;
 
 function formatRating(rating: number) {
   return rating.toFixed(1);
 }
 
-export default function ServiceHeroSection({
-  service,
-  heroConfig,
-}: ServiceHeroSectionProps) {
-  const hasSecondaryAction = Boolean(heroConfig.secondaryAction);
-  const hasProofChips = heroConfig.proofChips.length > 0;
-  const hasTrustRow = Boolean(heroConfig.phone || heroConfig.review);
+function toRenderHero(props: ServiceHeroSectionProps): RenderHero {
+  if (props.mode === 'cms') {
+    const actions = Array.isArray(props.hero.actions) ? props.hero.actions : [];
+    const primaryAction = actions[0]
+      ? {
+          label: actions[0].label,
+          href: actions[0].href,
+        }
+      : defaultPrimaryAction;
+    const secondaryAction = actions[1]
+      ? {
+          label: actions[1].label,
+          href: actions[1].href,
+        }
+      : undefined;
+
+    return {
+      eyebrow: props.hero.eyebrow,
+      heading: props.hero.heading,
+      summary: props.hero.summary,
+      image: props.hero.image,
+      alt: props.hero.alt,
+      primaryAction,
+      secondaryAction,
+      proofChips: props.hero.proofPoints?.slice(0, 4) ?? [],
+      phone: {
+        label: props.business.phoneLabel,
+        href: props.business.phoneHref,
+      },
+      review: {
+        rating: props.business.reviewRating,
+        reviewCount: props.business.reviewCount,
+        href: props.business.reviewsHref,
+        label: 'Read Reviews',
+      },
+      emphasis: props.hero.emphasis ?? 'standard',
+      breadcrumbLabel: props.breadcrumbLabel,
+    };
+  }
+
+  return {
+    eyebrow: props.heroConfig.eyebrow,
+    heading: props.service.hero.heading,
+    summary: props.heroConfig.summary,
+    image: props.service.hero.image,
+    alt: props.service.hero.alt,
+    primaryAction: props.heroConfig.primaryAction,
+    secondaryAction: props.heroConfig.secondaryAction,
+    proofChips: props.heroConfig.proofChips,
+    phone: props.heroConfig.phone,
+    review: props.heroConfig.review,
+    emphasis: props.heroConfig.emphasis,
+    breadcrumbLabel: props.service.hero.heading,
+  };
+}
+
+export default function ServiceHeroSection(props: ServiceHeroSectionProps) {
+  const hero = toRenderHero(props);
+  const hasSecondaryAction = Boolean(hero.secondaryAction);
+  const hasProofChips = hero.proofChips.length > 0;
+  const hasTrustRow = Boolean(hero.phone || hero.review);
   const heroContainerClassName = [classes.shell, classes.heroContainer]
     .filter(Boolean)
     .join(' ');
   const isExternalReviewLink = Boolean(
-    heroConfig.review?.href?.startsWith('http://') ||
-    heroConfig.review?.href?.startsWith('https://'),
+    hero.review?.href?.startsWith('http://') ||
+    hero.review?.href?.startsWith('https://'),
   );
 
   return (
     <section
       className={classes.section}
-      data-hero-emphasis={heroConfig.emphasis}
+      data-hero-emphasis={hero.emphasis}
     >
       <ServiceSectionWrapper
         as="div"
@@ -50,54 +148,54 @@ export default function ServiceHeroSection({
               <li>
                 <Link href="/services">Services</Link>
               </li>
-              <li aria-current="page">{service.hero.heading}</li>
+              <li aria-current="page">{hero.breadcrumbLabel}</li>
             </ol>
           </nav>
 
-          {heroConfig.eyebrow ? (
-            <p className={classes.eyebrow}>{heroConfig.eyebrow}</p>
+          {hero.eyebrow ? (
+            <p className={classes.eyebrow}>{hero.eyebrow}</p>
           ) : null}
 
           <div className={classes.headingGroup}>
-            <h1>{service.hero.heading}</h1>
-            <p className={classes.summary}>{heroConfig.summary}</p>
+            <h1>{hero.heading}</h1>
+            <p className={classes.summary}>{hero.summary}</p>
           </div>
 
           <div className={classes.actions}>
             <Link
-              href={heroConfig.primaryAction.href}
+              href={hero.primaryAction.href}
               className={classes.primaryButton}
             >
-              {heroConfig.primaryAction.label}
+              {hero.primaryAction.label}
             </Link>
 
-            {hasSecondaryAction && heroConfig.secondaryAction ? (
+            {hasSecondaryAction && hero.secondaryAction ? (
               <Link
-                href={heroConfig.secondaryAction.href}
+                href={hero.secondaryAction.href}
                 className={classes.secondaryButton}
               >
-                {heroConfig.secondaryAction.label}
+                {hero.secondaryAction.label}
               </Link>
             ) : null}
           </div>
 
           {hasTrustRow ? (
             <div className={classes.trustRow}>
-              {heroConfig.phone ? (
+              {hero.phone ? (
                 <Link
-                  href={heroConfig.phone.href}
+                  href={hero.phone.href}
                   className={classes.phoneLink}
                 >
                   {/* <span className={classes.phoneIcon} aria-hidden="true">
                     Call
                   </span> */}
-                  <span>{heroConfig.phone.label}</span>
+                  <span>{hero.phone.label}</span>
                 </Link>
               ) : null}
 
-              {heroConfig.review ? (
+              {hero.review ? (
                 <Link
-                  href={heroConfig.review.href}
+                  href={hero.review.href}
                   className={classes.reviewLink}
                   target={isExternalReviewLink ? '_blank' : undefined}
                   rel={isExternalReviewLink ? 'noopener noreferrer' : undefined}
@@ -108,13 +206,13 @@ export default function ServiceHeroSection({
                     ))}
                   </span>
                   <span>
-                    {formatRating(heroConfig.review.rating)} on Google (
-                    {heroConfig.review.reviewCount}{' '}
-                    {heroConfig.review.reviewCount === 1 ? 'review' : 'reviews'}
+                    {formatRating(hero.review.rating)} on Google (
+                    {hero.review.reviewCount}{' '}
+                    {hero.review.reviewCount === 1 ? 'review' : 'reviews'}
                     )
                   </span>
                   <span className={classes.reviewCta}>
-                    {heroConfig.review.label ?? 'Read Reviews'}
+                    {hero.review.label ?? 'Read Reviews'}
                   </span>
                 </Link>
               ) : null}
@@ -123,7 +221,7 @@ export default function ServiceHeroSection({
 
           {hasProofChips ? (
             <ul className={classes.proofList} aria-label="Service highlights">
-              {heroConfig.proofChips.map((chip) => (
+              {hero.proofChips.map((chip) => (
                 <li key={chip} className={classes.proofItem}>
                   {chip}
                 </li>
@@ -136,8 +234,8 @@ export default function ServiceHeroSection({
           <div className={classes.imageFrame}>
             <Image
               className={classes.image}
-              src={service.hero.image}
-              alt={service.hero.alt}
+              src={hero.image}
+              alt={hero.alt}
               width={650}
               height={550}
               priority
