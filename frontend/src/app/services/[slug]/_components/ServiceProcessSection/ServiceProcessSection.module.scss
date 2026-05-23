@@ -2,6 +2,9 @@
 @use '../../../../../styles/abstracts/mixins' as m;
 
 .processSection {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
   color: v.$grey-color-1;
 }
 
@@ -10,10 +13,6 @@
 
   .processShell {
     color: v.$text-color-dark;
-  }
-
-  .processList p {
-    color: rgba(v.$text-color-dark, 0.9);
   }
 }
 
@@ -26,8 +25,17 @@
 
   h2 {
     @include m.headingLevel2;
-    text-align: center;
+    max-width: 14ch;
+    margin-inline: auto;
     margin-bottom: 1rem;
+    text-align: center;
+    text-wrap: balance;
+  }
+}
+
+.processSectionLight {
+  .processShell {
+    color: v.$text-color-dark;
   }
 }
 
@@ -44,87 +52,154 @@
 
 .processLayoutWithMedia {
   @include m.mediaDesktop {
-    grid-template-columns: minmax(0, 0.92fr) minmax(30rem, 0.78fr);
+    grid-template-columns: minmax(0, 0.94fr) minmax(34rem, 0.84fr);
     align-items: start;
-    gap: 3.2rem;
+    gap: clamp(3.2rem, 5vw, 5.8rem);
   }
 }
 
 .processList {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
-  max-width: 80rem;
+  gap: 1.4rem;
   width: 100%;
+  max-width: 80rem;
   margin: 0 auto;
 
-  p {
-    color: rgba(v.$text-color-light, 0.94);
+  @include m.mediaDesktop {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 2.4rem;
+    bottom: 2.4rem;
+    left: 2.4rem;
+    width: 1px;
+    background: linear-gradient(
+      180deg,
+      rgba(v.$cat-yellow2, 0.7),
+      rgba(45, 120, 255, 0.24),
+      transparent
+    );
+
+    @include m.mediaPhone {
+      left: 2.1rem;
+    }
   }
 }
 
 .processItem {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1.6rem;
+  padding: 1.6rem;
+  border-radius: 1.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.055),
+      rgba(255, 255, 255, 0.025)
+    ),
+    rgba(12, 12, 12, 0.34);
+  box-shadow:
+    0 1.2rem 3rem rgba(0, 0, 0, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.045);
+}
+
+.processSectionLight {
+  .processItem {
+    border-color: rgba(20, 20, 20, 0.08);
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.92),
+      rgba(246, 243, 236, 0.78)
+    );
+    box-shadow:
+      0 1.4rem 3rem rgba(64, 50, 20, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  }
+}
+
+.stepMarker {
+  position: relative;
+  z-index: 1;
   display: flex;
-  align-items: flex-start;
-  gap: 2rem;
-  padding-bottom: 2rem;
-  border-left: 4px solid v.$cat-yellow2;
-  padding-left: 2rem;
+  justify-content: center;
 }
 
 .stepNumber {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  background: v.$cat-yellow2;
-  color: v.$text-color-dark;
-  flex-shrink: 0;
-  margin-top: 0.1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.6rem;
-  font-weight: 700;
+  width: 4.8rem;
+  height: 4.8rem;
+  border-radius: 999px;
+  background: v.$cat-yellow2;
+  color: v.$text-color-dark;
+  font-size: 1.55rem;
+  font-weight: 850;
+  line-height: 1;
+  box-shadow:
+    0 0 0 0.6rem rgba(v.$cat-yellow2, 0.11),
+    0 1rem 2rem rgba(0, 0, 0, 0.22);
+}
+
+.stepContent {
+  min-width: 0;
+
+  h3 {
+    margin: 0;
+    color: #fff;
+    font-size: 1.9rem;
+    line-height: 1.25;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+
+  p {
+    margin: 0.75rem 0 0;
+    color: rgba(v.$text-color-light, 0.84);
+    font-size: 1.52rem;
+    line-height: 1.58;
+  }
+}
+
+.processSectionLight {
+  .stepContent {
+    h3 {
+      color: v.$text-color-dark;
+    }
+
+    p {
+      color: rgba(v.$text-color-dark, 0.74);
+    }
+  }
 }
 
 .mediaPanel {
   display: grid;
   gap: 1rem;
   width: 100%;
+
+  @include m.mediaDesktop {
+    position: sticky;
+    top: 2rem;
+  }
 }
 
 .imageFrame {
   position: relative;
   overflow: hidden;
-  min-height: 28rem;
   width: 100%;
-  border-radius: 1.8rem;
-  border: 1px solid rgba(v.$color-primary, 0.14);
-  background: rgba(255, 255, 255, 0.04);
-  box-shadow: 0 1.8rem 3rem -2.4rem rgba(0, 0, 0, 0.22);
-
-  @include m.mediaDesktop {
-    position: sticky;
-    top: 2rem;
-    min-height: 40rem;
-  }
-}
-
-.processSectionLight .imageFrame {
-  border-color: rgba(88, 72, 33, 0.14);
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.95) 0%,
-      rgba(246, 243, 236, 0.94) 100%
-    );
-  box-shadow:
-    0 1.8rem 3rem -2.4rem rgba(64, 50, 20, 0.16),
-    0 0.45rem 1rem rgba(0, 0, 0, 0.04);
-}
-
-.processSectionDark .imageFrame {
-  border-color: rgba(v.$cat-yellow2, 0.16);
+  aspect-ratio: 16 / 10;
+  border-radius: 2.2rem;
+  border: 1px solid rgba(v.$cat-yellow2, 0.16);
   background:
     linear-gradient(
       180deg,
@@ -132,24 +207,52 @@
       rgba(255, 255, 255, 0.025) 100%
     ),
     rgba(20, 20, 18, 0.86);
-  box-shadow: 0 2rem 3.2rem -2.4rem rgba(0, 0, 0, 0.46);
+  box-shadow:
+    0 2rem 4rem rgba(0, 0, 0, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  isolation: isolate;
+}
+
+.processSectionLight {
+  .imageFrame {
+    border-color: rgba(88, 72, 33, 0.14);
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(246, 243, 236, 0.94) 100%
+    );
+    box-shadow:
+      0 1.8rem 3rem -2.4rem rgba(64, 50, 20, 0.16),
+      0 0.45rem 1rem rgba(0, 0, 0, 0.04);
+  }
 }
 
 .image {
+  object-fit: cover;
+}
+
+.imageOverlay {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, transparent 38%, rgba(0, 0, 0, 0.44) 100%),
+    linear-gradient(120deg, rgba(v.$cat-yellow2, 0.08), transparent 46%),
+    linear-gradient(240deg, rgba(45, 120, 255, 0.08), transparent 42%);
 }
 
 .caption {
   margin: 0;
-  font-size: 1.45rem;
-  line-height: 1.58;
-  color: rgba(v.$text-color-light, 0.76);
+  padding-inline: 0.2rem;
+  color: rgba(v.$text-color-light, 0.72);
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.5;
 }
 
-.processSectionLight .caption {
-  color: rgba(v.$text-color-dark, 0.68);
+.processSectionLight {
+  .caption {
+    color: rgba(v.$text-color-dark, 0.64);
+  }
 }

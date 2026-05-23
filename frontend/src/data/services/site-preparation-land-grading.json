@@ -10,8 +10,8 @@
   "card": {
     "title": "Site Preparation & Land Grading Services",
     "description": "Land clearing, grading, and excavation to get your site ready for construction.",
-    "image": "/assets/site-preparation-dozer-brant-county.jpg",
-    "alt": "A bulldozer grading land for site preparation and foundation work."
+    "image": "/assets/services/site-preparations-land-clearing/equipment-lined-up-large-site-prep.jpg",
+    "alt": "Bellhouse excavators lined up for large site preparation and land grading work."
   },
   "hero": {
     "eyebrow": "Build-ready site preparation",
@@ -35,8 +35,8 @@
       "Grade control for active job sites"
     ],
     "emphasis": "high",
-    "image": "/assets/site-preparation-dozer-brant-county.png",
-    "alt": "A bulldozer leveling ground for a future construction project."
+    "image": "/assets/services/site-preparations-land-clearing/large-site-preparation-excavation-equipment.webp",
+    "alt": "Bellhouse excavators and site equipment working together on large site preparation."
   },
   "sections": [
     {
@@ -224,6 +224,11 @@
       "type": "process",
       "heading": "Our Site Preparation Process",
       "subheading": "Organized, efficient, and built around your project schedule.",
+      "image": {
+        "src": "/assets/services/site-preparations-land-clearing/dozer-stripping-site-prep.jpg",
+        "alt": "Dozer stripping topsoil and rough grading a large site preparation area"
+      },
+      "caption": "Topsoil stripping, rough grading, and pad prep are coordinated before the next phase of construction starts.",
       "steps": [
         {
           "title": "Site Walk & Planning",
@@ -252,6 +257,11 @@
       "eyebrow": "For builders and contractors",
       "heading": "Need site prep, grading, and material movement lined up around the build?",
       "body": "If your project needs stripping, grade control, drainage shaping, truck support, or imported aggregate coordinated to a real schedule, Bellhouse can review the site, scope, and timing.",
+      "image": {
+        "src": "/assets/services/site-preparations-land-clearing/equipment-lined-up-large-site-prep.jpg",
+        "alt": "Bellhouse excavators lined up for large site preparation and contractor earthworks"
+      },
+      "caption": "Bellhouse can coordinate equipment, grading, and trucking around active contractor-led site work.",
       "actions": [
         {
           "label": "Send Project Details",
@@ -294,15 +304,15 @@
     },
     {
       "type": "serviceAreas",
-      "heading": "Service Area",
-      "body": "Site preparation and grading services available throughout Brant County and surrounding regions.",
+      "heading": "Site preparation by service area",
+      "body": "Site prep and grading work changes by location, including Brantford access work, Paris rural lots, Hamilton redevelopment sites, Cambridge active builds, Ancaster grade transitions, and Woodstock yard or pad prep.",
       "areaSlugs": [
         "paris",
         "brantford",
         "hamilton",
         "cambridge",
-        "waterloo",
-        "ayr"
+        "ancaster",
+        "woodstock"
       ]
     },
     {

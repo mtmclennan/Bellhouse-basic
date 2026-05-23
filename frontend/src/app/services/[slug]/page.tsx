@@ -17,12 +17,22 @@ interface ServicePageProps {
   params: Promise<{ slug: string }>;
 }
 
+const cmsServiceSlugs = new Set([
+  'foundation-excavation',
+  'land-grading-drainage',
+  'dirt-gravel-delivery',
+]);
+
+function isCmsServiceSlug(slug: string) {
+  return cmsServiceSlugs.has(slug);
+}
+
 export async function generateMetadata({
   params,
 }: ServicePageProps): Promise<Metadata> {
   const { slug } = await params;
 
-  if (slug === 'foundation-excavation') {
+  if (isCmsServiceSlug(slug)) {
     const page = getServicePage(slug);
 
     if (!page) {
@@ -52,7 +62,7 @@ export async function generateMetadata({
 export default async function ServicePage({ params }: ServicePageProps) {
   const { slug } = await params;
 
-  if (slug === 'foundation-excavation') {
+  if (isCmsServiceSlug(slug)) {
     const page = getServicePage(slug);
 
     if (!page) return notFound();

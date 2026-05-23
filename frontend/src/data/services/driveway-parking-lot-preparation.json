@@ -10,15 +10,15 @@
   "card": {
     "title": "Driveway & Parking Lot Preparation",
     "description": "Expert site grading and compaction for stable driveways and parking lots.",
-    "image": "/assets/driveway-parking-lot-construction.jpg",
-    "alt": "A skid steer grading a driveway before gravel installation."
+    "image": "/assets/services/driveways-laneways/skid-steer-final-grading-gravel-driveway-farm-shop.webp",
+    "alt": "Skid steer final grading a gravel driveway base at a farm shop."
   },
 
   "hero": {
     "heading": "Driveway & Parking Lot Preparation",
     "subheading": "Precision Site Grading & Compaction for Long-Lasting Surfaces",
-    "image": "/assets/driveways-parking-lots-services.png",
-    "alt": "A construction site being prepared for driveway installation with grading equipment."
+    "image": "/assets/services/driveways-laneways/brantwood-farms-driveway-connection-preparation.webp",
+    "alt": "Bellhouse excavator preparing a Brantwood Farms driveway connection and laneway base."
   },
 
   "intro": {
@@ -162,17 +162,18 @@
 
   "serviceArea": {
     "heading": "Service Area",
-    "content": "Driveway and parking lot grading available across Brant County and neighbouring cities.",
+    "content": "Driveway and parking lot prep is available across local service areas where grading, base material, drainage, and truck access affect the finished surface.",
     "locations": [
       "Paris",
       "Brantford",
+      "Ancaster",
+      "Dundas",
+      "Waterdown",
+      "Simcoe",
       "St. George",
       "Burford",
       "Hamilton",
       "Cambridge",
-      "Kitchener",
-      "Waterloo",
-      "Ayr",
       "Woodstock"
     ]
   },

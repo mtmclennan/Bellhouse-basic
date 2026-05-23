@@ -18,8 +18,8 @@ import ServiceAreaCta from '@/components/service-areas/ServiceAreaCta';
 import ServiceAreaHero from '@/components/service-areas/ServiceAreaHero';
 import FAQAccordion from '../components/FAQAccordion';
 import ContactForm from '../components/forms/ContactForm';
-import heroImage from '../../../public/assets/services/excavator-loading-dump-truck-right.webp';
-import ctaImage from '../../../public/assets/services/cat-320-excavator-loading-b-gravel.webp';
+import heroImage from '../../../public/assets/services/dump-truck-hauling/excavator-loading-dump-truck-right.webp';
+import ctaImage from '../../../public/assets/services/dump-truck-hauling/cat-320-excavator-loading-b-gravel.webp';
 import capabilityImage from '../../../public/assets/off-road-dump-truck-rental.jpg';
 import classes from './page.module.scss';
 
@@ -42,7 +42,7 @@ type ProofItem = {
 const proofItems: ProofItem[] = [
   {
     title: 'Southern Ontario',
-    detail: 'Brantford, Paris, Hamilton, Cambridge, and surrounding areas.',
+    detail: 'Brantford, Hamilton, Cambridge, Woodstock, Simcoe, and nearby areas.',
   },
   {
     title: 'Since 1982',
@@ -318,14 +318,15 @@ const serviceLinks: NavLinkItem[] = [
 ];
 
 const areaLinks: NavLinkItem[] = [
-  { href: '/service-areas/brantford', label: 'Brantford' },
-  { href: '/service-areas/hamilton', label: 'Hamilton' },
-  { href: '/service-areas/cambridge', label: 'Cambridge' },
-  { href: '/service-areas/paris', label: 'Paris' },
+  { href: '/service-areas/brantford', label: 'Brantford contractor site work' },
+  { href: '/service-areas/hamilton', label: 'Hamilton redevelopment support' },
+  { href: '/service-areas/cambridge', label: 'Cambridge active-site support' },
+  { href: '/service-areas/woodstock', label: 'Woodstock industrial site prep' },
+  { href: '/service-areas/simcoe', label: 'Simcoe rural-commercial work' },
 ];
 
 const heroDescription =
-  'Bellhouse works with builders, GCs, concrete crews, and developers across Brantford, Paris, Hamilton, Cambridge, and nearby Southern Ontario areas for excavation, grading, site prep, truck hauling, spoil export, aggregate and material import, and operator-backed equipment.';
+  'Bellhouse works with builders, GCs, concrete crews, and developers across Brantford, Hamilton, Cambridge, Woodstock, Simcoe, and nearby Southern Ontario areas for excavation, grading, site prep, truck hauling, spoil export, aggregate and material import, and operator-backed equipment.';
 
 export default function ContractorsPage() {
   return (
@@ -689,9 +690,9 @@ export default function ContractorsPage() {
             question: 'What areas do you typically cover for contractor work?',
             answer: (
               <p>
-                Bellhouse works across Brantford, Paris, Hamilton, Cambridge,
-                and nearby Southern Ontario communities. You can review the
-                local pages for{' '}
+                Bellhouse works across Brantford, Hamilton, Cambridge,
+                Woodstock, Simcoe, and nearby Southern Ontario communities.
+                You can review the local pages for{' '}
                 <Link
                   href="/service-areas/brantford"
                   className={classes.inlineLink}
@@ -700,24 +701,31 @@ export default function ContractorsPage() {
                 </Link>
                 ,{' '}
                 <Link
-                  href="/service-areas/paris"
-                  className={classes.inlineLink}
-                >
-                  Paris
-                </Link>
-                ,{' '}
-                <Link
                   href="/service-areas/hamilton"
                   className={classes.inlineLink}
                 >
                   Hamilton
                 </Link>
-                , or{' '}
+                ,{' '}
                 <Link
                   href="/service-areas/cambridge"
                   className={classes.inlineLink}
                 >
                   Cambridge
+                </Link>
+                ,{' '}
+                <Link
+                  href="/service-areas/woodstock"
+                  className={classes.inlineLink}
+                >
+                  Woodstock
+                </Link>
+                , or{' '}
+                <Link
+                  href="/service-areas/simcoe"
+                  className={classes.inlineLink}
+                >
+                  Simcoe
                 </Link>{' '}
                 if the project is tied to one of those areas.
               </p>

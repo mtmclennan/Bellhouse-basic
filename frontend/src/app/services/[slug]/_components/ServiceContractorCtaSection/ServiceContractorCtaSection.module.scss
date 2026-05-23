@@ -2,47 +2,242 @@
 @use '../../../../../styles/abstracts/mixins' as m;
 
 .contractorCtaSection {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
   color: v.$text-color-dark;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.9;
+    background:
+      linear-gradient(90deg, rgba(45, 120, 255, 0.66) 1px, transparent 1px),
+      linear-gradient(rgba(45, 120, 255, 0.66) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.61) 1px, transparent 1px),
+      linear-gradient(rgba(255, 255, 255, 0.61) 1px, transparent 1px),
+      radial-gradient(
+        circle at 18% 24%,
+        rgba(45, 120, 255, 0.5),
+        transparent 34%
+      ),
+      radial-gradient(
+        circle at 82% 18%,
+        rgba(v.$cat-yellow2, 0.34),
+        transparent 30%
+      );
+    background-size:
+      12rem 12rem,
+      12rem 12rem,
+      3rem 3rem,
+      3rem 3rem,
+      auto,
+      auto;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.46;
+    background:
+      linear-gradient(
+        115deg,
+        transparent 0%,
+        transparent 20%,
+        rgba(45, 120, 255, 0.26) 20.15%,
+        transparent 20.45%,
+        transparent 100%
+      ),
+      linear-gradient(
+        155deg,
+        transparent 0%,
+        transparent 42%,
+        rgba(255, 255, 255, 0.26) 42.15%,
+        transparent 42.45%,
+        transparent 100%
+      ),
+      linear-gradient(
+        25deg,
+        transparent 0%,
+        transparent 68%,
+        rgba(v.$cat-yellow2, 0.7) 68.15%,
+        transparent 68.45%,
+        transparent 100%
+      );
+  }
 }
 
 .contractorCtaSectionLight {
   color: v.$text-color-dark;
+
+  &::before {
+    opacity: 0.38;
+    background:
+      linear-gradient(90deg, rgba(45, 120, 255, 0.12) 1px, transparent 1px),
+      linear-gradient(rgba(45, 120, 255, 0.12) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(20, 20, 20, 0.055) 1px, transparent 1px),
+      linear-gradient(rgba(20, 20, 20, 0.055) 1px, transparent 1px),
+      radial-gradient(
+        circle at 18% 24%,
+        rgba(45, 120, 255, 0.09),
+        transparent 34%
+      ),
+      radial-gradient(
+        circle at 82% 18%,
+        rgba(v.$cat-yellow2, 0.14),
+        transparent 30%
+      );
+    background-size:
+      12rem 12rem,
+      12rem 12rem,
+      3rem 3rem,
+      3rem 3rem,
+      auto,
+      auto;
+  }
+
+  &::after {
+    opacity: 0.28;
+  }
 }
 
 .contractorCtaSectionDark {
   color: v.$grey-color-1;
-
-  .contractorPanel {
-    border: 1px solid rgba(v.$cat-yellow2, 0.24);
-    box-shadow: 0 2rem 3.6rem -2.6rem rgba(0, 0, 0, 0.52);
-  }
 }
 
 .contractorCtaShell {
 }
 
 .contractorPanel {
+  position: relative;
+  overflow: hidden;
   display: grid;
-  gap: 2rem;
-  padding: 2.2rem;
-  border-radius: 1.8rem;
-  background: rgba(v.$color-neutral-dark, 0.94);
-  box-shadow: 0 1.8rem 3.2rem -2.6rem rgba(0, 0, 0, 0.6);
+  gap: 2.4rem;
+  padding: clamp(2.4rem, 4vw, 4.8rem);
+  border-radius: 2.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background:
+    radial-gradient(
+      circle at 12% 12%,
+      rgba(v.$cat-yellow2, 0.13),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 88% 20%,
+      rgba(45, 120, 255, 0.11),
+      transparent 34%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(24, 24, 24, 0.94) 0%,
+      rgba(15, 15, 15, 0.96) 100%
+    );
+  box-shadow:
+    0 2.8rem 7rem rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  isolation: isolate;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.055),
+      transparent 42%
+    );
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: auto 2.4rem 2.4rem 2.4rem;
+    height: 1px;
+    z-index: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(v.$cat-yellow2, 0.42),
+      rgba(45, 120, 255, 0.38),
+      transparent
+    );
+  }
+}
+
+.contractorCtaSectionLight {
+  .contractorPanel {
+    border-color: rgba(88, 72, 33, 0.14);
+    background:
+      radial-gradient(
+        circle at 12% 12%,
+        rgba(v.$cat-yellow2, 0.12),
+        transparent 32%
+      ),
+      radial-gradient(
+        circle at 88% 20%,
+        rgba(45, 120, 255, 0.07),
+        transparent 34%
+      ),
+      linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.94) 0%,
+        rgba(246, 243, 236, 0.96) 100%
+      );
+    box-shadow:
+      0 2.4rem 6rem rgba(64, 50, 20, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  }
+}
+
+.contractorCtaSectionDark {
+  .contractorPanel {
+    border-color: rgba(v.$cat-yellow2, 0.22);
+  }
 }
 
 .contractorPanelWithMedia {
   @include m.mediaDesktop {
-    grid-template-columns: minmax(0, 0.95fr) minmax(32rem, 0.85fr);
+    grid-template-columns: minmax(0, 0.94fr) minmax(36rem, 0.92fr);
     align-items: center;
-    gap: 2.6rem;
+    gap: clamp(3rem, 5vw, 5.6rem);
   }
 }
 
 .copyPanel {
+  position: relative;
+  z-index: 1;
   text-align: center;
 
   @include m.mediaDesktop {
     text-align: left;
+  }
+
+  h2 {
+    @include m.headingLevel2;
+    max-width: 16ch;
+    margin: 0 auto;
+    color: #fff;
+    text-wrap: balance;
+
+    @include m.mediaDesktop {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+}
+
+.contractorCtaSectionLight {
+  .copyPanel h2 {
+    color: v.$text-color-dark;
   }
 }
 
@@ -55,35 +250,30 @@
   }
 }
 
-.contractorCtaSectionLight .eyebrow {
-  @include m.sectionEyebrowLight;
-}
-
-.copyPanel {
-  h2 {
-    @include m.headingLevel2;
-    color: #fff;
-    margin: 0;
-  }
-
-  @include m.mediaDesktop {
-    h2 {
-      max-width: 12ch;
-    }
+.contractorCtaSectionLight {
+  .eyebrow {
+    @include m.sectionEyebrowLight;
   }
 }
 
 .body {
-  margin: 1.6rem auto 0;
   max-width: 72rem;
+  margin: 1.6rem auto 0;
+  color: rgba(255, 255, 255, 0.9);
   font-size: 1.8rem;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.92);
+  text-wrap: pretty;
 
   @include m.mediaDesktop {
+    max-width: 60rem;
     margin-left: 0;
     margin-right: 0;
-    max-width: 58rem;
+  }
+}
+
+.contractorCtaSectionLight {
+  .body {
+    color: rgba(v.$text-color-dark, 0.76);
   }
 }
 
@@ -91,7 +281,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.6rem;
+  gap: 1.4rem;
   margin-top: 3rem;
 
   @include m.mediaPhone {
@@ -113,7 +303,50 @@
   @include m.btnSectionSecondary;
 }
 
+.nextSteps {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.85rem 1.2rem;
+  margin: 1.7rem 0 0;
+  padding: 0;
+  list-style: none;
+
+  @include m.mediaDesktop {
+    justify-content: flex-start;
+  }
+
+  li {
+    position: relative;
+    padding-left: 1.5rem;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 1.32rem;
+    font-weight: 700;
+    line-height: 1.35;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.48em;
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 999px;
+      background: v.$cat-yellow2;
+      box-shadow: 0 0 1rem rgba(v.$cat-yellow2, 0.4);
+    }
+  }
+}
+
+.contractorCtaSectionLight {
+  .nextSteps li {
+    color: rgba(v.$text-color-dark, 0.68);
+  }
+}
+
 .mediaPanel {
+  position: relative;
+  z-index: 1;
   display: grid;
   gap: 1rem;
   width: 100%;
@@ -122,9 +355,9 @@
 .imageFrame {
   position: relative;
   overflow: hidden;
-  min-height: 28rem;
   width: 100%;
-  border-radius: 1.6rem;
+  aspect-ratio: 16 / 9;
+  border-radius: 2rem;
   border: 1px solid rgba(v.$cat-yellow2, 0.16);
   background:
     linear-gradient(
@@ -133,41 +366,52 @@
       rgba(255, 255, 255, 0.03) 100%
     ),
     rgba(20, 20, 18, 0.84);
-  box-shadow: 0 1.8rem 3rem -2.4rem rgba(0, 0, 0, 0.46);
-
-  @include m.mediaDesktop {
-    min-height: 34rem;
-  }
+  box-shadow:
+    0 2rem 4rem rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  isolation: isolate;
 }
 
-.contractorCtaSectionLight .imageFrame {
-  border-color: rgba(88, 72, 33, 0.14);
-  background:
-    linear-gradient(
+.contractorCtaSectionLight {
+  .imageFrame {
+    border-color: rgba(88, 72, 33, 0.14);
+    background: linear-gradient(
       180deg,
       rgba(255, 255, 255, 0.95) 0%,
       rgba(246, 243, 236, 0.94) 100%
     );
-  box-shadow:
-    0 1.8rem 3rem -2.4rem rgba(64, 50, 20, 0.16),
-    0 0.45rem 1rem rgba(0, 0, 0, 0.04);
+    box-shadow:
+      0 1.8rem 3rem -2.4rem rgba(64, 50, 20, 0.16),
+      0 0.45rem 1rem rgba(0, 0, 0, 0.04);
+  }
 }
 
 .image {
+  object-fit: cover;
+}
+
+.imageOverlay {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, transparent 38%, rgba(0, 0, 0, 0.42) 100%),
+    linear-gradient(120deg, rgba(v.$cat-yellow2, 0.07), transparent 46%),
+    linear-gradient(240deg, rgba(45, 120, 255, 0.07), transparent 42%);
 }
 
 .caption {
   margin: 0;
-  font-size: 1.42rem;
-  line-height: 1.56;
-  color: rgba(255, 255, 255, 0.76);
+  padding-inline: 0.2rem;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1.32rem;
+  font-weight: 600;
+  line-height: 1.5;
 }
 
-.contractorCtaSectionLight .caption {
-  color: rgba(v.$text-color-dark, 0.68);
+.contractorCtaSectionLight {
+  .caption {
+    color: rgba(v.$text-color-dark, 0.64);
+  }
 }

@@ -1,148 +1,347 @@
 {
   "id": 3,
   "slug": "dirt-gravel-delivery",
-
+  "title": "Dirt, Gravel & Aggregate Delivery",
+  "navTitle": "Aggregate Delivery",
   "meta": {
     "title": "Dirt, Gravel & Aggregate Delivery | Bellhouse",
     "description": "Bellhouse delivers gravel, topsoil, sand, and fill for construction, site prep, and landscaping across Brantford and nearby areas."
   },
-
   "card": {
     "title": "Dump Truck Services - Dirt & Gravel Delivery",
     "description": "Bulk delivery of gravel, topsoil, sand, and aggregates.",
-    "image": "/assets/dump-truck-delivery-service.jpg",
-    "alt": "A tri-axle dump truck unloading gravel at a construction site."
+    "image": "/assets/services/gravel-aggregate-delivery/granular-a-gravel-pile-for-driveway-base.webp",
+    "alt": "Granular A gravel pile ready for driveway base and aggregate delivery."
   },
-
   "hero": {
+    "eyebrow": "Aggregate, topsoil & fill delivery",
     "heading": "Dirt & Gravel Delivery Services",
-    "subheading": "Fast, Reliable Aggregate Delivery for Construction & Landscaping",
-    "image": "/assets/tri-axle-dump-truck-services.png",
-    "alt": "A dump truck delivering gravel for a new driveway installation."
-  },
-
-  "intro": {
-    "heading": "Reliable Dirt & Gravel Delivery for Any Project",
-    "content": "Bellhouse Excavating provides fast delivery of aggregates for construction, driveways, drainage projects, and landscaping.",
-    "keypoints": [
-      "Bulk delivery of high-quality materials",
-      "Fast turnaround times",
-      "Clean dumping with accurate placement",
-      "Affordable rates"
-    ]
-  },
-
-  "includes": {
-    "heading": "Materials We Deliver",
-    "subheading": "High-quality aggregates for construction and landscaping.",
-    "items": [
+    "summary": "Bulk gravel, topsoil, sand, and fill delivery for driveways, pads, drainage work, landscaping, and active construction sites.",
+    "actions": [
       {
-        "title": "Gravel (A-Gravel, Clear Stone)",
-        "description": "Perfect for driveways, drainage, and compaction."
+        "label": "Get Delivery Quote",
+        "href": "/contact",
+        "variant": "primary"
       },
       {
-        "title": "Topsoil",
-        "description": "Screened soil ideal for lawns and gardens."
-      },
-      {
-        "title": "Sand",
-        "description": "Used for leveling, bedding, and construction."
-      },
-      {
-        "title": "Fill Dirt",
-        "description": "Affordable bulk fill for grade changes and site prep."
+        "label": "For Builders & Contractors",
+        "href": "/contractors",
+        "variant": "secondary"
       }
-    ]
+    ],
+    "proofPoints": [
+      "Gravel, topsoil, sand, and fill",
+      "Tri-axle delivery and clean dumping",
+      "Useful for driveways, pads, drainage, and site work"
+    ],
+    "emphasis": "compact",
+    "image": "/assets/services/gravel-aggregate-delivery/aggregates-delivery-tri-axle-dump-truck-A-gravel.webp",
+    "alt": "Bellhouse tri-axle dump truck dumping A gravel for aggregate delivery."
   },
-
-  "equipment": {
-    "heading": "Equipment Used",
-    "subheading": "A well-maintained fleet for reliable delivery.",
-    "items": [
-      {
-        "icon": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp",
-        "title": "Tri-Axle Dump Trucks",
-        "description": "Efficient material hauling with 21.5-ton capacity."
-      }
-    ]
-  },
-
-  "process": {
-    "heading": "How Delivery Works",
-    "subheading": "Simple, fast, and accurate.",
-    "steps": [
-      {
-        "title": "Order & Scheduling",
-        "description": "Tell us your material and quantity."
-      },
-      {
-        "title": "Loading at Quarry or Yard",
-        "description": "We load high-quality aggregates."
-      },
-      {
-        "title": "Delivery to Site",
-        "description": "We dump material exactly where you need it."
-      }
-    ]
-  },
-
-  "serviceArea": {
-    "heading": "Service Area",
-    "content": "Aggregate delivery available throughout Brant County.",
-    "locations": [
-      "Paris",
-      "Brantford",
-      "Brant County",
-      "Ayr",
-      "Burford",
-      "St. George",
-      "Hamilton",
-      "Cambridge"
-    ]
-  },
-
-  "faq": {
-    "heading": "Frequently Asked Questions",
-    "items": [
-      {
-        "question": "What materials do you deliver?",
-        "answer": "Gravel, sand, topsoil, fill, and other aggregates."
-      },
-      {
-        "question": "Is there a minimum order?",
-        "answer": "Most deliveries require at least one full dump truck load."
-      }
-    ]
-  },
-
-  "cta": {
-    "heading": "Need Aggregates Delivered?",
-    "subheading": "Get a fast quote for dirt or gravel delivery.",
-    "button": "Get Delivery Quote"
-  },
-
-  "layout": {
-    "hero": {
-      "emphasis": "compact",
-      "secondaryLabel": "For Builders & Contractors",
-      "secondaryHref": "/contractors"
+  "sections": [
+    {
+      "type": "proofStrip",
+      "items": [
+        {
+          "label": "Bulk material delivery",
+          "description": "Gravel, topsoil, sand, fill, and aggregates delivered by tri-axle truck."
+        },
+        {
+          "label": "Jobsite-ready placement",
+          "description": "Loads dumped where truck access, ground conditions, and the next phase of work allow."
+        },
+        {
+          "label": "Construction and property work",
+          "description": "Material support for driveways, pads, drainage, landscaping, and active site prep."
+        }
+      ]
     },
-    "finalCta": {
-      "mode": "mixed"
+    {
+      "type": "intro",
+      "heading": "Reliable Dirt & Gravel Delivery for Any Project",
+      "body": "Bellhouse Excavating provides bulk aggregate delivery for construction, driveways, drainage projects, landscaping, and site preparation. Whether the job needs gravel base, topsoil, sand, or fill, delivery is planned around access, material type, quantity, and where the load can be placed safely.",
+      "bullets": [
+        "Bulk delivery of gravel, topsoil, sand, and fill",
+        "Tri-axle trucks for efficient material hauling",
+        "Clean dumping with practical placement on site",
+        "Useful for homeowners, builders, farms, and contractors"
+      ]
     },
-    "sections": [
-      "intro",
-      "resources",
-      "proof",
-      "contractorCta",
-      "equipment",
-      "process",
-      "localIntent",
-      "faq",
-      "relatedServices",
-      "reviews",
-      "finalCta"
-    ]
-  }
+    {
+      "type": "projectFit",
+      "heading": "When Bellhouse Aggregate Delivery Fits the Job",
+      "subheading": "Best fit when material delivery needs to support actual site work, not just arrive at the curb.",
+      "cards": [
+        {
+          "title": "Driveways, lanes, and parking areas",
+          "body": "A practical fit when a driveway, farm lane, parking area, or pad needs base material brought in for grading, compaction, or surface repair.",
+          "tags": [
+            "Driveway gravel",
+            "Lane base",
+            "Parking areas"
+          ],
+          "outcome": "Gets material to the site in a way that supports the grading or base-prep work instead of slowing it down."
+        },
+        {
+          "title": "Drainage, backfill, and site prep",
+          "body": "Useful when stone, sand, fill, or granular material needs to arrive as part of drainage work, backfill, pad prep, or rough grading.",
+          "tags": [
+            "Drainage stone",
+            "Backfill",
+            "Site prep"
+          ],
+          "outcome": "Keeps delivered material tied to the work area, access conditions, and next phase of construction."
+        },
+        {
+          "title": "Contractor-led material movement",
+          "body": "A strong fit for builders and contractors who need truck timing, aggregate delivery, excavation, or grading support coordinated around an active job schedule.",
+          "tags": [
+            "Contractor support",
+            "Truck timing",
+            "Material import"
+          ],
+          "outcome": "Helps avoid gaps between ordered material, truck availability, and crews waiting on the next load."
+        }
+      ]
+    },
+    {
+      "type": "scope",
+      "heading": "Materials We Deliver",
+      "subheading": "High-quality bulk materials for construction, landscaping, drainage, and driveway work.",
+      "items": [
+        {
+          "title": "Gravel and Aggregates",
+          "body": "A-gravel, B-gravel, clear stone, and other aggregates for driveways, pads, drainage, and compacted base work."
+        },
+        {
+          "title": "Topsoil",
+          "body": "Topsoil delivery for lawn prep, finish grading, garden areas, and surface restoration after excavation or construction."
+        },
+        {
+          "title": "Sand",
+          "body": "Sand for bedding, leveling, trench work, utility prep, and construction support where specified."
+        },
+        {
+          "title": "Fill Dirt",
+          "body": "Bulk fill for grade changes, low areas, site shaping, and rough material placement where clean imported fill is needed."
+        }
+      ]
+    },
+    {
+      "type": "jobsiteProof",
+      "eyebrow": "Real material delivery",
+      "heading": "Good delivery depends on material, access, and where the load needs to land.",
+      "body": "Bellhouse plans aggregate delivery around truck access, dump location, material quantity, and site conditions so the load is useful when it arrives.",
+      "image": {
+        "src": "/assets/services/gravel-aggregate-delivery/three-quarter-crush-gravel-delivery-brantford.webp",
+        "alt": "Close view of three-quarter crush gravel for aggregate delivery in Brantford"
+      },
+      "caption": "Different materials support different work, from drainage stone and driveway base to topsoil and fill."
+    },
+    {
+      "type": "problemsPrevented",
+      "heading": "What Proper Delivery Planning Helps Prevent",
+      "subheading": "Bulk material delivery goes smoother when quantity, access, and placement are clear before the truck is on site.",
+      "items": [
+        {
+          "problem": "The wrong material can create drainage, compaction, or finish problems once the work starts.",
+          "solution": "Bellhouse confirms the material type and intended use before delivery so the load fits the project."
+        },
+        {
+          "problem": "Poor dump placement can leave material blocking access or too far from the work area.",
+          "solution": "Truck access and dump location are reviewed so the material lands where it can be used safely and efficiently."
+        },
+        {
+          "problem": "Jobs can lose time when aggregate delivery is separated from excavation, grading, or site prep timing.",
+          "solution": "Bellhouse can coordinate delivery with trucking, grading, excavation, and contractor-led site schedules."
+        }
+      ]
+    },
+    {
+      "type": "outcomes",
+      "heading": "What The Site Should Be Ready For After Delivery",
+      "subheading": "The goal is material on site, placed practically, and ready for the next step.",
+      "items": [
+        {
+          "title": "Material staged where it can be used",
+          "body": "Loads are dumped with access, safety, and the work area in mind so crews can spread, grade, compact, or place material efficiently."
+        },
+        {
+          "title": "A clearer path to grading or installation",
+          "body": "Aggregate, topsoil, sand, or fill can be delivered as part of driveway prep, drainage, landscaping, backfill, or site work."
+        },
+        {
+          "title": "Better coordination for active jobs",
+          "body": "Delivery timing can be coordinated with excavation, hauling, and grading so the next phase is not waiting on material."
+        }
+      ]
+    },
+    {
+      "type": "equipment",
+      "heading": "Equipment Used for Material Delivery",
+      "subheading": "A practical hauling setup for bulk material delivery and active site support.",
+      "items": [
+        {
+          "name": "Tri-Axle Dump Trucks",
+          "body": "Used for hauling gravel, topsoil, sand, fill, and aggregates to residential, farm, commercial, and contractor sites.",
+          "image": {
+            "src": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp",
+            "alt": "Tri-Axle Dump Trucks"
+          }
+        },
+        {
+          "name": "Loading Equipment",
+          "body": "Excavators and loaders support material loading when Bellhouse is coordinating aggregate movement with site work.",
+          "image": {
+            "src": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp",
+            "alt": "Loading Equipment"
+          }
+        }
+      ]
+    },
+    {
+      "type": "process",
+      "heading": "How Delivery Works",
+      "subheading": "Simple, fast, and based on the material, quantity, and site access.",
+      "image": {
+        "src": "/assets/services/gravel-aggregate-delivery/b-gravel-triaxle-dump-truck-loading-hero.webp",
+        "alt": "Excavator loading B gravel into a tri-axle dump truck for aggregate delivery"
+      },
+      "caption": "Material is loaded, hauled, and dumped where truck access allows so the delivery supports the next phase of work.",
+      "steps": [
+        {
+          "title": "Order and Scheduling",
+          "body": "Tell us the material, estimated quantity, location, access conditions, and where the load needs to be placed."
+        },
+        {
+          "title": "Loading at Quarry or Yard",
+          "body": "The right material is loaded for delivery, with truck timing planned around your site and schedule."
+        },
+        {
+          "title": "Delivery to Site",
+          "body": "The truck delivers and dumps the material in the agreed location where access and ground conditions allow."
+        }
+      ]
+    },
+    {
+      "type": "contractorCta",
+      "eyebrow": "For builders and contractors",
+      "heading": "Need aggregate delivery coordinated with excavation, grading, or truck timing?",
+      "body": "If your project needs gravel, fill, sand, topsoil, or stone delivered around an active schedule, Bellhouse can review the material, location, quantity, access, and timing.",
+      "image": {
+        "src": "/assets/services/dump-truck-hauling/cat-320-excavator-loading-b-gravel.webp",
+        "alt": "Excavator loading B gravel into a Bellhouse tri-axle dump truck for contractor aggregate hauling"
+      },
+      "caption": "Aggregate delivery can be coordinated with excavation, grading, and truck timing on active job sites.",
+      "actions": [
+        {
+          "label": "Send Project Details",
+          "href": "/contractors#contractor-form",
+          "variant": "primary"
+        },
+        {
+          "label": "Call 519-752-8500",
+          "href": "tel:5197528500",
+          "variant": "secondary"
+        }
+      ]
+    },
+    {
+      "type": "resources",
+      "eyebrow": "Planning tools",
+      "heading": "Need a quick material estimate before ordering?",
+      "subheading": "If you are ordering aggregate or topsoil, these calculators help rough out quantity, weight, and likely truck loads before delivery is scheduled.",
+      "cards": [
+        {
+          "title": "Gravel calculator for aggregate delivery",
+          "body": "Estimate compacted gravel/base quantity, delivered weight, and truck count for driveways, pads, lanes, and imported stone.",
+          "href": "/resources/calculators/gravel",
+          "label": "Estimate Gravel Delivery"
+        },
+        {
+          "title": "Topsoil calculator for coverage planning",
+          "body": "Rough out topsoil volume and load count for finish grading, lawn prep, and surface coverage before ordering.",
+          "href": "/resources/calculators/topsoil",
+          "label": "Estimate Topsoil Delivery"
+        }
+      ],
+      "actions": [
+        {
+          "label": "View All Resources",
+          "href": "/resources",
+          "variant": "secondary"
+        }
+      ]
+    },
+    {
+      "type": "serviceAreas",
+      "heading": "Aggregate delivery by service area",
+      "body": "Aggregate delivery is available across Brant County and nearby service areas for driveways, pads, drainage, site prep, landscaping, and active construction work.",
+      "areaSlugs": [
+        "paris",
+        "brantford",
+        "ancaster",
+        "simcoe",
+        "hamilton",
+        "cambridge"
+      ]
+    },
+    {
+      "type": "relatedServices",
+      "eyebrow": "Related services",
+      "heading": "Related hauling, grading, and site support",
+      "serviceSlugs": [
+        "dump-truck-rental",
+        "driveway-parking-lot-preparation",
+        "land-grading-drainage",
+        "site-preparation-land-grading"
+      ]
+    },
+    {
+      "type": "reviews",
+      "eyebrow": "Testimonials",
+      "heading": "What customers say about Bellhouse",
+      "subheading": "Feedback from local homeowners, builders, and job-site customers Bellhouse has worked with.",
+      "limit": 3
+    },
+    {
+      "type": "faq",
+      "heading": "Frequently Asked Questions",
+      "items": [
+        {
+          "question": "What materials do you deliver?",
+          "answer": "Bellhouse can deliver gravel, sand, topsoil, fill, and other aggregates depending on the project and material availability."
+        },
+        {
+          "question": "Is there a minimum order?",
+          "answer": "Most deliveries require at least one full dump truck load. If you are unsure about quantity, Bellhouse can review the material, location, and rough dimensions before scheduling."
+        },
+        {
+          "question": "Can you dump material exactly where I need it?",
+          "answer": "We place material where truck access, overhead clearance, ground conditions, and safety allow. The best dump location is confirmed before delivery whenever possible."
+        },
+        {
+          "question": "Can delivery be coordinated with grading or excavation work?",
+          "answer": "Yes. Bellhouse can coordinate material delivery with driveway prep, grading, drainage, excavation, or contractor-led site work when those scopes are part of the job."
+        }
+      ]
+    },
+    {
+      "type": "finalCta",
+      "heading": "Need Aggregates Delivered?",
+      "body": "Send the material type, delivery location, rough quantity, and timing and Bellhouse can review the next step.",
+      "actions": [
+        {
+          "label": "Get Delivery Quote",
+          "href": "/contact",
+          "variant": "primary"
+        },
+        {
+          "label": "Send Project Details",
+          "href": "/contractors#contractor-form",
+          "variant": "secondary"
+        }
+      ]
+    }
+  ]
 }
-

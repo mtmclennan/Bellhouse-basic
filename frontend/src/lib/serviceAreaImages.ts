@@ -89,7 +89,7 @@ const photoCatalog = {
     height: 1080,
   },
   'excavator-loading-dump-truck-right': {
-    src: '/assets/services/excavator-loading-dump-truck-right.webp',
+    src: '/assets/services/dump-truck-hauling/excavator-loading-dump-truck-right.webp',
     width: 1440,
     height: 1080,
   },
@@ -99,7 +99,7 @@ const photoCatalog = {
     height: 1080,
   },
   'farm-laneway-base-dozer': {
-    src: '/assets/services/farm-laneway-base-dozer.webp',
+    src: '/assets/services/driveways-laneways/farm-laneway-base-dozer.webp',
     width: 900,
     height: 1200,
   },
@@ -109,7 +109,7 @@ const photoCatalog = {
     height: 904,
   },
   'cat-320-excavator-loading-b-gravel': {
-    src: '/assets/services/cat-320-excavator-loading-b-gravel.webp',
+    src: '/assets/services/dump-truck-hauling/cat-320-excavator-loading-b-gravel.webp',
     width: 1440,
     height: 1080,
   },
@@ -149,12 +149,12 @@ const photoCatalog = {
     height: 1080,
   },
   'new-construction-infill': {
-    src: '/assets/services/new-construction-infill.webp',
+    src: '/assets/services/foundation-excavation/new-construction-infill.webp',
     width: 900,
     height: 1200,
   },
   'pool-retaining-wall': {
-    src: '/assets/services/pool-retaining-wall.webp',
+    src: '/assets/services/foundation-excavation/pool-retaining-wall.webp',
     width: 1440,
     height: 1080,
   },
@@ -273,38 +273,95 @@ function createImage(key: PhotoKey, alt: string): ServiceAreaImageLike {
   };
 }
 
-function getHeroAlt(city: string) {
-  return `Large-scale site preparation and excavation work for a ${city}, Ontario construction project.`;
+function getHeroAlt(city: string, key: PhotoKey) {
+  switch (key) {
+    case 'excavator-loading-dump-truck-right':
+    case 'cat-320-excavator-loading-b-gravel':
+      return `Excavator loading a dump truck for spoil removal and material movement on a ${city}, Ontario jobsite.`;
+    case 'excavator-farm-driveway':
+      return `Excavator shaping a rural driveway and access route for a ${city}, Ontario property.`;
+    case 'excavator-dozer-building-driveway':
+      return `Excavator and dozer preparing access and rough grades for a ${city}, Ontario construction site.`;
+    case 'site-prep-rocky-two-excavators-striping':
+      return `Excavators preparing rocky ground and controlled work areas for a ${city}, Ontario residential project.`;
+    case 'large-site-prep-two-excavators':
+      return `Two excavators preparing a larger building site for a ${city}, Ontario new-build project.`;
+    case 'dozer-stripping-site-prep':
+      return `Dozer stripping and shaping open ground for a ${city}, Ontario site preparation project.`;
+    case 'large-yard-soil-grading-lawn':
+      return `Large yard grading and soil shaping for a ${city}, Ontario commercial or industrial property.`;
+    case 'driveway-grading-concrete-base':
+      return `Machine grading a driveway base and access approach for a ${city}, Ontario property.`;
+    default:
+      return `Excavation and site preparation equipment working on a ${city}, Ontario project.`;
+  }
 }
 
-function getIntroAlt(city: string) {
-  return `Excavation and site preparation work on a ${city}, Ontario project.`;
+function getIntroAlt(city: string, key: PhotoKey) {
+  switch (key) {
+    case 'cat315D-excavator-farm-laneway':
+      return `Excavator preparing a farm laneway and access route for a ${city}, Ontario property.`;
+    case 'concrete-floor-site-prep':
+      return `Site preparation for a concrete floor and building area on a ${city}, Ontario project.`;
+    case 'cat-320D-excavator-leveling-aggregates-pile':
+      return `Excavator leveling aggregate for site preparation on a ${city}, Ontario jobsite.`;
+    case 'concrete-foundation-backfill':
+      return `Backfill and foundation support work beside a concrete foundation on a ${city}, Ontario build.`;
+    case 'new-construction-infill':
+      return `New construction excavation and site preparation on a ${city}, Ontario infill or residential project.`;
+    case 'cat-excavator-digging-in-aggregates-pile':
+      return `Excavator digging and handling aggregate material for a ${city}, Ontario site-work project.`;
+    default:
+      return `Excavation and site preparation work on a ${city}, Ontario project.`;
+  }
 }
 
-function getMapAlt(city: string) {
-  return `Grading and access preparation for a ${city}, Ontario jobsite.`;
+function getMapAlt(city: string, key: PhotoKey) {
+  switch (key) {
+    case 'driveway-grading-concrete-base':
+      return `Graded driveway base and access route for a ${city}, Ontario jobsite.`;
+    case 'auto-level-fine-grading-skid-steer':
+      return `Skid steer fine grading a level work surface for a ${city}, Ontario construction project.`;
+    case 'excavator-farm-driveway':
+      return `Excavator shaping rural driveway access for a ${city}, Ontario property.`;
+    case 'farm-laneway-base-dozer':
+      return `Dozer preparing a farm laneway base and access route near ${city}, Ontario.`;
+    case 'large-yard-soil-grading-lawn':
+      return `Large yard grading and soil preparation for a ${city}, Ontario property.`;
+    default:
+      return `Grading and access preparation for a ${city}, Ontario jobsite.`;
+  }
 }
 
-function getCtaAlt(city: string) {
-  return `Excavation and hauling work for a ${city}, Ontario construction project.`;
+function getCtaAlt(city: string, key: PhotoKey) {
+  switch (key) {
+    case 'excavator-loading-dump-truck-right':
+    case 'Excavator-loading-dump-truck':
+    case 'dumptruck-foudation-excavator-loading':
+      return `Excavator loading a dump truck during excavation and haul-out work for a ${city}, Ontario project.`;
+    case 'cat-320-excavator-loading-b-gravel':
+      return `Excavator loading gravel for material delivery and site support on a ${city}, Ontario project.`;
+    default:
+      return `Excavation and hauling work for a ${city}, Ontario construction project.`;
+  }
 }
 
 function getServiceAlt(serviceSlug: ServiceSlug, city: string) {
   switch (serviceSlug) {
     case 'excavation':
-      return `Excavation work for a ${city}, Ontario construction site.`;
+      return `Excavator digging and shaping the work area on a ${city}, Ontario construction site.`;
     case 'site-preparation':
-      return `Site preparation work on a ${city}, Ontario building site.`;
+      return `Heavy equipment stripping and preparing ground on a ${city}, Ontario building site.`;
     case 'grading':
-      return `Grading and pad preparation on a ${city}, Ontario project.`;
+      return `Machine grading a driveway, pad, or working surface on a ${city}, Ontario project.`;
     case 'foundation-excavation':
-      return `Foundation excavation and backfill work on a ${city}, Ontario build site.`;
+      return `Foundation excavation and backfill preparation on a ${city}, Ontario build site.`;
     case 'dump-truck-services':
-      return `Dump truck hauling and spoil export for a ${city}, Ontario construction project.`;
+      return `Dump truck loading or hauling material for a ${city}, Ontario construction project.`;
     case 'material-delivery':
-      return `Aggregate delivery and material import for a ${city}, Ontario jobsite.`;
+      return `Aggregate loading and material delivery support for a ${city}, Ontario jobsite.`;
     case 'equipment-floating':
-      return `Equipment support and machine movement for a ${city}, Ontario construction site.`;
+      return `Heavy equipment staged for transport or jobsite support on a ${city}, Ontario construction site.`;
     default:
       return `Construction support work for a ${city}, Ontario project.`;
   }
@@ -342,21 +399,24 @@ export function applyServiceAreaImages<
         ...page,
         heroImage: createImage(
           heroAssignments[slug as (typeof serviceAreaOrder)[number]],
-          getHeroAlt(page.city),
+          getHeroAlt(
+            page.city,
+            heroAssignments[slug as (typeof serviceAreaOrder)[number]],
+          ),
         ),
         introImage: createImage(
           getRotatedItem(introRotation, pageIndex),
-          getIntroAlt(page.city),
+          getIntroAlt(page.city, getRotatedItem(introRotation, pageIndex)),
         ),
         ctaImage: createImage(
           getRotatedItem(ctaRotation, pageIndex),
-          getCtaAlt(page.city),
+          getCtaAlt(page.city, getRotatedItem(ctaRotation, pageIndex)),
         ),
         map: {
           ...page.map,
           image: createImage(
             getRotatedItem(mapRotation, pageIndex),
-            getMapAlt(page.city),
+            getMapAlt(page.city, getRotatedItem(mapRotation, pageIndex)),
           ),
         },
         services: updatedServices,

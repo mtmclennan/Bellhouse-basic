@@ -9,8 +9,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <head>
+    <html lang="en" className="dark" suppressHydrationWarning>
+      <body>
         {/* Local Business Schema */}
         <Script
           id="local-business-schema"
@@ -23,6 +23,7 @@ export default function RootLayout({
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-WQYLQLSB57"
         />
+
         <Script
           id="gtag-init"
           strategy="afterInteractive"
@@ -40,8 +41,7 @@ export default function RootLayout({
             `,
           }}
         />
-      </head>
-      <body>
+
         <LayoutHome>{children}</LayoutHome>
       </body>
     </html>

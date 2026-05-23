@@ -35,6 +35,8 @@ const footerSections = [
       { href: '/service-areas/paris', label: 'Paris' },
       { href: '/service-areas/hamilton', label: 'Hamilton' },
       { href: '/service-areas/cambridge', label: 'Cambridge' },
+      { href: '/service-areas/ancaster', label: 'Ancaster' },
+      { href: '/service-areas/woodstock', label: 'Woodstock' },
     ],
   },
   {

@@ -34,7 +34,7 @@ export const defaultIntroImage: ServiceAreaImage = {
 };
 
 export const defaultCtaImage: ServiceAreaImage = {
-  src: '/assets/services/excavator-loading-dump-truck-right.webp',
+  src: '/assets/services/dump-truck-hauling/excavator-loading-dump-truck-right.webp',
   alt: 'Bellhouse excavator loading a dump truck on a Southern Ontario construction project.',
   width: 1440,
   height: 1080,

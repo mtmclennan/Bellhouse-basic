@@ -19,6 +19,7 @@ export default function ServiceProcessSection({
   }
 
   const hasMedia = Boolean(section.image?.src);
+
   const processSectionClassName = [
     classes.processSection,
     appearance.backgroundVariant === 'light'
@@ -48,27 +49,34 @@ export default function ServiceProcessSection({
       >
         <div className={classes.processList}>
           {section.steps.map((step, index) => (
-            <div key={step.title} className={classes.processItem}>
-              <div className={classes.stepNumber}>{index + 1}</div>
-              <div>
+            <article key={step.title} className={classes.processItem}>
+              <div className={classes.stepMarker}>
+                <span className={classes.stepNumber}>{index + 1}</span>
+              </div>
+
+              <div className={classes.stepContent}>
                 <h3>{step.title}</h3>
                 <p>{step.body}</p>
               </div>
-            </div>
+            </article>
           ))}
         </div>
 
         {section.image?.src ? (
-          <aside className={classes.mediaPanel} aria-label="Process support image">
+          <aside
+            className={classes.mediaPanel}
+            aria-label="Process support image"
+          >
             <div className={classes.imageFrame}>
               <Image
                 src={section.image.src}
                 alt={section.image.alt}
-                width={1600}
-                height={900}
+                fill
                 className={classes.image}
-                sizes="(max-width: 1000px) 100vw, 38vw"
+                sizes="(max-width: 1000px) 100vw, 40vw"
               />
+
+              <div className={classes.imageOverlay} aria-hidden="true" />
             </div>
 
             {section.caption ? (

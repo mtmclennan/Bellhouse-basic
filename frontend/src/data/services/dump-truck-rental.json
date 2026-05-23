@@ -10,15 +10,15 @@
   "card": {
     "title": "Dump Truck Rental & Hauling Services",
     "description": "Dump trucks for hire with experienced operators for material hauling and site support.",
-    "image": "/assets/dump-truck-delivery-service.jpg",
-    "alt": "A dump truck on-site, ready for material hauling and excavation work."
+    "image": "/assets/services/dump-truck-hauling/excavator-loading-dump-truck-right.webp",
+    "alt": "Bellhouse excavator loading a tri-axle dump truck during site hauling work."
   },
 
   "hero": {
     "heading": "Dump Truck Rental & Hauling Services",
     "subheading": "Professional Dump Truck Hire for Contractors & Construction Projects",
-    "image": "/assets/tri-axle-dump-truck-services.png",
-    "alt": "A fleet of dump trucks lined up, available for hire in Brant County."
+    "image": "/assets/services/dump-truck-hauling/triaxle-dump-truck-gravel-hauling-brant-county.webp",
+    "alt": "Bellhouse tri-axle dump truck ready for gravel hauling in Brant County."
   },
 
   "intro": {
@@ -92,17 +92,18 @@
 
   "serviceArea": {
     "heading": "Service Area",
-    "content": "Dump truck rentals are available across Brant County and surrounding communities.",
+    "content": "Dump truck hauling is available across Brant County and nearby service areas where excavation, spoil export, imported gravel, and truck timing need to support the site.",
     "locations": [
       "Paris",
       "Brantford",
+      "Hamilton",
+      "Cambridge",
+      "Woodstock",
+      "Simcoe",
+      "Ancaster",
       "Brant County",
       "St. George",
-      "Burford",
-      "Ayr",
-      "Cambridge",
-      "Hamilton",
-      "Woodstock"
+      "Burford"
     ]
   },
 

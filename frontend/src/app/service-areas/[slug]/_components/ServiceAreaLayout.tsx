@@ -22,11 +22,40 @@ type ServiceAreaLayoutProps = {
 
 const baseUrl = 'https://bellhouseexcavating.ca';
 const businessId = `${baseUrl}/#business`;
+const contractorFocusedAreas = new Set([
+  'brantford',
+  'hamilton',
+  'cambridge',
+  'woodstock',
+  'simcoe',
+]);
 
 function mergeUniqueItems(...groups: Array<string[] | undefined>) {
   return groups.flatMap((group) => group ?? []).filter((item, index, items) => {
     return items.indexOf(item) === index;
   });
+}
+
+function getFinalActions(page: ServiceAreaPage) {
+  const secondaryAction = contractorFocusedAreas.has(page.slug)
+    ? {
+        href: '/contractors',
+        label: 'For Builders & Contractors',
+        variant: 'secondary' as const,
+      }
+    : {
+        href: '/services',
+        label: 'View Core Services',
+        variant: 'secondary' as const,
+      };
+
+  return [
+    {
+      href: '/contact',
+      label: 'Request a quote',
+    },
+    secondaryAction,
+  ];
 }
 
 export default function ServiceAreaLayout({
@@ -44,17 +73,7 @@ export default function ServiceAreaLayout({
       variant: 'secondary' as const,
     },
   ];
-  const finalActions = [
-    {
-      href: '/contact',
-      label: 'Request a quote',
-    },
-    {
-      href: '/contractors',
-      label: 'For Builders & Contractors',
-      variant: 'secondary' as const,
-    },
-  ];
+  const finalActions = getFinalActions(page);
 
   const whoItsForItems = mergeUniqueItems(
     page.rightFit,
@@ -97,7 +116,13 @@ export default function ServiceAreaLayout({
     },
     areaServed: {
       '@type': 'City',
-      name: page.city,
+      name: `${page.city}, Ontario, Canada`,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: page.city,
+        addressRegion: 'ON',
+        addressCountry: 'CA',
+      },
     },
     serviceType: [
       'Excavation',

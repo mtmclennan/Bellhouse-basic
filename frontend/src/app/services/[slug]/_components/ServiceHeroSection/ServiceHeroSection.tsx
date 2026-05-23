@@ -55,6 +55,9 @@ const defaultPrimaryAction = {
   href: '/contact',
 } as const;
 
+const serviceAreaNote =
+  'Serving Brantford, Paris, Hamilton, Cambridge, and surrounding Southern Ontario job sites.';
+
 function formatRating(rating: number) {
   return rating.toFixed(1);
 }
@@ -62,12 +65,14 @@ function formatRating(rating: number) {
 function toRenderHero(props: ServiceHeroSectionProps): RenderHero {
   if (props.mode === 'cms') {
     const actions = Array.isArray(props.hero.actions) ? props.hero.actions : [];
+
     const primaryAction = actions[0]
       ? {
           label: actions[0].label,
           href: actions[0].href,
         }
       : defaultPrimaryAction;
+
     const secondaryAction = actions[1]
       ? {
           label: actions[1].label,
@@ -120,19 +125,18 @@ export default function ServiceHeroSection(props: ServiceHeroSectionProps) {
   const hasSecondaryAction = Boolean(hero.secondaryAction);
   const hasProofChips = hero.proofChips.length > 0;
   const hasTrustRow = Boolean(hero.phone || hero.review);
+
   const heroContainerClassName = [classes.shell, classes.heroContainer]
     .filter(Boolean)
     .join(' ');
+
   const isExternalReviewLink = Boolean(
     hero.review?.href?.startsWith('http://') ||
     hero.review?.href?.startsWith('https://'),
   );
 
   return (
-    <section
-      className={classes.section}
-      data-hero-emphasis={hero.emphasis}
-    >
+    <section className={classes.section} data-hero-emphasis={hero.emphasis}>
       <ServiceSectionWrapper
         as="div"
         spacing="10"
@@ -179,55 +183,7 @@ export default function ServiceHeroSection(props: ServiceHeroSectionProps) {
             ) : null}
           </div>
 
-          {hasTrustRow ? (
-            <div className={classes.trustRow}>
-              {hero.phone ? (
-                <Link
-                  href={hero.phone.href}
-                  className={classes.phoneLink}
-                >
-                  {/* <span className={classes.phoneIcon} aria-hidden="true">
-                    Call
-                  </span> */}
-                  <span>{hero.phone.label}</span>
-                </Link>
-              ) : null}
-
-              {hero.review ? (
-                <Link
-                  href={hero.review.href}
-                  className={classes.reviewLink}
-                  target={isExternalReviewLink ? '_blank' : undefined}
-                  rel={isExternalReviewLink ? 'noopener noreferrer' : undefined}
-                >
-                  <span className={classes.stars} aria-hidden="true">
-                    {Array.from({ length: 5 }).map((_, index) => (
-                      <span key={`hero-review-star-${index}`}>{'\u2605'}</span>
-                    ))}
-                  </span>
-                  <span>
-                    {formatRating(hero.review.rating)} on Google (
-                    {hero.review.reviewCount}{' '}
-                    {hero.review.reviewCount === 1 ? 'review' : 'reviews'}
-                    )
-                  </span>
-                  <span className={classes.reviewCta}>
-                    {hero.review.label ?? 'Read Reviews'}
-                  </span>
-                </Link>
-              ) : null}
-            </div>
-          ) : null}
-
-          {hasProofChips ? (
-            <ul className={classes.proofList} aria-label="Service highlights">
-              {hero.proofChips.map((chip) => (
-                <li key={chip} className={classes.proofItem}>
-                  {chip}
-                </li>
-              ))}
-            </ul>
-          ) : null}
+          <p className={classes.ctaNote}>{serviceAreaNote}</p>
         </div>
 
         <div className={classes.mediaPanel}>
@@ -236,13 +192,67 @@ export default function ServiceHeroSection(props: ServiceHeroSectionProps) {
               className={classes.image}
               src={hero.image}
               alt={hero.alt}
-              width={650}
-              height={550}
+              fill
               priority
-              sizes="(max-width: 768px) 100vw, 42vw"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 44vw, 500px"
             />
             <div className={classes.imageOverlay} aria-hidden="true" />
           </div>
+
+          {hasTrustRow || hasProofChips ? (
+            <div className={classes.mediaSupportCard}>
+              <div className={classes.supportHeader}>
+                <span>Need pricing or availability?</span>
+
+                {hero.phone ? (
+                  <Link
+                    href={hero.phone.href}
+                    className={classes.supportPhoneLink}
+                  >
+                    {hero.phone.label}
+                  </Link>
+                ) : null}
+              </div>
+
+              {hero.review ? (
+                <Link
+                  href={hero.review.href}
+                  className={classes.supportReviewLink}
+                  target={isExternalReviewLink ? '_blank' : undefined}
+                  rel={isExternalReviewLink ? 'noopener noreferrer' : undefined}
+                >
+                  <span className={classes.stars} aria-hidden="true">
+                    {Array.from({ length: 5 }).map((_, index) => (
+                      <span key={`hero-review-star-${index}`}>{'\u2605'}</span>
+                    ))}
+                  </span>
+
+                  <span>
+                    {formatRating(hero.review.rating)} on Google (
+                    {hero.review.reviewCount}{' '}
+                    {hero.review.reviewCount === 1 ? 'review' : 'reviews'})
+                  </span>
+
+                  <span className={classes.reviewCta}>
+                    {hero.review.label ?? 'Read Reviews'}
+                  </span>
+                </Link>
+              ) : null}
+
+              {hasProofChips ? (
+                <ul
+                  className={classes.supportProofList}
+                  aria-label="Service highlights"
+                >
+                  {hero.proofChips.map((chip) => (
+                    <li key={chip} className={classes.supportProofItem}>
+                      {chip}
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+            </div>
+          ) : null}
         </div>
       </ServiceSectionWrapper>
     </section>

@@ -10,15 +10,15 @@
   "card": {
     "title": "House & Barn Demolition Services",
     "description": "Full or partial demolition of houses, barns, and outbuildings, including cleanup and disposal.",
-    "image": "/assets/house-demolition-excavator-paris-ontario.jpg",
-    "alt": "An excavator demolishing an old barn, preparing the site for redevelopment."
+    "image": "/assets/demo1.jpg",
+    "alt": "Excavator tearing down a structure during house and barn demolition cleanup."
   },
 
   "hero": {
     "heading": "House & Barn Demolition Services",
     "subheading": "Safe, Efficient, and Responsible Structure Demolition",
-    "image": "/assets/house-demolition-excavator-brant-county.png",
-    "alt": "An excavator tearing down an old house, clearing debris for site preparation."
+    "image": "/assets/house-demolition-excavator-paris-ontario.jpg",
+    "alt": "Excavator demolishing an old house and clearing debris for site preparation."
   },
 
   "intro": {

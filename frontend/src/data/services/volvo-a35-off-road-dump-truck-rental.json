@@ -10,15 +10,15 @@
   "card": {
     "title": "Volvo A35 Off-Road Dump Truck Rental",
     "description": "Articulated off-road dump truck rental with operator for bulk material hauling on large and demanding job sites.",
-    "image": "/assets/off-road-dump-truck-rental.jpg",
-    "alt": "Bellhouse Excavating Volvo A35 off-road dump truck working on a large earthmoving site."
+    "image": "/assets/off-road-truck-dump-truck.jpg",
+    "alt": "Volvo A35 articulated off-road dump truck staged for bulk earthmoving support."
   },
 
   "hero": {
     "heading": "Volvo A35 Off-Road Dump Truck Rental with Operator",
     "subheading": "Production hauling support for bulk material movement on large, rough, or soft-ground job sites.",
-    "image": "/assets/off-road-hauling-services.png",
-    "alt": "Volvo A35 articulated off-road dump truck hauling material across a rough construction site."
+    "image": "/assets/off-road-dump-truck-rental.jpg",
+    "alt": "Volvo A35 articulated off-road dump truck hauling material on a rough earthmoving site."
   },
 
   "intro": {
@@ -60,7 +60,7 @@
     "subheading": "Built for heavy hauling where standard trucks fall short.",
     "items": [
       {
-        "icon": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp",
+        "icon": "/assets/services/bellhouse-offroad-dump-truck-equipment-illustration.webp",
         "title": "Volvo A35 Articulated Dump Truck",
         "description": "A heavy-duty off-road haul truck, often referred to on site as a rock truck, designed for bulk production hauling on large and difficult job sites."
       },
@@ -97,16 +97,17 @@
 
   "serviceArea": {
     "heading": "Service Area",
-    "content": "Volvo A35 off-road dump truck rental is available across Brantford, Paris, Hamilton, Cambridge, and surrounding parts of Southern Ontario.",
+    "content": "Volvo A35 off-road dump truck support is available for larger, rougher, and production-focused sites across Bellhouse contractor-heavy service areas.",
     "locations": [
       "Brantford",
-      "Paris",
       "Hamilton",
       "Cambridge",
       "Ancaster",
+      "Woodstock",
+      "Simcoe",
+      "Paris",
       "Burford",
-      "St. George",
-      "Woodstock"
+      "St. George"
     ]
   },
 

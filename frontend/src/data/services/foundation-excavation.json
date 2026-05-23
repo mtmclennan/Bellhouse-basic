@@ -16,8 +16,8 @@
   "card": {
     "title": "Foundation Excavation & Backfilling",
     "description": "Accurate foundation digs and reliable backfilling for residential and commercial builds.",
-    "image": "/assets/foundation-excavation-machinery.jpg",
-    "alt": "Excavator digging foundation trench for residential construction"
+    "image": "/assets/finished-garage-foundation-excavation-backfilled-for-slab.webp",
+    "alt": "Finished garage foundation backfilled and prepared for slab work"
   },
   "hero": {
     "eyebrow": "Builders, additions & new foundations",
@@ -233,6 +233,11 @@
       "type": "process",
       "heading": "How Our Excavation Process Works",
       "subheading": "A clear, predictable workflow that keeps your project on schedule from start to finish.",
+      "image": {
+        "src": "/assets/services/foundation-excavation/barn-shop-foundation-subgrade-laser-level-floor-concrete.webp",
+        "alt": "Skid steer fine grading a barn and shop foundation subgrade before concrete floor work"
+      },
+      "caption": "Fine grading, subgrade prep, and backfill are planned around the next crew coming onto the site.",
       "steps": [
         {
           "title": "Site Layout & Planning",
@@ -306,17 +311,15 @@
     },
     {
       "type": "serviceAreas",
-      "heading": "Service Area",
-      "body": "We provide excavation, foundation digging, backfilling, and dump truck services throughout Brant County, Brantford, Hamilton, Cambridge, Kitchener-Waterloo, and surrounding Southern Ontario communities.",
+      "heading": "Foundation excavation by service area",
+      "body": "Foundation excavation needs vary by site, from Brantford access constraints and Paris rural lots to Hamilton infill work, Cambridge active sites, Ancaster slopes, and Woodstock or Simcoe larger-property jobs.",
       "areaSlugs": [
         "paris",
         "brantford",
         "hamilton",
         "ancaster",
         "cambridge",
-        "waterloo",
         "woodstock",
-        "ayr",
         "simcoe"
       ]
     },

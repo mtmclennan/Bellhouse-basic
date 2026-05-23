@@ -88,7 +88,9 @@ export default function ServiceAreaLinksSection({
                     href={location.href}
                   >
                     <span className={classes.locationName}>{location.label}</span>
-                    <span className={classes.locationAction}>View area page</span>
+                    <span className={classes.locationAction}>
+                      View {location.label} area page
+                    </span>
                   </Link>
                 ) : (
                   <div className={classes.locationStatic}>

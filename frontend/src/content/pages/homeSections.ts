@@ -204,16 +204,16 @@ export const homeTestimonialsSection: TestimonialsSectionData = {
 export const homeServiceAreasSection: ServiceAreasSectionData = {
   _type: 'serviceAreasSection',
   eyebrow: 'Service Areas',
-  heading: 'Excavation Services Across Brant County & Nearby Areas',
+  heading: 'Areas We Serve for Excavation, Grading & Trucking',
   subtext:
-    'Bellhouse provides excavation, grading, trucking, and site work across Brantford, Paris, St. George, Burford, Hamilton, Cambridge, and surrounding communities.',
+    'Start with the area page that best matches your site conditions, from Brantford access work and Paris rural lots to Hamilton, Cambridge, Ancaster, and Woodstock project support.',
   locations: [
-    { label: 'Brantford', href: '/service-areas/brantford' },
-    { label: 'Paris', href: '/service-areas/paris' },
-    { label: 'Hamilton', href: '/service-areas/hamilton' },
-    { label: 'Cambridge', href: '/service-areas/cambridge' },
-    { label: 'St. George' },
-    { label: 'Burford' },
+    { label: 'Brantford excavation and site work', href: '/service-areas/brantford' },
+    { label: 'Paris rural site prep', href: '/service-areas/paris' },
+    { label: 'Hamilton contractor excavation', href: '/service-areas/hamilton' },
+    { label: 'Cambridge active-site support', href: '/service-areas/cambridge' },
+    { label: 'Ancaster estate-lot grading', href: '/service-areas/ancaster' },
+    { label: 'Woodstock industrial site prep', href: '/service-areas/woodstock' },
   ],
   actions: [
     {

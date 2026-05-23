@@ -10,15 +10,15 @@
   "card": {
     "title": "Heavy Equipment Hauling & Float Truck Services",
     "description": "Transport heavy machinery safely with our professional float truck services.",
-    "image": "/assets/truck-hauling-heavy-equipment.jpg",
-    "alt": "A float truck transporting an excavator to a construction site in Brant County."
+    "image": "/assets/services/heavy-equipment-hauling/truck-float-trailer-hauling-skid-steers.webp",
+    "alt": "Bellhouse float trailer hauling skid steers and attachments for jobsite equipment transport."
   },
 
   "hero": {
     "heading": "Heavy Equipment Hauling & Floating Services",
     "subheading": "Safe, Secure, and Efficient Transportation for Construction Machinery",
-    "image": "/assets/equipment-floating-trucking-services.png",
-    "alt": "A low-bed float truck loaded with heavy equipment, ready for transport."
+    "image": "/assets/services/heavy-equipment-hauling/truck-hauling-heavy-equipment-excavator-hero.webp",
+    "alt": "Bellhouse truck and float trailer hauling an excavator for heavy equipment transport."
   },
 
   "intro": {
@@ -107,17 +107,18 @@
 
   "serviceArea": {
     "heading": "Service Area",
-    "content": "We provide equipment hauling throughout Brant County and nearby regions.",
+    "content": "Equipment floating is available across Brant County and nearby contractor-heavy service areas when excavators, dozers, skid steers, or site equipment need to move between jobs.",
     "locations": [
       "Paris",
       "Brantford",
-      "Brant County",
-      "St. George",
-      "Burford",
       "Hamilton",
       "Cambridge",
-      "Ayr",
-      "Woodstock"
+      "Woodstock",
+      "Simcoe",
+      "Ancaster",
+      "Brant County",
+      "St. George",
+      "Burford"
     ]
   },
 

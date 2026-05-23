@@ -11,6 +11,12 @@ interface ServiceContractorCtaSectionProps {
   appearance: ServiceSectionAppearance;
 }
 
+const nextSteps = [
+  'Send the site details',
+  'Get a practical quote',
+  'Schedule equipment and trucking',
+];
+
 export default function ServiceContractorCtaSection({
   appearance,
   section,
@@ -53,32 +59,45 @@ export default function ServiceContractorCtaSection({
           ) : null}
 
           <h2>{section.heading}</h2>
-          <p className={classes.body}>{section.body}</p>
 
-          <div className={classes.contractorActions}>
-            {actions.map((action, index) => (
-              <Link
-                key={`${action.href}-${action.label}`}
-                href={action.href}
-                className={index === 0 ? classes.btn : classes.btnSecondary}
-              >
-                {action.label}
-              </Link>
+          {section.body ? <p className={classes.body}>{section.body}</p> : null}
+
+          {actions.length > 0 ? (
+            <div className={classes.contractorActions}>
+              {actions.map((action, index) => (
+                <Link
+                  key={`${action.href}-${action.label}`}
+                  href={action.href}
+                  className={index === 0 ? classes.btn : classes.btnSecondary}
+                >
+                  {action.label}
+                </Link>
+              ))}
+            </div>
+          ) : null}
+
+          <ul className={classes.nextSteps} aria-label="What happens next">
+            {nextSteps.map((step) => (
+              <li key={step}>{step}</li>
             ))}
-          </div>
+          </ul>
         </div>
 
         {section.image?.src ? (
-          <aside className={classes.mediaPanel} aria-label="Contractor support image">
+          <aside
+            className={classes.mediaPanel}
+            aria-label="Contractor support image"
+          >
             <div className={classes.imageFrame}>
               <Image
                 src={section.image.src}
                 alt={section.image.alt}
-                width={1600}
-                height={900}
+                fill
                 className={classes.image}
                 sizes="(max-width: 1000px) 100vw, 38vw"
               />
+
+              <div className={classes.imageOverlay} aria-hidden="true" />
             </div>
 
             {section.caption ? (
