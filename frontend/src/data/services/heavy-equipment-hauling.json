@@ -1,178 +1,367 @@
 {
   "id": 2,
   "slug": "heavy-equipment-hauling",
-
+  "title": "Heavy Equipment Hauling & Floating Services",
+  "navTitle": "Equipment Hauling",
   "meta": {
     "title": "Heavy Equipment Hauling & Float Service | Bellhouse",
     "description": "Bellhouse moves excavators, dozers, and site equipment safely across Brantford and nearby areas with professional float service."
   },
-
   "card": {
     "title": "Heavy Equipment Hauling & Float Truck Services",
     "description": "Transport heavy machinery safely with our professional float truck services.",
     "image": "/assets/services/heavy-equipment-hauling/truck-float-trailer-hauling-skid-steers.webp",
     "alt": "Bellhouse float trailer hauling skid steers and attachments for jobsite equipment transport."
   },
-
   "hero": {
+    "eyebrow": "Float service for active sites",
     "heading": "Heavy Equipment Hauling & Floating Services",
-    "subheading": "Safe, Secure, and Efficient Transportation for Construction Machinery",
+    "summary": "Safe, planned transport for excavators, skid steers, dozers, attachments, and other construction equipment moving between yards and job sites.",
+    "actions": [
+      {
+        "label": "Request Hauling Quote",
+        "href": "/contact",
+        "variant": "primary"
+      },
+      {
+        "label": "For Builders & Contractors",
+        "href": "/contractors",
+        "variant": "secondary"
+      }
+    ],
+    "proofPoints": [
+      "Secure loading and tie-down",
+      "Machine moves between yards and job sites",
+      "Planned around working schedules"
+    ],
+    "emphasis": "compact",
     "image": "/assets/services/heavy-equipment-hauling/truck-hauling-heavy-equipment-excavator-hero.webp",
     "alt": "Bellhouse truck and float trailer hauling an excavator for heavy equipment transport."
   },
-
-  "intro": {
-    "heading": "Reliable Heavy Equipment Hauling for Your Construction Needs",
-    "content": "Bellhouse Excavating provides professional heavy equipment floating services to transport machinery safely and efficiently. We move excavators, skid steers, dozers, and other equipment with proper tie-downs, safe loading procedures, and experienced operators.",
-    "keypoints": [
-      "Fully insured hauling services",
-      "Safe loading and unloading procedures",
-      "Experienced, licensed operators",
-      "Reliable transport across Brant County and surrounding areas"
-    ]
-  },
-
-  "includes": {
-    "heading": "Whatâ€™s Included in Our Hauling Service",
-    "subheading": "A safe and efficient experience from pickup to delivery.",
-    "items": [
-      {
-        "title": "Machine Loading & Securement",
-        "description": "Proper tie-downs and transport procedures ensure safe travel for every load."
+  "sections": [
+    {
+      "type": "proofStrip",
+      "items": [
+        {
+          "label": "Float and trailer hauling",
+          "description": "Equipment moves planned around machine size, loading access, route, and delivery location."
+        },
+        {
+          "label": "Secure transport",
+          "description": "Proper loading, chains, binders, and tie-down procedures are part of every move."
+        },
+        {
+          "label": "Jobsite coordination",
+          "description": "Hauling can be timed around crews, rental windows, staging yards, and active site schedules."
+        }
+      ]
+    },
+    {
+      "type": "intro",
+      "heading": "Reliable Heavy Equipment Hauling for Construction Sites",
+      "body": "Bellhouse Excavating provides professional heavy equipment floating services to move machinery safely and efficiently. We haul excavators, skid steers, dozers, attachments, and similar site equipment with proper tie-downs, safe loading procedures, and experienced operators.",
+      "bullets": [
+        "Float service for excavators, skid steers, dozers, and attachments",
+        "Safe loading and unloading procedures",
+        "Load securement with proper transport gear",
+        "Reliable moves across Brant County and nearby areas"
+      ]
+    },
+    {
+      "type": "projectFit",
+      "heading": "When Bellhouse Equipment Hauling Fits the Job",
+      "subheading": "Best fit when equipment needs to arrive ready for the next phase instead of sitting in the wrong yard, waiting on a third-party move, or blocking site progress.",
+      "cards": [
+        {
+          "title": "Moving machines between active job sites",
+          "body": "A practical fit when excavators, skid steers, or attachments need to shift from one project to the next without losing a working day.",
+          "tags": [
+            "Jobsite moves",
+            "Excavators",
+            "Skid steers"
+          ],
+          "outcome": "Keeps equipment movement tied to the work schedule instead of becoming a separate delay."
+        },
+        {
+          "title": "Rental, yard, and storage transfers",
+          "body": "Useful when machinery needs to move between a rental yard, storage location, farm, shop, or construction site.",
+          "tags": [
+            "Rental pickup",
+            "Yard transfer",
+            "Storage moves"
+          ],
+          "outcome": "Gets the machine where it needs to be with access, loading, and unloading considered before arrival."
+        },
+        {
+          "title": "Contractor-led schedule support",
+          "body": "A strong fit for builders and contractors who need equipment, trucking, grading, or excavation support coordinated around the same site schedule.",
+          "tags": [
+            "Contractor support",
+            "Schedule timing",
+            "Site coordination"
+          ],
+          "outcome": "Helps reduce idle time when the next phase depends on the right machine being on site."
+        }
+      ]
+    },
+    {
+      "type": "scope",
+      "heading": "What's Included in Our Hauling Service",
+      "subheading": "A safe and efficient experience from pickup to delivery.",
+      "items": [
+        {
+          "title": "Machine Loading & Securement",
+          "body": "Equipment is loaded and tied down with proper chains, binders, and transport procedures."
+        },
+        {
+          "title": "Equipment Transport",
+          "body": "We move equipment between job sites, storage yards, rental depots, farms, and contractor yards."
+        },
+        {
+          "title": "Flexible Scheduling",
+          "body": "Hauling can be planned around working windows to reduce downtime and keep machines moving."
+        },
+        {
+          "title": "Oversized Load Coordination",
+          "body": "Machinery that needs extra planning is reviewed for route, access, loading, and unloading needs."
+        }
+      ]
+    },
+    {
+      "type": "jobsiteProof",
+      "eyebrow": "Real float service",
+      "heading": "Equipment hauling has to match the machine, the route, and the site access.",
+      "body": "Bellhouse reviews the pickup, destination, equipment size, loading conditions, and delivery location so the move can happen safely and without creating avoidable site delays.",
+      "image": {
+        "src": "/assets/services/heavy-equipment-hauling/truck-flat-deck-armour-stone-hauling-float-trailer-bobcat-t76-skid-steer.webp",
+        "alt": "Bellhouse flat deck and float trailer hauling a Bobcat skid steer and attachments"
       },
-      {
-        "title": "Equipment Transport for Short & Long Distance",
-        "description": "We move equipment between job sites, storage yards, and rental depots."
+      "caption": "Float and flat-deck hauling can support machines, attachments, and jobsite equipment moves."
+    },
+    {
+      "type": "problemsPrevented",
+      "heading": "What Proper Equipment Hauling Helps Prevent",
+      "subheading": "A machine move can slow the whole job when loading access, tie-down, timing, or drop-off location are not planned ahead.",
+      "items": [
+        {
+          "problem": "Equipment can arrive late or in the wrong spot when transport is separated from the site schedule.",
+          "solution": "Bellhouse plans moves around pickup, delivery, access, and the timing of the work that follows."
+        },
+        {
+          "problem": "Poor loading or securement can create safety issues and unnecessary risk on the road.",
+          "solution": "Machines are loaded and tied down with proper transport gear and practical loading procedures."
+        },
+        {
+          "problem": "Unloading in the wrong location can block access or force extra machine movement on site.",
+          "solution": "Drop-off location and access are reviewed so equipment lands where it can be used."
+        }
+      ]
+    },
+    {
+      "type": "outcomes",
+      "heading": "What The Move Should Accomplish",
+      "subheading": "The goal is more than getting the machine on a trailer. The equipment should arrive where it is useful, when the site is ready for it.",
+      "items": [
+        {
+          "title": "Equipment ready for the next phase",
+          "body": "Machines are delivered where they can go to work without unnecessary repositioning or staging confusion."
+        },
+        {
+          "title": "Safer transport between sites",
+          "body": "Loading, tie-down, route, and unloading are handled with the realities of construction equipment in mind."
+        },
+        {
+          "title": "Less downtime around equipment moves",
+          "body": "Float timing can be coordinated with excavation, grading, trucking, and contractor schedules."
+        }
+      ]
+    },
+    {
+      "type": "equipment",
+      "heading": "Equipment Used for Hauling",
+      "subheading": "Reliable trucks, trailers, and securement gear for safe equipment transport.",
+      "items": [
+        {
+          "name": "Tri-Axle Truck",
+          "body": "Used as part of Bellhouse hauling and transport support where route, load, and site conditions allow.",
+          "image": {
+            "src": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp",
+            "alt": "Tri-Axle Truck"
+          }
+        },
+        {
+          "name": "Equipment Float Trailer",
+          "body": "Heavy-duty float trailer used for transporting excavators, skid steers, and other machinery between sites.",
+          "image": {
+            "src": "/assets/services/bellhouse-triaxle-equipment-float-trailer-illustration.webp",
+            "alt": "Equipment Float Trailer"
+          }
+        },
+        {
+          "name": "Loading Equipment",
+          "body": "Excavators and skid steers can assist with loading, unloading, and placement where required.",
+          "image": {
+            "src": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp",
+            "alt": "Loading Equipment"
+          }
+        },
+        {
+          "name": "Transport Safety Gear",
+          "body": "Chains, binders, and load securement equipment are used to keep machinery properly tied down.",
+          "image": {
+            "src": "/assets/services/bellhouse-transport-safety-gear.webp",
+            "alt": "Transport safety gear"
+          }
+        }
+      ]
+    },
+    {
+      "type": "process",
+      "heading": "How Our Hauling Process Works",
+      "subheading": "Fast, predictable, and safe from pickup to delivery.",
+      "image": {
+        "src": "/assets/services/heavy-equipment-hauling/float-flat-deck-skid-steer-bobcat-buckets-forks.webp",
+        "alt": "Flat deck trailer loaded with skid steer buckets and forks for equipment hauling"
       },
-      {
-        "title": "Flexible Scheduling",
-        "description": "Hauling available weekdays and weekends to reduce project downtime."
+      "caption": "Equipment moves often include attachments and support gear, not just the machine itself.",
+      "steps": [
+        {
+          "title": "Pickup & Pre-Trip Review",
+          "body": "We confirm the equipment, pickup location, access, route, and delivery requirements."
+        },
+        {
+          "title": "Safe Loading & Tie-Down",
+          "body": "The machine is loaded and secured using proper load-rated gear and transport procedures."
+        },
+        {
+          "title": "Transport to Destination",
+          "body": "Equipment is hauled safely to the next job site, yard, rental depot, or storage location."
+        },
+        {
+          "title": "Unload & Placement",
+          "body": "We unload the equipment where access and site conditions allow so it is ready for use."
+        }
+      ]
+    },
+    {
+      "type": "contractorCta",
+      "eyebrow": "For builders and contractors",
+      "heading": "Need equipment moved without losing time between job phases?",
+      "body": "If your project needs excavators, skid steers, attachments, or site equipment moved between jobs, Bellhouse can review the pickup, route, access, timing, and delivery location.",
+      "image": {
+        "src": "/assets/services/heavy-equipment-hauling/truck-float-trailer-hauling-skid-steers.webp",
+        "alt": "Bellhouse float trailer hauling skid steers and attachments between job sites"
       },
-      {
-        "title": "Oversized Load Coordination",
-        "description": "We manage the logistics for machinery that requires special attention."
-      }
-    ]
-  },
-
-  "equipment": {
-    "heading": "Equipment We Use for Hauling",
-    "subheading": "Reliable trucks and proper transport equipment for safe, efficient hauling.",
-    "items": [
-      {
-        "icon": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp",
-        "title": "Tri-Axle Dump Trucks",
-        "description": "Used for hauling aggregate, excavated material, and towing equipment when required."
-      },
-      {
-        "icon": "/assets/services/bellhouse-triaxle-equipment-float-trailer-illustration.webp",
-        "title": "Tri-Axle Equipment Trailer",
-        "description": "Heavy-duty trailer used for transporting excavators, skid steers, and other machinery safely between sites."
-      },
-      {
-        "icon": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp",
-        "title": "Loading Equipment",
-        "description": "Excavators and skid steers assist with safe loading and unloading where required."
-      },
-      {
-        "icon": "/assets/services/bellhouse-transport-safety-gear.webp",
-        "title": "Transport Safety Gear",
-        "description": "Chains, binders, and certified load securement equipment to ensure safe transport."
-      }
-    ]
-  },
-
-  "process": {
-    "heading": "How Our Hauling Process Works",
-    "subheading": "Fast, predictable, and safe from start to finish.",
-    "steps": [
-      {
-        "title": "Pickup & Pre-Trip Inspection",
-        "description": "We inspect the equipment and plan secure loading."
-      },
-      {
-        "title": "Safe Loading & Tie-Down",
-        "description": "Your equipment is secured using proper load-rated gear."
-      },
-      {
-        "title": "Transport to Destination",
-        "description": "We haul machinery safely to its next job site or storage location."
-      },
-      {
-        "title": "Unload & Placement",
-        "description": "We unload equipment exactly where you need it."
-      }
-    ]
-  },
-
-  "serviceArea": {
-    "heading": "Service Area",
-    "content": "Equipment floating is available across Brant County and nearby contractor-heavy service areas when excavators, dozers, skid steers, or site equipment need to move between jobs.",
-    "locations": [
-      "Paris",
-      "Brantford",
-      "Hamilton",
-      "Cambridge",
-      "Woodstock",
-      "Simcoe",
-      "Ancaster",
-      "Brant County",
-      "St. George",
-      "Burford"
-    ]
-  },
-
-  "faq": {
-    "heading": "Frequently Asked Questions",
-    "items": [
-      {
-        "question": "What equipment can you haul?",
-        "answer": "Excavators, skid steers, tractors, small dozers, and similar machinery."
-      },
-      {
-        "question": "Are you insured?",
-        "answer": "Yes, all hauling is fully insured for your protection."
-      },
-      {
-        "question": "How far do you haul?",
-        "answer": "We service Brant County and surrounding areas. Longer hauls available on request."
-      }
-    ]
-  },
-
-  "cta": {
-    "heading": "Need Equipment Hauled?",
-    "subheading": "Get a reliable, insured hauling service for your machinery.",
-    "button": "Request Hauling Quote"
-  },
-
-  "layout": {
-    "hero": {
-      "emphasis": "compact",
-      "eyebrow": "Float service for active sites",
-      "proofChips": [
-        "Secure loading and tie-down",
-        "Machine moves between yards and job sites",
-        "Planned around working schedules"
+      "caption": "Float service can be coordinated around active contractor schedules and equipment availability.",
+      "actions": [
+        {
+          "label": "Send Project Details",
+          "href": "/contractors#contractor-form",
+          "variant": "primary"
+        },
+        {
+          "label": "Call 519-752-8500",
+          "href": "tel:5197528500",
+          "variant": "secondary"
+        }
+      ]
+    },
+    {
+      "type": "resources",
+      "eyebrow": "Planning links",
+      "heading": "Coordinating equipment moves around active site work?",
+      "subheading": "Equipment hauling is usually tied to schedule, access, and the next phase of work. These pages are useful when the move is part of a larger contractor-led site plan.",
+      "cards": [
+        {
+          "title": "Contractor support for active jobs",
+          "body": "Use this when equipment hauling needs to connect with excavation, grading, trucking, or repeat project coordination.",
+          "href": "/contractors",
+          "label": "Review Contractor Support"
+        },
+        {
+          "title": "Volvo A35 off-road truck support",
+          "body": "Useful when larger sites also need on-site material movement that stays off public roads.",
+          "href": "/services/volvo-a35-off-road-dump-truck-rental",
+          "label": "View Off-Road Truck Support"
+        }
       ],
-      "secondaryLabel": "For Builders & Contractors",
-      "secondaryHref": "/contractors"
+      "actions": [
+        {
+          "label": "View All Services",
+          "href": "/services",
+          "variant": "secondary"
+        }
+      ]
     },
-    "finalCta": {
-      "mode": "contractor"
+    {
+      "type": "serviceAreas",
+      "heading": "Equipment hauling by service area",
+      "body": "Equipment floating is available across Brant County and nearby contractor-heavy service areas when excavators, dozers, skid steers, attachments, or site equipment need to move between jobs.",
+      "areaSlugs": [
+        "paris",
+        "brantford",
+        "hamilton",
+        "cambridge",
+        "woodstock",
+        "ancaster"
+      ]
     },
-    "sections": [
-      "intro",
-      "equipment",
-      "proof",
-      "contractorCta",
-      "process",
-      "localIntent",
-      "faq",
-      "relatedServices",
-      "reviews",
-      "finalCta"
-    ]
-  }
+    {
+      "type": "relatedServices",
+      "eyebrow": "Related services",
+      "heading": "Related hauling, trucking, and site support",
+      "serviceSlugs": [
+        "dump-truck-rental",
+        "site-preparation-land-grading",
+        "volvo-a35-off-road-dump-truck-rental",
+        "dirt-gravel-delivery"
+      ]
+    },
+    {
+      "type": "reviews",
+      "eyebrow": "Testimonials",
+      "heading": "What customers say about Bellhouse",
+      "subheading": "Feedback from local homeowners, builders, and job-site customers Bellhouse has worked with.",
+      "limit": 3
+    },
+    {
+      "type": "faq",
+      "heading": "Frequently Asked Questions",
+      "items": [
+        {
+          "question": "What equipment can you haul?",
+          "answer": "Bellhouse can haul excavators, skid steers, tractors, small dozers, attachments, and similar construction or site equipment. The move depends on the machine size, weight, route, and loading conditions."
+        },
+        {
+          "question": "Are equipment hauling moves insured?",
+          "answer": "Yes. Equipment hauling is handled with proper coverage, securement, and transport procedures."
+        },
+        {
+          "question": "How far do you haul equipment?",
+          "answer": "Bellhouse commonly serves Brant County and nearby areas. Longer moves can be reviewed based on the equipment, route, timing, and availability."
+        },
+        {
+          "question": "Can you move attachments as well as machines?",
+          "answer": "Yes. Buckets, forks, and other attachments can often be moved with the equipment when trailer space, weight, and securement allow."
+        }
+      ]
+    },
+    {
+      "type": "finalCta",
+      "heading": "Need Equipment Hauled?",
+      "body": "Send the equipment type, pickup location, delivery location, timing, and any access details and Bellhouse can review the move.",
+      "actions": [
+        {
+          "label": "Request Hauling Quote",
+          "href": "/contact",
+          "variant": "primary"
+        },
+        {
+          "label": "Send Project Details",
+          "href": "/contractors#contractor-form",
+          "variant": "secondary"
+        }
+      ]
+    }
+  ]
 }
-

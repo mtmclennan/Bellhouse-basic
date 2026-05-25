@@ -1,155 +1,355 @@
 {
   "id": 9,
   "slug": "house-barn-demolition",
-
+  "title": "House & Barn Demolition Services",
+  "navTitle": "Demolition",
   "meta": {
     "title": "House & Barn Demolition | Brant County, Brantford",
     "description": "Safe and efficient house & barn demolition services in Brant County. Professional structure removal, site cleanup, and debris disposal."
   },
-
   "card": {
     "title": "House & Barn Demolition Services",
     "description": "Full or partial demolition of houses, barns, and outbuildings, including cleanup and disposal.",
     "image": "/assets/demo1.jpg",
     "alt": "Excavator tearing down a structure during house and barn demolition cleanup."
   },
-
   "hero": {
+    "eyebrow": "Structure removal & cleanup",
     "heading": "House & Barn Demolition Services",
-    "subheading": "Safe, Efficient, and Responsible Structure Demolition",
+    "summary": "Controlled demolition for houses, barns, garages, sheds, and outbuildings, with debris removal and rough site cleanup handled by experienced operators.",
+    "actions": [
+      {
+        "label": "Request Demolition Quote",
+        "href": "/contact",
+        "variant": "primary"
+      },
+      {
+        "label": "For Builders & Contractors",
+        "href": "/contractors",
+        "variant": "secondary"
+      }
+    ],
+    "proofPoints": [
+      "Complete or selective demolition",
+      "Debris loading and disposal",
+      "Rough grading after structure removal"
+    ],
+    "emphasis": "compact",
     "image": "/assets/house-demolition-excavator-paris-ontario.jpg",
     "alt": "Excavator demolishing an old house and clearing debris for site preparation."
   },
-
-  "intro": {
-    "heading": "Professional Demolition for Residential & Agricultural Structures",
-    "content": "Bellhouse Excavating provides safe, controlled demolition for houses, barns, garages, and outbuildings. From teardown to debris removal, we handle the heavy lifting so your site is cleared and ready for its next use.",
-    "keypoints": [
-      "Complete or selective demolition",
-      "Safe teardown with experienced operators",
-      "Efficient debris removal and disposal",
-      "Site grading and preparation after demolition"
-    ]
-  },
-
-  "includes": {
-    "heading": "Demolition Service Includes",
-    "subheading": "Everything needed to safely remove your structure and clean up the site.",
-    "items": [
-      {
-        "title": "Structure Teardown",
-        "description": "Controlled demolition of homes, barns, sheds, and outbuildings."
+  "sections": [
+    {
+      "type": "proofStrip",
+      "items": [
+        {
+          "label": "Controlled teardown",
+          "description": "Structures are removed with practical attention to access, nearby features, and debris handling."
+        },
+        {
+          "label": "Debris removal",
+          "description": "Demolition material can be loaded, hauled, sorted where practical, and disposed of properly."
+        },
+        {
+          "label": "Site cleanup",
+          "description": "The site can be rough graded after demolition so it is safer and ready for the next phase."
+        }
+      ]
+    },
+    {
+      "type": "intro",
+      "heading": "Professional Demolition for Residential & Agricultural Structures",
+      "body": "Bellhouse Excavating provides safe, controlled demolition for houses, barns, garages, sheds, and outbuildings. From teardown to debris removal, we handle the heavy lifting so your site is cleared and ready for its next use.",
+      "bullets": [
+        "Complete or selective demolition",
+        "Safe teardown with experienced operators",
+        "Efficient debris removal and disposal",
+        "Site grading and preparation after demolition"
+      ]
+    },
+    {
+      "type": "projectFit",
+      "heading": "When Bellhouse Demolition Is a Good Fit",
+      "subheading": "Best fit for structure removal projects that need excavation equipment, debris hauling, and site cleanup coordinated as one scope.",
+      "cards": [
+        {
+          "title": "Old houses, garages, and outbuildings",
+          "body": "A practical fit when a residential structure needs to come down and the site needs to be cleaned up for a rebuild, sale, or future use.",
+          "tags": [
+            "House demolition",
+            "Garage removal",
+            "Outbuildings"
+          ],
+          "outcome": "Gets the structure down, debris removed, and the site left more workable for the next step."
+        },
+        {
+          "title": "Barn and farm structure removal",
+          "body": "Useful when an old barn, shed, or agricultural structure needs controlled demolition with room for equipment and trucks.",
+          "tags": [
+            "Barn demolition",
+            "Farm cleanup",
+            "Rural access"
+          ],
+          "outcome": "Handles the heavy teardown and debris movement without leaving the property in a rough, unsafe state."
+        },
+        {
+          "title": "Contractor-led redevelopment or site prep",
+          "body": "A strong fit when demolition is part of a larger project that also needs grading, excavation, trucking, or material movement.",
+          "tags": [
+            "Redevelopment",
+            "Site prep",
+            "Truck support"
+          ],
+          "outcome": "Keeps demolition, haul-out, and rough cleanup aligned with the next construction phase."
+        }
+      ]
+    },
+    {
+      "type": "scope",
+      "heading": "Demolition Service Includes",
+      "subheading": "Everything needed to safely remove your structure and clean up the site.",
+      "items": [
+        {
+          "title": "Structure Teardown",
+          "body": "Controlled demolition of homes, barns, sheds, garages, and outbuildings."
+        },
+        {
+          "title": "Material Sorting",
+          "body": "Separation of metal, concrete, and general debris where practical and useful for the job."
+        },
+        {
+          "title": "Debris Hauling & Disposal",
+          "body": "Loading and trucking of wood, roofing, concrete, and demolition material to approved facilities."
+        },
+        {
+          "title": "Site Grading",
+          "body": "Rough grading after demolition so the site is safer, cleaner, and ready for future use."
+        }
+      ]
+    },
+    {
+      "type": "jobsiteProof",
+      "eyebrow": "Controlled structure removal",
+      "heading": "Good demolition is about the teardown, the debris, and the site left behind.",
+      "body": "Bellhouse plans demolition around structure condition, equipment access, debris loading, trucking, and the final condition needed after the building is removed.",
+      "image": {
+        "src": "/assets/house-demolition-excavator-brant-county.png",
+        "alt": "Excavator demolishing a house in Brant County with debris ready for cleanup"
       },
-      {
-        "title": "Material Sorting",
-        "description": "Separation of metal, concrete, and general debris where practical."
+      "caption": "Demolition work is most effective when teardown, debris handling, and site cleanup are planned together."
+    },
+    {
+      "type": "problemsPrevented",
+      "heading": "What Proper Demolition Planning Helps Prevent",
+      "subheading": "Structure removal can create avoidable mess, delays, and access problems when debris and cleanup are not planned up front.",
+      "items": [
+        {
+          "problem": "Debris can block access or spread across the site if teardown and hauling are not coordinated.",
+          "solution": "Bellhouse plans machine access, loading areas, and dump truck movement before the structure comes down."
+        },
+        {
+          "problem": "Poorly controlled demolition can damage areas that need to stay usable after the work.",
+          "solution": "The teardown approach is matched to the structure, access, nearby features, and final site use."
+        },
+        {
+          "problem": "A cleared structure can still leave a rough, unsafe site if cleanup is treated as an afterthought.",
+          "solution": "Debris removal and rough grading can be included so the site is left cleaner and more workable."
+        }
+      ]
+    },
+    {
+      "type": "outcomes",
+      "heading": "What the Site Should Be Ready For",
+      "subheading": "The goal is a structure removed cleanly enough that the property can move into its next use.",
+      "items": [
+        {
+          "title": "A cleared structure footprint",
+          "body": "The building is taken down and major demolition material is removed from the work area."
+        },
+        {
+          "title": "A more usable site",
+          "body": "Rough grading and cleanup help leave the property safer and easier to access after demolition."
+        },
+        {
+          "title": "A cleaner handoff",
+          "body": "The site can be prepared for rebuilding, grading, landscaping, sale, or continued construction work."
+        }
+      ]
+    },
+    {
+      "type": "equipment",
+      "heading": "Equipment Used for Demolition",
+      "subheading": "Right-sized machines for controlled structure removal, debris loading, and cleanup.",
+      "items": [
+        {
+          "name": "Excavator with Demolition Attachments",
+          "body": "Used for tearing down structures, sorting material, loading trucks, and cleanup work.",
+          "image": {
+            "src": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp",
+            "alt": "Excavator with demolition attachments"
+          }
+        },
+        {
+          "name": "Tri-Axle Dump Trucks",
+          "body": "Used for hauling demolition debris, concrete, wood, and waste from the site.",
+          "image": {
+            "src": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp",
+            "alt": "Tri-Axle Dump Trucks"
+          }
+        }
+      ]
+    },
+    {
+      "type": "process",
+      "heading": "How Our Demolition Process Works",
+      "subheading": "A controlled, step-by-step approach for safe removal and cleanup.",
+      "image": {
+        "src": "/assets/demo1.jpg",
+        "alt": "Excavator tearing down a structure and gathering demolition debris for removal"
       },
-      {
-        "title": "Debris Hauling & Disposal",
-        "description": "Loading and trucking of wood, roofing, concrete, and rubbish to approved facilities."
+      "caption": "Demolition planning includes how the structure comes down, how debris is handled, and how the site should be left.",
+      "steps": [
+        {
+          "title": "Site Assessment",
+          "body": "We inspect the structure, access points, truck movement, utilities, and any special considerations."
+        },
+        {
+          "title": "Demolition Plan",
+          "body": "We determine the safest teardown method and debris handling approach."
+        },
+        {
+          "title": "Structure Teardown",
+          "body": "The building is taken down in a controlled way using excavation equipment."
+        },
+        {
+          "title": "Debris Removal",
+          "body": "Material is loaded into dump trucks and hauled to proper disposal sites."
+        },
+        {
+          "title": "Final Grading",
+          "body": "We level and smooth the site so it is ready for the next phase."
+        }
+      ]
+    },
+    {
+      "type": "contractorCta",
+      "eyebrow": "For builders and contractors",
+      "heading": "Need demolition, haul-out, and site cleanup coordinated?",
+      "body": "If structure removal is part of a rebuild, redevelopment, or larger site-prep scope, Bellhouse can review the demolition, truck access, debris handling, and rough grading needs together.",
+      "image": {
+        "src": "/assets/house-demolition-excavator-paris-ontario.jpg",
+        "alt": "Excavator demolishing an old house in Paris Ontario"
       },
-      {
-        "title": "Site Grading",
-        "description": "Rough grading of the site so it’s level, safe, and ready for future use."
-      }
-    ]
-  },
-
-  "equipment": {
-    "heading": "Equipment Used for Demolition",
-    "subheading": "Right-sized machines for controlled, safe structure removal.",
-    "items": [
-      {
-        "icon": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp",
-        "title": "Excavator with Demolition Attachments",
-        "description": "Used for tearing down structures, sorting material, and loading trucks."
-      },
-      {
-        "icon": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp",
-        "title": "Tri-Axle Dump Trucks",
-        "description": "Hauling construction debris, concrete, and waste from the site."
-      }
-    ]
-  },
-
-  "process": {
-    "heading": "How Our Demolition Process Works",
-    "subheading": "A controlled, step-by-step approach for safe removal and cleanup.",
-    "steps": [
-      {
-        "title": "Site Assessment",
-        "description": "We inspect the structure, access points, and any special considerations."
-      },
-      {
-        "title": "Demolition Plan",
-        "description": "We determine the safest teardown method and debris handling approach."
-      },
-      {
-        "title": "Structure Teardown",
-        "description": "The building is taken down in a controlled way using an excavator."
-      },
-      {
-        "title": "Debris Removal",
-        "description": "Material is loaded into dump trucks and hauled to proper disposal sites."
-      },
-      {
-        "title": "Final Grading",
-        "description": "We level and smooth the site so it’s ready for the next phase."
-      }
-    ]
-  },
-
-  "serviceArea": {
-    "heading": "Service Area",
-    "content": "Demolition services available throughout Brant County and neighbouring communities.",
-    "locations": [
-      "Paris",
-      "Brantford",
-      "Brant County",
-      "St. George",
-      "Burford",
-      "Ayr",
-      "Hamilton",
-      "Cambridge",
-      "Woodstock"
-    ]
-  },
-
-  "faq": {
-    "heading": "Frequently Asked Questions",
-    "items": [
-      {
-        "question": "Do you handle permits?",
-        "answer": "Permits are typically obtained by the owner, but we can provide guidance on what’s required."
-      },
-      {
-        "question": "Can you demolish just part of a building?",
-        "answer": "Yes, selective demolition is available depending on structure and access."
-      },
-      {
-        "question": "Do you remove all debris?",
-        "answer": "Yes, we can remove and dispose of all demolition material as part of the job."
-      }
-    ]
-  },
-
-  "cta": {
-    "heading": "Need a Structure Removed?",
-    "subheading": "Get a demolition quote for your house, barn, or outbuilding.",
-    "button": "Request Demolition Quote"
-  },
-
-  "layout": {
-    "sections": [
-      "intro",
-      "proof",
-      "process",
-      "equipment",
-      "localIntent",
-      "faq",
-      "relatedServices",
-      "reviews",
-      "finalCta"
-    ]
-  }
+      "caption": "Demolition can be coordinated with trucking, cleanup, grading, and site preparation for the next phase.",
+      "actions": [
+        {
+          "label": "Send Project Details",
+          "href": "/contractors#contractor-form",
+          "variant": "primary"
+        },
+        {
+          "label": "Call 519-752-8500",
+          "href": "tel:5197528500",
+          "variant": "secondary"
+        }
+      ]
+    },
+    {
+      "type": "resources",
+      "eyebrow": "Planning links",
+      "heading": "Planning what happens after the structure comes down?",
+      "subheading": "Demolition often connects to debris hauling, rough cleanup, grading, and the next use of the site. These links are useful when removal is part of a larger project.",
+      "cards": [
+        {
+          "title": "Dump truck support for debris and material movement",
+          "body": "Useful when demolition debris, imported fill, or cleanup material needs coordinated truck support.",
+          "href": "/services/dump-truck-rental",
+          "label": "View Dump Truck Support"
+        },
+        {
+          "title": "Site preparation after demolition",
+          "body": "Helpful when the cleared area needs rough grading, pad prep, drainage shaping, or access work for the next phase.",
+          "href": "/services/site-preparation-land-grading",
+          "label": "View Site Preparation"
+        }
+      ],
+      "actions": [
+        {
+          "label": "View All Services",
+          "href": "/services",
+          "variant": "secondary"
+        }
+      ]
+    },
+    {
+      "type": "serviceAreas",
+      "heading": "Demolition by service area",
+      "body": "House, barn, garage, and outbuilding demolition is available across Brant County and nearby service areas where structure removal, debris hauling, and rough cleanup need to be coordinated.",
+      "areaSlugs": [
+        "paris",
+        "brantford",
+        "cambridge",
+        "woodstock",
+        "hamilton",
+        "ancaster"
+      ]
+    },
+    {
+      "type": "relatedServices",
+      "eyebrow": "Related services",
+      "heading": "Related hauling, grading, and site prep",
+      "serviceSlugs": [
+        "dump-truck-rental",
+        "site-preparation-land-grading",
+        "land-grading-drainage",
+        "heavy-equipment-hauling"
+      ]
+    },
+    {
+      "type": "reviews",
+      "eyebrow": "Testimonials",
+      "heading": "What customers say about Bellhouse",
+      "subheading": "Feedback from local homeowners, builders, and job-site customers Bellhouse has worked with.",
+      "limit": 3
+    },
+    {
+      "type": "faq",
+      "heading": "Frequently Asked Questions",
+      "items": [
+        {
+          "question": "Do you handle permits?",
+          "answer": "Permits are typically obtained by the owner, but Bellhouse can provide guidance on what is usually required for the demolition scope."
+        },
+        {
+          "question": "Can you demolish just part of a building?",
+          "answer": "Yes. Selective demolition may be available depending on the structure, access, safety conditions, and what needs to remain."
+        },
+        {
+          "question": "Do you remove all debris?",
+          "answer": "Yes. Debris removal and disposal can be included as part of the demolition job."
+        },
+        {
+          "question": "Can you grade the site after demolition?",
+          "answer": "Yes. Bellhouse can rough grade the site after structure removal so it is safer, cleaner, and ready for the next use."
+        }
+      ]
+    },
+    {
+      "type": "finalCta",
+      "heading": "Need a Structure Removed?",
+      "body": "Send the structure type, location, access details, and what you want the site ready for after demolition.",
+      "actions": [
+        {
+          "label": "Request Demolition Quote",
+          "href": "/contact",
+          "variant": "primary"
+        },
+        {
+          "label": "Send Project Details",
+          "href": "/contractors#contractor-form",
+          "variant": "secondary"
+        }
+      ]
+    }
+  ]
 }

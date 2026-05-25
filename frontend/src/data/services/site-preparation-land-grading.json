@@ -128,6 +128,17 @@
       ]
     },
     {
+      "type": "jobsiteProof",
+      "eyebrow": "Large-site prep",
+      "heading": "Site preparation works best when grading, access, and material movement are planned together.",
+      "body": "Bellhouse can coordinate earthmoving equipment, truck support, and practical grade decisions so raw sites are stripped, shaped, and ready for the next construction phase.",
+      "image": {
+        "src": "/assets/services/site-preparations-land-clearing/large-site-prep-equipment.jpg",
+        "alt": "Bellhouse equipment preparing a large construction site for grading and material movement"
+      },
+      "caption": "Large-site preparation often combines stripping, rough grading, access planning, and material movement in one coordinated scope."
+    },
+    {
       "type": "problemsPrevented",
       "heading": "What Proper Site Prep Helps Prevent",
       "subheading": "Site work usually gets more expensive when grading, drainage, and access are treated like cleanup instead of part of the first real phase of construction.",

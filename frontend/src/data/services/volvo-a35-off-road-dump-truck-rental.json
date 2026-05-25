@@ -1,183 +1,363 @@
 {
   "id": 6,
   "slug": "volvo-a35-off-road-dump-truck-rental",
-
+  "title": "Volvo A35 Off-Road Dump Truck Rental with Operator",
+  "navTitle": "Volvo A35 Rental",
   "meta": {
     "title": "Volvo A35 Off-Road Dump Truck Rental | Bellhouse",
     "description": "Volvo A35 off-road dump truck rental with operator for bulk earthmoving, fill movement, and rough-site hauling across Brantford and nearby areas."
   },
-
   "card": {
     "title": "Volvo A35 Off-Road Dump Truck Rental",
     "description": "Articulated off-road dump truck rental with operator for bulk material hauling on large and demanding job sites.",
     "image": "/assets/off-road-truck-dump-truck.jpg",
     "alt": "Volvo A35 articulated off-road dump truck staged for bulk earthmoving support."
   },
-
   "hero": {
+    "eyebrow": "Large-site hauling support",
     "heading": "Volvo A35 Off-Road Dump Truck Rental with Operator",
-    "subheading": "Production hauling support for bulk material movement on large, rough, or soft-ground job sites.",
+    "summary": "Production hauling support for bulk material movement on large, rough, soft-ground, or contractor-led earthmoving sites.",
+    "actions": [
+      {
+        "label": "Request a Quote",
+        "href": "/contact",
+        "variant": "primary"
+      },
+      {
+        "label": "For Builders & Contractors",
+        "href": "/contractors",
+        "variant": "secondary"
+      }
+    ],
+    "proofPoints": [
+      "Volvo A35 with operator",
+      "Built for rough ground and bulk movement",
+      "Useful on active contractor-led earthworks"
+    ],
+    "emphasis": "high",
     "image": "/assets/off-road-dump-truck-rental.jpg",
     "alt": "Volvo A35 articulated off-road dump truck hauling material on a rough earthmoving site."
   },
-
-  "intro": {
-    "heading": "Off-Road Hauling for Large Earthmoving and Site Work",
-    "content": "Bellhouse Excavating provides Volvo A35 articulated off-road dump truck rental with operator for projects that need serious hauling capacity beyond what standard road trucks can handle. Our off-road truck is well suited for subdivision earthworks, site servicing, large excavation projects, pond work, quarry and pit support, and jobs with mud, grades, or uneven terrain.",
-    "keypoints": [
-      "Volvo A35 articulated off-road dump truck",
-      "Supplied with experienced operator",
-      "Ideal for bulk earthmoving, fill, rock, and overburden",
-      "Built for soft ground, rough terrain, and large sites"
-    ]
-  },
-
-  "includes": {
-    "heading": "Off-Road Dump Truck Services Include",
-    "subheading": "Heavy-duty hauling support for demanding commercial and civil job sites.",
-    "items": [
-      {
-        "title": "Bulk Material Hauling",
-        "description": "Hauling rock, soil, clay, overburden, topsoil, fill, and excavation material across active job sites."
+  "sections": [
+    {
+      "type": "proofStrip",
+      "items": [
+        {
+          "label": "Operator included",
+          "description": "Bellhouse supplies the Volvo A35 with an experienced operator for on-site hauling support."
+        },
+        {
+          "label": "Rough-site hauling",
+          "description": "Useful where soft ground, grades, mud, haul roads, or uneven terrain make road trucks less practical."
+        },
+        {
+          "label": "Bulk material movement",
+          "description": "Built for moving soil, fill, clay, overburden, rock, and excavation material across large sites."
+        }
+      ]
+    },
+    {
+      "type": "intro",
+      "heading": "Off-Road Hauling for Large Earthmoving and Site Work",
+      "body": "Bellhouse Excavating provides Volvo A35 articulated off-road dump truck rental with operator for projects that need serious hauling capacity beyond what standard road trucks can handle. The off-road dump truck is well suited for subdivision earthworks, site servicing, large excavation projects, pond work, quarry and pit support, and jobs with mud, grades, or uneven terrain.",
+      "bullets": [
+        "Volvo A35 articulated off-road dump truck",
+        "Supplied with experienced operator",
+        "Ideal for bulk earthmoving, fill, rock, and overburden",
+        "Built for soft ground, rough terrain, and large sites"
+      ]
+    },
+    {
+      "type": "projectFit",
+      "heading": "When the Volvo A35 Is the Right Fit",
+      "subheading": "Best fit for larger sites where material needs to move efficiently across ground that is not ideal for highway dump trucks.",
+      "cards": [
+        {
+          "title": "Large earthmoving and site servicing",
+          "body": "A practical fit when contractors need additional on-site hauling capacity for cut, fill, rough grading, and production earthworks.",
+          "tags": [
+            "Bulk earthmoving",
+            "Site servicing",
+            "Cut and fill"
+          ],
+          "outcome": "Keeps material moving across the site without relying on road trucks for every internal haul."
+        },
+        {
+          "title": "Soft, muddy, or uneven haul routes",
+          "body": "Useful where haul roads, slopes, wet areas, or rough terrain make standard trucks less efficient or less practical.",
+          "tags": [
+            "Soft ground",
+            "Rough terrain",
+            "Longer site hauls"
+          ],
+          "outcome": "Adds off-road hauling support that can work with site conditions instead of constantly fighting them."
+        },
+        {
+          "title": "Extra production capacity on contractor sites",
+          "body": "A strong fit when a contractor already has loading equipment on site and needs another operated truck to keep production moving.",
+          "tags": [
+            "Operator included",
+            "Contractor support",
+            "Production hauling"
+          ],
+          "outcome": "Helps reduce loading equipment downtime when material movement is the bottleneck."
+        }
+      ]
+    },
+    {
+      "type": "scope",
+      "heading": "Off-Road Dump Truck Services Include",
+      "subheading": "Heavy-duty hauling support for demanding commercial, civil, and contractor-led job sites.",
+      "items": [
+        {
+          "title": "Bulk Material Hauling",
+          "body": "Hauling rock, soil, clay, overburden, topsoil, fill, and excavation material across active job sites."
+        },
+        {
+          "title": "Soft Ground and Rough Terrain Access",
+          "body": "Well suited for muddy, uneven, sloped, or off-road conditions where highway trucks are not practical."
+        },
+        {
+          "title": "Additional Site Capacity",
+          "body": "Often used as an extra operated truck on larger jobs where contractors need more hauling support."
+        },
+        {
+          "title": "Operator Included",
+          "body": "Bellhouse provides the off-road dump truck with an experienced operator for safe and productive on-site hauling."
+        }
+      ]
+    },
+    {
+      "type": "jobsiteProof",
+      "eyebrow": "Production hauling",
+      "heading": "The advantage is moving material across the site, not just hauling it on the road.",
+      "body": "The Volvo A35 is built for on-site production hauling where ground conditions, haul distance, slope, or material volume make standard dump trucks a poor fit.",
+      "image": {
+        "src": "/assets/off-road-truck-dump-truck.jpg",
+        "alt": "Volvo A35 articulated off-road dump truck staged for large-site earthmoving"
       },
-      {
-        "title": "Soft Ground and Rough Terrain Access",
-        "description": "Well suited for muddy, uneven, sloped, or off-road conditions where highway trucks are not practical."
+      "caption": "Off-road hauling support is most useful when the site needs repeated internal material movement."
+    },
+    {
+      "type": "problemsPrevented",
+      "heading": "What Off-Road Hauling Helps Prevent",
+      "subheading": "Large sites can lose time when road trucks are asked to do work better suited to off-road equipment.",
+      "items": [
+        {
+          "problem": "Highway trucks can struggle with soft ground, rough haul roads, slopes, or muddy access.",
+          "solution": "The off-road dump truck is built for uneven site conditions and internal haul routes."
+        },
+        {
+          "problem": "Loading equipment can sit idle when the site does not have enough hauling capacity.",
+          "solution": "Bellhouse can add an operated Volvo A35 to help keep material moving between loading and dump areas."
+        },
+        {
+          "problem": "Material movement can slow grading, excavation, or site servicing when hauling is not planned with the site layout.",
+          "solution": "Haul distance, ground conditions, material type, and production needs are reviewed before scheduling."
+        }
+      ]
+    },
+    {
+      "type": "outcomes",
+      "heading": "What the Site Should Gain",
+      "subheading": "The goal is productive material movement that supports the pace of the equipment and crews already working on site.",
+      "items": [
+        {
+          "title": "More efficient internal hauling",
+          "body": "Material can move from cut areas to fill areas, stockpiles, or dump locations without depending only on road trucks."
+        },
+        {
+          "title": "Better support for rough conditions",
+          "body": "The truck is suited to uneven, soft, sloped, or active earthmoving conditions where ordinary hauling setups may slow down."
+        },
+        {
+          "title": "Improved production flow",
+          "body": "With an operator included, the off-road dump truck can slot into contractor-led work and support the loading equipment on site."
+        }
+      ]
+    },
+    {
+      "type": "equipment",
+      "heading": "Equipment Used",
+      "subheading": "Built for heavy hauling where standard trucks fall short.",
+      "items": [
+        {
+          "name": "Volvo A35 Articulated Off-Road Dump Truck",
+          "body": "A heavy-duty off-road haul truck designed for bulk production hauling on large and difficult job sites.",
+          "image": {
+            "src": "/assets/services/bellhouse-offroad-dump-truck-equipment-illustration.webp",
+            "alt": "Volvo A35 articulated off-road dump truck"
+          }
+        },
+        {
+          "name": "Excavator Loading Support",
+          "body": "Often paired with excavators or other loading equipment for efficient loading and continuous material movement.",
+          "image": {
+            "src": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp",
+            "alt": "Excavator loading support"
+          }
+        }
+      ]
+    },
+    {
+      "type": "process",
+      "heading": "How Our Off-Road Hauling Service Works",
+      "subheading": "Simple, reliable support for production hauling and large-site material movement.",
+      "image": {
+        "src": "/assets/services/site-preparations-land-clearing/large-site-preparation-excavation-equipment.webp",
+        "alt": "Large site preparation equipment working on bulk earthmoving and material movement"
       },
-      {
-        "title": "Additional Site Capacity",
-        "description": "Often used as an extra truck on larger jobs where contractors need more hauling support to keep production moving."
+      "caption": "Off-road dump truck rental is best planned around the loading equipment, haul route, dump location, and site conditions.",
+      "steps": [
+        {
+          "title": "Discuss the Job Scope",
+          "body": "We review the material type, haul distance, ground conditions, loading equipment, and production needs."
+        },
+        {
+          "title": "Confirm Site Fit and Availability",
+          "body": "We confirm whether the Volvo A35 is the right fit for your site conditions, access, and schedule."
+        },
+        {
+          "title": "Coordinate Mobilization",
+          "body": "Our team coordinates delivery and timing so the truck is ready when your project needs it."
+        },
+        {
+          "title": "On-Site Hauling with Operator",
+          "body": "Bellhouse supplies the machine and operator to support efficient material movement on site."
+        }
+      ]
+    },
+    {
+      "type": "contractorCta",
+      "eyebrow": "For builders and contractors",
+      "heading": "Need extra off-road hauling capacity on an active site?",
+      "body": "If your project needs bulk earthmoving support, fill movement, rough-site hauling, or an additional operated truck to support loading equipment, Bellhouse can review the scope, site conditions, and schedule.",
+      "image": {
+        "src": "/assets/off-road-hauling-services.png",
+        "alt": "Off-road dump truck hauling service for large-site earthmoving support"
       },
-      {
-        "title": "Operator Included",
-        "description": "Bellhouse provides the Volvo A35 with an experienced operator for safe and productive on-site hauling."
-      }
-    ]
-  },
-
-  "equipment": {
-    "heading": "Equipment Used",
-    "subheading": "Built for heavy hauling where standard trucks fall short.",
-    "items": [
-      {
-        "icon": "/assets/services/bellhouse-offroad-dump-truck-equipment-illustration.webp",
-        "title": "Volvo A35 Articulated Dump Truck",
-        "description": "A heavy-duty off-road haul truck, often referred to on site as a rock truck, designed for bulk production hauling on large and difficult job sites."
-      },
-      {
-        "icon": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp",
-        "title": "Excavator Loading Support",
-        "description": "Often paired with excavators for efficient loading and continuous material movement."
-      }
-    ]
-  },
-
-  "process": {
-    "heading": "How Our Off-Road Hauling Service Works",
-    "subheading": "Simple, reliable support for your site production needs.",
-    "steps": [
-      {
-        "title": "Discuss the Job Scope",
-        "description": "We review the material type, haul distance, ground conditions, and production needs."
-      },
-      {
-        "title": "Confirm Site Fit and Availability",
-        "description": "We confirm whether the Volvo A35 is the right fit for your site conditions, access, and schedule."
-      },
-      {
-        "title": "Coordinate Mobilization",
-        "description": "Our team coordinates delivery and timing so the truck is ready when your project needs it."
-      },
-      {
-        "title": "On-Site Hauling with Operator",
-        "description": "Bellhouse supplies the machine and operator to support efficient material movement on site."
-      }
-    ]
-  },
-
-  "serviceArea": {
-    "heading": "Service Area",
-    "content": "Volvo A35 off-road dump truck support is available for larger, rougher, and production-focused sites across Bellhouse contractor-heavy service areas.",
-    "locations": [
-      "Brantford",
-      "Hamilton",
-      "Cambridge",
-      "Ancaster",
-      "Woodstock",
-      "Simcoe",
-      "Paris",
-      "Burford",
-      "St. George"
-    ]
-  },
-
-  "faq": {
-    "heading": "Frequently Asked Questions",
-    "items": [
-      {
-        "question": "Do you offer the Volvo A35 with operator?",
-        "answer": "Yes. Bellhouse provides the Volvo A35 with an experienced operator."
-      },
-      {
-        "question": "How is your Volvo A35 rental priced?",
-        "answer": "Our Volvo A35 is typically supplied on an hourly basis with operator. Pricing depends on the job scope, site location, duration, and how the truck will be used on site."
-      },
-      {
-        "question": "Is fuel included?",
-        "answer": "Fuel arrangements depend on the project. For some jobs, Bellhouse supplies the fuel. On larger sites or longer-term work, the customer may supply fuel. We confirm that as part of the quote."
-      },
-      {
-        "question": "Can you work as an extra truck on a large site?",
-        "answer": "Yes. Our Volvo A35 is often used as additional hauling support on larger earthmoving and excavation projects where extra production capacity is needed."
-      },
-      {
-        "question": "What kind of material can you haul?",
-        "answer": "We can haul soil, fill, rock, clay, overburden, and other bulk excavation materials depending on the site and scope."
-      },
-      {
-        "question": "Is this suitable for muddy or rough sites?",
-        "answer": "Yes. The Volvo A35 is built for off-road conditions, including soft ground, grades, and uneven terrain."
-      },
-      {
-        "question": "What types of projects is this best for?",
-        "answer": "This service is a strong fit for subdivision work, bulk earthmoving, site servicing, large excavation jobs, pond work, pit support, and remote or rough access sites."
-      }
-    ]
-  },
-
-  "cta": {
-    "heading": "Need a Volvo A35 on Site?",
-    "subheading": "Contact Bellhouse Excavating for off-road dump truck rental with operator.",
-    "button": "Request a Quote"
-  },
-
-  "layout": {
-    "hero": {
-      "emphasis": "high",
-      "eyebrow": "Large-site hauling support",
-      "proofChips": [
-        "Volvo A35 with operator",
-        "Built for rough ground and bulk movement",
-        "Useful on active contractor-led earthworks"
+      "caption": "The Volvo A35 can support contractor-led earthmoving where material volume and ground conditions matter.",
+      "actions": [
+        {
+          "label": "Send Project Details",
+          "href": "/contractors#contractor-form",
+          "variant": "primary"
+        },
+        {
+          "label": "Call 519-752-8500",
+          "href": "tel:5197528500",
+          "variant": "secondary"
+        }
+      ]
+    },
+    {
+      "type": "resources",
+      "eyebrow": "Planning tool",
+      "heading": "Estimating bulk earthmoving before scheduling hauling support?",
+      "subheading": "For large sites, rough volume and truck-cycle planning help clarify whether off-road hauling support is the right fit.",
+      "cards": [
+        {
+          "title": "Excavation calculator for bulk material movement",
+          "body": "Rough out excavation volume and hauling requirements before scheduling on-site material movement.",
+          "href": "/resources/calculators/excavation",
+          "label": "Estimate Excavation Volume"
+        },
+        {
+          "title": "Gravel calculator for imported base planning",
+          "body": "Estimate aggregate volume, weight, and likely load count for imported base or site-prep material.",
+          "href": "/resources/calculators/gravel",
+          "label": "Estimate Aggregate Loads"
+        }
       ],
-      "secondaryLabel": "For Builders & Contractors",
-      "secondaryHref": "/contractors"
+      "actions": [
+        {
+          "label": "View All Resources",
+          "href": "/resources",
+          "variant": "secondary"
+        }
+      ]
     },
-    "finalCta": {
-      "mode": "contractor"
+    {
+      "type": "serviceAreas",
+      "heading": "Volvo A35 support by service area",
+      "body": "Volvo A35 off-road dump truck support is available for larger, rougher, and production-focused sites across Bellhouse contractor-heavy service areas.",
+      "areaSlugs": [
+        "brantford",
+        "hamilton",
+        "cambridge",
+        "ancaster",
+        "woodstock",
+        "simcoe"
+      ]
     },
-    "sections": [
-      "intro",
-      "contractorCta",
-      "equipment",
-      "proof",
-      "resources",
-      "process",
-      "localIntent",
-      "faq",
-      "relatedServices",
-      "reviews",
-      "finalCta"
-    ]
-  }
+    {
+      "type": "relatedServices",
+      "eyebrow": "Related services",
+      "heading": "Related earthmoving, hauling, and site support",
+      "serviceSlugs": [
+        "site-preparation-land-grading",
+        "dump-truck-rental",
+        "heavy-equipment-hauling",
+        "pond-digging-cleaning"
+      ]
+    },
+    {
+      "type": "reviews",
+      "eyebrow": "Testimonials",
+      "heading": "What customers say about Bellhouse",
+      "subheading": "Feedback from local homeowners, builders, and job-site customers Bellhouse has worked with.",
+      "limit": 3
+    },
+    {
+      "type": "faq",
+      "heading": "Frequently Asked Questions",
+      "items": [
+        {
+          "question": "Do you offer the Volvo A35 with operator?",
+          "answer": "Yes. Bellhouse provides the Volvo A35 with an experienced operator."
+        },
+        {
+          "question": "How is your Volvo A35 rental priced?",
+          "answer": "The Volvo A35 is typically supplied on an hourly basis with operator. Pricing depends on the job scope, site location, duration, and how the truck will be used on site."
+        },
+        {
+          "question": "Is fuel included?",
+          "answer": "Fuel arrangements depend on the project. For some jobs, Bellhouse supplies the fuel. On larger sites or longer-term work, the customer may supply fuel. We confirm that as part of the quote."
+        },
+        {
+          "question": "Can you work as an extra truck on a large site?",
+          "answer": "Yes. The Volvo A35 is often used as additional hauling support on larger earthmoving and excavation projects where extra production capacity is needed."
+        },
+        {
+          "question": "What kind of material can you haul?",
+          "answer": "The off-road dump truck can haul soil, fill, rock, clay, overburden, and other bulk excavation materials depending on the site and scope."
+        },
+        {
+          "question": "Is this suitable for muddy or rough sites?",
+          "answer": "Yes. The Volvo A35 is built for off-road conditions, including soft ground, grades, and uneven terrain."
+        },
+        {
+          "question": "What types of projects is this best for?",
+          "answer": "This service is a strong fit for subdivision work, bulk earthmoving, site servicing, large excavation jobs, pond work, pit support, and remote or rough access sites."
+        }
+      ]
+    },
+    {
+      "type": "finalCta",
+      "heading": "Need a Volvo A35 on Site?",
+      "body": "Send the site location, material type, haul distance, ground conditions, loading equipment, and timing and Bellhouse can review whether the Volvo A35 is the right fit.",
+      "actions": [
+        {
+          "label": "Request a Quote",
+          "href": "/contact",
+          "variant": "primary"
+        },
+        {
+          "label": "Send Project Details",
+          "href": "/contractors#contractor-form",
+          "variant": "secondary"
+        }
+      ]
+    }
+  ]
 }

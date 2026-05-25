@@ -4,26 +4,10 @@ import type {
   ServiceAreasSectionData,
   ServicesSectionData,
 } from '@/types/sections';
-import serviceData from '@/data/services.json';
-
-type ServiceDataItem = (typeof serviceData)[number];
-
-const servicesBySlug = new Map(
-  serviceData.map((service) => [service.slug, service]),
-);
+import { getServiceCardsBySlugs } from '@/data/services/index';
 
 function buildServiceCards(slugs: string[]) {
-  return slugs
-    .map((slug) => servicesBySlug.get(slug))
-    .filter((service): service is ServiceDataItem => Boolean(service))
-    .map((service) => ({
-      id: service.id,
-      title: service.card.title,
-      description: service.card.description,
-      image: service.card.image,
-      alt: service.card.alt,
-      href: `/services/${service.slug}`,
-    }));
+  return getServiceCardsBySlugs(slugs);
 }
 
 export const servicesHeroData: HeroSectionData = {
@@ -95,6 +79,7 @@ export const servicesServicesSection: ServicesSectionData = {
       items: buildServiceCards([
         'driveway-parking-lot-preparation',
         'site-preparation-land-grading',
+        'land-grading-drainage',
       ]),
     },
     {

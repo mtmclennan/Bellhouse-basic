@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import {
   Buildings,
@@ -12,7 +12,6 @@ import {
 
 import classes from './AudienceSection.module.scss';
 import type { AudienceSectionData } from '@/types/sections';
-import serviceData from '@/data/services.json';
 
 type AudienceSectionProps = {
   data: AudienceSectionData;
@@ -84,12 +83,6 @@ export default function AudienceSection({ data }: AudienceSectionProps) {
     muted: classes.toneMuted,
   };
 
-  const serviceTitleMap = useMemo(() => {
-    return new Map(
-      serviceData.map((service) => [service.slug, service.card.title]),
-    );
-  }, []);
-
   const sectionClassName = [
     classes.section,
     variantClassMap[backgroundVariant],
@@ -115,11 +108,7 @@ export default function AudienceSection({ data }: AudienceSectionProps) {
 
         <ul className={classes.grid}>
           {items.map((item) => {
-            const relatedTitles =
-              item.relatedServiceSlugs
-                ?.map((slug) => serviceTitleMap.get(slug))
-                .filter(Boolean)
-                .slice(0, 3) ?? [];
+            const relatedTitles = item.relatedServiceTitles?.slice(0, 3) ?? [];
 
             return (
               <li key={item.title} className={classes.cardItem}>

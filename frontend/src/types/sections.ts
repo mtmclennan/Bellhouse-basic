@@ -115,6 +115,7 @@ export type AudienceSectionItem = {
   icon?: 'house' | 'hammer' | 'leaf' | 'buildings';
   tag?: string;
   relatedServiceSlugs?: string[];
+  relatedServiceTitles?: string[];
 };
 
 export type AudienceSectionData = {

@@ -7,30 +7,20 @@ import type {
   ServicesSectionData,
   TestimonialsSectionData,
 } from '@/types/sections';
-import serviceData from '@/data/services.json';
+import { getServiceCardsBySlugs } from '@/data/services/index';
 import reviews from '@/data/reviews.json';
 import darryl from '../../../public/assets/about-bellhouse-excavating.jpg';
 import type { FaqSectionData } from '@/types/sections';
+import { GOOGLE_REVIEWS_URL } from '@/lib/reviewLinks';
 
-const aboutFeaturedServices = serviceData
-  .filter((service) =>
-    [
-      'foundation-excavation',
-      'site-preparation-land-grading',
-      'dirt-gravel-delivery',
-      'heavy-equipment-hauling',
-      'driveway-parking-lot-preparation',
-      'volvo-a35-off-road-dump-truck-rental',
-    ].includes(service.slug),
-  )
-  .map((service) => ({
-    id: service.id,
-    title: service.card.title,
-    description: service.card.description,
-    image: service.card.image,
-    alt: service.card.alt,
-    href: `/services/${service.slug}`,
-  }));
+const aboutFeaturedServices = getServiceCardsBySlugs([
+  'foundation-excavation',
+  'site-preparation-land-grading',
+  'dirt-gravel-delivery',
+  'heavy-equipment-hauling',
+  'driveway-parking-lot-preparation',
+  'volvo-a35-off-road-dump-truck-rental',
+]);
 
 export const aboutHeroData: HeroSectionData = {
   _type: 'heroSection',
@@ -206,7 +196,7 @@ export const aboutTestimonialsSection: TestimonialsSectionData = {
   items: reviews,
   footerLink: {
     label: 'Read Google Reviews',
-    href: '/reviews',
+    href: GOOGLE_REVIEWS_URL,
   },
   backgroundVariant: 'dark',
   backgroundTone: 'soft',

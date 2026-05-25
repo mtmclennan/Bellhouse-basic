@@ -3,9 +3,11 @@ import Link from 'next/link';
 import classes from './HomeServices.module.scss';
 import ServiceCard from './ServiceCard';
 
-import serviceData from '../../../data/services.json';
+import { getAllServiceCards } from '@/data/services/index';
 
 export default function HomeServices() {
+  const services = getAllServiceCards();
+
   return (
     <section className={classes.container}>
       <h2>Reliable Excavation and Trucking Services</h2>
@@ -14,14 +16,14 @@ export default function HomeServices() {
         Southern Ontario.
       </p>
       <ul className={classes.grid}>
-        {serviceData.map((service) => (
+        {services.map((service) => (
           <ServiceCard
             key={service.id}
-            image={service.card.image}
-            alt={service.card.alt}
-            description={service.card.description}
-            link={`/services/${service.slug}`}
-            title={service.card.title}
+            image={service.image}
+            alt={service.alt}
+            description={service.description}
+            link={service.href}
+            title={service.title}
           />
         ))}
       </ul>

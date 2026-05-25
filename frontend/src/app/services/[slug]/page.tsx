@@ -21,6 +21,14 @@ const cmsServiceSlugs = new Set([
   'foundation-excavation',
   'land-grading-drainage',
   'dirt-gravel-delivery',
+  'site-preparation-land-grading',
+  'driveway-parking-lot-preparation',
+  'dump-truck-rental',
+  'heavy-equipment-hauling',
+  'volvo-a35-off-road-dump-truck-rental',
+  'house-barn-demolition',
+  'pond-digging-cleaning',
+  'septic-system-installation',
 ]);
 
 function isCmsServiceSlug(slug: string) {

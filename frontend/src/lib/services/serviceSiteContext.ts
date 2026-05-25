@@ -1,6 +1,7 @@
 import { serviceAreaPageList } from '@/lib/serviceAreas';
 import { getAllServices } from '@/data/services/index';
 import reviewsData from '@/data/reviews.json';
+import { GOOGLE_REVIEWS_URL } from '@/lib/reviewLinks';
 
 export type ServiceAreaIndexEntry = {
   label: string;
@@ -68,7 +69,7 @@ export const SERVICE_SITE_CONTEXT = {
   business: {
     phoneLabel: 'Call or text Bellhouse',
     phoneHref: 'tel:5197528500',
-    reviewsHref: '/reviews', // TODO: replace with direct Google review URL
+    reviewsHref: GOOGLE_REVIEWS_URL,
     reviewRating: 5,
     reviewCount: 12,
   },

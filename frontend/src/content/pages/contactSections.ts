@@ -5,6 +5,7 @@ import type {
   HeroSectionData,
   ServiceAreasSectionData,
 } from '@/types/sections';
+import { GOOGLE_REVIEWS_URL } from '@/lib/reviewLinks';
 
 export const contactHeroData: HeroSectionData = {
   _type: 'heroSection',
@@ -207,7 +208,7 @@ export const contactFaqSection: FaqSectionData = {
           'If you are coordinating builder or trade work, the ',
           { label: 'contractor support page', href: '/contractors' },
           ' may be the better place to start. You can also ',
-          { label: 'read customer reviews', href: '/reviews' },
+          { label: 'read customer reviews', href: GOOGLE_REVIEWS_URL },
           ' before reaching out.',
         ],
       ],

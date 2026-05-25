@@ -1,5 +1,6 @@
 import type {
   AudienceSectionData,
+  AudienceSectionItem,
   FinalCtaSectionData,
   HeroSectionData,
   ProofSectionData,
@@ -8,19 +9,23 @@ import type {
   ServicesSectionData,
   TestimonialsSectionData,
 } from '@/types/sections';
-import serviceData from '@/data/services.json';
+import { getFeaturedServices, getServiceTitleMap } from '@/data/services/index';
 import reviews from '@/data/reviews.json';
+import { GOOGLE_REVIEWS_URL } from '@/lib/reviewLinks';
 
-const featuredServices = serviceData
-  .filter((service) => service.featuredOnHome)
-  .map((service) => ({
-    id: service.id,
-    title: service.card.title,
-    description: service.card.description,
-    image: service.card.image,
-    alt: service.card.alt,
-    href: `/services/${service.slug}`,
-  }));
+const featuredServices = getFeaturedServices();
+const serviceTitleMap = getServiceTitleMap();
+
+function addRelatedServiceTitles(item: AudienceSectionItem): AudienceSectionItem {
+  return {
+    ...item,
+    relatedServiceTitles:
+      item.relatedServiceSlugs
+        ?.map((slug) => serviceTitleMap.get(slug))
+        .filter((title): title is string => Boolean(title))
+        .slice(0, 3) ?? [],
+  };
+}
 
 export const homeHeroData: HeroSectionData = {
   _type: 'heroSection',
@@ -44,7 +49,7 @@ export const homeHeroData: HeroSectionData = {
     rating: 5.0,
     reviewCount: 3,
     label: '5.0 on Google',
-    href: '/reviews',
+    href: GOOGLE_REVIEWS_URL,
   },
   proofItems: [
     { label: 'Since 1982' },
@@ -125,7 +130,7 @@ export const homeAudienceSection: AudienceSectionData = {
   heading: 'Built for Homeowners, Contractors, Farms & Site Work',
   intro:
     'Bellhouse works with homeowners, builders, contractors, farms, and commercial projects that need excavation, grading, trucking, and dependable site support.',
-  items: [
+  items: ([
     {
       title: 'Homeowners',
       text: 'Excavation, grading, driveway preparation, backfilling, and site work for new builds, additions, and property improvements.',
@@ -176,7 +181,7 @@ export const homeAudienceSection: AudienceSectionData = {
         'dump-truck-rental',
       ],
     },
-  ],
+  ] satisfies AudienceSectionItem[]).map(addRelatedServiceTitles),
   backgroundVariant: 'light',
   backgroundTone: 'soft',
   footerLink: {
@@ -195,7 +200,7 @@ export const homeTestimonialsSection: TestimonialsSectionData = {
   items: reviews,
   footerLink: {
     label: 'Read Google Reviews',
-    href: '/reviews',
+    href: GOOGLE_REVIEWS_URL,
   },
   backgroundVariant: 'dark',
   backgroundTone: 'default',
@@ -248,7 +253,7 @@ export const homeResourcesSection: ResourcesSectionData = {
         'Best for foundation excavation, site prep, and bulk material planning.',
       icon: 'calculator',
       actions: [
-        { label: 'Open Calculator', href: '/resources/excavation-calculator' },
+        { label: 'Open Calculator', href: '/resources/calculators/excavation' },
         {
           label: 'Related Service',
           href: '/services/foundation-excavation',
@@ -266,7 +271,7 @@ export const homeResourcesSection: ResourcesSectionData = {
         'Useful for driveway prep, base material, and rough site access planning.',
       icon: 'truck',
       actions: [
-        { label: 'Open Calculator', href: '/resources/gravel-calculator' },
+        { label: 'Open Calculator', href: '/resources/calculators/gravel' },
         {
           label: 'Related Service',
           href: '/services/driveway-parking-lot-preparation',
@@ -284,7 +289,7 @@ export const homeResourcesSection: ResourcesSectionData = {
         'Useful for yard grading, restoration, and landscape material planning.',
       icon: 'layers',
       actions: [
-        { label: 'Open Calculator', href: '/resources/topsoil-calculator' },
+        { label: 'Open Calculator', href: '/resources/calculators/topsoil' },
         {
           label: 'Related Service',
           href: '/services/dirt-gravel-delivery',
