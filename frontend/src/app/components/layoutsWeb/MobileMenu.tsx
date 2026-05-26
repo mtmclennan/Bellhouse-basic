@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import classes from './MobileMenu.module.scss';
 import { Phone, ChatTextIcon, CaretDown } from '@phosphor-icons/react';
 import { useEffect, useId, useState } from 'react';
@@ -16,10 +17,37 @@ type MobileMenuProps = {
   setShowMenu: (show: boolean) => void;
 };
 
-const MobileMenu = ({ showMenu, setShowMenu }: MobileMenuProps) => {
+const mobileResourceItems = resourceNavigationItems
+  .filter((item) =>
+    [
+      '/resources/calculators',
+      '/resources/calculators/excavation',
+      '/resources/calculators/gravel',
+    ].includes(item.href),
+  )
+  .map((item) =>
+    item.href === '/resources/calculators'
+      ? { ...item, label: 'Calculators' }
+      : item,
+  );
+
+const MobileMenu = ({
+  servicesClassname,
+  aboutClassname,
+  contactClassname,
+  showMenu,
+  setShowMenu,
+}: MobileMenuProps) => {
   const menuClass = showMenu ? classes.menu : classes.menuHidden;
   const resourcesPanelId = useId();
   const [resourcesOpen, setResourcesOpen] = useState(false);
+  const pathname = usePathname();
+  const resourcesActive = pathname?.startsWith('/resources');
+
+  const getNavLinkClass = (isActive: boolean) =>
+    [classes.navLink, isActive ? classes.activeLink : '']
+      .filter(Boolean)
+      .join(' ');
 
   useEffect(() => {
     if (!showMenu) {
@@ -46,22 +74,21 @@ const MobileMenu = ({ showMenu, setShowMenu }: MobileMenuProps) => {
     <div className={menuClass}>
       <ul>
         <li className={classes.link}>
-          <Link onClick={() => setShowMenu(false)} href="/">
-            Home
-          </Link>
-        </li>
-
-        <li className={classes.link}>
-          <Link onClick={() => setShowMenu(false)} href="/services">
+          <Link
+            className={getNavLinkClass(servicesClassname === 'active')}
+            onClick={() => setShowMenu(false)}
+            href="/services"
+          >
             Services
           </Link>
         </li>
 
-        {/* RESOURCES DROPDOWN */}
         <li className={classes.link}>
           <button
             type="button"
-            className={classes.dropdownToggle}
+            className={`${classes.dropdownToggle} ${
+              resourcesActive ? classes.activeLink : ''
+            }`.trim()}
             aria-expanded={resourcesOpen}
             aria-controls={resourcesPanelId}
             onClick={() => setResourcesOpen(!resourcesOpen)}
@@ -75,9 +102,12 @@ const MobileMenu = ({ showMenu, setShowMenu }: MobileMenuProps) => {
 
           {resourcesOpen && (
             <div className={classes.subMenu} id={resourcesPanelId}>
-              {resourceNavigationItems.map((item) => (
+              {mobileResourceItems.map((item) => (
                 <Link
                   key={item.href}
+                  className={
+                    pathname === item.href ? classes.activeSubLink : ''
+                  }
                   onClick={() => setShowMenu(false)}
                   href={item.href}
                 >
@@ -89,28 +119,41 @@ const MobileMenu = ({ showMenu, setShowMenu }: MobileMenuProps) => {
         </li>
 
         <li className={classes.link}>
-          <Link onClick={() => setShowMenu(false)} href="/about">
+          <Link
+            className={getNavLinkClass(aboutClassname === 'active')}
+            onClick={() => setShowMenu(false)}
+            href="/about"
+          >
             About
           </Link>
         </li>
 
         <li className={classes.link}>
-          <Link onClick={() => setShowMenu(false)} href="/contact">
+          <Link
+            className={getNavLinkClass(contactClassname === 'active')}
+            onClick={() => setShowMenu(false)}
+            href="/contact"
+          >
             Contact
           </Link>
         </li>
 
-        <li className={classes.link}>
-          <a className={classes.phone} href="tel:5197528500">
-            <Phone size={30} />
-            <h3>519-752-8500</h3>
+        <li className={classes.actionRow}>
+          <a
+            className={`${classes.actionButton} ${classes.callButton}`}
+            href="tel:5197528500"
+            onClick={() => setShowMenu(false)}
+          >
+            <Phone size={22} weight="duotone" />
+            <span>Call</span>
           </a>
-        </li>
-
-        <li className={classes.link}>
-          <a className={classes.phone} href="sms:5197528500">
-            <ChatTextIcon size={30} />
-            Text Us
+          <a
+            className={`${classes.actionButton} ${classes.textButton}`}
+            href="sms:5197528500"
+            onClick={() => setShowMenu(false)}
+          >
+            <ChatTextIcon size={22} weight="duotone" />
+            <span>Text</span>
           </a>
         </li>
       </ul>

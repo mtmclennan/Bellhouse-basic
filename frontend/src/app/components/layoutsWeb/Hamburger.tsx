@@ -29,11 +29,17 @@ const Hamburger = ({ setShowMenu, showMenu }: HamburgerProps) => {
   }, [showMenu]);
 
   return (
-    <div className={classes.ham} onClick={hamburgerHandler}>
+    <button
+      type="button"
+      className={classes.ham}
+      onClick={hamburgerHandler}
+      aria-label={showMenu ? 'Close navigation menu' : 'Open navigation menu'}
+      aria-expanded={showMenu}
+    >
       <div className={topBarClass}></div>
       <div className={midBarClass}></div>
       <div className={bottomBarClass}></div>
-    </div>
+    </button>
   );
 };
 

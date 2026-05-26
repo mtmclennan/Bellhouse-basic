@@ -14,9 +14,9 @@ const Services = () => {
   return (
     <Fragment>
       <HeroSection data={servicesHeroData} />
-      <ServicesSection data={servicesServicesSection} />
+      <ServicesSection data={servicesServicesSection} revealOnScroll />
       <ServiceAreasSection data={servicesServiceAreasSection} />
-      <FinalCtaSection data={servicesFinalCtaSection} />
+      <FinalCtaSection data={servicesFinalCtaSection} revealOnScroll />
     </Fragment>
   );
 };

@@ -8,9 +8,13 @@ import classes from './FinalCtaSection.module.scss';
 
 type FinalCtaSectionProps = {
   data: FinalCtaSectionData;
+  revealOnScroll?: boolean;
 };
 
-export default function FinalCtaSection({ data }: FinalCtaSectionProps) {
+export default function FinalCtaSection({
+  data,
+  revealOnScroll = false,
+}: FinalCtaSectionProps) {
   const {
     eyebrow,
     heading,
@@ -72,6 +76,7 @@ export default function FinalCtaSection({ data }: FinalCtaSectionProps) {
         variantClassMap[backgroundVariant],
         toneClassMap[backgroundTone],
         densityClassMap[density],
+        revealOnScroll ? classes.revealOnScroll : '',
       ]
         .filter(Boolean)
         .join(' ')}

@@ -38,6 +38,8 @@
 
 .logoLink {
   display: inline-flex;
+
+  @include m.focusRing(rgba(v.$cat-yellow2, 0.72), 0.35rem, 0.8rem);
 }
 
 .logo {
@@ -59,9 +61,11 @@
   }
 
   &:hover span,
-  &:focus span {
+  &:focus-visible span {
     opacity: 0.9;
   }
+
+  @include m.focusRing(rgba(v.$cat-yellow2, 0.72), 0.35rem, 0.8rem);
 
   @include m.mediaDesktop {
     justify-content: flex-start;
@@ -78,10 +82,12 @@
     transform 0.2s ease;
 
   &:hover,
-  &:focus {
+  &:focus-visible {
     color: v.$btn-main;
     transform: translateY(-1px);
   }
+
+  @include m.focusRing(rgba(v.$cat-yellow2, 0.72), 0.35rem, 0.8rem);
 }
 
 .linkGrid {
@@ -130,10 +136,12 @@
       opacity 0.2s ease;
 
     &:hover,
-    &:focus {
+    &:focus-visible {
       color: v.$btn-main;
       opacity: 1;
     }
+
+    @include m.focusRing(rgba(v.$cat-yellow2, 0.72), 0.25rem, 0.6rem);
   }
 }
 
@@ -161,8 +169,10 @@
     transition: opacity 0.2s ease;
 
     &:hover,
-    &:focus {
+    &:focus-visible {
       opacity: 0.8;
     }
+
+    @include m.focusRing(rgba(v.$cat-yellow2, 0.72), 0.25rem, 0.6rem);
   }
 }

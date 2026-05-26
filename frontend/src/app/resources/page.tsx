@@ -3,22 +3,21 @@ import Link from 'next/link';
 import SectionWrapper from '@/components/layout/SectionWrapper';
 import { ResourceBreadcrumbs } from '@/features/calculators/components/ResourceBreadcrumbs';
 import { CalculatorResourceCardGrid } from '@/features/calculators/components/CalculatorResourceCardGrid';
-import { resourceBlogPosts } from '@/data/resourceBlog';
 import { validateMetadata } from '@/lib/utils/seoValidation';
 import classes from '../calculators/page.module.scss';
 import shellClasses from '@/features/calculators/components/CalculatorPageShell.module.scss';
 
 export const metadata: Metadata = {
-  title: 'Excavation Resources, Calculators & Articles | Bellhouse',
+  title: 'Excavation Resources & Calculators | Bellhouse',
   description:
-    'Explore Bellhouse resources for excavation planning, including calculator tools and practical project articles tied to Bellhouse services.',
+    'Explore Bellhouse resources for excavation planning, including calculator tools tied to Bellhouse services.',
   alternates: {
     canonical: 'https://bellhouseexcavating.ca/resources',
   },
   openGraph: {
-    title: 'Excavation Resources, Calculators & Articles | Bellhouse',
+    title: 'Excavation Resources & Calculators | Bellhouse',
     description:
-      'Bellhouse resource hub for calculators, planning tools, and practical excavation articles.',
+      'Bellhouse resource hub for calculators and practical excavation planning tools.',
     url: 'https://bellhouseexcavating.ca/resources',
     siteName: 'Bellhouse Excavating',
     type: 'website',
@@ -44,23 +43,23 @@ export default function ResourcesPage() {
               ]}
             />
             <p className={classes.eyebrow}>Bellhouse resources</p>
-            <h1>Calculators and project guidance for excavation work.</h1>
+            <h1>Calculators and planning tools for excavation work.</h1>
             <p className={classes.heroText}>
               Bellhouse resources now live under one section so visitors can
-              move cleanly between estimating tools and practical project
-              guidance without competing hubs or duplicate paths.
+              move cleanly between estimating tools and related service paths
+              without competing hubs or duplicate routes.
             </p>
             <p className={classes.heroText}>
-              Start with calculators when you need a quick planning number, or
-              move into the blog section when you want a clearer read on scope,
-              sequencing, and service fit before requesting a quote.
+              Start with calculators when you need a quick planning number,
+              then move into the matching service page or quote request when
+              the job needs review.
             </p>
             <div className={classes.heroActions}>
               <Link className={classes.primaryAction} href="/resources/calculators">
                 Browse Calculators
               </Link>
-              <Link className={classes.secondaryAction} href="/resources/blog">
-                Visit the Blog
+              <Link className={classes.secondaryAction} href="/services">
+                View Services
               </Link>
             </div>
           </div>
@@ -69,9 +68,9 @@ export default function ResourcesPage() {
             <p className={classes.heroCardTitle}>What you will find here</p>
             <ul className={classes.heroCardList}>
               <li>A calculator hub for excavation, gravel, and topsoil planning</li>
-              <li>A blog section for practical Bellhouse project guidance</li>
               <li>Direct paths into service pages and quote requests</li>
-              <li>One umbrella section instead of split resource clusters</li>
+              <li>Practical early estimates before site-specific quote review</li>
+              <li>One umbrella section for planning tools</li>
             </ul>
           </div>
         </div>
@@ -93,52 +92,6 @@ export default function ResourcesPage() {
           Need the full calculator section?{' '}
           <Link href="/resources/calculators">Open Bellhouse calculators</Link>.
         </p>
-      </SectionWrapper>
-
-      <SectionWrapper>
-        <div className={shellClasses.relatedIntro}>
-          <p className={classes.sectionEyebrow}>Blog section</p>
-          <h2>Project guidance lives under the same resource umbrella.</h2>
-          <p>
-            Bellhouse blog content sits beside the calculators so planning
-            tools and supporting articles are discoverable in one place.
-          </p>
-        </div>
-
-        <div className={shellClasses.relatedGrid}>
-          <article className={shellClasses.relatedCard}>
-            <h3>Bellhouse excavation blog</h3>
-            <p>
-              Browse practical articles that can support planning, service
-              selection, and project-readiness decisions before you move into a
-              quote request.
-            </p>
-            <div className={shellClasses.relatedActions}>
-              <Link className={classes.primaryAction} href="/resources/blog">
-                Visit the Blog
-              </Link>
-            </div>
-          </article>
-          <article className={shellClasses.relatedCard}>
-            <h3>
-              {resourceBlogPosts.length > 0
-                ? `${resourceBlogPosts.length} published article${
-                    resourceBlogPosts.length === 1 ? '' : 's'
-                  }`
-                : 'Blog architecture is ready for articles'}
-            </h3>
-            <p>
-              {resourceBlogPosts.length > 0
-                ? 'Published articles will appear under the nested `/resources/blog/*` structure for cleaner discovery and stronger topical grouping.'
-                : 'The nested blog routes are in place so Bellhouse can add practical articles without splitting them away from calculators and service-support content.'}
-            </p>
-            <div className={shellClasses.relatedActions}>
-              <Link className={classes.secondaryAction} href="/services">
-                View Services
-              </Link>
-            </div>
-          </article>
-        </div>
       </SectionWrapper>
 
       <SectionWrapper
@@ -167,10 +120,6 @@ export default function ResourcesPage() {
                 Open Calculators
               </Link>
             </div>
-            <p className={classes.ctaNote}>
-              Looking for the article section instead? Visit the{' '}
-              <Link href="/resources/blog">Bellhouse blog</Link>.
-            </p>
           </div>
         </div>
       </SectionWrapper>

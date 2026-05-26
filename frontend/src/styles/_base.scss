@@ -10,6 +10,14 @@
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto;
+  }
+}
+
 html {
   font-size: 62.5%;
 }
@@ -189,6 +197,19 @@ button {
 input:focus,
 textarea:focus {
   outline: none;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid rgba(v.$cat-yellow2, 0.72);
+  outline-offset: 0.2rem;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid rgba(v.$cat-yellow2, 0.72);
+  outline-offset: 0.3rem;
 }
 
 a {

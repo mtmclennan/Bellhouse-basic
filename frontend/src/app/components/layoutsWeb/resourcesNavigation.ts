@@ -10,5 +10,4 @@ export const resourceNavigationItems = [
   },
   { href: '/resources/calculators/gravel', label: 'Gravel Calculator' },
   { href: '/resources/calculators/topsoil', label: 'Topsoil Calculator' },
-  { href: '/resources/blog', label: 'Blog' },
 ] as const;

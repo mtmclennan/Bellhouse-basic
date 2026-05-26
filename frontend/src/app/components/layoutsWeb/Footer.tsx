@@ -78,7 +78,6 @@ const footerSections = [
         href: '/resources/calculators/topsoil',
         label: 'Topsoil Calculator',
       },
-      { href: '/resources/blog', label: 'Blog' },
     ],
   },
   {
@@ -145,7 +144,7 @@ const Footer = () => {
       </div>
 
       <div className={classes.bottom}>
-        <p>{`© ${year} Bellhouse Excavating`}</p>
+        <p>&copy; {year} Bellhouse Excavating</p>
 
         <small className={classes.siteBy}>
           <a

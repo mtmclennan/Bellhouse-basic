@@ -81,6 +81,8 @@
       height: 100%;
       padding-top: 0;
     }
+
+    @include m.focusRing(rgba(v.$cat-yellow2, 0.75), 0.35rem, 0.8rem);
   }
 }
 
@@ -115,6 +117,11 @@
     &:hover {
       color: v.$color-primary;
       transform: scale(1.04);
+    }
+
+    &:focus-visible {
+      outline: 3px solid rgba(v.$cat-yellow2, 0.65);
+      outline-offset: 0.3rem;
     }
   }
 }
@@ -163,6 +170,8 @@
     color: v.$text-color-light;
     transform: scale(1.04);
   }
+
+  @include m.focusRing(rgba(v.$cat-yellow2, 0.72), 0.25rem, 0.8rem);
 }
 
 .menuItems {
@@ -202,6 +211,7 @@
     color 0.15s ease;
 
   &:hover,
+  &:focus-visible,
   &[data-focus] {
     background: rgba(255, 255, 255, 0.08);
     color: #ffffff;
@@ -237,6 +247,8 @@
     border-color: v.$color-primary;
     transform: scale(1.05);
   }
+
+  @include m.focusRing(rgba(v.$cat-yellow2, 0.72), 0.3rem, 0.8rem);
 }
 
 .phone {
@@ -253,6 +265,8 @@
     font-size: 2.4rem;
     font-weight: 100;
   }
+
+  @include m.focusRing(rgba(v.$cat-yellow2, 0.72), 0.3rem, 0.8rem);
 }
 
 .mobileCall {

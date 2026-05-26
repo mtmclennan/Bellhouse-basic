@@ -84,15 +84,23 @@ const MainHeader = () => {
             </Link>
           </div>
 
-          <ul className={classes.desktopNav}>
+          <ul className={classes.desktopNav} aria-label="Main navigation">
             <li>
-              <Link className={homeClassname} href="/">
+              <Link
+                className={homeClassname}
+                href="/"
+                aria-current={pathname === '/' ? 'page' : undefined}
+              >
                 Home
               </Link>
             </li>
 
             <li>
-              <Link className={servicesClassname} href="/services">
+              <Link
+                className={servicesClassname}
+                href="/services"
+                aria-current={pathname?.startsWith('/services') ? 'page' : undefined}
+              >
                 Services
               </Link>
             </li>
@@ -117,14 +125,22 @@ const MainHeader = () => {
             </li>
 
             <li>
-              <Link className={contactClassname} href="/contact">
-                Contact
+              <Link
+                className={aboutClassname}
+                href="/about"
+                aria-current={pathname === '/about' ? 'page' : undefined}
+              >
+                About
               </Link>
             </li>
 
             <li>
-              <Link className={aboutClassname} href="/about">
-                About
+              <Link
+                className={contactClassname}
+                href="/contact"
+                aria-current={pathname === '/contact' ? 'page' : undefined}
+              >
+                Contact
               </Link>
             </li>
           </ul>

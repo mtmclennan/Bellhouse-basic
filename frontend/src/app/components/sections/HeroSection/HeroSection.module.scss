@@ -323,3 +323,11 @@
     transform: translateY(0);
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .content {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

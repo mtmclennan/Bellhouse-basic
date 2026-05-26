@@ -18,6 +18,11 @@
   border: 1px solid rgba(255, 255, 255, 0.14);
   box-shadow: 0 1rem 2rem -1.4rem rgba(0, 0, 0, 0.85);
   cursor: pointer;
+
+  &:focus-visible {
+    outline: 3px solid rgba(v.$cat-yellow2, 0.75);
+    outline-offset: 0.3rem;
+  }
 }
 
 @media (min-width: 800px) {

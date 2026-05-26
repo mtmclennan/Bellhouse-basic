@@ -41,14 +41,15 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
         className={`${classes.header} ${isOverlayRoute ? classes.headerOverlay : ''}`}
       >
         <nav className={classes.nav}>
-          <div className={classes.logo}>
-            <Link href="/">
+          <div className={classes.logoWrap}>
+            <Link href="/" aria-label="Bellhouse Excavating home">
               <Image
                 src={logo}
                 alt="Bellhouse Excavating"
                 width={250}
                 priority
                 height={200}
+                className={classes.logoImg}
                 style={{
                   width: '100%',
                   height: 'auto',
@@ -56,14 +57,17 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
               />
             </Link>
           </div>
-          <ul>
+          <ul className={classes.desktopNav} aria-label="Main navigation">
             <li>
-              <Link legacyBehavior={true} href="/">
+              <Link href="/" aria-current={currentRoute === '/' ? 'page' : undefined}>
                 Home
               </Link>
             </li>
             <li>
-              <Link legacyBehavior={true} href="/services">
+              <Link
+                href="/services"
+                aria-current={currentRoute.startsWith('/services') ? 'page' : undefined}
+              >
                 Services
               </Link>
             </li>
@@ -86,26 +90,28 @@ const MainHeader = ({ currentRoute }: { currentRoute: string }) => {
               </Menu>
             </li>
             <li>
-              <Link legacyBehavior={true} href="/about">
+              <Link href="/about" aria-current={currentRoute === '/about' ? 'page' : undefined}>
                 About
               </Link>
             </li>
             <li>
-              <Link legacyBehavior={true} href="/contact">
+              <Link href="/contact" aria-current={currentRoute === '/contact' ? 'page' : undefined}>
                 Contact
               </Link>
             </li>
           </ul>
-          <div className={classes.actionContainer}>
-            <button onClick={() => router.push('/contact')}>
+          <div className={classes.rightSide}>
+            <button
+              type="button"
+              className={classes.headerCta}
+              onClick={() => router.push('/contact')}
+            >
               Request a Quote
             </button>
-            <li>
-              <a className={classes.phone} href="tel:5197528500">
-                <Phone size={24} color={'#ffc302'} />
-                <h3>519-752-8500</h3>
-              </a>
-            </li>
+            <a className={classes.phone} href="tel:5197528500">
+              <Phone size={24} color={'#ffc302'} />
+              <span>519-752-8500</span>
+            </a>
           </div>
           <Hamburger
             showMenu={showMobileMenu}

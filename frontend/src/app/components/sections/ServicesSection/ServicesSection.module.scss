@@ -3,9 +3,11 @@
 
 .section {
   padding: 5.6rem 0 6.4rem;
+  scroll-margin-top: 8rem;
 
   @include m.mediaDesktop {
     padding: 6.6rem 0 7.6rem;
+    scroll-margin-top: 11rem;
   }
 }
 
@@ -44,6 +46,35 @@
   font-size: 1.72rem;
   line-height: 1.62;
   text-align: center;
+}
+
+.sectionReveal {
+  .eyebrow,
+  .container > h2,
+  .intro {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity 0.52s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.52s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .container > h2 {
+    transition-delay: 0.08s;
+  }
+
+  .intro {
+    transition-delay: 0.14s;
+  }
+}
+
+.sectionVisible {
+  .eyebrow,
+  .container > h2,
+  .intro {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .inlineLink {
@@ -117,6 +148,33 @@
 
 .group {
   width: 100%;
+}
+
+.groupReveal {
+  .groupHeader {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity 0.48s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.48s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .grid > li {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+.groupVisible {
+  .groupHeader {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.groupReveal .isVisible > li {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .groupHeader {
@@ -274,19 +332,28 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .grid > li {
-    opacity: 1;
-    transform: none;
+  .sectionReveal {
+    .eyebrow,
+    .container > h2,
+    .intro {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
   }
 
-  .isVisible > li {
-    transition: none;
+  .groupReveal {
+    .groupHeader,
+    .grid > li {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
   }
-}
-@media (prefers-reduced-motion: reduce) {
+
   .grid > li {
-    transition: none;
     opacity: 1;
     transform: none;
+    transition: none;
   }
 }

@@ -116,8 +116,8 @@ export default function CalculatorsPage() {
               <Link className={classes.primaryAction} href="/contact">
                 Request a Quote
               </Link>
-              <Link className={classes.secondaryAction} href="/resources/blog">
-                Visit the Blog
+              <Link className={classes.secondaryAction} href="/services">
+                View Services
               </Link>
             </div>
             <p className={classes.ctaNote}>

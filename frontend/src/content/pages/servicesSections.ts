@@ -16,6 +16,10 @@ export const servicesHeroData: HeroSectionData = {
   headline: 'Excavation, Hauling, Grading & Contractor Site Services in Brant County',
   subheadline:
     'Use this services hub to find the right Bellhouse service for local excavation, truck hauling, site grading, material delivery, equipment moves, and active contractor-led work.',
+  primaryAction: {
+    label: 'Explore Services',
+    href: '#services-list',
+  },
   proofItems: [
     { label: 'Excavation' },
     { label: 'Trucking & Hauling' },
@@ -30,6 +34,7 @@ export const servicesHeroData: HeroSectionData = {
 
 export const servicesServicesSection: ServicesSectionData = {
   _type: 'servicesSection',
+  id: 'services-list',
   eyebrow: 'Service Hub',
   heading: 'Explore Excavation, Hauling, and Site Services',
   intro: [

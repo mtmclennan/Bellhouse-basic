@@ -96,6 +96,7 @@ export type ServicesSectionGroup = {
 
 export type ServicesSectionData = {
   _type: 'servicesSection';
+  id?: string;
   eyebrow?: string;
   heading: string;
   intro?: RichTextParagraph;
