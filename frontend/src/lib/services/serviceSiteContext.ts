@@ -1,7 +1,7 @@
 import { serviceAreaPageList } from '@/lib/serviceAreas';
 import { getAllServices } from '@/data/services/index';
 import reviewsData from '@/data/reviews.json';
-import { GOOGLE_REVIEWS_URL } from '@/lib/reviewLinks';
+import { GOOGLE_REVIEW_SUMMARY, GOOGLE_REVIEWS_URL } from '@/lib/reviewLinks';
 
 export type ServiceAreaIndexEntry = {
   label: string;
@@ -20,6 +20,7 @@ export type ServiceBusinessContext = {
   reviewsHref: string;
   reviewRating: number;
   reviewCount: number;
+  reviewLabel: string;
 };
 
 export type ServiceReview = {
@@ -70,8 +71,9 @@ export const SERVICE_SITE_CONTEXT = {
     phoneLabel: 'Call or text Bellhouse',
     phoneHref: 'tel:5197528500',
     reviewsHref: GOOGLE_REVIEWS_URL,
-    reviewRating: 5,
-    reviewCount: 12,
+    reviewRating: GOOGLE_REVIEW_SUMMARY.rating,
+    reviewCount: GOOGLE_REVIEW_SUMMARY.reviewCount,
+    reviewLabel: GOOGLE_REVIEW_SUMMARY.label,
   },
   areaIndex: buildServiceAreaIndex(),
   serviceIndex: buildServiceIndex(),

@@ -160,6 +160,7 @@
 
   .primaryAction,
   .secondaryAction,
+  .tertiaryAction,
   .phoneLink {
     min-height: 4.1rem;
   }
@@ -311,6 +312,12 @@
 }
 
 .secondaryAction {
+  @include m.btnSec;
+  width: 100%;
+  justify-content: center;
+}
+
+.tertiaryAction {
   @include m.btnSec;
   width: 100%;
   justify-content: center;

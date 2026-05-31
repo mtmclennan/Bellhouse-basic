@@ -11,12 +11,14 @@ import type {
 } from '@/types/sections';
 import { getFeaturedServices, getServiceTitleMap } from '@/data/services/index';
 import reviews from '@/data/reviews.json';
-import { GOOGLE_REVIEWS_URL } from '@/lib/reviewLinks';
+import { GOOGLE_REVIEWS_URL, GOOGLE_REVIEW_SUMMARY } from '@/lib/reviewLinks';
 
 const featuredServices = getFeaturedServices();
 const serviceTitleMap = getServiceTitleMap();
 
-function addRelatedServiceTitles(item: AudienceSectionItem): AudienceSectionItem {
+function addRelatedServiceTitles(
+  item: AudienceSectionItem,
+): AudienceSectionItem {
   return {
     ...item,
     relatedServiceTitles:
@@ -45,19 +47,14 @@ export const homeHeroData: HeroSectionData = {
     label: 'Call 519-752-8500',
     href: 'tel:5197528500',
   },
-  review: {
-    rating: 5.0,
-    reviewCount: 3,
-    label: '5.0 on Google',
-    href: GOOGLE_REVIEWS_URL,
-  },
+  review: GOOGLE_REVIEW_SUMMARY,
   proofItems: [
     { label: 'Since 1982' },
     { label: 'Licensed & Insured' },
     { label: 'Residential, Commercial & Contractor Work' },
     { label: 'Serving Brantford, Brant County & Nearby Areas' },
   ],
-  density: 'compact',
+  density: 'default',
   theme: 'dark',
   overlay: 'transparent',
   align: 'center',
@@ -130,58 +127,60 @@ export const homeAudienceSection: AudienceSectionData = {
   heading: 'Built for Homeowners, Contractors, Farms & Site Work',
   intro:
     'Bellhouse works with homeowners, builders, contractors, farms, and commercial projects that need excavation, grading, trucking, and dependable site support.',
-  items: ([
-    {
-      title: 'Homeowners',
-      text: 'Excavation, grading, driveway preparation, backfilling, and site work for new builds, additions, and property improvements.',
-      href: '/services',
-      linkLabel: 'Explore homeowner services',
-      icon: 'house',
-      tag: 'Residential Projects',
-      relatedServiceSlugs: [
-        'foundation-excavation',
-        'driveway-parking-lot-preparation',
-      ],
-    },
-    {
-      title: 'Builders & Contractors',
-      text: 'Excavation, trucking, spoil export, aggregate import, and site support lined up around real schedules and field conditions.',
-      href: '/contractors',
-      linkLabel: 'See contractor support',
-      icon: 'hammer',
-      tag: 'Builder & GC Support',
-      relatedServiceSlugs: [
-        'site-preparation-land-grading',
-        'heavy-equipment-hauling',
-        'volvo-a35-off-road-dump-truck-rental',
-      ],
-    },
-    {
-      title: 'Farms & Rural Properties',
-      text: 'Pond digging, demolition, grading, septic work, and rural excavation support for agricultural and country properties.',
-      href: '/services',
-      linkLabel: 'Explore rural services',
-      icon: 'leaf',
-      tag: 'Rural Properties',
-      relatedServiceSlugs: [
-        'pond-digging-cleaning',
-        'house-barn-demolition',
-        'septic-system-installation',
-      ],
-    },
-    {
-      title: 'Commercial & Development Work',
-      text: 'Site preparation, haul-out, material delivery, and larger-scale excavation support for commercial and development projects.',
-      href: '/services',
-      linkLabel: 'See service capabilities',
-      icon: 'buildings',
-      tag: 'Commercial Site Work',
-      relatedServiceSlugs: [
-        'site-preparation-land-grading',
-        'dump-truck-rental',
-      ],
-    },
-  ] satisfies AudienceSectionItem[]).map(addRelatedServiceTitles),
+  items: (
+    [
+      {
+        title: 'Homeowners',
+        text: 'Excavation, grading, driveway preparation, backfilling, and site work for new builds, additions, and property improvements.',
+        href: '/services',
+        linkLabel: 'Explore homeowner services',
+        icon: 'house',
+        tag: 'Residential Projects',
+        relatedServiceSlugs: [
+          'foundation-excavation',
+          'driveway-parking-lot-preparation',
+        ],
+      },
+      {
+        title: 'Builders & Contractors',
+        text: 'Excavation, trucking, spoil export, aggregate import, and site support lined up around real schedules and field conditions.',
+        href: '/contractors',
+        linkLabel: 'See contractor support',
+        icon: 'hammer',
+        tag: 'Builder & GC Support',
+        relatedServiceSlugs: [
+          'site-preparation-land-grading',
+          'heavy-equipment-hauling',
+          'volvo-a35-off-road-dump-truck-rental',
+        ],
+      },
+      {
+        title: 'Farms & Rural Properties',
+        text: 'Pond digging, demolition, grading, septic work, and rural excavation support for agricultural and country properties.',
+        href: '/services',
+        linkLabel: 'Explore rural services',
+        icon: 'leaf',
+        tag: 'Rural Properties',
+        relatedServiceSlugs: [
+          'pond-digging-cleaning',
+          'house-barn-demolition',
+          'septic-system-installation',
+        ],
+      },
+      {
+        title: 'Commercial & Development Work',
+        text: 'Site preparation, haul-out, material delivery, and larger-scale excavation support for commercial and development projects.',
+        href: '/services',
+        linkLabel: 'See service capabilities',
+        icon: 'buildings',
+        tag: 'Commercial Site Work',
+        relatedServiceSlugs: [
+          'site-preparation-land-grading',
+          'dump-truck-rental',
+        ],
+      },
+    ] satisfies AudienceSectionItem[]
+  ).map(addRelatedServiceTitles),
   backgroundVariant: 'light',
   backgroundTone: 'soft',
   footerLink: {
@@ -213,12 +212,24 @@ export const homeServiceAreasSection: ServiceAreasSectionData = {
   subtext:
     'Start with the area page that best matches your site conditions, from Brantford access work and Paris rural lots to Hamilton, Cambridge, Ancaster, and Woodstock project support.',
   locations: [
-    { label: 'Brantford excavation and site work', href: '/service-areas/brantford' },
+    {
+      label: 'Brantford excavation and site work',
+      href: '/service-areas/brantford',
+    },
     { label: 'Paris rural site prep', href: '/service-areas/paris' },
-    { label: 'Hamilton contractor excavation', href: '/service-areas/hamilton' },
-    { label: 'Cambridge active-site support', href: '/service-areas/cambridge' },
+    {
+      label: 'Hamilton contractor excavation',
+      href: '/service-areas/hamilton',
+    },
+    {
+      label: 'Cambridge active-site support',
+      href: '/service-areas/cambridge',
+    },
     { label: 'Ancaster estate-lot grading', href: '/service-areas/ancaster' },
-    { label: 'Woodstock industrial site prep', href: '/service-areas/woodstock' },
+    {
+      label: 'Woodstock industrial site prep',
+      href: '/service-areas/woodstock',
+    },
   ],
   actions: [
     {

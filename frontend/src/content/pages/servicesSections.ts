@@ -13,12 +13,17 @@ function buildServiceCards(slugs: string[]) {
 export const servicesHeroData: HeroSectionData = {
   _type: 'heroSection',
   eyebrow: 'Bellhouse Services',
-  headline: 'Excavation, Hauling, Grading & Contractor Site Services in Brant County',
+  headline:
+    'Excavation, Hauling, Grading & Contractor Site Services in Brant County',
   subheadline:
     'Use this services hub to find the right Bellhouse service for local excavation, truck hauling, site grading, material delivery, equipment moves, and active contractor-led work.',
   primaryAction: {
     label: 'Explore Services',
     href: '#services-list',
+  },
+  secondaryAction: {
+    label: 'Get a Quote',
+    href: '/contact',
   },
   proofItems: [
     { label: 'Excavation' },
@@ -28,8 +33,8 @@ export const servicesHeroData: HeroSectionData = {
   ],
   align: 'center',
   theme: 'dark',
-  overlay: 'transparent',
-  density: 'tight',
+  overlay: 'none',
+  density: 'default',
 };
 
 export const servicesServicesSection: ServicesSectionData = {
@@ -156,16 +161,16 @@ export const servicesFinalCtaSection: FinalCtaSectionData = {
   heading: 'Know which service fits your job?',
   text: 'Send Bellhouse the project location, scope, and timing. If you are still sorting out the right service, start with the closest match and Bellhouse can help confirm the practical next step.',
   primaryAction: {
-    label: 'Contact Bellhouse',
+    label: 'Get a Free Estimate',
     href: '/contact',
   },
   secondaryAction: {
     label: 'View Service Areas',
     href: '/service-areas',
   },
-  phone: {
-    label: '519-752-8500',
-    href: 'tel:5197528500',
+  tertiaryAction: {
+    label: 'For Builders & Contractors',
+    href: '/contractors',
   },
   proofItems: [
     { label: 'Project Fit Check' },

@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
+const googleReviewsUrl =
+  process.env.NEXT_PUBLIC_GOOGLE_REVIEWS_URL ||
+  'https://www.google.com/search?q=Bellhouse+Excavating+reviews';
+
 const nextConfig = {
   outputFileTracingRoot: __dirname,
   reactStrictMode: true,
@@ -24,7 +28,7 @@ const nextConfig = {
       },
       {
         source: '/reviews',
-        destination: 'https://share.google/lvu10qIGJZBT3HhxH',
+        destination: googleReviewsUrl,
         permanent: false,
       },
     ];

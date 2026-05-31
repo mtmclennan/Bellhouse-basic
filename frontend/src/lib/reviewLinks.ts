@@ -2,3 +2,10 @@
 export const GOOGLE_REVIEWS_URL =
   process.env.NEXT_PUBLIC_GOOGLE_REVIEWS_URL ||
   'https://www.google.com/search?q=Bellhouse+Excavating+reviews';
+
+export const GOOGLE_REVIEW_SUMMARY = {
+  rating: 5.0,
+  reviewCount: 3,
+  label: '5.0 on Google',
+  href: GOOGLE_REVIEWS_URL,
+} as const;

@@ -21,6 +21,7 @@ export default function FinalCtaSection({
     text,
     primaryAction,
     secondaryAction,
+    tertiaryAction,
     phone,
     proofItems = [],
     note,
@@ -113,6 +114,15 @@ export default function FinalCtaSection({
                 href={secondaryAction.href}
               >
                 {secondaryAction.label}
+              </Link>
+            ) : null}
+
+            {tertiaryAction ? (
+              <Link
+                className={classes.tertiaryAction}
+                href={tertiaryAction.href}
+              >
+                {tertiaryAction.label}
               </Link>
             ) : null}
 

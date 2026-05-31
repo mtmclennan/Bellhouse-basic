@@ -77,6 +77,17 @@
   }
 }
 
+.sectionReveal:target {
+  .eyebrow,
+  .container > h2,
+  .intro,
+  .groups > .group:first-child .groupHeader,
+  .groups > .group:first-child .grid > li {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .inlineLink {
   color: v.$btn-main;
   font-weight: 700;

@@ -261,6 +261,7 @@ export type FinalCtaSectionData = {
   text: string;
   primaryAction: SectionLink;
   secondaryAction?: SectionLink;
+  tertiaryAction?: SectionLink;
   phone?: SectionLink;
   proofItems?: FinalCtaProofItem[];
   note?: string;

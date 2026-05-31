@@ -27,7 +27,7 @@ const SERVICE_HERO_TRUST_DEFAULTS = {
     rating: SERVICE_SITE_CONTEXT.business.reviewRating,
     reviewCount: SERVICE_SITE_CONTEXT.business.reviewCount,
     href: SERVICE_SITE_CONTEXT.business.reviewsHref,
-    label: 'Read Reviews',
+    label: SERVICE_SITE_CONTEXT.business.reviewLabel,
   },
 } satisfies Pick<ResolvedServiceHeroConfig, 'phone' | 'review'>;
 

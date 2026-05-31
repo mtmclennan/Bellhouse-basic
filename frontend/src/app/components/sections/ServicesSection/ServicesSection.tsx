@@ -57,8 +57,8 @@ function ServiceGroupBlock({
 }: ServiceGroupBlockProps) {
   const { elementRef, isVisible } = useRevealOnEnter<HTMLElement>({
     disabled: !revealOnScroll,
-    rootMargin: '0px 0px -10% 0px',
-    threshold: 0.18,
+    rootMargin: '0px 0px 10% 0px',
+    threshold: 0.08,
   });
 
   const groupVisible = revealOnScroll ? isVisible : sectionVisible;
@@ -121,8 +121,8 @@ export default function ServicesSection({
   } = data;
 
   const { elementRef: sectionRef, isVisible } = useRevealOnEnter<HTMLElement>({
-    rootMargin: '0px 0px -6% 0px',
-    threshold: 0.15,
+    rootMargin: '0px 0px 30% 0px',
+    threshold: 0.01,
   });
 
   const variantClassMap = {

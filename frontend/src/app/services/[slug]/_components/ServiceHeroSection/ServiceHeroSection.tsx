@@ -62,6 +62,13 @@ function formatRating(rating: number) {
   return rating.toFixed(1);
 }
 
+function formatReviewSummary(review: NonNullable<RenderHero['review']>) {
+  const label = review.label ?? `${formatRating(review.rating)} on Google`;
+  const reviewNoun = review.reviewCount === 1 ? 'review' : 'reviews';
+
+  return `${label} (${review.reviewCount} ${reviewNoun})`;
+}
+
 function toRenderHero(props: ServiceHeroSectionProps): RenderHero {
   if (props.mode === 'cms') {
     const actions = Array.isArray(props.hero.actions) ? props.hero.actions : [];
@@ -97,7 +104,7 @@ function toRenderHero(props: ServiceHeroSectionProps): RenderHero {
         rating: props.business.reviewRating,
         reviewCount: props.business.reviewCount,
         href: props.business.reviewsHref,
-        label: 'Read Reviews',
+        label: props.business.reviewLabel,
       },
       emphasis: props.hero.emphasis ?? 'standard',
       breadcrumbLabel: props.breadcrumbLabel,
@@ -227,15 +234,9 @@ export default function ServiceHeroSection(props: ServiceHeroSectionProps) {
                     ))}
                   </span>
 
-                  <span>
-                    {formatRating(hero.review.rating)} on Google (
-                    {hero.review.reviewCount}{' '}
-                    {hero.review.reviewCount === 1 ? 'review' : 'reviews'})
-                  </span>
+                  <span>{formatReviewSummary(hero.review)}</span>
 
-                  <span className={classes.reviewCta}>
-                    {hero.review.label ?? 'Read Reviews'}
-                  </span>
+                  <span className={classes.reviewCta}>Read Reviews</span>
                 </Link>
               ) : null}
 

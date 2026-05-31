@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import logo from '../../../../public/assets/BellhouseLogo-text.png';
 import { Phone } from '@phosphor-icons/react';
+import { GOOGLE_REVIEWS_URL } from '@/lib/reviewLinks';
 
 const footerSections = [
   {
@@ -121,7 +122,7 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
             className={classes.review}
-            href="https://g.page/r/CZtOlkcv7cW2EBM/review"
+            href={GOOGLE_REVIEWS_URL}
           >
             Leave Us a Google Review
           </a>
