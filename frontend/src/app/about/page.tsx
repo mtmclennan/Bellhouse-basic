@@ -4,9 +4,12 @@ import { Metadata } from 'next';
 import { validateMetadata } from '../../lib/utils/seoValidation';
 
 export const metadata: Metadata = {
-  title: 'About Bellhouse Excavating | Brantford & Brant County Excavation',
+  title: 'About Bellhouse Excavating | Brant County Contractors',
   description:
-    'Learn about Bellhouse Excavating, a Brantford-area excavation company serving Brant County and nearby communities with site work, grading, and hauling since 1982.',
+    'Learn about Bellhouse Excavating, a Brant County excavation and hauling company supporting site work, grading, trucking, demolition, and contractor projects.',
+  alternates: {
+    canonical: 'https://bellhouseexcavating.ca/about',
+  },
 };
 
 validateMetadata(metadata.title, metadata.description);

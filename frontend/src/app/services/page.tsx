@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: 'Excavation, Hauling & Site Services | Bellhouse',
   description:
     'Explore Bellhouse excavation, grading, hauling, floating, and site prep services across Brantford and nearby Southern Ontario areas.',
+  alternates: {
+    canonical: 'https://bellhouseexcavating.ca/services',
+  },
 };
 
 validateMetadata(metadata.title, metadata.description);

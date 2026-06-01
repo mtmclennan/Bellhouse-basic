@@ -10,8 +10,8 @@
   "card": {
     "title": "Septic System Installation Services",
     "description": "Complete septic system excavation, tank placement, and drainage bed installation.",
-    "image": "/assets/septic-system-installation-contractor.jpg",
-    "alt": "Septic drainage bed installation with excavation equipment and prepared stone trenches."
+    "image": "/assets/services/septic-systems/septic-system-tank-distribution-box-field.webp",
+    "alt": "Installed septic tank, distribution box, and drainage field on a rural property."
   },
   "hero": {
     "eyebrow": "Septic excavation & drainage beds",
@@ -35,8 +35,8 @@
       "Grade and slope control from approved plans"
     ],
     "emphasis": "compact",
-    "image": "/assets/septic-system-installation-contractor.jpg",
-    "alt": "Septic system installation site with drainage bed preparation and excavation equipment."
+    "image": "/assets/services/septic-systems/septic-system-tank-distribution-box-field.webp",
+    "alt": "Septic tank, distribution box, and drainage field installed with stone bedding."
   },
   "sections": [
     {
@@ -133,8 +133,8 @@
       "heading": "Septic installation depends on accurate excavation, bedding, and backfill.",
       "body": "The tank, drainage bed, pipes, stone, grades, and backfill all need to match the approved system design. Bellhouse focuses on careful excavation and practical site execution so the system area is prepared correctly.",
       "image": {
-        "src": "/assets/Septic_tank_Bolduc.jpg",
-        "alt": "Concrete septic tank set in an excavated pit before backfilling"
+        "src": "/assets/services/septic-systems/brant-septic-system-diagram.webp",
+        "alt": "Diagram showing a septic tank, distribution box, and drainage bed connected to a house"
       },
       "caption": "Tank placement and backfill need to protect the system while matching the approved design and site grades."
     },
@@ -220,8 +220,8 @@
       "heading": "How Our Septic Installation Works",
       "subheading": "A reliable workflow that supports proper function and long-term performance.",
       "image": {
-        "src": "/assets/septic-system-installation-contractor.jpg",
-        "alt": "Septic drainage bed prepared with stone trenches and excavation equipment"
+        "src": "/assets/services/septic-systems/septic-system-installation-contractor.jpg",
+        "alt": "Septic drainage bed installation with excavation equipment, prepared sand, and pipe rows"
       },
       "caption": "Drainage bed preparation, tank placement, backfill, and final grade are completed from the approved septic design.",
       "steps": [
@@ -253,8 +253,8 @@
       "heading": "Need septic installation coordinated with site work?",
       "body": "If your project needs septic excavation, tank placement, drainage bed preparation, trucking, access planning, or final grading, Bellhouse can review the approved plans and site conditions.",
       "image": {
-        "src": "/assets/Septic_tank_Bolduc.jpg",
-        "alt": "Concrete septic tank set in place during septic system installation"
+        "src": "/assets/services/septic-systems/septic-system-tank-distribution-box-field.webp",
+        "alt": "Installed septic tank and drainage field ready for backfill and final grading"
       },
       "caption": "Septic installation can be coordinated with excavation, grading, driveway access, and material hauling.",
       "actions": [
