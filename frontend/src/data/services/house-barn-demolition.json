@@ -10,8 +10,8 @@
   "card": {
     "title": "House & Barn Demolition Services",
     "description": "Full or partial demolition of houses, barns, and outbuildings, including cleanup and disposal.",
-    "image": "/assets/demo1.jpg",
-    "alt": "Excavator tearing down a structure during house and barn demolition cleanup."
+    "image": "/assets/services/house-barn-demolition/Paris-brant-house-demo-winter.webp",
+    "alt": "Excavator tearing down a house during winter demolition cleanup."
   },
   "hero": {
     "eyebrow": "Structure removal & cleanup",
@@ -35,7 +35,7 @@
       "Rough grading after structure removal"
     ],
     "emphasis": "compact",
-    "image": "/assets/house-demolition-excavator-paris-ontario.jpg",
+    "image": "/assets/services/house-barn-demolition/Paris-brant-house-demo-winter.webp",
     "alt": "Excavator demolishing an old house and clearing debris for site preparation."
   },
   "sections": [
@@ -133,8 +133,8 @@
       "heading": "Good demolition is about the teardown, the debris, and the site left behind.",
       "body": "Bellhouse plans demolition around structure condition, equipment access, debris loading, trucking, and the final condition needed after the building is removed.",
       "image": {
-        "src": "/assets/house-demolition-excavator-brant-county.png",
-        "alt": "Excavator demolishing a house in Brant County with debris ready for cleanup"
+        "src": "/assets/services/house-barn-demolition/paris-residental-house-demoilition-above.webp",
+        "alt": "Overhead view of a house demolition site with excavator and debris ready for cleanup"
       },
       "caption": "Demolition work is most effective when teardown, debris handling, and site cleanup are planned together."
     },
@@ -204,8 +204,8 @@
       "heading": "How Our Demolition Process Works",
       "subheading": "A controlled, step-by-step approach for safe removal and cleanup.",
       "image": {
-        "src": "/assets/demo1.jpg",
-        "alt": "Excavator tearing down a structure and gathering demolition debris for removal"
+        "src": "/assets/services/house-barn-demolition/paris-residental-house-demoilition-above.webp",
+        "alt": "Overhead view of demolition debris being gathered and loaded for removal"
       },
       "caption": "Demolition planning includes how the structure comes down, how debris is handled, and how the site should be left.",
       "steps": [
@@ -237,8 +237,8 @@
       "heading": "Need demolition, haul-out, and site cleanup coordinated?",
       "body": "If structure removal is part of a rebuild, redevelopment, or larger site-prep scope, Bellhouse can review the demolition, truck access, debris handling, and rough grading needs together.",
       "image": {
-        "src": "/assets/house-demolition-excavator-paris-ontario.jpg",
-        "alt": "Excavator demolishing an old house in Paris Ontario"
+        "src": "/assets/services/house-barn-demolition/Paris-brant-house-demo-winter.webp",
+        "alt": "Excavator demolishing an old house for contractor-led site cleanup"
       },
       "caption": "Demolition can be coordinated with trucking, cleanup, grading, and site preparation for the next phase.",
       "actions": [

@@ -233,8 +233,8 @@
       "heading": "Need extra off-road hauling capacity on an active site?",
       "body": "If your project needs bulk earthmoving support, fill movement, rough-site hauling, or an additional operated truck to support loading equipment, Bellhouse can review the scope, site conditions, and schedule.",
       "image": {
-        "src": "/assets/off-road-hauling-services.png",
-        "alt": "Off-road dump truck hauling service for large-site earthmoving support"
+        "src": "/assets/off-road-truck-dump-truck.jpg",
+        "alt": "Volvo A35 off-road dump truck supporting large-site earthmoving"
       },
       "caption": "The Volvo A35 can support contractor-led earthmoving where material volume and ground conditions matter.",
       "actions": [
@@ -271,8 +271,8 @@
       ],
       "actions": [
         {
-          "label": "View All Resources",
-          "href": "/resources",
+          "label": "View Calculators",
+          "href": "/resources/calculators",
           "variant": "secondary"
         }
       ]

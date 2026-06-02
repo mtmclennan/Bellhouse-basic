@@ -1,6 +1,7 @@
 export { default as ServiceAreaHero } from './ServiceAreaHero';
 export { default as ServiceAreaIntro } from './ServiceAreaIntro';
 export { default as ServiceAreaServices } from './ServiceAreaServices';
+export { default as ServiceAreaProjectTypes } from './ServiceAreaProjectTypes';
 export { default as ServiceAreaWhoWeWorkWith } from './ServiceAreaWhoWeWorkWith';
 export { default as ServiceAreaWhyChoose } from './ServiceAreaWhyChoose';
 export { default as ServiceAreaNearbyAreas } from './ServiceAreaNearbyAreas';

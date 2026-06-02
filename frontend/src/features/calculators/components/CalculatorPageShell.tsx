@@ -1,10 +1,11 @@
 import Link from 'next/link';
+import HeroSection from '@/app/components/sections/HeroSection/HeroSection';
 import SectionWrapper from '@/components/layout/SectionWrapper';
 import { calculatorPageContent } from '../config/pageContent';
 import { calculatorConfigs } from '../config/calculators';
 import type { CalculatorKind } from '../types/calculator';
+import type { HeroSectionData } from '@/types/sections';
 import { CalculatorForm } from './CalculatorForm';
-import { ResourceBreadcrumbs } from './ResourceBreadcrumbs';
 import classes from './CalculatorPageShell.module.scss';
 
 type CalculatorPageShellProps = {
@@ -14,33 +15,38 @@ type CalculatorPageShellProps = {
 export function CalculatorPageShell({ kind }: CalculatorPageShellProps) {
   const content = calculatorPageContent[kind];
   const config = calculatorConfigs[kind];
+  const heroData: HeroSectionData = {
+    _type: 'heroSection',
+    eyebrow: content.eyebrow,
+    headline: content.pageTitle,
+    subheadline: content.intro[0],
+    primaryAction: {
+      label: 'Use Calculator',
+      href: '#calculator',
+    },
+    secondaryAction: {
+      label: 'Request a Quote',
+      href: '/contact',
+    },
+    proofItems: [
+      { label: 'Metric or imperial entry' },
+      { label: config.description },
+      { label: 'Material and hauling assumptions' },
+      { label: 'Built for early planning' },
+    ],
+    align: 'left',
+    theme: 'dark',
+    overlay: 'none',
+    density: 'tight',
+  };
 
   return (
     <>
-      <SectionWrapper
-        className={classes.heroSection}
-        containerClassName={classes.heroContainer}
-        spacing="loose"
-      >
-        <div className={classes.heroContent}>
-          <ResourceBreadcrumbs
-            currentLabel={config.title}
-            trail={[
-              { name: 'Home', href: '/' },
-              { name: 'Resources', href: '/resources' },
-              { name: 'Calculators', href: '/resources/calculators' },
-              { name: config.title },
-            ]}
-          />
-          <p className={classes.eyebrow}>{content.eyebrow}</p>
-          <h1>{content.pageTitle}</h1>
-          {content.intro.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
-        </div>
-      </SectionWrapper>
+      <HeroSection data={heroData} />
 
-      <CalculatorForm kind={kind} />
+      <div id="calculator" className={classes.scrollTarget}>
+        <CalculatorForm kind={kind} />
+      </div>
 
       <SectionWrapper>
         <div className={classes.supportIntro}>
@@ -52,6 +58,23 @@ export function CalculatorPageShell({ kind }: CalculatorPageShellProps) {
         <div className={classes.supportGrid}>
           {content.supportItems.map((item) => (
             <article className={classes.supportCard} key={item.title}>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </article>
+          ))}
+        </div>
+      </SectionWrapper>
+
+      <SectionWrapper>
+        <div className={classes.guidanceIntro}>
+          <p className={classes.eyebrow}>Practical guidance</p>
+          <h2>{content.guidanceHeading}</h2>
+          <p>{content.guidanceDescription}</p>
+        </div>
+
+        <div className={classes.guidanceGrid}>
+          {content.guidanceItems.map((item) => (
+            <article className={classes.guidanceCard} key={item.title}>
               <h3>{item.title}</h3>
               <p>{item.description}</p>
             </article>
@@ -84,6 +107,53 @@ export function CalculatorPageShell({ kind }: CalculatorPageShellProps) {
           Browse the full calculator hub in{' '}
           <Link href="/resources/calculators">Bellhouse calculators</Link>.
         </p>
+      </SectionWrapper>
+
+      <SectionWrapper>
+        <div className={classes.relatedIntro}>
+          <p className={classes.eyebrow}>Related services</p>
+          <h2>{content.relatedServicesHeading}</h2>
+          <p>{content.relatedServicesDescription}</p>
+        </div>
+
+        <div className={classes.serviceGrid}>
+          {content.relatedServices.map((service) => (
+            <article className={classes.relatedCard} key={service.href}>
+              <h3>{service.title}</h3>
+              <p>{service.description}</p>
+              <div className={classes.relatedActions}>
+                <Link className={classes.secondaryAction} href={service.href}>
+                  {service.actionLabel}
+                </Link>
+              </div>
+            </article>
+          ))}
+        </div>
+      </SectionWrapper>
+
+      <SectionWrapper>
+        <div className={classes.faqLayout}>
+          <div className={classes.faqIntro}>
+            <p className={classes.eyebrow}>Calculator FAQ</p>
+            <h2>{content.faqHeading}</h2>
+            <p>{content.faqDescription}</p>
+          </div>
+
+          <div className={classes.faqList}>
+            {content.faqs.map((item, index) => (
+              <details className={classes.faqItem} key={item.question}>
+                <summary className={classes.faqQuestion}>
+                  <span className={classes.faqNumber}>
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <span>{item.question}</span>
+                  <span className={classes.faqToggle} aria-hidden="true" />
+                </summary>
+                <p>{item.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
       </SectionWrapper>
 
       <SectionWrapper

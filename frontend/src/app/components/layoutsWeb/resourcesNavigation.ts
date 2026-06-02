@@ -1,8 +1,7 @@
 export const resourceNavigationItems = [
-  { href: '/resources', label: 'All Resources' },
   {
     href: '/resources/calculators',
-    label: 'Calculator Hub',
+    label: 'Estimating Calculators',
   },
   {
     href: '/resources/calculators/excavation',

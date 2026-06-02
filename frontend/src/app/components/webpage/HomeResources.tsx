@@ -45,8 +45,8 @@ export default function HomeResources() {
             Need a job-specific number instead of a planning estimate?
           </p>
           <div className={classes.footerActions}>
-            <Link className={classes.primaryAction} href="/resources">
-              View All Resources
+            <Link className={classes.primaryAction} href="/resources/calculators">
+              View Calculators
             </Link>
             <Link className={classes.secondaryAction} href="/contact">
               Request a Quote

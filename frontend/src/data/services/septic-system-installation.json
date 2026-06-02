@@ -5,7 +5,7 @@
   "navTitle": "Septic Installation",
   "meta": {
     "title": "Septic System Installation | Brant County | Bellhouse",
-    "description": "Expert septic system installation in Brant County. Reliable, compliant solutions for homes & businesses."
+    "description": "Septic system installation in Brant County, including tank excavation, drainage bed prep, backfilling, and approved-plan site work for rural builds."
   },
   "card": {
     "title": "Septic System Installation Services",
@@ -291,8 +291,8 @@
       ],
       "actions": [
         {
-          "label": "View All Resources",
-          "href": "/resources",
+          "label": "View Calculators",
+          "href": "/resources/calculators",
           "variant": "secondary"
         }
       ]

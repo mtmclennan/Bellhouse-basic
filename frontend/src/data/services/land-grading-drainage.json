@@ -319,8 +319,8 @@
       ],
       "actions": [
         {
-          "label": "View All Resources",
-          "href": "/resources",
+          "label": "View Calculators",
+          "href": "/resources/calculators",
           "variant": "secondary"
         }
       ]
@@ -345,6 +345,8 @@
       "serviceSlugs": [
         "site-preparation-land-grading",
         "driveway-parking-lot-preparation",
+        "septic-system-installation",
+        "pond-digging-cleaning",
         "dirt-gravel-delivery",
         "dump-truck-rental"
       ]

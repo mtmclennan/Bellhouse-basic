@@ -14,6 +14,15 @@ const nextConfig = {
       console.log = () => {};
     }
 
+    config.watchOptions = {
+      ...config.watchOptions,
+      ignored: [
+        '**/pagefile.sys',
+        '**/hiberfil.sys',
+        '**/swapfile.sys',
+      ],
+    };
+
     return config;
   },
   experimental: {

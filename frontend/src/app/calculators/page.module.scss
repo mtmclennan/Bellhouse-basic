@@ -68,9 +68,9 @@
 }
 
 .sectionEyebrow {
-  border-color: rgba(v.$cat-yellow2, 0.22);
-  background-color: rgba(v.$cat-yellow2, 0.12);
-  color: v.$text-color-mid-dark;
+  border-color: rgba(v.$cat-yellow2, 0.3);
+  background-color: rgba(v.$cat-yellow2, 0.1);
+  color: v.$cat-yellow2;
 }
 
 .heroContent h1,
@@ -189,11 +189,19 @@
 
   h2 {
     @include m.sectionHeading(4rem, 5.2rem);
-    color: v.$text-color-mid-dark;
+    color: #fff;
   }
 
   p:last-child {
-    color: v.$text-color-dark;
+    color: rgba(255, 255, 255, 0.82);
+  }
+}
+
+.scrollTarget {
+  scroll-margin-top: 8rem;
+
+  @include m.mediaDesktop {
+    scroll-margin-top: 11rem;
   }
 }
 

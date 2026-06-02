@@ -307,8 +307,8 @@
       ],
       "actions": [
         {
-          "label": "View All Resources",
-          "href": "/resources",
+          "label": "View Calculators",
+          "href": "/resources/calculators",
           "variant": "secondary"
         }
       ]
@@ -332,6 +332,7 @@
       "heading": "Related excavation, grading, and haul support",
       "serviceSlugs": [
         "foundation-excavation",
+        "driveway-parking-lot-preparation",
         "dump-truck-rental",
         "dirt-gravel-delivery",
         "volvo-a35-off-road-dump-truck-rental"

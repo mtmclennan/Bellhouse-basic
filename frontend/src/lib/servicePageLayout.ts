@@ -395,8 +395,8 @@ export function resolveServiceResourcesConfig(
       'Use Bellhouse planning tools to rough out quantities before requesting a quote.',
     links: defaults?.links ?? [],
     viewAllAction: {
-      label: resourcesConfig?.viewAllLabel ?? 'View All Resources',
-      href: resourcesConfig?.viewAllHref ?? '/resources',
+      label: resourcesConfig?.viewAllLabel ?? 'View Calculators',
+      href: resourcesConfig?.viewAllHref ?? '/resources/calculators',
     },
   };
 }

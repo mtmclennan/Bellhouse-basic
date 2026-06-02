@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import HeroSection from '@/app/components/sections/HeroSection/HeroSection';
 import SectionWrapper from '@/components/layout/SectionWrapper';
-import { ResourceBreadcrumbs } from '@/features/calculators/components/ResourceBreadcrumbs';
 import { CalculatorResourceCardGrid } from '@/features/calculators/components/CalculatorResourceCardGrid';
-import { calculatorSeoConfig } from '@/features/calculators/config/seo';
 import { validateMetadata } from '@/lib/utils/seoValidation';
+import type { HeroSectionData } from '@/types/sections';
 import classes from '../../../app/calculators/page.module.scss';
 
 export const metadata: Metadata = {
@@ -26,73 +26,52 @@ export const metadata: Metadata = {
 
 validateMetadata(metadata.title, metadata.description);
 
+const calculatorsHeroData: HeroSectionData = {
+  _type: 'heroSection',
+  eyebrow: 'Resources',
+  headline: 'Excavation, Gravel & Topsoil Calculators',
+  subheadline:
+    'Use Bellhouse estimating calculators to plan excavation volumes, gravel base quantities, topsoil coverage, material weights, and rough truck-load counts before requesting a quote.',
+  primaryAction: {
+    label: 'View Calculators',
+    href: '#calculators',
+  },
+  secondaryAction: {
+    label: 'Request a Quote',
+    href: '/contact',
+  },
+  proofItems: [
+    { label: 'Metric or imperial entry' },
+    { label: 'Volume, tonnage, and truck-load estimates' },
+    { label: 'Material and hauling assumptions' },
+    { label: 'Built for early planning' },
+  ],
+  align: 'left',
+  theme: 'dark',
+  overlay: 'none',
+  density: 'tight',
+};
+
 export default function CalculatorsPage() {
   return (
     <>
-      <SectionWrapper
-        className={classes.heroSection}
-        containerClassName={classes.heroContainer}
-        spacing="loose"
-      >
-        <div className={classes.heroShell}>
-          <div className={classes.heroContent}>
-            <ResourceBreadcrumbs
-              trail={[
-                { name: 'Home', href: '/' },
-                { name: 'Resources', href: '/resources' },
-                { name: 'Calculators' },
-              ]}
-            />
-            <p className={classes.eyebrow}>Bellhouse calculators</p>
-            <h1>Estimating tools for excavation, gravel, and topsoil work.</h1>
-            <p className={classes.heroText}>
-              Bellhouse calculators are practical estimating tools for quick
-              field checks, early planning, and rough material takeoffs before a
-              project is quoted or scheduled.
+      <HeroSection data={calculatorsHeroData} />
+
+      <div id="calculators" className={classes.scrollTarget}>
+        <SectionWrapper>
+          <div className={classes.sectionIntro}>
+            <p className={classes.sectionEyebrow}>Calculator hub</p>
+            <h2>Choose the estimating tool that matches the work.</h2>
+            <p>
+              Each calculator uses the same Bellhouse framework, but the inputs,
+              labels, materials, and assumptions stay focused on the type of work
+              you are actually pricing or planning.
             </p>
-            <p className={classes.heroText}>
-              Use them to compare excavation, gravel, or topsoil needs fast,
-              then send Bellhouse the job details when you need a real number
-              based on site conditions.
-            </p>
-            <div className={classes.heroActions}>
-              <Link
-                className={classes.primaryAction}
-                href={calculatorSeoConfig.excavation.resourcePath}
-              >
-                Start With Excavation
-              </Link>
-              <Link className={classes.secondaryAction} href="/contact">
-                Request a Quote
-              </Link>
-            </div>
           </div>
 
-          <div className={classes.heroCard}>
-            <p className={classes.heroCardTitle}>Built for quick estimating</p>
-            <ul className={classes.heroCardList}>
-              <li>Metric or imperial dimension entry, depending on the job</li>
-              <li>Volume, tonnage, and truck-load estimates in one place</li>
-              <li>Material and hauling assumptions where they matter</li>
-              <li>Built for early planning before quote review</li>
-            </ul>
-          </div>
-        </div>
-      </SectionWrapper>
-
-      <SectionWrapper>
-        <div className={classes.sectionIntro}>
-          <p className={classes.sectionEyebrow}>Calculator hub</p>
-          <h2>Choose the estimating tool that matches the work.</h2>
-          <p>
-            Each calculator uses the same Bellhouse framework, but the inputs,
-            labels, materials, and assumptions stay focused on the type of work
-            you are actually pricing or planning.
-          </p>
-        </div>
-
-        <CalculatorResourceCardGrid />
-      </SectionWrapper>
+          <CalculatorResourceCardGrid />
+        </SectionWrapper>
+      </div>
 
       <SectionWrapper
         className={classes.ctaSection}
@@ -120,10 +99,6 @@ export default function CalculatorsPage() {
                 View Services
               </Link>
             </div>
-            <p className={classes.ctaNote}>
-              Looking for the full Bellhouse resource section? Visit{' '}
-              <Link href="/resources">all resources</Link>.
-            </p>
           </div>
         </div>
       </SectionWrapper>

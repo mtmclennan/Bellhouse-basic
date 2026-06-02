@@ -10,7 +10,7 @@ import shellClasses from '@/features/calculators/components/CalculatorPageShell.
 export const metadata: Metadata = {
   title: 'Excavation Resources & Calculators | Bellhouse',
   description:
-    'Explore Bellhouse resources for excavation planning, including calculator tools tied to Bellhouse services.',
+    'Use Bellhouse excavation calculators and planning resources to estimate material quantities, truck loads, gravel, topsoil, and site work needs.',
   alternates: {
     canonical: 'https://bellhouseexcavating.ca/resources',
   },
@@ -45,14 +45,14 @@ export default function ResourcesPage() {
             <p className={classes.eyebrow}>Bellhouse resources</p>
             <h1>Calculators and planning tools for excavation work.</h1>
             <p className={classes.heroText}>
-              Bellhouse resources now live under one section so visitors can
-              move cleanly between estimating tools and related service paths
-              without competing hubs or duplicate routes.
+              Use these planning tools to estimate early material quantities,
+              truck loads, and site work needs before requesting a quote or
+              scheduling the next phase.
             </p>
             <p className={classes.heroText}>
-              Start with calculators when you need a quick planning number,
-              then move into the matching service page or quote request when
-              the job needs review.
+              Start with a quick calculator estimate, then move into the
+              matching Bellhouse service when the project needs site-specific
+              review.
             </p>
             <div className={classes.heroActions}>
               <Link className={classes.primaryAction} href="/resources/calculators">
@@ -67,10 +67,10 @@ export default function ResourcesPage() {
           <div className={classes.heroCard}>
             <p className={classes.heroCardTitle}>What you will find here</p>
             <ul className={classes.heroCardList}>
-              <li>A calculator hub for excavation, gravel, and topsoil planning</li>
-              <li>Direct paths into service pages and quote requests</li>
-              <li>Practical early estimates before site-specific quote review</li>
-              <li>One umbrella section for planning tools</li>
+              <li>Excavation, gravel, and topsoil estimating calculators</li>
+              <li>Rough material quantities and truck-load planning</li>
+              <li>Useful starting points before a site-specific quote review</li>
+              <li>Clear next steps into related Bellhouse services</li>
             </ul>
           </div>
         </div>
@@ -81,15 +81,15 @@ export default function ResourcesPage() {
           <p className={classes.sectionEyebrow}>Calculator hub</p>
           <h2>Use the estimator that matches the material and the work.</h2>
           <p>
-            The calculator section keeps excavation haul-out, compacted
-            gravel/base placement, and topsoil planning in one consistent
-            nested hub.
+            Choose the calculator that matches the job stage, whether you are
+            planning excavation haul-out, compacted gravel or base placement,
+            or topsoil for finish grading.
           </p>
         </div>
 
         <CalculatorResourceCardGrid />
         <p className={shellClasses.resourcesLink}>
-          Need the full calculator section?{' '}
+          Want to compare all estimating tools?{' '}
           <Link href="/resources/calculators">Open Bellhouse calculators</Link>.
         </p>
       </SectionWrapper>

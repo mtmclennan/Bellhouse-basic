@@ -303,8 +303,8 @@
       ],
       "actions": [
         {
-          "label": "View All Resources",
-          "href": "/resources",
+          "label": "View Calculators",
+          "href": "/resources/calculators",
           "variant": "secondary"
         }
       ]
@@ -329,6 +329,7 @@
       "heading": "Related excavation and hauling services",
       "serviceSlugs": [
         "site-preparation-land-grading",
+        "septic-system-installation",
         "dump-truck-rental",
         "dirt-gravel-delivery",
         "heavy-equipment-hauling"

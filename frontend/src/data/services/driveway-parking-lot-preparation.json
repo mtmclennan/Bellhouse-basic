@@ -5,7 +5,7 @@
   "navTitle": "Driveway & Lot Prep",
   "meta": {
     "title": "Driveway & Parking Lot Prep | Bellhouse",
-    "description": "Bellhouse handles grading and base prep for driveways and parking lots across Brantford and nearby areas."
+    "description": "Driveway and parking lot preparation in Brantford and nearby areas, including grading, gravel base prep, compaction, drainage, and site access support."
   },
   "card": {
     "title": "Driveway & Parking Lot Preparation",
@@ -289,8 +289,8 @@
       ],
       "actions": [
         {
-          "label": "View All Resources",
-          "href": "/resources",
+          "label": "View Calculators",
+          "href": "/resources/calculators",
           "variant": "secondary"
         }
       ]

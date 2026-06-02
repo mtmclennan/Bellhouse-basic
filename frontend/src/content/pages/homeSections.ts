@@ -311,7 +311,7 @@ export const homeResourcesSection: ResourcesSectionData = {
   ],
   footerText: 'Need a job-specific number instead of a planning estimate?',
   footerActions: [
-    { label: 'View All Resources', href: '/resources' },
+    { label: 'View Calculators', href: '/resources/calculators' },
     { label: 'Request a Quote', href: '/contact', variant: 'secondary' },
     { label: 'View Services', href: '/services', variant: 'secondary' },
   ],

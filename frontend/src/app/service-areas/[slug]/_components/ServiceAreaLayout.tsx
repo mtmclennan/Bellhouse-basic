@@ -6,6 +6,7 @@ import {
   ServiceAreaHero,
   ServiceAreaIntro,
   ServiceAreaNearbyAreas,
+  ServiceAreaProjectTypes,
   ServiceAreaServices,
   ServiceAreaWhoWeWorkWith,
   ServiceAreaWhyChoose,
@@ -184,6 +185,16 @@ export default function ServiceAreaLayout({
         intro={page.intro}
         image={page.introImage ?? defaultIntroImage}
       />
+      {page.projectTypes?.length ? (
+        <ServiceAreaProjectTypes
+          heading={
+            page.sectionHeadings?.projectTypes ??
+            `Common ${page.city} project types Bellhouse supports`
+          }
+          intro={`These are the local project types where excavation, grading, hauling, and site access often need to be planned together before the work starts.`}
+          items={page.projectTypes}
+        />
+      ) : null}
       <ServiceAreaServices
         heading={
           page.sectionHeadings?.services ??

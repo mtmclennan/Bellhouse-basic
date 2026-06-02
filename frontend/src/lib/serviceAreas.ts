@@ -27,9 +27,16 @@ export type ServiceAreaFaq = {
   answer: string;
 };
 
+export type ServiceAreaProjectType = {
+  title: string;
+  description: string;
+  links?: ServiceAreaLink[];
+};
+
 export type ServiceAreaSectionHeadings = {
   intro?: string;
   services?: string;
+  projectTypes?: string;
   rightFit?: string;
   howProjectsAreHandled?: string;
   whoWeWorkWith?: string;
@@ -65,6 +72,7 @@ export type ServiceAreaPage = {
   ctaImage?: ServiceAreaImage;
   map?: ServiceAreaMap;
   intro: string[];
+  projectTypes?: ServiceAreaProjectType[];
   services: ServiceAreaService[];
   sectionHeadings?: ServiceAreaSectionHeadings;
   rightFitIntro?: string;
@@ -247,10 +255,21 @@ const baseServiceAreaPages = {
           'Grading for building pads, drainage, lanes, and finished access',
         description:
           'Brantford grading work includes rough grading around foundations, shaping pads for shops and outbuildings, correcting drainage around structures, and preparing drive lanes, parking areas, and approaches for gravel, asphalt, or concrete.',
-        coreServiceHref: '/services/site-preparation-land-grading',
+        coreServiceHref: '/services/land-grading-drainage',
         image: {
           src: '/assets/driveway-parking-lot-construction.jpg',
           alt: 'Machine grading a driveway and access lane with compacted aggregate.',
+        },
+      },
+      {
+        slug: 'demolition',
+        title: 'House and barn demolition for removals and site cleanup',
+        description:
+          'On Brantford properties where old structures, outbuildings, or small removals need to be cleared before new site work, Bellhouse can coordinate demolition with excavation, hauling, and cleanup.',
+        coreServiceHref: '/services/house-barn-demolition',
+        image: {
+          src: '/assets/demo1.jpg',
+          alt: 'Bellhouse equipment handling house and barn demolition work.',
         },
       },
       {
@@ -394,6 +413,64 @@ const baseServiceAreaPages = {
       'Bellhouse handles excavation, site prep, grading, dump truck hauling, material delivery, and equipment floating for Paris jobs where custom-home work, driveway access, and rough grading all need to stay tied together instead of being split across separate crews.',
       'Typical Paris work includes foundation digs, drainage corrections, driveway and lane prep, service trenching, grading around homes and outbuildings, and machine moves tied to rural construction schedules.',
     ],
+    projectTypes: [
+      {
+        title: 'Rural lots and custom-home starts',
+        description:
+          'Paris-area rural lots often need the building area, truck access, spoil placement, and rough grades planned together before the foundation or shop pad starts.',
+        links: [
+          {
+            label: 'site preparation and land grading',
+            href: '/services/site-preparation-land-grading',
+          },
+          {
+            label: 'foundation excavation',
+            href: '/services/foundation-excavation',
+          },
+        ],
+      },
+      {
+        title: 'Long driveways and access lanes',
+        description:
+          'Longer approaches and rural access lanes need base prep, compaction, drainage, and material delivery planned so trucks and trades can keep using the route.',
+        links: [
+          {
+            label: 'driveway and parking lot preparation',
+            href: '/services/driveway-parking-lot-preparation',
+          },
+          {
+            label: 'land grading and drainage',
+            href: '/services/land-grading-drainage',
+          },
+        ],
+      },
+      {
+        title: 'Septic, drainage, and rural servicing work',
+        description:
+          'Rural builds may need septic excavation, bedding material, backfill, and drainage grading coordinated with the rest of the site work.',
+        links: [
+          {
+            label: 'septic system installation',
+            href: '/services/septic-system-installation',
+          },
+          {
+            label: 'dirt and gravel delivery',
+            href: '/services/dirt-gravel-delivery',
+          },
+        ],
+      },
+      {
+        title: 'Pond work and property improvements',
+        description:
+          'Farms and larger properties may need pond digging, cleaning, shoreline shaping, or drainage improvements tied into access and spoil handling.',
+        links: [
+          {
+            label: 'pond digging and cleaning',
+            href: '/services/pond-digging-cleaning',
+          },
+        ],
+      },
+    ],
     sectionHeadings: {
       intro: 'Paris site work where grade, drainage, and access affect the whole build',
       services:
@@ -461,10 +538,32 @@ const baseServiceAreaPages = {
         title: 'Grading for drainage, building pads, and access lanes',
         description:
           'Grading work in Paris often revolves around uneven ground, drainage control, driveway approaches, and access lanes that need to stay usable in wet conditions and through active construction.',
-        coreServiceHref: '/services/site-preparation-land-grading',
+        coreServiceHref: '/services/land-grading-drainage',
         image: {
           src: '/assets/driveway-parking-lot-construction.jpg',
           alt: 'Machine grading a driveway and access lane with compacted aggregate.',
+        },
+      },
+      {
+        slug: 'septic-system-installation',
+        title: 'Septic system installation support for rural lots',
+        description:
+          'Paris-area rural builds often need approved-plan septic excavation, bedding, backfill, and final grading coordinated with driveway access, site prep, and material hauling.',
+        coreServiceHref: '/services/septic-system-installation',
+        image: {
+          src: '/assets/services/septic-systems/septic-system-tank-distribution-box-field.webp',
+          alt: 'Septic system tank placement and excavation work on a rural property.',
+        },
+      },
+      {
+        slug: 'pond-digging-cleaning',
+        title: 'Pond digging and cleaning for rural properties',
+        description:
+          'For Paris farms and rural properties, pond excavation, cleaning, deepening, and shoreline shaping can be planned around access, drainage, spoil placement, and truck movement.',
+        coreServiceHref: '/services/pond-digging-cleaning',
+        image: {
+          src: '/assets/pond-digging-cleaning-brant-county.jpg',
+          alt: 'Excavator digging and shaping a pond on rural land in Brant County.',
         },
       },
       {
@@ -663,7 +762,7 @@ const baseServiceAreaPages = {
         title: 'Grading for drainage, building pads, and construction flow',
         description:
           'Grading work in Hamilton often means balancing drainage, pad elevations, haul access, turning space, and usable staging on sites that stay active while multiple trades and deliveries cycle through.',
-        coreServiceHref: '/services/site-preparation-land-grading',
+        coreServiceHref: '/services/land-grading-drainage',
         image: {
           src: '/assets/driveway-parking-lot-construction.jpg',
           alt: 'Machine grading a driveway and access lane with compacted aggregate.',
@@ -868,10 +967,21 @@ const baseServiceAreaPages = {
         title: 'Grading for drainage, pads, and functional work surfaces',
         description:
           'Cambridge grading work supports drainage, pad elevations, yard shaping, haul routes, and stable working surfaces for projects that need to stay productive through multiple build stages.',
-        coreServiceHref: '/services/site-preparation-land-grading',
+        coreServiceHref: '/services/land-grading-drainage',
         image: {
           src: '/assets/driveway-parking-lot-construction.jpg',
           alt: 'Machine grading a driveway and access lane with compacted aggregate.',
+        },
+      },
+      {
+        slug: 'material-delivery',
+        title: 'Dirt and gravel delivery for active site material needs',
+        description:
+          'Cambridge jobs often need aggregate, fill, or gravel brought in while excavation spoil moves out, so material delivery can stay tied to the same schedule as grading and truck flow.',
+        coreServiceHref: '/services/dirt-gravel-delivery',
+        image: {
+          src: '/assets/dump-truck-delivery-service.jpg',
+          alt: 'Tri-axle dump truck delivering gravel to an active jobsite.',
         },
       },
       {
@@ -1006,6 +1116,60 @@ const baseServiceAreaPages = {
       'That changes the work. Excavation has to stay controlled around existing houses, additions, garages, trees, fences, retaining edges, and neighbouring properties instead of treating the lot like an open site.',
       'Typical Dundas work includes additions, garage foundations, drainage corrections, service trenching, driveway and access improvements, rough grading, spoil haul-out, and imported material for smaller residential builds that still need proper truck support.',
     ],
+    projectTypes: [
+      {
+        title: 'Additions and foundation work on older properties',
+        description:
+          'Dundas lots can require controlled excavation around existing homes, neighbouring structures, landscaping, and tighter working areas.',
+        links: [
+          {
+            label: 'foundation excavation',
+            href: '/services/foundation-excavation',
+          },
+        ],
+      },
+      {
+        title: 'Driveway reconstruction and access fixes',
+        description:
+          'Driveway work often needs base prep, slope correction, drainage planning, and careful truck access on tighter residential properties.',
+        links: [
+          {
+            label: 'driveway and parking lot preparation',
+            href: '/services/driveway-parking-lot-preparation',
+          },
+          {
+            label: 'land grading and drainage',
+            href: '/services/land-grading-drainage',
+          },
+        ],
+      },
+      {
+        title: 'Drainage correction on tight residential lots',
+        description:
+          'Established properties may need runoff redirected, low areas corrected, or grades reshaped without disrupting the rest of the lot.',
+        links: [
+          {
+            label: 'land grading and drainage',
+            href: '/services/land-grading-drainage',
+          },
+        ],
+      },
+      {
+        title: 'Truck and equipment coordination',
+        description:
+          'Narrower access and busy residential streets make truck timing, haul-out, and equipment moves part of the actual excavation plan.',
+        links: [
+          {
+            label: 'dump truck rental',
+            href: '/services/dump-truck-rental',
+          },
+          {
+            label: 'heavy equipment hauling',
+            href: '/services/heavy-equipment-hauling',
+          },
+        ],
+      },
+    ],
     sectionHeadings: {
       intro: 'Tight residential site work in Dundas',
       services: 'Excavation, grading, hauling, and float work in Dundas',
@@ -1073,10 +1237,21 @@ const baseServiceAreaPages = {
         title: 'Grading for drainage, driveway function, and controlled runoff',
         description:
           'Bellhouse handles Dundas grading for drainage corrections, driveway approaches, rough residential shaping, and finished grade prep where runoff and access have to work on a tighter lot with existing surroundings.',
-        coreServiceHref: '/services/site-preparation-land-grading',
+        coreServiceHref: '/services/land-grading-drainage',
         image: {
           src: '/assets/driveway-parking-lot-construction.jpg',
           alt: 'Machine grading a driveway and access lane with compacted aggregate.',
+        },
+      },
+      {
+        slug: 'driveway-parking-lot-preparation',
+        title: 'Driveway and parking lot preparation on tighter properties',
+        description:
+          'Dundas properties often need driveway base, access shaping, and drainage decisions handled carefully so vehicles and crews can use the space without fighting runoff or soft ground.',
+        coreServiceHref: '/services/driveway-parking-lot-preparation',
+        image: {
+          src: '/assets/services/driveway-grading-concrete-base.webp',
+          alt: 'Skid steer grading a driveway base and setting slope for drainage.',
         },
       },
       {
@@ -1215,6 +1390,64 @@ const baseServiceAreaPages = {
       'That creates a different kind of pressure than older in-town sites. The job usually has a little more room to move than Dundas, but it still needs excavation, trucking, imported material, and grading to land in the right order so the site stays buildable.',
       'Typical Waterdown work includes subdivision lot prep, custom-home and infill starts, foundation excavation, rough grading, service trenching, spoil haul-out, aggregate delivery, and machine moves tied to active residential construction.',
     ],
+    projectTypes: [
+      {
+        title: 'New builds and subdivision lot starts',
+        description:
+          'Waterdown builds often need stripping, foundation excavation, truck access, and early grading coordinated before the next trade arrives.',
+        links: [
+          {
+            label: 'foundation excavation',
+            href: '/services/foundation-excavation',
+          },
+          {
+            label: 'site preparation and land grading',
+            href: '/services/site-preparation-land-grading',
+          },
+        ],
+      },
+      {
+        title: 'Driveway base and residential access prep',
+        description:
+          'Driveways and access routes need gravel base, compaction, drainage, and material delivery planned around daily site traffic.',
+        links: [
+          {
+            label: 'driveway and parking lot preparation',
+            href: '/services/driveway-parking-lot-preparation',
+          },
+          {
+            label: 'dirt and gravel delivery',
+            href: '/services/dirt-gravel-delivery',
+          },
+        ],
+      },
+      {
+        title: 'Lot grading and drainage corrections',
+        description:
+          'Rough grades, swales, and runoff control matter before yards, driveways, concrete, or landscaping lock the site into place.',
+        links: [
+          {
+            label: 'land grading and drainage',
+            href: '/services/land-grading-drainage',
+          },
+        ],
+      },
+      {
+        title: 'Material movement during active construction',
+        description:
+          'Residential projects can stall when spoil export, imported aggregate, and truck timing are not kept close to excavation and grading.',
+        links: [
+          {
+            label: 'dump truck rental',
+            href: '/services/dump-truck-rental',
+          },
+          {
+            label: 'dirt and gravel delivery',
+            href: '/services/dirt-gravel-delivery',
+          },
+        ],
+      },
+    ],
     sectionHeadings: {
       intro: 'Site prep for growing Waterdown jobs',
       services: 'Excavation, grading, hauling, and float work in Waterdown',
@@ -1282,10 +1515,21 @@ const baseServiceAreaPages = {
         title: 'Grading for lot readiness, drainage, and residential working surfaces',
         description:
           'Bellhouse handles Waterdown grading for rough lot shaping, drainage control, access lanes, building pads, and working grades that need to stay practical through active residential construction and the next trade on site.',
-        coreServiceHref: '/services/site-preparation-land-grading',
+        coreServiceHref: '/services/land-grading-drainage',
         image: {
           src: '/assets/driveway-parking-lot-construction.jpg',
           alt: 'Machine grading a driveway and access lane with compacted aggregate.',
+        },
+      },
+      {
+        slug: 'driveway-parking-lot-preparation',
+        title: 'Driveway and parking lot preparation for residential access',
+        description:
+          'Waterdown new builds and property improvements often need gravel base, driveway access, compaction, and drainage planned before concrete, asphalt, or daily construction traffic arrives.',
+        coreServiceHref: '/services/driveway-parking-lot-preparation',
+        image: {
+          src: '/assets/services/driveway-grading-concrete-base.webp',
+          alt: 'Skid steer grading a driveway base and setting slope for drainage.',
         },
       },
       {
@@ -1423,6 +1667,64 @@ const baseServiceAreaPages = {
       'That creates a different mix from a pure rural custom-home page or a tighter city redevelopment page. Simcoe jobs often blend rural ground conditions with commercial-style site needs such as pads, access lanes, drainage shaping, and controlled haul-out.',
       'Typical Simcoe work includes excavation for foundations and site changes, rural-commercial site prep, grading for access and drainage, spoil export, imported aggregate, and machine moves tied to active job schedules.',
     ],
+    projectTypes: [
+      {
+        title: 'Rural-commercial pads and larger-lot prep',
+        description:
+          'Simcoe projects often need pads, access routes, and working ground shaped for trucks, equipment, and staged rural-commercial work.',
+        links: [
+          {
+            label: 'site preparation and land grading',
+            href: '/services/site-preparation-land-grading',
+          },
+          {
+            label: 'land grading and drainage',
+            href: '/services/land-grading-drainage',
+          },
+        ],
+      },
+      {
+        title: 'Ponds, drainage, and larger-property water control',
+        description:
+          'Larger properties may need pond cleaning, pond excavation, drainage shaping, or access planning before the rest of the site can work properly.',
+        links: [
+          {
+            label: 'pond digging and cleaning',
+            href: '/services/pond-digging-cleaning',
+          },
+          {
+            label: 'land grading and drainage',
+            href: '/services/land-grading-drainage',
+          },
+        ],
+      },
+      {
+        title: 'Material delivery and driveway access',
+        description:
+          'Driveways, lanes, pads, and access routes often need aggregate delivery and truck timing kept close to excavation and grading work.',
+        links: [
+          {
+            label: 'dirt and gravel delivery',
+            href: '/services/dirt-gravel-delivery',
+          },
+          {
+            label: 'dump truck rental',
+            href: '/services/dump-truck-rental',
+          },
+        ],
+      },
+      {
+        title: 'Demolition cleanup before new site work',
+        description:
+          'Older structures, outbuildings, or cleanup areas may need demolition, haul-out, and grading coordinated before new access, pads, or excavation starts.',
+        links: [
+          {
+            label: 'house and barn demolition',
+            href: '/services/house-barn-demolition',
+          },
+        ],
+      },
+    ],
     sectionHeadings: {
       intro: 'Site work for larger lots, access routes, and material movement',
       services: 'Excavation, grading, hauling, and float work in Simcoe',
@@ -1490,10 +1792,32 @@ const baseServiceAreaPages = {
         title: 'Grading for drainage, lanes, pads, and usable working ground',
         description:
           'Bellhouse handles Simcoe grading for drainage control, pad work, lane construction, access routes, and stable working ground that has to stay useful for trucks, material movement, and the next crew.',
-        coreServiceHref: '/services/site-preparation-land-grading',
+        coreServiceHref: '/services/land-grading-drainage',
         image: {
           src: '/assets/driveway-parking-lot-construction.jpg',
           alt: 'Machine grading a driveway and access lane with compacted aggregate.',
+        },
+      },
+      {
+        slug: 'pond-digging-cleaning',
+        title: 'Pond digging and cleaning for rural and larger properties',
+        description:
+          'Simcoe-area larger properties may need pond excavation, cleaning, deepening, or shoreline reshaping coordinated with access, spoil placement, grading, and truck movement.',
+        coreServiceHref: '/services/pond-digging-cleaning',
+        image: {
+          src: '/assets/pond-digging-cleaning-brant-county.jpg',
+          alt: 'Excavator digging and shaping a pond on rural land in Brant County.',
+        },
+      },
+      {
+        slug: 'demolition',
+        title: 'House and barn demolition for property cleanup',
+        description:
+          'Where older structures or outbuildings need to come down before new grading, pads, or access work, Bellhouse can coordinate demolition with excavation and hauling.',
+        coreServiceHref: '/services/house-barn-demolition',
+        image: {
+          src: '/assets/demo1.jpg',
+          alt: 'Bellhouse equipment handling house and barn demolition work.',
         },
       },
       {
@@ -1696,10 +2020,32 @@ const baseServiceAreaPages = {
         title: 'Grading for yards, pads, drainage, and working surfaces',
         description:
           'Bellhouse handles Woodstock grading for yard prep, commercial pads, drainage control, haul routes, loading areas, and stable working surfaces that need to stay usable through active site work and the next stage of construction.',
-        coreServiceHref: '/services/site-preparation-land-grading',
+        coreServiceHref: '/services/land-grading-drainage',
         image: {
           src: '/assets/driveway-parking-lot-construction.jpg',
           alt: 'Machine grading a driveway and access lane with compacted aggregate.',
+        },
+      },
+      {
+        slug: 'material-delivery',
+        title: 'Dirt and gravel delivery for yards, pads, and access routes',
+        description:
+          'Woodstock commercial and industrial work often needs gravel, fill, aggregate, or topsoil delivered while the site is being shaped for pads, haul routes, loading areas, or drainage.',
+        coreServiceHref: '/services/dirt-gravel-delivery',
+        image: {
+          src: '/assets/dump-truck-delivery-service.jpg',
+          alt: 'Tri-axle dump truck delivering gravel to an active jobsite.',
+        },
+      },
+      {
+        slug: 'volvo-a35-off-road-dump-truck-rental',
+        title: 'Volvo A35 off-road dump truck rental for larger site movement',
+        description:
+          'For larger Woodstock sites, the Volvo A35 can support bulk material movement across rough or active ground where production hauling needs to stay off public roads.',
+        coreServiceHref: '/services/volvo-a35-off-road-dump-truck-rental',
+        image: {
+          src: '/assets/off-road-truck-dump-truck.jpg',
+          alt: 'Volvo A35 off-road dump truck working on a large earthmoving site.',
         },
       },
       {
@@ -1904,10 +2250,21 @@ const baseServiceAreaPages = {
           'Grading for slope transitions, drainage control, and finished driveway access',
         description:
           'Ancaster grading often revolves around tying different elevations together properly, managing drainage around the house, and building driveway approaches and access lanes that work in wet weather and under construction traffic.',
-        coreServiceHref: '/services/site-preparation-land-grading',
+        coreServiceHref: '/services/land-grading-drainage',
         image: {
           src: '/assets/driveway-parking-lot-construction.jpg',
           alt: 'Machine grading a driveway and access lane with compacted aggregate.',
+        },
+      },
+      {
+        slug: 'driveway-parking-lot-preparation',
+        title: 'Driveway and parking lot preparation for estate-lot access',
+        description:
+          'Ancaster properties often need driveway approaches, gravel base, drainage, and compaction planned around slope changes before the finished surface or daily construction traffic arrives.',
+        coreServiceHref: '/services/driveway-parking-lot-preparation',
+        image: {
+          src: '/assets/services/driveway-grading-concrete-base.webp',
+          alt: 'Skid steer grading a driveway base and setting slope for drainage.',
         },
       },
       {

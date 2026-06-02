@@ -19,6 +19,10 @@ const footerSections = [
         label: 'Site Prep & Grading',
       },
       {
+        href: '/services/land-grading-drainage',
+        label: 'Land Grading & Drainage',
+      },
+      {
         href: '/services/dirt-gravel-delivery',
         label: 'Dirt & Gravel Delivery',
       },
@@ -65,8 +69,7 @@ const footerSections = [
   {
     title: 'Resources',
     links: [
-      { href: '/resources', label: 'Resources Hub' },
-      { href: '/resources/calculators', label: 'Calculators' },
+      { href: '/resources/calculators', label: 'Estimating Calculators' },
       {
         href: '/resources/calculators/excavation',
         label: 'Excavation Calculator',

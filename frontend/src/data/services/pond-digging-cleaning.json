@@ -265,8 +265,8 @@
       ],
       "actions": [
         {
-          "label": "View All Resources",
-          "href": "/resources",
+          "label": "View Calculators",
+          "href": "/resources/calculators",
           "variant": "secondary"
         }
       ]
@@ -291,6 +291,7 @@
       "serviceSlugs": [
         "land-grading-drainage",
         "site-preparation-land-grading",
+        "house-barn-demolition",
         "dump-truck-rental",
         "volvo-a35-off-road-dump-truck-rental"
       ]
