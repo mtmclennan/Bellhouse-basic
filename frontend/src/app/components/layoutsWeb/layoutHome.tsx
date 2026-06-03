@@ -6,6 +6,7 @@ import Image from 'next/image';
 import classes from './LayoutWeb.module.scss';
 import { usePathname } from 'next/navigation';
 import HeaderHome from './HeaderHome';
+import backgroundImage from '../../../../public/assets/foundation-excavation-dump-truck-loading-brantford.webp';
 
 type LayoutProps = {
   children: ReactNode;
@@ -14,6 +15,7 @@ type LayoutProps = {
 
 const LayoutHome = ({ children, background = 'on' }: LayoutProps) => {
   const pathname = usePathname();
+  const isLandingPage = pathname?.startsWith('/landing/');
   const isServicesPage =
     pathname?.startsWith('/services/') && pathname !== '/services';
   const isOverlayHeroRoute =
@@ -25,7 +27,7 @@ const LayoutHome = ({ children, background = 'on' }: LayoutProps) => {
     pathname?.startsWith('/resources/');
 
   const showBackground =
-    isServicesPage || isOverlayHeroRoute ? 'off' : background;
+    isLandingPage || isServicesPage || isOverlayHeroRoute ? 'off' : background;
 
   return (
     <Fragment>
@@ -36,14 +38,15 @@ const LayoutHome = ({ children, background = 'on' }: LayoutProps) => {
             quality={70}
             priority
             fill
-            src="/assets/background.jpg"
+            src={backgroundImage}
             alt="an excavator digging a foundation, loading fill onto a dump truck"
+            sizes="100vw"
           />
         </div>
       )}
-      <HeaderHome />
+      {!isLandingPage && <HeaderHome />}
       <main className={classes.containerHome}>{children}</main>
-      <Footer />
+      {!isLandingPage && <Footer />}
     </Fragment>
   );
 };

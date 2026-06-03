@@ -1,7 +1,12 @@
 import '../styles/main.scss';
+import type { Metadata } from 'next';
 import schema from '../data/schema.json';
 import Script from 'next/script';
 import LayoutHome from './components/layoutsWeb/layoutHome';
+
+export const metadata: Metadata = {
+  metadataBase: new URL('https://bellhouseexcavating.ca'),
+};
 
 export default function RootLayout({
   children,

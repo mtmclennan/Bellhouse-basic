@@ -93,7 +93,8 @@ button {
     }
   }
 }
-.about-hero__actions {
+
+.about-hero__actions {
   @include m.flexCenter();
   gap: 1.6rem;
   flex-wrap: wrap;
@@ -177,21 +178,17 @@ button {
 
 .background {
   position: fixed;
-  // background-color: rgba(0, 0, 0, 0);
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  inset: 0;
   z-index: -10;
+  overflow: hidden;
   overflow-anchor: none;
-  & img {
-    filter: opacity(10%);
-  }
+  pointer-events: none;
+  opacity: 0.1;
 }
 
 .background-image {
   object-fit: cover;
-  z-index: -100;
+  object-position: center;
 }
 
 input:focus,
@@ -888,4 +885,3 @@ button {
 .font-thin {
   font-weight: 100;
 }
-
