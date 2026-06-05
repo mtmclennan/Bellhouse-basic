@@ -34,7 +34,7 @@ export async function generateMetadata({
     robots: page.seo.noindex
       ? {
           index: false,
-          follow: false,
+          follow: true,
         }
       : undefined,
     openGraph: page.seo.ogImage

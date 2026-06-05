@@ -27,15 +27,15 @@ export default function LandingProof({ proof }: LandingProofProps) {
         </div>
       ) : null}
       {proof.gallery?.length ? (
-        <div className="landing-gallery">
+        <div className="landing-proof__gallery landing-gallery">
           {proof.gallery.map((image) => (
-            <figure key={image.src}>
+            <figure className="landing-proof__image-card" key={image.src}>
               <div className="landing-gallery__image">
                 <Image
                   src={image.src}
                   alt={image.alt}
                   fill
-                  sizes="(max-width: 699px) 100vw, (max-width: 1000px) 50vw, 33vw"
+                  sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 28vw"
                 />
               </div>
               {image.caption ? <figcaption>{image.caption}</figcaption> : null}

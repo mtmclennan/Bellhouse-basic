@@ -22,27 +22,29 @@ export default function LandingPricing({
         heading={pricing.heading}
         intro={pricing.intro}
       />
-      <ol className="landing-price-list">
-        {pricing.factors.map((factor) => (
-          <li key={factor.title}>
-            <h3>{factor.title}</h3>
-            <p>{factor.description}</p>
-          </li>
-        ))}
-      </ol>
-      {pricing.sideNote ? (
-        <aside className="landing-side-note">
-          <h3>{pricing.sideNote.heading}</h3>
-          <p>{pricing.sideNote.body}</p>
-          {pricing.sideNote.cta ? (
-            <LandingCtaLink
-              cta={pricing.sideNote.cta}
-              serviceKey={serviceKey}
-              pageSlug={pageSlug}
-            />
-          ) : null}
-        </aside>
-      ) : null}
+      <div className="landing-pricing__layout">
+        <ol className="landing-pricing__factors landing-price-list">
+          {pricing.factors.map((factor) => (
+            <li className="landing-pricing__factor" key={factor.title}>
+              <h3>{factor.title}</h3>
+              <p>{factor.description}</p>
+            </li>
+          ))}
+        </ol>
+        {pricing.sideNote ? (
+          <aside className="landing-pricing__note landing-side-note">
+            <h3>{pricing.sideNote.heading}</h3>
+            <p>{pricing.sideNote.body}</p>
+            {pricing.sideNote.cta ? (
+              <LandingCtaLink
+                cta={pricing.sideNote.cta}
+                serviceKey={serviceKey}
+                pageSlug={pageSlug}
+              />
+            ) : null}
+          </aside>
+        ) : null}
+      </div>
     </section>
   );
 }

@@ -8,6 +8,7 @@ export const foundationExcavationLandingPage = {
     title: 'Foundation Excavation Brantford | Bellhouse Excavating',
     description:
       'Foundation excavation, haul-out, backfill, and site prep support for Brantford and Brant County builds.',
+    noindex: true,
     canonical: '/landing/foundation-excavation-brantford',
     ogImage: {
       src: '/assets/foundation-excavation-dump-truck-loading-brantford.webp',

@@ -8,6 +8,7 @@ export const demolitionContractorLandingPage = {
     title: 'Demolition Contractor Brantford | Bellhouse Excavating',
     description:
       'Demolition, removal, trucking, and site cleanup support for Brantford and Brant County properties.',
+    noindex: true,
     canonical: '/landing/demolition-contractor-brantford',
     ogImage: {
       src: '/assets/house-demolition-excavator-brant-county.png',
