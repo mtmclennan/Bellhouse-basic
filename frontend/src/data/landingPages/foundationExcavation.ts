@@ -20,8 +20,8 @@ export const foundationExcavationLandingPage = {
   header: {
     logoLabel: 'Bellhouse Excavating',
     phoneCta: {
-      label: 'Call 519-802-3857',
-      href: 'tel:5198023857',
+      label: '519-752-8500',
+      href: 'tel:5197528500',
       variant: 'phone',
       trackingId: 'foundation-header-phone',
     },
@@ -34,7 +34,8 @@ export const foundationExcavationLandingPage = {
   },
   hero: {
     eyebrow: 'Serving Brantford and Brant County',
-    title: 'Foundation excavation in Brantford',
+    titleHighlight: 'Foundation Excavation',
+    title: 'in Brantford',
     subtitle:
       'Excavation, trucking, backfill, and site prep coordinated by a local crew that understands access, depth, elevations, and real construction schedules.',
     bullets: [
@@ -49,8 +50,8 @@ export const foundationExcavationLandingPage = {
       trackingId: 'foundation-hero-quote',
     },
     phoneCta: {
-      label: 'Call 519-802-3857',
-      href: 'tel:5198023857',
+      label: '519-752-8500',
+      href: 'tel:5197528500',
       variant: 'phone',
       trackingId: 'foundation-hero-phone',
     },
@@ -156,7 +157,7 @@ export const foundationExcavationLandingPage = {
       { label: 'Local excavation and trucking', icon: 'truck' },
       { label: 'Clean, well-maintained equipment', icon: 'shield-check' },
       { label: 'Practical jobsite communication', icon: 'chat-circle' },
-      { label: 'Quote reviewed by the crew', icon: 'clipboard-text' },
+      { label: '5.0 rating on Google', icon: 'star' },
     ],
   },
   audience: {
@@ -290,6 +291,16 @@ export const foundationExcavationLandingPage = {
         alt: 'Backfill and compaction equipment beside a foundation',
         caption: 'Backfill and compaction',
       },
+      {
+        src: '/assets/dozer-pushing-dirt.jpg',
+        alt: 'Dozer pushing dirt while grading a site',
+        caption: 'Site grading and cut/fill',
+      },
+      {
+        src: '/assets/finished-garage-foundation-excavation-backfilled-for-slab.webp',
+        alt: 'Finished foundation excavation backfilled and graded for a slab',
+        caption: 'Graded and ready for slab',
+      },
     ],
   },
   faq: {
@@ -314,6 +325,7 @@ export const foundationExcavationLandingPage = {
     ],
   },
   finalCta: {
+    eyebrow: 'Get Started',
     heading: 'Ready to quote your foundation excavation?',
     body: 'Send the site details, drawings, and timing, or call Bellhouse to talk through the project directly.',
     primaryCta: {
@@ -323,8 +335,8 @@ export const foundationExcavationLandingPage = {
       trackingId: 'foundation-final-quote',
     },
     phoneCta: {
-      label: 'Call 519-802-3857',
-      href: 'tel:5198023857',
+      label: '519-752-8500',
+      href: 'tel:5197528500',
       variant: 'phone',
       trackingId: 'foundation-final-phone',
     },
@@ -334,8 +346,8 @@ export const foundationExcavationLandingPage = {
     serviceLine: 'Foundation excavation, backfill, grading, and trucking',
     locationLine: 'Serving Brantford, Brant County, and nearby areas',
     phoneCta: {
-      label: '519-802-3857',
-      href: 'tel:5198023857',
+      label: '519-752-8500',
+      href: 'tel:5197528500',
       variant: 'phone',
       trackingId: 'foundation-footer-phone',
     },
@@ -343,7 +355,7 @@ export const foundationExcavationLandingPage = {
   mobileBar: {
     callCta: {
       label: 'Call',
-      href: 'tel:5198023857',
+      href: 'tel:5197528500',
       variant: 'phone',
       trackingId: 'foundation-mobile-call',
     },

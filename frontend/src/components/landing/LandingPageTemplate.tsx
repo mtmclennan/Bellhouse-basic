@@ -9,7 +9,6 @@ import LandingHero from './LandingHero';
 import LandingMobileBar from './LandingMobileBar';
 import LandingPricing from './LandingPricing';
 import LandingProof from './LandingProof';
-import LandingTrustBar from './LandingTrustBar';
 
 type LandingPageTemplateProps = {
   page: LandingPageData;
@@ -27,10 +26,10 @@ export default function LandingPageTemplate({ page }: LandingPageTemplateProps) 
         <LandingHero
           hero={page.hero}
           form={page.form}
+          trustBar={page.trustBar}
           serviceKey={page.serviceKey}
           pageSlug={page.slug}
         />
-        <LandingTrustBar trustBar={page.trustBar} />
         <LandingAudience audience={page.audience} />
         <LandingHandles handles={page.handles} />
         <LandingPricing

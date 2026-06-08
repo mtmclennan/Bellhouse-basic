@@ -20,8 +20,8 @@ export const demolitionContractorLandingPage = {
   header: {
     logoLabel: 'Bellhouse Excavating',
     phoneCta: {
-      label: 'Call 519-802-3857',
-      href: 'tel:5198023857',
+      label: '519-752-8500',
+      href: 'tel:5197528500',
       variant: 'phone',
       trackingId: 'demo-header-phone',
     },
@@ -34,7 +34,8 @@ export const demolitionContractorLandingPage = {
   },
   hero: {
     eyebrow: 'Serving Brantford and Brant County',
-    title: 'Demolition contractor in Brantford',
+    titleHighlight: 'Demolition Contractor',
+    title: 'in Brantford',
     subtitle:
       'Demolition, removal, trucking, and site cleanup handled with practical planning around access, debris, neighbours, and the next phase of work.',
     bullets: [
@@ -49,8 +50,8 @@ export const demolitionContractorLandingPage = {
       trackingId: 'demo-hero-quote',
     },
     phoneCta: {
-      label: 'Call 519-802-3857',
-      href: 'tel:5198023857',
+      label: '519-752-8500',
+      href: 'tel:5197528500',
       variant: 'phone',
       trackingId: 'demo-hero-phone',
     },
@@ -156,7 +157,7 @@ export const demolitionContractorLandingPage = {
       { label: 'Demolition and haul-out coordinated', icon: 'truck' },
       { label: 'Site access reviewed before work', icon: 'map-pin' },
       { label: 'Efficient cleanup and removal', icon: 'broom' },
-      { label: 'Practical communication from start to finish', icon: 'chat-circle' },
+      { label: '5.0 rating on Google', icon: 'star' },
     ],
   },
   audience: {
@@ -314,6 +315,7 @@ export const demolitionContractorLandingPage = {
     ],
   },
   finalCta: {
+    eyebrow: 'Get Started',
     heading: 'Ready to quote your demolition project?',
     body: 'Send photos, location, timing, and structure details, or call Bellhouse to talk through the job directly.',
     primaryCta: {
@@ -323,8 +325,8 @@ export const demolitionContractorLandingPage = {
       trackingId: 'demo-final-quote',
     },
     phoneCta: {
-      label: 'Call 519-802-3857',
-      href: 'tel:5198023857',
+      label: '519-752-8500',
+      href: 'tel:5197528500',
       variant: 'phone',
       trackingId: 'demo-final-phone',
     },
@@ -334,8 +336,8 @@ export const demolitionContractorLandingPage = {
     serviceLine: 'Demolition, debris removal, trucking, cleanup, and grading support',
     locationLine: 'Serving Brantford, Brant County, and nearby areas',
     phoneCta: {
-      label: '519-802-3857',
-      href: 'tel:5198023857',
+      label: '519-752-8500',
+      href: 'tel:5197528500',
       variant: 'phone',
       trackingId: 'demo-footer-phone',
     },
@@ -343,7 +345,7 @@ export const demolitionContractorLandingPage = {
   mobileBar: {
     callCta: {
       label: 'Call',
-      href: 'tel:5198023857',
+      href: 'tel:5197528500',
       variant: 'phone',
       trackingId: 'demo-mobile-call',
     },

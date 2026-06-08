@@ -53,6 +53,7 @@ export type LandingPageData = {
 
   hero: {
     eyebrow?: string;
+    titleHighlight?: string;
     title: string;
     subtitle: string;
     bullets?: string[];
@@ -137,6 +138,7 @@ export type LandingPageData = {
   };
 
   finalCta: {
+    eyebrow?: string;
     heading: string;
     body: string;
     primaryCta: LandingCta;

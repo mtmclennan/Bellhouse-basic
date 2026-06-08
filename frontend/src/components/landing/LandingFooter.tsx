@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import type { LandingPageData } from '@/data/landingPages/types';
 import LandingCtaLink from './LandingCtaLink';
-import logo from '../../../public/assets/BellhouseLogo-text.png';
+import logo from '../../../public/assets/BellhouseLogo-text-LS.png';
 
 type LandingFooterProps = {
   footer: LandingPageData['footer'];

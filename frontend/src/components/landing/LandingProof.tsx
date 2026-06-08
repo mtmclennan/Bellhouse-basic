@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import type { LandingPageData } from '@/data/landingPages/types';
+import LandingReveal from './LandingReveal';
 import LandingSectionHeading from './LandingSectionHeading';
 
 type LandingProofProps = {
@@ -18,17 +19,17 @@ export default function LandingProof({ proof }: LandingProofProps) {
       />
       {proof.stats?.length ? (
         <div className="landing-card-grid">
-          {proof.stats.map((stat) => (
-            <article key={`${stat.value}-${stat.label}`}>
+          {proof.stats.map((stat, i) => (
+            <LandingReveal key={`${stat.value}-${stat.label}`} as="article" delay={i * 0.06}>
               <h3>{stat.value}</h3>
               <p>{stat.label}</p>
-            </article>
+            </LandingReveal>
           ))}
         </div>
       ) : null}
       {proof.gallery?.length ? (
-        <div className="landing-proof__gallery landing-gallery">
-          {proof.gallery.map((image) => (
+        <LandingReveal className="landing-proof__gallery landing-gallery" as="div">
+        {proof.gallery.map((image) => (
             <figure className="landing-proof__image-card" key={image.src}>
               <div className="landing-gallery__image">
                 <Image
@@ -41,7 +42,7 @@ export default function LandingProof({ proof }: LandingProofProps) {
               {image.caption ? <figcaption>{image.caption}</figcaption> : null}
             </figure>
           ))}
-        </div>
+        </LandingReveal>
       ) : null}
     </section>
   );

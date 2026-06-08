@@ -1,11 +1,15 @@
 import Image from 'next/image';
 import type { LandingPageData } from '@/data/landingPages/types';
 import LandingCtaLink from './LandingCtaLink';
+import LandingIcon from './LandingIcon';
 import LandingQuoteForm from './LandingQuoteForm';
+import LandingReveal from './LandingReveal';
+import LandingTrustBar from './LandingTrustBar';
 
 type LandingHeroProps = {
   hero: LandingPageData['hero'];
   form: LandingPageData['form'];
+  trustBar?: LandingPageData['trustBar'];
   serviceKey: string;
   pageSlug: string;
 };
@@ -13,6 +17,7 @@ type LandingHeroProps = {
 export default function LandingHero({
   hero,
   form,
+  trustBar,
   serviceKey,
   pageSlug,
 }: LandingHeroProps) {
@@ -30,13 +35,26 @@ export default function LandingHero({
         </div>
       ) : null}
       <div className="landing-hero-copy">
-        {hero.eyebrow ? <p className="landing-eyebrow">{hero.eyebrow}</p> : null}
-        <h1>{hero.title}</h1>
+        {hero.eyebrow ? (
+          <p className="landing-eyebrow landing-hero-eyebrow">
+            <LandingIcon name="map-pin" size={16} />
+            {hero.eyebrow}
+          </p>
+        ) : null}
+        <h1>
+          {hero.titleHighlight ? (
+            <span className="landing-hero-keyword">{hero.titleHighlight}</span>
+          ) : null}
+          {hero.title}
+        </h1>
         <p>{hero.subtitle}</p>
         {hero.bullets?.length ? (
           <ul>
             {hero.bullets.map((bullet) => (
-              <li key={bullet}>{bullet}</li>
+              <li key={bullet}>
+                <LandingIcon name="check-circle" size={22} />
+                {bullet}
+              </li>
             ))}
           </ul>
         ) : null}
@@ -63,13 +81,17 @@ export default function LandingHero({
         </div>
       </div>
 
-      <div id="landing-quote">
-        <LandingQuoteForm
-          form={form}
-          serviceKey={serviceKey}
-          pageSlug={pageSlug}
-        />
-      </div>
+      <LandingReveal delay={0.15}>
+        <div id="landing-quote">
+          <LandingQuoteForm
+            form={form}
+            serviceKey={serviceKey}
+            pageSlug={pageSlug}
+          />
+        </div>
+      </LandingReveal>
+
+      <LandingTrustBar trustBar={trustBar} />
     </section>
   );
 }

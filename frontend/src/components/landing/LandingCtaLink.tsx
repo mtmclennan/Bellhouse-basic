@@ -1,3 +1,4 @@
+import { Phone } from '@phosphor-icons/react/dist/ssr';
 import type { LandingCta } from '@/data/landingPages/types';
 
 export type LandingConversionType =
@@ -38,6 +39,9 @@ export default function LandingCtaLink({
       data-service-key={serviceKey}
       data-tracking-id={cta.trackingId}
     >
+      {cta.variant === 'phone' ? (
+        <Phone size={20} weight="duotone" aria-hidden="true" />
+      ) : null}
       {cta.label}
     </a>
   );

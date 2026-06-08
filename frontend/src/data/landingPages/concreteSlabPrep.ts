@@ -20,8 +20,8 @@ export const concreteSlabPrepLandingPage = {
   header: {
     logoLabel: 'Bellhouse Excavating',
     phoneCta: {
-      label: 'Call 519-802-3857',
-      href: 'tel:5198023857',
+      label: '519-752-8500',
+      href: 'tel:5197528500',
       variant: 'phone',
       trackingId: 'slab-header-phone',
     },
@@ -34,7 +34,8 @@ export const concreteSlabPrepLandingPage = {
   },
   hero: {
     eyebrow: 'Serving Brantford and Brant County',
-    title: 'Concrete slab base preparation in Brantford',
+    titleHighlight: 'Concrete Slab Prep',
+    title: 'in Brantford',
     subtitle:
       'Excavation, grading, granular placement, and compaction support for garages, shops, driveways, pads, and concrete flatwork.',
     bullets: [
@@ -49,8 +50,8 @@ export const concreteSlabPrepLandingPage = {
       trackingId: 'slab-hero-quote',
     },
     phoneCta: {
-      label: 'Call 519-802-3857',
-      href: 'tel:5198023857',
+      label: '519-752-8500',
+      href: 'tel:5197528500',
       variant: 'phone',
       trackingId: 'slab-hero-phone',
     },
@@ -156,7 +157,7 @@ export const concreteSlabPrepLandingPage = {
       { label: 'Excavation and granular delivery', icon: 'truck' },
       { label: 'Grading and base preparation', icon: 'ruler' },
       { label: 'Practical schedule coordination', icon: 'calendar-check' },
-      { label: 'Clean equipment and careful operators', icon: 'shield-check' },
+      { label: '5.0 rating on Google', icon: 'star' },
     ],
   },
   audience: {
@@ -314,6 +315,7 @@ export const concreteSlabPrepLandingPage = {
     ],
   },
   finalCta: {
+    eyebrow: 'Get Started',
     heading: 'Ready to quote your slab base prep?',
     body: 'Send the slab size, access details, timing, and photos, or call Bellhouse to talk through the site.',
     primaryCta: {
@@ -323,8 +325,8 @@ export const concreteSlabPrepLandingPage = {
       trackingId: 'slab-final-quote',
     },
     phoneCta: {
-      label: 'Call 519-802-3857',
-      href: 'tel:5198023857',
+      label: '519-752-8500',
+      href: 'tel:5197528500',
       variant: 'phone',
       trackingId: 'slab-final-phone',
     },
@@ -334,8 +336,8 @@ export const concreteSlabPrepLandingPage = {
     serviceLine: 'Concrete slab base preparation, grading, granular delivery, and compaction support',
     locationLine: 'Serving Brantford, Brant County, and nearby areas',
     phoneCta: {
-      label: '519-802-3857',
-      href: 'tel:5198023857',
+      label: '519-752-8500',
+      href: 'tel:5197528500',
       variant: 'phone',
       trackingId: 'slab-footer-phone',
     },
@@ -343,7 +345,7 @@ export const concreteSlabPrepLandingPage = {
   mobileBar: {
     callCta: {
       label: 'Call',
-      href: 'tel:5198023857',
+      href: 'tel:5197528500',
       variant: 'phone',
       trackingId: 'slab-mobile-call',
     },

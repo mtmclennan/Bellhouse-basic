@@ -1,5 +1,6 @@
 import type { LandingPageData } from '@/data/landingPages/types';
 import LandingCtaLink from './LandingCtaLink';
+import LandingReveal from './LandingReveal';
 import LandingSectionHeading from './LandingSectionHeading';
 
 type LandingPricingProps = {
@@ -32,8 +33,8 @@ export default function LandingPricing({
           ))}
         </ol>
         {pricing.sideNote ? (
-          <aside className="landing-pricing__note landing-side-note">
-            <h3>{pricing.sideNote.heading}</h3>
+          <LandingReveal as="aside" className="landing-pricing__note landing-side-note">
+            <p className="landing-eyebrow">{pricing.sideNote.heading}</p>
             <p>{pricing.sideNote.body}</p>
             {pricing.sideNote.cta ? (
               <LandingCtaLink
@@ -42,7 +43,7 @@ export default function LandingPricing({
                 pageSlug={pageSlug}
               />
             ) : null}
-          </aside>
+          </LandingReveal>
         ) : null}
       </div>
     </section>

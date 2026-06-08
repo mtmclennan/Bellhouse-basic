@@ -1,6 +1,7 @@
 'use client';
 
 import Script from 'next/script';
+import { Paperclip, UploadSimple } from '@phosphor-icons/react';
 import { FormEvent, useMemo, useState } from 'react';
 import { sendContactForm } from '@/app/actions/contact';
 import type {
@@ -19,7 +20,7 @@ type LandingFormValues = Record<string, LandingFormValue>;
 type LandingFormErrors = Record<string, string>;
 
 const FORM_ERROR_MESSAGE =
-  'Sorry, something went wrong sending your request. Please call 519-802-3857 or try again.';
+  'Sorry, something went wrong sending your request. Please call 519-752-8500 or try again.';
 
 function getInitialValues(fields: LandingFormField[]): LandingFormValues {
   return fields.reduce<LandingFormValues>((values, field) => {
@@ -251,7 +252,7 @@ export default function LandingQuoteForm({
     };
 
     const labelText = (
-      <>
+      <span className="landing-form__label-text">
         {field.label}
         {isRequired ? (
           <span className="landing-form__required" aria-hidden="true">
@@ -259,7 +260,7 @@ export default function LandingQuoteForm({
             *
           </span>
         ) : null}
-      </>
+      </span>
     );
 
     if (field.type === 'textarea') {
@@ -334,23 +335,42 @@ export default function LandingQuoteForm({
     if (field.type === 'file') {
       const selectedFiles = values[field.name];
 
+      const fileNames =
+        Array.isArray(selectedFiles) && selectedFiles.length > 0
+          ? selectedFiles
+          : [];
+
       return (
         <label key={field.name} className={getFieldClassName(field)} htmlFor={id}>
           {labelText}
-          <input
-            {...commonProps}
-            type="file"
-            multiple
-            onChange={(event) =>
-              setFieldValue(
-                field.name,
-                Array.from(event.target.files ?? []).map((file) => file.name),
-              )
-            }
-          />
-          {Array.isArray(selectedFiles) && selectedFiles.length > 0 ? (
+          <span className="landing-form__upload">
+            <UploadSimple
+              size={26}
+              weight="bold"
+              className="landing-form__upload-icon"
+              aria-hidden="true"
+            />
+            <span className="landing-form__upload-text">
+              <strong>Add site photos or drawings</strong>
+              Helps us scope the job and price faster
+            </span>
+            <input
+              {...commonProps}
+              type="file"
+              multiple
+              accept="image/*,.pdf"
+              onChange={(event) =>
+                setFieldValue(
+                  field.name,
+                  Array.from(event.target.files ?? []).map((file) => file.name),
+                )
+              }
+            />
+          </span>
+          {fileNames.length > 0 ? (
             <span className="landing-form__file-list">
-              {selectedFiles.join(', ')}
+              <Paperclip size={13} weight="bold" aria-hidden="true" />
+              {fileNames.join(', ')}
             </span>
           ) : null}
           {error ? (

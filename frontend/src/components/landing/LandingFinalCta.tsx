@@ -14,6 +14,9 @@ export default function LandingFinalCta({
 }: LandingFinalCtaProps) {
   return (
     <section className="landing-final-cta">
+      {finalCta.eyebrow ? (
+        <p className="landing-eyebrow">{finalCta.eyebrow}</p>
+      ) : null}
       <h2>{finalCta.heading}</h2>
       <p>{finalCta.body}</p>
       <div className="landing-cta-row">
