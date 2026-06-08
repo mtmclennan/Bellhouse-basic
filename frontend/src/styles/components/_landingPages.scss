@@ -168,10 +168,9 @@ $landing-max-width: 114rem;
   }
 
   .landing-cta--phone {
-    display: inline-grid;
-    grid-template-columns: auto auto;
+    display: inline-flex;
     align-items: center;
-    gap: 0.1rem 0.9rem;
+    gap: 0.9rem;
     min-height: auto;
     border: 0;
     border-radius: 0;
@@ -183,20 +182,24 @@ $landing-max-width: 114rem;
     text-transform: none;
 
     svg {
-      grid-row: 1 / 3;
+      flex: 0 0 auto;
       color: var(--yellow);
     }
 
-    &::before {
-      grid-column: 2;
-      grid-row: 1;
-      color: var(--g5);
-      content: 'Call Now';
-      font-size: 1.1rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      line-height: 1;
-      text-transform: uppercase;
+    .landing-cta__phone-label {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+
+      &::before {
+        color: var(--g5);
+        content: 'Call Now';
+        font-size: 1.1rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        line-height: 1;
+        text-transform: uppercase;
+      }
     }
 
     &:hover {
@@ -1188,7 +1191,12 @@ $landing-max-width: 114rem;
   }
 }
 
-.landing-reveal {
+// Reveal animations are progressive enhancement only. Content is visible by
+// default (no `opacity: 0` here), so it always shows without JS, on slow
+// hydration, or if a script fails. The hidden start-state is applied only once
+// JS has marked the document ready via `html.js` (set by a pre-paint inline
+// script), which prevents both the no-JS blank-section case and any flash.
+html.js .landing-reveal {
   opacity: 0;
   transform: translateY(2rem);
   transition:
@@ -1202,7 +1210,7 @@ $landing-max-width: 114rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .landing-reveal {
+  html.js .landing-reveal {
     opacity: 1;
     transform: none;
     transition: none;

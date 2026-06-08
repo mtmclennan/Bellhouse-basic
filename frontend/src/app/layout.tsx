@@ -16,6 +16,17 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body>
+        {/*
+          Mark the document JS-ready before paint so reveal animations apply
+          only as progressive enhancement. Without JS this class is never added
+          and all `.landing-reveal` content stays visible by default.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('js');",
+          }}
+        />
+
         {/* Local Business Schema */}
         <Script
           id="local-business-schema"

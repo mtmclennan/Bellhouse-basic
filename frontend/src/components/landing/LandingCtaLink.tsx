@@ -6,7 +6,8 @@ export type LandingConversionType =
   | 'landing-secondary-cta'
   | 'landing-phone-cta'
   | 'landing-mobile-call'
-  | 'landing-mobile-quote';
+  | 'landing-mobile-quote'
+  | 'landing-mobile-text';
 
 type LandingCtaLinkProps = {
   cta: LandingCta;
@@ -40,9 +41,13 @@ export default function LandingCtaLink({
       data-tracking-id={cta.trackingId}
     >
       {cta.variant === 'phone' ? (
-        <Phone size={20} weight="duotone" aria-hidden="true" />
-      ) : null}
-      {cta.label}
+        <>
+          <Phone size={20} weight="duotone" aria-hidden="true" />
+          <span className="landing-cta__phone-label">{cta.label}</span>
+        </>
+      ) : (
+        cta.label
+      )}
     </a>
   );
 }

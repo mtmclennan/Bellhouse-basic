@@ -349,15 +349,11 @@ export const concreteSlabPrepLandingPage = {
       variant: 'phone',
       trackingId: 'slab-mobile-call',
     },
-    quoteCta: {
-      label: 'Free Quote',
-      href: '#landing-quote',
+    textCta: {
+      label: 'Text Us',
+      href: 'sms:5197528500',
       variant: 'primary',
-      trackingId: 'slab-mobile-quote',
+      trackingId: 'slab-mobile-text',
     },
-  },
-  relatedServiceLink: {
-    label: 'Site preparation and land grading',
-    href: '/services/site-preparation-land-grading',
   },
 } satisfies LandingPageData;

@@ -349,15 +349,11 @@ export const demolitionContractorLandingPage = {
       variant: 'phone',
       trackingId: 'demo-mobile-call',
     },
-    quoteCta: {
-      label: 'Free Quote',
-      href: '#landing-quote',
+    textCta: {
+      label: 'Text Us',
+      href: 'sms:5197528500',
       variant: 'primary',
-      trackingId: 'demo-mobile-quote',
+      trackingId: 'demo-mobile-text',
     },
-  },
-  relatedServiceLink: {
-    label: 'House and barn demolition services',
-    href: '/services/house-barn-demolition',
   },
 } satisfies LandingPageData;

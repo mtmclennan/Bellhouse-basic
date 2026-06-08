@@ -155,11 +155,6 @@ export type LandingPageData = {
 
   mobileBar?: {
     callCta: LandingCta;
-    quoteCta: LandingCta;
-  };
-
-  relatedServiceLink?: {
-    label: string;
-    href: string;
+    textCta: LandingCta;
   };
 };

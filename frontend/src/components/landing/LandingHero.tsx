@@ -3,7 +3,6 @@ import type { LandingPageData } from '@/data/landingPages/types';
 import LandingCtaLink from './LandingCtaLink';
 import LandingIcon from './LandingIcon';
 import LandingQuoteForm from './LandingQuoteForm';
-import LandingReveal from './LandingReveal';
 import LandingTrustBar from './LandingTrustBar';
 
 type LandingHeroProps = {
@@ -81,15 +80,18 @@ export default function LandingHero({
         </div>
       </div>
 
-      <LandingReveal delay={0.15}>
-        <div id="landing-quote">
-          <LandingQuoteForm
-            form={form}
-            serviceKey={serviceKey}
-            pageSlug={pageSlug}
-          />
-        </div>
-      </LandingReveal>
+      {/*
+        The quote form is the primary conversion element and sits above the
+        fold, so it is intentionally NOT wrapped in LandingReveal — it must
+        render instantly and always, without depending on JS or scroll.
+      */}
+      <div id="landing-quote">
+        <LandingQuoteForm
+          form={form}
+          serviceKey={serviceKey}
+          pageSlug={pageSlug}
+        />
+      </div>
 
       <LandingTrustBar trustBar={trustBar} />
     </section>

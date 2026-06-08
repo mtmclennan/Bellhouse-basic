@@ -359,15 +359,11 @@ export const foundationExcavationLandingPage = {
       variant: 'phone',
       trackingId: 'foundation-mobile-call',
     },
-    quoteCta: {
-      label: 'Free Quote',
-      href: '#landing-quote',
+    textCta: {
+      label: 'Text Us',
+      href: 'sms:5197528500',
       variant: 'primary',
-      trackingId: 'foundation-mobile-quote',
+      trackingId: 'foundation-mobile-text',
     },
-  },
-  relatedServiceLink: {
-    label: 'Foundation excavation services',
-    href: '/services/foundation-excavation',
   },
 } satisfies LandingPageData;

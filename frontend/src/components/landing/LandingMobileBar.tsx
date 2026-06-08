@@ -23,10 +23,10 @@ export default function LandingMobileBar({
         conversionType="landing-mobile-call"
       />
       <LandingCtaLink
-        cta={mobileBar.quoteCta}
+        cta={mobileBar.textCta}
         serviceKey={serviceKey}
         pageSlug={pageSlug}
-        conversionType="landing-mobile-quote"
+        conversionType="landing-mobile-text"
       />
     </nav>
   );
