@@ -183,6 +183,8 @@ $landing-max-width: 114rem;
 
     svg {
       flex: 0 0 auto;
+      align-self: flex-end;
+      margin-bottom: 0.1rem;
       color: var(--yellow);
     }
 
