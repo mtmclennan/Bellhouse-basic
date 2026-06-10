@@ -1,21 +1,26 @@
 import type { ReactNode } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import {
-  Bulldozer,
+  ArrowRight,
   Buildings,
-  CompassRose,
+  CaretRight,
+  CheckCircle,
+  CompassTool,
   HardHat,
+  HouseLine,
+  LinkSimple,
   MapPin,
+  Phone,
   Shovel,
+  Stack,
   Truck,
   TruckTrailer,
-  UsersThree,
+  Wall,
   Wrench,
 } from '@phosphor-icons/react/dist/ssr';
 import SectionWrapper from '@/components/layout/SectionWrapper';
 import ServiceAreaCta from '@/components/service-areas/ServiceAreaCta';
-import ServiceAreaHero from '@/components/service-areas/ServiceAreaHero';
 import FAQAccordion from '../components/FAQAccordion';
 import ContactForm from '../components/forms/ContactForm';
 import heroImage from '../../../public/assets/services/dump-truck-hauling/excavator-loading-dump-truck-right.webp';
@@ -29,6 +34,11 @@ type ContentCard = {
   icon: ReactNode;
 };
 
+type AudienceBand = {
+  title: string;
+  icon: ReactNode;
+};
+
 type NavLinkItem = {
   href: string;
   label: string;
@@ -37,188 +47,86 @@ type NavLinkItem = {
 type ProofItem = {
   title: string;
   detail: string;
+  icon: ReactNode;
 };
 
 const proofItems: ProofItem[] = [
   {
     title: 'Southern Ontario',
-    detail: 'Brantford, Hamilton, Cambridge, Woodstock, Simcoe, and nearby areas.',
+    detail: 'Coverage area',
+    icon: <MapPin size={22} weight="fill" />,
   },
   {
     title: 'Since 1982',
-    detail: 'Long-running regional excavation and trucking experience.',
+    detail: 'In business',
+    icon: <CheckCircle size={22} weight="fill" />,
   },
   {
     title: 'Tri-axle hauling',
-    detail: 'Truck capacity for spoil export, stone, and material import.',
+    detail: 'Own fleet',
+    icon: <Truck size={22} weight="fill" />,
   },
   {
     title: 'Volvo A35',
-    detail: 'Extra production capacity for larger and rougher sites.',
+    detail: 'Off-road haul',
+    icon: <TruckTrailer size={22} weight="fill" />,
   },
   {
     title: 'Contractor work',
-    detail: 'Built for builders, GCs, concrete crews, and developers.',
+    detail: 'B2B focus',
+    icon: <HardHat size={22} weight="fill" />,
   },
 ];
 
-const audienceItems: ContentCard[] = [
-  {
-    title: 'Home builders',
-    description:
-      'Builders who need reliable excavation, rough grading, and truck hauling from lot opening through later site phases.',
-    icon: <Buildings size={26} weight="fill" />,
-  },
-  {
-    title: 'General contractors',
-    description:
-      'GCs that need excavation, spoil haul-out, imported stone, and schedule commitments handled cleanly.',
-    icon: <HardHat size={26} weight="fill" />,
-  },
-  {
-    title: 'Design-build firms',
-    description:
-      'Teams that want one excavation partner who can price clearly, communicate early, and execute in the field.',
-    icon: <CompassRose size={26} weight="fill" />,
-  },
-  {
-    title: 'Concrete contractors',
-    description:
-      'Concrete crews that need footing digs, subgrade prep, and truck timing lined up before forming and pours.',
-    icon: <Bulldozer size={26} weight="fill" />,
-  },
-  {
-    title: 'Property developers',
-    description:
-      'Developers running multi-lot, phased, or larger-site work that needs dependable earthmoving and hauling capacity.',
-    icon: <UsersThree size={26} weight="fill" />,
-  },
+const audienceBand: AudienceBand[] = [
+  { title: 'Home builders', icon: <HouseLine size={28} weight="fill" /> },
+  { title: 'General contractors', icon: <HardHat size={28} weight="fill" /> },
+  { title: 'Design-build firms', icon: <CompassTool size={28} weight="fill" /> },
+  { title: 'Concrete contractors', icon: <Wall size={28} weight="fill" /> },
+  { title: 'Property developers', icon: <Buildings size={28} weight="fill" /> },
 ];
 
-const scopeItems: ContentCard[] = [
+type ScopeItem = {
+  title: string;
+  description: string;
+  href: string;
+};
+
+const scopeItems: ScopeItem[] = [
   {
     title: 'Site Prep & Grading',
-    description: (
-      <p>
-        Bellhouse handles stripping, cuts, fills, and working grades, including{' '}
-        <Link
-          href="/services/site-preparation-land-grading"
-          className={classes.inlineLink}
-        >
-          site preparation and land grading
-        </Link>{' '}
-        that leaves the site ready for the next crew.
-      </p>
-    ),
-    icon: <Bulldozer size={26} weight="fill" />,
+    description: 'Clearing, stripping, and rough grading to get the site ready for the build.',
+    href: '/services/site-preparation-land-grading',
   },
   {
     title: 'Foundation Excavation & Trenching',
-    description: (
-      <p>
-        Work includes{' '}
-        <Link
-          href="/services/foundation-excavation"
-          className={classes.inlineLink}
-        >
-          foundation excavation
-        </Link>
-        , utility trenches, and digging that matches builder layouts and
-        elevations.
-      </p>
-    ),
-    icon: <Shovel size={26} weight="fill" />,
+    description: 'Basements, footings, and service trenches dug to engineered depth.',
+    href: '/services/foundation-excavation',
   },
   {
     title: 'Rough Grading & Pad Prep',
-    description: (
-      <p>
-        Building pads, subgrades, and rough grades are shaped so forming,
-        concrete, utility, and framing crews step into usable ground.
-      </p>
-    ),
-    icon: <MapPin size={26} weight="fill" />,
+    description: 'Building pads and rough grades shaped for drainage and the next phase.',
+    href: '/services/site-preparation-land-grading',
   },
   {
     title: 'Truck Hauling & Spoil Export',
-    description: (
-      <p>
-        Excavated material is loaded out and hauled off with trucking tied to
-        the dig instead of handled as a separate problem later.
-      </p>
-    ),
-    icon: <Truck size={26} weight="fill" />,
+    description: 'Triaxle haul-out of spoil and material, timed to keep the site clear.',
+    href: '/services/dump-truck-rental',
   },
   {
     title: 'Aggregate Delivery & Material Import',
-    description: (
-      <p>
-        Imported stone, gravel, and fill can be brought in as needed so the job
-        keeps moving from cut to buildable surface.
-      </p>
-    ),
-    icon: <Truck size={26} weight="fill" />,
+    description: 'Gravel, granular, and fill delivered and placed by type and tonnage.',
+    href: '/services/dump-truck-rental',
   },
   {
     title: 'Equipment Support & Floating',
-    description: (
-      <p>
-        Bellhouse can coordinate{' '}
-        <Link
-          href="/services/heavy-equipment-hauling"
-          className={classes.inlineLink}
-        >
-          equipment floating
-        </Link>{' '}
-        and machine moves when excavators, skid steers, or other site equipment
-        need to stay on schedule.
-      </p>
-    ),
-    icon: <Wrench size={26} weight="fill" />,
+    description: 'Machines floated in for added capacity when the schedule tightens.',
+    href: '/services/heavy-equipment-hauling',
   },
   {
     title: 'Volvo A35 Off-Road Dump Truck Support',
-    description: (
-      <p>
-        When the site needs higher-volume internal hauling, Bellhouse can bring
-        in the{' '}
-        <Link
-          href="/services/volvo-a35-off-road-dump-truck-rental"
-          className={classes.inlineLink}
-        >
-          Volvo A35 off-road dump truck
-        </Link>{' '}
-        with operator for rougher or larger earthmoving work.
-      </p>
-    ),
-    icon: <TruckTrailer size={26} weight="fill" />,
-  },
-];
-
-const reasonItems: ContentCard[] = [
-  {
-    title: 'Excavation and trucking planned together',
-    description:
-      'Cuts, haul-out, imported material, and truck timing are handled as one scope instead of separate moving parts.',
-    icon: <Truck size={26} weight="fill" />,
-  },
-  {
-    title: 'Fewer handoffs on the job',
-    description:
-      'Keeping more of the work under one contractor reduces missed details between excavation, trucking, and the next phase.',
-    icon: <Shovel size={26} weight="fill" />,
-  },
-  {
-    title: 'Responsive when site conditions change',
-    description:
-      'Extra spoil, soft ground, access changes, or added stone can be handled without chasing a new supplier list.',
-    icon: <CompassRose size={26} weight="fill" />,
-  },
-  {
-    title: 'A fit for phased and repeat work',
-    description:
-      'Bellhouse is a good match for builders and developers that reopen jobs for later lots, later stages, or added hauling.',
-    icon: <Buildings size={26} weight="fill" />,
+    description: 'Articulated off-road hauling for heavy-volume, rough-ground sites.',
+    href: '/services/volvo-a35-off-road-dump-truck-rental',
   },
 ];
 
@@ -231,7 +139,7 @@ const capabilityItems: ContentCard[] = [
         equipment suited to changing site conditions and day-to-day production.
       </p>
     ),
-    icon: <Shovel size={26} weight="fill" />,
+    icon: <Shovel size={23} weight="fill" />,
   },
   {
     title: 'Tri-axle truck capacity for import and export',
@@ -239,16 +147,13 @@ const capabilityItems: ContentCard[] = [
       <p>
         Truck capacity covers spoil export, aggregate import, and on-site
         material movement, including{' '}
-        <Link
-          href="/services/dump-truck-rental"
-          className={classes.inlineLinkLight}
-        >
+        <Link href="/services/dump-truck-rental" className={classes.inlineLinkGold}>
           tri-axle dump truck work
         </Link>{' '}
         tied to the excavation schedule.
       </p>
     ),
-    icon: <Truck size={26} weight="fill" />,
+    icon: <Truck size={23} weight="fill" />,
   },
   {
     title: 'Volvo A35 articulated off-road dump truck for heavy site movement',
@@ -259,24 +164,48 @@ const capabilityItems: ContentCard[] = [
         trucks are not the best production fit.
       </p>
     ),
-    icon: <TruckTrailer size={26} weight="fill" />,
+    icon: <TruckTrailer size={23} weight="fill" />,
   },
   {
     title: 'Machine moves and added capacity when production climbs',
     description: (
       <p>
         Bellhouse can also coordinate{' '}
-        <Link
-          href="/services/heavy-equipment-hauling"
-          className={classes.inlineLinkLight}
-        >
+        <Link href="/services/heavy-equipment-hauling" className={classes.inlineLinkGold}>
           heavy equipment floating
         </Link>{' '}
         and additional machine capacity when the pace of the site starts to
         change.
       </p>
     ),
-    icon: <Wrench size={26} weight="fill" />,
+    icon: <Wrench size={23} weight="fill" />,
+  },
+];
+
+const reasonItems = [
+  {
+    title: 'Excavation and trucking planned together',
+    description:
+      "One crew lines up the dig and the haul-out, so phases don't stall waiting on a truck.",
+    icon: <LinkSimple size={26} weight="fill" />,
+  },
+  {
+    title: 'Fewer handoffs on the job',
+    description:
+      'Excavation, grading, and trucking under one roster means fewer trades to chase.',
+    icon: <Truck size={26} weight="fill" />,
+  },
+  {
+    title: 'Responsive when conditions change',
+    description:
+      'Hit rock, water, or a schedule shift and the plan adjusts on the spot.',
+    icon: <CompassTool size={26} weight="fill" />,
+  },
+  {
+    title: 'A fit for phased and repeat work',
+    description:
+      'Built to come back for later phases and the next project on your slate.',
+    icon: <Stack size={26} weight="fill" />,
   },
 ];
 
@@ -304,17 +233,11 @@ const processItems = [
 ];
 
 const serviceLinks: NavLinkItem[] = [
-  {
-    href: '/services/site-preparation-land-grading',
-    label: 'Site Preparation',
-  },
+  { href: '/services/site-preparation-land-grading', label: 'Site Preparation' },
   { href: '/services/foundation-excavation', label: 'Foundation Excavation' },
   { href: '/services/dump-truck-rental', label: 'Dump Truck Work' },
   { href: '/services/heavy-equipment-hauling', label: 'Equipment Floating' },
-  {
-    href: '/services/volvo-a35-off-road-dump-truck-rental',
-    label: 'Volvo A35',
-  },
+  { href: '/services/volvo-a35-off-road-dump-truck-rental', label: 'Volvo A35' },
 ];
 
 const areaLinks: NavLinkItem[] = [
@@ -325,198 +248,185 @@ const areaLinks: NavLinkItem[] = [
   { href: '/service-areas/simcoe', label: 'Simcoe rural-commercial work' },
 ];
 
+const heroChips = [
+  { label: 'Excavation', href: '#scopes' },
+  { label: 'Trucking & Hauling', href: '#scopes' },
+  { label: 'Grading & Site Prep', href: '#scopes' },
+  { label: 'Contractor Support', href: '#scopes' },
+];
+
 const heroDescription =
-  'Bellhouse works with builders, GCs, concrete crews, and developers across Brantford, Hamilton, Cambridge, Woodstock, Simcoe, and nearby Southern Ontario areas for excavation, grading, site prep, truck hauling, spoil export, aggregate and material import, and operator-backed equipment.';
+  "Bellhouse lines up excavation, grading, and trucking for builders, general contractors, and developers — handled together so phases don't stall waiting on a truck or a trade.";
+
+function ContentDescription({ children }: { children: ReactNode }) {
+  return typeof children === 'string' ? <p>{children}</p> : children;
+}
 
 export default function ContractorsPage() {
   return (
     <>
-      <ServiceAreaHero
-        eyebrow="For builders, GCs, and developers"
-        title="Contractor excavation, trucking, and site work across Southern Ontario."
-        description={heroDescription}
-        actions={[
-          { href: '#contractor-form', label: 'Send Project Details' },
-          {
-            href: '/service-areas',
-            label: 'View Service Areas',
-            variant: 'secondary',
-          },
-        ]}
-        image={{
-          src: heroImage.src,
-          alt: 'Bellhouse excavation crew working on an active construction site.',
-          width: heroImage.width,
-          height: heroImage.height,
-        }}
-        contactNote={{
-          prefix: 'Need to talk through a live project schedule?',
-          href: 'tel:5197528500',
-          label: 'Call 519-752-8500',
-        }}
-        badges={['Excavation', 'Truck Hauling', 'Site Work']}
-      />
-
-      <SectionWrapper
-        className={classes.proofSection}
-        containerClassName={classes.proofContainer}
-      >
-        <ul className={classes.proofGrid}>
-          {proofItems.map((item) => (
-            <li key={item.title} className={classes.proofItem}>
-              <span className={classes.proofTitle}>{item.title}</span>
-              <p>{item.detail}</p>
-            </li>
-          ))}
-        </ul>
-      </SectionWrapper>
-
-      <SectionWrapper>
-        <div className={`${classes.sectionIntro} ${classes.sectionIntroDark}`}>
-          <p className={classes.sectionEyebrow}>Who we work with</p>
-          <h2>
-            Bellhouse fits builders and site crews that need the ground work
-            handled properly.
-          </h2>
-          <p>
-            The right fit is a builder or contractor who needs excavation and
-            hauling done cleanly from first cut through later job phases.
-          </p>
-        </div>
-
-        <div className={classes.cardGrid}>
-          {audienceItems.map((item) => (
-            <article className={classes.infoCard} key={item.title}>
-              <span className={classes.cardIcon}>{item.icon}</span>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-            </article>
-          ))}
-        </div>
-      </SectionWrapper>
-
-      <SectionWrapper className={classes.altSection}>
-        <div className={`${classes.sectionIntro} ${classes.sectionIntroLight}`}>
-          <p className={classes.sectionEyebrow}>
-            Contractor scopes Bellhouse supports
-          </p>
-          <h2>
-            Scopes Bellhouse can take on for builder and development work.
-          </h2>
-          <p>
-            From site opening and footing digs to haul-out, imported stone, and
-            added equipment, these are the contractor scopes Bellhouse can
-            handle.
-          </p>
-        </div>
-
-        <div className={classes.cardGrid}>
-          {scopeItems.map((item) => (
-            <article className={classes.infoCard} key={item.title}>
-              <span className={classes.cardIcon}>{item.icon}</span>
-              <h3>{item.title}</h3>
-              {item.description}
-            </article>
-          ))}
-        </div>
-      </SectionWrapper>
-
-      <SectionWrapper
-        className={classes.midCtaSection}
-        containerClassName={classes.midCtaContainer}
-      >
-        <div className={classes.midCtaShell}>
-          <div className={classes.midCtaContent}>
-            <p className={classes.sectionEyebrow}>Project fit</p>
-            <h2>
-              Need Bellhouse lined up for excavation, trucking, or site work?
-            </h2>
-            <p>
-              Send the scope, location, and timing to get a direct read on fit,
-              likely sequencing, and what the job needs first.
+      <section className={classes.heroSection}>
+        <Image
+          src={heroImage}
+          alt=""
+          fill
+          priority
+          className={classes.heroBackgroundImage}
+          sizes="100vw"
+        />
+        <div className={classes.heroOverlay} />
+        <div className={classes.heroContainer}>
+          <div className={classes.heroContent}>
+            <p className={classes.sectionEyebrow}>
+              <HardHat size={16} weight="fill" style={{ color: '#ffc302' }} />
+              {' '}For builders, GCs &amp; developers
             </p>
-            <div className={classes.buttonRow}>
+            <h1>
+              Contractor{' '}
+              <span>excavation, trucking &amp; site work</span>{' '}
+              across Southern Ontario
+            </h1>
+            <p className={classes.heroDescription}>{heroDescription}</p>
+            <ul className={classes.heroBullets}>
+              {[
+                'Excavation, grading & trucking handled by one crew',
+                'Triaxle & Volvo A35 capacity for heavy-volume, rough-ground sites',
+                'Set up for phased and repeat construction',
+              ].map((item) => (
+                <li key={item}>
+                  <CheckCircle size={21} weight="fill" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <div className={classes.heroActions}>
               <Link href="#contractor-form" className={classes.primaryButton}>
                 Send Project Details
               </Link>
-              <Link href="tel:5197528500" className={classes.secondaryButton}>
-                Call 519-752-8500
+              <Link href="tel:5197528500" className={classes.heroPhone}>
+                <Phone size={24} weight="duotone" />
+                519-752-8500
+              </Link>
+            </div>
+            <div className={classes.heroChips}>
+              {heroChips.map((chip) => (
+                <Link key={chip.label} href={chip.href} className={classes.heroChip}>
+                  {chip.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className={classes.proofBar}>
+          <ul className={classes.proofGrid}>
+            {proofItems.map((item) => (
+              <li key={item.title} className={classes.proofItem}>
+                <span className={classes.proofIcon}>{item.icon}</span>
+                <span>
+                  <strong>{item.title}</strong>
+                  <small>{item.detail}</small>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* WHO WE WORK WITH — segmented band */}
+      <SectionWrapper className={classes.altSection}>
+        <div className={`${classes.sectionIntro} ${classes.sectionIntroLight}`}>
+          <p className={classes.sectionEyebrow}>Who we work with</p>
+          <h2>Bellhouse fits builders and site crews</h2>
+          <p>
+            The ground work handled properly — for the trades and developers who
+            need excavation, trucking, and site prep lined up around a real schedule.
+          </p>
+        </div>
+        <div className={classes.audienceBand}>
+          {audienceBand.map((item) => (
+            <div className={classes.audienceBandItem} key={item.title}>
+              <span className={classes.audienceBandIcon}>{item.icon}</span>
+              <span>{item.title}</span>
+            </div>
+          ))}
+        </div>
+      </SectionWrapper>
+
+      {/* SCOPES — numbered editorial list, dark background */}
+      <SectionWrapper as="section">
+        <div className={classes.scopesLayout} id="scopes">
+          <div className={classes.scopesIntro}>
+            <p className={classes.sectionEyebrow}>Contractor scopes</p>
+            <h2>
+              Scopes Bellhouse takes on for builder &amp; development work
+            </h2>
+            <p>
+              From opening up the site through to internal haul roads and
+              material import — the scopes contractors line up with one call.
+            </p>
+            <div className={classes.scopesNote}>
+              <LinkSimple size={16} weight="bold" />
+              <span>Every scope links to a detailed service page with equipment and process specifics.</span>
+            </div>
+          </div>
+
+          <div className={classes.scopeList}>
+            {scopeItems.map((item, index) => (
+              <Link
+                key={item.title}
+                href={item.href}
+                className={classes.scopeItem}
+              >
+                <span className={classes.scopeNumber}>
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <div className={classes.scopeBody}>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
+                <CaretRight size={16} weight="bold" className={classes.scopeCaret} />
+              </Link>
+            ))}
+            <div className={classes.scopeCtaCard}>
+              <Link href="#contractor-form" className={classes.scopeCtaLink}>
+                <ArrowRight size={18} weight="bold" />
+                Not sure which scope? Send the details
               </Link>
             </div>
           </div>
         </div>
       </SectionWrapper>
 
-      <SectionWrapper>
-        <div className={`${classes.sectionIntro} ${classes.sectionIntroDark}`}>
-          <p className={classes.sectionEyebrow}>
-            Why contractors work with Bellhouse
-          </p>
-          <h2>
-            Bellhouse stays in rotation because the work is practical, clean,
-            and reliable.
-          </h2>
-          <p>
-            The difference is not another list of services. It is how
-            excavation, trucking, and changing site conditions are handled in
-            real time.
-          </p>
-        </div>
-
-        <div className={classes.cardGrid}>
-          {reasonItems.map((item) => (
-            <article className={classes.infoCard} key={item.title}>
-              <span className={classes.cardIcon}>{item.icon}</span>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-            </article>
-          ))}
-        </div>
-      </SectionWrapper>
-
-      <SectionWrapper
-        className={classes.capabilitySection}
-        containerClassName={classes.capabilityContainer}
-      >
+      {/* CAPABILITY — light/sand background, white cards */}
+      <SectionWrapper className={classes.altSection}>
         <div className={classes.capabilityShell}>
           <div className={classes.capabilityContent}>
-            <p className={classes.sectionEyebrow}>Equipment and capability</p>
+            <p className={`${classes.sectionEyebrow} ${classes.sectionEyebrowGold}`}>
+              Equipment &amp; capability
+            </p>
             <h2>
-              Production capacity for bigger earthmoving, rough ground, and
-              internal haul work.
+              Production capacity for bigger earthmoving &amp; haul work
             </h2>
             <p className={classes.capabilityText}>
-              Fleet and truck capacity matter when haul distances grow,
-              conditions get rough, or production starts depending on faster
-              site movement.
+              Rough ground, big volume, and internal haul roads — Bellhouse brings
+              the fleet and the off-road capacity to keep contractor sites moving.
             </p>
 
-            <div className={classes.capabilityGrid}>
+            <div className={classes.capabilityRows}>
               {capabilityItems.map((item) => (
-                <article className={classes.capabilityCard} key={item.title}>
-                  <span className={classes.capabilityIcon}>{item.icon}</span>
+                <article className={classes.capabilityRow} key={item.title}>
+                  <span className={classes.capabilityRowIcon}>{item.icon}</span>
                   <div>
                     <h3>{item.title}</h3>
-                    {item.description}
+                    <ContentDescription>{item.description}</ContentDescription>
                   </div>
                 </article>
               ))}
             </div>
 
-            <div className={classes.capabilityCta}>
-              <p className={classes.capabilityCtaText}>
-                Need extra hauling capacity, an off-road dump truck, or machine
-                movement lined up?
-              </p>
-              <div className={classes.buttonRow}>
-                <Link href="#contractor-form" className={classes.primaryButton}>
-                  Send Project Details
-                </Link>
-                <Link href="tel:5197528500" className={classes.secondaryButton}>
-                  Call 519-752-8500
-                </Link>
-              </div>
-            </div>
+            <Link href="#contractor-form" className={classes.primaryButtonGold}>
+              Line Up Bellhouse
+            </Link>
           </div>
 
           <div className={classes.capabilityMedia}>
@@ -534,31 +444,58 @@ export default function ContractorsPage() {
         </div>
       </SectionWrapper>
 
+      {/* WHY CONTRACTORS — 2x2 with index watermark */}
+      <SectionWrapper>
+        <div className={`${classes.sectionIntro} ${classes.sectionIntroDark}`}>
+          <p className={classes.sectionEyebrow}>Why contractors choose Bellhouse</p>
+          <h2>
+            The work stays practical, clean &amp; reliable
+          </h2>
+          <p>
+            The difference is one roster handling the excavation and the
+            trucking — so the schedule holds and the site stays workable.
+          </p>
+        </div>
+
+        <div className={classes.reasonGrid}>
+          {reasonItems.map((item, index) => (
+            <article className={classes.reasonCard} key={item.title}>
+              <span className={classes.reasonIcon}>{item.icon}</span>
+              <div>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+              <span className={classes.reasonIndex} aria-hidden="true">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+            </article>
+          ))}
+        </div>
+      </SectionWrapper>
+
+      {/* PROCESS */}
       <SectionWrapper className={classes.altSection}>
         <div className={`${classes.sectionIntro} ${classes.sectionIntroLight}`}>
-          <p className={classes.sectionEyebrow}>
-            How Bellhouse fits into your project
-          </p>
-          <h2>A straightforward process that keeps the job moving.</h2>
-          <p>
-            The goal is to know the scope, access, and timing early enough to
-            price and schedule the work cleanly.
-          </p>
+          <p className={classes.sectionEyebrow}>How it works</p>
+          <h2>A straightforward process that keeps the job moving</h2>
         </div>
 
         <div className={classes.processGrid}>
           {processItems.map((item, index) => (
             <article className={classes.processCard} key={item.title}>
               <span className={classes.processNumber}>
-                {(index + 1).toString().padStart(2, '0')}
+                {index + 1}
               </span>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
+              <div>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
             </article>
           ))}
         </div>
       </SectionWrapper>
 
+      {/* FINAL CTA + FORM */}
       <SectionWrapper
         as="section"
         className={classes.ctaSection}
@@ -566,9 +503,9 @@ export default function ContractorsPage() {
       >
         <div className={classes.ctaShell}>
           <div className={classes.ctaContent}>
-            <p className={classes.sectionEyebrow}>Start the conversation</p>
+            <p className={classes.sectionEyebrow}>Talk to the crew</p>
             <h2>
-              Send over the job details and Bellhouse can review fit and timing.
+              Send the job details and Bellhouse can review fit &amp; timing
             </h2>
             <p className={classes.ctaText}>
               Use the form to send the company, contact, site location, rough
@@ -578,21 +515,32 @@ export default function ContractorsPage() {
               them after review.
             </p>
             <div className={classes.buttonRow}>
+              <Link href="tel:5197528500" className={classes.secondaryButton}>
+                <Phone size={20} weight="duotone" />
+                Call 519-752-8500
+              </Link>
               <Link href="#contractor-form" className={classes.primaryButton}>
                 Send Project Details
               </Link>
-              <Link href="tel:5197528500" className={classes.secondaryButton}>
-                Call 519-752-8500
-              </Link>
             </div>
             <ul className={classes.ctaList}>
-              <li>Excavation, grading, and site prep</li>
-              <li>Truck hauling, spoil export, and material import</li>
-              <li>Added equipment, float work, and Volvo A35 capacity</li>
+              {[
+                'Excavation, grading & trucking under one roster',
+                'Triaxle & Volvo A35 capacity for big volume',
+                'Set up for phased and repeat construction',
+              ].map((item) => (
+                <li key={item}>
+                  <CheckCircle size={20} weight="fill" />
+                  <span>{item}</span>
+                </li>
+              ))}
             </ul>
             <div className={classes.supportingNav}>
               <div className={classes.supportingNavGroup}>
-                <p className={classes.supportingNavLabel}>Related services</p>
+                <p className={classes.supportingNavLabel}>
+                  <Wrench size={14} weight="fill" />
+                  Related services
+                </p>
                 <div className={classes.supportingNavLinks}>
                   {serviceLinks.map((link) => (
                     <Link
@@ -607,6 +555,7 @@ export default function ContractorsPage() {
               </div>
               <div className={classes.supportingNavGroup}>
                 <p className={classes.supportingNavLabel}>
+                  <MapPin size={14} weight="fill" />
                   Related service areas
                 </p>
                 <div className={classes.supportingNavLinks}>
@@ -641,11 +590,11 @@ export default function ContractorsPage() {
         subheading="A few practical answers before you send over the project details."
         defaultOpenId="repeat-work"
         variant="serviceArea"
+        className={classes.faqLight}
         items={[
           {
             id: 'repeat-work',
-            question:
-              'Can Bellhouse support repeat work or multi-phase construction?',
+            question: 'Can Bellhouse support repeat work or multi-phase construction?',
             answer: (
               <p>
                 Yes. Bellhouse is a fit for repeat builders, phased
@@ -656,8 +605,7 @@ export default function ContractorsPage() {
           },
           {
             id: 'truck-support',
-            question:
-              'Do you handle trucking and material hauling with the excavation scope?',
+            question: 'Do you handle trucking and material hauling with the excavation scope?',
             answer: (
               <p>
                 Yes. Bellhouse can tie excavation to spoil export, imported
@@ -690,44 +638,8 @@ export default function ContractorsPage() {
             question: 'What areas do you typically cover for contractor work?',
             answer: (
               <p>
-                Bellhouse works across Brantford, Hamilton, Cambridge,
-                Woodstock, Simcoe, and nearby Southern Ontario communities.
-                You can review the local pages for{' '}
-                <Link
-                  href="/service-areas/brantford"
-                  className={classes.inlineLink}
-                >
-                  Brantford
-                </Link>
-                ,{' '}
-                <Link
-                  href="/service-areas/hamilton"
-                  className={classes.inlineLink}
-                >
-                  Hamilton
-                </Link>
-                ,{' '}
-                <Link
-                  href="/service-areas/cambridge"
-                  className={classes.inlineLink}
-                >
-                  Cambridge
-                </Link>
-                ,{' '}
-                <Link
-                  href="/service-areas/woodstock"
-                  className={classes.inlineLink}
-                >
-                  Woodstock
-                </Link>
-                , or{' '}
-                <Link
-                  href="/service-areas/simcoe"
-                  className={classes.inlineLink}
-                >
-                  Simcoe
-                </Link>{' '}
-                if the project is tied to one of those areas.
+                Bellhouse works across Brantford, Hamilton, Cambridge, Woodstock,
+                Simcoe, and nearby Southern Ontario communities.
               </p>
             ),
           },
@@ -738,8 +650,7 @@ export default function ContractorsPage() {
               <p>
                 A company name, contact name, project location, scope, rough
                 timeline, haul-out expectations, access conditions, and any
-                equipment requirements is enough to start. Bellhouse can use
-                that information to judge fit and the likely next step.
+                equipment requirements is enough to start.
               </p>
             ),
           },
@@ -750,9 +661,7 @@ export default function ContractorsPage() {
               <p>
                 Yes. Bellhouse can review drawings, site details, grading
                 information, haul-out expectations, and similar project
-                information as part of early pricing or fit review. If you have
-                plans or site photos, mention that in the form and Bellhouse can
-                advise the best way to send them.
+                information as part of early pricing or fit review.
               </p>
             ),
           },
@@ -767,6 +676,7 @@ export default function ContractorsPage() {
           alt: 'Bellhouse excavator loading aggregate into a dump truck on an active Southern Ontario contractor site.',
           width: ctaImage.width,
           height: ctaImage.height,
+          priority: true,
         }}
         supportingPoints={[
           'Southern Ontario contractor work backed by a business that has been operating since 1982.',

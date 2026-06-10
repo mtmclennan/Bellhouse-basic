@@ -18,6 +18,7 @@ interface FAQAccordionProps {
   cta?: React.ReactNode;
   accentColor?: string;
   variant?: 'default' | 'serviceArea';
+  className?: string;
 }
 
 export default function FAQAccordion({
@@ -28,6 +29,7 @@ export default function FAQAccordion({
   cta,
   accentColor = '#ffc302',
   variant = 'default',
+  className,
 }: FAQAccordionProps) {
   const uid = useId();
 
@@ -50,7 +52,7 @@ export default function FAQAccordion({
     <section
       className={`${styles.faqSection} ${
         variant === 'serviceArea' ? styles.serviceAreaSection : ''
-      }`.trim()}
+      } ${className ?? ''}`.trim()}
       aria-labelledby={`${uid}-heading`}
     >
       <div
