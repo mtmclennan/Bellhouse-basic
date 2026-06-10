@@ -445,7 +445,7 @@ export default function ContractorsPage() {
 
       {/* WHY CONTRACTORS — 2x2 with index watermark */}
       <SectionWrapper>
-        <div className={`${classes.sectionIntro} ${classes.sectionIntroDark}`}>
+        <div className={`${classes.sectionIntro} ${classes.sectionIntroDark} ${classes.sectionIntroLeft}`}>
           <p className={classes.sectionEyebrow}>Why contractors choose Bellhouse</p>
           <h2>
             The work stays practical, clean &amp; reliable

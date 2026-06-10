@@ -284,6 +284,12 @@
   }
 }
 
+.sectionIntroLeft {
+  align-items: flex-start;
+  text-align: left;
+  margin: 0;
+}
+
 .sectionIntroLight {
   color: v.$text-color-mid-dark;
 
@@ -302,7 +308,11 @@
 
 .altSection {
   background:
-    radial-gradient(circle at 12% 8%, rgba(v.$cat-yellow2, 0.13), transparent 26%),
+    radial-gradient(
+      circle at 12% 8%,
+      rgba(v.$cat-yellow2, 0.13),
+      transparent 26%
+    ),
     linear-gradient(180deg, #f1ece4 0%, #e8e1d4 100%);
 }
 
@@ -1170,13 +1180,12 @@
 .bannerScrim {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(13, 13, 13, 0.95) 0%,
-      rgba(13, 13, 13, 0.82) 46%,
-      rgba(13, 13, 13, 0.5) 100%
-    );
+  background: linear-gradient(
+    90deg,
+    rgba(13, 13, 13, 0.95) 0%,
+    rgba(13, 13, 13, 0.82) 46%,
+    rgba(13, 13, 13, 0.5) 100%
+  );
 }
 
 .bannerContainer {
