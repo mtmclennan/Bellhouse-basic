@@ -586,11 +586,10 @@ export default function ContractorsPage() {
       </SectionWrapper>
 
       <FAQAccordion
-        heading="Contractor questions Bellhouse can answer early"
+        heading="Contractor questions, answered early"
         subheading="A few practical answers before you send over the project details."
         defaultOpenId="repeat-work"
-        variant="serviceArea"
-        className={classes.faqLight}
+        variant="light"
         items={[
           {
             id: 'repeat-work',

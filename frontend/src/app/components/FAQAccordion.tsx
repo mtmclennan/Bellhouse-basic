@@ -1,13 +1,13 @@
 'use client';
 
 import React, { useId, useMemo, useState } from 'react';
-import { CaretDown, CaretUp } from '@phosphor-icons/react';
+import { CaretDown, CaretUp, Plus } from '@phosphor-icons/react';
 import styles from './FAQAccordion.module.scss';
 
 export interface FAQItem {
   id?: string;
   question: string;
-  answer: React.ReactNode; // <- upgrade from string
+  answer: React.ReactNode;
 }
 
 interface FAQAccordionProps {
@@ -17,7 +17,7 @@ interface FAQAccordionProps {
   defaultOpenId?: string;
   cta?: React.ReactNode;
   accentColor?: string;
-  variant?: 'default' | 'serviceArea';
+  variant?: 'default' | 'serviceArea' | 'light';
   className?: string;
 }
 
@@ -48,73 +48,131 @@ export default function FAQAccordion({
     setOpenId((prev) => (prev === id ? null : id));
   };
 
+  const isLight = variant === 'light';
+  const isServiceArea = variant === 'serviceArea';
+
+  const sectionClass = [
+    styles.faqSection,
+    isServiceArea ? styles.serviceAreaSection : '',
+    isLight ? styles.lightSection : '',
+    className ?? '',
+  ]
+    .filter(Boolean)
+    .join(' ');
+
+  const containerClass = [
+    styles.container,
+    isServiceArea ? styles.serviceAreaContainer : '',
+    isLight ? styles.lightContainer : '',
+  ]
+    .filter(Boolean)
+    .join(' ');
+
+  const headerClass = [
+    styles.header,
+    isServiceArea ? styles.serviceAreaHeader : '',
+    isLight ? styles.lightHeader : '',
+  ]
+    .filter(Boolean)
+    .join(' ');
+
+  const headingClass = [
+    styles.heading,
+    isServiceArea ? styles.serviceAreaHeading : '',
+    isLight ? styles.lightHeading : '',
+  ]
+    .filter(Boolean)
+    .join(' ');
+
+  const subheadingClass = [
+    styles.subheading,
+    isServiceArea ? styles.serviceAreaSubheading : '',
+    isLight ? styles.lightSubheading : '',
+  ]
+    .filter(Boolean)
+    .join(' ');
+
+  const accordionClass = [
+    styles.accordion,
+    isServiceArea ? styles.serviceAreaAccordion : '',
+    isLight ? styles.lightAccordion : '',
+  ]
+    .filter(Boolean)
+    .join(' ');
+
   return (
-    <section
-      className={`${styles.faqSection} ${
-        variant === 'serviceArea' ? styles.serviceAreaSection : ''
-      } ${className ?? ''}`.trim()}
-      aria-labelledby={`${uid}-heading`}
-    >
-      <div
-        className={`${styles.container} ${
-          variant === 'serviceArea' ? styles.serviceAreaContainer : ''
-        }`.trim()}
-      >
-        <header
-          className={`${styles.header} ${
-            variant === 'serviceArea' ? styles.serviceAreaHeader : ''
-          }`.trim()}
-        >
-          <h2
-            id={`${uid}-heading`}
-            className={`${styles.heading} ${
-              variant === 'serviceArea' ? styles.serviceAreaHeading : ''
-            }`.trim()}
-          >
+    <section className={sectionClass} aria-labelledby={`${uid}-heading`}>
+      <div className={containerClass}>
+        <header className={headerClass}>
+          <h2 id={`${uid}-heading`} className={headingClass}>
             {heading}
           </h2>
           {subheading && (
-            <p
-              className={`${styles.subheading} ${
-                variant === 'serviceArea' ? styles.serviceAreaSubheading : ''
-              }`.trim()}
-            >
-              {subheading}
-            </p>
+            <p className={subheadingClass}>{subheading}</p>
           )}
         </header>
 
-        <div
-          className={`${styles.accordion} ${
-            variant === 'serviceArea' ? styles.serviceAreaAccordion : ''
-          }`.trim()}
-        >
+        <div className={accordionClass}>
           {normalized.map((item) => {
             const isOpen = openId === item.id;
             const panelId = `${item.id}-panel`;
             const btnId = `${item.id}-btn`;
 
+            const itemClass = [
+              styles.item,
+              isServiceArea ? styles.serviceAreaItem : '',
+              isLight ? styles.lightItem : '',
+            ]
+              .filter(Boolean)
+              .join(' ');
+
+            const questionClass = [
+              styles.question,
+              isServiceArea ? styles.serviceAreaQuestion : '',
+              isLight ? styles.lightQuestion : '',
+            ]
+              .filter(Boolean)
+              .join(' ');
+
+            const answerClass = [
+              styles.answer,
+              isServiceArea ? styles.serviceAreaAnswer : '',
+              isLight ? styles.lightAnswer : '',
+            ]
+              .filter(Boolean)
+              .join(' ');
+
+            const answerInnerClass = [
+              styles.answerInner,
+              isServiceArea ? styles.serviceAreaAnswerInner : '',
+              isLight ? styles.lightAnswerInner : '',
+            ]
+              .filter(Boolean)
+              .join(' ');
+
             return (
               <div
                 key={item.id}
-                className={`${styles.item} ${
-                  variant === 'serviceArea' ? styles.serviceAreaItem : ''
-                }`.trim()}
+                className={itemClass}
                 data-open={isOpen}
               >
                 <button
                   id={btnId}
                   type="button"
-                  className={`${styles.question} ${
-                    variant === 'serviceArea' ? styles.serviceAreaQuestion : ''
-                  }`.trim()}
+                  className={questionClass}
                   onClick={() => toggle(item.id!)}
                   aria-expanded={isOpen}
                   aria-controls={panelId}
                 >
                   <span className={styles.qText}>{item.question}</span>
                   <span className={styles.icon} aria-hidden="true">
-                    {isOpen ? (
+                    {isLight ? (
+                      <Plus
+                        size={20}
+                        weight="bold"
+                        className={isOpen ? styles.plusOpen : ''}
+                      />
+                    ) : isOpen ? (
                       <CaretUp size={22} color={accentColor} weight="bold" />
                     ) : (
                       <CaretDown size={22} color={accentColor} weight="bold" />
@@ -126,18 +184,10 @@ export default function FAQAccordion({
                   id={panelId}
                   role="region"
                   aria-labelledby={btnId}
-                  className={`${styles.answer} ${
-                    variant === 'serviceArea' ? styles.serviceAreaAnswer : ''
-                  }`.trim()}
+                  className={answerClass}
                   data-open={isOpen}
                 >
-                  <div
-                    className={`${styles.answerInner} ${
-                      variant === 'serviceArea'
-                        ? styles.serviceAreaAnswerInner
-                        : ''
-                    }`.trim()}
-                  >
+                  <div className={answerInnerClass}>
                     {item.answer}
                   </div>
                 </div>
