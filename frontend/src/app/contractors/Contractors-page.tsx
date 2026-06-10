@@ -20,7 +20,6 @@ import {
   Wrench,
 } from '@phosphor-icons/react/dist/ssr';
 import SectionWrapper from '@/components/layout/SectionWrapper';
-import ServiceAreaCta from '@/components/service-areas/ServiceAreaCta';
 import FAQAccordion from '../components/FAQAccordion';
 import ContactForm from '../components/forms/ContactForm';
 import heroImage from '../../../public/assets/services/dump-truck-hauling/excavator-loading-dump-truck-right.webp';
@@ -667,29 +666,50 @@ export default function ContractorsPage() {
         ]}
       />
 
-      <ServiceAreaCta
-        title="Ready to send the project details?"
-        description="Send the scope, location, timeline, hauling needs, and equipment requirements for review, or call if the job is moving now."
-        image={{
-          src: ctaImage.src,
-          alt: 'Bellhouse excavator loading aggregate into a dump truck on an active Southern Ontario contractor site.',
-          width: ctaImage.width,
-          height: ctaImage.height,
-          priority: true,
-        }}
-        supportingPoints={[
-          'Southern Ontario contractor work backed by a business that has been operating since 1982.',
-          'Excavation, truck hauling, material import, and Volvo A35 capacity when the job calls for it.',
-        ]}
-        actions={[
-          { href: '#contractor-form', label: 'Send Project Details' },
-          {
-            href: 'tel:5197528500',
-            label: 'Call 519-752-8500',
-            variant: 'secondary',
-          },
-        ]}
-      />
+      <section className={classes.banner}>
+        <div className={classes.bannerBg}>
+          <Image
+            src={ctaImage}
+            alt=""
+            fill
+            className={classes.bannerImage}
+            sizes="100vw"
+            priority
+          />
+          <div className={classes.bannerScrim} />
+        </div>
+        <div className={classes.bannerContainer}>
+          <div className={classes.bannerInner}>
+            <p className={classes.sectionEyebrow}>Ready when you are</p>
+            <h2>Ready to send the project details?</h2>
+            <p className={classes.bannerBody}>
+              Send over scope, access, and timing and Bellhouse will review
+              fit for excavation, trucking, and site work.
+            </p>
+            <ul className={classes.bannerPoints}>
+              {[
+                'No-obligation review',
+                'Reviewed by the crew, not a call centre',
+                'Fast reply on fit & timing',
+              ].map((point) => (
+                <li key={point}>
+                  <CheckCircle size={18} weight="fill" />
+                  {point}
+                </li>
+              ))}
+            </ul>
+            <div className={classes.bannerCta}>
+              <Link href="#contractor-form" className={classes.primaryButton}>
+                Send Project Details
+              </Link>
+              <Link href="tel:5197528500" className={classes.bannerCallBtn}>
+                <Phone size={22} weight="duotone" />
+                Call 519-752-8500
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
