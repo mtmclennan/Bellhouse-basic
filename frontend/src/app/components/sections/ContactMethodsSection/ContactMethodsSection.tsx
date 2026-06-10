@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import { ChatText, ClipboardText, PhoneCall } from '@phosphor-icons/react';
 import type {
   ContactMethodIcon,

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 
 import classes from './ServicesSection.module.scss';
 import { useRevealOnEnter } from '@/hooks/useRevealOnEnter';

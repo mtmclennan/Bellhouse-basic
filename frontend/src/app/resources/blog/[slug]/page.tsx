@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import { notFound } from 'next/navigation';
 import SectionWrapper from '@/components/layout/SectionWrapper';
 import { ResourceBreadcrumbs } from '@/features/calculators/components/ResourceBreadcrumbs';

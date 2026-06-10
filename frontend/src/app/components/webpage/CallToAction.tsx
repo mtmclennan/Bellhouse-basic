@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import React from 'react';
 import classes from './CallToAction.module.scss';
 

@@ -228,9 +228,14 @@ export const demolitionContractorLandingPage = {
   },
   pricing: {
     eyebrow: 'What affects price',
-    heading: 'Demolition pricing depends on more than size',
+    heading: 'Priced around the job, not a flat rate',
     intro:
-      'A useful demolition quote needs structure details, access, material type, disposal needs, and site cleanup expectations.',
+      'Demolition is quoted on three things first — then refined by the details below once we understand the structure.',
+    basis: [
+      { icon: 'buildings', kicker: 'By structure', title: 'Type, size & material' },
+      { icon: 'path',      kicker: 'By access',    title: 'Lot & neighbour constraints' },
+      { icon: 'truck',     kicker: 'By debris',    title: 'Loads & disposal fees' },
+    ],
     factors: [
       {
         title: 'Structure type and material',
@@ -253,11 +258,16 @@ export const demolitionContractorLandingPage = {
         description: 'Cleanup, concrete removal, backfill, and rough grading can be included as needed.',
       },
     ],
-    sideNote: {
-      heading: 'Photos help price demolition faster',
-      body: 'Exterior photos, structure dimensions, access notes, and disposal expectations help Bellhouse understand the job before visiting.',
+    rail: {
+      eyebrow: 'The honest version',
+      heading: 'Demolition priced for what\'s actually coming down',
+      body: 'Send exterior photos, structure dimensions, and access notes — we\'ll review debris volume and disposal before quoting.',
+      anchorLabel: 'Where your job sits',
+      anchorLow: { value: 'Smaller jobs', sub: 'Garage, shed & minor structures' },
+      anchorHigh: { value: 'Larger jobs', sub: 'Full home, concrete & site cleanup' },
+      chips: ['No charge to quote', 'Reply in ~1 business day'],
       cta: {
-        label: 'Send Demolition Details',
+        label: 'Get My Demo Quoted',
         href: '#landing-quote',
         variant: 'primary',
         trackingId: 'demo-pricing-quote',

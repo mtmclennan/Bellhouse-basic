@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import classes from './HomeServices.module.scss';
 import ServiceCard from './ServiceCard';
 

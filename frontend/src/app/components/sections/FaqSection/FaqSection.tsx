@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { CaretDown, CaretUp } from '@phosphor-icons/react';
 import type {

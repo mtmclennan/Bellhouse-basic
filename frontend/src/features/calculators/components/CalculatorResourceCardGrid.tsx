@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react';
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import { calculatorConfigs } from '../config/calculators';
 import {
   calculatorResourceCards,
@@ -63,3 +63,4 @@ export function CalculatorResourceCardGrid({
     </div>
   );
 }
+

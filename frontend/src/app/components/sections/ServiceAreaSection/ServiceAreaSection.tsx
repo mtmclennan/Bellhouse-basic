@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import styles from './ServiceAreaSection.module.scss';
 import type { ServiceAreasSectionData } from '@/types/sections';
 

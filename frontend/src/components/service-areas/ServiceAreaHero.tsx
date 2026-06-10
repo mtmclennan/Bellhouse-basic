@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import SectionWrapper from '@/components/layout/SectionWrapper';
 import type { ServiceAreaImage } from '@/lib/serviceAreas';
 import classes from './ServiceAreaHero.module.scss';

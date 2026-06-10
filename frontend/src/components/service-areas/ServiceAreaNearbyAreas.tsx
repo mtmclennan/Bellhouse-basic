@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import { MapPin } from '@phosphor-icons/react/dist/ssr';
 import SectionWrapper from '@/components/layout/SectionWrapper';
 import type { ServiceAreaMap } from '@/lib/serviceAreas';

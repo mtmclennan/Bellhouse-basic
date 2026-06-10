@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import { usePathname } from 'next/navigation';
 import classes from './MobileMenu.module.scss';
 import { Phone, ChatTextIcon, CaretDown } from '@phosphor-icons/react';

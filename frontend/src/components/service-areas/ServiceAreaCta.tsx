@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import SectionWrapper from '@/components/layout/SectionWrapper';
 import type { ServiceAreaImage } from '@/lib/serviceAreas';
 import classes from './ServiceAreaCta.module.scss';
@@ -15,11 +15,15 @@ type ContactNote = {
   href: string;
 };
 
+type ServiceAreaCtaImage = ServiceAreaImage & {
+  priority?: boolean;
+};
+
 type ServiceAreaCtaProps = {
   title: string;
   description: string;
   actions: CtaAction[];
-  image?: ServiceAreaImage;
+  image?: ServiceAreaCtaImage;
   supportingPoints?: string[];
   contactNote?: ContactNote;
 };
@@ -80,6 +84,7 @@ export default function ServiceAreaCta({
                 width={image.width ?? 1600}
                 height={image.height ?? 1200}
                 className={classes.image}
+                priority={image.priority}
                 sizes="(max-width: 1000px) 100vw, 38vw"
               />
               <div className={classes.imageOverlay} />

@@ -228,36 +228,54 @@ export const foundationExcavationLandingPage = {
   },
   pricing: {
     eyebrow: 'What affects price',
-    heading: 'Foundation excavation is priced around the site',
+    heading: 'Priced around the site, not a flat rate',
     intro:
-      'A useful quote depends on access, depth, volume, soil, trucking, and the details shown on drawings.',
+      'Excavation is quoted on three things first — then refined by the conditions below once we see the site.',
+    basis: [
+      { icon: 'path',  kicker: 'By access',   title: 'Lot, staging & equipment fit' },
+      { icon: 'stack', kicker: 'By volume',   title: 'Depth & total cut moved' },
+      { icon: 'truck', kicker: 'By haul-out', title: 'Loads & disposal distance' },
+    ],
     factors: [
       {
-        title: 'Depth and footprint',
-        description: 'Basement depth, footing layout, and total cut volume shape the excavation scope.',
+        title: 'Access',
+        description: 'Tight lots, slopes, and staging change the equipment and time needed.',
       },
       {
-        title: 'Access and staging',
-        description: 'Narrow lots, overhead lines, slopes, and truck access affect equipment choices.',
+        title: 'Depth & volume',
+        description: 'How much material is cut and moved drives both labour and truck loads.',
       },
       {
-        title: 'Soil and water conditions',
-        description: 'Clay, wet ground, rock, or unstable material changes how the dig is handled.',
+        title: 'Soil conditions',
+        description: 'Clay, rock, or wet ground affects how the dig has to be handled.',
       },
       {
-        title: 'Haul-out and disposal',
-        description: 'Spoil volume, truck loads, and disposal location are major cost drivers.',
+        title: 'Disposal',
+        description: 'Where spoil goes and tipping fees factor into haul-out cost.',
       },
       {
-        title: 'Backfill and granular needs',
-        description: 'Imported material, lifts, compaction, and grading can be included when needed.',
+        title: 'Drawings',
+        description: 'Engineered plans and elevations help us scope and quote accurately.',
+      },
+      {
+        title: 'Material',
+        description: 'Imported gravel, granular, or topsoil is priced by type and tonnage.',
+      },
+      {
+        title: 'Site conditions',
+        description: 'Weather, season, and existing structures shape the approach.',
       },
     ],
-    sideNote: {
-      heading: 'The honest version',
-      body: 'Photos, drawings, and clear access details help Bellhouse quote the real job instead of guessing from a generic square-foot number.',
+    rail: {
+      eyebrow: 'The honest version',
+      heading: 'You get the number for your job — not a placeholder',
+      body: 'Share your site details, photos, or drawings and we\'ll review access, depth, soil, and disposal before quoting.',
+      anchorLabel: 'Where your job sits',
+      anchorLow: { value: 'Smaller jobs', sub: 'Garage pad & shallow footings' },
+      anchorHigh: { value: 'Larger jobs', sub: 'Full basement, haul-out & backfill' },
+      chips: ['No charge to quote', 'Reply in ~1 business day'],
       cta: {
-        label: 'Send Foundation Details',
+        label: 'Get My Site Quoted',
         href: '#landing-quote',
         variant: 'primary',
         trackingId: 'foundation-pricing-quote',

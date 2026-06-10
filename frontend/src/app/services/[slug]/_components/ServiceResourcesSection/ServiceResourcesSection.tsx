@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 
 import type { ServiceResourcesSectionData } from '@/types/serviceSections';
 import type { ServiceSectionAppearance } from '../serviceSectionTypes';

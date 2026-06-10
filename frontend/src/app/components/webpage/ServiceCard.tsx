@@ -1,6 +1,6 @@
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import React from 'react';
 import classes from './ServiceCard.module.scss';
 

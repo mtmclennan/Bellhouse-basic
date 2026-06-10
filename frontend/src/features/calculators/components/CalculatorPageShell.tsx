@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import HeroSection from '@/app/components/sections/HeroSection/HeroSection';
 import SectionWrapper from '@/components/layout/SectionWrapper';
 import { calculatorPageContent } from '../config/pageContent';

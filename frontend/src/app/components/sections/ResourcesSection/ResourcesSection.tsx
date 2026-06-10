@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import { useEffect, useRef, useState } from 'react';
 import type { ResourcesSectionData } from '@/types/sections';
 import ResourceCardList from '@/features/calculators/components/ResourceCardList';

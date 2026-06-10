@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import classes from './ResourceBreadcrumbs.module.scss';
 
 type ResourceBreadcrumbsProps = {

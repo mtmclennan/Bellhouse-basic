@@ -228,9 +228,14 @@ export const concreteSlabPrepLandingPage = {
   },
   pricing: {
     eyebrow: 'What affects price',
-    heading: 'Slab base pricing depends on prep conditions',
+    heading: 'Priced around the site, not a flat rate',
     intro:
-      'Base prep changes with the current grade, material depth, access, trucking, and drainage requirements.',
+      'Base prep is quoted on three things first — then shaped by the conditions below once we review the site.',
+    basis: [
+      { icon: 'path',  kicker: 'By access',   title: 'Lot & equipment reach' },
+      { icon: 'stack', kicker: 'By volume',   title: 'Base depth & granular' },
+      { icon: 'drop',  kicker: 'By drainage', title: 'Grade, slope & tie-ins' },
+    ],
     factors: [
       {
         title: 'Current site condition',
@@ -249,15 +254,20 @@ export const concreteSlabPrepLandingPage = {
         description: 'Truck reach, equipment access, and staging room affect delivery and placement.',
       },
       {
-        title: 'Coordination with concrete timing',
+        title: 'Concrete timing',
         description: 'The work may need to line up with forming, inspection, and pour schedules.',
       },
     ],
-    sideNote: {
-      heading: 'A better quote starts with the slab details',
-      body: 'Approximate size, current site photos, desired base depth, and timing help Bellhouse price the real prep work.',
+    rail: {
+      eyebrow: 'The honest version',
+      heading: 'You get a number built around your slab, not a ballpark',
+      body: 'Send slab size, current site photos, and base depth needed — we\'ll review grade, access, and material before quoting.',
+      anchorLabel: 'Where your job sits',
+      anchorLow: { value: 'Smaller jobs', sub: 'Garage pad & simple base prep' },
+      anchorHigh: { value: 'Larger jobs', sub: 'Large slab, deep base & drainage work' },
+      chips: ['No charge to quote', 'Reply in ~1 business day'],
       cta: {
-        label: 'Send Slab Prep Details',
+        label: 'Get My Slab Quoted',
         href: '#landing-quote',
         variant: 'primary',
         trackingId: 'slab-pricing-quote',

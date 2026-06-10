@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import classes from './HomeResources.module.scss';
 import { calculatorResourceCards } from '@/features/calculators/config/resourceCards';
 import { calculatorConfigs } from '@/features/calculators/config/calculators';

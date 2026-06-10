@@ -106,10 +106,25 @@ export type LandingPageData = {
     eyebrow?: string;
     heading: string;
     intro?: string;
+    basis?: {
+      icon: string;
+      kicker: string;
+      title: string;
+    }[];
     factors: {
       title: string;
       description: string;
     }[];
+    rail?: {
+      eyebrow?: string;
+      heading: string;
+      body: string;
+      anchorLabel?: string;
+      anchorLow?: { value: string; sub: string };
+      anchorHigh?: { value: string; sub: string };
+      chips?: string[];
+      cta?: LandingCta;
+    };
     sideNote?: {
       heading: string;
       body: string;

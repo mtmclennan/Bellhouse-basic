@@ -1,5 +1,5 @@
 'use client';
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import classes from './MainHeader.module.scss';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import { useRouter } from 'next/navigation';

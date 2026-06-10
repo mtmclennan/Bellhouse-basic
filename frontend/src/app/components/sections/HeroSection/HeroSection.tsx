@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import { Phone, Star } from '@phosphor-icons/react';
 import classes from './HeroSection.module.scss';
 import type { HeroSectionData } from '@/types/sections';

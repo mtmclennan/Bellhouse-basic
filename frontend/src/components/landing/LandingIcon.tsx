@@ -8,12 +8,14 @@ import {
   CheckCircle,
   CirclesThreePlus,
   ClipboardText,
+  Clock,
   Drop,
   Hammer,
   HardHat,
   HouseLine,
   MapPin,
   MapTrifold,
+  Path,
   Phone,
   Ruler,
   ShieldCheck,
@@ -56,6 +58,8 @@ export default function LandingIcon({
       return <ChatCircle {...props} />;
     case 'check-circle':
       return <CheckCircle {...props} />;
+    case 'clock':
+      return <Clock {...props} />;
     case 'circles-three-plus':
       return <CirclesThreePlus {...props} />;
     case 'clipboard-text':
@@ -72,6 +76,8 @@ export default function LandingIcon({
       return <MapPin {...props} />;
     case 'map-trifold':
       return <MapTrifold {...props} />;
+    case 'path':
+      return <Path {...props} />;
     case 'phone':
       return <Phone {...props} />;
     case 'ruler':

@@ -1,7 +1,7 @@
 'use client';
 
 import type { CSSProperties } from 'react';
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import { Calculator, Truck, Ruler, Stack, Shovel } from '@phosphor-icons/react';
 import type {
   BackgroundTone,

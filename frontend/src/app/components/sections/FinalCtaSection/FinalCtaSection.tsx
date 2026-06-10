@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import { useEffect, useRef, useState } from 'react';
 import { Phone } from '@phosphor-icons/react';
 import type { FinalCtaSectionData } from '@/types/sections';

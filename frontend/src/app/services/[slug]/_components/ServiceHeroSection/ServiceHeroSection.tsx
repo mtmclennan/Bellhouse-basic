@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 
 import type { ServicePage } from '@/types/interfaces';
 import type { ResolvedServiceHeroConfig } from '@/lib/servicePageLayout';
