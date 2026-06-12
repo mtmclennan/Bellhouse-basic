@@ -140,7 +140,7 @@ export const foundationExcavationLandingPage = {
       },
       {
         name: 'files',
-        label: 'Photos or drawings',
+        label: 'Jobsite photos',
         type: 'file',
         width: 'full',
       },

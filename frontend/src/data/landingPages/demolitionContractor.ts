@@ -140,7 +140,7 @@ export const demolitionContractorLandingPage = {
       },
       {
         name: 'files',
-        label: 'Photos or documents',
+        label: 'Jobsite photos',
         type: 'file',
         width: 'full',
       },

@@ -2,12 +2,29 @@
 
 import Script from 'next/script';
 import { Paperclip, UploadSimple } from '@phosphor-icons/react';
-import { FormEvent, useMemo, useState } from 'react';
+import { FormEvent, useMemo, useRef, useState } from 'react';
 import { sendContactForm } from '@/app/actions/contact';
 import type {
   LandingFormField,
   LandingPageData,
 } from '@/data/landingPages/types';
+import { normalizeImageFile } from '@/lib/uploads/client/normalizeImageFile';
+import { submitQuoteWithImages } from '@/lib/uploads/client/submitQuoteWithImages';
+import { getInvisibleTurnstileToken } from '@/lib/uploads/client/turnstile';
+import {
+  QUOTE_UPLOAD_ACCEPTED_TEXT,
+  QUOTE_UPLOAD_HELPER_TEXT,
+  QUOTE_UPLOAD_MAX_FILES,
+  QUOTE_UPLOAD_MAX_TOTAL_BYTES,
+  QUOTE_UPLOAD_PRIVACY_TEXT,
+  formatUploadSize,
+} from '@/lib/uploads/shared/uploadLimits';
+import type { QuoteUploadClientFile } from '@/lib/uploads/shared/uploadTypes';
+import {
+  GOOGLE_ADS_CONVERSION_LABELS,
+  trackEvent,
+  trackGoogleAdsConversion,
+} from '@/lib/tracking/google';
 
 type LandingQuoteFormProps = {
   form: LandingPageData['form'];
@@ -15,7 +32,7 @@ type LandingQuoteFormProps = {
   pageSlug: string;
 };
 
-type LandingFormValue = boolean | string | string[];
+type LandingFormValue = boolean | string | QuoteUploadClientFile[];
 type LandingFormValues = Record<string, LandingFormValue>;
 type LandingFormErrors = Record<string, string>;
 
@@ -51,7 +68,9 @@ function isEmailValue(value: LandingFormValue | undefined) {
 
 function formatFieldValue(value: LandingFormValue | undefined) {
   if (Array.isArray(value)) {
-    return value.length ? value.join(', ') : 'None provided';
+    return value.length
+      ? value.map((file) => file.displayName).join(', ')
+      : 'None provided';
   }
 
   if (typeof value === 'boolean') {
@@ -91,7 +110,6 @@ function buildDetailsSummary({
   pageSlug: string;
   timestamp: string;
 }) {
-  // TODO: Add backend upload support for landing page file fields once the Bellhouse lead workflow supports attachments.
   const lines = fields.map(
     (field) => `${field.label}: ${formatFieldValue(values[field.name])}`,
   );
@@ -105,8 +123,6 @@ function buildDetailsSummary({
     '',
     'Submitted details:',
     ...lines,
-    '',
-    'Note: File upload fields currently submit selected file names only. Actual file upload support still needs backend work.',
   ].join('\n');
 }
 
@@ -131,6 +147,10 @@ export default function LandingQuoteForm({
 }: LandingQuoteFormProps) {
   const formId = form.id ?? 'landing-page-quote';
   const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '';
+  const turnstileSiteKey =
+    process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '';
+  const turnstileRef = useRef<HTMLDivElement>(null);
+  const honeypotRef = useRef<HTMLInputElement>(null);
   const [values, setValues] = useState<LandingFormValues>(() =>
     getInitialValues(form.fields),
   );
@@ -163,6 +183,69 @@ export default function LandingQuoteForm({
     });
   }
 
+  function getUploadFiles() {
+    return form.fields
+      .filter((field) => field.type === 'file')
+      .flatMap((field) => {
+        const value = values[field.name];
+        return Array.isArray(value) ? value : [];
+      });
+  }
+
+  async function handleFileChange(
+    field: LandingFormField,
+    fileList: FileList | null,
+  ) {
+    const files = Array.from(fileList ?? []);
+
+    if (!files.length) {
+      setFieldValue(field.name, []);
+      return;
+    }
+
+    if (files.length > QUOTE_UPLOAD_MAX_FILES) {
+      setErrors((current) => ({
+        ...current,
+        [field.name]: `Please upload no more than ${QUOTE_UPLOAD_MAX_FILES} photos.`,
+      }));
+      setFieldValue(field.name, []);
+      return;
+    }
+
+    try {
+      const normalizedFiles: QuoteUploadClientFile[] = [];
+
+      for (const file of files) {
+        normalizedFiles.push(await normalizeImageFile(file));
+      }
+
+      const totalBytes = normalizedFiles.reduce(
+        (sum, file) => sum + file.sizeBytes,
+        0,
+      );
+
+      if (totalBytes > QUOTE_UPLOAD_MAX_TOTAL_BYTES) {
+        setErrors((current) => ({
+          ...current,
+          [field.name]: 'The selected photos are too large together.',
+        }));
+        setFieldValue(field.name, []);
+        return;
+      }
+
+      setFieldValue(field.name, normalizedFiles);
+    } catch (error) {
+      setErrors((current) => ({
+        ...current,
+        [field.name]:
+          error instanceof Error
+            ? error.message
+            : 'Please choose JPG, PNG, WEBP, or iPhone HEIC photos only.',
+      }));
+      setFieldValue(field.name, []);
+    }
+  }
+
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setSubmitError(null);
@@ -180,15 +263,28 @@ export default function LandingQuoteForm({
 
     if (Object.keys(nextErrors).length > 0) {
       setSubmitted(false);
+      trackEvent('quote_form_error', {
+        form_variant: 'landing',
+        page: pageSlug,
+        service: serviceKey,
+        error_type: 'validation',
+      });
       return;
     }
 
     if (!recaptchaSiteKey || typeof window.grecaptcha === 'undefined') {
       setSubmitError(FORM_ERROR_MESSAGE);
+      trackEvent('quote_form_error', {
+        form_variant: 'landing',
+        page: pageSlug,
+        service: serviceKey,
+        error_type: 'recaptcha_unavailable',
+      });
       return;
     }
 
     const timestamp = new Date().toISOString();
+    const uploadFiles = getUploadFiles();
     // TODO: Extend the existing Bellhouse lead submission workflow if landing-specific payload storage is needed beyond email / Google Sheets message details.
     const payload = {
       serviceKey,
@@ -200,6 +296,47 @@ export default function LandingQuoteForm({
 
     try {
       setSubmitting(true);
+
+      if (uploadFiles.length > 0) {
+        const turnstileToken = await getInvisibleTurnstileToken({
+          container: turnstileRef.current,
+          siteKey: turnstileSiteKey,
+        });
+
+        const result = await submitQuoteWithImages({
+          contact: {
+            name: getStringValue(values, 'name'),
+            email: getStringValue(values, 'email'),
+            phone,
+            workType: getStringValue(values, 'projectType') || serviceKey,
+            message: buildDetailsSummary({
+              fields: form.fields,
+              values: payload.fields,
+              serviceKey,
+              pageSlug,
+              timestamp,
+            }),
+            smsConsent: phone ? smsConsent : false,
+            smsDisclosureShown: Boolean(phone),
+          },
+          files: uploadFiles,
+          turnstileToken,
+          honeypot: honeypotRef.current?.value || '',
+        });
+
+        setSubmitted(true);
+        setSubmitError(result.failedCount ? result.success : null);
+        trackEvent('quote_form_submit', {
+          form_variant: 'landing',
+          page: pageSlug,
+          service: serviceKey,
+          has_upload: true,
+        });
+        trackGoogleAdsConversion(
+          GOOGLE_ADS_CONVERSION_LABELS.quoteFormSubmit,
+        );
+        return;
+      }
 
       const token = await window.grecaptcha.execute(recaptchaSiteKey, {
         action: 'landing_quote_submit',
@@ -220,19 +357,41 @@ export default function LandingQuoteForm({
         token,
         smsConsent: phone ? smsConsent : false,
         smsDisclosureShown: Boolean(phone),
+        honeypot: honeypotRef.current?.value || '',
       });
 
       if (result?.success) {
         setSubmitted(true);
+        trackEvent('quote_form_submit', {
+          form_variant: 'landing',
+          page: pageSlug,
+          service: serviceKey,
+          has_upload: false,
+        });
+        trackGoogleAdsConversion(
+          GOOGLE_ADS_CONVERSION_LABELS.quoteFormSubmit,
+        );
         return;
       }
 
       setSubmitted(false);
       setSubmitError(result?.error ? `${FORM_ERROR_MESSAGE}` : FORM_ERROR_MESSAGE);
+      trackEvent('quote_form_error', {
+        form_variant: 'landing',
+        page: pageSlug,
+        service: serviceKey,
+        error_type: 'server',
+      });
     } catch (error) {
       console.error('Landing quote form submission error:', error);
       setSubmitted(false);
       setSubmitError(FORM_ERROR_MESSAGE);
+      trackEvent('quote_form_error', {
+        form_variant: 'landing',
+        page: pageSlug,
+        service: serviceKey,
+        error_type: 'exception',
+      });
     } finally {
       setSubmitting(false);
     }
@@ -351,26 +510,38 @@ export default function LandingQuoteForm({
               aria-hidden="true"
             />
             <span className="landing-form__upload-text">
-              <strong>Add site photos or drawings</strong>
+              <strong>Add jobsite photos</strong>
               Helps us scope the job and price faster
             </span>
             <input
               {...commonProps}
               type="file"
               multiple
-              accept="image/*,.pdf"
-              onChange={(event) =>
-                setFieldValue(
-                  field.name,
-                  Array.from(event.target.files ?? []).map((file) => file.name),
-                )
-              }
+              accept=".jpg,.jpeg,.png,.webp,.heic,.heif,image/jpeg,image/png,image/webp,image/heic,image/heif"
+              onChange={(event) => {
+                handleFileChange(field, event.target.files);
+                event.target.value = '';
+              }}
             />
+          </span>
+          <span className="landing-form__upload-note">
+            {QUOTE_UPLOAD_HELPER_TEXT}
+          </span>
+          <span className="landing-form__upload-note">
+            {QUOTE_UPLOAD_ACCEPTED_TEXT}
+          </span>
+          <span className="landing-form__upload-note">
+            {QUOTE_UPLOAD_PRIVACY_TEXT}
           </span>
           {fileNames.length > 0 ? (
             <span className="landing-form__file-list">
               <Paperclip size={13} weight="bold" aria-hidden="true" />
-              {fileNames.join(', ')}
+              {fileNames
+                .map(
+                  (file) =>
+                    `${file.displayName} (${formatUploadSize(file.sizeBytes)})`,
+                )
+                .join(', ')}
             </span>
           ) : null}
           {error ? (
@@ -409,6 +580,12 @@ export default function LandingQuoteForm({
           strategy="lazyOnload"
         />
       ) : null}
+      {turnstileSiteKey ? (
+        <Script
+          src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+          strategy="lazyOnload"
+        />
+      ) : null}
 
       <aside
         className="landing-form landing-quote-form"
@@ -427,6 +604,16 @@ export default function LandingQuoteForm({
           noValidate
           onSubmit={handleSubmit}
         >
+          <input
+            ref={honeypotRef}
+            type="text"
+            name="companyWebsite"
+            tabIndex={-1}
+            autoComplete="off"
+            className="landing-form__honeypot"
+            aria-hidden="true"
+          />
+          <div ref={turnstileRef} className="landing-form__turnstile" />
           {submitted ? (
             <div
               className="landing-form__success-state"

@@ -17,6 +17,23 @@ import React, {
 import { emailValidate, stringValidate } from '../../../lib/input-utils';
 import { sendContactForm } from '@/app/actions/contact';
 import LoadingSpinner from '../UI/LoadingSpinner';
+import { normalizeImageFile } from '@/lib/uploads/client/normalizeImageFile';
+import { submitQuoteWithImages } from '@/lib/uploads/client/submitQuoteWithImages';
+import { getInvisibleTurnstileToken } from '@/lib/uploads/client/turnstile';
+import {
+  QUOTE_UPLOAD_ACCEPTED_TEXT,
+  QUOTE_UPLOAD_HELPER_TEXT,
+  QUOTE_UPLOAD_MAX_FILES,
+  QUOTE_UPLOAD_MAX_TOTAL_BYTES,
+  QUOTE_UPLOAD_PRIVACY_TEXT,
+  formatUploadSize,
+} from '@/lib/uploads/shared/uploadLimits';
+import type { QuoteUploadClientFile } from '@/lib/uploads/shared/uploadTypes';
+import {
+  GOOGLE_ADS_CONVERSION_LABELS,
+  trackEvent,
+  trackGoogleAdsConversion,
+} from '@/lib/tracking/google';
 
 interface ContactFormRef {
   scrollToForm: () => void;
@@ -136,6 +153,8 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
     ref,
   ) => {
     const sectionRef = useRef<HTMLDivElement>(null);
+    const turnstileRef = useRef<HTMLDivElement>(null);
+    const honeypotRef = useRef<HTMLInputElement>(null);
     const isContractor = variant === 'contractor';
     const copy = VARIANT_COPY[variant];
 
@@ -150,8 +169,12 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
     const [isRecaptchaReady, setIsRecaptchaReady] = useState(false);
     const [status, setStatus] = useState<string | null>(null);
     const [smsConsent, setSmsConsent] = useState(false);
+    const [selectedImages, setSelectedImages] = useState<QuoteUploadClientFile[]>([]);
+    const [imageUploadError, setImageUploadError] = useState<string | null>(null);
 
     const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '';
+    const turnstileSiteKey =
+      process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '';
 
     useImperativeHandle(ref, () => ({
       scrollToForm: () => {
@@ -246,6 +269,8 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
       setWorkTypeTouched(false);
       setSelectedTimeline('');
       setSmsConsent(false);
+      setSelectedImages([]);
+      setImageUploadError(null);
     };
 
     const hasPhone = enteredPhone.trim().length > 0;
@@ -262,6 +287,53 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
           enteredMessage,
         ].join('\n')
       : enteredMessage;
+
+    const handleImageSelection = async (
+      event: React.ChangeEvent<HTMLInputElement>,
+    ) => {
+      const files = Array.from(event.target.files ?? []);
+      event.target.value = '';
+      setImageUploadError(null);
+
+      if (!files.length) {
+        setSelectedImages([]);
+        return;
+      }
+
+      if (files.length > QUOTE_UPLOAD_MAX_FILES) {
+        setImageUploadError(
+          `Please upload no more than ${QUOTE_UPLOAD_MAX_FILES} photos.`,
+        );
+        return;
+      }
+
+      try {
+        const normalizedImages: QuoteUploadClientFile[] = [];
+
+        for (const file of files) {
+          normalizedImages.push(await normalizeImageFile(file));
+        }
+
+        const totalBytes = normalizedImages.reduce(
+          (sum, file) => sum + file.sizeBytes,
+          0,
+        );
+
+        if (totalBytes > QUOTE_UPLOAD_MAX_TOTAL_BYTES) {
+          setImageUploadError('The selected photos are too large together.');
+          return;
+        }
+
+        setSelectedImages(normalizedImages);
+      } catch (error) {
+        setSelectedImages([]);
+        setImageUploadError(
+          error instanceof Error
+            ? error.message
+            : 'Please choose JPG, PNG, WEBP, or iPhone HEIC photos only.',
+        );
+      }
+    };
 
     const onSubmitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
@@ -287,6 +359,10 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
 
       if (missingRequiredFields) {
         setStatus('Please fix the highlighted fields.');
+        trackEvent('quote_form_error', {
+          form_variant: variant,
+          error_type: 'validation',
+        });
         return;
       }
 
@@ -294,15 +370,54 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
         setStatus(
           'Please consent to receive SMS messages if you provide a phone number.',
         );
+        trackEvent('quote_form_error', {
+          form_variant: variant,
+          error_type: 'sms_consent',
+        });
         return;
       }
 
       try {
+        setLoading(true);
+
+        if (selectedImages.length > 0) {
+          const turnstileToken = await getInvisibleTurnstileToken({
+            container: turnstileRef.current,
+            siteKey: turnstileSiteKey,
+          });
+
+          const result = await submitQuoteWithImages({
+            contact: {
+              name: enteredName,
+              email: enteredEmail,
+              phone: enteredPhone,
+              workType: workTypeFinal,
+              message: compiledMessage,
+              smsConsent: hasPhone ? smsConsent : false,
+              smsDisclosureShown: hasPhone,
+            },
+            files: selectedImages,
+            turnstileToken,
+            honeypot: honeypotRef.current?.value || '',
+          });
+
+          resetForm();
+          setShowModal(true);
+          setStatus(`Success: ${result.success}`);
+          trackEvent('quote_form_submit', {
+            form_variant: variant,
+            has_upload: true,
+          });
+          trackGoogleAdsConversion(
+            GOOGLE_ADS_CONVERSION_LABELS.quoteFormSubmit,
+          );
+
+          return;
+        }
+
         if (!isRecaptchaReady || typeof window.grecaptcha === 'undefined') {
           throw new Error('reCAPTCHA is not ready. Please try again.');
         }
-
-        setLoading(true);
 
         const token = await window.grecaptcha.execute(recaptchaSiteKey, {
           action: 'submit',
@@ -317,26 +432,36 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
           token,
           smsConsent: hasPhone ? smsConsent : false,
           smsDisclosureShown: hasPhone,
+          honeypot: honeypotRef.current?.value || '',
         });
 
         if (result?.success) {
           resetForm();
           setShowModal(true);
           setStatus('Success: Your request has been sent.');
-
-          if (typeof window !== 'undefined' && (window as any).gtag) {
-            (window as any).gtag('event', 'conversion', {
-              send_to: 'AW-16958173496/gn9BCIyi-7QaELjipJY_',
-            });
-          }
+          trackEvent('quote_form_submit', {
+            form_variant: variant,
+            has_upload: false,
+          });
+          trackGoogleAdsConversion(
+            GOOGLE_ADS_CONVERSION_LABELS.quoteFormSubmit,
+          );
         } else {
           setStatus(`Error: ${result?.error || 'Unknown error occurred'}`);
+          trackEvent('quote_form_error', {
+            form_variant: variant,
+            error_type: 'server',
+          });
         }
       } catch (error) {
         console.error('Form submission error:', error);
         setStatus(
           `Error: ${error instanceof Error ? error.message : 'Something went wrong.'}`,
         );
+        trackEvent('quote_form_error', {
+          form_variant: variant,
+          error_type: 'exception',
+        });
       } finally {
         setLoading(false);
       }
@@ -610,6 +735,46 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
           ) : null}
         </div>
 
+        <div className={classes.uploadWrapper}>
+          <label htmlFor="quotePhotos">Jobsite Photos (Optional)</label>
+          <p className={classes.uploadHelp}>{QUOTE_UPLOAD_HELPER_TEXT}</p>
+          <label className={classes.uploadDropzone} htmlFor="quotePhotos">
+            <span>Add photos</span>
+            <input
+              id="quotePhotos"
+              type="file"
+              multiple
+              accept=".jpg,.jpeg,.png,.webp,.heic,.heif,image/jpeg,image/png,image/webp,image/heic,image/heif"
+              onChange={handleImageSelection}
+            />
+          </label>
+          <p className={classes.uploadMeta}>{QUOTE_UPLOAD_ACCEPTED_TEXT}</p>
+          <p className={classes.uploadMeta}>{QUOTE_UPLOAD_PRIVACY_TEXT}</p>
+          {selectedImages.length > 0 ? (
+            <ul className={classes.uploadList}>
+              {selectedImages.map((file) => (
+                <li key={file.id}>
+                  <span>{file.displayName}</span>
+                  <span>{formatUploadSize(file.sizeBytes)}</span>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+          {imageUploadError ? (
+            <p className={classes.fieldError}>{imageUploadError}</p>
+          ) : null}
+        </div>
+
+        <input
+          type="text"
+          name="companyWebsite"
+          ref={honeypotRef}
+          tabIndex={-1}
+          autoComplete="off"
+          className={classes.honeypot}
+          aria-hidden="true"
+        />
+
         {hasPhone ? (
           <div className={classes.smsConsent}>
             <label className={classes.smsConsentLabel}>
@@ -697,6 +862,13 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
             embedded ? classes.embeddedContainer : ''
           }`.trim()}
         >
+          {turnstileSiteKey ? (
+            <Script
+              src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+              strategy="lazyOnload"
+            />
+          ) : null}
+          <div ref={turnstileRef} className={classes.turnstileSlot} />
           {formMarkup}
         </div>
       </Fragment>

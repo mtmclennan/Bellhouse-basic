@@ -6,7 +6,13 @@ const LOG_FILE = path.join(LOG_DIR, 'monitor-events.jsonl');
 
 type MonitorEvent = {
   ts: string; // ISO
-  type: 'CONTACT_EMAIL_FAIL' | 'SHEETS_FAIL';
+  type:
+    | 'CONTACT_EMAIL_FAIL'
+    | 'SHEETS_FAIL'
+    | 'UPLOAD_REJECTED'
+    | 'UPLOAD_TURNSTILE_FAIL'
+    | 'UPLOAD_PROCESSING_FAIL'
+    | 'UPLOAD_CONTACT_EMAIL_FAIL';
   message: string;
   meta?: Record<string, any>;
 };

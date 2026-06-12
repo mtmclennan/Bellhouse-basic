@@ -2,13 +2,17 @@
 
 import { promises as fs } from 'fs';
 import path from 'path';
-import { z } from 'zod';
 import { logMonitorEvent } from '@/lib/monitor/eventLog';
 import { sendBrevoEmail } from '@/lib/email/emailBrevo';
 import {
   buildBusinessEmail,
   buildCustomerEmail,
 } from '@/lib/email/contactEmailTemplates';
+import {
+  contactFormSchema,
+  isSuspiciousContactInput,
+} from '@/lib/contact/contactValidation';
+import type { QuoteUploadEmailFile } from '@/lib/uploads/shared/uploadTypes';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -29,36 +33,6 @@ async function getGoogleSheetsClient(credentials: Record<string, unknown>) {
   return google.sheets({ version: 'v4', auth });
 }
 
-const spamKeywords = [
-  'viagra',
-  'free money',
-  'buy followers',
-  'SEO services',
-  'bitcoin',
-  'casino',
-  'earn money fast',
-  'cheap loans',
-  'adult content',
-];
-
-function isSpamMessage(message: string) {
-  return spamKeywords.some((keyword) =>
-    message.toLowerCase().includes(keyword.toLowerCase()),
-  );
-}
-
-function isDisposableEmail(email: string) {
-  const disposableDomains = [
-    'tempmail.com',
-    'mailinator.com',
-    '10minutemail.com',
-    'guerrillamail.com',
-  ];
-  return disposableDomains.some((domain) =>
-    email.toLowerCase().endsWith(`@${domain}`),
-  );
-}
-
 export type ContactData = {
   name: string;
   email: string;
@@ -68,40 +42,10 @@ export type ContactData = {
   smsConsent?: boolean;
   smsDisclosureShown?: boolean;
   smsConsentAt?: string;
+  leadId?: string;
+  uploads?: QuoteUploadEmailFile[];
+  uploadLinkExpiryNote?: string;
 };
-
-const formSchema = z
-  .object({
-    name: z.string().min(2, 'Name is required'),
-    email: z.string().email('Invalid email'),
-    phone: z.string().optional(),
-    workType: z.string().min(2, 'Must have a work type'),
-    message: z.string().min(10, 'Message must be at least 10 characters'),
-    token: z.string(),
-    smsConsent: z.boolean().optional(),
-    smsDisclosureShown: z.boolean().optional(),
-  })
-  .superRefine((data, ctx) => {
-    const hasPhone = !!data.phone?.trim();
-    if (hasPhone) {
-      if (data.smsConsent !== true) {
-        ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          message: 'SMS consent is required when a phone number is provided.',
-          path: ['smsConsent'],
-        });
-      }
-
-      if (data.smsDisclosureShown !== true) {
-        ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          message:
-            'SMS disclosure must be shown when a phone number is provided.',
-          path: ['smsDisclosureShown'],
-        });
-      }
-    }
-  });
 
 export async function processContactCore(
   data: ContactData,
@@ -181,17 +125,18 @@ export async function sendContactForm(data: {
   token: string;
   smsConsent?: boolean;
   smsDisclosureShown?: boolean;
+  honeypot?: string;
 }) {
   const RECAPTCHA_SECRET = mustEnv('RECAPTCHA_SECRET');
 
-  const parsed = formSchema.safeParse(data);
+  const parsed = contactFormSchema.safeParse(data);
   if (!parsed.success) {
     return {
       error: parsed.error.errors[0]?.message || 'Invalid form submission.',
     };
   }
 
-  if (isSpamMessage(data.message) || isDisposableEmail(data.email)) {
+  if (isSuspiciousContactInput(data)) {
     return {
       error: 'Suspicious activity detected. Your request was not sent.',
     };
@@ -242,7 +187,7 @@ async function isDuplicateEntry(data: { email: string; workType: string }) {
 
     const spreadsheetId = mustEnv('GOOGLE_SHEET_ID');
     const sheetName = 'BellhouseMessages';
-    const range = `${sheetName}!A:I`;
+    const range = `${sheetName}!A:N`;
 
     const sheetData = await sheets.spreadsheets.values.get({
       spreadsheetId,
@@ -280,9 +225,20 @@ export async function saveToGoogleSheets(data: ContactData) {
 
     const spreadsheetId = GOOGLE_SHEET_ID;
     const sheetName = 'BellhouseMessages';
-    const range = `${sheetName}!A:I`;
+    const range = `${sheetName}!A:N`;
 
     const formattedDateTime = new Date().toLocaleString();
+    const uploads = data.uploads ?? [];
+    const uploadedFileNames = uploads
+      .map((upload) => upload.originalName)
+      .join(', ');
+    const uploadStatuses = uploads
+      .map((upload) => `${upload.originalName}: ${upload.status}`)
+      .join('; ');
+    const cleanStorageKeys = uploads
+      .map((upload) => upload.cleanStorageKey)
+      .filter(Boolean)
+      .join(', ');
 
     const values = [
       [
@@ -295,6 +251,11 @@ export async function saveToGoogleSheets(data: ContactData) {
         'New',
         data.smsConsent ? 'TRUE' : 'FALSE',
         data.smsConsentAt || '',
+        data.leadId || '',
+        uploads.length ? String(uploads.length) : '0',
+        uploadedFileNames,
+        uploadStatuses,
+        cleanStorageKeys,
       ],
     ];
 

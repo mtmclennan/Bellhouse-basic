@@ -1,0 +1,422 @@
+{
+  "desktop": {
+    "url": "http://localhost:3002/landing/foundation-excavation-brantford",
+    "title": "Foundation Excavation Brantford | Bellhouse Excavating",
+    "description": "Foundation excavation, haul-out, backfill, and site prep support for Brantford and Brant County builds.",
+    "robots": "noindex, follow",
+    "h1": "Foundation Excavationin Brantford",
+    "sections": [
+      {
+        "tag": "header",
+        "classes": "landing-header",
+        "heading": "",
+        "textPreview": "519-802-3857Free Quote"
+      },
+      {
+        "tag": "section",
+        "classes": "landing-hero",
+        "heading": "Foundation Excavationin Brantford",
+        "textPreview": "Serving Brantford and Brant CountyFoundation Excavationin BrantfordExcavation, trucking, backfill, and site prep coordinated by a local crew that understands access, depth, elevations, and real construction schedules.Foundation digs, basements, footings, and garage padsSpoil haul-out and material delivery planned with the digClean equipment, practical communication, and a tidy site handoffRequest a Foundation Quote51"
+      },
+      {
+        "tag": "section",
+        "classes": "landing-trust-bar",
+        "heading": "",
+        "textPreview": "Local excavation and truckingClean, well-maintained equipmentPractical jobsite communication5.0 rating on Google"
+      },
+      {
+        "tag": "section",
+        "classes": "landing-section landing-section--light landing-audience",
+        "heading": "Foundation excavation for builders and property owners",
+        "textPreview": "Who it is forFoundation excavation for builders and property ownersBellhouse helps keep the early site work organized so the next phase can move without avoidable delays.Home buildersGeneral contractorsConcrete contractorsHomeowners"
+      },
+      {
+        "tag": "section",
+        "classes": "landing-section landing-section--dark landing-handles",
+        "heading": "Foundation excavation with the hauling planned in",
+        "textPreview": "What Bellhouse handlesFoundation excavation with the hauling planned inThe work is scoped around access, elevations, soil, backfill, and material movement before equipment arrives.Foundation digsBasements, footings, additions, garage pads, and related structural excavation.Spoil haul-outMaterial removed from site with trucking coordinated around the excavation flow.Backfill supportBackfill, compaction, and grading co"
+      },
+      {
+        "tag": "section",
+        "classes": "landing-section landing-section--light landing-pricing",
+        "heading": "Foundation excavation is priced around the site",
+        "textPreview": "What affects priceFoundation excavation is priced around the siteA useful quote depends on access, depth, volume, soil, trucking, and the details shown on drawings.Depth and footprintBasement depth, footing layout, and total cut volume shape the excavation scope.Access and stagingNarrow lots, overhead lines, slopes, and truck access affect equipment choices.Soil and water conditionsClay, wet ground, rock, or unstable"
+      },
+      {
+        "tag": "section",
+        "classes": "landing-section landing-section--dark landing-proof",
+        "heading": "Real equipment on real sites",
+        "textPreview": "ProofReal equipment on real sitesBellhouse brings excavation and trucking together so foundations, haul-out, and backfill are not treated as disconnected jobs.LocalBrantford and Brant County project supportOwn fleetExcavators and triaxle hauling supportCleanWell-maintained trucks and equipmentDirectPractical communication before work startsFoundation excavationHaul-out coordinationBackfill and compactionSite grading "
+      },
+      {
+        "tag": "section",
+        "classes": "landing-section landing-section--light landing-faq",
+        "heading": "Foundation excavation questions",
+        "textPreview": "FAQFoundation excavation questionsCan Bellhouse handle both excavation and trucking?Yes. Excavation and trucking can be coordinated together so spoil haul-out, material delivery, and site access are planned as part of the same job.Do I need drawings before asking for a quote?Drawings help, especially for depth and elevations, but photos, a location, and a short description are enough to start the conversation.Can you"
+      },
+      {
+        "tag": "section",
+        "classes": "landing-final-cta",
+        "heading": "Ready to quote your foundation excavation?",
+        "textPreview": "Get StartedReady to quote your foundation excavation?Send the site details, drawings, and timing, or call Bellhouse to talk through the project directly.Request a Foundation Quote519-802-3857"
+      },
+      {
+        "tag": "footer",
+        "classes": "landing-footer",
+        "heading": "",
+        "textPreview": "© 2026 Bellhouse ExcavatingFoundation excavation, backfill, grading, and truckingServing Brantford, Brant County, and nearby areas519-802-3857"
+      },
+      {
+        "tag": "nav",
+        "classes": "landing-mobile-bar",
+        "heading": "",
+        "textPreview": "CallFree Quote"
+      }
+    ],
+    "formFields": [
+      {
+        "label": "Name *",
+        "name": "name",
+        "type": "text",
+        "required": true,
+        "placeholder": "Your name"
+      },
+      {
+        "label": "Phone",
+        "name": "phone",
+        "type": "tel",
+        "required": false,
+        "placeholder": "Best number"
+      },
+      {
+        "label": "Email *",
+        "name": "email",
+        "type": "email",
+        "required": true,
+        "placeholder": "you@example.com"
+      },
+      {
+        "label": "Project location *",
+        "name": "jobLocation",
+        "type": "text",
+        "required": true,
+        "placeholder": "Town, address, or nearest intersection"
+      },
+      {
+        "label": "Project type *Project typeFoundation excavationBasement excavationGarage or slab excavationFootings or additionBackfill and gradingOther foundation work",
+        "name": "projectType",
+        "type": "select",
+        "required": true,
+        "placeholder": "Project type"
+      },
+      {
+        "label": "TimelineTimelineAs soon as possibleWithin 2 to 4 weeks1 to 3 months outPlanning or budgeting",
+        "name": "timeline",
+        "type": "select",
+        "required": false,
+        "placeholder": "Timeline"
+      },
+      {
+        "label": "Project details",
+        "name": "details",
+        "type": "textarea",
+        "required": false,
+        "placeholder": "Tell us about the foundation, garage, addition, shop, drawings, depth, access, or start date."
+      },
+      {
+        "label": "Photos or drawingsAdd site photos or drawingsHelps us scope the job and price faster",
+        "name": "files",
+        "type": "file",
+        "required": false,
+        "placeholder": ""
+      },
+      {
+        "label": "I agree to receive SMS messages from Bellhouse Excavating if I provide a phone number.",
+        "name": "smsConsent",
+        "type": "checkbox",
+        "required": false,
+        "placeholder": ""
+      }
+    ],
+    "links": [
+      {
+        "text": "",
+        "href": "/",
+        "conversion": null
+      },
+      {
+        "text": "519-802-3857",
+        "href": "tel:5198023857",
+        "conversion": "landing-phone-cta"
+      },
+      {
+        "text": "Free Quote",
+        "href": "#landing-quote",
+        "conversion": "landing-primary-cta"
+      },
+      {
+        "text": "Request a Foundation Quote",
+        "href": "#landing-quote",
+        "conversion": "landing-primary-cta"
+      },
+      {
+        "text": "519-802-3857",
+        "href": "tel:5198023857",
+        "conversion": "landing-phone-cta"
+      },
+      {
+        "text": "Send Foundation Details",
+        "href": "#landing-quote",
+        "conversion": "landing-primary-cta"
+      },
+      {
+        "text": "Request a Foundation Quote",
+        "href": "#landing-quote",
+        "conversion": "landing-primary-cta"
+      },
+      {
+        "text": "519-802-3857",
+        "href": "tel:5198023857",
+        "conversion": "landing-phone-cta"
+      },
+      {
+        "text": "",
+        "href": "/",
+        "conversion": null
+      },
+      {
+        "text": "519-802-3857",
+        "href": "tel:5198023857",
+        "conversion": "landing-phone-cta"
+      },
+      {
+        "text": "Call",
+        "href": "tel:5198023857",
+        "conversion": "landing-mobile-call"
+      },
+      {
+        "text": "Free Quote",
+        "href": "#landing-quote",
+        "conversion": "landing-mobile-quote"
+      }
+    ],
+    "ctaCounts": {
+      "landing-phone-cta": 4,
+      "landing-primary-cta": 4,
+      "landing-form-submit": 1,
+      "landing-mobile-call": 1,
+      "landing-mobile-quote": 1
+    },
+    "horizontalOverflow": 0
+  },
+  "mobile": {
+    "url": "http://localhost:3002/landing/foundation-excavation-brantford",
+    "title": "Foundation Excavation Brantford | Bellhouse Excavating",
+    "description": "Foundation excavation, haul-out, backfill, and site prep support for Brantford and Brant County builds.",
+    "robots": "noindex, follow",
+    "h1": "Foundation Excavationin Brantford",
+    "sections": [
+      {
+        "tag": "header",
+        "classes": "landing-header",
+        "heading": "",
+        "textPreview": "519-802-3857Free Quote"
+      },
+      {
+        "tag": "section",
+        "classes": "landing-hero",
+        "heading": "Foundation Excavationin Brantford",
+        "textPreview": "Serving Brantford and Brant CountyFoundation Excavationin BrantfordExcavation, trucking, backfill, and site prep coordinated by a local crew that understands access, depth, elevations, and real construction schedules.Foundation digs, basements, footings, and garage padsSpoil haul-out and material delivery planned with the digClean equipment, practical communication, and a tidy site handoffRequest a Foundation Quote51"
+      },
+      {
+        "tag": "section",
+        "classes": "landing-trust-bar",
+        "heading": "",
+        "textPreview": "Local excavation and truckingClean, well-maintained equipmentPractical jobsite communication5.0 rating on Google"
+      },
+      {
+        "tag": "section",
+        "classes": "landing-section landing-section--light landing-audience",
+        "heading": "Foundation excavation for builders and property owners",
+        "textPreview": "Who it is forFoundation excavation for builders and property ownersBellhouse helps keep the early site work organized so the next phase can move without avoidable delays.Home buildersGeneral contractorsConcrete contractorsHomeowners"
+      },
+      {
+        "tag": "section",
+        "classes": "landing-section landing-section--dark landing-handles",
+        "heading": "Foundation excavation with the hauling planned in",
+        "textPreview": "What Bellhouse handlesFoundation excavation with the hauling planned inThe work is scoped around access, elevations, soil, backfill, and material movement before equipment arrives.Foundation digsBasements, footings, additions, garage pads, and related structural excavation.Spoil haul-outMaterial removed from site with trucking coordinated around the excavation flow.Backfill supportBackfill, compaction, and grading co"
+      },
+      {
+        "tag": "section",
+        "classes": "landing-section landing-section--light landing-pricing",
+        "heading": "Foundation excavation is priced around the site",
+        "textPreview": "What affects priceFoundation excavation is priced around the siteA useful quote depends on access, depth, volume, soil, trucking, and the details shown on drawings.Depth and footprintBasement depth, footing layout, and total cut volume shape the excavation scope.Access and stagingNarrow lots, overhead lines, slopes, and truck access affect equipment choices.Soil and water conditionsClay, wet ground, rock, or unstable"
+      },
+      {
+        "tag": "section",
+        "classes": "landing-section landing-section--dark landing-proof",
+        "heading": "Real equipment on real sites",
+        "textPreview": "ProofReal equipment on real sitesBellhouse brings excavation and trucking together so foundations, haul-out, and backfill are not treated as disconnected jobs.LocalBrantford and Brant County project supportOwn fleetExcavators and triaxle hauling supportCleanWell-maintained trucks and equipmentDirectPractical communication before work startsFoundation excavationHaul-out coordinationBackfill and compactionSite grading "
+      },
+      {
+        "tag": "section",
+        "classes": "landing-section landing-section--light landing-faq",
+        "heading": "Foundation excavation questions",
+        "textPreview": "FAQFoundation excavation questionsCan Bellhouse handle both excavation and trucking?Yes. Excavation and trucking can be coordinated together so spoil haul-out, material delivery, and site access are planned as part of the same job.Do I need drawings before asking for a quote?Drawings help, especially for depth and elevations, but photos, a location, and a short description are enough to start the conversation.Can you"
+      },
+      {
+        "tag": "section",
+        "classes": "landing-final-cta",
+        "heading": "Ready to quote your foundation excavation?",
+        "textPreview": "Get StartedReady to quote your foundation excavation?Send the site details, drawings, and timing, or call Bellhouse to talk through the project directly.Request a Foundation Quote519-802-3857"
+      },
+      {
+        "tag": "footer",
+        "classes": "landing-footer",
+        "heading": "",
+        "textPreview": "© 2026 Bellhouse ExcavatingFoundation excavation, backfill, grading, and truckingServing Brantford, Brant County, and nearby areas519-802-3857"
+      },
+      {
+        "tag": "nav",
+        "classes": "landing-mobile-bar",
+        "heading": "",
+        "textPreview": "CallFree Quote"
+      }
+    ],
+    "formFields": [
+      {
+        "label": "Name *",
+        "name": "name",
+        "type": "text",
+        "required": true,
+        "placeholder": "Your name"
+      },
+      {
+        "label": "Phone",
+        "name": "phone",
+        "type": "tel",
+        "required": false,
+        "placeholder": "Best number"
+      },
+      {
+        "label": "Email *",
+        "name": "email",
+        "type": "email",
+        "required": true,
+        "placeholder": "you@example.com"
+      },
+      {
+        "label": "Project location *",
+        "name": "jobLocation",
+        "type": "text",
+        "required": true,
+        "placeholder": "Town, address, or nearest intersection"
+      },
+      {
+        "label": "Project type *Project typeFoundation excavationBasement excavationGarage or slab excavationFootings or additionBackfill and gradingOther foundation work",
+        "name": "projectType",
+        "type": "select",
+        "required": true,
+        "placeholder": "Project type"
+      },
+      {
+        "label": "TimelineTimelineAs soon as possibleWithin 2 to 4 weeks1 to 3 months outPlanning or budgeting",
+        "name": "timeline",
+        "type": "select",
+        "required": false,
+        "placeholder": "Timeline"
+      },
+      {
+        "label": "Project details",
+        "name": "details",
+        "type": "textarea",
+        "required": false,
+        "placeholder": "Tell us about the foundation, garage, addition, shop, drawings, depth, access, or start date."
+      },
+      {
+        "label": "Photos or drawingsAdd site photos or drawingsHelps us scope the job and price faster",
+        "name": "files",
+        "type": "file",
+        "required": false,
+        "placeholder": ""
+      },
+      {
+        "label": "I agree to receive SMS messages from Bellhouse Excavating if I provide a phone number.",
+        "name": "smsConsent",
+        "type": "checkbox",
+        "required": false,
+        "placeholder": ""
+      }
+    ],
+    "links": [
+      {
+        "text": "",
+        "href": "/",
+        "conversion": null
+      },
+      {
+        "text": "519-802-3857",
+        "href": "tel:5198023857",
+        "conversion": "landing-phone-cta"
+      },
+      {
+        "text": "Free Quote",
+        "href": "#landing-quote",
+        "conversion": "landing-primary-cta"
+      },
+      {
+        "text": "Request a Foundation Quote",
+        "href": "#landing-quote",
+        "conversion": "landing-primary-cta"
+      },
+      {
+        "text": "519-802-3857",
+        "href": "tel:5198023857",
+        "conversion": "landing-phone-cta"
+      },
+      {
+        "text": "Send Foundation Details",
+        "href": "#landing-quote",
+        "conversion": "landing-primary-cta"
+      },
+      {
+        "text": "Request a Foundation Quote",
+        "href": "#landing-quote",
+        "conversion": "landing-primary-cta"
+      },
+      {
+        "text": "519-802-3857",
+        "href": "tel:5198023857",
+        "conversion": "landing-phone-cta"
+      },
+      {
+        "text": "",
+        "href": "/",
+        "conversion": null
+      },
+      {
+        "text": "519-802-3857",
+        "href": "tel:5198023857",
+        "conversion": "landing-phone-cta"
+      },
+      {
+        "text": "Call",
+        "href": "tel:5198023857",
+        "conversion": "landing-mobile-call"
+      },
+      {
+        "text": "Free Quote",
+        "href": "#landing-quote",
+        "conversion": "landing-mobile-quote"
+      }
+    ],
+    "ctaCounts": {
+      "landing-phone-cta": 4,
+      "landing-primary-cta": 4,
+      "landing-form-submit": 1,
+      "landing-mobile-call": 1,
+      "landing-mobile-quote": 1
+    },
+    "horizontalOverflow": 0
+  }
+}

@@ -561,6 +561,14 @@ $landing-max-width: 114rem;
   }
 }
 
+.landing-form__upload-note {
+  display: block;
+  color: var(--g7);
+  font-size: 1.06rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
 .landing-form__field--full {
   grid-column: 1 / -1;
 }
@@ -616,6 +624,15 @@ $landing-max-width: 114rem;
   align-items: center;
   gap: 0.5rem;
   color: var(--g7);
+}
+
+.landing-form__honeypot,
+.landing-form__turnstile {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 .landing-form__checkbox {

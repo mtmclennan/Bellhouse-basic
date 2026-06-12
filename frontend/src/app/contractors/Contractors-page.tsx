@@ -4,18 +4,31 @@ import Link from '@/components/SiteLink';
 import {
   ArrowRight,
   Buildings,
+  CalendarCheck,
   CaretRight,
   CheckCircle,
+  ClockCountdown,
   CompassTool,
+  EnvelopeSimple,
+  Files,
+  FolderOpen,
+  Hammer,
   HardHat,
   HouseLine,
+  Info,
   LinkSimple,
+  ListChecks,
   MapPin,
+  Paperclip,
   Phone,
+  RoadHorizon,
+  SealCheck,
+  ShieldCheck,
   Shovel,
   Stack,
   Truck,
   TruckTrailer,
+  UsersThree,
   Wall,
   Wrench,
 } from '@phosphor-icons/react/dist/ssr';
@@ -247,6 +260,96 @@ const areaLinks: NavLinkItem[] = [
   { href: '/service-areas/simcoe', label: 'Simcoe rural-commercial work' },
 ];
 
+const BID_EMAIL = 'estimating@bellhouseexcavating.ca';
+const BID_EMAIL_SUBJECT = 'Invitation%20to%20Tender%20%E2%80%94%20Bellhouse%20Excavating';
+
+const tenderGroups = [
+  {
+    icon: <Shovel size={22} weight="fill" />,
+    title: 'Earthworks & excavation',
+    items: ['Site excavation', 'Rough grading & subgrade prep', 'Topsoil stripping & relocation'],
+  },
+  {
+    icon: <Stack size={22} weight="fill" />,
+    title: 'Foundations',
+    items: ['Foundation excavation', 'Basement, footing, garage & addition digs', 'Backfill & rough grading around foundations'],
+  },
+  {
+    icon: <RoadHorizon size={22} weight="fill" />,
+    title: 'Granular & surfaces',
+    items: ['Granular supply, placement & compaction', 'Driveway, access road & parking prep'],
+  },
+  {
+    icon: <Truck size={22} weight="fill" />,
+    title: 'Trucking & haul-off',
+    items: ['Triaxle dump truck hauling', 'Spoil removal & disposal coordination', 'Gravel, stone, topsoil & fill delivery'],
+  },
+  {
+    icon: <Hammer size={22} weight="fill" />,
+    title: 'Demolition support',
+    items: ['Small structure demolition support', 'Concrete, asphalt, brush & debris removal'],
+  },
+  {
+    icon: <Wrench size={22} weight="fill" />,
+    title: 'Equipment & site support',
+    items: ['Operator & equipment support', 'Site cleanup, shaping & contractor support'],
+  },
+];
+
+const prequalCreds = [
+  {
+    icon: <ShieldCheck size={23} weight="fill" />,
+    title: 'WSIB clearance',
+    description:
+      'In good standing with the WSIB. Clearance certificate available for bid lists, project setup, and subcontractor prequalification packages.',
+  },
+  {
+    icon: <SealCheck size={23} weight="fill" />,
+    title: 'Liability insurance',
+    description:
+      'Commercial general liability insurance in force. Certificate of insurance available on request for approved projects and bid packages.',
+  },
+  {
+    icon: <Files size={23} weight="fill" />,
+    title: 'Safety & compliance docs',
+    description:
+      'Safety documents, training records, equipment information, and contractor prequalification forms provided when required by the GC or site owner.',
+  },
+  {
+    icon: <UsersThree size={23} weight="fill" />,
+    title: 'Crew, fleet & subcontractor support',
+    description:
+      'A mix of company equipment, operators, and trucks plus trusted subcontractors when required — flexibility for excavation, trucking, grading, removals, and site support.',
+  },
+  {
+    icon: <CalendarCheck size={23} weight="fill" />,
+    title: 'Established 1982',
+    description:
+      'Supporting residential, commercial, farm, contractor, and development projects across Southern Ontario for more than 40 years.',
+  },
+  {
+    icon: <FolderOpen size={23} weight="fill" />,
+    title: 'Project references',
+    description:
+      'References from past contractor, builder, developer, and commercial site work available to estimators on request.',
+  },
+];
+
+const bidIntakeItems = [
+  'Drawings & site plan',
+  'Grading plan',
+  'Soils report (if available)',
+  'Addenda & bid instructions',
+  'Closing date & time',
+  'Scope breakdown or bid form',
+  'Disposal / approved dump location',
+  'Granular specifications',
+  'Compaction requirements',
+  'Access restrictions',
+  'Working hours or phasing notes',
+  'Required WSIB / insurance / safety docs',
+];
+
 const heroChips = [
   { label: 'Excavation', href: '#scopes' },
   { label: 'Trucking & Hauling', href: '#scopes' },
@@ -439,6 +542,140 @@ export default function ContractorsPage() {
               />
               <div className={classes.capabilityOverlay} />
             </div>
+          </div>
+        </div>
+      </SectionWrapper>
+
+      {/* BIDS & TENDERS */}
+      <SectionWrapper backgroundVariant="dark">
+        <div id="tenders">
+          <div className={classes.tenderHead}>
+            <p className={classes.sectionEyebrow}>Bids &amp; tenders</p>
+            <h2>
+              On a GC bid list? Bellhouse prices excavation, grading, trucking,
+              demolition support &amp; site prep
+            </h2>
+            <p>
+              Bellhouse provides bid pricing for general contractors, builders,
+              developers, and commercial site contractors across Brantford, Brant
+              County, and surrounding Southern Ontario.
+            </p>
+            <p>
+              We can give early budget pricing while drawings are still
+              developing, then firm up numbers for tender close once drawings,
+              addenda, quantities, and site conditions are confirmed.
+            </p>
+          </div>
+          <div className={classes.bidScopesHead}>
+            <p className={classes.bidScopesLabel}>
+              <ListChecks size={15} weight="bold" />
+              Scopes we bid
+            </p>
+            <p>
+              Bellhouse can price full site scopes or separate line items —
+              excavation, trucking, granular supply, backfill, demolition
+              support, and equipment work.
+            </p>
+          </div>
+          <div className={classes.bidGrid}>
+            {tenderGroups.map((group) => (
+              <article key={group.title} className={classes.bidCard}>
+                <div className={classes.bidCardTop}>
+                  <span className={classes.bidCardIcon}>{group.icon}</span>
+                  <h3>{group.title}</h3>
+                </div>
+                <ul className={classes.bidCardList}>
+                  {group.items.map((item) => (
+                    <li key={item}>
+                      <CheckCircle size={13} weight="bold" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </div>
+      </SectionWrapper>
+
+      {/* PREQUALIFICATION */}
+      <SectionWrapper className={classes.altSection}>
+        <div id="prequal">
+          <div className={classes.prequalHead}>
+            <p className={`${classes.sectionEyebrow} ${classes.sectionEyebrowGold}`}>
+              Prequalification
+            </p>
+            <h2>What estimators need to put Bellhouse on the list</h2>
+            <p>
+              The documents and details a GC or site owner checks before pricing
+              — ready for bid lists and prequalification packages.
+            </p>
+          </div>
+          <div className={classes.prequalCards}>
+            {prequalCreds.map((cred) => (
+              <article key={cred.title} className={classes.prequalCard}>
+                <div className={classes.prequalCardTop}>
+                  <span className={classes.prequalCardIcon}>{cred.icon}</span>
+                  <h3>{cred.title}</h3>
+                </div>
+                <p>{cred.description}</p>
+              </article>
+            ))}
+          </div>
+          <div className={classes.bidIntakeGrid}>
+            <div className={classes.intakePanel}>
+              <p className={classes.intakeLabel}>
+                <Paperclip size={15} weight="bold" />
+                What to send with a bid invitation
+              </p>
+              <p>
+                To help Bellhouse return accurate pricing, include as much of the
+                following as you have:
+              </p>
+              <ul className={classes.intakeList}>
+                {bidIntakeItems.map((item) => (
+                  <li key={item}>
+                    <CheckCircle size={15} weight="fill" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <div className={classes.intakeNote}>
+                <Info size={17} weight="fill" />
+                <span>
+                  The more complete the package, the tighter the number. If the
+                  scope is unclear, Bellhouse may provide assumptions, exclusions,
+                  or request clarification before submitting pricing.
+                </span>
+              </div>
+            </div>
+            <aside className={classes.tenderAction}>
+              <h3>Invite Bellhouse to tender</h3>
+              <p>
+                Send the bid package and we&rsquo;ll return pricing on the scopes
+                you&rsquo;ve put out to tender by your closing date.
+              </p>
+              <Link
+                href={`mailto:${BID_EMAIL}?subject=${BID_EMAIL_SUBJECT}`}
+                className={classes.tenderActionBtn}
+              >
+                <EnvelopeSimple size={20} weight="fill" />
+                Email a bid package
+              </Link>
+              <p className={classes.tenderOr}>
+                or call the office at{' '}
+                <Link href="tel:5197528500">519-752-8500</Link> to add Bellhouse
+                to your bid list
+              </p>
+              <div className={classes.tenderNote}>
+                <ClockCountdown size={16} weight="bold" />
+                <span>
+                  Working to a tight close? Put the closing date in the subject
+                  line and include all drawings, addenda, and scope notes in the
+                  first email so we can prioritize the take-off.
+                </span>
+              </div>
+            </aside>
           </div>
         </div>
       </SectionWrapper>
