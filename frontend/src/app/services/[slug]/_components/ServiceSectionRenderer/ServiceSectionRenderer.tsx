@@ -46,6 +46,8 @@ import ServiceRiskReadinessSection from '../ServiceRiskReadinessSection/ServiceR
 import ServiceResourcesSection from '../ServiceResourcesSection/ServiceResourcesSection';
 import ServiceReviewsSection from '../ServiceReviewsSection/ServiceReviewsSection';
 import ServiceScopeSection from '../ServiceScopeSection/ServiceScopeSection';
+import ServicePricingSection from '../ServicePricingSection/ServicePricingSection';
+import ServiceBannerSection from '../ServiceBannerSection/ServiceBannerSection';
 
 type ServiceAreaLink = {
   label: string;
@@ -561,6 +563,20 @@ export default function ServiceSectionRenderer({
             section={section}
           />
         );
+      case 'pricingFactors':
+        return (
+          <ServicePricingSection
+            appearance={appearance}
+            section={section}
+          />
+        );
+      case 'banner':
+        return (
+          <ServiceBannerSection
+            appearance={appearance}
+            section={section}
+          />
+        );
       default:
         return null;
     }
@@ -699,11 +715,41 @@ export default function ServiceSectionRenderer({
   };
 
   if (props.mode === 'cms') {
-    return props.sections.map((section, index) => (
-      <Fragment key={section.id ?? `cms-${section.type}-${index}`}>
-        {renderCmsSection(section, sectionAppearances[index])}
-      </Fragment>
-    ));
+    const { sections } = props;
+    const renderedCmsSections: ReactNode[] = [];
+    for (let i = 0; i < sections.length; i++) {
+      const section = sections[i];
+      const nextSection = sections[i + 1];
+      const appearance = sectionAppearances[i];
+
+      if (
+        section.type === 'serviceAreas' &&
+        nextSection?.type === 'relatedServices'
+      ) {
+        renderedCmsSections.push(
+          <Fragment key={section.id ?? `cms-serviceAreas-${i}`}>
+            <ServiceAreaLinksSection
+              appearance={appearance}
+              section={section}
+              areaLinks={getServiceAreaLinksFromSlugs(section.areaSlugs)}
+              relatedServices={getRelatedServiceLinksFromSlugs(
+                nextSection.serviceSlugs,
+              )}
+              relatedSection={nextSection}
+            />
+          </Fragment>,
+        );
+        i++;
+        continue;
+      }
+
+      renderedCmsSections.push(
+        <Fragment key={section.id ?? `cms-${section.type}-${i}`}>
+          {renderCmsSection(section, appearance)}
+        </Fragment>,
+      );
+    }
+    return renderedCmsSections;
   }
 
   const { resolvedSections } = props;

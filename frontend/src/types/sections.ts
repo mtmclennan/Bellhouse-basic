@@ -187,6 +187,7 @@ export type CardGridSectionData = {
   density?: 'compact' | 'default' | 'relaxed';
   headingAlign?: 'left' | 'center';
   layoutStyle?: 'default' | 'proof' | 'fit';
+  showHeadingIcon?: boolean;
 };
 
 export type ContactMethodIcon = 'call' | 'text' | 'form';

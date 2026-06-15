@@ -2,257 +2,145 @@
 @use '../../../../../styles/abstracts/mixins' as m;
 
 .processSection {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-  color: v.$grey-color-1;
+  --step-count: 4;
 }
 
 .processSectionLight {
   color: v.$text-color-dark;
 
-  .processShell {
+  .stepNode {
+    background: v.$cat-yellow2;
+    color: #43444f;
+    box-shadow:
+      0 0 0 0.7rem #f1ece3,
+      0 1rem 2.2rem -1rem rgba(122, 90, 0, 0.5);
+  }
+
+  .stepTitle {
     color: v.$text-color-dark;
+  }
+
+  .stepBody {
+    color: #5a5347;
+  }
+
+  .steps::before {
+    background: repeating-linear-gradient(
+      90deg,
+      #7a5a00 0 7px,
+      transparent 7px 15px
+    );
+    opacity: 0.45;
   }
 }
 
 .processSectionDark {
   color: v.$grey-color-1;
-}
 
-.processShell {
-  color: v.$grey-color-1;
+  .stepNode {
+    background: v.$cat-yellow2;
+    color: #43444f;
+    box-shadow:
+      0 0 0 0.7rem #1c1c1c,
+      0 1rem 2.2rem -1rem rgba(122, 90, 0, 0.5);
+  }
 
-  h2 {
-    @include m.headingLevel2;
-    max-width: 14ch;
-    margin-inline: auto;
-    margin-bottom: 1rem;
-    text-align: center;
-    text-wrap: balance;
+  .stepTitle {
+    color: #fff;
+  }
+
+  .stepBody {
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  .steps::before {
+    background: repeating-linear-gradient(
+      90deg,
+      v.$cat-yellow2 0 7px,
+      transparent 7px 15px
+    );
+    opacity: 0.35;
   }
 }
 
-.processSectionLight {
-  .processShell {
-    color: v.$text-color-dark;
-  }
-}
-
-.processLayout {
-  display: grid;
-  gap: 3rem;
-  width: 100%;
-  margin-top: 4rem;
-
-  @include m.mediaDesktop {
-    margin-top: 6rem;
-  }
-}
-
-.processLayoutWithMedia {
-  @include m.mediaDesktop {
-    grid-template-columns: minmax(0, 0.94fr) minmax(34rem, 0.84fr);
-    align-items: start;
-    gap: clamp(3.2rem, 5vw, 5.8rem);
-  }
-}
-
-.processList {
+.steps {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 1.4rem;
-  width: 100%;
-  max-width: 80rem;
-  margin: 0 auto;
-
-  @include m.mediaDesktop {
-    margin-left: 0;
-    margin-right: 0;
-  }
+  display: grid;
+  grid-template-columns: repeat(var(--step-count), 1fr);
+  gap: 2.8rem;
 
   &::before {
     content: '';
     position: absolute;
-    top: 2.4rem;
-    bottom: 2.4rem;
-    left: 2.4rem;
-    width: 1px;
-    background: linear-gradient(
-      180deg,
-      rgba(v.$cat-yellow2, 0.7),
-      rgba(45, 120, 255, 0.24),
-      transparent
-    );
+    top: 2.7rem;
+    left: calc(100% / (2 * var(--step-count)));
+    right: calc(100% / (2 * var(--step-count)));
+    height: 2px;
+  }
 
-    @include m.mediaPhone {
-      left: 2.1rem;
+  @include m.mediaPhone {
+    grid-template-columns: 1fr;
+    gap: 0;
+
+    &::before {
+      top: 0;
+      bottom: 0;
+      left: 2.7rem;
+      right: auto;
+      width: 2px;
+      height: auto;
+      background: repeating-linear-gradient(
+        180deg,
+        v.$cat-yellow2 0 7px,
+        transparent 7px 15px
+      ) !important;
+      opacity: 0.35;
     }
   }
 }
 
-.processItem {
+.step {
   position: relative;
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 1.6rem;
-  padding: 1.6rem;
-  border-radius: 1.8rem;
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.055),
-      rgba(255, 255, 255, 0.025)
-    ),
-    rgba(12, 12, 12, 0.34);
-  box-shadow:
-    0 1.2rem 3rem rgba(0, 0, 0, 0.14),
-    inset 0 1px 0 rgba(255, 255, 255, 0.045);
-}
 
-.processSectionLight {
-  .processItem {
-    border-color: rgba(20, 20, 20, 0.08);
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.92),
-      rgba(246, 243, 236, 0.78)
-    );
-    box-shadow:
-      0 1.4rem 3rem rgba(64, 50, 20, 0.08),
-      inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  @include m.mediaPhone {
+    display: grid;
+    grid-template-columns: 5.4rem 1fr;
+    grid-template-rows: auto auto;
+    gap: 0 1.8rem;
+    padding-bottom: 2.4rem;
+    align-items: start;
+
+    .stepNode {
+      grid-row: 1 / 3;
+      margin-bottom: 0;
+    }
   }
 }
 
-.stepMarker {
+.stepNode {
   position: relative;
   z-index: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.stepNumber {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 4.8rem;
-  height: 4.8rem;
-  border-radius: 999px;
-  background: v.$cat-yellow2;
-  color: v.$text-color-dark;
-  font-size: 1.55rem;
-  font-weight: 850;
-  line-height: 1;
-  box-shadow:
-    0 0 0 0.6rem rgba(v.$cat-yellow2, 0.11),
-    0 1rem 2rem rgba(0, 0, 0, 0.22);
-}
-
-.stepContent {
-  min-width: 0;
-
-  h3 {
-    margin: 0;
-    color: #fff;
-    font-size: 1.9rem;
-    line-height: 1.25;
-    font-weight: 800;
-    text-wrap: balance;
-  }
-
-  p {
-    margin: 0.75rem 0 0;
-    color: rgba(v.$text-color-light, 0.84);
-    font-size: 1.52rem;
-    line-height: 1.58;
-  }
-}
-
-.processSectionLight {
-  .stepContent {
-    h3 {
-      color: v.$text-color-dark;
-    }
-
-    p {
-      color: rgba(v.$text-color-dark, 0.74);
-    }
-  }
-}
-
-.mediaPanel {
-  display: grid;
-  gap: 1rem;
-  width: 100%;
-
-  @include m.mediaDesktop {
-    position: sticky;
-    top: 2rem;
-  }
-}
-
-.imageFrame {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  border-radius: 2.2rem;
-  border: 1px solid rgba(v.$cat-yellow2, 0.16);
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.05) 0%,
-      rgba(255, 255, 255, 0.025) 100%
-    ),
-    rgba(20, 20, 18, 0.86);
-  box-shadow:
-    0 2rem 4rem rgba(0, 0, 0, 0.26),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  isolation: isolate;
-}
-
-.processSectionLight {
-  .imageFrame {
-    border-color: rgba(88, 72, 33, 0.14);
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.95) 0%,
-      rgba(246, 243, 236, 0.94) 100%
-    );
-    box-shadow:
-      0 1.8rem 3rem -2.4rem rgba(64, 50, 20, 0.16),
-      0 0.45rem 1rem rgba(0, 0, 0, 0.04);
-  }
-}
-
-.image {
-  object-fit: cover;
-}
-
-.imageOverlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background:
-    linear-gradient(180deg, transparent 38%, rgba(0, 0, 0, 0.44) 100%),
-    linear-gradient(120deg, rgba(v.$cat-yellow2, 0.08), transparent 46%),
-    linear-gradient(240deg, rgba(45, 120, 255, 0.08), transparent 42%);
-}
-
-.caption {
-  margin: 0;
-  padding-inline: 0.2rem;
-  color: rgba(v.$text-color-light, 0.72);
-  font-size: 1.35rem;
+  width: 5.4rem;
+  height: 5.4rem;
+  border-radius: 50%;
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.4rem;
   font-weight: 600;
-  line-height: 1.5;
+  margin-bottom: 2rem;
 }
 
-.processSectionLight {
-  .caption {
-    color: rgba(v.$text-color-dark, 0.64);
-  }
+.stepTitle {
+  margin: 0 0 0.6rem;
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.stepBody {
+  margin: 0;
+  font-size: 1.38rem;
+  line-height: 1.58;
 }

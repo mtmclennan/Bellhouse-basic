@@ -32,6 +32,7 @@ interface ServiceSectionWrapperProps {
 export default function ServiceSectionWrapper({
   className,
   containerClassName,
+  heading,
   ...props
 }: ServiceSectionWrapperProps) {
   const sectionClassName = [classes.section, className].filter(Boolean).join(' ');
@@ -39,9 +40,19 @@ export default function ServiceSectionWrapper({
     .filter(Boolean)
     .join(' ');
 
+  const resolvedHeading = heading
+    ? {
+        ...heading,
+        className: [classes.serviceHeading, heading.className]
+          .filter(Boolean)
+          .join(' '),
+      }
+    : undefined;
+
   return (
     <SectionWrapper
       {...props}
+      heading={resolvedHeading}
       className={sectionClassName}
       containerClassName={resolvedContainerClassName}
     />

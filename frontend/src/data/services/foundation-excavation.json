@@ -20,12 +20,12 @@
     "alt": "Finished garage foundation backfilled and prepared for slab work"
   },
   "hero": {
-    "eyebrow": "Builders, additions & new foundations",
-    "heading": "Foundation Excavation & Backfilling",
-    "summary": "Precision excavation for new home builds, additions, garages, and structural projects.",
+    "eyebrow": "Serving Brantford and Brant County",
+    "heading": "Foundation Excavation in Brantford",
+    "summary": "Excavation, trucking, backfill, and site prep coordinated by a local crew that understands access, depth, elevations, and real construction schedules.",
     "actions": [
       {
-        "label": "Get a Free Estimate",
+        "label": "Get My Free Foundation Quote",
         "href": "/contact",
         "variant": "primary"
       },
@@ -36,34 +36,26 @@
       }
     ],
     "proofPoints": [
-      "Layout to engineered elevations",
-      "Spoil haul-out and backfill support",
-      "Fit for contractor-led schedules"
+      "Foundation digs, basements, footings, and garage pads",
+      "Spoil haul-out and material delivery planned with the dig",
+      "Clean equipment, clear communication, and a tidy site handoff"
     ],
     "emphasis": "high",
-    "image": "/assets/services/foundation-excavation/garage-foundation-excavation-residential-site-brant.webp",
-    "alt": "Bellhouse excavator digging a residential garage foundation excavation beside an existing structure"
+    "image": "/assets/services/foundation-excavation/foundation-excavation-services-cat-315d-brantford-ontario-hero.webp",
+    "alt": "Bellhouse CAT 315D excavator digging a residential foundation on a Brantford build site",
+    "sideForm": true,
+    "proofBar": [
+      { "icon": "map-pin", "title": "Local to Brantford", "subtitle": "& Brant County" },
+      { "icon": "calendar-check", "title": "Since 1982", "subtitle": "Family operation" },
+      { "icon": "truck", "title": "Own fleet", "subtitle": "Trucks & excavators" },
+      { "icon": "star", "title": "5.0 on Google", "subtitle": "Local reviews" },
+      { "icon": "shield-check", "title": "Licensed & insured", "subtitle": "Fully covered" }
+    ]
   },
   "sections": [
     {
-      "type": "proofStrip",
-      "items": [
-        {
-          "label": "Engineered layout",
-          "description": "Foundation digs aligned to plan and elevation before footing work begins."
-        },
-        {
-          "label": "Spoil haul-out",
-          "description": "Excess soil removed and trucked off site so access stays clear for the next phase."
-        },
-        {
-          "label": "Controlled backfill",
-          "description": "Granular placement, compaction, and grading handled around the finished foundation."
-        }
-      ]
-    },
-    {
       "type": "intro",
+      "tone": "light",
       "heading": "Professional Foundation Excavation and Backfilling",
       "body": "Your foundation sets the stage for the entire structure. Our team provides accurate, safe, and efficient foundation excavation and backfilling for builders, contractors, and homeowners throughout Brant County and the surrounding area. We ensure the right depth, clean lines, proper soil handling, and reliable compaction - everything required for a strong, stable foundation.",
       "bullets": [
@@ -75,7 +67,8 @@
     },
     {
       "type": "projectFit",
-      "heading": "When Bellhouse Is the Right Crew for the Dig",
+      "tone": "dark",
+      "heading": "Foundation Excavation Projects Bellhouse Handles",
       "subheading": "Best fit for foundation work that needs accurate elevations, spoil handled cleanly, and backfill support that keeps the next trade moving.",
       "cards": [
         {
@@ -112,37 +105,101 @@
     },
     {
       "type": "scope",
-      "heading": "Foundation Excavation Scope",
+      "tone": "light",
+      "heading": "What a Bellhouse Foundation Excavation Includes",
       "subheading": "We handle every stage of the excavation, from layout to spoil removal to final grading, so your foundation is structurally ready and builder-approved.",
       "items": [
         {
+          "icon": "shovel",
           "title": "Full Basement & Addition Excavation",
           "body": "We dig to engineered depth and specifications, ensuring accurate grades, clean edges, and safe soil management."
         },
         {
+          "icon": "truck",
           "title": "Over-Excavation & Soil Removal",
           "body": "When poor soil is discovered, we remove unsuitable material and haul it away with our triaxle fleet."
         },
         {
+          "icon": "stack",
           "title": "Professional Backfilling",
           "body": "We supply and place granular A or B material, ensuring proper lift thickness and long-term stability around the foundation."
         },
         {
+          "icon": "path",
           "title": "Compaction for Structural Stability",
           "body": "Using a diesel plate tamper or roller, we compact the backfill to prevent future settling and drainage issues."
         },
         {
+          "icon": "ruler",
           "title": "Rough Grading for Drainage",
           "body": "We shape the site around the home to direct water away from the structure and prepare the area for landscaping or construction."
         },
         {
+          "icon": "check-circle",
           "title": "Trucking & Spoil Removal",
           "body": "Our three triaxle dump trucks haul away all excess soil, keeping your site clean and ready for the next phase."
         }
       ]
     },
     {
+      "type": "reviews",
+      "tone": "light",
+      "eyebrow": "Testimonials",
+      "heading": "What customers say about Bellhouse",
+      "subheading": "Feedback from local homeowners, builders, and job-site customers Bellhouse has worked with.",
+      "limit": 3
+    },
+    {
+      "type": "pricingFactors",
+      "tone": "dark",
+      "eyebrow": "What affects price",
+      "heading": "Foundation excavation is priced around the site",
+      "subheading": "A useful quote depends on access, depth, volume, soil, trucking, and the details shown on drawings.",
+      "tiers": [
+        { "name": "Simpler", "eg": "Footing & pier excavation, small garage pad", "position": "low" },
+        { "name": "Typical", "eg": "Full residential basement + haul-out", "position": "mid" },
+        { "name": "Complex", "eg": "Large volume, poor access, granular + backfill", "position": "high" }
+      ],
+      "rangeNote": "Most residential foundation digs fall in the middle range. Bellhouse quotes after reviewing site details.",
+      "factors": [
+        {
+          "title": "Depth and footprint",
+          "body": "Basement depth, footing layout, and total cut volume shape the excavation scope. Drawings let Bellhouse price accurately."
+        },
+        {
+          "title": "Access and staging",
+          "body": "Narrow lots, overhead lines, slopes, and truck access all affect equipment choices and time on site."
+        },
+        {
+          "title": "Soil and water conditions",
+          "body": "Clay, wet ground, rock, or unstable material changes how the dig is handled and what equipment is needed."
+        },
+        {
+          "title": "Haul-out and disposal",
+          "body": "Spoil volume, truck loads, and disposal location are major cost drivers — included in the quote when scope is clear."
+        },
+        {
+          "title": "Backfill and granular needs",
+          "body": "Imported material lifts, compaction, and grading can be included in the same scope when required."
+        }
+      ],
+      "aside": {
+        "label": "The honest version",
+        "heading": "Photos, drawings, and clear access details help Bellhouse quote the real job",
+        "body": "Instead of guessing from a generic square foot number.",
+        "action": {
+          "label": "Get My Free Foundation Quote",
+          "href": "/contact"
+        },
+        "phone": {
+          "label": "519-752-8500",
+          "href": "tel:5197528500"
+        }
+      }
+    },
+    {
       "type": "jobsiteProof",
+      "tone": "dark",
       "eyebrow": "Built for real site conditions",
       "heading": "Clean excavation starts with access, elevations, and material handling.",
       "body": "Bellhouse plans the dig around footing depth, spoil movement, site access, and the next trade on site so excavation work supports the build instead of slowing it down.",
@@ -153,8 +210,52 @@
       "caption": "Real foundation excavation work planned around access, footing depth, spoil handling, and the next phase of the build."
     },
     {
+      "type": "outcomes",
+      "tone": "light",
+      "heading": "What The Site Should Look Like After The Dig",
+      "subheading": "The goal is not just getting the hole dug. It is leaving the job ready for the next phase with access, material handling, and backfill support already accounted for.",
+      "items": [
+        {
+          "title": "Ready for footing and wall work",
+          "body": "The excavation is cut to the required depth, cleaned up, and left in a condition that supports the next structural step instead of creating extra prep."
+        },
+        {
+          "title": "Cleaner site through the foundation phase",
+          "body": "Spoil haul-out, truck coordination, and material handling are kept under control so the site stays workable instead of turning into a staging problem."
+        },
+        {
+          "title": "Stable backfill and drainage shaping",
+          "body": "After foundation work is complete, controlled backfill, compaction, and rough grading help bring the site back to a stable condition around the structure."
+        }
+      ],
+      "stats": [
+        { "label": "Since 1982", "body": "Four decades of local excavation experience in Brant County." },
+        { "label": "Own fleet", "body": "Excavators and triaxle trucks on every job — no subcontracting the hauling." },
+        { "label": "5.0 Google rating", "body": "Consistent feedback on clean sites, clear communication, and reliable scheduling." },
+        { "label": "Licensed & insured", "body": "Full coverage for residential, agricultural, and commercial foundation work." }
+      ],
+      "photos": [
+        {
+          "src": "/assets/services/foundation-excavation/garage-foundation-excavation-residential-site-brant.webp",
+          "alt": "Residential garage foundation excavation in Brantford",
+          "caption": "Garage foundation excavation on a residential site"
+        },
+        {
+          "src": "/assets/services/foundation-excavation/Foundation-footings-excavation-paris.webp",
+          "alt": "Foundation footing excavation near Paris, Ontario",
+          "caption": "Footing excavation on an active build site near Paris"
+        },
+        {
+          "src": "/assets/services/foundation-excavation/foundation-backfilling-lifts-ontario-garage-house.webp",
+          "alt": "Backfilling around a residential foundation wall in Ontario",
+          "caption": "Controlled backfill in lifts around a finished foundation wall"
+        }
+      ]
+    },
+    {
       "type": "problemsPrevented",
-      "heading": "What This Work Helps Prevent",
+      "tone": "dark",
+      "heading": "What Foundation Excavation Planning Prevents",
       "subheading": "Foundation excavation goes smoother when layout, trucking, backfill, and drainage planning are handled before small site issues turn into rework.",
       "items": [
         {
@@ -172,26 +273,8 @@
       ]
     },
     {
-      "type": "outcomes",
-      "heading": "What The Site Should Look Like After The Dig",
-      "subheading": "The goal is not just getting the hole dug. It is leaving the job ready for the next phase with access, material handling, and backfill support already accounted for.",
-      "items": [
-        {
-          "title": "Ready for footing and wall work",
-          "body": "The excavation is cut to the required depth, cleaned up, and left in a condition that supports the next structural step instead of creating extra prep."
-        },
-        {
-          "title": "Cleaner site through the foundation phase",
-          "body": "Spoil haul-out, truck coordination, and material handling are kept under control so the site stays workable instead of turning into a staging problem."
-        },
-        {
-          "title": "Stable backfill and drainage shaping",
-          "body": "After foundation work is complete, controlled backfill, compaction, and rough grading help bring the site back to a stable condition around the structure."
-        }
-      ]
-    },
-    {
       "type": "equipment",
+      "tone": "dark",
       "heading": "Equipment Used for Foundation Excavation",
       "subheading": "Reliable equipment chosen for accuracy, efficiency, and safe excavation on every job site.",
       "items": [
@@ -231,6 +314,7 @@
     },
     {
       "type": "process",
+      "tone": "light",
       "heading": "How Our Excavation Process Works",
       "subheading": "A clear, predictable workflow that keeps your project on schedule from start to finish.",
       "image": {
@@ -240,33 +324,26 @@
       "caption": "Fine grading, subgrade prep, and backfill are planned around the next crew coming onto the site.",
       "steps": [
         {
-          "title": "Site Layout & Planning",
-          "body": "We review engineering drawings, confirm elevations, and establish accurate dig lines before any ground is broken."
+          "title": "Send the site details",
+          "body": "Drawings, a description of scope and access, or just call to talk it through. Photos of the site help."
         },
         {
-          "title": "Excavation to Required Depth",
-          "body": "We excavate to engineered specifications, ensuring clean walls, correct depth, and proper soil management."
+          "title": "Confirm scope & trucks",
+          "body": "Bellhouse confirms depth, access, trucking needs, and returns a realistic quote."
         },
         {
-          "title": "Spoil Removal & Trucking",
-          "body": "Excess soil is hauled away using our dump trucks or supplemental rentals as needed."
+          "title": "Schedule the dig",
+          "body": "Excavation and haul-out booked and lined up around your construction schedule."
         },
         {
-          "title": "Fine Grading & Shaping",
-          "body": "We clean up the excavation, prepare the base, and ensure everything is ready for footings or foundation work."
-        },
-        {
-          "title": "Backfilling After Foundation Work",
-          "body": "Once the foundation is complete, we place material in controlled lifts to protect walls and ensure long-term stability."
-        },
-        {
-          "title": "Final Grading for Drainage",
-          "body": "We shape the surrounding area to promote proper drainage and prepare the site for its next phase."
+          "title": "Clean site handoff",
+          "body": "The site is left workable and ready for the next trade when Bellhouse is done."
         }
       ]
     },
     {
       "type": "contractorCta",
+      "tone": "dark",
       "eyebrow": "For builders and contractors",
       "heading": "Builders and contractors can send project details for review",
       "body": "If your project needs excavation, trucking, material delivery, or equipment support lined up around a real schedule, Bellhouse can review the site, scope, and timing.",
@@ -290,6 +367,7 @@
     },
     {
       "type": "resources",
+      "tone": "light",
       "eyebrow": "Planning tool",
       "heading": "Need a rough excavation quantity first?",
       "subheading": "For foundation digs, spoil removal, and early haul-out planning, the Bellhouse excavation calculator gives you a practical starting point before site review.",
@@ -311,6 +389,7 @@
     },
     {
       "type": "serviceAreas",
+      "tone": "dark",
       "heading": "Foundation excavation by service area",
       "body": "Foundation excavation needs vary by site, from Brantford access constraints and Paris rural lots to Hamilton infill work, Cambridge active sites, Ancaster slopes, and Woodstock or Simcoe larger-property jobs.",
       "areaSlugs": [
@@ -325,6 +404,7 @@
     },
     {
       "type": "relatedServices",
+      "tone": "dark",
       "eyebrow": "Related services",
       "heading": "Related excavation and hauling services",
       "serviceSlugs": [
@@ -336,38 +416,47 @@
       ]
     },
     {
-      "type": "reviews",
-      "eyebrow": "Testimonials",
-      "heading": "What customers say about Bellhouse",
-      "subheading": "Feedback from local homeowners, builders, and job-site customers Bellhouse has worked with.",
-      "limit": 3
-    },
-    {
       "type": "faq",
+      "tone": "light",
       "heading": "Frequently Asked Questions",
       "items": [
         {
+          "question": "Are you licensed and insured?",
+          "answer": "Yes. Bellhouse Excavating is fully licensed and insured for residential, agricultural, and commercial excavation across Ontario, and documentation is available on request."
+        },
+        {
+          "question": "Do I need drawings before getting a quote?",
+          "answer": "No. A site address, a description of the scope, and access details are enough to start. Drawings and photos help us price more accurately, but a call or message works fine before plans are finalized."
+        },
+        {
+          "question": "How long does a foundation excavation take?",
+          "answer": "Most residential foundation digs are completed in one to a few days, depending on size, depth, soil conditions, and trucking volume. We confirm a realistic timeline after reviewing the site."
+        },
+        {
           "question": "Do you remove all excess soil?",
-          "answer": "Yes. Our triaxle fleet hauls away all spoil material as part of our excavation service."
+          "answer": "Yes. Our triaxle fleet hauls away all spoil material as part of our excavation service, so the site stays clear for the next phase."
         },
         {
           "question": "Can you work in tight backyards?",
-          "answer": "In most cases, yes. We assess access during the estimate and plan equipment size accordingly."
-        },
-        {
-          "question": "Do you handle compaction?",
-          "answer": "Yes. We use plate tampers or rollers depending on the project requirements."
+          "answer": "In most cases, yes. We assess access during the estimate and plan equipment size accordingly so we can reach constrained or rear-lot foundations."
         },
         {
           "question": "How far ahead should I book?",
-          "answer": "Most projects book 1-3 weeks in advance, depending on the season."
+          "answer": "Most projects book one to three weeks in advance depending on the season. Send your location and timing and we will give you a straight answer on availability."
         }
       ]
     },
     {
       "type": "finalCta",
-      "heading": "Ready to Start Your Excavation?",
-      "body": "Get a fast, accurate estimate for your foundation project.",
+      "tone": "dark",
+      "heading": "Get a Foundation Excavation Quote",
+      "body": "Send site location, timing, and access details so Bellhouse can return the real numbers — not a guess from a square footage formula.",
+      "bullets": [
+        "No obligation — free project review",
+        "Bellhouse replies with real numbers",
+        "Local crew, local knowledge"
+      ],
+      "form": true,
       "actions": [
         {
           "label": "Get a Free Estimate",
@@ -375,8 +464,61 @@
           "variant": "primary"
         },
         {
-          "label": "Send Project Details",
-          "href": "/contractors#contractor-form",
+          "label": "Call 519-752-8500",
+          "href": "tel:5197528500",
+          "variant": "secondary"
+        }
+      ],
+      "navGroups": [
+        {
+          "label": "Other services",
+          "icon": "wrench",
+          "links": [
+            { "label": "Site Prep & Grading", "href": "/services/site-preparation-land-grading", "icon": "caret-right" },
+            { "label": "Contractor Support", "href": "/contractors", "icon": "caret-right" },
+            { "label": "Demolition", "href": "/services/demolition", "icon": "caret-right" },
+            { "label": "Dirt & Gravel Delivery", "href": "/services/dirt-gravel-delivery", "icon": "caret-right" },
+            { "label": "Land Drainage", "href": "/services/septic-system-installation", "icon": "caret-right" }
+          ]
+        },
+        {
+          "label": "Service areas",
+          "icon": "map-pin",
+          "links": [
+            { "label": "Brantford", "href": "/service-areas/brantford", "icon": "map-pin" },
+            { "label": "Brant County", "href": "/service-areas/brantford", "icon": "map-pin" },
+            { "label": "Paris", "href": "/service-areas/paris", "icon": "map-pin" },
+            { "label": "Cambridge", "href": "/service-areas/cambridge", "icon": "map-pin" },
+            { "label": "Woodstock", "href": "/service-areas/woodstock", "icon": "map-pin" },
+            { "label": "Hamilton", "href": "/service-areas/hamilton", "icon": "map-pin" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "banner",
+      "tone": "dark",
+      "eyebrow": "Foundation excavation done right",
+      "heading": "Ready to dig? Bellhouse is local, equipped, and taking jobs now.",
+      "body": "From the first site review to final grading, Bellhouse handles the excavation so your build stays on schedule.",
+      "bullets": [
+        "Residential foundations, additions, and garage pads",
+        "Own trucks — haul-out included, not subcontracted",
+        "Brantford, Paris, Hamilton, and surrounding Brant County"
+      ],
+      "image": {
+        "src": "/assets/services/foundation-excavation/barn-shop-foundation-subgrade-laser-level-floor-concrete.webp",
+        "alt": "Bellhouse equipment fine grading a barn and shop foundation before concrete work"
+      },
+      "actions": [
+        {
+          "label": "Get My Free Foundation Quote",
+          "href": "/contact",
+          "variant": "primary"
+        },
+        {
+          "label": "Call 519-752-8500",
+          "href": "tel:5197528500",
           "variant": "secondary"
         }
       ]

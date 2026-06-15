@@ -32,6 +32,7 @@ export default function ServiceProjectFitSection({
     density: 'default',
     headingAlign: 'left',
     layoutStyle: 'fit',
+    showHeadingIcon: false,
   };
 
   return <CardGridSection data={fitSectionData} containerSize="wide" />;

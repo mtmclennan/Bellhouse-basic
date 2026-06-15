@@ -1,3 +1,5 @@
+import { Star } from '@phosphor-icons/react/dist/ssr';
+
 import type {
   ServiceBusinessContext,
   ServiceReview,
@@ -14,49 +16,26 @@ interface ServiceReviewsSectionProps {
   business: ServiceBusinessContext;
 }
 
-function getReviewSummary(items: ServiceReview[]) {
-  const sourceLabels = Array.from(
-    new Set(items.map((review) => review.source)),
-  );
-
-  if (sourceLabels.length === 0) {
-    return 'Local customer feedback';
-  }
-
-  if (sourceLabels.length === 1) {
-    return `${items.length} local review${items.length === 1 ? '' : 's'} from ${sourceLabels[0]}`;
-  }
-
-  const lastSource = sourceLabels[sourceLabels.length - 1];
-  const leadingSources = sourceLabels.slice(0, -1);
-  const sourcesLabel = `${leadingSources.join(', ')} and ${lastSource}`;
-
-  return `${items.length} local reviews from ${sourcesLabel}`;
-}
-
-function getStarLabel(rating: number) {
-  return `${rating} star review`;
-}
-
-function getStars(rating: number) {
-  return '\u2605'.repeat(rating);
+function getInitials(name: string) {
+  const parts = name.trim().split(/\s+/);
+  if (parts.length >= 2) return (parts[0][0] + parts[1][0]).toUpperCase();
+  return name.slice(0, 1).toUpperCase();
 }
 
 export default function ServiceReviewsSection({
   appearance,
   section,
   reviews,
-  business,
 }: ServiceReviewsSectionProps) {
   if (reviews.length === 0) {
     return null;
   }
 
+  const isLight = appearance.backgroundVariant === 'light';
+
   const sectionClassName = [
     classes.reviewsSection,
-    appearance.backgroundVariant === 'dark'
-      ? classes.reviewsSectionDark
-      : classes.reviewsSectionLight,
+    isLight ? classes.reviewsSectionLight : classes.reviewsSectionDark,
   ]
     .filter(Boolean)
     .join(' ');
@@ -67,52 +46,35 @@ export default function ServiceReviewsSection({
       backgroundVariant={appearance.backgroundVariant}
       backgroundTone={appearance.backgroundTone}
       className={sectionClassName}
-      containerClassName={classes.reviewsShell}
       heading={{
-        eyebrow: section.eyebrow ?? 'Testimonials',
-        title: section.heading ?? 'What customers say about Bellhouse',
-        subtext:
-          section.subheading ??
-          'Feedback from local homeowners, builders, and job-site customers Bellhouse has worked with.',
-        align: 'left',
+        eyebrow: section.eyebrow ?? 'What people say',
+        title: section.heading ?? 'Bellhouse reviews',
+        align: 'center',
       }}
     >
-      <div className={classes.reviewsIntroBar}>
-        <div className={classes.reviewSummary}>
-          <span className={classes.reviewStars} aria-hidden="true">
-            {getStars(Math.round(business.reviewRating))}
-          </span>
-          <strong>{business.reviewRating.toFixed(1)} rating</strong>
-          <span>{getReviewSummary(reviews)}</span>
-        </div>
-      </div>
+      <div className={classes.reviewsGrid}>
+        {reviews.map((review) => (
+          <article key={review.id} className={classes.reviewCard}>
+            <div className={classes.reviewStars} aria-label={`${review.rating} star review`}>
+              {Array.from({ length: review.rating }).map((_, i) => (
+                <Star key={i} size={17} weight="fill" color="#ffc302" aria-hidden />
+              ))}
+            </div>
 
-      <ul className={classes.reviewList}>
-        {reviews.map((review, index) => (
-          <li className={classes.reviewItem} key={review.id}>
-            <article className={classes.reviewCard}>
-              <div className={classes.reviewMeta}>
-                <span className={classes.reviewIndex}>
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <span className={classes.reviewSource}>{review.source}</span>
+            <p className={classes.reviewText}>&ldquo;{review.text}&rdquo;</p>
+
+            <div className={classes.reviewMeta}>
+              <div className={classes.reviewAvatar} aria-hidden="true">
+                {getInitials(review.name)}
               </div>
-
-              <p className={classes.reviewText}>{review.text}</p>
-
-              <div className={classes.reviewFooter}>
-                <span className={classes.reviewName}>{review.name}</span>
-                <span
-                  className={classes.reviewRating}
-                  aria-label={getStarLabel(review.rating)}
-                >
-                  {getStars(review.rating)}
-                </span>
+              <div>
+                <div className={classes.reviewName}>{review.name}</div>
+                <div className={classes.reviewSource}>{review.source}</div>
               </div>
-            </article>
-          </li>
+            </div>
+          </article>
         ))}
-      </ul>
+      </div>
     </ServiceSectionWrapper>
   );
 }

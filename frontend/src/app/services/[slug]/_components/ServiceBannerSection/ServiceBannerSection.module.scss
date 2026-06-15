@@ -1,0 +1,114 @@
+@use '../../../../../styles/abstracts/variables' as v;
+@use '../../../../../styles/abstracts/mixins' as m;
+
+.banner {
+  position: relative;
+  overflow: hidden;
+  border-top: 3px solid v.$cat-yellow2;
+  isolation: isolate;
+}
+
+.bannerBg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.bannerImg {
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+.bannerScrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(13, 13, 13, 0.95) 0%, rgba(13, 13, 13, 0.78) 44%, rgba(13, 13, 13, 0.24) 100%),
+    linear-gradient(0deg, rgba(13, 13, 13, 0.4), transparent 62%);
+}
+
+.bannerContainer {
+  max-width: 114rem;
+  margin-inline: auto;
+  padding-inline: 2.2rem;
+}
+
+.bannerInner {
+  max-width: 66rem;
+  padding-block: clamp(5.4rem, 7vw, 9.2rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: v.$cat-yellow2;
+}
+
+.heading {
+  margin: 0;
+  color: #fff;
+  @include m.headingLevel2(2.8rem, 4rem);
+  line-height: 1.06;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.body {
+  margin: 0;
+  font-size: 1.7rem;
+  color: rgba(255, 255, 255, 0.86);
+  line-height: 1.62;
+  max-width: 60rem;
+  text-wrap: pretty;
+}
+
+.bulletList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 2.4rem;
+  row-gap: 0.8rem;
+}
+
+.bulletItem {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+
+  &::before {
+    content: '';
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 50%;
+    background: v.$cat-yellow2;
+    flex-shrink: 0;
+    box-shadow: 0 0 0.8rem rgba(v.$cat-yellow2, 0.5);
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+  padding-top: 0.4rem;
+}
+
+.primaryBtn {
+  @include m.btnMain;
+}
+
+.secondaryBtn {
+  @include m.btnSec;
+}

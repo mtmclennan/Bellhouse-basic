@@ -1,3 +1,5 @@
+import { Plus } from '@phosphor-icons/react/dist/ssr';
+
 import type { ServiceFaqSectionData } from '@/types/serviceSections';
 import type { ServiceSectionAppearance } from '../serviceSectionTypes';
 import ServiceSectionWrapper from '../primitives/ServiceSectionWrapper/ServiceSectionWrapper';
@@ -47,38 +49,30 @@ export default function ServiceFaqSection({
         subtext:
           section.subheading ??
           'Clear, practical answers for homeowners and contractors.',
-        align: 'left',
+        align: 'center',
       }}
     >
-      <div className={classes.faqLayout}>
-        <div className={classes.faqMeta}>
-          <span>Common questions</span>
-          <strong>{items.length} answers</strong>
-        </div>
+      <div className={classes.faqList}>
+        {items.map((item, index) => (
+          <details
+            className={classes.faqItem}
+            key={`${item.question}-${index}`}
+            open={index === 0}
+          >
+            <summary className={classes.faqQuestion}>
+              <span className={classes.faqQuestionText}>{item.question}</span>
+              <span className={classes.faqToggle} aria-hidden="true">
+                <Plus size={20} weight="bold" />
+              </span>
+            </summary>
 
-        <div className={classes.faqList}>
-          {items.map((item, index) => (
-            <details
-              className={classes.faqItem}
-              key={`${item.question}-${index}`}
-              open={index === 0}
-            >
-              <summary className={classes.faqQuestion}>
-                <span className={classes.faqQuestionIndex}>
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <span className={classes.faqQuestionText}>{item.question}</span>
-                <span className={classes.faqToggle} aria-hidden="true" />
-              </summary>
-
-              <div className={classes.faqAnswer}>
-                {getAnswerParagraphs(item.answer).map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
-              </div>
-            </details>
-          ))}
-        </div>
+            <div className={classes.faqAnswer}>
+              {getAnswerParagraphs(item.answer).map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+          </details>
+        ))}
       </div>
     </ServiceSectionWrapper>
   );

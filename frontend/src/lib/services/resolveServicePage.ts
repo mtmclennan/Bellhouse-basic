@@ -63,6 +63,8 @@ const sectionTypeToResolvedId: Record<
   relatedServices: 'relatedServices',
   reviews: 'reviews',
   finalCta: 'finalCta',
+  pricingFactors: 'finalCta',
+  banner: 'finalCta',
 };
 
 export type ResolvedServiceSection =

@@ -35,6 +35,7 @@ export default function CardGridSection({
     density = 'default',
     headingAlign = 'center',
     layoutStyle = 'default',
+    showHeadingIcon = true,
   } = data;
 
   const sectionClassName = [
@@ -78,7 +79,9 @@ export default function CardGridSection({
         {cards.map((card) => (
           <article key={card.title} className={classes.card}>
             <div className={classes.cardHeading}>
-              <CheckCircle size={32} weight="regular" className={classes.icon} />
+              {showHeadingIcon && (
+                <CheckCircle size={32} weight="regular" className={classes.icon} />
+              )}
               <h3>{card.title}</h3>
             </div>
 
@@ -95,9 +98,10 @@ export default function CardGridSection({
             ) : null}
 
             {card.outcome ? (
-              <p className={classes.outcome}>
-                <strong>What this supports:</strong> {card.outcome}
-              </p>
+              <div className={classes.outcome}>
+                <CheckCircle size={15} weight="fill" className={classes.outcomeIcon} aria-hidden />
+                <span>{card.outcome}</span>
+              </div>
             ) : null}
           </article>
         ))}

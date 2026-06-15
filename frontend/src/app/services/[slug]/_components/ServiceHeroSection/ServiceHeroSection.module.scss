@@ -48,6 +48,9 @@
 }
 
 .inner {
+  position: relative;
+  z-index: 1;
+
   @include m.mediaTablet {
     padding-block: 8rem;
   }
@@ -67,7 +70,7 @@
 }
 
 .heroContainer {
-  width: min(calc(100% - 3.2rem), 118rem);
+  width: min(calc(100% - 3.2rem), 114rem);
   max-width: none;
   margin-inline: auto;
 }
@@ -441,4 +444,206 @@
       max-width: 50rem;
     }
   }
+}
+
+/* ---- Side-form bg override ---- */
+.section[data-variant='side-form'] {
+  background: #141414;
+
+  &::before {
+    display: none;
+  }
+
+  .inner {
+    padding-block: clamp(5.2rem, 6vw, 8.4rem) clamp(4rem, 4vw, 5.6rem);
+  }
+
+  .headingGroup h1 {
+    font-size: clamp(3.2rem, 3.9vw, 4.7rem);
+    line-height: 1.08;
+  }
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.heroBgImg {
+  object-fit: cover;
+  object-position: 62% center;
+}
+
+.heroBgScrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(13, 13, 13, 0.96) 0%, rgba(13, 13, 13, 0.88) 42%, rgba(13, 13, 13, 0.78) 70%, rgba(13, 13, 13, 0.68) 100%),
+    linear-gradient(0deg, rgba(13, 13, 13, 0.6), rgba(13, 13, 13, 0) 52%),
+    radial-gradient(120% 150% at 4% 0%, rgba(v.$cat-yellow2, 0.12), transparent 32%);
+}
+
+/* ---- Hero bullet list (sideForm copy) ---- */
+.heroBullets {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.heroBulletItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.1rem;
+  font-size: 1.58rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.45;
+
+  svg {
+    flex: 0 0 auto;
+    margin-top: 0.1rem;
+  }
+}
+
+/* ---- Phone CTA link (inline in actions) ---- */
+.phoneCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-size: 1.82rem;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  white-space: nowrap;
+
+  &:hover,
+  &:focus-visible {
+    color: v.$cat-yellow2;
+  }
+}
+
+/* ---- Side-form heading group (replaces .headingGroup in side-form branch) ---- */
+.sideFormHeadingGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  text-align: left;
+
+  h1 {
+    margin: 0;
+    max-width: 60rem;
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(3.2rem, 3.9vw, 4.7rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+
+    .kw {
+      color: v.$cat-yellow2;
+      white-space: nowrap;
+    }
+  }
+}
+
+/* ---- Side-form layout ---- */
+.sideFormShell {
+  display: grid;
+  gap: 3.6rem;
+  align-items: start;
+  padding-inline: 0;
+
+  @include m.mediaDesktop {
+    grid-template-columns: 1fr 40rem;
+    gap: 5.2rem;
+    align-items: start;
+  }
+
+  .headingGroup h1 {
+    font-size: clamp(3.2rem, 3.9vw, 4.7rem);
+    line-height: 1.08;
+
+    @include m.mediaDesktop {
+      font-size: clamp(3.2rem, 3.9vw, 4.7rem);
+    }
+  }
+}
+
+.sideFormPanel {
+  width: 100%;
+  align-self: center;
+}
+
+/* ---- Proof bar (handoff: .c-proofbar — 5-col grid, divider lines) ---- */
+.proofBar {
+  position: relative;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.34);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.proofBarInner {
+  width: min(calc(100% - 3.2rem), 114rem);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.4rem 0.8rem;
+  padding-block: 1.6rem;
+
+  @include m.mediaTablet {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include m.mediaDesktop {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.proofBarItem {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  padding: 0.4rem 1.6rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+
+  &:first-child {
+    border-left: none;
+  }
+
+  @include m.mediaPhone {
+    border-left: none;
+  }
+}
+
+.proofBarIcon {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.proofBarText {
+  display: flex;
+  flex-direction: column;
+}
+
+.proofBarTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.proofBarSubtitle {
+  font-size: 1.15rem;
+  color: v.$grey-color-5;
+  line-height: 1.3;
+  margin-top: 0.1rem;
 }

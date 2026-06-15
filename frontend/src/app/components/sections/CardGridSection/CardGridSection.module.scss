@@ -45,7 +45,7 @@
     }
 
     @include m.mediaDesktop {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 2.4rem;
       margin-top: 2.8rem;
     }
@@ -158,10 +158,25 @@
 }
 
 .outcome {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
   margin: auto 0 0;
-  font-size: 1.6rem;
-  line-height: 1.55;
+  padding-top: 1.3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.45;
   color: var(--card-grid-meta-color);
+
+  span {
+    flex: 1;
+  }
+}
+
+.outcomeIcon {
+  flex: 0 0 auto;
+  color: v.$cat-yellow2;
 }
 
 .variantLight {
@@ -179,8 +194,13 @@
   }
 
   .icon,
-  .outcome strong {
+  .outcomeIcon {
     color: #7a5a00;
+  }
+
+  .outcome {
+    border-top-color: rgba(88, 72, 33, 0.18);
+    color: rgba(74, 68, 58, 0.9);
   }
 
   .tag {
@@ -210,9 +230,16 @@
   }
 
   .tag {
-    border: 1px solid rgba(v.$cat-yellow2, 0.42);
-    background: rgba(255, 255, 255, 0.04);
-    color: rgba(255, 255, 255, 0.88);
+    border: none;
+    background: rgba(v.$cat-yellow2, 0.1);
+    color: v.$cat-yellow2;
+    font-size: 1.15rem;
+    padding: 0.4rem 1.1rem;
+  }
+
+  .outcome {
+    border-top-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.78);
   }
 }
 
@@ -239,6 +266,17 @@
     border: 1px solid rgba(v.$cat-yellow2, 0.42);
     background: rgba(255, 255, 255, 0.04);
     color: rgba(255, 255, 255, 0.88);
+  }
+}
+
+// layoutFit on a dark bg: use subtle white border at rest, yellow only on hover
+.layoutFit.variantDark .card,
+.layoutFit.variantTransparent .card {
+  border-color: rgba(255, 255, 255, 0.1);
+
+  &:hover,
+  &:focus-within {
+    border-color: rgba(255, 195, 2, 0.3);
   }
 }
 

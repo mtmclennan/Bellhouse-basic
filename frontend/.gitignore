@@ -37,3 +37,6 @@ next-env.d.ts
 google-service-account.json
 
 ecosystem.config.js
+
+# Local design reference (not committed)
+.design-handoff/

@@ -23,12 +23,20 @@ export type CmsServiceCard = {
   alt: string;
 };
 
+export type CmsServiceHeroProofBarItem = {
+  icon: string;
+  title: string;
+  subtitle?: string;
+};
+
 export type CmsServiceHero = {
   eyebrow?: string;
   heading: string;
   summary: string;
   actions?: ServiceAction[];
   proofPoints?: string[];
+  proofBar?: CmsServiceHeroProofBarItem[];
+  sideForm?: boolean;
   emphasis?: 'compact' | 'standard' | 'high';
   image: string;
   alt: string;

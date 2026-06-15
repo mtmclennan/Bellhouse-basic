@@ -2,56 +2,189 @@
 @use '../../../../../styles/abstracts/variables' as v;
 
 .serviceAreasSection {
-  --service-area-card-background: rgba(255, 255, 255, 0.72);
-  --service-area-card-border: rgba(88, 69, 20, 0.16);
-  --service-area-card-shadow: 0 1.6rem 2.6rem -2.8rem rgba(67, 51, 18, 0.16);
-  --service-area-heading-color: #{v.$text-color-dark};
-  --service-area-copy-color: #{rgba(v.$text-color-dark, 0.8)};
-  --service-area-meta-color: #{rgba(v.$text-color-dark, 0.62)};
-  --service-area-action-color: #5d4a15;
+  --col-eyebrow-color: #{v.$cat-yellow2};
+  --col-heading-color: #{v.$grey-color-1};
+  --col-body-color: rgba(255, 255, 255, 0.6);
+  --chip-border: rgba(255, 255, 255, 0.18);
+  --chip-color: #{v.$grey-color-1};
+  --chip-bg-hover: rgba(255, 195, 2, 0.06);
+  --chip-border-hover: #{v.$cat-yellow2};
+  --chip-color-hover: #{v.$cat-yellow2};
+  --related-bg: rgba(255, 255, 255, 0.05);
+  --related-border: rgba(255, 255, 255, 0.08);
+  --related-border-hover: rgba(255, 195, 2, 0.3);
+  --related-bg-hover: rgba(255, 255, 255, 0.07);
+  --related-title-color: #fff;
+  --related-go-color: rgba(255, 255, 255, 0.4);
 }
 
 .serviceAreasSectionDark {
-  --service-area-card-background: rgba(255, 255, 255, 0.05);
-  --service-area-card-border: rgba(255, 255, 255, 0.1);
-  --service-area-card-shadow: none;
-  --service-area-heading-color: #{v.$grey-color-1};
-  --service-area-copy-color: #{rgba(v.$text-color-light, 0.88)};
-  --service-area-meta-color: #{rgba(v.$text-color-light, 0.62)};
-  --service-area-action-color: #{v.$cat-yellow2};
 }
 
 .serviceAreasSectionLight {
+  --col-eyebrow-color: #7a5a00;
+  --col-heading-color: #{v.$text-color-dark};
+  --col-body-color: #{rgba(v.$text-color-dark, 0.68)};
+  --chip-border: rgba(88, 69, 20, 0.22);
+  --chip-color: #{v.$text-color-dark};
+  --chip-bg-hover: rgba(122, 90, 0, 0.06);
+  --chip-border-hover: #7a5a00;
+  --chip-color-hover: #7a5a00;
+  --related-bg: rgba(88, 69, 20, 0.04);
+  --related-border: rgba(88, 69, 20, 0.12);
+  --related-border-hover: rgba(88, 69, 20, 0.3);
+  --related-bg-hover: rgba(88, 69, 20, 0.06);
+  --related-title-color: #{v.$text-color-dark};
+  --related-go-color: rgba(88, 69, 20, 0.4);
 }
 
 .serviceAreasShell {
 }
 
-.serviceAreasLayout {
+/* Combined 2-col layout */
+.areasRelatedGrid {
   display: grid;
-  gap: 1.8rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: start;
+
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+    gap: 4.2rem;
+  }
 }
 
-.coverageMeta {
+.areasCol,
+.relatedCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.colEyebrow {
+  display: block;
+  margin-bottom: 1.2rem;
+  font-size: 1.18rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--col-eyebrow-color);
+}
+
+.colHeading {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(2rem, 2.4vw, 2.8rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin: 0 0 1rem;
+  color: var(--col-heading-color);
+}
+
+.colBody {
+  font-size: 1.4rem;
+  line-height: 1.55;
+  color: var(--col-body-color);
+  margin: 0 0 2rem;
+}
+
+.areaChips {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.8rem 1.2rem;
-  color: var(--service-area-meta-color);
+  gap: 0.8rem;
+}
 
-  span,
-  strong {
-    font-size: 1.3rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+.areaChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--chip-color);
+  border: 1px solid var(--chip-border);
+  border-radius: 999px;
+  padding: 0.9rem 1.6rem;
+  text-decoration: none;
+  transition:
+    border-color 0.16s ease,
+    color 0.16s ease,
+    background 0.16s ease;
+
+  &:hover {
+    border-color: var(--chip-border-hover);
+    color: var(--chip-color-hover);
+    background: var(--chip-bg-hover);
   }
 
-  strong {
-    color: var(--service-area-heading-color);
+  svg {
+    flex: 0 0 auto;
+    color: var(--col-eyebrow-color);
   }
 }
 
+.relatedList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.relatedItem {
+  display: flex;
+  align-items: center;
+  gap: 1.3rem;
+  background: var(--related-bg);
+  border: 1px solid var(--related-border);
+  border-radius: 1.2rem;
+  padding: 1.4rem 1.6rem;
+  text-decoration: none;
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease;
+
+  &:hover {
+    border-color: var(--related-border-hover);
+    background: var(--related-bg-hover);
+
+    .relatedGo {
+      color: var(--chip-border-hover);
+      transform: translateX(3px);
+    }
+  }
+}
+
+.relatedIcon {
+  width: 3.8rem;
+  height: 3.8rem;
+  border-radius: 1rem;
+  background: rgba(255, 195, 2, 0.1);
+  color: v.$cat-yellow2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.serviceAreasSectionLight .relatedIcon {
+  background: rgba(122, 90, 0, 0.08);
+  color: #7a5a00;
+}
+
+.relatedTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--related-title-color);
+  flex: 1;
+  line-height: 1.3;
+}
+
+.relatedGo {
+  color: var(--related-go-color);
+  transition:
+    color 0.15s ease,
+    transform 0.18s ease;
+}
+
+/* Fallback single-col layout */
 .locationList {
   display: grid;
   gap: 1rem;
@@ -81,9 +214,8 @@
   gap: 0.7rem;
   padding: 1.45rem 1.55rem;
   border-radius: 1.15rem;
-  border: 1px solid var(--service-area-card-border);
-  background: var(--service-area-card-background);
-  box-shadow: var(--service-area-card-shadow);
+  border: 1px solid var(--chip-border);
+  background: var(--related-bg);
 }
 
 .locationLink {
@@ -91,54 +223,25 @@
   text-decoration: none;
   transition:
     border-color 0.2s ease,
-    background-color 0.2s ease,
-    transform 0.2s ease;
-  @include m.focusRing();
+    background-color 0.2s ease;
 
-  &:hover,
-  &:focus-visible {
-    transform: translateY(-1px);
+  &:hover {
+    border-color: var(--chip-border-hover);
+    background: var(--related-bg-hover);
   }
 }
 
-.serviceAreasSectionLight .locationLink:hover,
-.serviceAreasSectionLight .locationLink:focus-visible {
-  border-color: rgba(88, 69, 20, 0.28);
-  background: rgba(255, 255, 255, 0.9);
-}
-
-.serviceAreasSectionDark .locationLink:hover,
-.serviceAreasSectionDark .locationLink:focus-visible {
-  border-color: rgba(v.$cat-yellow2, 0.34);
-  background: rgba(255, 255, 255, 0.08);
-}
-
 .locationName {
-  color: var(--service-area-heading-color);
+  color: var(--col-heading-color);
   font-size: 1.8rem;
   line-height: 1.35;
   font-weight: 650;
 }
 
 .locationAction {
-  color: var(--service-area-action-color);
+  color: var(--col-eyebrow-color);
   font-size: 1.3rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-}
-
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: flex-start;
-}
-
-.primaryAction {
-  @include m.btnSectionPrimary;
-}
-
-.secondaryAction {
-  @include m.btnSectionSecondary;
 }

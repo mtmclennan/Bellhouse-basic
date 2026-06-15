@@ -52,6 +52,7 @@ export type ServiceScopeBlock = ServiceBaseBlock & {
   items: Array<{
     title: string;
     body: string;
+    icon?: string;
   }>;
 };
 
@@ -76,6 +77,15 @@ export type ServiceOutcomesBlock = ServiceBaseBlock & {
   items: Array<{
     title: string;
     body: string;
+  }>;
+  stats?: Array<{
+    label: string;
+    body: string;
+  }>;
+  photos?: Array<{
+    src: string;
+    alt: string;
+    caption?: string;
   }>;
 };
 
@@ -142,9 +152,48 @@ export type ServiceFaqBlock = ServiceBaseBlock & {
   }>;
 };
 
+export type ServiceFinalCtaNavGroup = {
+  label: string;
+  icon?: string;
+  links: Array<{ label: string; href: string; icon?: string }>;
+};
+
 export type ServiceFinalCtaBlock = ServiceBaseBlock & {
   type: 'finalCta';
   body: string;
+  actions: ServiceAction[];
+  bullets?: string[];
+  form?: boolean;
+  navGroups?: ServiceFinalCtaNavGroup[];
+};
+
+export type ServicePricingFactorsBlock = ServiceBaseBlock & {
+  type: 'pricingFactors';
+  body?: string;
+  tiers?: Array<{
+    name: string;
+    eg: string;
+    position?: 'low' | 'mid' | 'high';
+  }>;
+  rangeNote?: string;
+  factors: Array<{
+    title: string;
+    body: string;
+  }>;
+  aside?: {
+    label?: string;
+    heading: string;
+    body: string;
+    action?: { label: string; href: string };
+    phone?: { label: string; href: string };
+  };
+};
+
+export type ServiceBannerBlock = ServiceBaseBlock & {
+  type: 'banner';
+  image: ServiceBlockImage;
+  body?: string;
+  bullets?: string[];
   actions: ServiceAction[];
 };
 
@@ -164,4 +213,6 @@ export type ServiceBlock =
   | ServiceRelatedServicesBlock
   | ServiceReviewsBlock
   | ServiceFaqBlock
-  | ServiceFinalCtaBlock;
+  | ServiceFinalCtaBlock
+  | ServicePricingFactorsBlock
+  | ServiceBannerBlock;

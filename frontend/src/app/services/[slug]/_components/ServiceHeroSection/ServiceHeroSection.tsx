@@ -1,11 +1,14 @@
 import Image from 'next/image';
 import Link from '@/components/SiteLink';
+import { CheckCircle, Phone } from '@phosphor-icons/react/dist/ssr';
 
 import type { ServicePage } from '@/types/interfaces';
 import type { ResolvedServiceHeroConfig } from '@/lib/servicePageLayout';
 import { SERVICE_SITE_CONTEXT } from '@/lib/services/serviceSiteContext';
-import type { CmsServicePage } from '@/types/services/cms';
+import type { CmsServicePage, CmsServiceHeroProofBarItem } from '@/types/services/cms';
+import LandingIcon from '@/components/landing/LandingIcon';
 import ServiceSectionWrapper from '../primitives/ServiceSectionWrapper/ServiceSectionWrapper';
+import ServiceHeroQuoteForm from './ServiceHeroQuoteForm';
 import classes from './ServiceHeroSection.module.scss';
 
 type RenderHero = {
@@ -23,6 +26,8 @@ type RenderHero = {
     href: string;
   };
   proofChips: string[];
+  proofBar?: CmsServiceHeroProofBarItem[];
+  sideForm?: boolean;
   phone?: {
     label: string;
     href: string;
@@ -57,6 +62,20 @@ const defaultPrimaryAction = {
 
 const serviceAreaNote =
   'Serving Brantford, Paris, Hamilton, Cambridge, and surrounding Southern Ontario job sites.';
+
+function renderHeroHeading(heading: string, kwClassName: string) {
+  // Design highlights the trailing location phrase ("… in Brantford") in yellow.
+  const match = heading.match(/^(.*?)(\bin\s+.+)$/i);
+  if (!match) {
+    return heading;
+  }
+  return (
+    <>
+      {match[1]}
+      <span className={kwClassName}>{match[2]}</span>
+    </>
+  );
+}
 
 function formatRating(rating: number) {
   return rating.toFixed(1);
@@ -96,6 +115,8 @@ function toRenderHero(props: ServiceHeroSectionProps): RenderHero {
       primaryAction,
       secondaryAction,
       proofChips: props.hero.proofPoints?.slice(0, 4) ?? [],
+      proofBar: props.hero.proofBar,
+      sideForm: props.hero.sideForm,
       phone: {
         label: props.business.phoneLabel,
         href: props.business.phoneHref,
@@ -132,6 +153,7 @@ export default function ServiceHeroSection(props: ServiceHeroSectionProps) {
   const hasSecondaryAction = Boolean(hero.secondaryAction);
   const hasProofChips = hero.proofChips.length > 0;
   const hasTrustRow = Boolean(hero.phone || hero.review);
+  const hasProofBar = Boolean(hero.proofBar && hero.proofBar.length > 0);
 
   const heroContainerClassName = [classes.shell, classes.heroContainer]
     .filter(Boolean)
@@ -142,6 +164,151 @@ export default function ServiceHeroSection(props: ServiceHeroSectionProps) {
     hero.review?.href?.startsWith('https://'),
   );
 
+  const copyPanel = (
+    <div className={classes.copyPanel}>
+      <nav className={classes.breadcrumbs} aria-label="Breadcrumb">
+        <ol>
+          <li>
+            <Link href="/">Home</Link>
+          </li>
+          <li>
+            <Link href="/services">Services</Link>
+          </li>
+          <li aria-current="page">{hero.breadcrumbLabel}</li>
+        </ol>
+      </nav>
+
+      {hero.eyebrow ? (
+        <p className={classes.eyebrow}>{hero.eyebrow}</p>
+      ) : null}
+
+      <div className={classes.headingGroup}>
+        <h1>{hero.heading}</h1>
+        <p className={classes.summary}>{hero.summary}</p>
+      </div>
+
+      <div className={classes.actions}>
+        <Link
+          href={hero.primaryAction.href}
+          className={classes.primaryButton}
+        >
+          {hero.primaryAction.label}
+        </Link>
+
+        {hasSecondaryAction && hero.secondaryAction ? (
+          <Link
+            href={hero.secondaryAction.href}
+            className={classes.secondaryButton}
+          >
+            {hero.secondaryAction.label}
+          </Link>
+        ) : null}
+      </div>
+
+      <p className={classes.ctaNote}>{serviceAreaNote}</p>
+    </div>
+  );
+
+  if (hero.sideForm) {
+    const sideFormCopy = (
+      <div className={classes.copyPanel}>
+        <nav className={classes.breadcrumbs} aria-label="Breadcrumb">
+          <ol>
+            <li><Link href="/">Home</Link></li>
+            <li><Link href="/services">Services</Link></li>
+            <li aria-current="page">{hero.breadcrumbLabel}</li>
+          </ol>
+        </nav>
+
+        {hero.eyebrow ? (
+          <p className={classes.eyebrow}>{hero.eyebrow}</p>
+        ) : null}
+
+        <div className={classes.sideFormHeadingGroup}>
+          <h1>{renderHeroHeading(hero.heading, classes.kw)}</h1>
+          <p className={classes.summary}>{hero.summary}</p>
+        </div>
+
+        {hasProofChips ? (
+          <ul className={classes.heroBullets} aria-label="Service highlights">
+            {hero.proofChips.map((chip) => (
+              <li key={chip} className={classes.heroBulletItem}>
+                <CheckCircle size={20} color="#ffc302" weight="fill" aria-hidden />
+                <span>{chip}</span>
+              </li>
+            ))}
+          </ul>
+        ) : null}
+
+        <div className={classes.actions}>
+          <Link href={hero.primaryAction.href} className={classes.primaryButton}>
+            {hero.primaryAction.label}
+          </Link>
+          {hero.phone ? (
+            <Link href={hero.phone.href} className={classes.phoneCta}>
+              <Phone size={22} color="#ffc302" weight="duotone" aria-hidden />
+              {hero.phone.label}
+            </Link>
+          ) : null}
+        </div>
+      </div>
+    );
+
+    return (
+      <section className={classes.section} data-variant="side-form" data-hero-emphasis={hero.emphasis}>
+        <div className={classes.heroBg} aria-hidden="true">
+          <Image
+            src={hero.image}
+            alt=""
+            fill
+            priority
+            className={classes.heroBgImg}
+            sizes="100vw"
+          />
+          <div className={classes.heroBgScrim} />
+        </div>
+
+        <ServiceSectionWrapper
+          as="div"
+          spacing="10"
+          className={classes.inner}
+          containerClassName={[classes.sideFormShell, classes.heroContainer].join(' ')}
+        >
+          {sideFormCopy}
+
+          <div className={classes.sideFormPanel}>
+            <ServiceHeroQuoteForm
+              heading={hero.primaryAction.label}
+              workType={undefined}
+            />
+          </div>
+        </ServiceSectionWrapper>
+
+        {hasProofBar ? (
+          <div className={classes.proofBar} role="list" aria-label="Why choose Bellhouse">
+            <div className={classes.proofBarInner}>
+              {hero.proofBar!.map((item) => (
+                <div key={item.title} className={classes.proofBarItem} role="listitem">
+                  {item.icon ? (
+                    <span className={classes.proofBarIcon} aria-hidden="true">
+                      <LandingIcon name={item.icon} size={22} color="#ffc302" weight="fill" />
+                    </span>
+                  ) : null}
+                  <div className={classes.proofBarText}>
+                    <div className={classes.proofBarTitle}>{item.title}</div>
+                    {item.subtitle ? (
+                      <div className={classes.proofBarSubtitle}>{item.subtitle}</div>
+                    ) : null}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : null}
+      </section>
+    );
+  }
+
   return (
     <section className={classes.section} data-hero-emphasis={hero.emphasis}>
       <ServiceSectionWrapper
@@ -150,48 +317,7 @@ export default function ServiceHeroSection(props: ServiceHeroSectionProps) {
         className={classes.inner}
         containerClassName={heroContainerClassName}
       >
-        <div className={classes.copyPanel}>
-          <nav className={classes.breadcrumbs} aria-label="Breadcrumb">
-            <ol>
-              <li>
-                <Link href="/">Home</Link>
-              </li>
-              <li>
-                <Link href="/services">Services</Link>
-              </li>
-              <li aria-current="page">{hero.breadcrumbLabel}</li>
-            </ol>
-          </nav>
-
-          {hero.eyebrow ? (
-            <p className={classes.eyebrow}>{hero.eyebrow}</p>
-          ) : null}
-
-          <div className={classes.headingGroup}>
-            <h1>{hero.heading}</h1>
-            <p className={classes.summary}>{hero.summary}</p>
-          </div>
-
-          <div className={classes.actions}>
-            <Link
-              href={hero.primaryAction.href}
-              className={classes.primaryButton}
-            >
-              {hero.primaryAction.label}
-            </Link>
-
-            {hasSecondaryAction && hero.secondaryAction ? (
-              <Link
-                href={hero.secondaryAction.href}
-                className={classes.secondaryButton}
-              >
-                {hero.secondaryAction.label}
-              </Link>
-            ) : null}
-          </div>
-
-          <p className={classes.ctaNote}>{serviceAreaNote}</p>
-        </div>
+        {copyPanel}
 
         <div className={classes.mediaPanel}>
           <div className={classes.imageFrame}>
@@ -256,6 +382,28 @@ export default function ServiceHeroSection(props: ServiceHeroSectionProps) {
           ) : null}
         </div>
       </ServiceSectionWrapper>
+
+      {hasProofBar ? (
+        <div className={classes.proofBar} role="list" aria-label="Why choose Bellhouse">
+          <div className={classes.proofBarInner}>
+            {hero.proofBar!.map((item) => (
+              <div key={item.title} className={classes.proofBarItem} role="listitem">
+                {item.icon ? (
+                  <span className={classes.proofBarIcon} aria-hidden="true">
+                    <LandingIcon name={item.icon} size={22} color="#ffc302" weight="fill" />
+                  </span>
+                ) : null}
+                <div className={classes.proofBarText}>
+                  <div className={classes.proofBarTitle}>{item.title}</div>
+                  {item.subtitle ? (
+                    <div className={classes.proofBarSubtitle}>{item.subtitle}</div>
+                  ) : null}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ) : null}
     </section>
   );
 }

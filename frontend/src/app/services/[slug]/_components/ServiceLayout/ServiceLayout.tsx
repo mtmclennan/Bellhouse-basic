@@ -329,6 +329,21 @@ const cmsSectionSurfaceRules: Record<ServiceBlock['type'], ServiceSectionSurface
       dark: 'default',
     },
   },
+  pricingFactors: {
+    preferred: 'dark',
+    alternate: 'light',
+    tones: {
+      light: 'default',
+      dark: 'default',
+    },
+  },
+  banner: {
+    preferred: 'dark',
+    tones: {
+      light: 'default',
+      dark: 'default',
+    },
+  },
 };
 
 function resolveCmsSectionAppearances(
@@ -339,10 +354,18 @@ function resolveCmsSectionAppearances(
 
   for (const section of sections) {
     const rule = cmsSectionSurfaceRules[section.type];
+    // An explicit `tone: 'light' | 'dark'` on a block pins that section's
+    // surface (so the page can follow the design's deliberate tone rhythm
+    // rather than pure alternation). Other tone values fall back to the rule.
+    const explicitFamily: ServiceSectionSurfaceFamily | undefined =
+      section.tone === 'light' || section.tone === 'dark'
+        ? section.tone
+        : undefined;
     const backgroundVariant: ServiceSectionSurfaceFamily =
-      rule.preferred === previousFamily && rule.alternate
+      explicitFamily ??
+      (rule.preferred === previousFamily && rule.alternate
         ? rule.alternate
-        : rule.preferred;
+        : rule.preferred);
 
     appearances.push({
       backgroundVariant,

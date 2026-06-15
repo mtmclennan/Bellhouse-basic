@@ -155,3 +155,135 @@
     padding: 1.2rem;
   }
 }
+
+/* Form layout variant */
+.finalCtaFormGrid {
+  display: grid;
+  gap: 4rem;
+
+  @include m.mediaDesktop {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
+    align-items: start;
+    gap: 5.6rem;
+  }
+}
+
+.formCopyPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+
+  h2 {
+    margin: 0;
+    color: var(--final-cta-heading-color);
+    @include m.headingLevel2(3rem, 4rem);
+    line-height: 1.06;
+  }
+}
+
+.formBullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    font-size: 1.52rem;
+    font-weight: 500;
+    color: var(--final-cta-body-color);
+    line-height: 1.45;
+
+    &::before {
+      content: '';
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 50%;
+      background: v.$cat-yellow2;
+      flex-shrink: 0;
+      margin-top: 0.55em;
+      box-shadow: 0 0 0.8rem rgba(v.$cat-yellow2, 0.4);
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+.navGroups {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.navGroup {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.8rem;
+  margin-top: 1.8rem;
+}
+
+.navGroupLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 1.2rem;
+
+  svg {
+    color: v.$cat-yellow2;
+  }
+}
+
+.navChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.navChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  padding: 0.8rem 1.4rem;
+  text-decoration: none;
+  transition:
+    border-color 0.16s ease,
+    color 0.16s ease,
+    background 0.16s ease;
+
+  &:hover {
+    border-color: v.$cat-yellow2;
+    color: v.$cat-yellow2;
+    background: rgba(v.$cat-yellow2, 0.06);
+
+    svg {
+      color: v.$cat-yellow2;
+    }
+  }
+
+  svg {
+    color: rgba(255, 255, 255, 0.4);
+    transition: color 0.16s ease;
+  }
+}
+
+.formPanel {
+  position: relative;
+}
+

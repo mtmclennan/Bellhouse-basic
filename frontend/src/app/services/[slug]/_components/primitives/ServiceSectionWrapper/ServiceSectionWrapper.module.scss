@@ -8,8 +8,22 @@
 
 .container {
   position: relative;
-  width: min(calc(100% - 3.2rem), 112rem);
+  width: min(calc(100% - 3.2rem), 114rem);
   max-width: none;
   margin-inline: auto;
   padding-inline: 0;
+}
+
+/* Service-page section headings: condensed uppercase Oswald to match hero.
+   Colour is left to SectionWrapper's light/dark variants. */
+.serviceHeading {
+  h1,
+  h2,
+  h3 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    line-height: 1.06;
+  }
 }

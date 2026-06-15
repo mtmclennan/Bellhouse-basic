@@ -1,0 +1,164 @@
+@use '../../../../../styles/abstracts/variables' as v;
+@use '../../../../../styles/abstracts/mixins' as m;
+
+.card {
+  background: rgba(14, 14, 14, 0.9);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 3px solid v.$cat-yellow2;
+  border-radius: 1.6rem;
+  overflow: hidden;
+  box-shadow:
+    0 3.2rem 6.4rem -3.2rem rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.cardHead {
+  padding: 1.6rem 2rem 1.2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  h3 {
+    margin: 0;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 600;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+  }
+
+  p {
+    margin: 0.3rem 0 0;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.54);
+  }
+}
+
+.cardBody {
+  padding: 1.5rem 2rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.fieldRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+
+  @include m.mediaPhone {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+
+  label {
+    font-size: 1.28rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  input,
+  select {
+    width: 100%;
+    min-height: 4.2rem;
+    padding: 0.9rem 1.1rem;
+    font-size: 1.5rem;
+    color: v.$text-color-dark;
+    background: rgba(243, 239, 232, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 0.5rem;
+    transition: border-color 0.15s ease;
+    font-family: inherit;
+
+    &:focus {
+      outline: none;
+      border-color: v.$cat-yellow2;
+    }
+  }
+}
+
+.fieldError {
+  border-color: #ca0101 !important;
+  background: #f8afaf !important;
+}
+
+.fieldMsg {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #ff6b6b;
+}
+
+.optional {
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 1.15rem;
+}
+
+.submitBtn {
+  @include m.btnMain;
+  width: 100%;
+  justify-content: center;
+  margin-top: 0.4rem;
+  font-size: 1.55rem;
+  padding: 1.3rem 2rem;
+  border-radius: 0.9rem;
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+.trust {
+  margin: 0;
+  text-align: center;
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.44);
+}
+
+.errorMsg {
+  margin: 0;
+  font-size: 1.28rem;
+  color: #ff8888;
+  text-align: center;
+
+  a {
+    color: v.$cat-yellow2;
+    font-weight: 700;
+  }
+}
+
+.callLink {
+  @include m.btnMain;
+  width: 100%;
+  justify-content: center;
+}
+
+.success {
+  padding: 4.8rem 2.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  text-align: center;
+  color: #fff;
+
+  h3 {
+    margin: 0;
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1.45rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+}

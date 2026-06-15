@@ -1,0 +1,330 @@
+@use '../../../../../styles/abstracts/variables' as v;
+@use '../../../../../styles/abstracts/mixins' as m;
+
+.pricingSection {
+  color: v.$text-color-dark;
+}
+
+.pricingSectionDark {
+  color: v.$grey-color-1;
+
+  .rangeBar {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .rangeEyebrow {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .rangeTrack {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .rangeEnds {
+    color: rgba(255, 255, 255, 0.45);
+  }
+
+  .rangeTier {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .rangeTierHighlighted {
+    background: rgba(v.$cat-yellow2, 0.07);
+    border-color: rgba(v.$cat-yellow2, 0.28);
+  }
+
+  .rangeTierName {
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  .rangeTierExample {
+    color: rgba(255, 255, 255, 0.48);
+  }
+
+  .factorItem {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .factorNum {
+    color: rgba(v.$cat-yellow2, 0.88);
+  }
+
+  .factorBody h3 {
+    color: #fff;
+  }
+
+  .factorBody p {
+    color: rgba(255, 255, 255, 0.68);
+  }
+
+  .pricingAside {
+    background: linear-gradient(180deg, rgba(v.$cat-yellow2, 0.09), rgba(v.$cat-yellow2, 0.03));
+    border-color: rgba(v.$cat-yellow2, 0.36);
+  }
+
+  .asideLabel {
+    color: v.$cat-yellow2;
+  }
+
+  .pricingAside h3 {
+    color: #fff;
+  }
+
+  .asideBody {
+    color: rgba(255, 255, 255, 0.66);
+  }
+}
+
+.pricingSectionLight {
+  .rangeBar {
+    background: #fff;
+    border-color: rgba(88, 72, 33, 0.14);
+  }
+
+  .rangeEyebrow {
+    color: rgba(v.$text-color-dark, 0.52);
+  }
+
+  .rangeTrack {
+    background: rgba(88, 72, 33, 0.12);
+  }
+
+  .rangeEnds {
+    color: rgba(v.$text-color-dark, 0.5);
+  }
+
+  .rangeTier {
+    background: rgba(88, 72, 33, 0.04);
+    border-color: rgba(88, 72, 33, 0.1);
+  }
+
+  .rangeTierHighlighted {
+    background: rgba(v.$cat-yellow2, 0.1);
+    border-color: rgba(88, 72, 33, 0.26);
+  }
+
+  .rangeTierName {
+    color: v.$text-color-dark;
+  }
+
+  .rangeTierExample {
+    color: rgba(v.$text-color-dark, 0.54);
+  }
+
+  .factorItem {
+    border-bottom-color: rgba(88, 72, 33, 0.12);
+  }
+
+  .factorNum {
+    color: rgba(88, 72, 33, 0.72);
+  }
+
+  .factorBody h3 {
+    color: v.$text-color-dark;
+  }
+
+  .factorBody p {
+    color: rgba(v.$text-color-dark, 0.7);
+  }
+
+  .pricingAside {
+    background: linear-gradient(180deg, #fff, rgba(248, 244, 236, 0.95));
+    border-color: rgba(88, 72, 33, 0.2);
+  }
+
+  .asideLabel {
+    color: rgba(88, 72, 33, 0.8);
+  }
+
+  .pricingAside h3 {
+    color: v.$text-color-dark;
+  }
+
+  .asideBody {
+    color: rgba(v.$text-color-dark, 0.68);
+  }
+}
+
+.pricingShell {
+  gap: 2.4rem;
+}
+
+/* Range bar */
+.rangeBar {
+  border: 1px solid;
+  border-radius: 1.4rem;
+  padding: 2rem 2.4rem 1.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.rangeEyebrow {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+
+.rangeTrack {
+  position: relative;
+  height: 0.7rem;
+  border-radius: 999px;
+  margin-bottom: 0.7rem;
+}
+
+.rangeFill {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(v.$cat-yellow2, 0.36) 0%, v.$cat-yellow2 100%);
+}
+
+.rangeEnds {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  margin-bottom: 1.6rem;
+}
+
+.rangeTiers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+
+  @include m.mediaPhone {
+    grid-template-columns: 1fr;
+  }
+}
+
+.rangeTier {
+  border: 1px solid;
+  border-radius: 0.9rem;
+  padding: 1.1rem 1.2rem;
+}
+
+.rangeTierName {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.rangeTierExample {
+  font-size: 1.1rem;
+  line-height: 1.45;
+}
+
+/* Pricing grid */
+.pricingGrid {
+  display: grid;
+  gap: 3.2rem;
+
+  @include m.mediaDesktop {
+    grid-template-columns: minmax(0, 1.2fr) minmax(28rem, 0.8fr);
+    align-items: start;
+  }
+}
+
+/* Factors list */
+.factorsList {
+  display: flex;
+  flex-direction: column;
+}
+
+.factorItem {
+  display: flex;
+  gap: 1.8rem;
+  align-items: baseline;
+  padding: 1.8rem 0;
+  border-bottom: 1px solid;
+
+  &:first-child {
+    padding-top: 0;
+  }
+}
+
+.factorNum {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.6rem;
+  font-weight: 600;
+  line-height: 1;
+  min-width: 4rem;
+  flex-shrink: 0;
+}
+
+.factorBody {
+  h3 {
+    margin: 0 0 0.45rem;
+    font-size: 1.62rem;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1.42rem;
+    line-height: 1.6;
+  }
+}
+
+/* Aside */
+.pricingAside {
+  border: 1px solid;
+  border-radius: 1.8rem;
+  padding: 2.8rem 2.4rem;
+  box-shadow: 0 2.8rem 5.6rem -3.6rem rgba(0, 0, 0, 0.3);
+
+  @include m.mediaDesktop {
+    position: sticky;
+    top: 9.6rem;
+  }
+
+  h3 {
+    margin: 0.8rem 0 1rem;
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+}
+
+.asideLabel {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.asideBody {
+  font-size: 1.42rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.asideBtn {
+  @include m.btnSectionPrimary;
+  display: inline-flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.asideOr {
+  margin-top: 1.2rem;
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.52);
+  text-align: center;
+
+  a {
+    color: v.$cat-yellow2;
+    font-weight: 700;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

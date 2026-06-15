@@ -60,6 +60,7 @@ export type ServiceScopeSectionData = ServiceBaseSection & {
   items: Array<{
     title: string;
     body: string;
+    icon?: string;
   }>;
 };
 
@@ -84,6 +85,15 @@ export type ServiceOutcomesSectionData = ServiceBaseSection & {
   items: Array<{
     title: string;
     body: string;
+  }>;
+  stats?: Array<{
+    label: string;
+    body: string;
+  }>;
+  photos?: Array<{
+    src: string;
+    alt: string;
+    caption?: string;
   }>;
 };
 
@@ -150,9 +160,48 @@ export type ServiceFaqSectionData = ServiceBaseSection & {
   }>;
 };
 
+export type ServiceFinalCtaNavGroup = {
+  label: string;
+  icon?: string;
+  links: Array<{ label: string; href: string; icon?: string }>;
+};
+
 export type ServiceFinalCtaSectionData = ServiceBaseSection & {
   type: 'finalCta';
   body: string;
+  actions: ServiceAction[];
+  bullets?: string[];
+  form?: boolean;
+  navGroups?: ServiceFinalCtaNavGroup[];
+};
+
+export type ServicePricingFactorsSectionData = ServiceBaseSection & {
+  type: 'pricingFactors';
+  body?: string;
+  tiers?: Array<{
+    name: string;
+    eg: string;
+    position?: 'low' | 'mid' | 'high';
+  }>;
+  rangeNote?: string;
+  factors: Array<{
+    title: string;
+    body: string;
+  }>;
+  aside?: {
+    label?: string;
+    heading: string;
+    body: string;
+    action?: { label: string; href: string };
+    phone?: { label: string; href: string };
+  };
+};
+
+export type ServiceBannerSectionData = ServiceBaseSection & {
+  type: 'banner';
+  image: ServiceImage;
+  body?: string;
+  bullets?: string[];
   actions: ServiceAction[];
 };
 
@@ -172,4 +221,6 @@ export type ServiceSection =
   | ServiceRelatedServicesSectionData
   | ServiceReviewsSectionData
   | ServiceFaqSectionData
-  | ServiceFinalCtaSectionData;
+  | ServiceFinalCtaSectionData
+  | ServicePricingFactorsSectionData
+  | ServiceBannerSectionData;

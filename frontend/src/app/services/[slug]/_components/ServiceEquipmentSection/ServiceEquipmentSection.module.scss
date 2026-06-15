@@ -2,185 +2,108 @@
 @use '../../../../../styles/abstracts/mixins' as m;
 
 .equipmentSection {
-  color: v.$text-color-dark;
+  color: v.$grey-color-1;
+}
+
+.equipmentSectionDark {
+  .equipmentCard {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+
+    &:hover {
+      border-color: rgba(v.$cat-yellow2, 0.35);
+    }
+  }
+
+  .equipmentBody h3 { color: #fff; }
+  .equipmentBody p { color: rgba(255, 255, 255, 0.65); }
+  .equipmentIconFallback { color: rgba(v.$cat-yellow2, 0.5); }
 }
 
 .equipmentSectionLight {
   color: v.$text-color-dark;
-}
 
-.equipmentSectionDark {
-  color: v.$grey-color-1;
+  .equipmentCard {
+    background: rgba(255, 255, 255, 0.7);
+    border-color: rgba(88, 72, 33, 0.14);
 
-  .equipmentShell {
-    color: v.$grey-color-1;
+    &:hover {
+      border-color: rgba(122, 90, 0, 0.3);
+    }
   }
 
-  .equipmentIcon {
-    background:
-      linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0.08) 0%,
-        rgba(255, 255, 255, 0.03) 100%
-      ),
-      rgba(255, 255, 255, 0.04);
-    border-color: rgba(v.$cat-yellow2, 0.18);
-    box-shadow:
-      0 1.2rem 2.4rem -2rem rgba(0, 0, 0, 0.6),
-      inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  }
-
-  .equipmentItem {
-    border-color: rgba(v.$cat-yellow2, 0.18);
-    background:
-      linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0.06) 0%,
-        rgba(255, 255, 255, 0.03) 100%
-      ),
-      rgba(20, 20, 18, 0.86);
-    box-shadow: 0 1.8rem 3.2rem -2.6rem rgba(0, 0, 0, 0.56);
-  }
-
-  .itemRole,
-  .itemIndex {
-    color: rgba(v.$cat-yellow2, 0.92);
-  }
-
-  .eqText h3,
-  .itemDescription {
-    color: rgba(v.$text-color-light, 0.94);
-  }
+  .equipmentBody h3 { color: v.$text-color-dark; }
+  .equipmentBody p { color: #4a443a; }
+  .equipmentIconFallback { color: rgba(122, 90, 0, 0.4); }
 }
 
 .equipmentShell {
-  color: v.$text-color-dark;
-}
+  gap: 2rem;
 
-.heading {
-  max-width: 78rem;
-
-  h2,
-  p {
-    text-align: left;
+  @include m.mediaDesktop {
+    gap: 2.6rem;
   }
 }
 
 .equipmentGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.6rem;
+  gap: 1.8rem;
   width: 100%;
-  margin: 0 auto;
 
-  @include m.mediaDesktop {
+  @include m.mediaTablet {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.8rem;
   }
-}
-
-.equipmentItem {
-  display: grid;
-  gap: 1.6rem;
-  min-height: 100%;
-  padding: 1.8rem;
-  border: 1px solid rgba(88, 72, 33, 0.14);
-  border-radius: 1.8rem;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(252, 251, 248, 0.95) 0%,
-      rgba(246, 243, 236, 0.92) 100%
-    );
-  box-shadow:
-    0 1.6rem 3rem -2.5rem rgba(64, 50, 20, 0.18),
-    0 0.4rem 1rem rgba(0, 0, 0, 0.04);
 
   @include m.mediaDesktop {
-    padding: 2rem;
+    grid-template-columns: repeat(var(--equip-cols, 3), minmax(0, 1fr));
   }
 }
 
-.itemTopRow {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  align-items: start;
-  gap: 1.4rem;
-
-  @include m.mediaDesktop {
-    gap: 1.6rem;
-  }
-}
-
-.equipmentIcon {
-  width: 8.8rem;
-  height: 8.8rem;
-  flex-shrink: 0;
+.equipmentCard {
+  border: 1px solid transparent;
   border-radius: 1.6rem;
-  border: 1px solid rgba(111, 83, 0, 0.14);
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.92) 0%,
-      rgba(249, 246, 240, 0.92) 100%
-    );
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+
+  &:hover .equipmentPhoto {
+    transform: scale(1.05);
+  }
+}
+
+.equipmentImg {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.equipmentPhoto {
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.equipmentIconFallback {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.72),
-    0 1rem 2rem -1.7rem rgba(67, 49, 12, 0.2);
-
-  img,
-  svg {
-    width: 8.8rem;
-    height: 8.8rem;
-    color: v.$color-primary;
-    border-radius: 1.6rem;
-  }
+  width: 100%;
+  height: 100%;
 }
 
-.eqText {
-  min-width: 0;
+.equipmentBody {
+  padding: 1.8rem 2rem 2rem;
 
   h3 {
-    margin: 0.35rem 0 0;
-    @include m.headingLevel3(2.15rem, 2.55rem);
-    line-height: 1.14;
-    color: v.$text-color-dark;
+    margin: 0 0 0.8rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.25;
   }
-}
 
-.itemRole {
-  margin: 0;
-  font-size: 1.2rem;
-  line-height: 1.2;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #6f5300;
-}
-
-.itemIndex {
-  display: none;
-
-  @include m.mediaDesktop {
-    display: inline-flex;
-    justify-self: end;
-    align-items: center;
-    font-size: 1.2rem;
-    font-weight: 800;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: rgba(v.$text-color-dark, 0.42);
+  p {
+    margin: 0;
+    font-size: 1.35rem;
+    line-height: 1.58;
   }
-}
-
-.itemDescription {
-  margin: 0;
-  padding-top: 1.4rem;
-  border-top: 1px solid rgba(88, 72, 33, 0.12);
-  font-size: 1.68rem;
-  line-height: 1.62;
-  color: rgba(v.$text-color-dark, 0.86);
 }

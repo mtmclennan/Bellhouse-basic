@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import type React from 'react';
 
 import type { ServiceProcessSectionData } from '@/types/serviceSections';
 import type { ServiceSectionAppearance } from '../serviceSectionTypes';
@@ -18,72 +18,43 @@ export default function ServiceProcessSection({
     return null;
   }
 
-  const hasMedia = Boolean(section.image?.src);
+  const isLight = appearance.backgroundVariant === 'light';
 
-  const processSectionClassName = [
+  const sectionClassName = [
     classes.processSection,
-    appearance.backgroundVariant === 'light'
-      ? classes.processSectionLight
-      : classes.processSectionDark,
+    isLight ? classes.processSectionLight : classes.processSectionDark,
   ]
     .filter(Boolean)
     .join(' ');
+
+  const stepCount = section.steps.length;
 
   return (
     <ServiceSectionWrapper
       spacing="8"
       backgroundVariant={appearance.backgroundVariant}
       backgroundTone={appearance.backgroundTone}
-      className={processSectionClassName}
-      containerClassName={classes.processShell}
+      className={sectionClassName}
       heading={{
+        eyebrow: section.eyebrow,
         title: section.heading ?? '',
         subtext: section.subheading,
         align: 'center',
       }}
     >
       <div
-        className={`${classes.processLayout} ${
-          hasMedia ? classes.processLayoutWithMedia : ''
-        }`}
+        className={classes.steps}
+        style={{ '--step-count': stepCount } as React.CSSProperties}
       >
-        <div className={classes.processList}>
-          {section.steps.map((step, index) => (
-            <article key={step.title} className={classes.processItem}>
-              <div className={classes.stepMarker}>
-                <span className={classes.stepNumber}>{index + 1}</span>
-              </div>
-
-              <div className={classes.stepContent}>
-                <h3>{step.title}</h3>
-                <p>{step.body}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-
-        {section.image?.src ? (
-          <aside
-            className={classes.mediaPanel}
-            aria-label="Process support image"
-          >
-            <div className={classes.imageFrame}>
-              <Image
-                src={section.image.src}
-                alt={section.image.alt}
-                fill
-                className={classes.image}
-                sizes="(max-width: 1000px) 100vw, 40vw"
-              />
-
-              <div className={classes.imageOverlay} aria-hidden="true" />
+        {section.steps.map((step, index) => (
+          <article key={step.title} className={classes.step}>
+            <div className={classes.stepNode} aria-hidden="true">
+              {index + 1}
             </div>
-
-            {section.caption ? (
-              <p className={classes.caption}>{section.caption}</p>
-            ) : null}
-          </aside>
-        ) : null}
+            <h3 className={classes.stepTitle}>{step.title}</h3>
+            <p className={classes.stepBody}>{step.body}</p>
+          </article>
+        ))}
       </div>
     </ServiceSectionWrapper>
   );
