@@ -43,6 +43,10 @@ export type ServiceIntroSectionData = ServiceBaseSection & {
   type: 'intro';
   body: string;
   bullets?: string[];
+  audience?: Array<{
+    icon: string;
+    label: string;
+  }>;
 };
 
 export type ServiceProjectFitSectionData = ServiceBaseSection & {

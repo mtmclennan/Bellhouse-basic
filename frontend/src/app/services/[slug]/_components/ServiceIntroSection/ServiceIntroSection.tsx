@@ -1,3 +1,5 @@
+import LandingIcon from '@/components/landing/LandingIcon';
+
 import type { ServiceIntroSectionData } from '@/types/serviceSections';
 import type { ServiceSectionAppearance } from '../serviceSectionTypes';
 import ServiceSectionWrapper from '../primitives/ServiceSectionWrapper/ServiceSectionWrapper';
@@ -14,7 +16,7 @@ export default function ServiceIntroSection({
 }: ServiceIntroSectionProps) {
   const heading = section.heading ?? '';
   const body = section.body;
-  const bullets = section.bullets ?? [];
+  const audience = section.audience ?? [];
 
   return (
     <ServiceSectionWrapper
@@ -22,32 +24,25 @@ export default function ServiceIntroSection({
       backgroundVariant={appearance.backgroundVariant}
       backgroundTone={appearance.backgroundTone}
       containerClassName={classes.introShell}
+      heading={{
+        eyebrow: section.eyebrow,
+        title: heading,
+        subtext: body,
+        align: 'center',
+      }}
     >
-      <div className={classes.introLayout}>
-        <div className={classes.introCopy}>
-          <p className={classes.eyebrow}>Service overview</p>
-          <h2>{heading}</h2>
-          <p className={classes.body}>{body}</p>
+      {audience.length > 0 ? (
+        <div className={classes.audGrid}>
+          {audience.map((item) => (
+            <div key={item.label} className={classes.audItem}>
+              <span className={classes.audIcon} aria-hidden="true">
+                <LandingIcon name={item.icon} size={28} weight="fill" color="#7a5a00" />
+              </span>
+              <span className={classes.audLabel}>{item.label}</span>
+            </div>
+          ))}
         </div>
-
-        {bullets.length > 0 ? (
-          <aside
-            className={classes.highlightPanel}
-            aria-label="Service highlights"
-          >
-            <p className={classes.panelTitle}>What this includes</p>
-
-            <ul className={classes.highlightList}>
-              {bullets.map((point) => (
-                <li key={point}>
-                  <span className={classes.marker} aria-hidden="true" />
-                  <span>{point}</span>
-                </li>
-              ))}
-            </ul>
-          </aside>
-        ) : null}
-      </div>
+      ) : null}
     </ServiceSectionWrapper>
   );
 }

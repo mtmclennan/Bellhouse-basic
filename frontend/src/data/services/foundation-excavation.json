@@ -56,13 +56,14 @@
     {
       "type": "intro",
       "tone": "light",
-      "heading": "Professional Foundation Excavation and Backfilling",
-      "body": "Your foundation sets the stage for the entire structure. Our team provides accurate, safe, and efficient foundation excavation and backfilling for builders, contractors, and homeowners throughout Brant County and the surrounding area. We ensure the right depth, clean lines, proper soil handling, and reliable compaction - everything required for a strong, stable foundation.",
-      "bullets": [
-        "Full foundation digs for new builds and additions",
-        "Basement walkouts and structural excavation",
-        "Clean, precise backfilling and compaction",
-        "Experienced operators and modern equipment"
+      "eyebrow": "Who it's for",
+      "heading": "Foundation excavation for builders and property owners",
+      "body": "Bellhouse helps keep the early site work organized so the next phase can move without avoidable delays.",
+      "audience": [
+        { "icon": "house-line", "label": "Home builders" },
+        { "icon": "blueprint", "label": "General contractors" },
+        { "icon": "compass-tool", "label": "Concrete contractors" },
+        { "icon": "user", "label": "Homeowners" }
       ]
     },
     {
