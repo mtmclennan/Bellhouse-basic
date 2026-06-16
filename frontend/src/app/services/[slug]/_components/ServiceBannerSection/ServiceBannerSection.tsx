@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import { CheckCircle, Phone } from '@phosphor-icons/react/dist/ssr';
+
 import Link from '@/components/SiteLink';
 
 import type { ServiceBannerSectionData } from '@/types/serviceSections';
@@ -50,6 +52,7 @@ export default function ServiceBannerSection({
             <ul className={classes.bulletList} aria-label="Key highlights">
               {section.bullets.map((bullet) => (
                 <li key={bullet} className={classes.bulletItem}>
+                  <CheckCircle size={18} weight="fill" color="#ffc302" aria-hidden />
                   {bullet}
                 </li>
               ))}
@@ -61,7 +64,16 @@ export default function ServiceBannerSection({
               {primaryAction.label}
             </Link>
             {secondaryAction ? (
-              <Link href={secondaryAction.href} className={classes.secondaryBtn}>
+              <Link
+                href={secondaryAction.href}
+                className={[
+                  classes.secondaryBtn,
+                  secondaryAction.href.startsWith('tel:') ? classes.callBtn : '',
+                ].filter(Boolean).join(' ')}
+              >
+                {secondaryAction.href.startsWith('tel:') ? (
+                  <Phone size={20} weight="duotone" aria-hidden />
+                ) : null}
                 {secondaryAction.label}
               </Link>
             ) : null}

@@ -22,9 +22,7 @@
 .bannerScrim {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(90deg, rgba(13, 13, 13, 0.95) 0%, rgba(13, 13, 13, 0.78) 44%, rgba(13, 13, 13, 0.24) 100%),
-    linear-gradient(0deg, rgba(13, 13, 13, 0.4), transparent 62%);
+  background: linear-gradient(90deg, rgba(13, 13, 13, 0.95) 0%, rgba(13, 13, 13, 0.82) 46%, rgba(13, 13, 13, 0.5) 100%);
 }
 
 .bannerContainer {
@@ -86,16 +84,6 @@
   font-size: 1.45rem;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.9);
-
-  &::before {
-    content: '';
-    width: 0.55rem;
-    height: 0.55rem;
-    border-radius: 50%;
-    background: v.$cat-yellow2;
-    flex-shrink: 0;
-    box-shadow: 0 0 0.8rem rgba(v.$cat-yellow2, 0.5);
-  }
 }
 
 .actions {
@@ -111,4 +99,10 @@
 
 .secondaryBtn {
   @include m.btnSec;
+}
+
+.callBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
 }
