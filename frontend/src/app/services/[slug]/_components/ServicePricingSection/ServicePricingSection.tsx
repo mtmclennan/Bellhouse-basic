@@ -1,3 +1,5 @@
+import { CheckCircle } from '@phosphor-icons/react/dist/ssr';
+
 import Link from '@/components/SiteLink';
 
 import type { ServicePricingFactorsSectionData } from '@/types/serviceSections';
@@ -67,6 +69,9 @@ export default function ServicePricingSection({
               </div>
             ))}
           </div>
+          {section.rangeNote ? (
+            <p className={classes.rangeNote}>{section.rangeNote}</p>
+          ) : null}
         </div>
       ) : null}
 
@@ -88,7 +93,10 @@ export default function ServicePricingSection({
         {section.aside ? (
           <aside className={classes.pricingAside}>
             {section.aside.label ? (
-              <p className={classes.asideLabel}>{section.aside.label}</p>
+              <div className={classes.asideLabel}>
+                <CheckCircle size={15} weight="fill" aria-hidden />
+                {section.aside.label}
+              </div>
             ) : null}
             <h3>{section.aside.heading}</h3>
             <p className={classes.asideBody}>{section.aside.body}</p>
