@@ -1,8 +1,8 @@
 import Image from 'next/image';
+import { Camera } from '@phosphor-icons/react/dist/ssr';
 
 import type { ServiceJobsiteProofSectionData } from '@/types/serviceSections';
 import type { ServiceSectionAppearance } from '../serviceSectionTypes';
-import ServiceSectionWrapper from '../primitives/ServiceSectionWrapper/ServiceSectionWrapper';
 import classes from './ServiceJobsiteProofSection.module.scss';
 
 interface ServiceJobsiteProofSectionProps {
@@ -12,50 +12,37 @@ interface ServiceJobsiteProofSectionProps {
 
 export default function ServiceJobsiteProofSection({
   section,
-  appearance,
 }: ServiceJobsiteProofSectionProps) {
-  const sectionClassName = [
-    classes.jobsiteProofSection,
-    appearance.backgroundVariant === 'dark'
-      ? classes.jobsiteProofSectionDark
-      : classes.jobsiteProofSectionLight,
-  ]
-    .filter(Boolean)
-    .join(' ');
-
   return (
-    <ServiceSectionWrapper
-      spacing="8"
-      backgroundVariant={appearance.backgroundVariant}
-      backgroundTone={appearance.backgroundTone}
-      className={sectionClassName}
-      containerClassName={classes.jobsiteProofShell}
-    >
-      <div className={classes.jobsiteProofLayout}>
-        <div className={classes.copyPanel}>
-          {section.eyebrow ? (
-            <p className={classes.eyebrow}>{section.eyebrow}</p>
-          ) : null}
-          <h2>{section.heading}</h2>
-          {section.body ? <p className={classes.body}>{section.body}</p> : null}
-          {section.caption ? (
-            <p className={classes.caption}>{section.caption}</p>
-          ) : null}
-        </div>
+    <section className={classes.section}>
+      <div className={classes.bg}>
+        <Image
+          src={section.image.src}
+          alt={section.image.alt}
+          fill
+          className={classes.bgImage}
+          sizes="100vw"
+        />
+        <div className={classes.scrim} aria-hidden="true" />
+      </div>
 
-        <div className={classes.mediaPanel}>
-          <div className={classes.imageFrame}>
-            <Image
-              src={section.image.src}
-              alt={section.image.alt}
-              width={1000}
-              height={1000}
-              className={classes.image}
-              sizes="(max-width: 1000px) 100vw, 48vw"
-            />
-          </div>
+      <div className={classes.container}>
+        <div className={classes.inner}>
+          {section.eyebrow ? (
+            <span className={classes.eyebrow}>{section.eyebrow}</span>
+          ) : null}
+          <h2 className={classes.heading}>{section.heading}</h2>
+          {section.body ? (
+            <p className={classes.body}>{section.body}</p>
+          ) : null}
+          {section.caption ? (
+            <span className={classes.caption}>
+              <Camera size={13} weight="fill" aria-hidden />
+              {section.caption}
+            </span>
+          ) : null}
         </div>
       </div>
-    </ServiceSectionWrapper>
+    </section>
   );
 }

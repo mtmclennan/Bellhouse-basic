@@ -1,129 +1,76 @@
 @use '../../../../../styles/abstracts/mixins' as m;
 @use '../../../../../styles/abstracts/variables' as v;
 
-.jobsiteProofSection {
-  color: v.$text-color-dark;
+.section {
+  position: relative;
+  overflow: hidden;
+  min-height: 42rem;
+  display: flex;
+  align-items: center;
 }
 
-.jobsiteProofSectionLight {
-  .copyPanel h2,
-  .body {
-    color: v.$text-color-dark;
-  }
-
-  .caption {
-    color: rgba(v.$text-color-dark, 0.66);
-  }
-
-  .imageFrame {
-    border-color: rgba(88, 72, 33, 0.14);
-    background:
-      linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0.95) 0%,
-        rgba(246, 243, 236, 0.94) 100%
-      );
-    box-shadow:
-      0 1.8rem 3.2rem -2.6rem rgba(64, 50, 20, 0.18),
-      0 0.45rem 1rem rgba(0, 0, 0, 0.04);
-  }
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 
-.jobsiteProofSectionDark {
-  color: v.$grey-color-1;
-
-  .copyPanel h2,
-  .body {
-    color: rgba(v.$text-color-light, 0.95);
-  }
-
-  .caption {
-    color: rgba(v.$text-color-light, 0.72);
-  }
-
-  .imageFrame {
-    border-color: rgba(v.$cat-yellow2, 0.18);
-    background:
-      linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0.06) 0%,
-        rgba(255, 255, 255, 0.03) 100%
-      ),
-      rgba(20, 20, 18, 0.88);
-    box-shadow: 0 2rem 3.4rem -2.6rem rgba(0, 0, 0, 0.56);
-  }
+.bgImage {
+  object-fit: cover;
+  object-position: 50% 40%;
 }
 
-.jobsiteProofShell {
-  gap: 2.2rem;
+.scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(13, 13, 13, 0.94) 0%, rgba(13, 13, 13, 0.8) 48%, rgba(13, 13, 13, 0.4) 100%),
+    linear-gradient(0deg, rgba(13, 13, 13, 0.5), transparent 60%);
 }
 
-.jobsiteProofLayout {
-  display: grid;
-  gap: 1.8rem;
-
-  @include m.mediaDesktop {
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-    align-items: center;
-    gap: 2.4rem;
-  }
+.container {
+  position: relative;
+  z-index: 1;
+  width: min(calc(100% - 3.2rem), 112rem);
+  margin-inline: auto;
+  padding: clamp(5.4rem, 7vw, 8.8rem) 0;
 }
 
-.copyPanel {
-  display: grid;
-  gap: 1.3rem;
-
-  h2 {
-    margin: 0;
-    @include m.headingLevel2(3.2rem, 4.6rem);
-    line-height: 1.08;
-    max-width: 14ch;
-  }
+.inner {
+  max-width: 56rem;
 }
 
 .eyebrow {
-  margin: 0;
+  display: block;
+  margin-bottom: 1.4rem;
   @include m.sectionEyebrowDark;
 }
 
-.jobsiteProofSectionLight .eyebrow {
-  @include m.sectionEyebrowLight;
+.heading {
+  margin: 0 0 1.6rem;
+  @include m.headingLevel2(3.2rem, 4.4rem);
+  color: #fff;
+  line-height: 1.08;
 }
 
 .body {
-  margin: 0;
-  max-width: 58rem;
-  font-size: 1.78rem;
-  line-height: 1.64;
+  margin: 0 0 2.4rem;
+  font-size: 1.7rem;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.65;
+  text-wrap: pretty;
 }
 
 .caption {
-  margin: 0.2rem 0 0;
-  font-size: 1.45rem;
-  line-height: 1.55;
-}
-
-.mediaPanel {
-  width: 100%;
-}
-
-.imageFrame {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  min-height: 34rem;
-  border: 1px solid rgba(v.$color-primary, 0.14);
-  border-radius: 2rem;
-
-  @include m.mediaDesktop {
-    min-height: 44rem;
-  }
-}
-
-.image {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.52);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  padding: 0.7rem 1.4rem;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(6px);
 }
