@@ -6,9 +6,12 @@ import {
   CalendarCheck,
   ChatCircle,
   CheckCircle,
+  CheckSquare,
   CirclesThreePlus,
   ClipboardText,
   Clock,
+  CompassTool,
+  Cube,
   Drop,
   Hammer,
   HardHat,
@@ -23,6 +26,7 @@ import {
   Stack,
   Star,
   Truck,
+  User,
   Wall,
 } from '@phosphor-icons/react/dist/ssr';
 
@@ -58,10 +62,16 @@ export default function LandingIcon({
       return <ChatCircle {...props} />;
     case 'check-circle':
       return <CheckCircle {...props} />;
+    case 'check-square':
+      return <CheckSquare {...props} />;
     case 'clock':
       return <Clock {...props} />;
     case 'circles-three-plus':
       return <CirclesThreePlus {...props} />;
+    case 'compass-tool':
+      return <CompassTool {...props} />;
+    case 'cube':
+      return <Cube {...props} />;
     case 'clipboard-text':
       return <ClipboardText {...props} />;
     case 'drop':
@@ -92,6 +102,8 @@ export default function LandingIcon({
       return <Star {...props} />;
     case 'truck':
       return <Truck {...props} />;
+    case 'user':
+      return <User {...props} />;
     case 'wall':
       return <Wall {...props} />;
     default:

@@ -107,38 +107,39 @@
     {
       "type": "scope",
       "tone": "light",
-      "heading": "What a Bellhouse Foundation Excavation Includes",
-      "subheading": "We handle every stage of the excavation, from layout to spoil removal to final grading, so your foundation is structurally ready and builder-approved.",
+      "eyebrow": "What Bellhouse handles",
+      "heading": "Foundation excavation with the hauling planned in",
+      "subheading": "The work is scoped around access, elevations, soil, backfill, and material movement before equipment arrives.",
       "items": [
         {
           "icon": "shovel",
-          "title": "Full Basement & Addition Excavation",
-          "body": "We dig to engineered depth and specifications, ensuring accurate grades, clean edges, and safe soil management."
+          "title": "Foundation digs",
+          "body": "Basements, footings, additions, garage pads, and related structural excavation dug to engineered depth."
         },
         {
           "icon": "truck",
-          "title": "Over-Excavation & Soil Removal",
-          "body": "When poor soil is discovered, we remove unsuitable material and haul it away with our triaxle fleet."
+          "title": "Spoil haul-out",
+          "body": "Material removed from site with trucking coordinated around the excavation flow — not a separate call."
         },
         {
           "icon": "stack",
-          "title": "Professional Backfilling",
-          "body": "We supply and place granular A or B material, ensuring proper lift thickness and long-term stability around the foundation."
+          "title": "Backfill support",
+          "body": "Backfill, compaction, and grading coordinated after walls and services are ready."
         },
         {
           "icon": "path",
-          "title": "Compaction for Structural Stability",
-          "body": "Using a diesel plate tamper or roller, we compact the backfill to prevent future settling and drainage issues."
+          "title": "Access planning",
+          "body": "Equipment, staging, and truck movement reviewed before the work is scheduled so there are no surprises on dig day."
         },
         {
-          "icon": "ruler",
-          "title": "Rough Grading for Drainage",
-          "body": "We shape the site around the home to direct water away from the structure and prepare the area for landscaping or construction."
+          "icon": "cube",
+          "title": "Granular material",
+          "body": "Imported gravel or granular base delivered and placed when the job calls for it."
         },
         {
-          "icon": "check-circle",
-          "title": "Trucking & Spoil Removal",
-          "body": "Our three triaxle dump trucks haul away all excess soil, keeping your site clean and ready for the next phase."
+          "icon": "check-square",
+          "title": "Site handoff",
+          "body": "The work area is left scalable, workable, and ready for the next trade when Bellhouse is done."
         }
       ]
     },
