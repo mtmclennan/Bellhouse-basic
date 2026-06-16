@@ -214,7 +214,8 @@
     {
       "type": "outcomes",
       "tone": "light",
-      "heading": "What The Site Should Look Like After The Dig",
+      "eyebrow": "Site outcomes",
+      "heading": "What the site should look like after the dig",
       "subheading": "The goal is not just getting the hole dug. It is leaving the job ready for the next phase with access, material handling, and backfill support already accounted for.",
       "items": [
         {
@@ -281,27 +282,27 @@
       "subheading": "Reliable equipment chosen for accuracy, efficiency, and safe excavation on every job site.",
       "items": [
         {
-          "name": "Mid-Size Excavator",
-          "body": "Ideal for residential and commercial foundation digs, providing precise and efficient earthmoving.",
+          "name": "CAT Excavator",
+          "body": "Primary dig machine for basement and footing excavation. Sized to the lot — smaller machines for tight residential access, larger for volume digs.",
           "image": {
-            "src": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp",
-            "alt": "Mid-Size Excavator"
+            "src": "/assets/services/foundation-excavation/equipment-cat-excavator.jpg",
+            "alt": "CAT excavator on a foundation dig site"
           }
         },
         {
-          "name": "Tri-Axle Dump Trucks",
-          "body": "Used for spoil removal and material delivery, keeping your site clean and project on schedule.",
+          "name": "Triaxle Dump Truck",
+          "body": "Spoil haul-out coordinated with the excavation. Loads timed so trucks and the excavator aren't waiting on each other.",
           "image": {
-            "src": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp",
-            "alt": "Tri-Axle Dump Trucks"
+            "src": "/assets/services/foundation-excavation/equipment-triaxle-dump-truck.jpg",
+            "alt": "Triaxle dump truck for spoil removal"
           }
         },
         {
-          "name": "Diesel Plate Tamper",
-          "body": "Ensures proper compaction around the foundation for long-term stability.",
+          "name": "Dozer / Grader",
+          "body": "Rough grading, cap fill shaping, and site cleanup after backfill. Leaves the site workable for the next trade.",
           "image": {
-            "src": "/assets/services/bellhouse-plate-compactor-excavation-compaction-tool.webp",
-            "alt": "Diesel Plate Tamper"
+            "src": "/assets/services/foundation-excavation/equipment-dozer-grader.jpg",
+            "alt": "Dozer grading a foundation site"
           }
         },
         {

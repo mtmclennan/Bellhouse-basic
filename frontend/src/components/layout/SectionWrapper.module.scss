@@ -114,6 +114,7 @@
     --service-surface-light-default,
     linear-gradient(180deg, #f1ece4 0%, #e8e1d4 100%)
   );
+  border-top: 3px solid v.$cat-yellow2;
 
   .title,
   .subtext {
