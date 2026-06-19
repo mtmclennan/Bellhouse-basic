@@ -2,7 +2,7 @@
 
 import { Fragment } from 'react';
 import { useSearchParams } from 'next/navigation';
-import ContactForm from '../components/forms/ContactForm';
+import ContactForm, { DEFAULT_WORK_TYPE_OPTIONS } from '../components/forms/ContactForm';
 import ContactMethodsSection from '../components/sections/ContactMethodsSection/ContactMethodsSection';
 import FaqSection from '../components/sections/FaqSection/FaqSection';
 import FinalCtaSection from '../components/sections/FinalCtaSection/FinalCtaSection';
@@ -19,13 +19,6 @@ import {
   contactServiceAreasSection,
 } from '@/content/pages/contactSections';
 import pageClasses from './Contact-page.module.scss';
-
-const DEFAULT_WORK_TYPE_OPTIONS = [
-  'Other','Foundation Excavation','Site Grading','Land Clearing','Demolition',
-  'Retaining Walls','Utility Trenches','Erosion Control','Septic System','Drainage',
-  'Dump Truck Services','Equipment Hauling','Gravel Delivery','Sand Delivery',
-  'Topsoil Delivery','Fill Dirt','Driveway','Parking Lot',
-];
 
 const Contact = () => {
   const searchParams = useSearchParams();

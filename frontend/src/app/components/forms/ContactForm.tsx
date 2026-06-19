@@ -57,7 +57,7 @@ const REQUIRED_SMS_DISCLOSURE = [
   '* Reply STOP to Opt-out of messaging',
 ] as const;
 
-const DEFAULT_WORK_TYPE_OPTIONS = [
+export const DEFAULT_WORK_TYPE_OPTIONS = [
   'Other',
   'Foundation Excavation',
   'Site Grading',

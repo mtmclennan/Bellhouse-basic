@@ -10,6 +10,7 @@ import {
 } from '@/lib/email/contactEmailTemplates';
 import {
   contactFormSchema,
+  serviceHeroFormSchema,
   isSuspiciousContactInput,
 } from '@/lib/contact/contactValidation';
 import type { QuoteUploadEmailFile } from '@/lib/uploads/shared/uploadTypes';
@@ -51,6 +52,7 @@ export async function processContactCore(
   data: ContactData,
   opts?: {
     skipSheets?: boolean;
+    skipCustomerEmail?: boolean;
     businessToEmail?: string;
     customerToEmail?: string;
     subjectPrefix?: string;
@@ -76,21 +78,28 @@ export async function processContactCore(
       );
     }
 
-    await Promise.all([
+    const emailJobs = [
       sendBrevoEmail({
         subject: `${subjectPrefix}${business.subject}`,
         html: business.html,
         to: [{ email: businessTo }],
-        replyTo: { email: data.email, name: data.name },
+        replyTo: { email: data.email || businessTo, name: data.name },
         tags: opts?.subjectPrefix ? ['monitor', 'form-check'] : undefined,
       }),
-      sendBrevoEmail({
-        subject: `${subjectPrefix}${customer.subject}`,
-        html: customer.html,
-        to: [{ email: customerTo, name: data.name }],
-        tags: opts?.subjectPrefix ? ['monitor', 'form-check'] : undefined,
-      }),
-    ]);
+    ];
+
+    if (!opts?.skipCustomerEmail && customerTo) {
+      emailJobs.push(
+        sendBrevoEmail({
+          subject: `${subjectPrefix}${customer.subject}`,
+          html: customer.html,
+          to: [{ email: customerTo, name: data.name }],
+          tags: opts?.subjectPrefix ? ['monitor', 'form-check'] : undefined,
+        }),
+      );
+    }
+
+    await Promise.all(emailJobs);
 
     if (!isProduction) {
       console.log('Emails sent successfully.');
@@ -147,7 +156,7 @@ export async function sendContactForm(data: {
     {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: `secret=${RECAPTCHA_SECRET}&response=${data.token}`,
+      body: `secret=${encodeURIComponent(RECAPTCHA_SECRET)}&response=${encodeURIComponent(data.token)}`,
     },
   );
 
@@ -282,5 +291,66 @@ export async function saveToGoogleSheets(data: ContactData) {
     });
 
     console.error('Google Sheets error:', error);
+  }
+}
+
+export async function sendServiceHeroForm(data: {
+  name: string;
+  phone: string;
+  workType: string;
+  location?: string;
+  token: string;
+  honeypot?: string;
+  smsConsent: boolean;
+  smsDisclosureShown: boolean;
+}) {
+  const RECAPTCHA_SECRET = mustEnv('RECAPTCHA_SECRET');
+
+  const parsed = serviceHeroFormSchema.safeParse(data);
+  if (!parsed.success) {
+    return { error: parsed.error.errors[0]?.message || 'Invalid form submission.' };
+  }
+
+  if (data.honeypot?.trim()) {
+    return { error: 'Suspicious activity detected.' };
+  }
+
+  const recaptchaVerify = await fetch(
+    'https://www.google.com/recaptcha/api/siteverify',
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: `secret=${encodeURIComponent(RECAPTCHA_SECRET)}&response=${encodeURIComponent(data.token)}`,
+    },
+  );
+
+  const recaptchaData = await recaptchaVerify.json();
+  if (!recaptchaData.success || recaptchaData.score < 0.5) {
+    return { error: 'Failed reCAPTCHA verification. Try again.' };
+  }
+
+  const smsConsentAt = data.smsConsent ? new Date().toISOString() : undefined;
+  const message = data.location?.trim()
+    ? `Project location: ${data.location.trim()}\n\nQuick quote request from service page hero form.`
+    : 'Quick quote request from service page hero form.';
+
+  try {
+    await processContactCore(
+      {
+        name: data.name,
+        email: '',
+        phone: data.phone,
+        workType: data.workType,
+        message,
+        smsConsent: data.smsConsent,
+        smsDisclosureShown: data.smsDisclosureShown,
+        smsConsentAt,
+      },
+      { skipCustomerEmail: true },
+    );
+
+    return { success: true };
+  } catch {
+    return { error: 'Failed to send. Please call 519-752-8500.' };
   }
 }
