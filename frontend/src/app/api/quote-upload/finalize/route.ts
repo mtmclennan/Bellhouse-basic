@@ -61,72 +61,72 @@ export async function POST(req: Request) {
     return jsonError((error as Error)?.message || 'Invalid upload session.');
   }
 
-  const uploadedFiles: QuoteUploadEmailFile[] = [];
-
-  for (const file of session.files) {
-    try {
-      const head = await headR2Object(file.quarantineKey);
-      const contentLength = Number(head.ContentLength ?? 0);
-
-      if (!contentLength || contentLength !== file.sizeBytes) {
-        throw new Error('Uploaded photo size did not match the upload session.');
-      }
-
-      const quarantineBuffer = await getR2ObjectBuffer(file.quarantineKey);
-
-      const detected = await validateServerImage({
-        filename: file.originalName,
-        expectedContentType: file.contentType,
-        buffer: quarantineBuffer,
-      });
-
-      const cleanBuffer = await processQuoteImage(quarantineBuffer);
-
-      await putR2Object({
-        key: file.cleanKey,
-        body: cleanBuffer,
-        contentType: 'image/jpeg',
-      });
-
-      await deleteR2Object(file.quarantineKey);
-
-      uploadedFiles.push({
-        originalName: file.sanitizedOriginalName,
-        sizeBytes: cleanBuffer.length,
-        contentType: detected.mime,
-        status: 'clean',
-        cleanStorageKey: file.cleanKey,
-        signedUrl: await createPresignedGetUrl(file.cleanKey),
-        signedUrlExpiresAt: getSignedUrlExpiryDate(),
-      });
-    } catch (error) {
-      await logMonitorEvent({
-        ts: new Date().toISOString(),
-        type: 'UPLOAD_PROCESSING_FAIL',
-        message: (error as Error)?.message ?? 'Photo processing failed.',
-        meta: {
-          leadId: session.leadId,
-          uploadId: file.id,
-          originalName: file.sanitizedOriginalName,
-        },
-      });
-
+  const uploadedFiles: QuoteUploadEmailFile[] = await Promise.all(
+    session.files.map(async (file): Promise<QuoteUploadEmailFile> => {
       try {
-        await deleteR2Object(file.quarantineKey);
-      } catch {
-        // Cleanup failure should not block the lead notification.
-      }
+        const head = await headR2Object(file.quarantineKey);
+        const contentLength = Number(head.ContentLength ?? 0);
 
-      uploadedFiles.push({
-        originalName: file.sanitizedOriginalName,
-        sizeBytes: file.sizeBytes,
-        contentType: file.contentType,
-        status: 'processing_failed',
-        rejectionReason:
-          (error as Error)?.message || 'Photo could not be processed safely.',
-      });
-    }
-  }
+        if (!contentLength || contentLength !== file.sizeBytes) {
+          throw new Error('Uploaded photo size did not match the upload session.');
+        }
+
+        const quarantineBuffer = await getR2ObjectBuffer(file.quarantineKey);
+
+        const detected = await validateServerImage({
+          filename: file.originalName,
+          expectedContentType: file.contentType,
+          buffer: quarantineBuffer,
+        });
+
+        const cleanBuffer = await processQuoteImage(quarantineBuffer);
+
+        await putR2Object({
+          key: file.cleanKey,
+          body: cleanBuffer,
+          contentType: 'image/jpeg',
+        });
+
+        await deleteR2Object(file.quarantineKey);
+
+        return {
+          originalName: file.sanitizedOriginalName,
+          sizeBytes: cleanBuffer.length,
+          contentType: detected.mime,
+          status: 'clean',
+          cleanStorageKey: file.cleanKey,
+          signedUrl: await createPresignedGetUrl(file.cleanKey),
+          signedUrlExpiresAt: getSignedUrlExpiryDate(),
+        };
+      } catch (error) {
+        await logMonitorEvent({
+          ts: new Date().toISOString(),
+          type: 'UPLOAD_PROCESSING_FAIL',
+          message: (error as Error)?.message ?? 'Photo processing failed.',
+          meta: {
+            leadId: session.leadId,
+            uploadId: file.id,
+            originalName: file.sanitizedOriginalName,
+          },
+        });
+
+        try {
+          await deleteR2Object(file.quarantineKey);
+        } catch {
+          // Cleanup failure should not block the lead notification.
+        }
+
+        return {
+          originalName: file.sanitizedOriginalName,
+          sizeBytes: file.sizeBytes,
+          contentType: file.contentType,
+          status: 'processing_failed',
+          rejectionReason:
+            (error as Error)?.message || 'Photo could not be processed safely.',
+        };
+      }
+    }),
+  );
 
   const hasPhone = !!session.contact.phone?.trim();
   const smsConsentAt =

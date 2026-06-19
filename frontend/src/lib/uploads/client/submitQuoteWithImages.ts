@@ -79,24 +79,20 @@ export async function submitQuoteWithImages({
 
   const filesById = new Map(files.map((file) => [file.id, file]));
 
-  for (const slot of createResult.files) {
-    const selectedFile = filesById.get(slot.id);
-    if (!selectedFile) {
-      throw new Error(QUOTE_UPLOAD_GENERIC_ERROR);
-    }
+  await Promise.all(
+    createResult.files.map(async (slot) => {
+      const selectedFile = filesById.get(slot.id);
+      if (!selectedFile) throw new Error(QUOTE_UPLOAD_GENERIC_ERROR);
 
-    const uploadResponse = await fetch(slot.uploadUrl, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': selectedFile.contentType,
-      },
-      body: selectedFile.file,
-    });
+      const uploadResponse = await fetch(slot.uploadUrl, {
+        method: 'PUT',
+        headers: { 'Content-Type': selectedFile.contentType },
+        body: selectedFile.file,
+      });
 
-    if (!uploadResponse.ok) {
-      throw new Error(QUOTE_UPLOAD_GENERIC_ERROR);
-    }
-  }
+      if (!uploadResponse.ok) throw new Error(QUOTE_UPLOAD_GENERIC_ERROR);
+    }),
+  );
 
   const finalizeResponse = await fetch('/api/quote-upload/finalize', {
     method: 'POST',
