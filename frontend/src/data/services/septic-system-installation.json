@@ -3,6 +3,7 @@
   "slug": "septic-system-installation",
   "title": "Septic System Installation Services",
   "navTitle": "Septic Installation",
+  "contactService": "Septic System",
   "meta": {
     "title": "Septic System Installation | Brant County | Bellhouse",
     "description": "Septic system installation in Brant County, including tank excavation, drainage bed prep, backfilling, and approved-plan site work for rural builds."
@@ -15,120 +16,129 @@
   },
   "hero": {
     "eyebrow": "Septic excavation & drainage beds",
-    "heading": "Septic System Installation Services",
+    "heading": "Septic System Installation in Brantford",
     "summary": "Septic tank excavation, tank placement, drainage bed installation, backfilling, and final grading completed from approved plans and site requirements.",
     "actions": [
-      {
-        "label": "Request Septic Quote",
-        "href": "/contact",
-        "variant": "primary"
-      },
-      {
-        "label": "For Builders & Contractors",
-        "href": "/contractors",
-        "variant": "secondary"
-      }
+      { "label": "Request Septic Quote", "href": "/contact", "variant": "primary" },
+      { "label": "For Builders & Contractors", "href": "/contractors", "variant": "secondary" }
     ],
-    "proofPoints": [
-      "Tank excavation and placement",
-      "Drainage bed preparation",
-      "Grade and slope control from approved plans"
-    ],
-    "emphasis": "compact",
+    "emphasis": "high",
     "image": "/assets/services/septic-systems/septic-system-tank-distribution-box-field.webp",
-    "alt": "Septic tank, distribution box, and drainage field installed with stone bedding."
+    "alt": "Septic tank, distribution box, and drainage field installed with stone bedding.",
+    "sideForm": true,
+    "proofBar": [
+      { "icon": "map-pin", "title": "Local to Brantford", "subtitle": "& Brant County" },
+      { "icon": "calendar-check", "title": "Since 1982", "subtitle": "Family operation" },
+      { "icon": "truck", "title": "Own equipment", "subtitle": "Trucks & excavators" },
+      { "icon": "star", "title": "5.0 on Google", "subtitle": "Local reviews" },
+      { "icon": "shield-check", "title": "Licensed & insured", "subtitle": "Fully covered" }
+    ]
   },
   "sections": [
     {
-      "type": "proofStrip",
-      "items": [
-        {
-          "label": "Plan-based installation",
-          "description": "Septic work is completed from approved designs, elevations, slopes, and site conditions."
-        },
-        {
-          "label": "Tank and bed excavation",
-          "description": "Excavation, bedding, trenching, drainage bed preparation, and backfill handled with grade control."
-        },
-        {
-          "label": "Final grading",
-          "description": "The system area is backfilled and shaped for drainage, access, and long-term performance."
-        }
-      ]
-    },
-    {
       "type": "intro",
+      "tone": "light",
+      "eyebrow": "Who it's for",
       "heading": "Professional Septic System Installation for Homes & Businesses",
       "body": "Bellhouse Excavating installs septic tanks, drainage beds, and complete systems according to approved engineering, permits, and local requirements. We provide safe excavation, proper grading, controlled backfill, and practical coordination for new builds, replacements, and rural properties.",
-      "bullets": [
-        "Septic tank excavation and proper placement",
-        "Engineered drainage bed installation",
-        "Depth, slope, and grade control from approved plans",
-        "Backfilling and final shaping around the system area"
+      "audience": [
+        { "icon": "house-line", "label": "Rural homeowners" },
+        { "icon": "blueprint", "label": "Builders & new builds" },
+        { "icon": "compass-tool", "label": "Contractors" },
+        { "icon": "clipboard-text", "label": "Approved-plan installs" }
       ]
     },
     {
       "type": "projectFit",
+      "tone": "dark",
       "heading": "When Bellhouse Septic Installation Is a Good Fit",
       "subheading": "Best fit when the septic work needs excavation, trucking, drainage bed preparation, and final grading handled with practical site coordination.",
       "cards": [
         {
           "title": "New homes and rural builds",
           "body": "A practical fit when a new home, shop, or rural property needs septic excavation and installation coordinated with the rest of the site work.",
-          "tags": [
-            "New builds",
-            "Rural properties",
-            "Approved plans"
-          ],
+          "tags": ["New builds", "Rural properties", "Approved plans"],
           "outcome": "Keeps septic excavation, tank placement, drainage bed preparation, and grading aligned with the build schedule."
         },
         {
           "title": "Replacement septic systems",
           "body": "Useful when an older or failing system needs removal, replacement, and careful work around existing property access and grades.",
-          "tags": [
-            "System replacement",
-            "Tank removal",
-            "Property access"
-          ],
+          "tags": ["System replacement", "Tank removal", "Property access"],
           "outcome": "Handles the excavation and backfill work needed to replace the system without treating cleanup as a separate problem."
         },
         {
           "title": "Contractor-led site coordination",
           "body": "A strong fit for builders and contractors who need septic installation coordinated with excavation, grading, trucking, and final site preparation.",
-          "tags": [
-            "Builder support",
-            "Site coordination",
-            "Final grading"
-          ],
+          "tags": ["Builder support", "Site coordination", "Final grading"],
           "outcome": "Helps keep septic work tied to the rest of the site schedule instead of delaying the next phase."
         }
       ]
     },
     {
       "type": "scope",
+      "tone": "light",
       "heading": "Septic System Installation Scope",
       "subheading": "Complete septic installation support from excavation to final grading.",
       "items": [
-        {
-          "title": "Tank Excavation & Placement",
-          "body": "Digging to approved depth and preparing proper bedding for septic tank placement."
-        },
-        {
-          "title": "Trench & Drainage Field Installation",
-          "body": "Drainage bed and lateral pipe work completed from the approved septic design."
-        },
-        {
-          "title": "Controlled Backfilling",
-          "body": "Backfill placed carefully to protect tanks, pipes, and drainage bed components."
-        },
-        {
-          "title": "Final Grading",
-          "body": "The area is shaped for drainage, access, and long-term system performance."
-        }
+        { "title": "Tank Excavation & Placement", "body": "Digging to approved depth and preparing proper bedding for septic tank placement." },
+        { "title": "Trench & Drainage Field Installation", "body": "Drainage bed and lateral pipe work completed from the approved septic design." },
+        { "title": "Controlled Backfilling", "body": "Backfill placed carefully to protect tanks, pipes, and drainage bed components." },
+        { "title": "Final Grading", "body": "The area is shaped for drainage, access, and long-term system performance." }
       ]
     },
     {
+      "type": "reviews",
+      "tone": "light",
+      "eyebrow": "Testimonials",
+      "heading": "What customers say about Bellhouse",
+      "subheading": "Feedback from local homeowners, builders, and job-site customers Bellhouse has worked with.",
+      "limit": 3
+    },
+    {
+      "type": "pricingFactors",
+      "tone": "dark",
+      "eyebrow": "What affects price",
+      "heading": "Septic installation cost depends on the system design, site conditions, and what the grading needs to do after",
+      "subheading": "A useful quote needs the approved plans, property access details, soil conditions, whether this is a new install or replacement, and what the finished grade needs to look like.",
+      "tiers": [
+        { "name": "Simpler", "eg": "Standard new-build install with good access and straightforward soil", "position": "low" },
+        { "name": "Typical", "eg": "Rural new build or system replacement with drainage bed, grading, and trucking", "position": "mid" },
+        { "name": "Complex", "eg": "Difficult access, elevated system design, or removal of an old system with significant material", "position": "high" }
+      ],
+      "rangeNote": "Most rural septic installations fall in the middle range. Bellhouse quotes after reviewing the approved plans, site access, soil, and what the area needs to look like after installation.",
+      "factors": [
+        {
+          "title": "System design and approved plan scope",
+          "body": "Tank size, drainage bed design, number of laterals, and any engineered requirements set the baseline scope for the installation."
+        },
+        {
+          "title": "Excavation depth and soil conditions",
+          "body": "Deep tanks, rock, clay, or unstable soils take more machine time and may require additional bedding or backfill material."
+        },
+        {
+          "title": "Drainage bed size and stone requirement",
+          "body": "Larger drainage fields require more trenching, stone, pipe, and placed material — all of which affect cost."
+        },
+        {
+          "title": "Existing system removal",
+          "body": "When a failing system needs to be taken out, excavation, material handling, and disposal add scope beyond a new install."
+        },
+        {
+          "title": "Final grading and site restoration",
+          "body": "Backfilling, finish grading, topsoil, and restoring access or yard areas after installation all affect the total scope."
+        }
+      ],
+      "aside": {
+        "label": "Get a real number",
+        "heading": "Approved plans and site photos help Bellhouse quote the real septic installation scope",
+        "body": "Instead of estimating without seeing the design.",
+        "action": { "label": "Request Septic Quote", "href": "/contact" },
+        "phone": { "label": "519-752-8500", "href": "tel:5197528500" }
+      }
+    },
+    {
       "type": "jobsiteProof",
+      "tone": "dark",
       "eyebrow": "Tank placement",
       "heading": "Septic installation depends on accurate excavation, bedding, and backfill.",
       "body": "The tank, drainage bed, pipes, stone, grades, and backfill all need to match the approved system design. Bellhouse focuses on careful excavation and practical site execution so the system area is prepared correctly.",
@@ -139,7 +149,26 @@
       "caption": "Tank placement and backfill need to protect the system while matching the approved design and site grades."
     },
     {
+      "type": "outcomes",
+      "tone": "light",
+      "eyebrow": "Site outcomes",
+      "heading": "What the Septic Area Should Be Ready For",
+      "subheading": "The goal is a properly installed system area that is backfilled, graded, and ready for the next stage of property use.",
+      "stats": [
+        { "label": "Since 1982", "body": "Over four decades of local site work" },
+        { "label": "Own equipment", "body": "Excavators, dozers, trucks, and operators available for local site work" },
+        { "label": "5.0 on Google", "body": "Rated by homeowners, builders, and contractors" },
+        { "label": "Licensed & insured", "body": "Full coverage on every job" }
+      ],
+      "items": [
+        { "title": "System installed from approved plans", "body": "Tank, drainage bed, trenching, and backfill work follow the design and site requirements." },
+        { "title": "A cleaner finished grade", "body": "The area is shaped after installation so it can drain properly and be restored for normal property use." },
+        { "title": "Better coordination with site work", "body": "Septic installation can be coordinated with excavation, driveway access, grading, and trucking where needed." }
+      ]
+    },
+    {
       "type": "problemsPrevented",
+      "tone": "dark",
       "heading": "What Proper Septic Installation Helps Prevent",
       "subheading": "Septic work has little room for guesswork. Depth, slope, bedding, drainage, and final grade all matter.",
       "items": [
@@ -158,65 +187,36 @@
       ]
     },
     {
-      "type": "outcomes",
-      "heading": "What the Septic Area Should Be Ready For",
-      "subheading": "The goal is a properly installed system area that is backfilled, graded, and ready for the next stage of property use.",
-      "items": [
-        {
-          "title": "System installed from approved plans",
-          "body": "Tank, drainage bed, trenching, and backfill work follow the design and site requirements."
-        },
-        {
-          "title": "A cleaner finished grade",
-          "body": "The area is shaped after installation so it can drain properly and be restored for normal property use."
-        },
-        {
-          "title": "Better coordination with site work",
-          "body": "Septic installation can be coordinated with excavation, driveway access, grading, and trucking where needed."
-        }
-      ]
-    },
-    {
       "type": "equipment",
+      "tone": "dark",
       "heading": "Equipment Used",
       "subheading": "Precision equipment for septic excavation, layout, backfill, and final grading.",
       "items": [
         {
           "name": "Excavator",
           "body": "Used for septic tank excavation, drainage bed preparation, trenching, and controlled material placement.",
-          "image": {
-            "src": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp",
-            "alt": "Excavator"
-          }
+          "image": { "src": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp", "alt": "Excavator" }
         },
         {
           "name": "Laser & GPS Survey Equipment",
           "body": "Used to support accurate elevations, slopes, and system layout from approved septic plans.",
-          "image": {
-            "src": "/assets/services/bellhouse-laser-level-gps-rover-precision-layout-tools.webp",
-            "alt": "Laser and GPS survey equipment"
-          }
+          "image": { "src": "/assets/services/bellhouse-laser-level-gps-rover-precision-layout-tools.webp", "alt": "Laser and GPS survey equipment" }
         },
         {
           "name": "Skid Steer",
           "body": "Used for fine grading, final shaping, cleanup, and preparing surfaces for restoration.",
-          "image": {
-            "src": "/assets/services/bellhouse-skid-steer-equipment-illustration.webp",
-            "alt": "Skid Steer"
-          }
+          "image": { "src": "/assets/services/bellhouse-skid-steer-equipment-illustration.webp", "alt": "Skid Steer" }
         },
         {
           "name": "Tri-Axle Dump Trucks",
           "body": "Used for hauling sand, gravel, and excess excavated material where trucking support is required.",
-          "image": {
-            "src": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp",
-            "alt": "Tri-Axle Dump Trucks"
-          }
+          "image": { "src": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp", "alt": "Tri-Axle Dump Trucks" }
         }
       ]
     },
     {
       "type": "process",
+      "tone": "light",
       "heading": "How Our Septic Installation Works",
       "subheading": "A reliable workflow that supports proper function and long-term performance.",
       "image": {
@@ -225,30 +225,16 @@
       },
       "caption": "Drainage bed preparation, tank placement, backfill, and final grade are completed from the approved septic design.",
       "steps": [
-        {
-          "title": "Site Review & Plans",
-          "body": "We review septic designs, permits, elevations, access, and site conditions before excavation starts."
-        },
-        {
-          "title": "Tank Excavation",
-          "body": "We dig and prepare the tank bed to the approved depth, bedding, and layout."
-        },
-        {
-          "title": "Tank Placement",
-          "body": "Tanks are placed with proper bedding, leveling, and care around the excavation."
-        },
-        {
-          "title": "Drainage Field Installation",
-          "body": "We prepare trenches, stone, pipe layout, protective layers, and drainage bed components from the design."
-        },
-        {
-          "title": "Backfill & Grade",
-          "body": "The system is backfilled carefully and the area is shaped for drainage and restoration."
-        }
+        { "title": "Site Review & Plans", "body": "We review septic designs, permits, elevations, access, and site conditions before excavation starts." },
+        { "title": "Tank Excavation", "body": "We dig and prepare the tank bed to the approved depth, bedding, and layout." },
+        { "title": "Tank Placement", "body": "Tanks are placed with proper bedding, leveling, and care around the excavation." },
+        { "title": "Drainage Field Installation", "body": "We prepare trenches, stone, pipe layout, protective layers, and drainage bed components from the design." },
+        { "title": "Backfill & Grade", "body": "The system is backfilled carefully and the area is shaped for drainage and restoration." }
       ]
     },
     {
       "type": "contractorCta",
+      "tone": "dark",
       "eyebrow": "For builders and rural projects",
       "heading": "Need septic installation coordinated with site work?",
       "body": "If your project needs septic excavation, tank placement, drainage bed preparation, trucking, access planning, or final grading, Bellhouse can review the approved plans and site conditions.",
@@ -258,20 +244,13 @@
       },
       "caption": "Septic installation can be coordinated with excavation, grading, driveway access, and material hauling.",
       "actions": [
-        {
-          "label": "Send Project Details",
-          "href": "/contractors#contractor-form",
-          "variant": "primary"
-        },
-        {
-          "label": "Call 519-752-8500",
-          "href": "tel:5197528500",
-          "variant": "secondary"
-        }
+        { "label": "Send Project Details", "href": "/contractors#contractor-form", "variant": "primary" },
+        { "label": "Call 519-752-8500", "href": "tel:5197528500", "variant": "secondary" }
       ]
     },
     {
       "type": "resources",
+      "tone": "light",
       "eyebrow": "Planning tool",
       "heading": "Planning excavation or bedding material for septic work?",
       "subheading": "Septic work should follow approved plans, but quantity tools can help rough out excavation and material movement before the site is reviewed.",
@@ -289,47 +268,25 @@
           "label": "Estimate Aggregate"
         }
       ],
-      "actions": [
-        {
-          "label": "View Calculators",
-          "href": "/resources/calculators",
-          "variant": "secondary"
-        }
-      ]
+      "actions": [{ "label": "View Calculators", "href": "/resources/calculators", "variant": "secondary" }]
     },
     {
       "type": "serviceAreas",
+      "tone": "dark",
       "heading": "Septic installation by service area",
       "body": "Septic installation is available across Brant County and nearby rural service areas where approved plans, site access, soil conditions, and final grading support the work.",
-      "areaSlugs": [
-        "paris",
-        "brantford",
-        "cambridge",
-        "woodstock",
-        "ancaster",
-        "simcoe"
-      ]
+      "areaSlugs": ["paris", "brantford", "cambridge", "woodstock", "ancaster", "simcoe"]
     },
     {
       "type": "relatedServices",
+      "tone": "dark",
       "eyebrow": "Related services",
       "heading": "Related excavation, grading, and hauling services",
-      "serviceSlugs": [
-        "foundation-excavation",
-        "land-grading-drainage",
-        "dirt-gravel-delivery",
-        "dump-truck-rental"
-      ]
-    },
-    {
-      "type": "reviews",
-      "eyebrow": "Testimonials",
-      "heading": "What customers say about Bellhouse",
-      "subheading": "Feedback from local homeowners, builders, and job-site customers Bellhouse has worked with.",
-      "limit": 3
+      "serviceSlugs": ["foundation-excavation", "land-grading-drainage", "dirt-gravel-delivery", "dump-truck-rental"]
     },
     {
       "type": "faq",
+      "tone": "light",
       "heading": "Frequently Asked Questions",
       "items": [
         {
@@ -352,19 +309,63 @@
     },
     {
       "type": "finalCta",
+      "tone": "dark",
       "heading": "Need a Septic System Installed?",
       "body": "Send the approved plans, property location, access details, timeline, and whether this is a new install or replacement.",
+      "bullets": [
+        "No obligation — free project review",
+        "Bellhouse replies with real numbers",
+        "Local crew, local knowledge"
+      ],
+      "form": true,
       "actions": [
+        { "label": "Request Septic Quote", "href": "/contact", "variant": "primary" },
+        { "label": "Send Project Details", "href": "/contractors#contractor-form", "variant": "secondary" }
+      ],
+      "navGroups": [
         {
-          "label": "Request Septic Quote",
-          "href": "/contact",
-          "variant": "primary"
+          "label": "Other services",
+          "icon": "wrench",
+          "links": [
+            { "label": "Site Prep & Grading", "href": "/services/site-preparation-land-grading", "icon": "caret-right" },
+            { "label": "Contractor Support", "href": "/contractors", "icon": "caret-right" },
+            { "label": "Demolition", "href": "/services/house-barn-demolition", "icon": "caret-right" },
+            { "label": "Dirt & Gravel Delivery", "href": "/services/dirt-gravel-delivery", "icon": "caret-right" },
+            { "label": "Land Drainage", "href": "/services/land-grading-drainage", "icon": "caret-right" }
+          ]
         },
         {
-          "label": "Send Project Details",
-          "href": "/contractors#contractor-form",
-          "variant": "secondary"
+          "label": "Service areas",
+          "icon": "map-pin",
+          "links": [
+            { "label": "Brantford", "href": "/service-areas/brantford", "icon": "map-pin" },
+            { "label": "Brant County", "href": "/service-areas/brantford", "icon": "map-pin" },
+            { "label": "Paris", "href": "/service-areas/paris", "icon": "map-pin" },
+            { "label": "Cambridge", "href": "/service-areas/cambridge", "icon": "map-pin" },
+            { "label": "Woodstock", "href": "/service-areas/woodstock", "icon": "map-pin" },
+            { "label": "Hamilton", "href": "/service-areas/hamilton", "icon": "map-pin" }
+          ]
         }
+      ]
+    },
+    {
+      "type": "banner",
+      "tone": "dark",
+      "eyebrow": "System installed and site restored",
+      "heading": "New build or system replacement? Bellhouse is local, equipped, and taking jobs now.",
+      "body": "From tank excavation and drainage bed preparation to backfilling and final grading, Bellhouse handles septic installation from approved plans so your site is ready for the next phase.",
+      "bullets": [
+        "Septic excavation, tank placement, and drainage beds from approved plans",
+        "Own equipment — coordinated with grading, trucking, and site work",
+        "Brantford, Paris, Cambridge, and surrounding Brant County"
+      ],
+      "image": {
+        "src": "/assets/services/septic-systems/brant-septic-system-diagram.webp",
+        "alt": "Septic system diagram showing tank, distribution box, and drainage bed layout"
+      },
+      "actions": [
+        { "label": "Request Septic Quote", "href": "/contact", "variant": "primary" },
+        { "label": "Call 519-752-8500", "href": "tel:5197528500", "variant": "secondary" }
       ]
     }
   ]

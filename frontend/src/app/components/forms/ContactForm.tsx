@@ -47,6 +47,7 @@ type ContactFormProps = {
   heading?: string;
   intro?: string;
   sectionId?: string;
+  initialService?: string;
 };
 
 const REQUIRED_SMS_DISCLOSURE = [
@@ -149,6 +150,7 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
       heading,
       intro,
       sectionId,
+      initialService,
     },
     ref,
   ) => {
@@ -161,7 +163,7 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
     const [showModal, setShowModal] = useState(false);
     const [loading, setLoading] = useState(false);
 
-    const [selectedWorkType, setSelectedWorkType] = useState('');
+    const [selectedWorkType, setSelectedWorkType] = useState<string>(initialService ?? '');
     const [customWorkType, setCustomWorkType] = useState('');
     const [workTypeTouched, setWorkTypeTouched] = useState(false);
     const [selectedTimeline, setSelectedTimeline] = useState('');
@@ -191,6 +193,13 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
       }, 500);
 
       return () => clearInterval(checkRecaptcha);
+    }, []);
+
+    useEffect(() => {
+      if (initialService) {
+        trackEvent('quote_form_preselect', { service: initialService, variant });
+      }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const {
@@ -681,6 +690,7 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
             onChange={handleWorkTypeChange}
             onBlur={() => setWorkTypeTouched(true)}
             value={selectedWorkType}
+            suppressHydrationWarning
             required
           >
             <option value="">{copy.workTypePlaceholder}</option>
@@ -717,7 +727,7 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
             id="message"
             spellCheck
             autoCorrect="on"
-            rows={6}
+            rows={embedded ? 4 : 6}
             cols={80}
             className={`${classes.textarea} ${
               messageHasError ? classes.error : ''
@@ -735,35 +745,37 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
           ) : null}
         </div>
 
-        <div className={classes.uploadWrapper}>
-          <label htmlFor="quotePhotos">Jobsite Photos (Optional)</label>
-          <p className={classes.uploadHelp}>{QUOTE_UPLOAD_HELPER_TEXT}</p>
-          <label className={classes.uploadDropzone} htmlFor="quotePhotos">
-            <span>Add photos</span>
-            <input
-              id="quotePhotos"
-              type="file"
-              multiple
-              accept=".jpg,.jpeg,.png,.webp,.heic,.heif,image/jpeg,image/png,image/webp,image/heic,image/heif"
-              onChange={handleImageSelection}
-            />
-          </label>
-          <p className={classes.uploadMeta}>{QUOTE_UPLOAD_ACCEPTED_TEXT}</p>
-          <p className={classes.uploadMeta}>{QUOTE_UPLOAD_PRIVACY_TEXT}</p>
-          {selectedImages.length > 0 ? (
-            <ul className={classes.uploadList}>
-              {selectedImages.map((file) => (
-                <li key={file.id}>
-                  <span>{file.displayName}</span>
-                  <span>{formatUploadSize(file.sizeBytes)}</span>
-                </li>
-              ))}
-            </ul>
-          ) : null}
-          {imageUploadError ? (
-            <p className={classes.fieldError}>{imageUploadError}</p>
-          ) : null}
-        </div>
+        {turnstileSiteKey ? (
+          <div className={classes.uploadWrapper}>
+            <label htmlFor="quotePhotos">Jobsite Photos (Optional)</label>
+            <p className={classes.uploadHelp}>{QUOTE_UPLOAD_HELPER_TEXT}</p>
+            <label className={classes.uploadDropzone} htmlFor="quotePhotos">
+              <span>Add photos</span>
+              <input
+                id="quotePhotos"
+                type="file"
+                multiple
+                accept=".jpg,.jpeg,.png,.webp,.heic,.heif,image/jpeg,image/png,image/webp,image/heic,image/heif"
+                onChange={handleImageSelection}
+              />
+            </label>
+            <p className={classes.uploadMeta}>{QUOTE_UPLOAD_ACCEPTED_TEXT}</p>
+            <p className={classes.uploadMeta}>{QUOTE_UPLOAD_PRIVACY_TEXT}</p>
+            {selectedImages.length > 0 ? (
+              <ul className={classes.uploadList}>
+                {selectedImages.map((file) => (
+                  <li key={file.id}>
+                    <span>{file.displayName}</span>
+                    <span>{formatUploadSize(file.sizeBytes)}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+            {imageUploadError ? (
+              <p className={classes.fieldError}>{imageUploadError}</p>
+            ) : null}
+          </div>
+        ) : null}
 
         <input
           type="text"

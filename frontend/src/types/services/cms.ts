@@ -46,6 +46,7 @@ export type CmsServicePage = {
   slug: string;
   title: string;
   navTitle: string;
+  contactService?: string;
   meta: CmsServiceMeta;
   card: CmsServiceCard;
   hero: CmsServiceHero;

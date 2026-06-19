@@ -3,6 +3,7 @@
   "slug": "land-grading-drainage",
   "title": "Land Grading & Drainage Services",
   "navTitle": "Grading & Drainage",
+  "contactService": "Site Grading",
   "meta": {
     "title": "Land Grading & Drainage | Brant County | Bellhouse",
     "description": "Land grading and drainage work for yards, driveways, building lots, and active sites across Brantford, Paris, Brant County, and nearby areas."
@@ -21,128 +22,131 @@
   },
   "hero": {
     "eyebrow": "Slope correction, ditching & site drainage",
-    "heading": "Land Grading & Drainage Services",
+    "heading": "Land Grading & Drainage in Brantford",
     "summary": "Grading and drainage work that helps move water away from buildings, driveways, soft areas, and active job sites.",
     "actions": [
-      {
-        "label": "Request Grading Quote",
-        "href": "/contact",
-        "variant": "primary"
-      },
-      {
-        "label": "For Builders & Contractors",
-        "href": "/contractors",
-        "variant": "secondary"
-      }
-    ],
-    "proofPoints": [
-      "Slope correction and water control",
-      "Drainage swales, ditching, and pipe prep",
-      "Yards, driveways, lots, and active sites"
+      { "label": "Request Grading Quote", "href": "/contact", "variant": "primary" },
+      { "label": "For Builders & Contractors", "href": "/contractors", "variant": "secondary" }
     ],
     "emphasis": "high",
     "image": "/assets/services/dozer-stripping-site-prep.webp",
-    "alt": "Dozer stripping and grading a large site for drainage and site preparation"
+    "alt": "Dozer stripping and grading a large site for drainage and site preparation",
+    "sideForm": true,
+    "proofBar": [
+      { "icon": "map-pin", "title": "Local to Brantford", "subtitle": "& Brant County" },
+      { "icon": "calendar-check", "title": "Since 1982", "subtitle": "Family operation" },
+      { "icon": "truck", "title": "Own equipment", "subtitle": "Trucks & excavators" },
+      { "icon": "star", "title": "5.0 on Google", "subtitle": "Local reviews" },
+      { "icon": "shield-check", "title": "Licensed & insured", "subtitle": "Fully covered" }
+    ]
   },
   "sections": [
     {
-      "type": "proofStrip",
-      "items": [
-        {
-          "label": "Proper slope",
-          "description": "Grades shaped to move water away from structures, driveways, and low areas."
-        },
-        {
-          "label": "Drainage-focused prep",
-          "description": "Swales, ditching, drain tile, pipe runs, and stone bedding planned around real site conditions."
-        },
-        {
-          "label": "Site-ready finish",
-          "description": "Ground left cleaner, more stable, and ready for gravel, topsoil, concrete, or the next trade."
-        }
-      ]
-    },
-    {
       "type": "intro",
+      "tone": "light",
+      "eyebrow": "Who it's for",
       "heading": "Grading and Drainage Work That Solves Water Problems",
       "body": "Standing water, muddy access, poor slope, and soft ground usually point back to how water moves across the property. Bellhouse handles land grading and drainage work for homeowners, builders, farms, and contractors who need practical site shaping, ditching, and drainage prep across Brantford, Paris, Brant County, and nearby Southern Ontario communities.",
-      "bullets": [
-        "Yard, driveway, lot, and building pad grading",
-        "Drainage swales, ditching, and slope correction",
-        "Drain tile, pipe, and stone bedding prep where required",
-        "Rough and finish grading for the next phase of work"
+      "audience": [
+        { "icon": "house-line", "label": "Homeowners" },
+        { "icon": "drop", "label": "Drainage projects" },
+        { "icon": "blueprint", "label": "Builders & contractors" },
+        { "icon": "hard-hat", "label": "Site managers" }
       ]
     },
     {
       "type": "projectFit",
+      "tone": "dark",
       "heading": "When Bellhouse Is the Right Fit",
       "subheading": "Best fit for grading and drainage work where water control, machine access, and the next phase of construction all need to be considered together.",
       "cards": [
         {
           "title": "Properties with standing water or soft areas",
           "body": "A good fit when water sits in the yard, driveway, lane, or work area after rain and the fix needs more than a surface touch-up.",
-          "tags": [
-            "Standing water",
-            "Soft yards",
-            "Muddy access"
-          ],
+          "tags": ["Standing water", "Soft yards", "Muddy access"],
           "outcome": "Helps reshape the site so water has a better path to move instead of collecting where people, vehicles, or equipment need to work."
         },
         {
           "title": "Driveways, lanes, and building lots",
           "body": "Useful when a driveway, shop site, garage pad, or building lot needs slope correction, base prep, or drainage before gravel, concrete, or construction begins.",
-          "tags": [
-            "Driveway grading",
-            "Building lots",
-            "Access routes"
-          ],
+          "tags": ["Driveway grading", "Building lots", "Access routes"],
           "outcome": "Creates a more stable surface for base material, finish grading, and the crews that follow."
         },
         {
           "title": "Contractor-led grading and drainage scopes",
           "body": "A strong fit for projects that need excavation, trucking, stone, pipe bedding, and grading coordinated around an active job schedule.",
-          "tags": [
-            "Drainage prep",
-            "Stone bedding",
-            "Site coordination"
-          ],
+          "tags": ["Drainage prep", "Stone bedding", "Site coordination"],
           "outcome": "Keeps water-control work tied to the broader site plan instead of becoming a separate cleanup problem later."
         }
       ]
     },
     {
       "type": "scope",
+      "tone": "light",
       "heading": "Land Grading & Drainage Scope",
       "subheading": "Practical site work for better water movement, stronger access, and cleaner handoff to the next phase.",
       "items": [
-        {
-          "title": "Rough & Finish Grading",
-          "body": "We shape yards, lots, lanes, and working areas to establish usable grades and direct water away from problem spots."
-        },
-        {
-          "title": "Drainage Swales & Ditching",
-          "body": "Swales and ditches are cut or reshaped to give runoff a controlled path across the site."
-        },
-        {
-          "title": "Drain Tile, Pipe & Stone Bedding Prep",
-          "body": "Where underground drainage is part of the scope, we can excavate, bed pipe, place stone, and backfill to support the system."
-        },
-        {
-          "title": "Driveway & Access Regrading",
-          "body": "Soft or poorly draining driveways and access routes can be reshaped and prepared for granular base."
-        },
-        {
-          "title": "Topsoil, Fill & Aggregate Movement",
-          "body": "Bellhouse can move, place, and shape imported or on-site material so grading and drainage work stay coordinated."
-        },
-        {
-          "title": "Erosion & Washout Correction",
-          "body": "We correct slope and runoff issues that contribute to washed-out gravel, exposed soil, and unstable edges."
-        }
+        { "title": "Rough & Finish Grading", "body": "We shape yards, lots, lanes, and working areas to establish usable grades and direct water away from problem spots." },
+        { "title": "Drainage Swales & Ditching", "body": "Swales and ditches are cut or reshaped to give runoff a controlled path across the site." },
+        { "title": "Drain Tile, Pipe & Stone Bedding Prep", "body": "Where underground drainage is part of the scope, we can excavate, bed pipe, place stone, and backfill to support the system." },
+        { "title": "Driveway & Access Regrading", "body": "Soft or poorly draining driveways and access routes can be reshaped and prepared for granular base." },
+        { "title": "Topsoil, Fill & Aggregate Movement", "body": "Bellhouse can move, place, and shape imported or on-site material so grading and drainage work stay coordinated." },
+        { "title": "Erosion & Washout Correction", "body": "We correct slope and runoff issues that contribute to washed-out gravel, exposed soil, and unstable edges." }
       ]
     },
     {
+      "type": "reviews",
+      "tone": "light",
+      "eyebrow": "Testimonials",
+      "heading": "What customers say about Bellhouse",
+      "subheading": "Feedback from local homeowners, builders, and job-site customers Bellhouse has worked with.",
+      "limit": 3
+    },
+    {
+      "type": "pricingFactors",
+      "tone": "dark",
+      "eyebrow": "What affects price",
+      "heading": "Grading and drainage cost depends on the water problem, the site, and how much material needs to move",
+      "subheading": "A useful quote needs to know the slope issue, soil conditions, how much area needs shaping, whether underground drainage is involved, and what the site needs to be ready for.",
+      "tiers": [
+        { "name": "Simpler", "eg": "Small driveway regrade or yard slope correction with good access", "position": "low" },
+        { "name": "Typical", "eg": "Yard, lot, or lane with drainage swales, fill, and finish grading", "position": "mid" },
+        { "name": "Complex", "eg": "Underground drainage with pipe, stone, trenching, and coordinated grading", "position": "high" }
+      ],
+      "rangeNote": "Most residential grading and drainage jobs fall in the middle range. Bellhouse quotes after reviewing the slope, drainage goals, material needs, and site access.",
+      "factors": [
+        {
+          "title": "Extent of grading and slope correction",
+          "body": "The area that needs reshaping, how much cut and fill is required, and whether the grades tie into structures or existing base all affect scope."
+        },
+        {
+          "title": "Swale, ditch, and drainage path work",
+          "body": "Cutting new drainage paths, reshaping existing ditches, or installing culverts adds machine time and material movement."
+        },
+        {
+          "title": "Underground drainage pipe and stone",
+          "body": "Trenching, bedding, pipe, stone placement, and backfill add significant scope and cost to grading work that also needs subsurface drainage."
+        },
+        {
+          "title": "Material import or haul-out",
+          "body": "Whether fill, stone, or granular base needs to be brought in, or whether excavated material needs to be trucked off, affects the total cost."
+        },
+        {
+          "title": "Site access and working conditions",
+          "body": "Tight yards, soft ground, active construction areas, and proximity to structures all affect how the grading work can be done."
+        }
+      ],
+      "aside": {
+        "label": "Get a real number",
+        "heading": "Site photos and the water problem help Bellhouse quote grading and drainage accurately",
+        "body": "Instead of guessing from area alone.",
+        "action": { "label": "Request Grading Quote", "href": "/contact" },
+        "phone": { "label": "519-752-8500", "href": "tel:5197528500" }
+      }
+    },
+    {
       "type": "jobsiteProof",
+      "tone": "dark",
       "eyebrow": "Built around water movement",
       "heading": "Good grading starts with where the water needs to go.",
       "body": "Bellhouse looks at slope, runoff, access, soil conditions, and the finished use of the property before cutting grades or placing material. The goal is practical water control, not just making the ground look smooth for a day.",
@@ -153,7 +157,26 @@
       "caption": "Grading work is planned around slope, drainage paths, access, and the final use of the site."
     },
     {
+      "type": "outcomes",
+      "tone": "light",
+      "eyebrow": "Site outcomes",
+      "heading": "What The Site Should Be Ready For After Grading",
+      "subheading": "The goal is a property or job site that drains better, works better, and is ready for the next step.",
+      "stats": [
+        { "label": "Since 1982", "body": "Over four decades of local site work" },
+        { "label": "Own equipment", "body": "Excavators, dozers, trucks, and operators available for local site work" },
+        { "label": "5.0 on Google", "body": "Rated by homeowners, builders, and contractors" },
+        { "label": "Licensed & insured", "body": "Full coverage on every job" }
+      ],
+      "items": [
+        { "title": "Water has a clearer path", "body": "Swales, slopes, ditches, or drainage prep help move water away from the places where it causes damage or delays." },
+        { "title": "Ground is more workable", "body": "Corrected grades and placed material help reduce soft access, muddy work zones, and uneven transitions." },
+        { "title": "The next phase has a cleaner handoff", "body": "Whether the next step is gravel, topsoil, concrete, landscaping, or construction, the site is shaped with that handoff in mind." }
+      ]
+    },
+    {
       "type": "problemsPrevented",
+      "tone": "dark",
       "heading": "What This Work Helps Prevent",
       "subheading": "Water problems get expensive when grading, pipe, stone, and access are treated as separate decisions.",
       "items": [
@@ -172,73 +195,41 @@
       ]
     },
     {
-      "type": "outcomes",
-      "heading": "What The Site Should Be Ready For After Grading",
-      "subheading": "The goal is a property or job site that drains better, works better, and is ready for the next step.",
-      "items": [
-        {
-          "title": "Water has a clearer path",
-          "body": "Swales, slopes, ditches, or drainage prep help move water away from the places where it causes damage or delays."
-        },
-        {
-          "title": "Ground is more workable",
-          "body": "Corrected grades and placed material help reduce soft access, muddy work zones, and uneven transitions."
-        },
-        {
-          "title": "The next phase has a cleaner handoff",
-          "body": "Whether the next step is gravel, topsoil, concrete, landscaping, or construction, the site is shaped with that handoff in mind."
-        }
-      ]
-    },
-    {
       "type": "equipment",
+      "tone": "dark",
       "heading": "Equipment Used for Grading & Drainage",
       "subheading": "Machines and trucks selected for the size of the site, access conditions, and material movement required.",
       "items": [
         {
           "name": "Dozer",
           "body": "Used for rough grading, slope correction, and shaping larger areas where bulk material needs to move.",
-          "image": {
-            "src": "/assets/services/bellhouse-dozer-equipment-illustration.webp",
-            "alt": "Dozer"
-          }
+          "image": { "src": "/assets/services/bellhouse-dozer-equipment-illustration.webp", "alt": "Dozer" }
         },
         {
           "name": "Excavator",
           "body": "Handles ditching, swales, trenching, drainage pipe prep, and detailed excavation around site features.",
-          "image": {
-            "src": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp",
-            "alt": "Excavator"
-          }
+          "image": { "src": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp", "alt": "Excavator" }
         },
         {
           "name": "Skid Steer",
           "body": "Useful for fine grading, material placement, driveway shaping, and cleanup in tighter areas.",
-          "image": {
-            "src": "/assets/services/bellhouse-skid-steer-equipment-illustration.webp",
-            "alt": "Skid Steer"
-          }
+          "image": { "src": "/assets/services/bellhouse-skid-steer-equipment-illustration.webp", "alt": "Skid Steer" }
         },
         {
           "name": "Tri-Axle Dump Trucks",
           "body": "Used to bring in stone, granular, or topsoil and haul away unsuitable material when needed.",
-          "image": {
-            "src": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp",
-            "alt": "Tri-Axle Dump Trucks"
-          }
+          "image": { "src": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp", "alt": "Tri-Axle Dump Trucks" }
         },
         {
           "name": "Laser & GPS Grade Tools",
           "body": "Used to check elevations, maintain drainage slope, and keep grading work aligned with the site plan.",
-          "image": {
-            "src": "/assets/services/bellhouse-laser-level-gps-rover-precision-layout-tools.webp",
-            "alt": "Laser and GPS grade tools"
-          }
+          "image": { "src": "/assets/services/bellhouse-laser-level-gps-rover-precision-layout-tools.webp", "alt": "Laser and GPS grade tools" }
         }
       ]
     },
     {
       "type": "process",
+      "tone": "light",
       "heading": "How Our Grading & Drainage Process Works",
       "subheading": "A practical sequence that starts with the water problem and ends with a cleaner, more usable site.",
       "image": {
@@ -247,30 +238,16 @@
       },
       "caption": "Grading work is sequenced around slope, surface prep, and where water needs to move.",
       "steps": [
-        {
-          "title": "Review the Site and Water Issue",
-          "body": "We look at slope, low spots, access, soil, structures, and where runoff needs to move."
-        },
-        {
-          "title": "Plan Grades and Drainage Paths",
-          "body": "Swales, ditching, pipe, stone bedding, imported material, and haul-out needs are planned around the site."
-        },
-        {
-          "title": "Excavate, Shape, and Move Material",
-          "body": "We cut, fill, trench, place stone, or move soil as needed to establish better grades."
-        },
-        {
-          "title": "Place Base or Surface Material",
-          "body": "Granular, stone, fill, or topsoil can be placed where the project scope calls for it."
-        },
-        {
-          "title": "Final Shape for Handoff",
-          "body": "The area is left ready for the next step, whether that is seeding, gravel, concrete, landscaping, or construction."
-        }
+        { "title": "Review the Site and Water Issue", "body": "We look at slope, low spots, access, soil, structures, and where runoff needs to move." },
+        { "title": "Plan Grades and Drainage Paths", "body": "Swales, ditching, pipe, stone bedding, imported material, and haul-out needs are planned around the site." },
+        { "title": "Excavate, Shape, and Move Material", "body": "We cut, fill, trench, place stone, or move soil as needed to establish better grades." },
+        { "title": "Place Base or Surface Material", "body": "Granular, stone, fill, or topsoil can be placed where the project scope calls for it." },
+        { "title": "Final Shape for Handoff", "body": "The area is left ready for the next step, whether that is seeding, gravel, concrete, landscaping, or construction." }
       ]
     },
     {
       "type": "contractorCta",
+      "tone": "dark",
       "eyebrow": "For builders and contractors",
       "heading": "Need grading, drainage, and material movement coordinated?",
       "body": "If your project needs slope correction, ditching, stone bedding, pipe prep, trucking, or site shaping lined up around a real schedule, Bellhouse can review the scope and timing.",
@@ -280,20 +257,13 @@
       },
       "caption": "Grading and drainage work can be coordinated with trucking, aggregate, and the next phase of construction.",
       "actions": [
-        {
-          "label": "Send Project Details",
-          "href": "/contractors#contractor-form",
-          "variant": "primary"
-        },
-        {
-          "label": "Call 519-752-8500",
-          "href": "tel:5197528500",
-          "variant": "secondary"
-        }
+        { "label": "Send Project Details", "href": "/contractors#contractor-form", "variant": "primary" },
+        { "label": "Call 519-752-8500", "href": "tel:5197528500", "variant": "secondary" }
       ]
     },
     {
       "type": "resources",
+      "tone": "light",
       "eyebrow": "Planning tools",
       "heading": "Planning stone, gravel, or topsoil quantities?",
       "subheading": "Grading and drainage jobs often need imported stone, granular base, or topsoil. These calculators help rough out material quantities before a site review.",
@@ -317,49 +287,25 @@
           "label": "Estimate Excavation Volume"
         }
       ],
-      "actions": [
-        {
-          "label": "View Calculators",
-          "href": "/resources/calculators",
-          "variant": "secondary"
-        }
-      ]
+      "actions": [{ "label": "View Calculators", "href": "/resources/calculators", "variant": "secondary" }]
     },
     {
       "type": "serviceAreas",
+      "tone": "dark",
       "heading": "Grading and drainage by service area",
       "body": "Grading and drainage priorities differ by site, from Paris driveway access and Ancaster slopes to Dundas tight residential lots, Waterdown new builds, Brantford access work, and Simcoe larger properties.",
-      "areaSlugs": [
-        "paris",
-        "brantford",
-        "ancaster",
-        "dundas",
-        "waterdown",
-        "simcoe"
-      ]
+      "areaSlugs": ["paris", "brantford", "ancaster", "dundas", "waterdown", "simcoe"]
     },
     {
       "type": "relatedServices",
+      "tone": "dark",
       "eyebrow": "Related services",
       "heading": "Related grading, excavation, and haul support",
-      "serviceSlugs": [
-        "site-preparation-land-grading",
-        "driveway-parking-lot-preparation",
-        "septic-system-installation",
-        "pond-digging-cleaning",
-        "dirt-gravel-delivery",
-        "dump-truck-rental"
-      ]
-    },
-    {
-      "type": "reviews",
-      "eyebrow": "Testimonials",
-      "heading": "What customers say about Bellhouse",
-      "subheading": "Feedback from local homeowners, builders, and job-site customers Bellhouse has worked with.",
-      "limit": 3
+      "serviceSlugs": ["site-preparation-land-grading", "driveway-parking-lot-preparation", "septic-system-installation", "pond-digging-cleaning", "dirt-gravel-delivery", "dump-truck-rental"]
     },
     {
       "type": "faq",
+      "tone": "light",
       "heading": "Frequently Asked Questions",
       "items": [
         {
@@ -382,19 +328,63 @@
     },
     {
       "type": "finalCta",
+      "tone": "dark",
       "heading": "Need Better Grading or Drainage?",
       "body": "Send the site details and Bellhouse can review the grading, drainage, access, and material needs for your project.",
+      "bullets": [
+        "No obligation — free project review",
+        "Bellhouse replies with real numbers",
+        "Local crew, local knowledge"
+      ],
+      "form": true,
       "actions": [
+        { "label": "Request Grading Quote", "href": "/contact", "variant": "primary" },
+        { "label": "Send Project Details", "href": "/contractors#contractor-form", "variant": "secondary" }
+      ],
+      "navGroups": [
         {
-          "label": "Request Grading Quote",
-          "href": "/contact",
-          "variant": "primary"
+          "label": "Other services",
+          "icon": "wrench",
+          "links": [
+            { "label": "Site Prep & Grading", "href": "/services/site-preparation-land-grading", "icon": "caret-right" },
+            { "label": "Contractor Support", "href": "/contractors", "icon": "caret-right" },
+            { "label": "Demolition", "href": "/services/house-barn-demolition", "icon": "caret-right" },
+            { "label": "Dirt & Gravel Delivery", "href": "/services/dirt-gravel-delivery", "icon": "caret-right" },
+            { "label": "Land Drainage", "href": "/services/land-grading-drainage", "icon": "caret-right" }
+          ]
         },
         {
-          "label": "Send Project Details",
-          "href": "/contractors#contractor-form",
-          "variant": "secondary"
+          "label": "Service areas",
+          "icon": "map-pin",
+          "links": [
+            { "label": "Brantford", "href": "/service-areas/brantford", "icon": "map-pin" },
+            { "label": "Brant County", "href": "/service-areas/brantford", "icon": "map-pin" },
+            { "label": "Paris", "href": "/service-areas/paris", "icon": "map-pin" },
+            { "label": "Cambridge", "href": "/service-areas/cambridge", "icon": "map-pin" },
+            { "label": "Woodstock", "href": "/service-areas/woodstock", "icon": "map-pin" },
+            { "label": "Hamilton", "href": "/service-areas/hamilton", "icon": "map-pin" }
+          ]
         }
+      ]
+    },
+    {
+      "type": "banner",
+      "tone": "dark",
+      "eyebrow": "Water problems solved",
+      "heading": "Standing water, muddy access, or poor drainage? Bellhouse is local, equipped, and taking jobs now.",
+      "body": "From slope correction and ditching to underground drainage and finish grading, Bellhouse handles grading and drainage work so the site moves water properly and is ready for what comes next.",
+      "bullets": [
+        "Grading, swales, ditching, and drainage prep handled together",
+        "Own equipment — excavators, dozers, and trucks on local sites",
+        "Brantford, Paris, Ancaster, and surrounding Brant County"
+      ],
+      "image": {
+        "src": "/assets/services/large-yard-soil-grading-lawn.webp",
+        "alt": "Large yard area shaped with soil grading for improved drainage"
+      },
+      "actions": [
+        { "label": "Request Grading Quote", "href": "/contact", "variant": "primary" },
+        { "label": "Call 519-752-8500", "href": "tel:5197528500", "variant": "secondary" }
       ]
     }
   ]

@@ -3,6 +3,7 @@
   "slug": "site-preparation-land-grading",
   "title": "Site Preparation & Land Grading Services",
   "navTitle": "Site Preparation & Grading",
+  "contactService": "Site Grading",
   "meta": {
     "title": "Site Preparation & Land Grading | Brant County | Bellhouse",
     "description": "Professional site preparation and land grading services in Brant County. Precision grading, excavation, and clearing for construction projects."
@@ -15,120 +16,129 @@
   },
   "hero": {
     "eyebrow": "Build-ready site preparation",
-    "heading": "Site Preparation & Land Grading Services",
+    "heading": "Site Preparation & Land Grading in Brantford",
     "summary": "Precision grading, land clearing, and earthmoving support for stable building pads, drainage, and construction access.",
     "actions": [
-      {
-        "label": "Request Site Prep Quote",
-        "href": "/contact",
-        "variant": "primary"
-      },
-      {
-        "label": "For Builders & Contractors",
-        "href": "/contractors",
-        "variant": "secondary"
-      }
-    ],
-    "proofPoints": [
-      "Topsoil stripping and rough grading",
-      "Building pads, access routes and drainage",
-      "Grade control for active job sites"
+      { "label": "Request Site Prep Quote", "href": "/contact", "variant": "primary" },
+      { "label": "For Builders & Contractors", "href": "/contractors", "variant": "secondary" }
     ],
     "emphasis": "high",
     "image": "/assets/services/site-preparations-land-clearing/large-site-preparation-excavation-equipment.webp",
-    "alt": "Bellhouse excavators and site equipment working together on large site preparation."
+    "alt": "Bellhouse excavators and site equipment working together on large site preparation.",
+    "sideForm": true,
+    "proofBar": [
+      { "icon": "map-pin", "title": "Local to Brantford", "subtitle": "& Brant County" },
+      { "icon": "calendar-check", "title": "Since 1982", "subtitle": "Family operation" },
+      { "icon": "truck", "title": "Own equipment", "subtitle": "Trucks & excavators" },
+      { "icon": "star", "title": "5.0 on Google", "subtitle": "Local reviews" },
+      { "icon": "shield-check", "title": "Licensed & insured", "subtitle": "Fully covered" }
+    ]
   },
   "sections": [
     {
-      "type": "proofStrip",
-      "items": [
-        {
-          "label": "Topsoil stripping",
-          "description": "Organics removed and workable subgrade exposed before pad and access work begins."
-        },
-        {
-          "label": "Grade-controlled prep",
-          "description": "Elevations, slopes, and drainage shaping handled with practical site accuracy."
-        },
-        {
-          "label": "Truck-supported material movement",
-          "description": "Cut, fill, imported aggregate, and haul coordination kept tied to the same job schedule."
-        }
-      ]
-    },
-    {
       "type": "intro",
+      "tone": "light",
+      "eyebrow": "Who it's for",
       "heading": "Start Your Project with Proper Site Preparation",
       "body": "Bellhouse Excavating handles full site preparation, including stripping topsoil, rough grading, land shaping, and excavation for foundations, roads, and drainage. Proper site prep sets your project up for long-term success.",
-      "bullets": [
-        "Land clearing and rough grading",
-        "Building pad and roadbed preparation",
-        "Drainage and ditching improvements",
-        "Foundation and trench excavation"
+      "audience": [
+        { "icon": "blueprint", "label": "Builders & developers" },
+        { "icon": "hard-hat", "label": "Contractors" },
+        { "icon": "house-line", "label": "Homeowners" },
+        { "icon": "shovel", "label": "Raw land & rural builds" }
       ]
     },
     {
       "type": "projectFit",
+      "tone": "dark",
       "heading": "Where This Site Prep Work Adds the Most Value",
       "subheading": "Best fit for projects that need practical grading decisions, stable pads, and clear access before the next phase of construction starts.",
       "cards": [
         {
           "title": "Raw lots that need build-ready grades",
           "body": "A good fit when the site still needs stripping, rough grade correction, and usable elevations established before foundation, utility, or framing crews step in.",
-          "tags": [
-            "New build lots",
-            "Barn and shop sites",
-            "Rural residential starts"
-          ],
+          "tags": ["New build lots", "Barn and shop sites", "Rural residential starts"],
           "outcome": "Gets the site into a cleaner, more buildable condition instead of leaving grading and stripping spread across multiple small scopes."
         },
         {
           "title": "Pads, drainage shaping, and access routes",
           "body": "Works well when the job needs more than surface smoothing and actually depends on stable pads, sensible water movement, and dependable route prep for trucks and machines.",
-          "tags": [
-            "Building pads",
-            "Drainage swales",
-            "Access lanes"
-          ],
+          "tags": ["Building pads", "Drainage swales", "Access lanes"],
           "outcome": "Supports a site that drains properly and stays workable for material delivery, concrete, and follow-on trades."
         },
         {
           "title": "Contractor-led site prep with material movement",
           "body": "A strong fit for active projects where cut, fill, imported aggregate, and on-site material handling all need to stay aligned with schedule instead of being split between crews.",
-          "tags": [
-            "Grade-controlled prep",
-            "Imported base",
-            "Truck-supported site work"
-          ],
+          "tags": ["Grade-controlled prep", "Imported base", "Truck-supported site work"],
           "outcome": "Helps keep prep, grading, and haul coordination moving as one operation rather than separate call-outs."
         }
       ]
     },
     {
       "type": "scope",
+      "tone": "light",
       "heading": "Site Prep & Grading Includes",
       "subheading": "Everything required to turn raw land into a build-ready site.",
       "items": [
-        {
-          "title": "Topsoil Stripping",
-          "body": "Removal of organics and topsoil to expose stable subgrade."
-        },
-        {
-          "title": "Rough & Final Grading",
-          "body": "We shape the land for proper drainage and building layout."
-        },
-        {
-          "title": "Building Pad Prep",
-          "body": "Creation of level, compacted pads for shops, barns, and homes."
-        },
-        {
-          "title": "Ditching & Drainage",
-          "body": "Ditches and swales to manage water and protect structures."
-        }
+        { "title": "Topsoil Stripping", "body": "Removal of organics and topsoil to expose stable subgrade." },
+        { "title": "Rough & Final Grading", "body": "We shape the land for proper drainage and building layout." },
+        { "title": "Building Pad Prep", "body": "Creation of level, compacted pads for shops, barns, and homes." },
+        { "title": "Ditching & Drainage", "body": "Ditches and swales to manage water and protect structures." }
       ]
     },
     {
+      "type": "reviews",
+      "tone": "light",
+      "eyebrow": "Testimonials",
+      "heading": "What customers say about Bellhouse",
+      "subheading": "Feedback from local homeowners, builders, and job-site customers Bellhouse has worked with.",
+      "limit": 3
+    },
+    {
+      "type": "pricingFactors",
+      "tone": "dark",
+      "eyebrow": "What affects price",
+      "heading": "Site prep cost depends on the raw conditions, what needs to move, and how build-ready the finish needs to be",
+      "subheading": "A useful quote depends on site size, topsoil depth, grade correction needed, whether imported base is required, access conditions, and the finish needed before the next trade shows up.",
+      "tiers": [
+        { "name": "Simpler", "eg": "Small pad prep or access lane with straightforward stripping and grade", "position": "low" },
+        { "name": "Typical", "eg": "New residential or rural build site needing stripping, grading, drainage, and pad prep", "position": "mid" },
+        { "name": "Complex", "eg": "Large lot, significant cut and fill, imported aggregate, drainage tile, and coordinated haul", "position": "high" }
+      ],
+      "rangeNote": "Most new-build site prep jobs fall in the middle range. Bellhouse quotes after reviewing the lot, grades, topsoil, access, and what the site needs to be ready for.",
+      "factors": [
+        {
+          "title": "Site size and topsoil stripping area",
+          "body": "More area to strip, haul, or stockpile means more machine time and truck loads before grading can begin."
+        },
+        {
+          "title": "Cut and fill volume",
+          "body": "Sites with significant grade changes need more material moved — either hauled off, redistributed, or imported to bring elevations to design."
+        },
+        {
+          "title": "Drainage and ditching scope",
+          "body": "Swales, ditches, culverts, and drainage prep add scope when the site has water management challenges built into the grade."
+        },
+        {
+          "title": "Imported aggregate or fill",
+          "body": "When the site needs granular base, fill, or imported material, truck loads, placement, and compaction all add cost."
+        },
+        {
+          "title": "Access and working conditions",
+          "body": "Tight lots, soft ground, active adjacent construction, and utility conflicts all affect how much time and care the prep work requires."
+        }
+      ],
+      "aside": {
+        "label": "Get a real number",
+        "heading": "Site photos and a rough plan help Bellhouse quote site prep accurately",
+        "body": "Instead of guessing from lot size alone.",
+        "action": { "label": "Request Site Prep Quote", "href": "/contact" },
+        "phone": { "label": "519-752-8500", "href": "tel:5197528500" }
+      }
+    },
+    {
       "type": "jobsiteProof",
+      "tone": "dark",
       "eyebrow": "Large-site prep",
       "heading": "Site preparation works best when grading, access, and material movement are planned together.",
       "body": "Bellhouse can coordinate earthmoving equipment, truck support, and practical grade decisions so raw sites are stripped, shaped, and ready for the next construction phase.",
@@ -139,7 +149,26 @@
       "caption": "Large-site preparation often combines stripping, rough grading, access planning, and material movement in one coordinated scope."
     },
     {
+      "type": "outcomes",
+      "tone": "light",
+      "eyebrow": "Site outcomes",
+      "heading": "What The Site Should Be Ready For After Prep",
+      "subheading": "Good site preparation should leave the job workable, drainable, and ready for the next trade instead of needing another round of correction.",
+      "stats": [
+        { "label": "Since 1982", "body": "Over four decades of local site work" },
+        { "label": "Own equipment", "body": "Excavators, dozers, trucks, and operators available for local site work" },
+        { "label": "5.0 on Google", "body": "Rated by homeowners, builders, and contractors" },
+        { "label": "Licensed & insured", "body": "Full coverage on every job" }
+      ],
+      "items": [
+        { "title": "Build-ready pads and working grades", "body": "The site is stripped, shaped, and brought to practical elevations so foundation, framing, utility, or concrete crews can move into usable ground." },
+        { "title": "Cleaner drainage and access decisions", "body": "Water movement, ditching, and route prep are handled as part of the grading plan so the site stays more stable through the construction phase." },
+        { "title": "Better coordination of cut, fill, and hauled material", "body": "Material movement stays aligned with the grading work instead of turning into separate truck calls and rework after the site is already open." }
+      ]
+    },
+    {
       "type": "problemsPrevented",
+      "tone": "dark",
       "heading": "What Proper Site Prep Helps Prevent",
       "subheading": "Site work usually gets more expensive when grading, drainage, and access are treated like cleanup instead of part of the first real phase of construction.",
       "items": [
@@ -158,81 +187,46 @@
       ]
     },
     {
-      "type": "outcomes",
-      "heading": "What The Site Should Be Ready For After Prep",
-      "subheading": "Good site preparation should leave the job workable, drainable, and ready for the next trade instead of needing another round of correction.",
-      "items": [
-        {
-          "title": "Build-ready pads and working grades",
-          "body": "The site is stripped, shaped, and brought to practical elevations so foundation, framing, utility, or concrete crews can move into usable ground."
-        },
-        {
-          "title": "Cleaner drainage and access decisions",
-          "body": "Water movement, ditching, and route prep are handled as part of the grading plan so the site stays more stable through the construction phase."
-        },
-        {
-          "title": "Better coordination of cut, fill, and hauled material",
-          "body": "Material movement stays aligned with the grading work instead of turning into separate truck calls and rework after the site is already open."
-        }
-      ]
-    },
-    {
       "type": "equipment",
+      "tone": "dark",
       "heading": "Equipment Used for Site Preparation",
       "subheading": "Heavy equipment and transport resources for efficient site clearing, grading, and earthmoving.",
       "items": [
         {
           "name": "Dozer",
           "body": "Used for bulk earthmoving, stripping topsoil, rough grading, and shaping building pads.",
-          "image": {
-            "src": "/assets/services/bellhouse-dozer-equipment-illustration.webp",
-            "alt": "Dozer"
-          }
+          "image": { "src": "/assets/services/bellhouse-dozer-equipment-illustration.webp", "alt": "Dozer" }
         },
         {
           "name": "Excavator",
           "body": "Handles excavation, trenching, material placement, and detailed site shaping.",
-          "image": {
-            "src": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp",
-            "alt": "Excavator"
-          }
+          "image": { "src": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp", "alt": "Excavator" }
         },
         {
           "name": "Skid Steer",
           "body": "Used for fine grading, cleanup, material handling, and preparing surfaces for construction.",
-          "image": {
-            "src": "/assets/services/bellhouse-skid-steer-equipment-illustration.webp",
-            "alt": "Skid Steer"
-          }
+          "image": { "src": "/assets/services/bellhouse-skid-steer-equipment-illustration.webp", "alt": "Skid Steer" }
         },
         {
           "name": "Off-Road Dump Truck",
           "body": "Moves material efficiently around the site without relying on public road access.",
-          "image": {
-            "src": "/assets/services/bellhouse-offroad-dump-truck-equipment-illustration.webp",
-            "alt": "Off-Road Dump Truck"
-          }
+          "image": { "src": "/assets/services/bellhouse-offroad-dump-truck-equipment-illustration.webp", "alt": "Off-Road Dump Truck" }
         },
         {
           "name": "Tri-Axle Dump Truck",
           "body": "Hauls excavated material off-site and delivers fill, granular base, and aggregates as needed.",
-          "image": {
-            "src": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp",
-            "alt": "Tri-Axle Dump Truck"
-          }
+          "image": { "src": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp", "alt": "Tri-Axle Dump Truck" }
         },
         {
           "name": "Laser & GPS Grade Control",
           "body": "Ensures accurate elevations, slopes, and consistent grading across the site.",
-          "image": {
-            "src": "/assets/services/bellhouse-laser-level-gps-rover-precision-layout-tools.webp",
-            "alt": "Laser and GPS grade control tools"
-          }
+          "image": { "src": "/assets/services/bellhouse-laser-level-gps-rover-precision-layout-tools.webp", "alt": "Laser and GPS grade control tools" }
         }
       ]
     },
     {
       "type": "process",
+      "tone": "light",
       "heading": "Our Site Preparation Process",
       "subheading": "Organized, efficient, and built around your project schedule.",
       "image": {
@@ -241,30 +235,16 @@
       },
       "caption": "Topsoil stripping, rough grading, and pad prep are coordinated before the next phase of construction starts.",
       "steps": [
-        {
-          "title": "Site Walk & Planning",
-          "body": "We review drawings, grades, and drainage needs."
-        },
-        {
-          "title": "Topsoil Removal",
-          "body": "Stripping and stockpiling or hauling of topsoil as required."
-        },
-        {
-          "title": "Rough Grading",
-          "body": "We shape the land to match proposed elevations."
-        },
-        {
-          "title": "Pad & Access Prep",
-          "body": "We create stable access roads and building pads."
-        },
-        {
-          "title": "Final Grading",
-          "body": "Final shaping for drainage and site usability."
-        }
+        { "title": "Site Walk & Planning", "body": "We review drawings, grades, and drainage needs." },
+        { "title": "Topsoil Removal", "body": "Stripping and stockpiling or hauling of topsoil as required." },
+        { "title": "Rough Grading", "body": "We shape the land to match proposed elevations." },
+        { "title": "Pad & Access Prep", "body": "We create stable access roads and building pads." },
+        { "title": "Final Grading", "body": "Final shaping for drainage and site usability." }
       ]
     },
     {
       "type": "contractorCta",
+      "tone": "dark",
       "eyebrow": "For builders and contractors",
       "heading": "Need site prep, grading, and material movement lined up around the build?",
       "body": "If your project needs stripping, grade control, drainage shaping, truck support, or imported aggregate coordinated to a real schedule, Bellhouse can review the site, scope, and timing.",
@@ -274,20 +254,13 @@
       },
       "caption": "Bellhouse can coordinate equipment, grading, and trucking around active contractor-led site work.",
       "actions": [
-        {
-          "label": "Send Project Details",
-          "href": "/contractors#contractor-form",
-          "variant": "primary"
-        },
-        {
-          "label": "Call 519-752-8500",
-          "href": "tel:5197528500",
-          "variant": "secondary"
-        }
+        { "label": "Send Project Details", "href": "/contractors#contractor-form", "variant": "primary" },
+        { "label": "Call 519-752-8500", "href": "tel:5197528500", "variant": "secondary" }
       ]
     },
     {
       "type": "resources",
+      "tone": "light",
       "eyebrow": "Planning tool",
       "heading": "Planning site prep quantities before the job is priced?",
       "subheading": "Site prep can involve both compacted base and finish topsoil. These planning tools help you rough out the right material side of the work without mixing it up with excavation-only estimates.",
@@ -305,48 +278,25 @@
           "label": "Estimate Topsoil Coverage"
         }
       ],
-      "actions": [
-        {
-          "label": "View Calculators",
-          "href": "/resources/calculators",
-          "variant": "secondary"
-        }
-      ]
+      "actions": [{ "label": "View Calculators", "href": "/resources/calculators", "variant": "secondary" }]
     },
     {
       "type": "serviceAreas",
+      "tone": "dark",
       "heading": "Site preparation by service area",
       "body": "Site prep and grading work changes by location, including Brantford access work, Paris rural lots, Hamilton redevelopment sites, Cambridge active builds, Ancaster grade transitions, and Woodstock yard or pad prep.",
-      "areaSlugs": [
-        "paris",
-        "brantford",
-        "hamilton",
-        "cambridge",
-        "ancaster",
-        "woodstock"
-      ]
+      "areaSlugs": ["paris", "brantford", "hamilton", "cambridge", "ancaster", "woodstock"]
     },
     {
       "type": "relatedServices",
+      "tone": "dark",
       "eyebrow": "Related services",
       "heading": "Related excavation, grading, and haul support",
-      "serviceSlugs": [
-        "foundation-excavation",
-        "driveway-parking-lot-preparation",
-        "dump-truck-rental",
-        "dirt-gravel-delivery",
-        "volvo-a35-off-road-dump-truck-rental"
-      ]
-    },
-    {
-      "type": "reviews",
-      "eyebrow": "Testimonials",
-      "heading": "What customers say about Bellhouse",
-      "subheading": "Feedback from local homeowners, builders, and job-site customers Bellhouse has worked with.",
-      "limit": 3
+      "serviceSlugs": ["foundation-excavation", "driveway-parking-lot-preparation", "dump-truck-rental", "dirt-gravel-delivery", "volvo-a35-off-road-dump-truck-rental"]
     },
     {
       "type": "faq",
+      "tone": "light",
       "heading": "Frequently Asked Questions",
       "items": [
         {
@@ -365,19 +315,63 @@
     },
     {
       "type": "finalCta",
+      "tone": "dark",
       "heading": "Need Your Site Ready for Construction?",
-      "body": "Get a quote for site preparation and grading.",
+      "body": "Send the site location, access details, and what the project needs — whether that is stripping, grading, pad prep, or drainage — and Bellhouse can review the scope and timing.",
+      "bullets": [
+        "No obligation — free project review",
+        "Bellhouse replies with real numbers",
+        "Local crew, local knowledge"
+      ],
+      "form": true,
       "actions": [
+        { "label": "Request Site Prep Quote", "href": "/contact", "variant": "primary" },
+        { "label": "Send Project Details", "href": "/contractors#contractor-form", "variant": "secondary" }
+      ],
+      "navGroups": [
         {
-          "label": "Request Site Prep Quote",
-          "href": "/contact",
-          "variant": "primary"
+          "label": "Other services",
+          "icon": "wrench",
+          "links": [
+            { "label": "Site Prep & Grading", "href": "/services/site-preparation-land-grading", "icon": "caret-right" },
+            { "label": "Contractor Support", "href": "/contractors", "icon": "caret-right" },
+            { "label": "Demolition", "href": "/services/house-barn-demolition", "icon": "caret-right" },
+            { "label": "Dirt & Gravel Delivery", "href": "/services/dirt-gravel-delivery", "icon": "caret-right" },
+            { "label": "Land Drainage", "href": "/services/land-grading-drainage", "icon": "caret-right" }
+          ]
         },
         {
-          "label": "Send Project Details",
-          "href": "/contractors#contractor-form",
-          "variant": "secondary"
+          "label": "Service areas",
+          "icon": "map-pin",
+          "links": [
+            { "label": "Brantford", "href": "/service-areas/brantford", "icon": "map-pin" },
+            { "label": "Brant County", "href": "/service-areas/brantford", "icon": "map-pin" },
+            { "label": "Paris", "href": "/service-areas/paris", "icon": "map-pin" },
+            { "label": "Cambridge", "href": "/service-areas/cambridge", "icon": "map-pin" },
+            { "label": "Woodstock", "href": "/service-areas/woodstock", "icon": "map-pin" },
+            { "label": "Hamilton", "href": "/service-areas/hamilton", "icon": "map-pin" }
+          ]
         }
+      ]
+    },
+    {
+      "type": "banner",
+      "tone": "dark",
+      "eyebrow": "Site ready to build on",
+      "heading": "Raw lot or rough site? Bellhouse is local, equipped, and taking jobs now.",
+      "body": "From topsoil stripping and rough grading to pad prep, drainage, and imported aggregate, Bellhouse handles site preparation so your project has a clean, build-ready start.",
+      "bullets": [
+        "Stripping, grading, pads, drainage, and haul coordinated as one scope",
+        "Own equipment — excavators, dozers, and trucks on local sites",
+        "Brantford, Paris, Hamilton, and surrounding Brant County"
+      ],
+      "image": {
+        "src": "/assets/services/site-preparations-land-clearing/large-site-prep-equipment.jpg",
+        "alt": "Bellhouse equipment preparing a large construction site for grading and material movement"
+      },
+      "actions": [
+        { "label": "Request Site Prep Quote", "href": "/contact", "variant": "primary" },
+        { "label": "Call 519-752-8500", "href": "tel:5197528500", "variant": "secondary" }
       ]
     }
   ]

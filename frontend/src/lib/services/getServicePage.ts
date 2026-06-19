@@ -49,6 +49,14 @@ function isCmsServicePage(value: unknown): value is CmsServicePage {
   );
 }
 
+function applyContactService(page: CmsServicePage): CmsServicePage {
+  if (!page.contactService) return page;
+  const param = `?service=${encodeURIComponent(page.contactService)}`;
+  return JSON.parse(
+    JSON.stringify(page).replace(/\/contact(?=[",])/g, `/contact${param}`),
+  ) as CmsServicePage;
+}
+
 export function getServicePage(slug: string): CmsServicePage | null {
   const rawService = getServiceBySlug(slug) as RawServicePage | null;
 
@@ -57,7 +65,7 @@ export function getServicePage(slug: string): CmsServicePage | null {
   }
 
   if (isCmsServicePage(rawService)) {
-    return rawService;
+    return applyContactService(rawService);
   }
 
   return adaptLegacyServicePage(rawService as LegacyServicePage);

@@ -3,6 +3,7 @@
   "slug": "driveway-parking-lot-preparation",
   "title": "Driveway & Parking Lot Preparation",
   "navTitle": "Driveway & Lot Prep",
+  "contactService": "Driveway",
   "meta": {
     "title": "Driveway & Parking Lot Prep | Bellhouse",
     "description": "Driveway and parking lot preparation in Brantford and nearby areas, including grading, gravel base prep, compaction, drainage, and site access support."
@@ -15,124 +16,130 @@
   },
   "hero": {
     "eyebrow": "Driveway base prep & lot grading",
-    "heading": "Driveway & Parking Lot Preparation",
+    "heading": "Driveway & Parking Lot Preparation in Brantford",
     "summary": "Precision grading, granular base placement, and compaction for driveways, laneways, parking areas, and contractor-ready surfaces.",
     "actions": [
-      {
-        "label": "Request a Quote",
-        "href": "/contact",
-        "variant": "primary"
-      },
-      {
-        "label": "For Builders & Contractors",
-        "href": "/contractors",
-        "variant": "secondary"
-      }
-    ],
-    "proofPoints": [
-      "Slope correction and drainage control",
-      "Granular base placed and compacted in lifts",
-      "Residential driveways and commercial parking areas"
+      { "label": "Request a Quote", "href": "/contact", "variant": "primary" },
+      { "label": "For Builders & Contractors", "href": "/contractors", "variant": "secondary" }
     ],
     "emphasis": "high",
     "image": "/assets/services/driveways-laneways/brantwood-farms-driveway-connection-preparation.webp",
-    "alt": "Bellhouse excavator preparing a Brantwood Farms driveway connection and laneway base."
+    "alt": "Bellhouse excavator preparing a Brantwood Farms driveway connection and laneway base.",
+    "sideForm": true,
+    "proofBar": [
+      { "icon": "map-pin", "title": "Local to Brantford", "subtitle": "& Brant County" },
+      { "icon": "calendar-check", "title": "Since 1982", "subtitle": "Family operation" },
+      { "icon": "truck", "title": "Own equipment", "subtitle": "Trucks & excavators" },
+      { "icon": "star", "title": "5.0 on Google", "subtitle": "Local reviews" },
+      { "icon": "shield-check", "title": "Licensed & insured", "subtitle": "Fully covered" }
+    ]
   },
   "sections": [
     {
-      "type": "proofStrip",
-      "items": [
-        {
-          "label": "Grade correction",
-          "description": "Soft spots, low areas, and rough transitions corrected before base material goes in."
-        },
-        {
-          "label": "Granular base prep",
-          "description": "Stone and granular material placed, shaped, and compacted for a stronger finished surface."
-        },
-        {
-          "label": "Drainage-aware work",
-          "description": "Driveways, lanes, and parking areas shaped so water has a better path off the surface."
-        }
-      ]
-    },
-    {
       "type": "intro",
+      "tone": "light",
+      "eyebrow": "Who it's for",
       "heading": "Proper Site Preparation for Driveways & Parking Lots",
       "body": "Bellhouse Excavating prepares driveways, laneways, parking lots, and yard entrances for gravel, asphalt, concrete, or resurfacing. We shape the grade, remove unsuitable material, place granular base, and compact the surface so the finished area has better drainage and durability.",
-      "bullets": [
-        "Driveway grading and surface shaping",
-        "Granular base placement and compaction",
-        "Driveway widening, rebuilding, and regrading",
-        "Parking lot and contractor-ready surface prep"
+      "audience": [
+        { "icon": "house-line", "label": "Homeowners" },
+        { "icon": "blueprint", "label": "Builders & contractors" },
+        { "icon": "compass-tool", "label": "Paving contractors" },
+        { "icon": "buildings", "label": "Commercial sites" }
       ]
     },
     {
       "type": "projectFit",
+      "tone": "dark",
       "heading": "When This Prep Work Is Worth Bringing Bellhouse In",
       "subheading": "Best fit for surfaces that need more than a quick top-up and actually require grade correction, stable base, and proper compaction before the next layer goes down.",
       "cards": [
         {
           "title": "Driveway rebuilds with soft spots or drainage issues",
           "body": "A practical fit when an existing driveway is holding water, rutting, or breaking down because the grade and base underneath were never corrected properly.",
-          "tags": [
-            "Drainage correction",
-            "Subgrade repair",
-            "Driveway rebuilds"
-          ],
+          "tags": ["Drainage correction", "Subgrade repair", "Driveway rebuilds"],
           "outcome": "Addresses the underlying grade and base problem instead of just dressing up the surface for a short-term fix."
         },
         {
           "title": "Widening jobs and fresh granular base installs",
           "body": "Useful when the work includes cutting back edges, importing stone, placing base in lifts, and tying new prep into an existing driveway or lane cleanly.",
-          "tags": [
-            "Driveway widening",
-            "New gravel base",
-            "Lane extensions"
-          ],
+          "tags": ["Driveway widening", "New gravel base", "Lane extensions"],
           "outcome": "Leaves a more uniform driving surface that is ready for gravel use or paving without patchwork transitions."
         },
         {
           "title": "Small parking areas and contractor-ready prep",
           "body": "A strong fit for parking lots, yard entrances, and other traffic areas that need usable slopes, compacted base, and a clear handoff to the paving contractor or finish surface crew.",
-          "tags": [
-            "Parking-lot prep",
-            "Commercial entrances",
-            "Paving-ready base"
-          ],
+          "tags": ["Parking-lot prep", "Commercial entrances", "Paving-ready base"],
           "outcome": "Creates a surface that is easier for the next crew to pave, top, or finish without regrading on arrival."
         }
       ]
     },
     {
       "type": "scope",
+      "tone": "light",
       "heading": "Driveway & Parking Lot Prep Includes",
       "subheading": "Everything required to build a stable, long-lasting surface.",
       "items": [
-        {
-          "title": "Grading & Slope Correction",
-          "body": "We create practical drainage slopes to reduce pooling, erosion, rutting, and frost-heave problems."
-        },
-        {
-          "title": "Base Material Installation",
-          "body": "Granular A or B material is placed, spread, shaped, and compacted in lifts for a more stable base."
-        },
-        {
-          "title": "Compaction",
-          "body": "Compaction equipment is used to tighten the base and improve long-term surface performance."
-        },
-        {
-          "title": "Driveway Widening",
-          "body": "We remove sod, soil, and unsuitable material to widen or rebuild existing driveways and lanes."
-        },
-        {
-          "title": "Parking Lot Prep",
-          "body": "Commercial and farm parking areas can be graded and prepared for gravel, asphalt, or concrete."
-        }
+        { "title": "Grading & Slope Correction", "body": "We create practical drainage slopes to reduce pooling, erosion, rutting, and frost-heave problems." },
+        { "title": "Base Material Installation", "body": "Granular A or B material is placed, spread, shaped, and compacted in lifts for a more stable base." },
+        { "title": "Compaction", "body": "Compaction equipment is used to tighten the base and improve long-term surface performance." },
+        { "title": "Driveway Widening", "body": "We remove sod, soil, and unsuitable material to widen or rebuild existing driveways and lanes." },
+        { "title": "Parking Lot Prep", "body": "Commercial and farm parking areas can be graded and prepared for gravel, asphalt, or concrete." }
       ]
     },
     {
+      "type": "reviews",
+      "tone": "light",
+      "eyebrow": "Testimonials",
+      "heading": "What customers say about Bellhouse",
+      "subheading": "Feedback from local homeowners, builders, and job-site customers Bellhouse has worked with.",
+      "limit": 3
+    },
+    {
+      "type": "pricingFactors",
+      "tone": "dark",
+      "eyebrow": "What affects price",
+      "heading": "Driveway prep is priced around the site conditions and scope",
+      "subheading": "A useful quote depends on existing grades, material removal, granular base needs, drainage, and access.",
+      "tiers": [
+        { "name": "Simpler", "eg": "Gravel top-up with light grading, good existing base", "position": "low" },
+        { "name": "Typical", "eg": "Driveway rebuild with base replacement and compaction", "position": "mid" },
+        { "name": "Complex", "eg": "Significant grade correction, poor access, full base and drainage work", "position": "high" }
+      ],
+      "rangeNote": "Most residential driveway prep jobs fall in the middle range. Bellhouse quotes after reviewing the site, existing conditions, and material needs.",
+      "factors": [
+        {
+          "title": "Existing grade and soft spots",
+          "body": "Driveways that are holding water, rutting, or sitting on weak subgrade take more material removal and base work to correct properly."
+        },
+        {
+          "title": "Granular base required",
+          "body": "The type and depth of imported granular material is a major cost driver. A-gravel, B-gravel, and compacted base all affect material and truck costs."
+        },
+        {
+          "title": "Area size and length",
+          "body": "Longer laneways, wider parking areas, and larger footprints require more material, machine time, and compaction passes."
+        },
+        {
+          "title": "Drainage and ditching",
+          "body": "Jobs that need slope correction, edge ditching, or drainage swales add to the scope beyond standard base prep."
+        },
+        {
+          "title": "Site access and obstacles",
+          "body": "Overhead lines, tight approaches, steep slopes, and the need to work around existing structures all affect how the prep work can be done."
+        }
+      ],
+      "aside": {
+        "label": "The honest version",
+        "heading": "Site photos and existing conditions help Bellhouse quote the real prep scope",
+        "body": "Instead of guessing from square footage alone.",
+        "action": { "label": "Request a Quote", "href": "/contact" },
+        "phone": { "label": "519-752-8500", "href": "tel:5197528500" }
+      }
+    },
+    {
       "type": "jobsiteProof",
+      "tone": "dark",
       "eyebrow": "Built for daily use",
       "heading": "A better driveway starts below the top layer.",
       "body": "Bellhouse focuses on the base, grade, drainage, and compaction before the finished surface goes down. That is what keeps a driveway or parking area from becoming soft, rutted, or uneven soon after the work is done.",
@@ -143,7 +150,26 @@
       "caption": "Finished driveway base preparation should leave a cleaner tie-in, stronger base, and more usable surface."
     },
     {
+      "type": "outcomes",
+      "tone": "light",
+      "eyebrow": "Site outcomes",
+      "heading": "What The Surface Should Be Ready For",
+      "subheading": "The goal is a driveway, lane, or parking area that is stable, drainable, and ready for the next step.",
+      "stats": [
+        { "label": "Since 1982", "body": "Over four decades of local site work" },
+        { "label": "Own equipment", "body": "Excavators, dozers, trucks, and operators available for local site work" },
+        { "label": "5.0 on Google", "body": "Rated by homeowners, builders, and contractors" },
+        { "label": "Licensed & insured", "body": "Full coverage on every job" }
+      ],
+      "items": [
+        { "title": "A stronger granular base", "body": "The surface is shaped and compacted so it can better support vehicle traffic, gravel topping, asphalt, or concrete." },
+        { "title": "Cleaner water movement", "body": "Slope, low spots, and edge transitions are handled so water is less likely to sit or wash out the surface." },
+        { "title": "A cleaner handoff", "body": "Paving, concrete, gravel topping, or continued site work can proceed from a more prepared surface." }
+      ]
+    },
+    {
       "type": "problemsPrevented",
+      "tone": "dark",
       "heading": "What Proper Base Prep Helps Prevent",
       "subheading": "Most driveway and parking lot failures start with poor drainage, weak base, or rushed compaction.",
       "items": [
@@ -162,65 +188,36 @@
       ]
     },
     {
-      "type": "outcomes",
-      "heading": "What The Surface Should Be Ready For",
-      "subheading": "The goal is a driveway, lane, or parking area that is stable, drainable, and ready for the next step.",
-      "items": [
-        {
-          "title": "A stronger granular base",
-          "body": "The surface is shaped and compacted so it can better support vehicle traffic, gravel topping, asphalt, or concrete."
-        },
-        {
-          "title": "Cleaner water movement",
-          "body": "Slope, low spots, and edge transitions are handled so water is less likely to sit or wash out the surface."
-        },
-        {
-          "title": "A cleaner handoff",
-          "body": "Paving, concrete, gravel topping, or continued site work can proceed from a more prepared surface."
-        }
-      ]
-    },
-    {
       "type": "equipment",
+      "tone": "dark",
       "heading": "Equipment Used for Driveway & Lot Prep",
       "subheading": "Reliable machines that support accurate grading, base placement, and compaction.",
       "items": [
         {
           "name": "Excavator",
           "body": "Used to remove unsuitable material, shape ditches, widen driveways, and establish rough grade.",
-          "image": {
-            "src": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp",
-            "alt": "Excavator"
-          }
+          "image": { "src": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp", "alt": "Excavator" }
         },
         {
           "name": "Tri-Axle Dump Trucks",
           "body": "Used for hauling excavated material and delivering granular base, gravel, and aggregates.",
-          "image": {
-            "src": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp",
-            "alt": "Tri-Axle Dump Trucks"
-          }
+          "image": { "src": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp", "alt": "Tri-Axle Dump Trucks" }
         },
         {
           "name": "Skid Steer",
           "body": "Used for fine grading, spreading aggregate, cleanup, and working in tighter driveway or parking areas.",
-          "image": {
-            "src": "/assets/services/bellhouse-skid-steer-equipment-illustration.webp",
-            "alt": "Skid Steer"
-          }
+          "image": { "src": "/assets/services/bellhouse-skid-steer-equipment-illustration.webp", "alt": "Skid Steer" }
         },
         {
           "name": "Compaction Equipment",
           "body": "Used to compact granular base and improve long-term surface stability.",
-          "image": {
-            "src": "/assets/services/bellhouse-roller-compactor-equipment-illustration.webp",
-            "alt": "Compaction Equipment"
-          }
+          "image": { "src": "/assets/services/bellhouse-roller-compactor-equipment-illustration.webp", "alt": "Compaction Equipment" }
         }
       ]
     },
     {
       "type": "process",
+      "tone": "light",
       "heading": "How Our Process Works",
       "subheading": "A streamlined workflow for grade correction, base prep, and final compaction.",
       "image": {
@@ -229,30 +226,16 @@
       },
       "caption": "Compaction is part of the base-prep process, not an afterthought once the surface is already shaped.",
       "steps": [
-        {
-          "title": "Site Assessment",
-          "body": "We evaluate drainage, soft spots, grade changes, access, and required base material."
-        },
-        {
-          "title": "Excavation & Removal",
-          "body": "Soft or unsuitable material is removed and the rough grade is shaped for the intended surface."
-        },
-        {
-          "title": "Base Material Installation",
-          "body": "Granular base is placed, spread, shaped, and compacted in a practical sequence."
-        },
-        {
-          "title": "Fine Grading & Slope Setting",
-          "body": "We dial in surface shape and drainage so the finished driveway or lot has a better path for water."
-        },
-        {
-          "title": "Final Compaction",
-          "body": "The surface is compacted and left ready for gravel use, paving, concrete, or the next crew."
-        }
+        { "title": "Site Assessment", "body": "We evaluate drainage, soft spots, grade changes, access, and required base material." },
+        { "title": "Excavation & Removal", "body": "Soft or unsuitable material is removed and the rough grade is shaped for the intended surface." },
+        { "title": "Base Material Installation", "body": "Granular base is placed, spread, shaped, and compacted in a practical sequence." },
+        { "title": "Fine Grading & Slope Setting", "body": "We dial in surface shape and drainage so the finished driveway or lot has a better path for water." },
+        { "title": "Final Compaction", "body": "The surface is compacted and left ready for gravel use, paving, concrete, or the next crew." }
       ]
     },
     {
       "type": "contractorCta",
+      "tone": "dark",
       "eyebrow": "For builders and contractors",
       "heading": "Need driveway, lane, or parking prep coordinated with aggregate and trucking?",
       "body": "If your project needs base prep, grading, imported gravel, truck timing, or a clean handoff to paving or concrete, Bellhouse can review the scope, access, and schedule.",
@@ -262,20 +245,13 @@
       },
       "caption": "Driveway and laneway prep can be coordinated with aggregate delivery, excavation, and truck support.",
       "actions": [
-        {
-          "label": "Send Project Details",
-          "href": "/contractors#contractor-form",
-          "variant": "primary"
-        },
-        {
-          "label": "Call 519-752-8500",
-          "href": "tel:5197528500",
-          "variant": "secondary"
-        }
+        { "label": "Send Project Details", "href": "/contractors#contractor-form", "variant": "primary" },
+        { "label": "Call 519-752-8500", "href": "tel:5197528500", "variant": "secondary" }
       ]
     },
     {
       "type": "resources",
+      "tone": "light",
       "eyebrow": "Planning tool",
       "heading": "Planning driveway or parking lot base quantities?",
       "subheading": "For driveway gravel, parking lot base, and compacted placement work, the Bellhouse gravel calculator gives you a practical starting quantity before final grading and drainage are reviewed.",
@@ -287,47 +263,25 @@
           "label": "Estimate Gravel Base"
         }
       ],
-      "actions": [
-        {
-          "label": "View Calculators",
-          "href": "/resources/calculators",
-          "variant": "secondary"
-        }
-      ]
+      "actions": [{ "label": "View Calculators", "href": "/resources/calculators", "variant": "secondary" }]
     },
     {
       "type": "serviceAreas",
+      "tone": "dark",
       "heading": "Driveway and parking lot prep by service area",
       "body": "Driveway and parking lot prep is available across local service areas where grading, base material, drainage, and truck access affect the finished surface.",
-      "areaSlugs": [
-        "paris",
-        "brantford",
-        "ancaster",
-        "dundas",
-        "waterdown",
-        "simcoe"
-      ]
+      "areaSlugs": ["paris", "brantford", "ancaster", "dundas", "waterdown", "simcoe"]
     },
     {
       "type": "relatedServices",
+      "tone": "dark",
       "eyebrow": "Related services",
       "heading": "Related grading, aggregate, and hauling services",
-      "serviceSlugs": [
-        "dirt-gravel-delivery",
-        "land-grading-drainage",
-        "site-preparation-land-grading",
-        "dump-truck-rental"
-      ]
-    },
-    {
-      "type": "reviews",
-      "eyebrow": "Testimonials",
-      "heading": "What customers say about Bellhouse",
-      "subheading": "Feedback from local homeowners, builders, and job-site customers Bellhouse has worked with.",
-      "limit": 3
+      "serviceSlugs": ["dirt-gravel-delivery", "land-grading-drainage", "site-preparation-land-grading", "dump-truck-rental"]
     },
     {
       "type": "faq",
+      "tone": "light",
       "heading": "Frequently Asked Questions",
       "items": [
         {
@@ -350,19 +304,63 @@
     },
     {
       "type": "finalCta",
+      "tone": "dark",
       "heading": "Ready to Build a Better Driveway?",
       "body": "Send the site details and Bellhouse can review the grading, base material, drainage, and truck access needed for your project.",
+      "bullets": [
+        "No obligation — free project review",
+        "Bellhouse replies with real numbers",
+        "Local crew, local knowledge"
+      ],
+      "form": true,
       "actions": [
+        { "label": "Request a Quote", "href": "/contact", "variant": "primary" },
+        { "label": "Send Project Details", "href": "/contractors#contractor-form", "variant": "secondary" }
+      ],
+      "navGroups": [
         {
-          "label": "Request a Quote",
-          "href": "/contact",
-          "variant": "primary"
+          "label": "Other services",
+          "icon": "wrench",
+          "links": [
+            { "label": "Site Prep & Grading", "href": "/services/site-preparation-land-grading", "icon": "caret-right" },
+            { "label": "Contractor Support", "href": "/contractors", "icon": "caret-right" },
+            { "label": "Demolition", "href": "/services/house-barn-demolition", "icon": "caret-right" },
+            { "label": "Dirt & Gravel Delivery", "href": "/services/dirt-gravel-delivery", "icon": "caret-right" },
+            { "label": "Land Drainage", "href": "/services/land-grading-drainage", "icon": "caret-right" }
+          ]
         },
         {
-          "label": "Send Project Details",
-          "href": "/contractors#contractor-form",
-          "variant": "secondary"
+          "label": "Service areas",
+          "icon": "map-pin",
+          "links": [
+            { "label": "Brantford", "href": "/service-areas/brantford", "icon": "map-pin" },
+            { "label": "Brant County", "href": "/service-areas/brantford", "icon": "map-pin" },
+            { "label": "Paris", "href": "/service-areas/paris", "icon": "map-pin" },
+            { "label": "Cambridge", "href": "/service-areas/cambridge", "icon": "map-pin" },
+            { "label": "Woodstock", "href": "/service-areas/woodstock", "icon": "map-pin" },
+            { "label": "Hamilton", "href": "/service-areas/hamilton", "icon": "map-pin" }
+          ]
         }
+      ]
+    },
+    {
+      "type": "banner",
+      "tone": "dark",
+      "eyebrow": "Driveway prep done right",
+      "heading": "Ready to fix the base? Bellhouse is local, equipped, and taking jobs now.",
+      "body": "From grade correction and granular base to compaction and paving handoff, Bellhouse handles driveway and parking prep so the finished surface holds.",
+      "bullets": [
+        "Driveways, laneways, and parking lot base preparation",
+        "Gravel, aggregate delivery, and compaction included",
+        "Brantford, Paris, Ancaster, and surrounding Brant County"
+      ],
+      "image": {
+        "src": "/assets/services/driveways-laneways/finished-driveway-base-preparation-brantford.webp",
+        "alt": "Finished driveway base preparation tied into the road in Brantford"
+      },
+      "actions": [
+        { "label": "Request a Quote", "href": "/contact", "variant": "primary" },
+        { "label": "Call 519-752-8500", "href": "tel:5197528500", "variant": "secondary" }
       ]
     }
   ]

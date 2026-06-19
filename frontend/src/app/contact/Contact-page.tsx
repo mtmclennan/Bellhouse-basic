@@ -1,6 +1,7 @@
 'use client';
 
 import { Fragment } from 'react';
+import { useSearchParams } from 'next/navigation';
 import ContactForm from '../components/forms/ContactForm';
 import ContactMethodsSection from '../components/sections/ContactMethodsSection/ContactMethodsSection';
 import FaqSection from '../components/sections/FaqSection/FaqSection';
@@ -19,7 +20,20 @@ import {
 } from '@/content/pages/contactSections';
 import pageClasses from './Contact-page.module.scss';
 
+const DEFAULT_WORK_TYPE_OPTIONS = [
+  'Other','Foundation Excavation','Site Grading','Land Clearing','Demolition',
+  'Retaining Walls','Utility Trenches','Erosion Control','Septic System','Drainage',
+  'Dump Truck Services','Equipment Hauling','Gravel Delivery','Sand Delivery',
+  'Topsoil Delivery','Fill Dirt','Driveway','Parking Lot',
+];
+
 const Contact = () => {
+  const searchParams = useSearchParams();
+  const serviceParam = searchParams.get('service') ?? '';
+  const initialService = DEFAULT_WORK_TYPE_OPTIONS.find(
+    (opt) => opt.toLowerCase() === serviceParam.toLowerCase(),
+  );
+
   return (
     <Fragment>
       <HeroSection data={contactHeroData} />
@@ -60,7 +74,7 @@ const Contact = () => {
 
           <div className={pageClasses.formPane}>
             <div className={pageClasses.formColumn}>
-              <ContactForm embedded={true} sectionId="contact-form" />
+              <ContactForm embedded={true} sectionId="contact-form" initialService={initialService} />
               <section className={pageClasses.trustPanel}>
                 <p className={pageClasses.trustIntro}>
                   {contactTrustPanelData.text}

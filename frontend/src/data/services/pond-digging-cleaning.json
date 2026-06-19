@@ -3,6 +3,7 @@
   "slug": "pond-digging-cleaning",
   "title": "Pond Digging & Cleaning Services",
   "navTitle": "Pond Digging & Cleaning",
+  "contactService": "Other",
   "meta": {
     "title": "Pond Digging & Cleaning Services | Brant County | Bellhouse",
     "description": "Professional pond digging and maintenance services in Brant County. Excavation, restoration, and cleaning for residential, commercial, and agricultural ponds."
@@ -15,120 +16,129 @@
   },
   "hero": {
     "eyebrow": "Pond excavation & restoration",
-    "heading": "Pond Digging & Cleaning Services",
+    "heading": "Pond Digging & Cleaning in Brantford",
     "summary": "Custom pond excavation, deepening, sediment removal, shoreline reshaping, and restoration for farms, rural properties, and residential sites.",
     "actions": [
-      {
-        "label": "Request Pond Quote",
-        "href": "/contact",
-        "variant": "primary"
-      },
-      {
-        "label": "For Builders & Contractors",
-        "href": "/contractors",
-        "variant": "secondary"
-      }
+      { "label": "Request Pond Quote", "href": "/contact", "variant": "primary" },
+      { "label": "For Builders & Contractors", "href": "/contractors", "variant": "secondary" }
     ],
-    "proofPoints": [
-      "New pond excavation",
-      "Pond cleaning and sediment removal",
-      "Shoreline shaping and drainage improvements"
-    ],
-    "emphasis": "compact",
+    "emphasis": "high",
     "image": "/assets/pond-digging-cleaning-brant-county.jpg",
-    "alt": "Pond excavation and cleaning area reshaped for water management."
+    "alt": "Pond excavation and cleaning area reshaped for water management.",
+    "sideForm": true,
+    "proofBar": [
+      { "icon": "map-pin", "title": "Local to Brantford", "subtitle": "& Brant County" },
+      { "icon": "calendar-check", "title": "Since 1982", "subtitle": "Family operation" },
+      { "icon": "truck", "title": "Own equipment", "subtitle": "Trucks & excavators" },
+      { "icon": "star", "title": "5.0 on Google", "subtitle": "Local reviews" },
+      { "icon": "shield-check", "title": "Licensed & insured", "subtitle": "Fully covered" }
+    ]
   },
   "sections": [
     {
-      "type": "proofStrip",
-      "items": [
-        {
-          "label": "New pond excavation",
-          "description": "Ponds can be dug and shaped around depth, drainage, soil conditions, and intended use."
-        },
-        {
-          "label": "Pond cleaning",
-          "description": "Sediment, organic buildup, and overgrowth can be removed where access and conditions allow."
-        },
-        {
-          "label": "Shoreline restoration",
-          "description": "Banks, slopes, and edges can be reshaped for better access, drainage, and long-term use."
-        }
-      ]
-    },
-    {
       "type": "intro",
+      "tone": "light",
+      "eyebrow": "Who it's for",
       "heading": "Create, Expand, or Restore Your Pond with Expert Excavation",
       "body": "Bellhouse Excavating provides pond digging and pond cleaning services, from new pond construction to sediment removal and shoreline reshaping. Whether the project is a farm pond, wildlife pond, drainage pond, or rural property feature, the work is planned around access, soil, water management, and the final use of the site.",
-      "bullets": [
-        "New pond excavation",
-        "Pond deepening and expansion",
-        "Sediment removal and dredging",
-        "Shoreline reshaping and drainage improvements"
+      "audience": [
+        { "icon": "drop", "label": "Water management" },
+        { "icon": "house-line", "label": "Rural property owners" },
+        { "icon": "shovel", "label": "New pond excavation" },
+        { "icon": "map-trifold", "label": "Farm & rural land" }
       ]
     },
     {
       "type": "projectFit",
+      "tone": "dark",
       "heading": "When Bellhouse Pond Work Is a Good Fit",
       "subheading": "Best fit for pond projects that need real excavation equipment, careful access planning, and practical water-management thinking.",
       "cards": [
         {
           "title": "New farm, rural, or wildlife ponds",
           "body": "A practical fit when a new pond needs to be excavated with the right depth, side slopes, spoil placement, and equipment access.",
-          "tags": [
-            "New ponds",
-            "Farm ponds",
-            "Wildlife ponds"
-          ],
+          "tags": ["New ponds", "Farm ponds", "Wildlife ponds"],
           "outcome": "Creates a pond shape that works with the property instead of leaving a rough hole that is hard to maintain."
         },
         {
           "title": "Pond cleaning, deepening, and sediment removal",
           "body": "Useful when an existing pond has lost depth, filled with silt, or become difficult to maintain because of organic buildup.",
-          "tags": [
-            "Sediment removal",
-            "Pond deepening",
-            "Dredging"
-          ],
+          "tags": ["Sediment removal", "Pond deepening", "Dredging"],
           "outcome": "Restores usable depth and improves access where the site conditions allow equipment to work safely."
         },
         {
           "title": "Shoreline reshaping and drainage improvements",
           "body": "A strong fit when pond edges, slopes, drainage routes, or overflow areas need excavation and grading support.",
-          "tags": [
-            "Shoreline shaping",
-            "Drainage",
-            "Bank repair"
-          ],
+          "tags": ["Shoreline shaping", "Drainage", "Bank repair"],
           "outcome": "Leaves cleaner slopes and better water movement around the pond."
         }
       ]
     },
     {
       "type": "scope",
+      "tone": "light",
       "heading": "Pond Excavation & Cleaning Includes",
       "subheading": "Complete pond creation and restoration services where site conditions and access support the work.",
       "items": [
-        {
-          "title": "New Pond Construction",
-          "body": "Custom pond digging based on drainage, depth, soil conditions, and land use."
-        },
-        {
-          "title": "Sediment Removal",
-          "body": "Silt and organic buildup can be removed to restore depth and improve pond function."
-        },
-        {
-          "title": "Pond Expansion",
-          "body": "Existing ponds can be widened, deepened, or reshaped to increase water capacity."
-        },
-        {
-          "title": "Shoreline Reshaping",
-          "body": "Edges, banks, slopes, and drainage areas can be shaped for better long-term access and water management."
-        }
+        { "title": "New Pond Construction", "body": "Custom pond digging based on drainage, depth, soil conditions, and land use." },
+        { "title": "Sediment Removal", "body": "Silt and organic buildup can be removed to restore depth and improve pond function." },
+        { "title": "Pond Expansion", "body": "Existing ponds can be widened, deepened, or reshaped to increase water capacity." },
+        { "title": "Shoreline Reshaping", "body": "Edges, banks, slopes, and drainage areas can be shaped for better long-term access and water management." }
       ]
     },
     {
+      "type": "reviews",
+      "tone": "light",
+      "eyebrow": "Testimonials",
+      "heading": "What customers say about Bellhouse",
+      "subheading": "Feedback from local homeowners, builders, and job-site customers Bellhouse has worked with.",
+      "limit": 3
+    },
+    {
+      "type": "pricingFactors",
+      "tone": "dark",
+      "eyebrow": "What affects price",
+      "heading": "Pond work is priced around the depth needed, the material to move, and what the site allows",
+      "subheading": "A useful quote depends on pond size, depth goal, site access for equipment, spoil placement or haul-out, and whether cleaning or new excavation is needed.",
+      "tiers": [
+        { "name": "Simpler", "eg": "Small pond cleaning or shoreline reshaping with good equipment access", "position": "low" },
+        { "name": "Typical", "eg": "New farm or rural pond with sediment, spoil placement, and shoreline grading", "position": "mid" },
+        { "name": "Complex", "eg": "Large pond, deep excavation, significant haul-out, or limited access", "position": "high" }
+      ],
+      "rangeNote": "Most farm and rural pond projects fall in the middle range. Bellhouse quotes after reviewing the pond condition, site access, material needs, and what the finished pond should look like.",
+      "factors": [
+        {
+          "title": "Pond size and excavation depth",
+          "body": "Larger ponds and greater depths require more machine time and produce more material to deal with."
+        },
+        {
+          "title": "Sediment volume and condition",
+          "body": "How much sediment, silt, or organic material needs to come out affects both excavation time and disposal or placement."
+        },
+        {
+          "title": "Equipment access to the pond edge",
+          "body": "Soft ground, narrow approaches, steep banks, and nearby features all affect how safely the excavator can reach the pond."
+        },
+        {
+          "title": "Spoil placement or haul-out",
+          "body": "Whether removed material can be placed on-site in a usable location or needs to be trucked away changes the cost significantly."
+        },
+        {
+          "title": "Shoreline and drainage work",
+          "body": "Reshaping banks, overflow areas, or drainage paths around the pond adds grading scope beyond the basic dig."
+        }
+      ],
+      "aside": {
+        "label": "Get a real number",
+        "heading": "Site photos and pond condition help Bellhouse quote the right excavation scope",
+        "body": "Instead of estimating from pond size alone.",
+        "action": { "label": "Request Pond Quote", "href": "/contact" },
+        "phone": { "label": "519-752-8500", "href": "tel:5197528500" }
+      }
+    },
+    {
       "type": "jobsiteProof",
+      "tone": "dark",
       "eyebrow": "Pond excavation work",
       "heading": "Good pond work starts with access, soil, water, and where the excavated material goes.",
       "body": "Pond digging and cleaning need more planning than simply digging deeper. Bellhouse reviews equipment access, spoil placement, drainage, depth, shoreline slopes, and the condition of the existing pond or site.",
@@ -139,7 +149,26 @@
       "caption": "Pond work is planned around excavation access, water management, and the final shape of the pond."
     },
     {
+      "type": "outcomes",
+      "tone": "light",
+      "eyebrow": "Site outcomes",
+      "heading": "What the Pond Should Be Ready For",
+      "subheading": "The goal is a pond or pond area that is cleaner, deeper, better shaped, and easier to manage.",
+      "stats": [
+        { "label": "Since 1982", "body": "Over four decades of local site work" },
+        { "label": "Own equipment", "body": "Excavators, dozers, trucks, and operators available for local site work" },
+        { "label": "5.0 on Google", "body": "Rated by homeowners, builders, and contractors" },
+        { "label": "Licensed & insured", "body": "Full coverage on every job" }
+      ],
+      "items": [
+        { "title": "Better usable depth", "body": "Sediment removal, deepening, or expansion can restore capacity and improve pond function." },
+        { "title": "Cleaner pond edges", "body": "Shoreline shaping can improve access, reduce rough edges, and support better drainage around the pond." },
+        { "title": "A more manageable site", "body": "Spoil material, access routes, and rough grading are handled so the area is left more usable after excavation." }
+      ]
+    },
+    {
       "type": "problemsPrevented",
+      "tone": "dark",
       "heading": "What Proper Pond Planning Helps Prevent",
       "subheading": "Pond projects can become messy or ineffective when sediment, drainage, slopes, and spoil material are not planned together.",
       "items": [
@@ -158,49 +187,26 @@
       ]
     },
     {
-      "type": "outcomes",
-      "heading": "What the Pond Should Be Ready For",
-      "subheading": "The goal is a pond or pond area that is cleaner, deeper, better shaped, and easier to manage.",
-      "items": [
-        {
-          "title": "Better usable depth",
-          "body": "Sediment removal, deepening, or expansion can restore capacity and improve pond function."
-        },
-        {
-          "title": "Cleaner pond edges",
-          "body": "Shoreline shaping can improve access, reduce rough edges, and support better drainage around the pond."
-        },
-        {
-          "title": "A more manageable site",
-          "body": "Spoil material, access routes, and rough grading are handled so the area is left more usable after excavation."
-        }
-      ]
-    },
-    {
       "type": "equipment",
+      "tone": "dark",
       "heading": "Equipment Used for Pond Projects",
       "subheading": "Powerful machines for moving soil, sediment, and shoreline material.",
       "items": [
         {
           "name": "Excavator",
           "body": "Used for digging ponds, removing sediment, deepening existing ponds, and shaping shorelines.",
-          "image": {
-            "src": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp",
-            "alt": "Excavator"
-          }
+          "image": { "src": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp", "alt": "Excavator" }
         },
         {
           "name": "Tri-Axle Dump Trucks",
           "body": "Used for hauling away excess material or bringing in aggregates where the project requires trucking support.",
-          "image": {
-            "src": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp",
-            "alt": "Tri-Axle Dump Trucks"
-          }
+          "image": { "src": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp", "alt": "Tri-Axle Dump Trucks" }
         }
       ]
     },
     {
       "type": "process",
+      "tone": "light",
       "heading": "How Our Pond Services Work",
       "subheading": "Clear, efficient steps from assessment to final shaping.",
       "image": {
@@ -209,26 +215,15 @@
       },
       "caption": "Pond excavation and cleaning are planned around soil, drainage, access, depth, and shoreline shape.",
       "steps": [
-        {
-          "title": "Site Assessment",
-          "body": "We evaluate drainage, soil type, water conditions, access, and where excavated material can go."
-        },
-        {
-          "title": "Excavation & Shaping",
-          "body": "We dig or reshape the pond to the required depth, slopes, and intended use."
-        },
-        {
-          "title": "Sediment Removal",
-          "body": "Where applicable, silt and organic buildup are removed to restore depth and function."
-        },
-        {
-          "title": "Final Grading",
-          "body": "We shape shorelines, edges, and surrounding grades for practical water management."
-        }
+        { "title": "Site Assessment", "body": "We evaluate drainage, soil type, water conditions, access, and where excavated material can go." },
+        { "title": "Excavation & Shaping", "body": "We dig or reshape the pond to the required depth, slopes, and intended use." },
+        { "title": "Sediment Removal", "body": "Where applicable, silt and organic buildup are removed to restore depth and function." },
+        { "title": "Final Grading", "body": "We shape shorelines, edges, and surrounding grades for practical water management." }
       ]
     },
     {
       "type": "contractorCta",
+      "tone": "dark",
       "eyebrow": "For rural properties and contractors",
       "heading": "Need pond excavation, cleaning, or shoreline work reviewed?",
       "body": "If your project needs a new pond, existing pond cleaned out, sediment removed, or banks reshaped, Bellhouse can review the site access, water conditions, excavation scope, and material handling needs.",
@@ -238,20 +233,13 @@
       },
       "caption": "Pond work can be coordinated with excavation, spoil placement, trucking, and rough grading.",
       "actions": [
-        {
-          "label": "Send Project Details",
-          "href": "/contractors#contractor-form",
-          "variant": "primary"
-        },
-        {
-          "label": "Call 519-752-8500",
-          "href": "tel:5197528500",
-          "variant": "secondary"
-        }
+        { "label": "Send Project Details", "href": "/contractors#contractor-form", "variant": "primary" },
+        { "label": "Call 519-752-8500", "href": "tel:5197528500", "variant": "secondary" }
       ]
     },
     {
       "type": "resources",
+      "tone": "light",
       "eyebrow": "Planning tool",
       "heading": "Estimating excavation volume for pond work?",
       "subheading": "Pond work can involve significant material movement. A rough excavation estimate helps clarify the scale before access and site conditions are reviewed.",
@@ -263,48 +251,25 @@
           "label": "Estimate Excavation Volume"
         }
       ],
-      "actions": [
-        {
-          "label": "View Calculators",
-          "href": "/resources/calculators",
-          "variant": "secondary"
-        }
-      ]
+      "actions": [{ "label": "View Calculators", "href": "/resources/calculators", "variant": "secondary" }]
     },
     {
       "type": "serviceAreas",
+      "tone": "dark",
       "heading": "Pond digging and cleaning by service area",
       "body": "Pond digging and cleaning services are available across Brant County and nearby rural areas where access, soil, drainage, and material handling support the work.",
-      "areaSlugs": [
-        "paris",
-        "brantford",
-        "simcoe",
-        "woodstock",
-        "cambridge",
-        "ancaster"
-      ]
+      "areaSlugs": ["paris", "brantford", "simcoe", "woodstock", "cambridge", "ancaster"]
     },
     {
       "type": "relatedServices",
+      "tone": "dark",
       "eyebrow": "Related services",
       "heading": "Related excavation, grading, and hauling services",
-      "serviceSlugs": [
-        "land-grading-drainage",
-        "site-preparation-land-grading",
-        "house-barn-demolition",
-        "dump-truck-rental",
-        "volvo-a35-off-road-dump-truck-rental"
-      ]
-    },
-    {
-      "type": "reviews",
-      "eyebrow": "Testimonials",
-      "heading": "What customers say about Bellhouse",
-      "subheading": "Feedback from local homeowners, builders, and job-site customers Bellhouse has worked with.",
-      "limit": 3
+      "serviceSlugs": ["land-grading-drainage", "site-preparation-land-grading", "house-barn-demolition", "dump-truck-rental", "volvo-a35-off-road-dump-truck-rental"]
     },
     {
       "type": "faq",
+      "tone": "light",
       "heading": "Frequently Asked Questions",
       "items": [
         {
@@ -327,19 +292,63 @@
     },
     {
       "type": "finalCta",
+      "tone": "dark",
       "heading": "Ready to Build or Restore Your Pond?",
       "body": "Send the location, pond condition, access details, and whether you need new excavation, cleaning, deepening, or shoreline reshaping.",
+      "bullets": [
+        "No obligation — free project review",
+        "Bellhouse replies with real numbers",
+        "Local crew, local knowledge"
+      ],
+      "form": true,
       "actions": [
+        { "label": "Request Pond Quote", "href": "/contact", "variant": "primary" },
+        { "label": "Send Project Details", "href": "/contractors#contractor-form", "variant": "secondary" }
+      ],
+      "navGroups": [
         {
-          "label": "Request Pond Quote",
-          "href": "/contact",
-          "variant": "primary"
+          "label": "Other services",
+          "icon": "wrench",
+          "links": [
+            { "label": "Site Prep & Grading", "href": "/services/site-preparation-land-grading", "icon": "caret-right" },
+            { "label": "Contractor Support", "href": "/contractors", "icon": "caret-right" },
+            { "label": "Demolition", "href": "/services/house-barn-demolition", "icon": "caret-right" },
+            { "label": "Dirt & Gravel Delivery", "href": "/services/dirt-gravel-delivery", "icon": "caret-right" },
+            { "label": "Land Drainage", "href": "/services/land-grading-drainage", "icon": "caret-right" }
+          ]
         },
         {
-          "label": "Send Project Details",
-          "href": "/contractors#contractor-form",
-          "variant": "secondary"
+          "label": "Service areas",
+          "icon": "map-pin",
+          "links": [
+            { "label": "Brantford", "href": "/service-areas/brantford", "icon": "map-pin" },
+            { "label": "Brant County", "href": "/service-areas/brantford", "icon": "map-pin" },
+            { "label": "Paris", "href": "/service-areas/paris", "icon": "map-pin" },
+            { "label": "Cambridge", "href": "/service-areas/cambridge", "icon": "map-pin" },
+            { "label": "Woodstock", "href": "/service-areas/woodstock", "icon": "map-pin" },
+            { "label": "Hamilton", "href": "/service-areas/hamilton", "icon": "map-pin" }
+          ]
         }
+      ]
+    },
+    {
+      "type": "banner",
+      "tone": "dark",
+      "eyebrow": "Pond built or restored",
+      "heading": "Farm pond, rural water feature, or overgrown pond? Bellhouse is local, equipped, and taking jobs now.",
+      "body": "From new pond excavation to sediment removal, shoreline reshaping, and drainage cleanup, Bellhouse handles the dig so your pond is deeper, cleaner, and better shaped for the long term.",
+      "bullets": [
+        "New ponds, deepening, cleaning, and shoreline shaping handled together",
+        "Own excavators and trucks — material moved or hauled out properly",
+        "Brantford, Paris, Simcoe, and surrounding Brant County"
+      ],
+      "image": {
+        "src": "/assets/Pond-digging-cleaning-services-brant-county.png",
+        "alt": "Excavator working beside a rural pond during pond digging and cleaning in Brant County"
+      },
+      "actions": [
+        { "label": "Request Pond Quote", "href": "/contact", "variant": "primary" },
+        { "label": "Call 519-752-8500", "href": "tel:5197528500", "variant": "secondary" }
       ]
     }
   ]

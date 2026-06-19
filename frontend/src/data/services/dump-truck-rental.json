@@ -3,6 +3,7 @@
   "slug": "dump-truck-rental",
   "title": "Dump Truck Rental & Hauling Services",
   "navTitle": "Dump Truck Hauling",
+  "contactService": "Dump Truck Services",
   "meta": {
     "title": "Dump Truck Rental & Hauling Services | Brant County",
     "description": "Reliable dump truck rentals with experienced operators in Brant County. Hire our fleet for construction, excavation, and bulk material hauling projects."
@@ -15,120 +16,129 @@
   },
   "hero": {
     "eyebrow": "Tri-axle dump truck rental",
-    "heading": "Dump Truck Rental & Hauling Services",
+    "heading": "Dump Truck Rental & Hauling in Brantford",
     "summary": "Professional dump truck hire with experienced operators for aggregate delivery, spoil removal, excavation support, and active construction hauling.",
     "actions": [
-      {
-        "label": "Request Truck Rental Quote",
-        "href": "/contact",
-        "variant": "primary"
-      },
-      {
-        "label": "For Builders & Contractors",
-        "href": "/contractors",
-        "variant": "secondary"
-      }
+      { "label": "Request Truck Rental Quote", "href": "/contact", "variant": "primary" },
+      { "label": "For Builders & Contractors", "href": "/contractors", "variant": "secondary" }
     ],
-    "proofPoints": [
-      "Tri-axle dump trucks with operators",
-      "Aggregate, fill, spoil, and debris hauling",
-      "Day-rate and project-rate hauling support"
-    ],
-    "emphasis": "compact",
+    "emphasis": "high",
     "image": "/assets/services/dump-truck-hauling/triaxle-dump-truck-gravel-hauling-brant-county.webp",
-    "alt": "Bellhouse tri-axle dump truck ready for gravel hauling in Brant County."
+    "alt": "Bellhouse tri-axle dump truck ready for gravel hauling in Brant County.",
+    "sideForm": true,
+    "proofBar": [
+      { "icon": "map-pin", "title": "Local to Brantford", "subtitle": "& Brant County" },
+      { "icon": "calendar-check", "title": "Since 1982", "subtitle": "Family operation" },
+      { "icon": "truck", "title": "Own equipment", "subtitle": "Trucks & excavators" },
+      { "icon": "star", "title": "5.0 on Google", "subtitle": "Local reviews" },
+      { "icon": "shield-check", "title": "Licensed & insured", "subtitle": "Fully covered" }
+    ]
   },
   "sections": [
     {
-      "type": "proofStrip",
-      "items": [
-        {
-          "label": "Operator included",
-          "description": "Dump truck rental includes an experienced Bellhouse operator for safer, more efficient hauling."
-        },
-        {
-          "label": "Site and road hauling",
-          "description": "Trucks support imported material, excavation spoil, debris removal, and construction-site load movement."
-        },
-        {
-          "label": "Flexible scheduling",
-          "description": "Hauling can be booked by the day or coordinated around a specific project scope."
-        }
-      ]
-    },
-    {
       "type": "intro",
+      "tone": "light",
+      "eyebrow": "Who it's for",
       "heading": "Hire Reliable Dump Trucks with Skilled Operators",
       "body": "Bellhouse Excavating offers dump truck rental services for contractors, builders, and property owners who need dependable hauling support. Our tri-axle trucks are available with professional operators to haul aggregates, excavation spoil, fill, and demolition debris.",
-      "bullets": [
-        "Tri-axle dump trucks with operators",
-        "Hauling for aggregates, fill, and debris",
-        "Day-rate and project-rate options",
-        "Useful for excavation, grading, and site development support"
+      "audience": [
+        { "icon": "hard-hat", "label": "Contractors" },
+        { "icon": "blueprint", "label": "Builders" },
+        { "icon": "shovel", "label": "Active excavation sites" },
+        { "icon": "user", "label": "Property owners" }
       ]
     },
     {
       "type": "projectFit",
+      "tone": "dark",
       "heading": "When Bellhouse Dump Truck Rental Fits the Job",
       "subheading": "Best fit when hauling needs to stay tied to the excavation, grading, delivery, or cleanup schedule on an active site.",
       "cards": [
         {
           "title": "Excavation spoil and debris removal",
           "body": "A practical fit when a foundation, trench, demolition, or grading job needs material hauled away without leaving piles in the way.",
-          "tags": [
-            "Spoil removal",
-            "Debris hauling",
-            "Excavation support"
-          ],
+          "tags": ["Spoil removal", "Debris hauling", "Excavation support"],
           "outcome": "Keeps the work area open and reduces delays between digging, loading, and cleanup."
         },
         {
           "title": "Aggregate and fill hauling",
           "body": "Useful when gravel, sand, stone, fill, or topsoil needs to be delivered and dumped where truck access allows.",
-          "tags": [
-            "Gravel hauling",
-            "Fill import",
-            "Material delivery"
-          ],
+          "tags": ["Gravel hauling", "Fill import", "Material delivery"],
           "outcome": "Gets the right material moving with a truck and operator suited to construction and site access conditions."
         },
         {
           "title": "Contractor-led truck support",
           "body": "A strong fit for builders and contractors who need truck timing coordinated with machines, crews, material availability, and site access.",
-          "tags": [
-            "Contractor support",
-            "Day-rate hauling",
-            "Truck scheduling"
-          ],
+          "tags": ["Contractor support", "Day-rate hauling", "Truck scheduling"],
           "outcome": "Helps avoid idle equipment and crews waiting between loads or material moves."
         }
       ]
     },
     {
       "type": "scope",
+      "tone": "light",
       "heading": "Dump Truck Rental Includes",
       "subheading": "Flexible hauling support for a wide range of construction, excavation, and property projects.",
       "items": [
-        {
-          "title": "Material Delivery",
-          "body": "Gravel, sand, topsoil, fill, and aggregate deliveries can be coordinated by tri-axle dump truck."
-        },
-        {
-          "title": "Spoil & Debris Removal",
-          "body": "Excavated material, broken concrete, demolition debris, and construction cleanup loads can be hauled away."
-        },
-        {
-          "title": "On-Site Hauling Support",
-          "body": "Trucks can support larger excavation and grading projects where material movement affects the site schedule."
-        },
-        {
-          "title": "Multiple Load Hauling",
-          "body": "Efficient turnarounds are available for projects that need several loads moved in the same day."
-        }
+        { "title": "Material Delivery", "body": "Gravel, sand, topsoil, fill, and aggregate deliveries can be coordinated by tri-axle dump truck." },
+        { "title": "Spoil & Debris Removal", "body": "Excavated material, broken concrete, demolition debris, and construction cleanup loads can be hauled away." },
+        { "title": "On-Site Hauling Support", "body": "Trucks can support larger excavation and grading projects where material movement affects the site schedule." },
+        { "title": "Multiple Load Hauling", "body": "Efficient turnarounds are available for projects that need several loads moved in the same day." }
       ]
     },
     {
+      "type": "reviews",
+      "tone": "light",
+      "eyebrow": "Testimonials",
+      "heading": "What customers say about Bellhouse",
+      "subheading": "Feedback from local homeowners, builders, and job-site customers Bellhouse has worked with.",
+      "limit": 3
+    },
+    {
+      "type": "pricingFactors",
+      "tone": "dark",
+      "eyebrow": "What affects price",
+      "heading": "Dump truck rental is priced around loads, route, and site access",
+      "subheading": "A useful quote depends on material type, haul distance, number of loads, loading conditions, and how the truck fits the site schedule.",
+      "tiers": [
+        { "name": "Simpler", "eg": "Single-load delivery or removal, straightforward access", "position": "low" },
+        { "name": "Typical", "eg": "Multi-load day rate, excavation spoil or aggregate hauling", "position": "mid" },
+        { "name": "Complex", "eg": "Extended contractor support, coordinated loading, multiple phases", "position": "high" }
+      ],
+      "rangeNote": "Most construction hauling needs fall in the middle range. Bellhouse quotes based on material, loads, route, and site schedule.",
+      "factors": [
+        {
+          "title": "Number of loads and time on site",
+          "body": "Day rates and per-load pricing depend on how many trucks, how many loads, and how long the work runs."
+        },
+        {
+          "title": "Material type and weight",
+          "body": "Heavier materials like concrete or wet spoil affect load capacity and cost more per trip than lighter aggregates."
+        },
+        {
+          "title": "Haul distance and route",
+          "body": "Longer drives between pickup, site, and disposal affect the number of loads that can be completed per day."
+        },
+        {
+          "title": "Loading conditions",
+          "body": "Jobs where the loading excavator and truck need to be coordinated take more planning than simple delivery or single-site hauls."
+        },
+        {
+          "title": "Disposal or source location",
+          "body": "Tipping fees, disposal site availability, and quarry location all affect the total cost of a hauling scope."
+        }
+      ],
+      "aside": {
+        "label": "The honest version",
+        "heading": "Material type, load count, and access details help Bellhouse quote the real hauling cost",
+        "body": "Instead of estimating from a vague scope description.",
+        "action": { "label": "Request Truck Rental Quote", "href": "/contact" },
+        "phone": { "label": "519-752-8500", "href": "tel:5197528500" }
+      }
+    },
+    {
       "type": "jobsiteProof",
+      "tone": "dark",
       "eyebrow": "Real hauling support",
       "heading": "Good truck rental is about timing, access, and keeping material moving.",
       "body": "Bellhouse dump truck rental includes an operator who understands construction sites, truck access, load placement, and the pace of excavation and grading work.",
@@ -139,7 +149,26 @@
       "caption": "Truck rental can be coordinated with loading equipment, excavation work, and material movement on the same job."
     },
     {
+      "type": "outcomes",
+      "tone": "light",
+      "eyebrow": "Site outcomes",
+      "heading": "What The Site Should Gain From Better Hauling",
+      "subheading": "The goal is simple: material moved safely, efficiently, and without turning truck timing into the bottleneck.",
+      "stats": [
+        { "label": "Since 1982", "body": "Over four decades of local site work" },
+        { "label": "Own equipment", "body": "Excavators, dozers, trucks, and operators available for local site work" },
+        { "label": "5.0 on Google", "body": "Rated by homeowners, builders, and contractors" },
+        { "label": "Licensed & insured", "body": "Full coverage on every job" }
+      ],
+      "items": [
+        { "title": "Cleaner material flow", "body": "Imported aggregate, fill, topsoil, or excavated spoil moves in a sequence that supports the work already happening on site." },
+        { "title": "Less downtime between loads", "body": "Truck scheduling is handled around access, loading, dumping, and the pace of the equipment on the job." },
+        { "title": "A more usable jobsite", "body": "Haul-out and delivery support helps keep entrances, work areas, and staging space clearer for the next step." }
+      ]
+    },
+    {
       "type": "problemsPrevented",
+      "tone": "dark",
       "heading": "What Reliable Truck Support Helps Prevent",
       "subheading": "Hauling delays can slow the whole job when trucks, equipment, and dump locations are not planned together.",
       "items": [
@@ -158,49 +187,26 @@
       ]
     },
     {
-      "type": "outcomes",
-      "heading": "What The Site Should Gain From Better Hauling",
-      "subheading": "The goal is simple: material moved safely, efficiently, and without turning truck timing into the bottleneck.",
-      "items": [
-        {
-          "title": "Cleaner material flow",
-          "body": "Imported aggregate, fill, topsoil, or excavated spoil moves in a sequence that supports the work already happening on site."
-        },
-        {
-          "title": "Less downtime between loads",
-          "body": "Truck scheduling is handled around access, loading, dumping, and the pace of the equipment on the job."
-        },
-        {
-          "title": "A more usable jobsite",
-          "body": "Haul-out and delivery support helps keep entrances, work areas, and staging space clearer for the next step."
-        }
-      ]
-    },
-    {
       "type": "equipment",
+      "tone": "dark",
       "heading": "Dump Truck Fleet",
       "subheading": "Modern trucks maintained for reliable daily use and construction hauling.",
       "items": [
         {
           "name": "Tri-Axle Dump Trucks",
           "body": "Used for hauling aggregates, fill, excavation spoil, and debris. Capacity depends on material, route, and regulations.",
-          "image": {
-            "src": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp",
-            "alt": "Tri-Axle Dump Trucks"
-          }
+          "image": { "src": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp", "alt": "Tri-Axle Dump Trucks" }
         },
         {
           "name": "Loading Equipment",
           "body": "Excavators and loaders can support hauling work when Bellhouse is coordinating excavation, aggregate movement, or spoil removal.",
-          "image": {
-            "src": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp",
-            "alt": "Loading Equipment"
-          }
+          "image": { "src": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp", "alt": "Loading Equipment" }
         }
       ]
     },
     {
       "type": "process",
+      "tone": "light",
       "heading": "How Truck Rental Works",
       "subheading": "Simple booking and reliable hauling based on material, route, timing, and site access.",
       "image": {
@@ -209,26 +215,15 @@
       },
       "caption": "Truck rental can support imported gravel, site hauling, and load cycles coordinated with active equipment.",
       "steps": [
-        {
-          "title": "Request a Quote",
-          "body": "Tell us the material, pickup or dump location, rough volume, access conditions, and timing."
-        },
-        {
-          "title": "Schedule Truck & Operator",
-          "body": "We book the truck and operator around your project schedule, site access, and expected load cycle."
-        },
-        {
-          "title": "Hauling & Delivery",
-          "body": "The truck delivers or removes material as planned, with placement based on access and safety."
-        },
-        {
-          "title": "Project Wrap-Up",
-          "body": "Final loads are completed and the site is left accessible for the next phase of work."
-        }
+        { "title": "Request a Quote", "body": "Tell us the material, pickup or dump location, rough volume, access conditions, and timing." },
+        { "title": "Schedule Truck & Operator", "body": "We book the truck and operator around your project schedule, site access, and expected load cycle." },
+        { "title": "Hauling & Delivery", "body": "The truck delivers or removes material as planned, with placement based on access and safety." },
+        { "title": "Project Wrap-Up", "body": "Final loads are completed and the site is left accessible for the next phase of work." }
       ]
     },
     {
       "type": "contractorCta",
+      "tone": "dark",
       "eyebrow": "For builders and contractors",
       "heading": "Need dump trucks coordinated with excavation, aggregate, or site work?",
       "body": "If your project needs truck rental, material delivery, spoil haul-out, or multiple load cycles tied to active equipment, Bellhouse can review the site, scope, route, and schedule.",
@@ -238,20 +233,13 @@
       },
       "caption": "Truck support can be lined up with loading equipment, aggregate supply, excavation, and grading work.",
       "actions": [
-        {
-          "label": "Send Project Details",
-          "href": "/contractors#contractor-form",
-          "variant": "primary"
-        },
-        {
-          "label": "Call 519-752-8500",
-          "href": "tel:5197528500",
-          "variant": "secondary"
-        }
+        { "label": "Send Project Details", "href": "/contractors#contractor-form", "variant": "primary" },
+        { "label": "Call 519-752-8500", "href": "tel:5197528500", "variant": "secondary" }
       ]
     },
     {
       "type": "resources",
+      "tone": "light",
       "eyebrow": "Planning tools",
       "heading": "Estimating material volume before booking trucks?",
       "subheading": "For aggregate, topsoil, or excavation quantities, these calculators can help rough out volume, weight, and likely truck loads before the hauling schedule is finalized.",
@@ -269,47 +257,25 @@
           "label": "Estimate Excavation Volume"
         }
       ],
-      "actions": [
-        {
-          "label": "View Calculators",
-          "href": "/resources/calculators",
-          "variant": "secondary"
-        }
-      ]
+      "actions": [{ "label": "View Calculators", "href": "/resources/calculators", "variant": "secondary" }]
     },
     {
       "type": "serviceAreas",
+      "tone": "dark",
       "heading": "Dump truck rental by service area",
       "body": "Dump truck hauling is available across Brant County and nearby service areas where excavation, spoil export, imported gravel, and truck timing need to support the site.",
-      "areaSlugs": [
-        "paris",
-        "brantford",
-        "hamilton",
-        "cambridge",
-        "woodstock",
-        "simcoe"
-      ]
+      "areaSlugs": ["paris", "brantford", "hamilton", "cambridge", "woodstock", "simcoe"]
     },
     {
       "type": "relatedServices",
+      "tone": "dark",
       "eyebrow": "Related services",
       "heading": "Related hauling, delivery, and site support",
-      "serviceSlugs": [
-        "dirt-gravel-delivery",
-        "site-preparation-land-grading",
-        "foundation-excavation",
-        "volvo-a35-off-road-dump-truck-rental"
-      ]
-    },
-    {
-      "type": "reviews",
-      "eyebrow": "Testimonials",
-      "heading": "What customers say about Bellhouse",
-      "subheading": "Feedback from local homeowners, builders, and job-site customers Bellhouse has worked with.",
-      "limit": 3
+      "serviceSlugs": ["dirt-gravel-delivery", "site-preparation-land-grading", "foundation-excavation", "volvo-a35-off-road-dump-truck-rental"]
     },
     {
       "type": "faq",
+      "tone": "light",
       "heading": "Frequently Asked Questions",
       "items": [
         {
@@ -332,19 +298,63 @@
     },
     {
       "type": "finalCta",
+      "tone": "dark",
       "heading": "Need Dump Truck Support?",
       "body": "Send the material type, pickup or dump location, approximate quantity, and timing and Bellhouse can review the right truck support for the job.",
+      "bullets": [
+        "No obligation — free project review",
+        "Bellhouse replies with real numbers",
+        "Local crew, local knowledge"
+      ],
+      "form": true,
       "actions": [
+        { "label": "Request Truck Rental Quote", "href": "/contact", "variant": "primary" },
+        { "label": "Send Project Details", "href": "/contractors#contractor-form", "variant": "secondary" }
+      ],
+      "navGroups": [
         {
-          "label": "Request Truck Rental Quote",
-          "href": "/contact",
-          "variant": "primary"
+          "label": "Other services",
+          "icon": "wrench",
+          "links": [
+            { "label": "Site Prep & Grading", "href": "/services/site-preparation-land-grading", "icon": "caret-right" },
+            { "label": "Contractor Support", "href": "/contractors", "icon": "caret-right" },
+            { "label": "Demolition", "href": "/services/house-barn-demolition", "icon": "caret-right" },
+            { "label": "Dirt & Gravel Delivery", "href": "/services/dirt-gravel-delivery", "icon": "caret-right" },
+            { "label": "Land Drainage", "href": "/services/land-grading-drainage", "icon": "caret-right" }
+          ]
         },
         {
-          "label": "Send Project Details",
-          "href": "/contractors#contractor-form",
-          "variant": "secondary"
+          "label": "Service areas",
+          "icon": "map-pin",
+          "links": [
+            { "label": "Brantford", "href": "/service-areas/brantford", "icon": "map-pin" },
+            { "label": "Brant County", "href": "/service-areas/brantford", "icon": "map-pin" },
+            { "label": "Paris", "href": "/service-areas/paris", "icon": "map-pin" },
+            { "label": "Cambridge", "href": "/service-areas/cambridge", "icon": "map-pin" },
+            { "label": "Woodstock", "href": "/service-areas/woodstock", "icon": "map-pin" },
+            { "label": "Hamilton", "href": "/service-areas/hamilton", "icon": "map-pin" }
+          ]
         }
+      ]
+    },
+    {
+      "type": "banner",
+      "tone": "dark",
+      "eyebrow": "Hauling when you need it",
+      "heading": "Need a truck on site? Bellhouse is local, equipped, and taking jobs now.",
+      "body": "From spoil haul-out and aggregate delivery to contractor-led multi-load days, Bellhouse dump trucks show up with operators who understand the work.",
+      "bullets": [
+        "Tri-axle dump trucks with experienced operators",
+        "Aggregate delivery, spoil removal, and contractor hauling",
+        "Brantford, Paris, Hamilton, and surrounding Brant County"
+      ],
+      "image": {
+        "src": "/assets/services/dump-truck-hauling/excavator-loading-dump-truck-right.webp",
+        "alt": "Bellhouse excavator loading a tri-axle dump truck during site hauling work"
+      },
+      "actions": [
+        { "label": "Request Truck Rental Quote", "href": "/contact", "variant": "primary" },
+        { "label": "Call 519-752-8500", "href": "tel:5197528500", "variant": "secondary" }
       ]
     }
   ]
