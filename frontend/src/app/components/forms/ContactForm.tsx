@@ -197,10 +197,13 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
 
     useEffect(() => {
       if (initialService) {
+        setSelectedWorkType(initialService);
         trackEvent('quote_form_preselect', { service: initialService, variant });
+      } else {
+        setSelectedWorkType('');
       }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [initialService]);
 
     const {
       value: enteredName,
@@ -285,7 +288,9 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
     const hasPhone = enteredPhone.trim().length > 0;
     const workTypeFinal =
       `${selectedWorkType}${customWorkType ? ` ${customWorkType}` : ''}`.trim();
-    const workTypeIsValid = workTypeFinal.length > 1;
+    const workTypeIsValid =
+      selectedWorkType.length > 0 &&
+      (selectedWorkType !== 'Other' || customWorkType.trim().length > 0);
 
     const compiledMessage = isContractor
       ? [
@@ -711,13 +716,20 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
             <input
               id="customWorkType"
               type="text"
-              className={classes.input}
+              className={`${classes.input} ${
+                workTypeTouched && customWorkType.trim().length === 0
+                  ? classes.error
+                  : ''
+              }`}
               value={customWorkType}
               onChange={(event) => setCustomWorkType(event.target.value)}
               placeholder={
                 isContractor ? 'Enter custom scope' : 'Enter custom work type'
               }
             />
+            {workTypeTouched && customWorkType.trim().length === 0 ? (
+              <p className={classes.fieldError}>Please describe the work type</p>
+            ) : null}
           </div>
         ) : null}
 

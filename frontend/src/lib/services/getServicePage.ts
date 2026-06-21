@@ -49,12 +49,25 @@ function isCmsServicePage(value: unknown): value is CmsServicePage {
   );
 }
 
+function rewriteContactHrefs<T>(value: T, param: string): T {
+  if (Array.isArray(value)) {
+    return value.map((item) => rewriteContactHrefs(item, param)) as unknown as T;
+  }
+  if (value !== null && typeof value === 'object') {
+    return Object.fromEntries(
+      Object.entries(value as Record<string, unknown>).map(([k, v]) => [
+        k,
+        k === 'href' && v === '/contact' ? `/contact${param}` : rewriteContactHrefs(v, param),
+      ]),
+    ) as T;
+  }
+  return value;
+}
+
 function applyContactService(page: CmsServicePage): CmsServicePage {
   if (!page.contactService) return page;
   const param = `?service=${encodeURIComponent(page.contactService)}`;
-  return JSON.parse(
-    JSON.stringify(page).replace(/\/contact(?=[",])/g, `/contact${param}`),
-  ) as CmsServicePage;
+  return rewriteContactHrefs(page, param);
 }
 
 export function getServicePage(slug: string): CmsServicePage | null {
