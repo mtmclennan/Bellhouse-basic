@@ -15,11 +15,8 @@ import React, {
   useState,
 } from 'react';
 import { emailValidate, stringValidate } from '../../../lib/input-utils';
-import { sendContactForm } from '@/app/actions/contact';
 import LoadingSpinner from '../UI/LoadingSpinner';
 import { normalizeImageFile } from '@/lib/uploads/client/normalizeImageFile';
-import { submitQuoteWithImages } from '@/lib/uploads/client/submitQuoteWithImages';
-import { getInvisibleTurnstileToken } from '@/lib/uploads/client/turnstile';
 import {
   QUOTE_UPLOAD_ACCEPTED_TEXT,
   QUOTE_UPLOAD_HELPER_TEXT,
@@ -29,11 +26,8 @@ import {
   formatUploadSize,
 } from '@/lib/uploads/shared/uploadLimits';
 import type { QuoteUploadClientFile } from '@/lib/uploads/shared/uploadTypes';
-import {
-  GOOGLE_ADS_CONVERSION_LABELS,
-  trackEvent,
-  trackGoogleAdsConversion,
-} from '@/lib/tracking/google';
+import { trackEvent } from '@/lib/tracking/google';
+import { useQuoteSubmit } from '@/hooks/useQuoteSubmit';
 
 interface ContactFormRef {
   scrollToForm: () => void;
@@ -161,39 +155,27 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
     const copy = VARIANT_COPY[variant];
 
     const [showModal, setShowModal] = useState(false);
-    const [loading, setLoading] = useState(false);
 
     const [selectedWorkType, setSelectedWorkType] = useState<string>(initialService ?? '');
     const [customWorkType, setCustomWorkType] = useState('');
     const [workTypeTouched, setWorkTypeTouched] = useState(false);
     const [selectedTimeline, setSelectedTimeline] = useState('');
 
-    const [isRecaptchaReady, setIsRecaptchaReady] = useState(false);
     const [status, setStatus] = useState<string | null>(null);
     const [smsConsent, setSmsConsent] = useState(false);
     const [selectedImages, setSelectedImages] = useState<QuoteUploadClientFile[]>([]);
     const [imageUploadError, setImageUploadError] = useState<string | null>(null);
 
     const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '';
-    const turnstileSiteKey =
-      process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '';
+    const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '';
+
+    const { isRecaptchaReady, loading, submit } = useQuoteSubmit({ formVariant: variant });
 
     useImperativeHandle(ref, () => ({
       scrollToForm: () => {
         sectionRef.current?.scrollIntoView({ behavior: 'smooth' });
       },
     }));
-
-    useEffect(() => {
-      const checkRecaptcha = setInterval(() => {
-        if (typeof window !== 'undefined' && window.grecaptcha?.execute) {
-          setIsRecaptchaReady(true);
-          clearInterval(checkRecaptcha);
-        }
-      }, 500);
-
-      return () => clearInterval(checkRecaptcha);
-    }, []);
 
     useEffect(() => {
       if (initialService) {
@@ -392,92 +374,29 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
       }
 
       try {
-        setLoading(true);
-
-        if (selectedImages.length > 0) {
-          const turnstileToken = await getInvisibleTurnstileToken({
-            container: turnstileRef.current,
-            siteKey: turnstileSiteKey,
-          });
-
-          const result = await submitQuoteWithImages({
-            contact: {
-              name: enteredName,
-              email: enteredEmail,
-              phone: enteredPhone,
-              workType: workTypeFinal,
-              message: compiledMessage,
-              smsConsent: hasPhone ? smsConsent : false,
-              smsDisclosureShown: hasPhone,
-            },
-            files: selectedImages,
-            turnstileToken,
-            honeypot: honeypotRef.current?.value || '',
-          });
-
-          resetForm();
-          setShowModal(true);
-          setStatus(`Success: ${result.success}`);
-          trackEvent('quote_form_submit', {
-            form_variant: variant,
-            has_upload: true,
-          });
-          trackGoogleAdsConversion(
-            GOOGLE_ADS_CONVERSION_LABELS.quoteFormSubmit,
-          );
-
-          return;
-        }
-
-        if (!isRecaptchaReady || typeof window.grecaptcha === 'undefined') {
-          throw new Error('reCAPTCHA is not ready. Please try again.');
-        }
-
-        const token = await window.grecaptcha.execute(recaptchaSiteKey, {
-          action: 'submit',
-        });
-
-        const result = await sendContactForm({
-          name: enteredName,
-          email: enteredEmail,
-          phone: enteredPhone,
-          workType: workTypeFinal,
-          message: compiledMessage,
-          token,
-          smsConsent: hasPhone ? smsConsent : false,
-          smsDisclosureShown: hasPhone,
+        const result = await submit({
+          contact: {
+            name: enteredName,
+            email: enteredEmail,
+            phone: enteredPhone,
+            workType: workTypeFinal,
+            message: compiledMessage,
+            smsConsent: hasPhone ? smsConsent : false,
+            smsDisclosureShown: hasPhone,
+          },
+          files: selectedImages,
           honeypot: honeypotRef.current?.value || '',
+          turnstileContainerRef: turnstileRef,
         });
 
-        if (result?.success) {
-          resetForm();
-          setShowModal(true);
-          setStatus('Success: Your request has been sent.');
-          trackEvent('quote_form_submit', {
-            form_variant: variant,
-            has_upload: false,
-          });
-          trackGoogleAdsConversion(
-            GOOGLE_ADS_CONVERSION_LABELS.quoteFormSubmit,
-          );
-        } else {
-          setStatus(`Error: ${result?.error || 'Unknown error occurred'}`);
-          trackEvent('quote_form_error', {
-            form_variant: variant,
-            error_type: 'server',
-          });
-        }
+        resetForm();
+        setShowModal(true);
+        setStatus(`Success: ${result.success}`);
       } catch (error) {
         console.error('Form submission error:', error);
         setStatus(
           `Error: ${error instanceof Error ? error.message : 'Something went wrong.'}`,
         );
-        trackEvent('quote_form_error', {
-          form_variant: variant,
-          error_type: 'exception',
-        });
-      } finally {
-        setLoading(false);
       }
     };
 

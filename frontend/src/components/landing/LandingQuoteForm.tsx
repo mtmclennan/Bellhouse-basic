@@ -3,14 +3,11 @@
 import Script from 'next/script';
 import { Paperclip, UploadSimple } from '@phosphor-icons/react';
 import { FormEvent, useMemo, useRef, useState } from 'react';
-import { sendContactForm } from '@/app/actions/contact';
 import type {
   LandingFormField,
   LandingPageData,
 } from '@/data/landingPages/types';
 import { normalizeImageFile } from '@/lib/uploads/client/normalizeImageFile';
-import { submitQuoteWithImages } from '@/lib/uploads/client/submitQuoteWithImages';
-import { getInvisibleTurnstileToken } from '@/lib/uploads/client/turnstile';
 import {
   QUOTE_UPLOAD_ACCEPTED_TEXT,
   QUOTE_UPLOAD_HELPER_TEXT,
@@ -20,11 +17,8 @@ import {
   formatUploadSize,
 } from '@/lib/uploads/shared/uploadLimits';
 import type { QuoteUploadClientFile } from '@/lib/uploads/shared/uploadTypes';
-import {
-  GOOGLE_ADS_CONVERSION_LABELS,
-  trackEvent,
-  trackGoogleAdsConversion,
-} from '@/lib/tracking/google';
+import { trackEvent } from '@/lib/tracking/google';
+import { useQuoteSubmit } from '@/hooks/useQuoteSubmit';
 
 type LandingQuoteFormProps = {
   form: LandingPageData['form'];
@@ -147,8 +141,7 @@ export default function LandingQuoteForm({
 }: LandingQuoteFormProps) {
   const formId = form.id ?? 'landing-page-quote';
   const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '';
-  const turnstileSiteKey =
-    process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '';
+  const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '';
   const turnstileRef = useRef<HTMLDivElement>(null);
   const honeypotRef = useRef<HTMLInputElement>(null);
   const [values, setValues] = useState<LandingFormValues>(() =>
@@ -156,8 +149,13 @@ export default function LandingQuoteForm({
   );
   const [errors, setErrors] = useState<LandingFormErrors>({});
   const [submitted, setSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+
+  const { loading: submitting, submit } = useQuoteSubmit({
+    formVariant: 'landing',
+    recaptchaAction: 'landing_quote_submit',
+    trackingExtra: { page: pageSlug, service: serviceKey },
+  });
 
   const statusId = `${formId}-status`;
   const successMessage =
@@ -272,128 +270,37 @@ export default function LandingQuoteForm({
       return;
     }
 
-    if (!recaptchaSiteKey || typeof window.grecaptcha === 'undefined') {
-      setSubmitError(FORM_ERROR_MESSAGE);
-      trackEvent('quote_form_error', {
-        form_variant: 'landing',
-        page: pageSlug,
-        service: serviceKey,
-        error_type: 'recaptcha_unavailable',
-      });
-      return;
-    }
-
     const timestamp = new Date().toISOString();
     const uploadFiles = getUploadFiles();
-    // TODO: Extend the existing Bellhouse lead submission workflow if landing-specific payload storage is needed beyond email / Google Sheets message details.
-    const payload = {
-      serviceKey,
-      pageSlug,
-      fields: values,
-      timestamp,
-      source: 'landing-page',
-    };
 
     try {
-      setSubmitting(true);
-
-      if (uploadFiles.length > 0) {
-        const turnstileToken = await getInvisibleTurnstileToken({
-          container: turnstileRef.current,
-          siteKey: turnstileSiteKey,
-        });
-
-        const result = await submitQuoteWithImages({
-          contact: {
-            name: getStringValue(values, 'name'),
-            email: getStringValue(values, 'email'),
-            phone,
-            workType: getStringValue(values, 'projectType') || serviceKey,
-            message: buildDetailsSummary({
-              fields: form.fields,
-              values: payload.fields,
-              serviceKey,
-              pageSlug,
-              timestamp,
-            }),
-            smsConsent: phone ? smsConsent : false,
-            smsDisclosureShown: Boolean(phone),
-          },
-          files: uploadFiles,
-          turnstileToken,
-          honeypot: honeypotRef.current?.value || '',
-        });
-
-        setSubmitted(true);
-        setSubmitError(result.failedCount ? result.success : null);
-        trackEvent('quote_form_submit', {
-          form_variant: 'landing',
-          page: pageSlug,
-          service: serviceKey,
-          has_upload: true,
-        });
-        trackGoogleAdsConversion(
-          GOOGLE_ADS_CONVERSION_LABELS.quoteFormSubmit,
-        );
-        return;
-      }
-
-      const token = await window.grecaptcha.execute(recaptchaSiteKey, {
-        action: 'landing_quote_submit',
-      });
-
-      const result = await sendContactForm({
-        name: getStringValue(values, 'name'),
-        email: getStringValue(values, 'email'),
-        phone,
-        workType: getStringValue(values, 'projectType') || serviceKey,
-        message: buildDetailsSummary({
-          fields: form.fields,
-          values: payload.fields,
-          serviceKey,
-          pageSlug,
-          timestamp,
-        }),
-        token,
-        smsConsent: phone ? smsConsent : false,
-        smsDisclosureShown: Boolean(phone),
+      const result = await submit({
+        contact: {
+          name: getStringValue(values, 'name'),
+          email: getStringValue(values, 'email'),
+          phone,
+          workType: getStringValue(values, 'projectType') || serviceKey,
+          message: buildDetailsSummary({
+            fields: form.fields,
+            values,
+            serviceKey,
+            pageSlug,
+            timestamp,
+          }),
+          smsConsent: phone ? smsConsent : false,
+          smsDisclosureShown: Boolean(phone),
+        },
+        files: uploadFiles,
         honeypot: honeypotRef.current?.value || '',
+        turnstileContainerRef: turnstileRef,
       });
 
-      if (result?.success) {
-        setSubmitted(true);
-        trackEvent('quote_form_submit', {
-          form_variant: 'landing',
-          page: pageSlug,
-          service: serviceKey,
-          has_upload: false,
-        });
-        trackGoogleAdsConversion(
-          GOOGLE_ADS_CONVERSION_LABELS.quoteFormSubmit,
-        );
-        return;
-      }
-
-      setSubmitted(false);
-      setSubmitError(result?.error ? `${FORM_ERROR_MESSAGE}` : FORM_ERROR_MESSAGE);
-      trackEvent('quote_form_error', {
-        form_variant: 'landing',
-        page: pageSlug,
-        service: serviceKey,
-        error_type: 'server',
-      });
+      setSubmitted(true);
+      setSubmitError(result.failedCount ? result.success : null);
     } catch (error) {
       console.error('Landing quote form submission error:', error);
       setSubmitted(false);
       setSubmitError(FORM_ERROR_MESSAGE);
-      trackEvent('quote_form_error', {
-        form_variant: 'landing',
-        page: pageSlug,
-        service: serviceKey,
-        error_type: 'exception',
-      });
-    } finally {
-      setSubmitting(false);
     }
   }
 
