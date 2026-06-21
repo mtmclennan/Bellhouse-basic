@@ -188,6 +188,9 @@ export async function sendContactForm(data: {
 }
 
 async function isDuplicateEntry(data: { email: string; workType: string }) {
+  // Service hero form submissions have no email — skip duplicate check to avoid false positives
+  if (!data.email) return false;
+
   try {
     const keyFilePath = path.join(process.cwd(), 'google-service-account.json');
     const keyFile = await fs.readFile(keyFilePath, 'utf-8');
