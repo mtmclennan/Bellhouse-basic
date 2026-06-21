@@ -441,6 +441,10 @@ export default function LandingQuoteForm({
       );
     }
 
+    if (field.type === 'file' && !turnstileSiteKey) {
+      return null;
+    }
+
     if (field.type === 'select') {
       return (
         <label key={field.name} className={getFieldClassName(field)} htmlFor={id}>

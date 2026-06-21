@@ -139,6 +139,75 @@
   justify-content: center;
 }
 
+.honeypot {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  height: 0;
+  width: 0;
+  border: none;
+}
+
+.smsConsent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 1.2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.6rem;
+}
+
+.smsConsentLabel {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  cursor: pointer;
+
+  input[type='checkbox'] {
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    accent-color: v.$cat-yellow2;
+  }
+
+  span {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.4;
+  }
+}
+
+.smsDisclosure {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+
+  li {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.4);
+    line-height: 1.4;
+  }
+}
+
+.privacyLink {
+  margin: 0;
+
+  a {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.45);
+    text-decoration: underline;
+
+    &:hover {
+      color: v.$cat-yellow2;
+    }
+  }
+}
+
 .success {
   padding: 4.8rem 2.4rem;
   display: flex;

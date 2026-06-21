@@ -66,6 +66,34 @@ export const contactFormSchema = contactBaseObject
 
 export type ContactBaseInput = z.infer<typeof contactBaseSchema>;
 
+export const serviceHeroFormSchema = z
+  .object({
+    name: z.string().min(2, 'Name is required'),
+    phone: z.string().min(7, 'Phone number is required'),
+    workType: z.string().min(2, 'Work type is required'),
+    location: z.string().optional(),
+    token: z.string().min(1, 'Missing verification token'),
+    honeypot: z.string().optional(),
+    smsConsent: z.boolean(),
+    smsDisclosureShown: z.boolean(),
+  })
+  .superRefine((data, ctx) => {
+    if (data.smsConsent !== true) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: 'SMS consent is required.',
+        path: ['smsConsent'],
+      });
+    }
+    if (data.smsDisclosureShown !== true) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: 'SMS disclosure must be shown.',
+        path: ['smsDisclosureShown'],
+      });
+    }
+  });
+
 export function isSpamMessage(message: string) {
   return spamKeywords.some((keyword) =>
     message.toLowerCase().includes(keyword.toLowerCase()),

@@ -165,7 +165,7 @@ export function buildServiceStructuredData(
     {
       '@type': 'Service',
       '@id': `${pageUrl}#service`,
-      name: page.card.title,
+      name: page.title,
       description: page.meta.description,
       url: pageUrl,
       image: imageUrl,

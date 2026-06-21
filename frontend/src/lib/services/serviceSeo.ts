@@ -52,6 +52,8 @@ export function buildServiceMetadata(
         {
           url: imageUrl,
           alt: imageAlt,
+          width: 1200,
+          height: 630,
         },
       ],
     },

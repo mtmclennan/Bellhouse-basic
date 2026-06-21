@@ -187,16 +187,17 @@
 
 .statLabel {
   font-family: 'Oswald', sans-serif;
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 700;
+  text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: rgba(88, 72, 33, 0.85);
-  margin-bottom: 0.7rem;
+  color: #7a5a00;
+  margin-bottom: 0.8rem;
 }
 
 .statBody {
   font-size: 1.3rem;
-  color: rgba(v.$text-color-dark, 0.68);
+  color: #4a443a;
   line-height: 1.5;
   margin: 0;
 }

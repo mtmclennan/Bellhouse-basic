@@ -401,7 +401,7 @@ export default function ServiceLayout({
           <ServiceHeroSection
             mode="cms"
             hero={page.hero}
-            breadcrumbLabel={page.hero.heading}
+            breadcrumbLabel={page.navTitle}
             business={SERVICE_SITE_CONTEXT.business}
           />
           <ServiceSectionRenderer
