@@ -45,7 +45,7 @@ function getInitialValues(fields: LandingFormField[]): LandingFormValues {
       return values;
     }
 
-    values[field.name] = '';
+    values[field.name] = field.defaultValue ?? '';
     return values;
   }, {});
 }

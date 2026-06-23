@@ -6,6 +6,7 @@ import type { ServicePage } from '@/types/interfaces';
 import type { ResolvedServiceHeroConfig } from '@/lib/servicePageLayout';
 import { SERVICE_SITE_CONTEXT } from '@/lib/services/serviceSiteContext';
 import type { CmsServicePage, CmsServiceHeroProofBarItem } from '@/types/services/cms';
+import { getHeroFormWorkType } from '@/lib/services/serviceFormDefaults';
 import LandingIcon from '@/components/landing/LandingIcon';
 import ServiceSectionWrapper from '../primitives/ServiceSectionWrapper/ServiceSectionWrapper';
 import ServiceHeroQuoteForm from './ServiceHeroQuoteForm';
@@ -48,6 +49,7 @@ type ServiceHeroSectionProps =
       hero: CmsServicePage['hero'];
       breadcrumbLabel: string;
       business: typeof SERVICE_SITE_CONTEXT.business;
+      serviceSlug?: string;
     }
   | {
       mode: 'legacy';
@@ -279,7 +281,11 @@ export default function ServiceHeroSection(props: ServiceHeroSectionProps) {
           <div className={classes.sideFormPanel}>
             <ServiceHeroQuoteForm
               heading={hero.primaryAction.label}
-              workType={undefined}
+              workType={
+                props.mode === 'cms'
+                  ? getHeroFormWorkType(props.serviceSlug ?? '')
+                  : getHeroFormWorkType(props.service.slug)
+              }
             />
           </div>
         </ServiceSectionWrapper>

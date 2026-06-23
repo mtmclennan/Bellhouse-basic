@@ -70,6 +70,7 @@ type CmsServiceSectionRendererProps = {
   mode: 'cms';
   sections: CmsServicePage['sections'];
   sectionAppearances: ServiceSectionAppearance[];
+  serviceSlug?: string;
 };
 
 type ServiceSectionRendererProps =
@@ -427,11 +428,13 @@ export default function ServiceSectionRenderer({
       },
       finalCta: () => {
         const section = getLegacyFinalCtaSection();
+        const { service } = getLegacyProps();
 
         return section ? (
           <ServiceFinalCtaSection
             section={section}
             appearance={appearance}
+            serviceKey={service.slug}
           />
         ) : null;
       },
@@ -561,6 +564,7 @@ export default function ServiceSectionRenderer({
           <ServiceFinalCtaSection
             appearance={appearance}
             section={section}
+            serviceKey={props.mode === 'cms' ? props.serviceSlug : undefined}
           />
         );
       case 'pricingFactors':
@@ -705,6 +709,7 @@ export default function ServiceSectionRenderer({
           <ServiceFinalCtaSection
             appearance={appearance}
             section={resolvedSection.section}
+            serviceKey={getLegacyProps().service.slug}
           />
         );
       default:

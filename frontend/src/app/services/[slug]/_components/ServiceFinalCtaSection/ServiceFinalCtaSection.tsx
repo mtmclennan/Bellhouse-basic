@@ -1,5 +1,6 @@
 import Link from '@/components/SiteLink';
 import ContactForm from '@/app/components/forms/ContactForm';
+import { getContactFormWorkType } from '@/lib/services/serviceFormDefaults';
 import { CaretRight, MapPin } from '@phosphor-icons/react/dist/ssr';
 import LandingIcon from '@/components/landing/LandingIcon';
 
@@ -11,6 +12,7 @@ import classes from './ServiceFinalCtaSection.module.scss';
 interface ServiceFinalCtaSectionProps {
   section: ServiceFinalCtaSectionData;
   appearance: ServiceSectionAppearance;
+  serviceKey?: string;
 }
 
 function getSupportChips(
@@ -33,6 +35,7 @@ function getSupportChips(
 export default function ServiceFinalCtaSection({
   appearance,
   section,
+  serviceKey,
 }: ServiceFinalCtaSectionProps) {
   const [primaryAction, secondaryAction] = section.actions;
 
@@ -132,7 +135,11 @@ export default function ServiceFinalCtaSection({
           </div>
 
           <div className={classes.formPanel}>
-            <ContactForm embedded sectionId="service-final-cta" />
+            <ContactForm
+              embedded
+              sectionId="service-final-cta"
+              initialService={serviceKey ? getContactFormWorkType(serviceKey) : undefined}
+            />
           </div>
         </div>
       </ServiceSectionWrapper>

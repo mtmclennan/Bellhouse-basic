@@ -403,11 +403,13 @@ export default function ServiceLayout({
             hero={page.hero}
             breadcrumbLabel={page.navTitle}
             business={SERVICE_SITE_CONTEXT.business}
+            serviceSlug={page.slug}
           />
           <ServiceSectionRenderer
             mode="cms"
             sections={page.sections}
             sectionAppearances={sectionAppearances}
+            serviceSlug={page.slug}
           />
         </div>
       </div>

@@ -29,6 +29,7 @@ export type LandingFormField = {
   required?: boolean;
   placeholder?: string;
   options?: string[];
+  defaultValue?: string;
   width?: 'full' | 'half';
 };
 

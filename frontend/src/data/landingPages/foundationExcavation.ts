@@ -109,6 +109,7 @@ export const foundationExcavationLandingPage = {
         type: 'select',
         required: true,
         width: 'half',
+        defaultValue: 'Foundation excavation',
         options: [
           'Foundation excavation',
           'Basement excavation',
