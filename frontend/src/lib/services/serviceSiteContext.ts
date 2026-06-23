@@ -68,7 +68,7 @@ function buildServiceReviews(): ServiceReview[] {
 
 export const SERVICE_SITE_CONTEXT = {
   business: {
-    phoneLabel: 'Call or text Bellhouse',
+    phoneLabel: 'Call or Text Bellhouse',
     phoneHref: 'tel:5197528500',
     reviewsHref: GOOGLE_REVIEWS_URL,
     reviewRating: GOOGLE_REVIEW_SUMMARY.rating,
