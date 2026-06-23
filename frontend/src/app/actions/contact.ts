@@ -299,6 +299,7 @@ export async function saveToGoogleSheets(data: ContactData) {
 
 export async function sendServiceHeroForm(data: {
   name: string;
+  email?: string;
   phone: string;
   workType: string;
   location?: string;
@@ -341,7 +342,7 @@ export async function sendServiceHeroForm(data: {
     await processContactCore(
       {
         name: data.name,
-        email: '',
+        email: data.email?.trim() || '',
         phone: data.phone,
         workType: data.workType,
         message,

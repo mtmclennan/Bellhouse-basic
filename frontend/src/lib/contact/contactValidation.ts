@@ -69,6 +69,7 @@ export type ContactBaseInput = z.infer<typeof contactBaseSchema>;
 export const serviceHeroFormSchema = z
   .object({
     name: z.string().min(2, 'Name is required'),
+    email: z.string().email('Please enter a valid email address.').optional().or(z.literal('')),
     phone: z.string().min(7, 'Phone number is required'),
     workType: z.string().min(2, 'Work type is required'),
     location: z.string().optional(),

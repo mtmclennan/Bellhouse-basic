@@ -37,6 +37,7 @@ export default function ServiceHeroQuoteForm({
   const honeypotRef = useRef<HTMLInputElement>(null);
 
   const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [selectedType, setSelectedType] = useState(workType ?? WORK_TYPE_OPTIONS[0]);
   const [location, setLocation] = useState('');
@@ -49,6 +50,9 @@ export default function ServiceHeroQuoteForm({
   const validate = () => {
     const errs: Record<string, string> = {};
     if (!name.trim()) errs.name = 'Name is required.';
+    if (email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
+      errs.email = 'Please enter a valid email address.';
+    }
     if (!phone.trim()) errs.phone = 'Phone number is required.';
     if (hasPhone && !smsConsent) errs.smsConsent = 'SMS consent is required when providing a phone number.';
     return errs;
@@ -76,6 +80,7 @@ export default function ServiceHeroQuoteForm({
 
       const result = await sendServiceHeroForm({
         name: name.trim(),
+        email: email.trim() || undefined,
         phone: phone.trim(),
         workType: selectedType,
         location: location.trim() || undefined,
@@ -150,6 +155,20 @@ export default function ServiceHeroQuoteForm({
                 autoComplete="name"
               />
               {errors.name ? <span className={classes.fieldMsg}>{errors.name}</span> : null}
+            </div>
+
+            <div className={classes.field}>
+              <label htmlFor="hero-email">Email <span className={classes.optional}>(optional)</span></label>
+              <input
+                id="hero-email"
+                type="email"
+                className={errors.email ? classes.fieldError : ''}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="you@example.com"
+                autoComplete="email"
+              />
+              {errors.email ? <span className={classes.fieldMsg}>{errors.email}</span> : null}
             </div>
 
             <div className={classes.field}>
