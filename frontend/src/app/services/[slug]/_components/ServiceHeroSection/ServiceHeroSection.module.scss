@@ -132,7 +132,16 @@
 }
 
 .eyebrow {
-  @include m.sectionEyebrowDark;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  width: fit-content;
+  color: v.$cat-yellow2;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.35;
+  text-transform: uppercase;
 }
 
 .headingGroup {
