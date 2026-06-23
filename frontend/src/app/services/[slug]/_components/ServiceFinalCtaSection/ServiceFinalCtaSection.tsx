@@ -113,9 +113,9 @@ export default function ServiceFinalCtaSection({
                       {group.label}
                     </div>
                     <div className={classes.navChips}>
-                      {group.links.map((link) => (
+                      {group.links.map((link, linkIndex) => (
                         <Link
-                          key={`${group.label}-${link.href}`}
+                          key={`${group.label}-${linkIndex}`}
                           href={link.href}
                           className={classes.navChip}
                         >
