@@ -32,9 +32,9 @@ function addRelatedServiceTitles(
 export const homeHeroData: HeroSectionData = {
   _type: 'heroSection',
   eyebrow: 'Bellhouse Excavating',
-  headline: 'Excavation, Grading & Trucking in Brantford',
+  headline: 'Excavation & Site Preparation for Rural, Farm, Commercial, and Large-Site Projects',
   subheadline:
-    'Bellhouse handles foundation excavation, site grading, dump truck hauling, and site support for homeowners, builders, contractors, and commercial projects across Brantford, Brant County, and nearby areas.',
+    'Bellhouse Excavating provides grading, demolition, trucking, pond excavation, laneway construction, drainage, and site preparation across Brant County, Brantford, Hamilton, and surrounding areas.',
   primaryAction: {
     label: 'Request a Quote',
     href: '/contact',
@@ -51,8 +51,8 @@ export const homeHeroData: HeroSectionData = {
   proofItems: [
     { label: 'Since 1982' },
     { label: 'Licensed & Insured' },
-    { label: 'Residential, Commercial & Contractor Work' },
-    { label: 'Serving Brantford, Brant County & Nearby Areas' },
+    { label: 'Farm, Rural, Commercial & Builder Work' },
+    { label: 'Serving Brant County, Brantford & Southern Ontario' },
   ],
   density: 'default',
   theme: 'dark',
@@ -65,8 +65,8 @@ export const homeProofSection: ProofSectionData = {
   eyebrow: 'Why Bellhouse',
   heading: 'Why Property Owners and Contractors Choose Bellhouse',
   intro: [
-    'Bellhouse Excavating provides excavation, grading, foundation digging, haul-out, imported material, and truck support for residential, commercial, and contractor-led work.',
-    'With decades of field experience, Bellhouse is known for practical scheduling, coordinated site support, and work that keeps projects moving.',
+    'Since 1982, Bellhouse Excavating has been the go-to excavation contractor for farmers, rural property owners, commercial developers, and builders across Brant County and Southern Ontario.',
+    'We bring large-site equipment — including an articulated off-road dump truck and float — to projects that most residential contractors can\'t take on. If the job needs serious equipment, serious hauling, or serious site prep, that\'s where we work best.',
   ],
   items: [
     {
@@ -156,7 +156,7 @@ export const homeAudienceSection: AudienceSectionData = {
       },
       {
         title: 'Farms & Rural Properties',
-        text: 'Pond digging, demolition, grading, septic work, and rural excavation support for agricultural and country properties.',
+        text: 'Pond digging, demolition, grading, and rural excavation support for agricultural and country properties.',
         href: '/services',
         linkLabel: 'Explore rural services',
         icon: 'leaf',
@@ -164,7 +164,7 @@ export const homeAudienceSection: AudienceSectionData = {
         relatedServiceSlugs: [
           'pond-digging-cleaning',
           'house-barn-demolition',
-          'septic-system-installation',
+          'dirt-gravel-delivery',
         ],
       },
       {

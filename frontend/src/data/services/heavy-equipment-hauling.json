@@ -5,8 +5,8 @@
   "navTitle": "Equipment Hauling",
   "contactService": "Equipment Hauling",
   "meta": {
-    "title": "Heavy Equipment Hauling & Float Service | Bellhouse",
-    "description": "Bellhouse moves excavators, dozers, and site equipment safely across Brantford and nearby areas with professional float service."
+    "title": "Heavy Equipment Hauling & Float Service | Brant County | Bellhouse",
+    "description": "Float truck and heavy equipment transport across Brant County and Southern Ontario. We move excavators, dozers, and large equipment to your job site."
   },
   "card": {
     "title": "Heavy Equipment Hauling & Float Truck Services",
@@ -195,17 +195,17 @@
         {
           "name": "Tri-Axle Truck",
           "body": "Used as part of Bellhouse hauling and transport support where route, load, and site conditions allow.",
-          "image": { "src": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp", "alt": "Tri-Axle Truck" }
+          "image": { "src": "/assets/services/heavy-equipment-hauling/truck-hauling-heavy-equipment-excavator-hero.webp", "alt": "Bellhouse truck hauling a heavy excavator on a float trailer" }
         },
         {
           "name": "Equipment Float Trailer",
           "body": "Heavy-duty float trailer used for transporting excavators, skid steers, and other machinery between sites.",
-          "image": { "src": "/assets/services/bellhouse-triaxle-equipment-float-trailer-illustration.webp", "alt": "Equipment Float Trailer" }
+          "image": { "src": "/assets/services/heavy-equipment-hauling/truck-float-trailer-hauling-skid-steers.webp", "alt": "Bellhouse float trailer hauling skid steers between job sites" }
         },
         {
           "name": "Loading Equipment",
           "body": "Excavators and skid steers can assist with loading, unloading, and placement where required.",
-          "image": { "src": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp", "alt": "Loading Equipment" }
+          "image": { "src": "/assets/services/heavy-equipment-hauling/truck-flat-deck-armour-stone-hauling-float-trailer-bobcat-t76-skid-steer.webp", "alt": "Bellhouse flat deck truck with float trailer hauling a Bobcat T76 skid steer" }
         },
         {
           "name": "Transport Safety Gear",

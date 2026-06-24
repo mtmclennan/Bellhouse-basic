@@ -5,8 +5,8 @@
   "navTitle": "Grading & Drainage",
   "contactService": "Site Grading",
   "meta": {
-    "title": "Land Grading & Drainage | Brant County | Bellhouse",
-    "description": "Land grading and drainage work for yards, driveways, building lots, and active sites across Brantford, Paris, Brant County, and nearby areas."
+    "title": "Land Grading & Drainage in Brantford & Brant County | Bellhouse Excavating",
+    "description": "Site grading, land levelling, and drainage solutions for rural properties, farms, and commercial sites across Brant County."
   },
   "visuals": {
     "background": {
@@ -203,22 +203,22 @@
         {
           "name": "Dozer",
           "body": "Used for rough grading, slope correction, and shaping larger areas where bulk material needs to move.",
-          "image": { "src": "/assets/services/bellhouse-dozer-equipment-illustration.webp", "alt": "Dozer" }
+          "image": { "src": "/assets/services/dozer-stripping-site-prep.webp", "alt": "Dozer stripping and grading a site" }
         },
         {
           "name": "Excavator",
           "body": "Handles ditching, swales, trenching, drainage pipe prep, and detailed excavation around site features.",
-          "image": { "src": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp", "alt": "Excavator" }
+          "image": { "src": "/assets/services/cat-320D-excavator-leveling-aggregates-pile.webp", "alt": "CAT 320D excavator leveling an aggregates pile on site" }
         },
         {
           "name": "Skid Steer",
           "body": "Useful for fine grading, material placement, driveway shaping, and cleanup in tighter areas.",
-          "image": { "src": "/assets/services/bellhouse-skid-steer-equipment-illustration.webp", "alt": "Skid Steer" }
+          "image": { "src": "/assets/services/auto-level-fine-grading-skid-steer.webp", "alt": "Skid steer with auto-level for fine grading" }
         },
         {
           "name": "Tri-Axle Dump Trucks",
           "body": "Used to bring in stone, granular, or topsoil and haul away unsuitable material when needed.",
-          "image": { "src": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp", "alt": "Tri-Axle Dump Trucks" }
+          "image": { "src": "/assets/services/dump-truck-hauling/triaxle-dump-truck-gravel-hauling-brant-county.webp", "alt": "Bellhouse tri-axle dump truck hauling gravel in Brant County" }
         },
         {
           "name": "Laser & GPS Grade Tools",
@@ -301,7 +301,7 @@
       "tone": "dark",
       "eyebrow": "Related services",
       "heading": "Related grading, excavation, and haul support",
-      "serviceSlugs": ["site-preparation-land-grading", "driveway-parking-lot-preparation", "septic-system-installation", "pond-digging-cleaning", "dirt-gravel-delivery", "dump-truck-rental"]
+      "serviceSlugs": ["site-preparation-land-grading", "driveway-parking-lot-preparation", "pond-digging-cleaning", "dirt-gravel-delivery", "dump-truck-rental"]
     },
     {
       "type": "faq",

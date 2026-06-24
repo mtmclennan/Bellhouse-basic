@@ -60,7 +60,6 @@ export const DEFAULT_WORK_TYPE_OPTIONS = [
   'Retaining Walls',
   'Utility Trenches',
   'Erosion Control',
-  'Septic System',
   'Drainage',
   'Dump Truck Services',
   'Equipment Hauling',

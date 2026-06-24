@@ -5,8 +5,8 @@
   "navTitle": "Driveway & Lot Prep",
   "contactService": "Driveway",
   "meta": {
-    "title": "Driveway & Parking Lot Prep | Bellhouse",
-    "description": "Driveway and parking lot preparation in Brantford and nearby areas, including grading, gravel base prep, compaction, drainage, and site access support."
+    "title": "Driveway Excavation & Grading in Brantford & Brant County | Bellhouse Excavating",
+    "description": "Rural driveway and laneway preparation across Brantford and Brant County. Grading, base prep, and drainage for farm access roads and large rural properties."
   },
   "card": {
     "title": "Driveway & Parking Lot Preparation",
@@ -16,7 +16,7 @@
   },
   "hero": {
     "eyebrow": "Driveway base prep & lot grading",
-    "heading": "Driveway & Parking Lot Preparation in Brantford",
+    "heading": "Rural Driveway & Laneway Grading in Brantford & Brant County",
     "summary": "Precision grading, granular base placement, and compaction for driveways, laneways, parking areas, and contractor-ready surfaces.",
     "actions": [
       { "label": "Request a Quote", "href": "/contact", "variant": "primary" },
@@ -39,12 +39,12 @@
       "type": "intro",
       "tone": "light",
       "eyebrow": "Who it's for",
-      "heading": "Proper Site Preparation for Driveways & Parking Lots",
-      "body": "Bellhouse Excavating prepares driveways, laneways, parking lots, and yard entrances for gravel, asphalt, concrete, or resurfacing. We shape the grade, remove unsuitable material, place granular base, and compact the surface so the finished area has better drainage and durability.",
+      "heading": "Driveway & Laneway Base Prep for Farm, Rural & Large-Lot Properties",
+      "body": "Bellhouse Excavating prepares farm laneways, rural driveways, and large-lot access roads across Brantford and Brant County. We shape the grade, remove unsuitable material, place granular base, and compact the surface so the finished area has better drainage and durability. This page is for farm access roads, rural property driveways, and large-lot grading — not short urban residential driveways.",
       "audience": [
-        { "icon": "house-line", "label": "Homeowners" },
+        { "icon": "leaf", "label": "Farms & rural properties" },
         { "icon": "blueprint", "label": "Builders & contractors" },
-        { "icon": "compass-tool", "label": "Paving contractors" },
+        { "icon": "compass-tool", "label": "Rural landowners" },
         { "icon": "buildings", "label": "Commercial sites" }
       ]
     },
@@ -64,12 +64,12 @@
           "title": "Widening jobs and fresh granular base installs",
           "body": "Useful when the work includes cutting back edges, importing stone, placing base in lifts, and tying new prep into an existing driveway or lane cleanly.",
           "tags": ["Driveway widening", "New gravel base", "Lane extensions"],
-          "outcome": "Leaves a more uniform driving surface that is ready for gravel use or paving without patchwork transitions."
+          "outcome": "Leaves a more uniform driving surface that is ready for gravel use or handoff to your surface contractor without patchwork transitions."
         },
         {
           "title": "Small parking areas and contractor-ready prep",
-          "body": "A strong fit for parking lots, yard entrances, and other traffic areas that need usable slopes, compacted base, and a clear handoff to the paving contractor or finish surface crew.",
-          "tags": ["Parking-lot prep", "Commercial entrances", "Paving-ready base"],
+          "body": "A strong fit for parking lots, yard entrances, and other traffic areas that need usable slopes, compacted base, and a clear handoff to your chosen surface contractor.",
+          "tags": ["Parking-lot prep", "Commercial entrances", "Surface-ready base"],
           "outcome": "Creates a surface that is easier for the next crew to pave, top, or finish without regrading on arrival."
         }
       ]
@@ -84,7 +84,7 @@
         { "title": "Base Material Installation", "body": "Granular A or B material is placed, spread, shaped, and compacted in lifts for a more stable base." },
         { "title": "Compaction", "body": "Compaction equipment is used to tighten the base and improve long-term surface performance." },
         { "title": "Driveway Widening", "body": "We remove sod, soil, and unsuitable material to widen or rebuild existing driveways and lanes." },
-        { "title": "Parking Lot Prep", "body": "Commercial and farm parking areas can be graded and prepared for gravel, asphalt, or concrete." }
+        { "title": "Parking Lot Prep", "body": "Commercial and farm parking areas can be graded and prepared for gravel or your chosen surface layer." }
       ]
     },
     {
@@ -162,9 +162,9 @@
         { "label": "Licensed & insured", "body": "Full coverage on every job" }
       ],
       "items": [
-        { "title": "A stronger granular base", "body": "The surface is shaped and compacted so it can better support vehicle traffic, gravel topping, asphalt, or concrete." },
+        { "title": "A stronger granular base", "body": "The surface is shaped and compacted so it can better support vehicle traffic and gravel topping." },
         { "title": "Cleaner water movement", "body": "Slope, low spots, and edge transitions are handled so water is less likely to sit or wash out the surface." },
-        { "title": "A cleaner handoff", "body": "Paving, concrete, gravel topping, or continued site work can proceed from a more prepared surface." }
+        { "title": "A cleaner handoff", "body": "Gravel topping or continued site work can proceed from a more prepared surface. The surface layer is handled by your chosen contractor." }
       ]
     },
     {
@@ -179,7 +179,7 @@
         },
         {
           "problem": "Flat or poorly shaped surfaces can hold water and break down the finished driveway.",
-          "solution": "Grades are shaped with water movement in mind before gravel, asphalt, or concrete goes down."
+          "solution": "Grades are shaped with water movement in mind before gravel or the finished surface layer goes down."
         },
         {
           "problem": "Loose base material can settle, shift, and leave the next crew correcting avoidable problems.",
@@ -196,22 +196,22 @@
         {
           "name": "Excavator",
           "body": "Used to remove unsuitable material, shape ditches, widen driveways, and establish rough grade.",
-          "image": { "src": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp", "alt": "Excavator" }
+          "image": { "src": "/assets/services/driveways-laneways/excavator-topsoil-removal-laneway-base.webp", "alt": "Excavator removing topsoil for laneway base preparation" }
         },
         {
           "name": "Tri-Axle Dump Trucks",
           "body": "Used for hauling excavated material and delivering granular base, gravel, and aggregates.",
-          "image": { "src": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp", "alt": "Tri-Axle Dump Trucks" }
+          "image": { "src": "/assets/services/driveways-laneways/triaxle-dump-truck-laneway-excavation-site.webp", "alt": "Tri-axle dump truck at a laneway excavation site" }
         },
         {
           "name": "Skid Steer",
           "body": "Used for fine grading, spreading aggregate, cleanup, and working in tighter driveway or parking areas.",
-          "image": { "src": "/assets/services/bellhouse-skid-steer-equipment-illustration.webp", "alt": "Skid Steer" }
+          "image": { "src": "/assets/services/driveways-laneways/skid-steer-final-grading-gravel-driveway-farm-shop.webp", "alt": "Skid steer final grading a gravel driveway at a farm shop" }
         },
         {
           "name": "Compaction Equipment",
           "body": "Used to compact granular base and improve long-term surface stability.",
-          "image": { "src": "/assets/services/bellhouse-roller-compactor-equipment-illustration.webp", "alt": "Compaction Equipment" }
+          "image": { "src": "/assets/services/driveways-laneways/skid-steer-moving-packer-for-driveway-compaction.webp", "alt": "Skid steer moving a packer for driveway base compaction" }
         }
       ]
     },
@@ -230,7 +230,7 @@
         { "title": "Excavation & Removal", "body": "Soft or unsuitable material is removed and the rough grade is shaped for the intended surface." },
         { "title": "Base Material Installation", "body": "Granular base is placed, spread, shaped, and compacted in a practical sequence." },
         { "title": "Fine Grading & Slope Setting", "body": "We dial in surface shape and drainage so the finished driveway or lot has a better path for water." },
-        { "title": "Final Compaction", "body": "The surface is compacted and left ready for gravel use, paving, concrete, or the next crew." }
+        { "title": "Final Compaction", "body": "The surface is compacted and left ready for gravel use or handoff to your chosen surface contractor." }
       ]
     },
     {
@@ -238,7 +238,7 @@
       "tone": "dark",
       "eyebrow": "For builders and contractors",
       "heading": "Need driveway, lane, or parking prep coordinated with aggregate and trucking?",
-      "body": "If your project needs base prep, grading, imported gravel, truck timing, or a clean handoff to paving or concrete, Bellhouse can review the scope, access, and schedule.",
+      "body": "If your project needs base prep, grading, imported gravel, truck timing, or a clean handoff to your surface contractor, Bellhouse can review the scope, access, and schedule.",
       "image": {
         "src": "/assets/services/driveways-laneways/triaxle-dump-truck-laneway-excavation-site.webp",
         "alt": "Tri-axle dump truck and excavator working on a laneway excavation and base prep site"
@@ -289,8 +289,8 @@
           "answer": "Granular A is common for many residential driveway and surface-prep projects, while Granular B may be used for deeper fills or heavier traffic areas. The right material depends on depth, drainage, use, and site conditions."
         },
         {
-          "question": "Do you prepare for asphalt paving?",
-          "answer": "Yes. Bellhouse can prepare the grade and granular base so the paving contractor has a cleaner surface to work from."
+          "question": "Do you do the gravel base preparation before paving?",
+          "answer": "Yes — we prepare and grade the base layer. The surface paving is handled by your paving contractor. Bellhouse focuses on the excavation, grading, and granular base so the site is ready for whoever is finishing the surface."
         },
         {
           "question": "Can you fix driveway drainage issues?",
@@ -348,7 +348,7 @@
       "tone": "dark",
       "eyebrow": "Driveway prep done right",
       "heading": "Ready to fix the base? Bellhouse is local, equipped, and taking jobs now.",
-      "body": "From grade correction and granular base to compaction and paving handoff, Bellhouse handles driveway and parking prep so the finished surface holds.",
+      "body": "From grade correction and granular base to compaction and surface handoff, Bellhouse handles driveway and parking prep so the finished surface holds.",
       "bullets": [
         "Driveways, laneways, and parking lot base preparation",
         "Gravel, aggregate delivery, and compaction included",

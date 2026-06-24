@@ -5,8 +5,8 @@
   "navTitle": "Foundation Excavation",
   "contactService": "Foundation Excavation",
   "meta": {
-    "title": "Foundation Excavation & Backfilling | Bellhouse",
-    "description": "Bellhouse provides foundation excavation and backfilling for new builds, additions, and contractor-led projects across Brantford and nearby areas."
+    "title": "Large-Site Foundation Excavation in Brantford | Bellhouse Excavating",
+    "description": "Foundation excavation for rural properties, farms, and new developments across Brantford and Brant County. Large-site equipment, no tight urban lots."
   },
   "visuals": {
     "background": {
@@ -413,7 +413,6 @@
       "heading": "Related excavation and hauling services",
       "serviceSlugs": [
         "site-preparation-land-grading",
-        "septic-system-installation",
         "dump-truck-rental",
         "dirt-gravel-delivery",
         "heavy-equipment-hauling"
@@ -482,7 +481,7 @@
             { "label": "Contractor Support", "href": "/contractors", "icon": "caret-right" },
             { "label": "Demolition", "href": "/services/demolition", "icon": "caret-right" },
             { "label": "Dirt & Gravel Delivery", "href": "/services/dirt-gravel-delivery", "icon": "caret-right" },
-            { "label": "Land Drainage", "href": "/services/septic-system-installation", "icon": "caret-right" }
+            { "label": "Land Grading & Drainage", "href": "/services/land-grading-drainage", "icon": "caret-right" }
           ]
         },
         {

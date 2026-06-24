@@ -142,13 +142,6 @@ export const calculatorPageContent: Record<
         actionLabel: 'Plan Site Preparation',
       },
       {
-        href: '/services/septic-system-installation',
-        title: 'Septic excavation and backfill support',
-        description:
-          'Useful for rural projects where tank excavation, bed prep, bedding material, backfill, and grading need to stay coordinated.',
-        actionLabel: 'View Septic Installation',
-      },
-      {
         href: '/services/pond-digging-cleaning',
         title: 'Pond digging, cleaning, and spoil handling',
         description:

@@ -5,8 +5,8 @@
   "navTitle": "Pond Digging & Cleaning",
   "contactService": "Other",
   "meta": {
-    "title": "Pond Digging & Cleaning Services | Brant County | Bellhouse",
-    "description": "Professional pond digging and maintenance services in Brant County. Excavation, restoration, and cleaning for residential, commercial, and agricultural ponds."
+    "title": "Farm Pond Excavation & Cleanout in Brant County | Bellhouse Excavating",
+    "description": "Farm pond excavation, sediment removal, and pond cleanout for agricultural and rural properties across Brant County and surrounding areas."
   },
   "card": {
     "title": "Pond Digging & Cleaning Services",
@@ -195,12 +195,12 @@
         {
           "name": "Excavator",
           "body": "Used for digging ponds, removing sediment, deepening existing ponds, and shaping shorelines.",
-          "image": { "src": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp", "alt": "Excavator" }
+          "image": { "src": "/assets/services/cat-excavator-digging-in-aggregates-pile.webp", "alt": "CAT excavator digging on a job site" }
         },
         {
           "name": "Tri-Axle Dump Trucks",
           "body": "Used for hauling away excess material or bringing in aggregates where the project requires trucking support.",
-          "image": { "src": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp", "alt": "Tri-Axle Dump Trucks" }
+          "image": { "src": "/assets/services/dump-truck-hauling/triaxle-dump-truck-gravel-hauling-brant-county.webp", "alt": "Bellhouse tri-axle dump truck hauling material" }
         }
       ]
     },

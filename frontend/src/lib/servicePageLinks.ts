@@ -79,12 +79,6 @@ const relatedServiceMap: Record<string, string[]> = {
     'site-preparation-land-grading',
     'foundation-excavation',
   ],
-  'septic-system-installation': [
-    'foundation-excavation',
-    'site-preparation-land-grading',
-    'dirt-gravel-delivery',
-    'dump-truck-rental',
-  ],
   'pond-digging-cleaning': [
     'site-preparation-land-grading',
     'dump-truck-rental',

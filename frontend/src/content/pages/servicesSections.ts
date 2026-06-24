@@ -54,7 +54,7 @@ export const servicesServicesSection: ServicesSectionData = {
       id: 'excavation',
       heading: 'Excavation',
       description: [
-        'Foundation digs, backfilling, septic excavation, and structural site excavation. For rough cut, spoil, or load planning, start with the ',
+        'Foundation digs, backfilling, and structural site excavation for rural properties, farms, and new developments. For rough cut, spoil, or load planning, start with the ',
         {
           label: 'excavation calculator',
           href: '/resources/calculators/excavation',
@@ -63,7 +63,7 @@ export const servicesServicesSection: ServicesSectionData = {
       ],
       items: buildServiceCards([
         'foundation-excavation',
-        'septic-system-installation',
+        'site-preparation-land-grading',
       ]),
     },
     {

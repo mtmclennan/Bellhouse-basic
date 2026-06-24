@@ -445,21 +445,6 @@ const baseServiceAreaPages = {
         ],
       },
       {
-        title: 'Septic, drainage, and rural servicing work',
-        description:
-          'Rural builds may need septic excavation, bedding material, backfill, and drainage grading coordinated with the rest of the site work.',
-        links: [
-          {
-            label: 'septic system installation',
-            href: '/services/septic-system-installation',
-          },
-          {
-            label: 'dirt and gravel delivery',
-            href: '/services/dirt-gravel-delivery',
-          },
-        ],
-      },
-      {
         title: 'Pond work and property improvements',
         description:
           'Farms and larger properties may need pond digging, cleaning, shoreline shaping, or drainage improvements tied into access and spoil handling.',
@@ -542,17 +527,6 @@ const baseServiceAreaPages = {
         image: {
           src: '/assets/driveway-parking-lot-construction.jpg',
           alt: 'Machine grading a driveway and access lane with compacted aggregate.',
-        },
-      },
-      {
-        slug: 'septic-system-installation',
-        title: 'Septic system installation support for rural lots',
-        description:
-          'Paris-area rural builds often need approved-plan septic excavation, bedding, backfill, and final grading coordinated with driveway access, site prep, and material hauling.',
-        coreServiceHref: '/services/septic-system-installation',
-        image: {
-          src: '/assets/services/septic-systems/septic-system-tank-distribution-box-field.webp',
-          alt: 'Septic system tank placement and excavation work on a rural property.',
         },
       },
       {

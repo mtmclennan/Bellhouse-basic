@@ -5,8 +5,8 @@
   "navTitle": "Dump Truck Hauling",
   "contactService": "Dump Truck Services",
   "meta": {
-    "title": "Dump Truck Rental & Hauling Services | Brant County",
-    "description": "Reliable dump truck rentals with experienced operators in Brant County. Hire our fleet for construction, excavation, and bulk material hauling projects."
+    "title": "Dump Truck Rental in Brantford & Brant County | Bellhouse Excavating",
+    "description": "Articulated and tandem dump truck rental with operators across Brant County, Brantford, and surrounding areas. Ideal for large-site material hauling."
   },
   "card": {
     "title": "Dump Truck Rental & Hauling Services",
@@ -195,12 +195,12 @@
         {
           "name": "Tri-Axle Dump Trucks",
           "body": "Used for hauling aggregates, fill, excavation spoil, and debris. Capacity depends on material, route, and regulations.",
-          "image": { "src": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp", "alt": "Tri-Axle Dump Trucks" }
+          "image": { "src": "/assets/services/dump-truck-hauling/triaxle-dump-truck-gravel-hauling-brant-county.webp", "alt": "Bellhouse tri-axle dump truck hauling gravel in Brant County" }
         },
         {
           "name": "Loading Equipment",
           "body": "Excavators and loaders can support hauling work when Bellhouse is coordinating excavation, aggregate movement, or spoil removal.",
-          "image": { "src": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp", "alt": "Loading Equipment" }
+          "image": { "src": "/assets/services/dump-truck-hauling/excavator-loading-dump-truck-right.webp", "alt": "Excavator loading a tri-axle dump truck on site" }
         }
       ]
     },

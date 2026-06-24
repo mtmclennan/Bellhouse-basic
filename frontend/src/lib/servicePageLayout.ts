@@ -111,20 +111,6 @@ const serviceResourcesConfig: Partial<
       },
     ],
   },
-  'septic-system-installation': {
-    title: 'Need a rough excavation estimate before septic work starts?',
-    description:
-      'Septic jobs usually involve excavation, bedding material, and haul-out decisions. The excavation calculator helps with the cut side of the job before engineered details are finalized.',
-    links: [
-      {
-        href: calculatorSeoConfig.excavation.resourcePath,
-        title: 'Excavation calculator for septic installs',
-        description:
-          'Estimate excavation volume, loose spoil, and rough truck loads for septic tank digs, trenches, and related excavation work.',
-        actionLabel: 'Estimate Septic Excavation',
-      },
-    ],
-  },
   'driveway-parking-lot-preparation': {
     title: 'Planning driveway or parking lot base quantities?',
     description:

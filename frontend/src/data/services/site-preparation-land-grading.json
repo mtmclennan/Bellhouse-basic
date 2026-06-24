@@ -195,27 +195,27 @@
         {
           "name": "Dozer",
           "body": "Used for bulk earthmoving, stripping topsoil, rough grading, and shaping building pads.",
-          "image": { "src": "/assets/services/bellhouse-dozer-equipment-illustration.webp", "alt": "Dozer" }
+          "image": { "src": "/assets/services/dozer-stripping-site-prep.webp", "alt": "Dozer stripping topsoil during site preparation" }
         },
         {
           "name": "Excavator",
           "body": "Handles excavation, trenching, material placement, and detailed site shaping.",
-          "image": { "src": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp", "alt": "Excavator" }
+          "image": { "src": "/assets/services/site-preparations-land-clearing/large-site-preparation-excavation-equipment.webp", "alt": "Excavator working on a large site preparation job" }
         },
         {
           "name": "Skid Steer",
           "body": "Used for fine grading, cleanup, material handling, and preparing surfaces for construction.",
-          "image": { "src": "/assets/services/bellhouse-skid-steer-equipment-illustration.webp", "alt": "Skid Steer" }
+          "image": { "src": "/assets/services/auto-level-fine-grading-skid-steer.webp", "alt": "Skid steer with auto-level attachment for fine grading" }
         },
         {
           "name": "Off-Road Dump Truck",
           "body": "Moves material efficiently around the site without relying on public road access.",
-          "image": { "src": "/assets/services/bellhouse-offroad-dump-truck-equipment-illustration.webp", "alt": "Off-Road Dump Truck" }
+          "image": { "src": "/assets/services/off-road-truck-dump-truck.jpg", "alt": "Off-road articulated dump truck on a job site" }
         },
         {
           "name": "Tri-Axle Dump Truck",
           "body": "Hauls excavated material off-site and delivers fill, granular base, and aggregates as needed.",
-          "image": { "src": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp", "alt": "Tri-Axle Dump Truck" }
+          "image": { "src": "/assets/services/dump-truck-hauling/triaxle-dump-truck-gravel-hauling-brant-county.webp", "alt": "Bellhouse tri-axle dump truck hauling material from a site" }
         },
         {
           "name": "Laser & GPS Grade Control",

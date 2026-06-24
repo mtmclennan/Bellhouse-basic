@@ -11,7 +11,6 @@ const heroFormDefaults: Record<string, string> = {
   'volvo-a35-off-road-dump-truck-rental': 'Other / not sure',
   'house-barn-demolition': 'Demolition',
   'pond-digging-cleaning': 'Other / not sure',
-  'septic-system-installation': 'Other / not sure',
 };
 
 const contactFormDefaults: Record<string, string> = {
@@ -25,7 +24,6 @@ const contactFormDefaults: Record<string, string> = {
   'volvo-a35-off-road-dump-truck-rental': 'Equipment Hauling',
   'house-barn-demolition': 'Demolition',
   'pond-digging-cleaning': 'Other',
-  'septic-system-installation': 'Septic System',
 };
 
 export function getHeroFormWorkType(slug: string): string | undefined {

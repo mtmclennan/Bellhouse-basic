@@ -195,12 +195,12 @@
         {
           "name": "Volvo A35 Articulated Off-Road Dump Truck",
           "body": "A heavy-duty off-road haul truck designed for bulk production hauling on large and difficult job sites.",
-          "image": { "src": "/assets/services/bellhouse-offroad-dump-truck-equipment-illustration.webp", "alt": "Volvo A35 articulated off-road dump truck" }
+          "image": { "src": "/assets/services/off-road-truck-dump-truck.jpg", "alt": "Volvo A35 articulated off-road dump truck on a job site" }
         },
         {
           "name": "Excavator Loading Support",
           "body": "Often paired with excavators or other loading equipment for efficient loading and continuous material movement.",
-          "image": { "src": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp", "alt": "Excavator loading support" }
+          "image": { "src": "/assets/services/dump-truck-hauling/cat-320-excavator-loading-b-gravel.webp", "alt": "CAT 320 excavator loading B gravel into a dump truck" }
         }
       ]
     },

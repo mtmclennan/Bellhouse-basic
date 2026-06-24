@@ -7,7 +7,7 @@ import { validateMetadata } from '@/lib/utils/seoValidation';
 export const metadata: Metadata = {
   title: 'Contact Bellhouse Excavating | Request a Quote',
   description:
-    'Contact Bellhouse Excavating for excavation, grading, hauling, demolition, septic, pond, and site work quotes in Brantford, Paris, and Brant County.',
+    'Contact Bellhouse Excavating for excavation, grading, hauling, demolition, pond, and site work quotes in Brantford, Paris, and Brant County.',
   alternates: {
     canonical: 'https://bellhouseexcavating.ca/contact',
   },

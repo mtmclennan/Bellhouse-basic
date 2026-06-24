@@ -5,8 +5,8 @@
   "navTitle": "Aggregate Delivery",
   "contactService": "Gravel Delivery",
   "meta": {
-    "title": "Dirt, Gravel & Aggregate Delivery | Bellhouse",
-    "description": "Bellhouse delivers gravel, topsoil, sand, and fill for construction, site prep, and landscaping across Brantford and nearby areas."
+    "title": "Aggregate & Gravel Delivery in Brantford & Brant County | Bellhouse Excavating",
+    "description": "Topsoil, gravel, and aggregate delivery across Brantford and Brant County. Dump truck delivery for farms, construction sites, and large rural properties."
   },
   "card": {
     "title": "Dump Truck Services - Dirt & Gravel Delivery",
@@ -204,12 +204,12 @@
         {
           "name": "Tri-Axle Dump Trucks",
           "body": "Used for hauling gravel, topsoil, sand, fill, and aggregates to residential, farm, commercial, and contractor sites.",
-          "image": { "src": "/assets/services/bellhouse-dump-truck-triaxle-equipment-illustration.webp", "alt": "Tri-Axle Dump Trucks" }
+          "image": { "src": "/assets/services/dump-truck-hauling/triaxle-dump-truck-gravel-hauling-brant-county.webp", "alt": "Bellhouse tri-axle dump truck hauling gravel in Brant County" }
         },
         {
           "name": "Loading Equipment",
           "body": "Excavators and loaders support material loading when Bellhouse is coordinating aggregate movement with site work.",
-          "image": { "src": "/assets/services/bellhouse-excavation-equipment-excavator-illustration.webp", "alt": "Loading Equipment" }
+          "image": { "src": "/assets/services/dump-truck-hauling/excavator-loading-dump-truck-right.webp", "alt": "Excavator loading a tri-axle dump truck" }
         }
       ]
     },
