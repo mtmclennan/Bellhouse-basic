@@ -5,7 +5,7 @@ export const GOOGLE_REVIEWS_URL =
 
 export const GOOGLE_REVIEW_SUMMARY = {
   rating: 5.0,
-  reviewCount: 3,
+  reviewCount: 4,
   label: '5.0 on Google',
   href: GOOGLE_REVIEWS_URL,
 } as const;

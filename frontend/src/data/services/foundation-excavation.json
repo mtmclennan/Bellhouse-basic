@@ -5,7 +5,7 @@
   "navTitle": "Foundation Excavation",
   "contactService": "Foundation Excavation",
   "meta": {
-    "title": "Large-Site Foundation Excavation in Brantford | Bellhouse Excavating",
+    "title": "Foundation Excavation in Brant County | Bellhouse",
     "description": "Foundation excavation for rural properties, farms, and new developments across Brantford and Brant County. Large-site equipment, no tight urban lots."
   },
   "visuals": {
@@ -22,7 +22,7 @@
   },
   "hero": {
     "eyebrow": "Serving Brantford and Brant County",
-    "heading": "Foundation Excavation in Brantford",
+    "heading": "Large-Site Foundation Excavation in Brantford & Brant County",
     "summary": "Excavation, trucking, backfill, and site prep coordinated by a local crew that understands access, depth, elevations, and real construction schedules.",
     "actions": [
       {
@@ -59,11 +59,12 @@
       "tone": "light",
       "eyebrow": "Who it's for",
       "heading": "Foundation excavation for builders and property owners",
-      "body": "Bellhouse helps keep the early site work organized so the next phase can move without avoidable delays.",
+      "body": "Bellhouse Excavating handles foundation excavation for rural properties, farms, and large-site builds across Brant County and Brantford. From basement digs and garage foundations to shop slabs, barn foundations, and subdivision pads, the scope is planned around access, elevations, soil conditions, and what needs to happen after the excavation is done. Spoil haul-out, backfill, and rough grading are coordinated with the dig rather than left as separate calls.",
       "audience": [
         { "icon": "house-line", "label": "Home builders" },
         { "icon": "blueprint", "label": "General contractors" },
-        { "icon": "compass-tool", "label": "Concrete contractors" },
+        { "icon": "buildings", "label": "Subdivision builders" },
+        { "icon": "leaf", "label": "Rural property owners" },
         { "icon": "user", "label": "Homeowners" }
       ]
     },
@@ -89,7 +90,7 @@
           "tags": [
             "Basement walkouts",
             "Sloped lots",
-            "Tight residential access"
+            "Rural acreage lots"
           ],
           "outcome": "Helps avoid messy rework on access, spoil placement, and drainage shaping before concrete work begins."
         },
@@ -141,6 +142,34 @@
           "icon": "check-square",
           "title": "Site handoff",
           "body": "The work area is left scalable, workable, and ready for the next trade when Bellhouse is done."
+        }
+      ]
+    },
+    {
+      "type": "scope",
+      "tone": "dark",
+      "heading": "Best Fit & Not the Best Fit",
+      "subheading": "Foundation excavation works best where site access is clear, elevations are confirmed, and there is room for trucks and spoil staging. Some projects are a stronger fit than others.",
+      "items": [
+        {
+          "title": "Best fit: Rural properties and farm builds",
+          "body": "Properties in Brant County and surrounding areas with clear equipment access, room for truck staging, and defined spoil placement. Barn foundations, shop slabs, rural residential builds, and acreage lots are common work."
+        },
+        {
+          "title": "Best fit: Large-lot residential and subdivision foundations",
+          "body": "Basement digs, garage pads, walkouts, and multi-unit starts on larger lots where excavation scope, haul-out, and backfill support need to be coordinated as one scope."
+        },
+        {
+          "title": "Best fit: Excavation, hauling, and backfill under one scope",
+          "body": "Projects where the same crew can handle the dig, the spoil haul-out, and the backfill after the foundation work — reduces coordination overhead and keeps the schedule moving."
+        },
+        {
+          "title": "Not the best fit: Tight urban infill",
+          "body": "Jobs in dense urban cores where large excavation equipment cannot safely access the site, stage spoil, or turn trucks are generally outside Bellhouse's scope for foundation work."
+        },
+        {
+          "title": "Not the best fit: Underpinning or interior structural work",
+          "body": "Interior foundation work, underpinning of existing structures, and shoring work require structural engineering oversight and specialized equipment that is separate from standard excavation."
         }
       ]
     },
@@ -440,8 +469,8 @@
           "answer": "Yes. Our triaxle fleet hauls away all spoil material as part of our excavation service, so the site stays clear for the next phase."
         },
         {
-          "question": "Can you work in tight backyards?",
-          "answer": "In most cases, yes. We assess access during the estimate and plan equipment size accordingly so we can reach constrained or rear-lot foundations."
+          "question": "Do you handle foundation excavation on rural properties and farms?",
+          "answer": "Yes. Bellhouse handles foundation excavation for rural residential builds, farm shops, barn foundations, and large-site construction across Brant County. Rural properties with clear equipment access and room for trucks are a strong fit. Spoil haul-out, backfill, and rough grading after the foundation work are included in the same scope when needed."
         },
         {
           "question": "How far ahead should I book?",
@@ -479,7 +508,7 @@
           "links": [
             { "label": "Site Prep & Grading", "href": "/services/site-preparation-land-grading", "icon": "caret-right" },
             { "label": "Contractor Support", "href": "/contractors", "icon": "caret-right" },
-            { "label": "Demolition", "href": "/services/demolition", "icon": "caret-right" },
+            { "label": "Demolition", "href": "/services/house-barn-demolition", "icon": "caret-right" },
             { "label": "Dirt & Gravel Delivery", "href": "/services/dirt-gravel-delivery", "icon": "caret-right" },
             { "label": "Land Grading & Drainage", "href": "/services/land-grading-drainage", "icon": "caret-right" }
           ]

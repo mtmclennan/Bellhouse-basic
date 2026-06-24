@@ -40,11 +40,12 @@
       "tone": "light",
       "eyebrow": "Who it's for",
       "heading": "Start Your Project with Proper Site Preparation",
-      "body": "Bellhouse Excavating handles full site preparation, including stripping topsoil, rough grading, land shaping, and excavation for foundations, roads, and drainage. Proper site prep sets your project up for long-term success.",
+      "body": "Bellhouse Excavating handles full site preparation across Brantford, Brant County, and surrounding areas — including stripping topsoil, rough grading, land shaping, and excavation for foundations, roads, and drainage. Proper site prep sets your project up for long-term success.",
       "audience": [
         { "icon": "blueprint", "label": "Builders & developers" },
         { "icon": "hard-hat", "label": "Contractors" },
-        { "icon": "house-line", "label": "Homeowners" },
+        { "icon": "house-line", "label": "Rural property owners" },
+        { "icon": "buildings", "label": "Subdivision builders" },
         { "icon": "shovel", "label": "Raw land & rural builds" }
       ]
     },
@@ -84,6 +85,30 @@
         { "title": "Rough & Final Grading", "body": "We shape the land for proper drainage and building layout." },
         { "title": "Building Pad Prep", "body": "Creation of level, compacted pads for shops, barns, and homes." },
         { "title": "Ditching & Drainage", "body": "Ditches and swales to manage water and protect structures." }
+      ]
+    },
+    {
+      "type": "scope",
+      "tone": "dark",
+      "heading": "Best Fit & Not the Best Fit",
+      "subheading": "Site preparation works best where the lot has room for equipment staging, truck access, and material movement before the next phase of construction begins.",
+      "items": [
+        {
+          "title": "Best fit: Rural, farm, and large-lot new builds",
+          "body": "Properties with room for equipment access, truck staging, and material stockpiling. Barn sites, shop pads, rural residential builds, and acreage lots across Brant County are common work."
+        },
+        {
+          "title": "Best fit: Builder and contractor site prep",
+          "body": "Projects where stripping, grading, pad prep, and drainage all need to stay coordinated with the build schedule instead of being split across separate crews."
+        },
+        {
+          "title": "Not the best fit: Small urban lots with no staging room",
+          "body": "Site prep with large equipment works best on lots with room for trucks, material staging, and machine movement. Tight city lots with restricted access are generally outside Bellhouse's scope."
+        },
+        {
+          "title": "Not the best fit: Landscaping and finish work",
+          "body": "Bellhouse brings sites to rough or finish grade for the next trade. Sod, planting, retaining walls, and decorative landscape work are separate scopes."
+        }
       ]
     },
     {
@@ -301,15 +326,23 @@
       "items": [
         {
           "question": "Can you prepare sites for new builds?",
-          "answer": "Yes, we regularly prepare sites for new homes, shops, and agricultural buildings."
+          "answer": "Yes. Bellhouse regularly prepares sites for new homes, farm shops, barns, and agricultural buildings across Brant County. Site prep typically includes topsoil stripping, rough grading to design elevations, building pad preparation, and drainage shaping. The goal is a build-ready surface where foundation, framing, or concrete crews can step in without regrading."
         },
         {
-          "question": "Do you handle drainage issues?",
-          "answer": "Yes, grading and ditching for drainage is a core part of site prep."
+          "question": "Do you handle drainage as part of site prep?",
+          "answer": "Yes. Grading for drainage is a core part of how Bellhouse approaches site preparation. That includes shaping slopes to direct water away from building pads, cutting swales and ditches, and establishing drainage paths before construction locks in the wrong elevations. On sites that need underground drainage, Bellhouse can excavate, bed pipe, place stone, and backfill as part of the grading scope."
         },
         {
           "question": "Can you work from engineered site plans?",
-          "answer": "Yes, we work directly from survey and engineering drawings."
+          "answer": "Yes. Bellhouse works directly from survey drawings, engineered grading plans, and site layout documents. Laser and GPS grade control are used to match proposed elevations accurately. If plans are still in progress, a site walk and discussion of the project scope are usually enough to start the quoting process."
+        },
+        {
+          "question": "How long does site preparation typically take?",
+          "answer": "Most residential or farm site prep jobs take a few days to a week depending on the lot size, topsoil depth, grade correction needed, and whether imported aggregate is required. Larger commercial or multi-pad projects may take longer. Bellhouse confirms a realistic timeline after reviewing the site, scope, and access conditions."
+        },
+        {
+          "question": "Do I need to remove trees or clear brush before site prep starts?",
+          "answer": "Not necessarily. Bellhouse can handle tree and brush clearing as part of the site prep scope where equipment access allows. Stripping, grubbing, and clearing are typically done in the same mobilization as the grading work so the site moves from raw land to build-ready in one coordinated phase."
         }
       ]
     },

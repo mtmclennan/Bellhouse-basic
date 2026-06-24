@@ -5,7 +5,7 @@
   "navTitle": "Driveway & Lot Prep",
   "contactService": "Driveway",
   "meta": {
-    "title": "Driveway Excavation & Grading in Brantford & Brant County | Bellhouse Excavating",
+    "title": "Rural Driveway Grading in Brant County | Bellhouse",
     "description": "Rural driveway and laneway preparation across Brantford and Brant County. Grading, base prep, and drainage for farm access roads and large rural properties."
   },
   "card": {
@@ -88,6 +88,30 @@
       ]
     },
     {
+      "type": "scope",
+      "tone": "dark",
+      "heading": "Best Fit & Not the Best Fit",
+      "subheading": "Bellhouse driveway and lot prep works best on rural properties, farm laneways, and large lots where there is room for equipment and trucks to work safely.",
+      "items": [
+        {
+          "title": "Best fit: Farm laneways and rural driveways",
+          "body": "Long laneways, farm access roads, and rural property driveways where the grade, base, and drainage all need proper attention before gravel or surface material goes down."
+        },
+        {
+          "title": "Best fit: Large-lot parking areas and yard entrances",
+          "body": "Commercial yard entrances, farm parking areas, and large-lot turnarounds that need grading, compacted base, and a clean handoff to the surface contractor."
+        },
+        {
+          "title": "Not the best fit: Short urban residential driveways",
+          "body": "Bellhouse is set up for rural laneways, farm driveways, and large-lot access roads. Short suburban or city driveways with limited space for trucks and equipment are better suited to a smaller-scale contractor."
+        },
+        {
+          "title": "Not the best fit: Surface paving or asphalt work",
+          "body": "Bellhouse prepares the base, grade, and compaction. The finished surface — asphalt, concrete, or interlocking — is handled by your chosen surface contractor."
+        }
+      ]
+    },
+    {
       "type": "reviews",
       "tone": "light",
       "eyebrow": "Testimonials",
@@ -106,7 +130,7 @@
         { "name": "Typical", "eg": "Driveway rebuild with base replacement and compaction", "position": "mid" },
         { "name": "Complex", "eg": "Significant grade correction, poor access, full base and drainage work", "position": "high" }
       ],
-      "rangeNote": "Most residential driveway prep jobs fall in the middle range. Bellhouse quotes after reviewing the site, existing conditions, and material needs.",
+      "rangeNote": "Most rural and farm driveway prep jobs fall in the middle range. Bellhouse quotes after reviewing the site, existing conditions, and material needs.",
       "factors": [
         {
           "title": "Existing grade and soft spots",
@@ -286,7 +310,7 @@
       "items": [
         {
           "question": "What base material do you recommend?",
-          "answer": "Granular A is common for many residential driveway and surface-prep projects, while Granular B may be used for deeper fills or heavier traffic areas. The right material depends on depth, drainage, use, and site conditions."
+          "answer": "Granular A is common for many rural and farm driveway and surface-prep projects, while Granular B may be used for deeper fills or heavier traffic areas. The right material depends on depth, drainage, use, and site conditions."
         },
         {
           "question": "Do you do the gravel base preparation before paving?",

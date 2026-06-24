@@ -5,7 +5,7 @@
   "navTitle": "Pond Digging & Cleaning",
   "contactService": "Other",
   "meta": {
-    "title": "Farm Pond Excavation & Cleanout in Brant County | Bellhouse Excavating",
+    "title": "Farm Pond Excavation & Cleanout | Brant County | Bellhouse",
     "description": "Farm pond excavation, sediment removal, and pond cleanout for agricultural and rural properties across Brant County and surrounding areas."
   },
   "card": {
@@ -16,8 +16,8 @@
   },
   "hero": {
     "eyebrow": "Pond excavation & restoration",
-    "heading": "Pond Digging & Cleaning in Brantford",
-    "summary": "Custom pond excavation, deepening, sediment removal, shoreline reshaping, and restoration for farms, rural properties, and residential sites.",
+    "heading": "Farm Pond Excavation & Cleanout in Brant County",
+    "summary": "Custom pond excavation, deepening, sediment removal, shoreline reshaping, and restoration for farm and rural properties across Brant County. Farm ponds for livestock water supply, irrigation, fire suppression, and wildlife habitat.",
     "actions": [
       { "label": "Request Pond Quote", "href": "/contact", "variant": "primary" },
       { "label": "For Builders & Contractors", "href": "/contractors", "variant": "secondary" }
@@ -40,7 +40,7 @@
       "tone": "light",
       "eyebrow": "Who it's for",
       "heading": "Create, Expand, or Restore Your Pond with Expert Excavation",
-      "body": "Bellhouse Excavating provides pond digging and pond cleaning services, from new pond construction to sediment removal and shoreline reshaping. Whether the project is a farm pond, wildlife pond, drainage pond, or rural property feature, the work is planned around access, soil, water management, and the final use of the site.",
+      "body": "Bellhouse Excavating provides pond digging and pond cleaning services, from new pond construction to sediment removal and shoreline reshaping. Whether the project is a farm pond, wildlife pond, irrigation pond, drainage pond, or rural property feature, the work is planned around access, soil, water management, and the final use of the site.\n\nFarm ponds across Brant County are built for a range of purposes — livestock water supply, crop irrigation, fire suppression reserves, and habitat. Bellhouse also handles storm pond sediment removal for commercial and rural development sites where retention capacity has been lost to silt buildup.",
       "audience": [
         { "icon": "drop", "label": "Water management" },
         { "icon": "house-line", "label": "Rural property owners" },
@@ -56,8 +56,8 @@
       "cards": [
         {
           "title": "New farm, rural, or wildlife ponds",
-          "body": "A practical fit when a new pond needs to be excavated with the right depth, side slopes, spoil placement, and equipment access.",
-          "tags": ["New ponds", "Farm ponds", "Wildlife ponds"],
+          "body": "A practical fit when a new pond needs to be excavated with the right depth, side slopes, spoil placement, and equipment access. Farm ponds for livestock water supply, crop irrigation, and fire suppression reservoirs are common purposes across Brant County and Southern Ontario.",
+          "tags": ["Farm ponds", "Livestock water supply", "Irrigation ponds", "Wildlife ponds"],
           "outcome": "Creates a pond shape that works with the property instead of leaving a rough hole that is hard to maintain."
         },
         {
@@ -65,6 +65,12 @@
           "body": "Useful when an existing pond has lost depth, filled with silt, or become difficult to maintain because of organic buildup.",
           "tags": ["Sediment removal", "Pond deepening", "Dredging"],
           "outcome": "Restores usable depth and improves access where the site conditions allow equipment to work safely."
+        },
+        {
+          "title": "Storm pond and stormwater sediment removal",
+          "body": "Useful for commercial, rural development, and municipal properties where a stormwater retention pond has lost capacity to sediment buildup. Excavator access, spoil handling, and material disposal are reviewed as part of the scope.",
+          "tags": ["Storm pond cleanout", "Stormwater sediment removal", "Commercial pond maintenance"],
+          "outcome": "Pond capacity restored and material removed so the retention system can function as designed."
         },
         {
           "title": "Shoreline reshaping and drainage improvements",
@@ -83,7 +89,37 @@
         { "title": "New Pond Construction", "body": "Custom pond digging based on drainage, depth, soil conditions, and land use." },
         { "title": "Sediment Removal", "body": "Silt and organic buildup can be removed to restore depth and improve pond function." },
         { "title": "Pond Expansion", "body": "Existing ponds can be widened, deepened, or reshaped to increase water capacity." },
-        { "title": "Shoreline Reshaping", "body": "Edges, banks, slopes, and drainage areas can be shaped for better long-term access and water management." }
+        { "title": "Shoreline Reshaping", "body": "Edges, banks, slopes, and drainage areas can be shaped for better long-term access and water management." },
+        { "title": "Irrigation Pond Excavation", "body": "Pond construction sized for crop irrigation on farm properties across Brant County and Southern Ontario. Depth, capacity, and inlet/outlet placement are planned around the acreage and water requirements." },
+        { "title": "Storm Pond & Sediment Removal", "body": "Stormwater retention pond sediment removal and cleanout for commercial, industrial, and rural development sites where pond capacity has been reduced by silt buildup." }
+      ]
+    },
+    {
+      "type": "scope",
+      "tone": "dark",
+      "heading": "Best Fit & Not the Best Fit",
+      "subheading": "Pond excavation and cleanout work best where equipment access is clear, the site has space for spoil material, and the pond purpose is well-defined.",
+      "items": [
+        {
+          "title": "Best fit: Farm ponds for livestock, irrigation, or fire suppression",
+          "body": "New pond construction on agricultural land where the purpose is defined — livestock water supply, crop irrigation reserve, or fire suppression reservoir. Rural properties in Brant County, Paris, St. George, and Burford."
+        },
+        {
+          "title": "Best fit: Existing ponds that have lost depth",
+          "body": "Ponds filled with sediment, silt, or organic buildup where restoring depth would meaningfully improve function. Sites with clear equipment access to the pond edge."
+        },
+        {
+          "title": "Best fit: Storm pond sediment removal",
+          "body": "Stormwater retention ponds on commercial or rural development sites that have lost capacity to silt. Excavator access and spoil placement are the main site requirements."
+        },
+        {
+          "title": "Not the best fit: Regulated wetlands without permits",
+          "body": "Work in or near regulated wetlands, floodplains, or protected watercourses requires conservation authority approval. Bellhouse can review access and excavation conditions but cannot begin without applicable permits in place."
+        },
+        {
+          "title": "Not the best fit: No equipment access to the pond",
+          "body": "Ponds surrounded by soft ground, steep banks, or obstacles that prevent excavator access safely are not a strong match for this type of work."
+        }
       ]
     },
     {
@@ -141,7 +177,7 @@
       "tone": "dark",
       "eyebrow": "Pond excavation work",
       "heading": "Good pond work starts with access, soil, water, and where the excavated material goes.",
-      "body": "Pond digging and cleaning need more planning than simply digging deeper. Bellhouse reviews equipment access, spoil placement, drainage, depth, shoreline slopes, and the condition of the existing pond or site.",
+      "body": "Pond digging and cleaning need more planning than simply digging deeper. Bellhouse reviews equipment access, spoil placement, drainage, depth, shoreline slopes, and the condition of the existing pond or site before starting work on farm and rural properties across Brant County.",
       "image": {
         "src": "/assets/Pond-digging-cleaning-services-brant-county.png",
         "alt": "Excavator working beside a rural pond during pond digging and cleaning in Brant County"
@@ -257,7 +293,7 @@
       "type": "serviceAreas",
       "tone": "dark",
       "heading": "Pond digging and cleaning by service area",
-      "body": "Pond digging and cleaning services are available across Brant County and nearby rural areas where access, soil, drainage, and material handling support the work.",
+      "body": "Pond digging and cleaning services are available across Brant County and nearby rural areas — including Paris, St. George, Burford, Hamilton, Cambridge, and surrounding communities — where access, soil, drainage, and material handling support the work.",
       "areaSlugs": ["paris", "brantford", "simcoe", "woodstock", "cambridge", "ancaster"]
     },
     {
@@ -287,6 +323,14 @@
         {
           "question": "What happens to the material removed from the pond?",
           "answer": "Removed sediment or soil can be placed on site where suitable or hauled away if the project requires it. Placement and truck access should be reviewed before the work starts."
+        },
+        {
+          "question": "Can you build a pond for livestock water supply?",
+          "answer": "Yes. Farm ponds for livestock watering are a common project across Brant County and Southern Ontario. The pond is excavated to a depth and size that provides reliable water capacity, with side slopes and shoreline shaping that makes access practical for cattle and other livestock."
+        },
+        {
+          "question": "Do you build irrigation ponds for farm use?",
+          "answer": "Yes. Irrigation ponds and water supply reservoirs for crop farming can be excavated on rural properties where soil, drainage, and site conditions support it. Depth and capacity are sized around the acreage and water requirements. Bellhouse reviews site access, spoil placement, and water source before starting."
         }
       ]
     },
@@ -336,11 +380,11 @@
       "tone": "dark",
       "eyebrow": "Pond built or restored",
       "heading": "Farm pond, rural water feature, or overgrown pond? Bellhouse is local, equipped, and taking jobs now.",
-      "body": "From new pond excavation to sediment removal, shoreline reshaping, and drainage cleanup, Bellhouse handles the dig so your pond is deeper, cleaner, and better shaped for the long term.",
+      "body": "From farm pond excavation for livestock water and irrigation to sediment removal, storm pond cleanout, and shoreline reshaping — Bellhouse handles the dig so your pond is deeper, cleaner, and better shaped for the long term. Serving farm and rural properties across Brant County, including Paris, St. George, Burford, and surrounding areas.",
       "bullets": [
         "New ponds, deepening, cleaning, and shoreline shaping handled together",
         "Own excavators and trucks — material moved or hauled out properly",
-        "Brantford, Paris, Simcoe, and surrounding Brant County"
+        "Brantford, Paris, St. George, Burford, and surrounding Brant County"
       ],
       "image": {
         "src": "/assets/Pond-digging-cleaning-services-brant-county.png",

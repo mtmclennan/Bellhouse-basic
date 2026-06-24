@@ -87,6 +87,30 @@
       ]
     },
     {
+      "type": "scope",
+      "tone": "dark",
+      "heading": "Best Fit & Not the Best Fit",
+      "subheading": "The Volvo A35 is built for production hauling on larger sites. It works best where material volume, ground conditions, or haul distance make standard trucks impractical.",
+      "items": [
+        {
+          "title": "Best fit: Large earthmoving and civil sites",
+          "body": "Active construction, civil, and site-servicing projects where bulk material needs to move efficiently across the site with an operated off-road truck."
+        },
+        {
+          "title": "Best fit: Soft ground, rough terrain, and long internal hauls",
+          "body": "Sites where muddy haul roads, steep grades, or uneven terrain make highway dump trucks slow, unsafe, or impractical for on-site material movement."
+        },
+        {
+          "title": "Not the best fit: Road hauling or highway travel",
+          "body": "The Volvo A35 is an off-road machine. It does not travel on public roads. For road-legal material delivery, Bellhouse operates tri-axle dump trucks."
+        },
+        {
+          "title": "Not the best fit: Small residential landscaping projects",
+          "body": "The A35 is sized for production earthmoving and large-site hauling. Small-lot residential grading or garden fill work does not justify the mobilization cost."
+        }
+      ]
+    },
+    {
       "type": "reviews",
       "tone": "light",
       "eyebrow": "Testimonials",

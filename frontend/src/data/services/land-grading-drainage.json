@@ -5,7 +5,7 @@
   "navTitle": "Grading & Drainage",
   "contactService": "Site Grading",
   "meta": {
-    "title": "Land Grading & Drainage in Brantford & Brant County | Bellhouse Excavating",
+    "title": "Land Grading & Drainage in Brant County | Bellhouse",
     "description": "Site grading, land levelling, and drainage solutions for rural properties, farms, and commercial sites across Brant County."
   },
   "visuals": {
@@ -92,6 +92,30 @@
         { "title": "Driveway & Access Regrading", "body": "Soft or poorly draining driveways and access routes can be reshaped and prepared for granular base." },
         { "title": "Topsoil, Fill & Aggregate Movement", "body": "Bellhouse can move, place, and shape imported or on-site material so grading and drainage work stay coordinated." },
         { "title": "Erosion & Washout Correction", "body": "We correct slope and runoff issues that contribute to washed-out gravel, exposed soil, and unstable edges." }
+      ]
+    },
+    {
+      "type": "scope",
+      "tone": "dark",
+      "heading": "Best Fit & Not the Best Fit",
+      "subheading": "Bellhouse grading and drainage work is best suited to properties where exterior water movement, slope correction, and access improvement are the core problems.",
+      "items": [
+        {
+          "title": "Best fit: Yards, lots, and lanes with water problems",
+          "body": "Properties where standing water, poor drainage, soft ground, or erosion are affecting usability. Grading and drainage solutions for rural, farm, and residential properties across Brant County."
+        },
+        {
+          "title": "Best fit: Drainage coordinated with grading or site work",
+          "body": "Projects where swales, ditching, pipe bedding, and finish grading all need to be handled as one scope instead of separate call-outs."
+        },
+        {
+          "title": "Not the best fit: Interior basement waterproofing",
+          "body": "Bellhouse handles exterior grading and drainage. Interior waterproofing systems, sump pumps, and below-slab drainage are separate trades with different equipment and expertise."
+        },
+        {
+          "title": "Not the best fit: Municipal storm sewer connections",
+          "body": "Tying into municipal storm infrastructure requires engineering approvals, permits, and licensed utility work that falls outside standard site grading and drainage."
+        }
       ]
     },
     {

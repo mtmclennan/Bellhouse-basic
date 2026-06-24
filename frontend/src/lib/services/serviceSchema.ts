@@ -136,19 +136,6 @@ export function buildServiceStructuredData(
 
   const graph: Array<Record<string, unknown>> = [
     {
-      '@type': 'LocalBusiness',
-      '@id': businessId,
-      name: defaultBusinessName,
-      url: baseUrl,
-      telephone: siteContext.business.phoneHref.replace('tel:', ''),
-      sameAs: [getAbsoluteUrl(siteContext.business.reviewsHref, baseUrl)],
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: siteContext.business.reviewRating,
-        reviewCount: siteContext.business.reviewCount,
-      },
-    },
-    {
       '@type': 'WebPage',
       '@id': `${pageUrl}#webpage`,
       url: pageUrl,

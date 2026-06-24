@@ -5,7 +5,7 @@
   "navTitle": "Equipment Hauling",
   "contactService": "Equipment Hauling",
   "meta": {
-    "title": "Heavy Equipment Hauling & Float Service | Brant County | Bellhouse",
+    "title": "Heavy Equipment Hauling & Float | Brant County | Bellhouse",
     "description": "Float truck and heavy equipment transport across Brant County and Southern Ontario. We move excavators, dozers, and large equipment to your job site."
   },
   "card": {
@@ -40,7 +40,7 @@
       "tone": "light",
       "eyebrow": "Who it's for",
       "heading": "Reliable Heavy Equipment Hauling for Construction Sites",
-      "body": "Bellhouse Excavating provides professional heavy equipment floating services to move machinery safely and efficiently. We haul excavators, skid steers, dozers, attachments, and similar site equipment with proper tie-downs, safe loading procedures, and experienced operators.",
+      "body": "Bellhouse Excavating provides professional heavy equipment floating services across Brantford, Brant County, and surrounding areas. We haul excavators, skid steers, dozers, attachments, and similar site equipment with proper tie-downs, safe loading procedures, and experienced operators.",
       "audience": [
         { "icon": "truck", "label": "Contractors" },
         { "icon": "blueprint", "label": "Builders & developers" },
@@ -84,6 +84,30 @@
         { "title": "Equipment Transport", "body": "We move equipment between job sites, storage yards, rental depots, farms, and contractor yards." },
         { "title": "Flexible Scheduling", "body": "Hauling can be planned around working windows to reduce downtime and keep machines moving." },
         { "title": "Oversized Load Coordination", "body": "Machinery that needs extra planning is reviewed for route, access, loading, and unloading needs." }
+      ]
+    },
+    {
+      "type": "scope",
+      "tone": "dark",
+      "heading": "Best Fit & Not the Best Fit",
+      "subheading": "Bellhouse equipment hauling works best for local and regional moves where the float truck can safely load, transport, and deliver construction equipment.",
+      "items": [
+        {
+          "title": "Best fit: Contractor and builder equipment moves",
+          "body": "Excavators, skid steers, dozers, and attachments moving between active job sites, rental yards, storage locations, and farms across Brant County and surrounding areas."
+        },
+        {
+          "title": "Best fit: Hauling coordinated with excavation or site work",
+          "body": "Equipment moves that connect directly to a Bellhouse excavation, grading, or site prep project so machines arrive when the schedule needs them."
+        },
+        {
+          "title": "Not the best fit: Moves outside Southern Ontario",
+          "body": "Bellhouse floats equipment across Brant County, Hamilton, Cambridge, and surrounding areas. Long-distance or inter-provincial transport requires a licensed long-haul carrier."
+        },
+        {
+          "title": "Not the best fit: Equipment requiring oversize permits or pilot vehicles",
+          "body": "Very large equipment that requires oversize load permits, pilot vehicles, or specialized lowboy transport is outside the standard Bellhouse float scope. Not sure if yours qualifies — call us and we'll give you a straight answer."
+        }
       ]
     },
     {

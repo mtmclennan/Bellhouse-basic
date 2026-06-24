@@ -1,12 +1,12 @@
 {
-  "id": 11,
+  "id": 5,
   "slug": "dump-truck-rental",
   "title": "Dump Truck Rental & Hauling Services",
   "navTitle": "Dump Truck Hauling",
   "contactService": "Dump Truck Services",
   "meta": {
-    "title": "Dump Truck Rental in Brantford & Brant County | Bellhouse Excavating",
-    "description": "Articulated and tandem dump truck rental with operators across Brant County, Brantford, and surrounding areas. Ideal for large-site material hauling."
+    "title": "Dump Truck Rental in Brant County | Bellhouse",
+    "description": "Tri-axle dump truck rental with operators across Brant County, Brantford, and surrounding areas. Ideal for large-site material hauling."
   },
   "card": {
     "title": "Dump Truck Rental & Hauling Services",
@@ -40,7 +40,7 @@
       "tone": "light",
       "eyebrow": "Who it's for",
       "heading": "Hire Reliable Dump Trucks with Skilled Operators",
-      "body": "Bellhouse Excavating offers dump truck rental services for contractors, builders, and property owners who need dependable hauling support. Our tri-axle trucks are available with professional operators to haul aggregates, excavation spoil, fill, and demolition debris.",
+      "body": "Bellhouse Excavating offers dump truck rental services for contractors, builders, and property owners across Brantford, Brant County, and surrounding areas. Our tri-axle trucks are available with professional operators to haul aggregates, excavation spoil, fill, and demolition debris.",
       "audience": [
         { "icon": "hard-hat", "label": "Contractors" },
         { "icon": "blueprint", "label": "Builders" },
@@ -84,6 +84,30 @@
         { "title": "Spoil & Debris Removal", "body": "Excavated material, broken concrete, demolition debris, and construction cleanup loads can be hauled away." },
         { "title": "On-Site Hauling Support", "body": "Trucks can support larger excavation and grading projects where material movement affects the site schedule." },
         { "title": "Multiple Load Hauling", "body": "Efficient turnarounds are available for projects that need several loads moved in the same day." }
+      ]
+    },
+    {
+      "type": "scope",
+      "tone": "dark",
+      "heading": "Best Fit & Not the Best Fit",
+      "subheading": "Bellhouse dump truck rental works best for construction-scale hauling where full loads, site access, and schedule coordination matter.",
+      "items": [
+        {
+          "title": "Best fit: Active excavation and construction sites",
+          "body": "Projects where spoil removal, aggregate import, or debris hauling needs to stay tied to the excavation or grading schedule on site."
+        },
+        {
+          "title": "Best fit: Contractor-led multi-load hauling",
+          "body": "Builders and contractors who need reliable truck timing coordinated with machines, crews, and material availability across Brant County job sites."
+        },
+        {
+          "title": "Not the best fit: Single small-quantity pickups",
+          "body": "Bellhouse trucks are set up for full-load construction hauling. Picking up a yard or two of material from a landscape supply yard is better handled by a smaller delivery service."
+        },
+        {
+          "title": "Not the best fit: Hazardous material hauling",
+          "body": "Contaminated soil, asbestos debris, or other regulated materials require specialized handling, permits, and licensed carriers that are outside standard dump truck rental scope."
+        }
       ]
     },
     {

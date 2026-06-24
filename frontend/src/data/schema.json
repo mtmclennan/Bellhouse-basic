@@ -49,6 +49,12 @@
     "https://www.instagram.com/bellhouse_excavating/",
     "https://www.linkedin.com/company/bellhouse-excavating/"
   ],
+  "_aggregateRating_note": "This value must be manually updated to match reviewLinks.ts when review count changes. Single source of truth for display is reviewLinks.ts — schema.json is separate and not auto-synced.",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": 5.0,
+    "reviewCount": 4
+  },
   "contactPoint": [
     {
       "@type": "ContactPoint",

@@ -5,7 +5,7 @@
   "navTitle": "Aggregate Delivery",
   "contactService": "Gravel Delivery",
   "meta": {
-    "title": "Aggregate & Gravel Delivery in Brantford & Brant County | Bellhouse Excavating",
+    "title": "Gravel & Aggregate Delivery in Brant County | Bellhouse",
     "description": "Topsoil, gravel, and aggregate delivery across Brantford and Brant County. Dump truck delivery for farms, construction sites, and large rural properties."
   },
   "card": {
@@ -16,8 +16,8 @@
   },
   "hero": {
     "eyebrow": "Aggregate, topsoil & fill delivery",
-    "heading": "Dirt & Gravel Delivery in Brantford",
-    "summary": "Bulk gravel, topsoil, sand, and fill delivery for driveways, pads, drainage work, landscaping, and active construction sites.",
+    "heading": "Aggregate & Gravel Delivery in Brantford & Brant County",
+    "summary": "Bulk gravel, topsoil, sand, and fill delivery for farms, rural properties, driveways, pads, drainage work, and active construction sites across Brant County. Includes Volvo A35 on-site material placement for farm fields, soft ground, and locations across the property where road trucks can't safely reach.",
     "actions": [
       { "label": "Get Delivery Quote", "href": "/contact", "variant": "primary" },
       { "label": "For Builders & Contractors", "href": "/contractors", "variant": "secondary" }
@@ -40,12 +40,12 @@
       "tone": "light",
       "eyebrow": "Who it's for",
       "heading": "Reliable Dirt & Gravel Delivery for Any Project",
-      "body": "Bellhouse Excavating provides bulk aggregate delivery for construction, driveways, drainage projects, landscaping, and site preparation. Whether the job needs gravel base, topsoil, sand, or fill, delivery is planned around access, material type, quantity, and where the load can be placed safely.",
+      "body": "Bellhouse Excavating delivers bulk aggregate to farms, rural properties, and construction sites across Brant County and Brantford — from standard driveway gravel and topsoil to multi-load aggregate deliveries for lane prep, drainage work, and pad construction. When aggregate needs to be moved and placed across a farm field, soft area, or rough terrain that a road truck can't safely travel, Bellhouse brings in a Volvo A35 articulated off-road machine to handle on-site material movement after tri-axle trucks deliver to the site. Material type, quantity, access conditions, and where the load needs to land are all reviewed before delivery is scheduled.",
       "audience": [
-        { "icon": "house-line", "label": "Homeowners" },
-        { "icon": "blueprint", "label": "Builders & contractors" },
-        { "icon": "shovel", "label": "Active construction sites" },
-        { "icon": "truck", "label": "Bulk material projects" }
+        { "icon": "leaf", "label": "Farm operations" },
+        { "icon": "house-line", "label": "Rural property owners" },
+        { "icon": "user", "label": "Homeowners" },
+        { "icon": "blueprint", "label": "Builders & contractors" }
       ]
     },
     {
@@ -67,12 +67,30 @@
           "outcome": "Keeps delivered material tied to the work area, access conditions, and next phase of construction."
         },
         {
+          "title": "Farm field and rough terrain material placement",
+          "body": "Useful when aggregate delivered to a staging point needs to be moved and placed across a farm field, soft area, or rough terrain that a road truck can't safely travel. Tri-axle trucks deliver to the site; the Volvo A35 moves material across the property to where it actually needs to go.",
+          "tags": ["Farm field placement", "On-site material movement", "Rough terrain access"],
+          "outcome": "Material placed at the final location across the property, not just dropped at the nearest accessible point."
+        },
+        {
           "title": "Contractor-led material movement",
           "body": "A strong fit for builders and contractors who need truck timing, aggregate delivery, excavation, or grading support coordinated around an active job schedule.",
           "tags": ["Contractor support", "Truck timing", "Material import"],
           "outcome": "Helps avoid gaps between ordered material, truck availability, and crews waiting on the next load."
         }
       ]
+    },
+    {
+      "type": "jobsiteProof",
+      "tone": "dark",
+      "eyebrow": "On-site material placement",
+      "heading": "The Volvo A35 places material where standard dump trucks stop.",
+      "body": "Tri-axle road trucks are how aggregate gets to your site — they're built for road hauling and efficient at it. But they stop at the edge of a farm field, a soft area, or rough terrain. The load lands at the nearest accessible point, and moving it the rest of the way becomes your problem.\n\nBellhouse operates a Volvo A35 articulated off-road machine to close that gap. Once tri-axle trucks deliver aggregate to the site, the A35 moves and places material across farm fields, unimproved terrain, soft ground, and locations a road truck can't safely reach. If the gravel needs to end up somewhere a tri-axle would turn around, the A35 gets it there.",
+      "image": {
+        "src": "/assets/services/off-road-truck-dump-truck.jpg",
+        "alt": "Volvo A35 articulated off-road machine placing aggregate on a farm property in Brant County"
+      },
+      "caption": "Tri-axle trucks deliver aggregate to the site. The A35 moves and places it across the property — farm fields, soft ground, and terrain where road trucks stop."
     },
     {
       "type": "scope",
@@ -84,6 +102,34 @@
         { "title": "Topsoil", "body": "Topsoil delivery for lawn prep, finish grading, garden areas, and surface restoration after excavation or construction." },
         { "title": "Sand", "body": "Sand for bedding, leveling, trench work, utility prep, and construction support where specified." },
         { "title": "Fill Dirt", "body": "Bulk fill for grade changes, low areas, site shaping, and rough material placement where clean imported fill is needed." }
+      ]
+    },
+    {
+      "type": "scope",
+      "tone": "dark",
+      "heading": "Best Fit & Not the Best Fit",
+      "subheading": "Bellhouse aggregate delivery works best when the site is clear on material, quantity, and access. The A35 opens sites where on-site placement would otherwise be impossible.",
+      "items": [
+        {
+          "title": "Best fit: Farm fields and rural property work",
+          "body": "Farm laneways, back fields, rural pad prep, and drainage work across Brant County. For back fields and soft areas, tri-axle trucks deliver to the property and the A35 handles on-site placement across terrain road trucks can't reach."
+        },
+        {
+          "title": "Best fit: Lane prep, drainage stone, and pad construction",
+          "body": "Aggregate delivery for driveway and laneway base, drainage stone placement, building pad prep, and site grading support across rural and residential properties."
+        },
+        {
+          "title": "Best fit: Coordinated with excavation or grading",
+          "body": "When material delivery needs to align with an active excavation or grading schedule so trucks and machines aren't waiting on each other."
+        },
+        {
+          "title": "Not the best fit: Less than one full load",
+          "body": "Most deliveries require at least one full truck load. Very small quantities are typically better sourced through a local landscape supply yard."
+        },
+        {
+          "title": "Not the best fit: Overhead lines or weight-restricted access",
+          "body": "Sites with low overhead lines, weight-restricted bridges, or access gates that prevent truck entry need to be reviewed before delivery is scheduled — these may limit which truck can safely complete the delivery."
+        }
       ]
     },
     {
@@ -207,6 +253,11 @@
           "image": { "src": "/assets/services/dump-truck-hauling/triaxle-dump-truck-gravel-hauling-brant-county.webp", "alt": "Bellhouse tri-axle dump truck hauling gravel in Brant County" }
         },
         {
+          "name": "Volvo A35 Articulated Off-Road Machine",
+          "body": "Purpose-built for on-site material movement and placement. Once tri-axle trucks deliver aggregate to the site, the A35 moves and places it across farm fields, rough terrain, and soft or wet areas that a road truck cannot safely reach.",
+          "image": { "src": "/assets/services/off-road-truck-dump-truck.jpg", "alt": "Volvo A35 articulated off-road machine for on-site aggregate placement on farm properties" }
+        },
+        {
           "name": "Loading Equipment",
           "body": "Excavators and loaders support material loading when Bellhouse is coordinating aggregate movement with site work.",
           "image": { "src": "/assets/services/dump-truck-hauling/excavator-loading-dump-truck-right.webp", "alt": "Excavator loading a tri-axle dump truck" }
@@ -271,7 +322,7 @@
       "type": "serviceAreas",
       "tone": "dark",
       "heading": "Aggregate delivery by service area",
-      "body": "Aggregate delivery is available across Brant County and nearby service areas for driveways, pads, drainage, site prep, landscaping, and active construction work.",
+      "body": "Aggregate and gravel delivery is available across Brant County and nearby service areas — including Paris, St. George, Burford, Hamilton, and Cambridge — for farm laneways, rural property pads, driveways, drainage work, site prep, and active construction. The Volvo A35 extends on-site material placement to farm fields and rough terrain that road trucks can't safely reach.",
       "areaSlugs": ["paris", "brantford", "ancaster", "simcoe", "hamilton", "cambridge"]
     },
     {
@@ -301,6 +352,14 @@
         {
           "question": "Can delivery be coordinated with grading or excavation work?",
           "answer": "Yes. Bellhouse can coordinate material delivery with driveway prep, grading, drainage, excavation, or contractor-led site work when those scopes are part of the job."
+        },
+        {
+          "question": "Can you place gravel across a wet or soft farm field?",
+          "answer": "Yes, with a two-step approach. Tri-axle trucks deliver aggregate to the site or a staging point. The Bellhouse Volvo A35 — an articulated off-road machine — then moves and places that material across the farm field, soft ground, or rough terrain that a road truck can't safely travel. Most contractors stop at the field edge; the A35 gets material to the final location."
+        },
+        {
+          "question": "Do you deliver to farm properties and rural sites?",
+          "answer": "Yes. Farm lanes, rural property pads, and drainage areas across Brant County are standard work. Tri-axle trucks handle the road delivery to your property. For locations across the site that a road truck can't safely reach — fields, soft ground, rough terrain — the Volvo A35 handles the on-site material movement."
         }
       ]
     },
@@ -350,11 +409,11 @@
       "tone": "dark",
       "eyebrow": "Aggregate delivery done right",
       "heading": "Ready to order? Bellhouse is local, stocked, and taking deliveries now.",
-      "body": "From gravel and granular base to topsoil and fill, Bellhouse delivers bulk material where it needs to go and coordinates with the site work when needed.",
+      "body": "Tri-axle trucks deliver aggregate to your site. The Volvo A35 moves and places that material across farm fields, soft ground, and rough terrain where road trucks stop. Together, they get material to the final location — not just the nearest accessible point.",
       "bullets": [
-        "Gravel, topsoil, sand, and fill delivered by tri-axle truck",
+        "Tri-axle road delivery plus Volvo A35 on-site placement — material reaches the final location",
         "Material and access reviewed before delivery is scheduled",
-        "Brantford, Paris, Hamilton, and surrounding Brant County"
+        "Brantford, Paris, St. George, Burford, and surrounding Brant County"
       ],
       "image": {
         "src": "/assets/services/gravel-aggregate-delivery/three-quarter-crush-gravel-delivery-brantford.webp",

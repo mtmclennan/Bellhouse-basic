@@ -81,30 +81,6 @@ export default function ServiceAreaLayout({
     page.whoWeWorkWith,
   ).slice(0, 6);
 
-  const businessSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'HomeAndConstructionBusiness',
-    '@id': businessId,
-    name: 'Bellhouse Excavating',
-    url: baseUrl,
-    logo: `${baseUrl}/assets/bellhouse-excavating-logo.jpg`,
-    telephone: '+15197528500',
-    email: 'info@bellhouseexcavating.ca',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: '573 Governors Rd E',
-      addressLocality: 'Paris',
-      addressRegion: 'ON',
-      postalCode: 'N3L 3E1',
-      addressCountry: 'CA',
-    },
-    sameAs: [
-      'https://www.facebook.com/bellhouseexcavating',
-      'https://www.instagram.com/bellhouse_excavating/',
-      'https://www.linkedin.com/company/bellhouse-excavating/',
-    ],
-  };
-
   const serviceAreaSchema = {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -151,11 +127,6 @@ export default function ServiceAreaLayout({
 
   return (
     <>
-      <Script
-        id={`service-area-business-${page.slug}`}
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
-      />
       <Script
         id={`service-area-service-${page.slug}`}
         type="application/ld+json"
