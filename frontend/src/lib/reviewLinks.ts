@@ -1,7 +1,6 @@
-// TODO: Replace this fallback with the verified Bellhouse Google Business Profile review URL before launch.
 export const GOOGLE_REVIEWS_URL =
   process.env.NEXT_PUBLIC_GOOGLE_REVIEWS_URL ||
-  'https://www.google.com/search?q=Bellhouse+Excavating+reviews';
+  'https://g.page/r/CZtOlkcv7cW2EAI/review';
 
 export const GOOGLE_REVIEW_SUMMARY = {
   rating: 5.0,

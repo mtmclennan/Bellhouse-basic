@@ -26,6 +26,7 @@ export function trackEvent(
 export function trackGoogleAdsConversion(
   label?: string,
   value?: number,
+  { skipRouteCheck = false }: { skipRouteCheck?: boolean } = {},
 ) {
   if (typeof window === 'undefined') return;
   if (!window.gtag) return;
@@ -33,7 +34,7 @@ export function trackGoogleAdsConversion(
   const adsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
   if (!adsId || !label) return;
   const pagePath = window.location.pathname;
-  if (!shouldUseGoogleAdsTracking(pagePath)) return;
+  if (!skipRouteCheck && !shouldUseGoogleAdsTracking(pagePath)) return;
 
   window.gtag('event', 'conversion', {
     send_to: `${adsId}/${label}`,

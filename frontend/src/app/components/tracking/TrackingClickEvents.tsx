@@ -6,7 +6,6 @@ import {
   trackEvent,
   trackGoogleAdsConversion,
 } from '@/lib/tracking/google';
-import { shouldUseGoogleAdsTracking } from '@/lib/tracking/routes';
 
 function getTrackingElement(target: EventTarget | null) {
   if (!(target instanceof Element)) return null;
@@ -34,29 +33,20 @@ export default function TrackingClickEvents() {
       if (!element) return;
 
       const params = getTrackingParams(element);
-      const canTrackAdsConversion = shouldUseGoogleAdsTracking(
-        window.location.pathname,
-      );
 
       if (params.href.startsWith('tel:')) {
         trackEvent('phone_click', params);
-        if (canTrackAdsConversion) {
-          trackGoogleAdsConversion(GOOGLE_ADS_CONVERSION_LABELS.callClick);
-        }
+        trackGoogleAdsConversion(GOOGLE_ADS_CONVERSION_LABELS.callClick, undefined, { skipRouteCheck: true });
       }
 
       if (params.href.startsWith('sms:')) {
         trackEvent('sms_click', params);
-        if (canTrackAdsConversion) {
-          trackGoogleAdsConversion(GOOGLE_ADS_CONVERSION_LABELS.smsClick);
-        }
+        trackGoogleAdsConversion(GOOGLE_ADS_CONVERSION_LABELS.smsClick, undefined, { skipRouteCheck: true });
       }
 
       if (params.href.startsWith('mailto:')) {
         trackEvent('email_click', params);
-        if (canTrackAdsConversion) {
-          trackGoogleAdsConversion(GOOGLE_ADS_CONVERSION_LABELS.emailClick);
-        }
+        trackGoogleAdsConversion(GOOGLE_ADS_CONVERSION_LABELS.emailClick, undefined, { skipRouteCheck: true });
       }
 
       if (

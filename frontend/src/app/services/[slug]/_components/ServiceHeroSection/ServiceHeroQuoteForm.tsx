@@ -3,6 +3,11 @@
 import Script from 'next/script';
 import { useRef, useState } from 'react';
 import { sendServiceHeroForm } from '@/app/actions/contact';
+import {
+  GOOGLE_ADS_CONVERSION_LABELS,
+  trackEvent,
+  trackGoogleAdsConversion,
+} from '@/lib/tracking/google';
 import classes from './ServiceHeroQuoteForm.module.scss';
 
 const WORK_TYPE_OPTIONS = [
@@ -64,6 +69,7 @@ export default function ServiceHeroQuoteForm({
     const errs = validate();
     if (Object.keys(errs).length > 0) {
       setErrors(errs);
+      trackEvent('quote_form_error', { form_variant: 'service-hero', error_type: 'validation' });
       return;
     }
     setErrors({});
@@ -91,11 +97,15 @@ export default function ServiceHeroQuoteForm({
       });
 
       if (result?.success) {
+        trackEvent('quote_form_submit', { form_variant: 'service-hero' });
+        trackGoogleAdsConversion(GOOGLE_ADS_CONVERSION_LABELS.quoteFormSubmit);
         setStatus('success');
       } else {
+        trackEvent('quote_form_error', { form_variant: 'service-hero', error_type: 'server' });
         setStatus('error');
       }
     } catch {
+      trackEvent('quote_form_error', { form_variant: 'service-hero', error_type: 'exception' });
       setStatus('error');
     }
   };
