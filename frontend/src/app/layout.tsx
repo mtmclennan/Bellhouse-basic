@@ -1,10 +1,26 @@
 import '../styles/main.scss';
 import type { Metadata } from 'next';
+import { Open_Sans, Oswald } from 'next/font/google';
 import schema from '../data/schema.json';
 import Script from 'next/script';
 import LayoutHome from './components/layoutsWeb/layoutHome';
 import GoogleTrackingScripts from './components/tracking/GoogleTrackingScripts';
 import TrackingClickEvents from './components/tracking/TrackingClickEvents';
+
+const openSans = Open_Sans({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-open-sans',
+});
+
+const oswald = Oswald({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-oswald',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://bellhouseexcavating.ca'),
@@ -16,19 +32,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Oswald:wght@400;500;600;700&display=swap"
-        />
-      </head>
+    <html
+      lang="en"
+      className={`dark ${openSans.variable} ${oswald.variable}`}
+      suppressHydrationWarning
+    >
       <body>
         {/*
           Mark the document JS-ready before paint so reveal animations apply

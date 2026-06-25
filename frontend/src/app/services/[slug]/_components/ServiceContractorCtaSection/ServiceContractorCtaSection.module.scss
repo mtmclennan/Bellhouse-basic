@@ -54,7 +54,7 @@
   h2 {
     margin: 0 0 1.2rem;
     font-size: clamp(2.2rem, 2.8vw, 3.4rem);
-    font-family: 'Oswald', sans-serif;
+    font-family: var(--font-oswald), sans-serif;
     font-weight: 600;
     text-transform: uppercase;
     line-height: 1.08;

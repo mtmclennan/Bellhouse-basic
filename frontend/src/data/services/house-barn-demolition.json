@@ -9,7 +9,7 @@
     "description": "Demolition of farmhouses, barns, grain bins, silos, and outbuildings across Brant County. Equipment access, debris hauling, and site cleanup included."
   },
   "card": {
-    "title": "House & Barn Demolition Services",
+    "title": "Rural Structure Demolition",
     "description": "Full or partial demolition of houses, barns, and outbuildings, including cleanup and disposal.",
     "image": "/assets/services/house-barn-demolition/Paris-brant-house-demo-winter.webp",
     "alt": "Excavator tearing down a house during winter demolition cleanup."
@@ -42,7 +42,7 @@
       "heading": "Farm & Rural Structure Demolition Across Brant County and Southern Ontario",
       "body": "Bellhouse Excavating demolishes farmhouses, barns, sheds, shops, grain bins, silos, and outbuildings across Brant County and Southern Ontario. Rural properties, working farms, and acreages are where this work fits best — sites where equipment access is clear, trucks have room to manoeuvre, and debris can be loaded and hauled without working around neighbours.\n\nThe job covers more than bringing the structure down. Bellhouse coordinates machine access, debris sorting, haul-out, and rough site grading so the footprint is left in a workable condition for whatever comes next. Whether it's a standalone farm cleanup or demolition as part of a larger redevelopment, the scope is planned and executed as one connected piece of work.",
       "audience": [
-        { "icon": "leaf", "label": "Farm operations" },
+        { "icon": "map-trifold", "label": "Farm operations" },
         { "icon": "house-line", "label": "Rural property owners" },
         { "icon": "buildings", "label": "Land developers" },
         { "icon": "broom", "label": "Property cleanup" }

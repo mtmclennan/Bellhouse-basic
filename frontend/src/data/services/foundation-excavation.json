@@ -64,8 +64,7 @@
         { "icon": "house-line", "label": "Home builders" },
         { "icon": "blueprint", "label": "General contractors" },
         { "icon": "buildings", "label": "Subdivision builders" },
-        { "icon": "leaf", "label": "Rural property owners" },
-        { "icon": "user", "label": "Homeowners" }
+        { "icon": "map-trifold", "label": "Rural property owners" }
       ]
     },
     {
@@ -340,7 +339,7 @@
           "body": "We use a rotary laser level and GPS rover for accurate site layout, elevation checks, and cut/fill measurements, ensuring every excavation meets engineered specifications.",
           "image": {
             "src": "/assets/services/bellhouse-laser-level-gps-rover-precision-layout-tools.webp",
-            "alt": "Precision Layout Tools"
+            "alt": "Bellhouse rotary laser level and GPS rover used for precision foundation layout on a residential build site"
           }
         }
       ]

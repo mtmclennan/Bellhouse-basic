@@ -13,9 +13,9 @@ $landing-max-width: 114rem;
 
 .landing-page {
   --font-body:
-    'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    var(--font-open-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     sans-serif;
-  --font-disp: 'Oswald', sans-serif;
+  --font-disp: var(--font-oswald), sans-serif;
   --yellow: #ffc302;
   --yellow-h: #ffc400a9;
   --bg: rgb(39, 39, 39);

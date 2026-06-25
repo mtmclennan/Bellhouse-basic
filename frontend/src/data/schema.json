@@ -46,7 +46,6 @@
   "priceRange": "$$$",
   "sameAs": [
     "https://www.facebook.com/bellhouseexcavating",
-    "https://www.instagram.com/bellhouse_excavating/",
     "https://www.linkedin.com/company/bellhouse-excavating/"
   ],
   "_aggregateRating_note": "This value must be manually updated to match reviewLinks.ts when review count changes. Single source of truth for display is reviewLinks.ts — schema.json is separate and not auto-synced.",

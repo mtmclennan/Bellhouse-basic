@@ -2,7 +2,7 @@ import classes from './Footer.module.scss';
 import Link from '@/components/SiteLink';
 import Image from 'next/image';
 import logo from '../../../../public/assets/BellhouseLogo-text.png';
-import { Phone } from '@phosphor-icons/react';
+import { Phone, FacebookLogo, LinkedinLogo } from '@phosphor-icons/react';
 import { GOOGLE_REVIEWS_URL } from '@/lib/reviewLinks';
 
 const footerSections = [
@@ -10,6 +10,18 @@ const footerSections = [
     title: 'Services',
     links: [
       { href: '/services', label: 'All Services' },
+      {
+        href: '/services/pond-digging-cleaning',
+        label: 'Farm Pond Excavation',
+      },
+      {
+        href: '/services/house-barn-demolition',
+        label: 'Rural Structure Demolition',
+      },
+      {
+        href: '/services/driveway-parking-lot-preparation',
+        label: 'Rural Driveway & Laneway',
+      },
       {
         href: '/services/foundation-excavation',
         label: 'Foundation Excavation',
@@ -24,11 +36,7 @@ const footerSections = [
       },
       {
         href: '/services/dirt-gravel-delivery',
-        label: 'Dirt & Gravel Delivery',
-      },
-      {
-        href: '/services/house-barn-demolition',
-        label: 'Demolition',
+        label: 'Aggregate Delivery',
       },
     ],
   },
@@ -54,15 +62,11 @@ const footerSections = [
       },
       {
         href: '/services/dump-truck-rental',
-        label: 'Dump Truck Services',
+        label: 'Dump Truck Rental',
       },
       {
         href: '/services/volvo-a35-off-road-dump-truck-rental',
-        label: 'Off-Road Dump Truck',
-      },
-      {
-        href: '/services/site-preparation-land-grading',
-        label: 'Site Prep & Grading',
+        label: 'Volvo A35 Rental',
       },
     ],
   },
@@ -129,6 +133,25 @@ const Footer = () => {
           >
             Leave Us a Google Review
           </a>
+
+          <div className={classes.social}>
+            <a
+              href="https://www.facebook.com/bellhouseexcavating"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+            >
+              <FacebookLogo size={26} weight="regular" />
+            </a>
+            <a
+              href="https://www.linkedin.com/company/bellhouse-excavating/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <LinkedinLogo size={26} weight="regular" />
+            </a>
+          </div>
         </div>
 
         <nav className={classes.linkGrid} aria-label="Footer navigation">

@@ -14,9 +14,9 @@ export const servicesHeroData: HeroSectionData = {
   _type: 'heroSection',
   eyebrow: 'Bellhouse Services',
   headline:
-    'Excavation, Hauling, Grading & Contractor Site Services in Brant County',
+    'Farm, Rural & Large-Site Excavation Services in Brant County',
   subheadline:
-    'Use this services hub to find the right Bellhouse service for local excavation, truck hauling, site grading, material delivery, equipment moves, and active contractor-led work.',
+    'Bellhouse Excavating handles excavation, grading, demolition, trucking, pond work, and site preparation for farm properties, rural lots, acreages, commercial sites, and builder projects across Brant County and surrounding areas.',
   primaryAction: {
     label: 'Explore Services',
     href: '#services-list',
@@ -42,74 +42,46 @@ export const servicesServicesSection: ServicesSectionData = {
   id: 'services-list',
   eyebrow: 'Service Hub',
   heading: 'Explore Excavation, Hauling, and Site Services',
-  intro: [
-    'Start with the service group closest to your job. Each card links to a specific service page, while early quantity checks can start with Bellhouse ',
-    { label: 'estimating calculators', href: '/resources/calculators' },
-    ' and larger active sites can move through ',
-    { label: 'contractor project support', href: '/contractors' },
-    '.',
-  ],
+  intro:
+    'Bellhouse is set up for jobs with room for equipment, trucks, and material staging — rural properties, farm operations, commercial sites, and builder-led projects. If you’re looking for a contractor who can handle scale, access, and volume, you’re in the right place.',
   groups: [
     {
-      id: 'excavation',
-      heading: 'Excavation',
-      description: [
-        'Foundation digs, backfilling, and structural site excavation for rural properties, farms, and new developments. For rough cut, spoil, or load planning, start with the ',
-        {
-          label: 'excavation calculator',
-          href: '/resources/calculators/excavation',
-        },
-        '.',
-      ],
+      id: 'rural-farm',
+      heading: 'Rural & Farm Work',
+      description:
+        'Pond work, demolition, laneway grading, and property excavation for farms and rural sites.',
       items: buildServiceCards([
-        'foundation-excavation',
-        'site-preparation-land-grading',
+        'pond-digging-cleaning',
+        'house-barn-demolition',
+        'driveway-parking-lot-preparation',
       ]),
     },
     {
-      id: 'trucking-hauling',
-      heading: 'Trucking / Material Hauling',
-      description: [
-        'Dump truck support, aggregate delivery, bulk material hauling, and truck hire. For gravel quantities before ordering, use the ',
-        { label: 'gravel calculator', href: '/resources/calculators/gravel' },
-        '.',
-      ],
-      items: buildServiceCards(['dirt-gravel-delivery', 'dump-truck-rental']),
-    },
-    {
-      id: 'grading-site-prep',
-      heading: 'Grading / Site Prep',
-      description: [
-        'Driveways, parking areas, land grading, drainage prep, and build-ready surfaces. If you are planning base material or finish restoration, the ',
-        { label: 'gravel calculator', href: '/resources/calculators/gravel' },
-        ' and ',
-        { label: 'topsoil calculator', href: '/resources/calculators/topsoil' },
-        ' can help frame early quantities.',
-      ],
+      id: 'site-preparation-excavation',
+      heading: 'Site Preparation & Excavation',
+      description:
+        'Foundation digs, backfilling, grading, drainage, and structural site excavation for new builds, additions, and development sites.',
       items: buildServiceCards([
-        'driveway-parking-lot-preparation',
+        'foundation-excavation',
         'site-preparation-land-grading',
         'land-grading-drainage',
       ]),
     },
     {
-      id: 'rural-property',
-      heading: 'Rural / Property Work',
+      id: 'trucking-delivery',
+      heading: 'Trucking & Material Delivery',
       description:
-        'Pond work, demolition, cleanup, and property excavation for farms and rural sites.',
+        'Dump truck support, aggregate delivery, bulk material hauling, and truck hire for active sites and standalone deliveries.',
       items: buildServiceCards([
-        'pond-digging-cleaning',
-        'house-barn-demolition',
+        'dirt-gravel-delivery',
+        'dump-truck-rental',
       ]),
     },
     {
       id: 'contractor-support',
-      heading: 'Contractor Equipment / Support',
-      description: [
-        'Float services and larger-site hauling support for active job sites. Builders, GCs, and trades can also review ',
-        { label: 'contractor support', href: '/contractors' },
-        ' for coordination on repeat or larger scopes.',
-      ],
+      heading: 'Contractor Equipment & Support',
+      description:
+        'Float services and larger-site hauling support for active job sites and contractor-led earthmoving.',
       items: buildServiceCards([
         'heavy-equipment-hauling',
         'volvo-a35-off-road-dump-truck-rental',

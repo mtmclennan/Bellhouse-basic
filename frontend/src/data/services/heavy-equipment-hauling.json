@@ -9,7 +9,7 @@
     "description": "Float truck and heavy equipment transport across Brant County and Southern Ontario. We move excavators, dozers, and large equipment to your job site."
   },
   "card": {
-    "title": "Heavy Equipment Hauling & Float Truck Services",
+    "title": "Heavy Equipment Hauling & Float Service",
     "description": "Transport heavy machinery safely with our professional float truck services.",
     "image": "/assets/services/heavy-equipment-hauling/truck-float-trailer-hauling-skid-steers.webp",
     "alt": "Bellhouse float trailer hauling skid steers and attachments for jobsite equipment transport."
@@ -234,7 +234,7 @@
         {
           "name": "Transport Safety Gear",
           "body": "Chains, binders, and load securement equipment are used to keep machinery properly tied down.",
-          "image": { "src": "/assets/services/bellhouse-transport-safety-gear.webp", "alt": "Transport safety gear" }
+          "image": { "src": "/assets/services/bellhouse-transport-safety-gear.webp", "alt": "Chains, binders, and load securement equipment used for heavy equipment transport" }
         }
       ]
     },

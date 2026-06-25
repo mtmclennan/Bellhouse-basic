@@ -21,6 +21,14 @@ export const metadata: Metadata = {
     url: 'https://bellhouseexcavating.ca/',
     siteName: 'Bellhouse Excavating',
     type: 'website',
+    images: [
+      {
+        url: 'https://bellhouseexcavating.ca/assets/Bellhouse-excavating-contractor.jpg',
+        alt: 'Bellhouse Excavating contractor working on a job site in Brant County',
+        width: 1200,
+        height: 630,
+      },
+    ],
   },
 
   robots: {

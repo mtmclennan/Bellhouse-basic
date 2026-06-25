@@ -51,12 +51,12 @@ export type ServiceCardSummary = ServicesSectionCard & {
 };
 
 export const HOME_FEATURED_SERVICE_SLUGS = [
-  'foundation-excavation',
-  'heavy-equipment-hauling',
-  'dirt-gravel-delivery',
-  'driveway-parking-lot-preparation',
+  'pond-digging-cleaning',
   'house-barn-demolition',
+  'driveway-parking-lot-preparation',
+  'foundation-excavation',
   'site-preparation-land-grading',
+  'heavy-equipment-hauling',
 ] as const;
 
 function getServiceTitle(service: ServicePage) {

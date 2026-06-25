@@ -136,11 +136,11 @@ export default function PrivacyPolicyPage() {
             </li>
             <li>
               <a
-                href="https://adssettings.google.com/"
+                href="https://myadcenter.google.com/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Google Ad Settings
+                Google My Ad Center
               </a>
             </li>
           </ul>

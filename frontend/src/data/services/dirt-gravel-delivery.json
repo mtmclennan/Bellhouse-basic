@@ -9,7 +9,7 @@
     "description": "Topsoil, gravel, and aggregate delivery across Brantford and Brant County. Dump truck delivery for farms, construction sites, and large rural properties."
   },
   "card": {
-    "title": "Dump Truck Services - Dirt & Gravel Delivery",
+    "title": "Aggregate & Gravel Delivery",
     "description": "Bulk delivery of gravel, topsoil, sand, and aggregates.",
     "image": "/assets/services/gravel-aggregate-delivery/granular-a-gravel-pile-for-driveway-base.webp",
     "alt": "Granular A gravel pile ready for driveway base and aggregate delivery."
@@ -42,7 +42,7 @@
       "heading": "Reliable Dirt & Gravel Delivery for Any Project",
       "body": "Bellhouse Excavating delivers bulk aggregate to farms, rural properties, and construction sites across Brant County and Brantford — from standard driveway gravel and topsoil to multi-load aggregate deliveries for lane prep, drainage work, and pad construction. When aggregate needs to be moved and placed across a farm field, soft area, or rough terrain that a road truck can't safely travel, Bellhouse brings in a Volvo A35 articulated off-road machine to handle on-site material movement after tri-axle trucks deliver to the site. Material type, quantity, access conditions, and where the load needs to land are all reviewed before delivery is scheduled.",
       "audience": [
-        { "icon": "leaf", "label": "Farm operations" },
+        { "icon": "map-trifold", "label": "Farm operations" },
         { "icon": "house-line", "label": "Rural property owners" },
         { "icon": "user", "label": "Homeowners" },
         { "icon": "blueprint", "label": "Builders & contractors" }

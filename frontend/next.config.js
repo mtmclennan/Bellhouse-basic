@@ -40,6 +40,11 @@ const nextConfig = {
         destination: googleReviewsUrl,
         permanent: false,
       },
+      {
+        source: '/services/septic-system-installation',
+        destination: '/services',
+        permanent: true,
+      },
     ];
   },
 };

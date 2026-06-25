@@ -565,7 +565,7 @@
     margin: 0;
     max-width: 60rem;
     color: #fff;
-    font-family: 'Oswald', sans-serif;
+    font-family: var(--font-oswald), sans-serif;
     font-size: clamp(3.2rem, 3.9vw, 4.7rem);
     font-weight: 700;
     line-height: 1.08;

@@ -9,7 +9,7 @@
     "description": "Rural driveway and laneway preparation across Brantford and Brant County. Grading, base prep, and drainage for farm access roads and large rural properties."
   },
   "card": {
-    "title": "Driveway & Parking Lot Preparation",
+    "title": "Farm Laneway & Rural Driveway Grading",
     "description": "Expert site grading and compaction for stable driveways and parking lots.",
     "image": "/assets/services/driveways-laneways/skid-steer-final-grading-gravel-driveway-farm-shop.webp",
     "alt": "Skid steer final grading a gravel driveway base at a farm shop."
@@ -42,7 +42,7 @@
       "heading": "Driveway & Laneway Base Prep for Farm, Rural & Large-Lot Properties",
       "body": "Bellhouse Excavating prepares farm laneways, rural driveways, and large-lot access roads across Brantford and Brant County. We shape the grade, remove unsuitable material, place granular base, and compact the surface so the finished area has better drainage and durability. This page is for farm access roads, rural property driveways, and large-lot grading — not short urban residential driveways.",
       "audience": [
-        { "icon": "leaf", "label": "Farms & rural properties" },
+        { "icon": "map-trifold", "label": "Farms & rural properties" },
         { "icon": "blueprint", "label": "Builders & contractors" },
         { "icon": "compass-tool", "label": "Rural landowners" },
         { "icon": "buildings", "label": "Commercial sites" }

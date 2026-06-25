@@ -59,7 +59,7 @@
     margin: 0;
     max-width: 68rem;
     color: #fff;
-    font-family: 'Oswald', sans-serif;
+    font-family: var(--font-oswald), sans-serif;
     font-size: clamp(3.4rem, 4.6vw, 5.2rem);
     font-weight: 700;
     letter-spacing: 0.005em;
@@ -662,7 +662,7 @@
   margin-bottom: 1.8rem;
   border-radius: 999px;
   background: v.$cat-yellow2;
-  font-family: 'Oswald', sans-serif;
+  font-family: var(--font-oswald), sans-serif;
   box-shadow:
     0 0 0 0.7rem #e8e1d4,
     0 1rem 2.2rem -1rem rgba(122, 90, 0, 0.55);
@@ -966,7 +966,7 @@
 }
 
 .scopeNumber {
-  font-family: 'Oswald', sans-serif;
+  font-family: var(--font-oswald), sans-serif;
   font-size: 2.6rem;
   font-weight: 600;
   color: v.$cat-yellow2;
@@ -1091,7 +1091,7 @@
   position: absolute;
   top: 2.2rem;
   right: 2.6rem;
-  font-family: 'Oswald', sans-serif;
+  font-family: var(--font-oswald), sans-serif;
   font-size: 1.6rem;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.16);
@@ -1203,7 +1203,7 @@
   gap: 1.6rem;
 
   h2 {
-    font-family: 'Oswald', sans-serif;
+    font-family: var(--font-oswald), sans-serif;
     font-size: clamp(2.6rem, 3.4vw, 4rem);
     font-weight: 600;
     line-height: 1.06;
@@ -1288,7 +1288,7 @@
 .ctaContent h2,
 .reasonGrid h3,
 .processCard h3 {
-  font-family: 'Oswald', sans-serif;
+  font-family: var(--font-oswald), sans-serif;
   letter-spacing: 0.005em;
   text-transform: uppercase;
 }
@@ -1316,7 +1316,7 @@
   margin-bottom: 3.2rem;
 
   h2 {
-    font-family: 'Oswald', sans-serif;
+    font-family: var(--font-oswald), sans-serif;
     font-size: clamp(2.4rem, 3.2vw, 3.8rem);
     font-weight: 600;
     line-height: 1.06;
@@ -1452,7 +1452,7 @@
   margin-bottom: 3rem;
 
   h2 {
-    font-family: 'Oswald', sans-serif;
+    font-family: var(--font-oswald), sans-serif;
     font-size: clamp(2.4rem, 3.2vw, 3.8rem);
     font-weight: 600;
     line-height: 1.06;
@@ -1635,7 +1635,7 @@
   h3 {
     margin: 0;
     color: #fff;
-    font-family: 'Oswald', sans-serif;
+    font-family: var(--font-oswald), sans-serif;
     font-size: 2rem;
     font-weight: 600;
     line-height: 1.1;

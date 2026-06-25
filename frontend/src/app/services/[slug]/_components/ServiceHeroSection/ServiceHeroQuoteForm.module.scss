@@ -19,7 +19,7 @@
 
   h3 {
     margin: 0;
-    font-family: 'Oswald', sans-serif;
+    font-family: var(--font-oswald), sans-serif;
     font-size: 1.9rem;
     font-weight: 600;
     color: #fff;
@@ -219,7 +219,7 @@
 
   h3 {
     margin: 0;
-    font-family: 'Oswald', sans-serif;
+    font-family: var(--font-oswald), sans-serif;
     font-size: 2.2rem;
     font-weight: 600;
     text-transform: uppercase;

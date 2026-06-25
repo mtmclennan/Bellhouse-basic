@@ -100,10 +100,10 @@ export const homeProofSection: ProofSectionData = {
 
 export const homeServicesSection: ServicesSectionData = {
   _type: 'servicesSection',
-  eyebrow: 'Core Services',
-  heading: 'Core Excavation & Trucking Services',
+  eyebrow: 'What We Do',
+  heading: 'Farm, Rural & Commercial Excavation Services',
   intro:
-    'From foundations and grading to material delivery and equipment hauling, Bellhouse supports residential, contractor, and commercial site work with practical field experience and the right equipment.',
+    'Farm, rural, commercial, and builder work across Brant County and surrounding areas.',
   items: featuredServices,
   actions: [
     {

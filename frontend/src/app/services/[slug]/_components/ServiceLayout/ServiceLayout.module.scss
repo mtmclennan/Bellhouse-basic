@@ -60,7 +60,7 @@
      match the hero. All section headings are <h2>; card/sub-headings are <h3>,
      so this is scoped to titles only. Colour stays owned by each section. */
   h2 {
-    font-family: 'Oswald', sans-serif;
+    font-family: var(--font-oswald), sans-serif;
     font-size: clamp(2.6rem, 3.4vw, 4rem);
     font-weight: 600;
     text-transform: uppercase;

@@ -9,7 +9,7 @@
     "description": "Farm pond excavation, sediment removal, and pond cleanout for agricultural and rural properties across Brant County and surrounding areas."
   },
   "card": {
-    "title": "Pond Digging & Cleaning Services",
+    "title": "Farm Pond Excavation & Cleanout",
     "description": "Custom pond excavation, dredging, and cleaning for farms and residential properties.",
     "image": "/assets/pond-digging-cleaning-brant-county.jpg",
     "alt": "Excavator digging and shaping a pond on rural land in Brant County."
@@ -40,7 +40,7 @@
       "tone": "light",
       "eyebrow": "Who it's for",
       "heading": "Create, Expand, or Restore Your Pond with Expert Excavation",
-      "body": "Bellhouse Excavating provides pond digging and pond cleaning services, from new pond construction to sediment removal and shoreline reshaping. Whether the project is a farm pond, wildlife pond, irrigation pond, drainage pond, or rural property feature, the work is planned around access, soil, water management, and the final use of the site.\n\nFarm ponds across Brant County are built for a range of purposes — livestock water supply, crop irrigation, fire suppression reserves, and habitat. Bellhouse also handles storm pond sediment removal for commercial and rural development sites where retention capacity has been lost to silt buildup.",
+      "body": "Bellhouse Excavating provides pond digging and pond cleaning services, from new pond construction to sediment removal and shoreline reshaping. Whether the project is a farm pond, wildlife pond, irrigation pond, drainage pond, or rural property feature, the work is planned around access, soil, water management, and the final use of the site.\n\nFarm ponds and dugouts across Brant County are built for a range of purposes — livestock water supply, crop irrigation, fire suppression reserves, and habitat. Bellhouse also handles storm pond sediment removal for commercial and rural development sites where retention capacity has been lost to silt buildup.",
       "audience": [
         { "icon": "drop", "label": "Water management" },
         { "icon": "house-line", "label": "Rural property owners" },
@@ -113,8 +113,8 @@
           "body": "Stormwater retention ponds on commercial or rural development sites that have lost capacity to silt. Excavator access and spoil placement are the main site requirements."
         },
         {
-          "title": "Not the best fit: Regulated wetlands without permits",
-          "body": "Work in or near regulated wetlands, floodplains, or protected watercourses requires conservation authority approval. Bellhouse can review access and excavation conditions but cannot begin without applicable permits in place."
+          "title": "Not the best fit: Ponds requiring Conservation Authority permits",
+          "body": "Pond work near watercourses, municipal drains, regulated wetlands, or within the Grand River Conservation Authority regulated area may require a Section 28 permit before work can begin. Bellhouse can review your site conditions and advise, but permit-dependent projects need approvals in place before excavation starts. Simple farm dugouts and pond cleanouts away from regulated features are typically not affected."
         },
         {
           "title": "Not the best fit: No equipment access to the pond",
@@ -231,7 +231,7 @@
         {
           "name": "Excavator",
           "body": "Used for digging ponds, removing sediment, deepening existing ponds, and shaping shorelines.",
-          "image": { "src": "/assets/services/cat-excavator-digging-in-aggregates-pile.webp", "alt": "CAT excavator digging on a job site" }
+          "image": { "src": "/assets/services/cat-excavator-digging-in-aggregates-pile.webp", "alt": "CAT excavator digging into an aggregates pile during pond excavation support in Brant County" }
         },
         {
           "name": "Tri-Axle Dump Trucks",
@@ -315,6 +315,10 @@
         {
           "question": "Do you handle wetlands?",
           "answer": "Regulated wetlands and protected areas may require permits or approvals before any work can happen. Bellhouse can review access and excavation conditions, but the owner is responsible for confirming applicable approvals."
+        },
+        {
+          "question": "Do I need a permit to dig a pond in Brant County?",
+          "answer": "It depends on the site. Simple farm dugouts and pond cleanouts on rural properties away from watercourses are typically straightforward and don't require a Conservation Authority permit. If your pond involves an inlet or outlet, sits near a creek, municipal drain, or regulated wetland, or is within 30 metres of a watercourse, a Grand River Conservation Authority (GRCA) Section 28 permit may be required. Bellhouse reviews site conditions before quoting — if a permit is needed we'll flag it early so there are no surprises."
         },
         {
           "question": "Can you clean an overgrown pond?",

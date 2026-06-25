@@ -90,6 +90,26 @@
   @include m.focusRing(rgba(v.$cat-yellow2, 0.72), 0.35rem, 0.8rem);
 }
 
+.social {
+  display: flex;
+  gap: 1.6rem;
+
+  a {
+    color: rgba(v.$grey-color-1, 0.78);
+    transition:
+      color 0.2s ease,
+      transform 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      color: v.$btn-main;
+      transform: translateY(-1px);
+    }
+
+    @include m.focusRing(rgba(v.$cat-yellow2, 0.72), 0.25rem, 0.6rem);
+  }
+}
+
 .linkGrid {
   display: grid;
   grid-template-columns: 1fr;
