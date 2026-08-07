@@ -2,13 +2,33 @@
 
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react';
 import { CaretDown } from '@phosphor-icons/react/dist/ssr';
-import type { PropsWithChildren } from 'react';
+import { useEffect, useRef, type PropsWithChildren } from 'react';
 import type { CalculatorAdvancedShellModel } from '../hooks/calculatorController.types';
 import classes from './CalculatorForm.module.scss';
 
 type CalculatorAdvancedShellProps = PropsWithChildren<{
   shell: CalculatorAdvancedShellModel;
 }>;
+
+type AdvancedOpenTrackerProps = {
+  open: boolean;
+  onOpen?: () => void;
+};
+
+/** Fires onOpen only on the closed -> open transition, never on close. */
+function AdvancedOpenTracker({ open, onOpen }: AdvancedOpenTrackerProps) {
+  const wasOpenRef = useRef(false);
+
+  useEffect(() => {
+    if (open && !wasOpenRef.current) {
+      onOpen?.();
+    }
+
+    wasOpenRef.current = open;
+  }, [open, onOpen]);
+
+  return null;
+}
 
 export function CalculatorAdvancedShell({
   shell,
@@ -18,6 +38,7 @@ export function CalculatorAdvancedShell({
     <Disclosure>
       {({ open }) => (
         <div className={classes.advancedSection}>
+          <AdvancedOpenTracker open={open} onOpen={shell.onOpen} />
           <div className={classes.advancedTriggerRow}>
             <DisclosureButton className={classes.advancedTrigger}>
               <div className={classes.advancedTriggerCopy}>

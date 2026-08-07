@@ -97,6 +97,8 @@ export type CalculatorAdvancedShellModel = {
     enabled: boolean;
     onChange: (value: boolean) => void;
   };
+  /** Called when the advanced-options disclosure transitions closed -> open. */
+  onOpen?: () => void;
 };
 
 export type CalculatorAdvancedSection = {

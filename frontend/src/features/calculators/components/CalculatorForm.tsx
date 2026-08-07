@@ -2,11 +2,13 @@
 
 import SectionWrapper from '@/components/layout/SectionWrapper';
 import { useCalculatorController } from '../hooks/useCalculatorController';
+import { calculatorPageContent } from '../config/pageContent';
 import { CalculatorInputPanel } from './CalculatorInputPanel';
 import {
   CalculatorResults,
   type CalculatorResultsStyleClasses,
 } from './CalculatorResults';
+import { CalculatorResultsCta } from './CalculatorResultsCta';
 import classes from './CalculatorForm.module.scss';
 import type { CalculatorKind } from '../types/calculator';
 
@@ -51,7 +53,13 @@ export function CalculatorForm({ kind }: CalculatorFormProps) {
       <div className={classes.shell}>
         <CalculatorInputPanel section={controller.sections.inputPanel} />
 
-        <CalculatorResults section={controller.sections.results} classes={resultStyleClasses} />
+        <div className={classes.resultsColumn}>
+          <CalculatorResults section={controller.sections.results} classes={resultStyleClasses} />
+          <CalculatorResultsCta
+            controller={controller}
+            content={calculatorPageContent[kind].resultsCta}
+          />
+        </div>
       </div>
     </SectionWrapper>
   );

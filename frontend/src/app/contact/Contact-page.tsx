@@ -1,6 +1,6 @@
 'use client';
 
-import { Fragment } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import ContactForm, { DEFAULT_WORK_TYPE_OPTIONS } from '../components/forms/ContactForm';
 import ContactMethodsSection from '../components/sections/ContactMethodsSection/ContactMethodsSection';
@@ -9,6 +9,11 @@ import FinalCtaSection from '../components/sections/FinalCtaSection/FinalCtaSect
 import HeroSection from '../components/sections/HeroSection/HeroSection';
 import ServiceAreasSection from '../components/sections/ServiceAreaSection/ServiceAreaSection';
 import SectionWrapper from '@/components/layout/SectionWrapper';
+import { resolveCalculatorWorkType } from '@/features/calculators/config/calculatorWorkType';
+import {
+  clearCalculatorLead,
+  readCalculatorLead,
+} from '@/features/calculators/lead/calculatorLeadStorage';
 import {
   contactFaqSection,
   contactFinalCtaSection,
@@ -23,9 +28,35 @@ import pageClasses from './Contact-page.module.scss';
 const Contact = () => {
   const searchParams = useSearchParams();
   const serviceParam = searchParams.get('service') ?? '';
-  const initialService = DEFAULT_WORK_TYPE_OPTIONS.find(
-    (opt) => opt.toLowerCase() === serviceParam.toLowerCase(),
-  );
+  const source = searchParams.get('source');
+
+  // A calculator handoff (source=calculator) resolves the work type through
+  // the centralized calculator -> work-type mapping; every other ?service=
+  // link keeps the existing exact-match-against-the-dropdown behaviour.
+  const initialService =
+    source === 'calculator'
+      ? resolveCalculatorWorkType(serviceParam)
+      : DEFAULT_WORK_TYPE_OPTIONS.find(
+          (opt) => opt.toLowerCase() === serviceParam.toLowerCase(),
+        );
+
+  const [initialMessage, setInitialMessage] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    if (source !== 'calculator') {
+      return;
+    }
+
+    // sessionStorage only exists client-side, so this can't run any earlier
+    // than mount — reading it here (not during render) also keeps SSR/SSG
+    // output stable and avoids a hydration mismatch on the message field.
+    const lead = readCalculatorLead();
+    if (lead) {
+      setInitialMessage(lead.message);
+      clearCalculatorLead();
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Fragment>
@@ -67,7 +98,12 @@ const Contact = () => {
 
           <div className={pageClasses.formPane}>
             <div className={pageClasses.formColumn}>
-              <ContactForm embedded={true} sectionId="contact-form" initialService={initialService} />
+              <ContactForm
+                embedded={true}
+                sectionId="contact-form"
+                initialService={initialService}
+                initialMessage={initialMessage}
+              />
               <section className={pageClasses.trustPanel}>
                 <p className={pageClasses.trustIntro}>
                   {contactTrustPanelData.text}

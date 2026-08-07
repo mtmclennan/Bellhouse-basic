@@ -2,6 +2,9 @@
 
 import { useMemo } from 'react';
 import { createCalculatorFormInput, getCalculatorConfig } from '../config/calculators';
+import { trackCalculatorAdvancedOpened } from '../analytics/calculatorAnalyticsActions';
+import { useCalculatorCompletionTracking } from '../analytics/useCalculatorCompletionTracking';
+import { useCalculatorStartedTracking } from '../analytics/useCalculatorStartedTracking';
 import { buildCalculatorResultCardMap } from './buildCalculatorResultCards';
 import type {
   CalculatorAdvancedFieldsModel,
@@ -21,6 +24,7 @@ import type {
 
 export function useCalculatorController(kind: CalculatorKind): CalculatorController {
   const config = getCalculatorConfig(kind);
+  const { markStarted } = useCalculatorStartedTracking(kind);
 
   const {
     input,
@@ -38,6 +42,15 @@ export function useCalculatorController(kind: CalculatorKind): CalculatorControl
   } = useCalculatorCoreState({
     config,
     createInitialInput: () => createCalculatorFormInput(config),
+    onUserChange: markStarted,
+  });
+
+  useCalculatorCompletionTracking({
+    calculatorType: kind,
+    hasResult: Boolean(result),
+    normalizedInput,
+    materialId: material?.id,
+    unitSystem: input.inputUnitSystem,
   });
 
   const behaviorParams: CalculatorKindBehaviorParams = {
@@ -153,6 +166,7 @@ export function useCalculatorController(kind: CalculatorKind): CalculatorControl
       enabled: input.useAdvanced,
       onChange: (value: boolean) => updateToggleField('useAdvanced', value),
     },
+    onOpen: () => trackCalculatorAdvancedOpened(kind),
   } satisfies CalculatorController['sections']['inputPanel']['advanced']['shell'];
 
   return {

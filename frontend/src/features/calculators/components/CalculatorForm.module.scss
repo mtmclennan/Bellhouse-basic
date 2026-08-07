@@ -22,10 +22,59 @@
   }
 }
 
+.resultsColumn {
+  display: grid;
+  gap: 1.05rem;
+
+  @include m.mediaDesktop {
+    gap: 1.35rem;
+  }
+}
+
 .panel,
 .resultsPanel {
   border-radius: 2rem;
   overflow: hidden;
+}
+
+.resultsCta {
+  display: grid;
+  gap: 0.9rem;
+  padding: 1.6rem 1.5rem;
+  border-radius: 1.6rem;
+  border: 1px solid rgba(v.$cat-yellow2, 0.3);
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(v.$cat-yellow2, 0.14),
+      transparent 34%
+    ),
+    linear-gradient(180deg, #1c1c1c 0%, #121212 100%);
+  box-shadow: v.$box-shadow-dark;
+
+  @media (min-width: 700px) {
+    padding: 1.9rem 1.9rem;
+  }
+}
+
+.resultsCtaHeading {
+  margin: 0;
+  font-size: 1.9rem;
+  line-height: 1.25;
+  color: #fff;
+}
+
+.resultsCtaDescription {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.resultsCtaButton {
+  @include m.btnMain;
+  @include m.focusRing();
+  width: fit-content;
 }
 
 .panel {

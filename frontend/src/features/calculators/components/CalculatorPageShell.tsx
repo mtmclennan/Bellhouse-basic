@@ -3,9 +3,12 @@ import HeroSection from '@/app/components/sections/HeroSection/HeroSection';
 import SectionWrapper from '@/components/layout/SectionWrapper';
 import { calculatorPageContent } from '../config/pageContent';
 import { calculatorConfigs } from '../config/calculators';
+import { calculatorSeoConfig } from '../config/seo';
 import type { CalculatorKind } from '../types/calculator';
 import type { HeroSectionData } from '@/types/sections';
 import { CalculatorForm } from './CalculatorForm';
+import { CalculatorTrackedLink } from './CalculatorTrackedLink';
+import { ResourceBreadcrumbs } from './ResourceBreadcrumbs';
 import classes from './CalculatorPageShell.module.scss';
 
 type CalculatorPageShellProps = {
@@ -40,8 +43,32 @@ export function CalculatorPageShell({ kind }: CalculatorPageShellProps) {
     density: 'tight',
   };
 
+  const faqStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: content.faqs.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  };
+
   return (
     <>
+      <div className={classes.breadcrumbBar}>
+        <ResourceBreadcrumbs
+          trail={[
+            { name: 'Home', href: '/' },
+            { name: 'Resources', href: '/resources' },
+            { name: 'Calculators', href: '/resources/calculators' },
+            { name: config.title, href: calculatorSeoConfig[kind].resourcePath },
+          ]}
+        />
+      </div>
+
       <HeroSection data={heroData} />
 
       <div id="calculator" className={classes.scrollTarget}>
@@ -95,9 +122,14 @@ export function CalculatorPageShell({ kind }: CalculatorPageShellProps) {
               <h3>{tool.title}</h3>
               <p>{tool.description}</p>
               <div className={classes.relatedActions}>
-                <Link className={classes.primaryAction} href={tool.href}>
+                <CalculatorTrackedLink
+                  className={classes.primaryAction}
+                  href={tool.href}
+                  kind={kind}
+                  destinationType="calculator"
+                >
                   {tool.actionLabel}
-                </Link>
+                </CalculatorTrackedLink>
               </div>
             </article>
           ))}
@@ -122,9 +154,14 @@ export function CalculatorPageShell({ kind }: CalculatorPageShellProps) {
               <h3>{service.title}</h3>
               <p>{service.description}</p>
               <div className={classes.relatedActions}>
-                <Link className={classes.secondaryAction} href={service.href}>
+                <CalculatorTrackedLink
+                  className={classes.secondaryAction}
+                  href={service.href}
+                  kind={kind}
+                  destinationType="service"
+                >
                   {service.actionLabel}
-                </Link>
+                </CalculatorTrackedLink>
               </div>
             </article>
           ))}
@@ -156,6 +193,11 @@ export function CalculatorPageShell({ kind }: CalculatorPageShellProps) {
         </div>
       </SectionWrapper>
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
+      />
+
       <SectionWrapper
         className={classes.ctaSection}
         containerClassName={classes.ctaContainer}
@@ -174,12 +216,14 @@ export function CalculatorPageShell({ kind }: CalculatorPageShellProps) {
               <Link className={classes.primaryAction} href="/contact">
                 Request a Quote
               </Link>
-              <Link
+              <CalculatorTrackedLink
                 className={classes.secondaryAction}
                 href={content.relatedServiceLink.href}
+                kind={kind}
+                destinationType="service"
               >
                 {content.relatedServiceLink.label}
-              </Link>
+              </CalculatorTrackedLink>
             </div>
             <p>
               Need a different estimating tool first?{' '}

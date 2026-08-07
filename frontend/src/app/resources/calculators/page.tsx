@@ -3,9 +3,11 @@ import Link from '@/components/SiteLink';
 import HeroSection from '@/app/components/sections/HeroSection/HeroSection';
 import SectionWrapper from '@/components/layout/SectionWrapper';
 import { CalculatorResourceCardGrid } from '@/features/calculators/components/CalculatorResourceCardGrid';
+import { ResourceBreadcrumbs } from '@/features/calculators/components/ResourceBreadcrumbs';
 import { validateMetadata } from '@/lib/utils/seoValidation';
 import type { HeroSectionData } from '@/types/sections';
 import classes from '../../../app/calculators/page.module.scss';
+import shellClasses from '@/features/calculators/components/CalculatorPageShell.module.scss';
 
 export const metadata: Metadata = {
   title: 'Excavation, Gravel & Topsoil Calculators | Bellhouse',
@@ -55,6 +57,16 @@ const calculatorsHeroData: HeroSectionData = {
 export default function CalculatorsPage() {
   return (
     <>
+      <div className={shellClasses.breadcrumbBar}>
+        <ResourceBreadcrumbs
+          trail={[
+            { name: 'Home', href: '/' },
+            { name: 'Resources', href: '/resources' },
+            { name: 'Calculators', href: '/resources/calculators' },
+          ]}
+        />
+      </div>
+
       <HeroSection data={calculatorsHeroData} />
 
       <div id="calculators" className={classes.scrollTarget}>

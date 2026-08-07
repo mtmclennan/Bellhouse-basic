@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { getMaterialById, getMaterialsByIds } from '../config/materials';
 import { calculateProjectMaterial } from '../logic/calculator';
 import { normalizeCalculatorInput } from '../logic/normalizeInput';
@@ -19,13 +19,28 @@ import type {
 type UseCalculatorCoreStateParams = {
   config: CalculatorConfig;
   createInitialInput: () => CalculatorFormInput;
+  /**
+   * Called whenever the user mutates the calculator input (never on the
+   * initial render). Generic on purpose — this hook has no idea analytics
+   * exists; the caller decides what "a user changed something" means to it.
+   */
+  onUserChange?: () => void;
 };
 
 export function useCalculatorCoreState({
   config,
   createInitialInput,
+  onUserChange,
 }: UseCalculatorCoreStateParams) {
-  const [input, setInput] = useState<CalculatorFormInput>(createInitialInput);
+  const [input, setRawInput] = useState<CalculatorFormInput>(createInitialInput);
+
+  const setInput = useCallback<typeof setRawInput>(
+    (update) => {
+      onUserChange?.();
+      setRawInput(update);
+    },
+    [onUserChange],
+  );
 
   const allowedMaterials = useMemo(() => {
     return getMaterialsByIds(config.allowedMaterialIds);

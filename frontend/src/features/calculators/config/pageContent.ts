@@ -40,6 +40,11 @@ export type CalculatorPageContent = {
     href: string;
     label: string;
   };
+  resultsCta: {
+    heading: string;
+    description: string;
+    buttonLabel: string;
+  };
   faqHeading: string;
   faqDescription: string;
   faqs: Array<{
@@ -159,6 +164,12 @@ export const calculatorPageContent: Record<
     relatedServiceLink: {
       href: '/services/foundation-excavation',
       label: 'View Foundation Excavation',
+    },
+    resultsCta: {
+      heading: 'Need this material excavated or hauled?',
+      description:
+        'Send Bellhouse this estimate along with the project location and timeline for a real quote — the numbers above carry over automatically.',
+      buttonLabel: 'Request a project estimate',
     },
     faqHeading: 'Excavation calculator FAQs',
     faqDescription:
@@ -301,6 +312,12 @@ export const calculatorPageContent: Record<
       href: '/services/dirt-gravel-delivery',
       label: 'Plan Gravel Delivery',
     },
+    resultsCta: {
+      heading: 'Need this gravel delivered and placed?',
+      description:
+        'Send Bellhouse this estimate along with the project location and timeline for a real quote — the numbers above carry over automatically.',
+      buttonLabel: 'Request a project estimate',
+    },
     faqHeading: 'Gravel calculator FAQs',
     faqDescription:
       'Short answers for gravel quantity, compaction, material choice, and truck-load planning before the job is reviewed.',
@@ -441,6 +458,12 @@ export const calculatorPageContent: Record<
     relatedServiceLink: {
       href: '/services/land-grading-drainage',
       label: 'View Land Grading & Drainage',
+    },
+    resultsCta: {
+      heading: 'Need this topsoil delivered and placed?',
+      description:
+        'Send Bellhouse this estimate along with the project location and timeline for a real quote — the numbers above carry over automatically.',
+      buttonLabel: 'Request a project estimate',
     },
     faqHeading: 'Topsoil calculator FAQs',
     faqDescription:

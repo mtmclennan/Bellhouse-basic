@@ -26,6 +26,7 @@ export function CalculatorDimensionField({ field }: CalculatorDimensionFieldProp
               )
             }
             className={classes.fieldControl}
+            aria-label={field.label}
           />
 
           <select

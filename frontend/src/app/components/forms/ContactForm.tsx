@@ -42,6 +42,7 @@ type ContactFormProps = {
   intro?: string;
   sectionId?: string;
   initialService?: string;
+  initialMessage?: string;
 };
 
 const REQUIRED_SMS_DISCLOSURE = [
@@ -53,6 +54,7 @@ const REQUIRED_SMS_DISCLOSURE = [
 
 export const DEFAULT_WORK_TYPE_OPTIONS = [
   'Other',
+  'General Excavation / Site Work',
   'Foundation Excavation',
   'Site Grading',
   'Land Clearing',
@@ -144,6 +146,7 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
       intro,
       sectionId,
       initialService,
+      initialMessage,
     },
     ref,
   ) => {
@@ -236,7 +239,18 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
       isValid: messageIsValid,
       hasError: messageHasError,
       reset: resetMessage,
+      setValue: setMessageValue,
     } = useInput(stringValidate);
+
+    useEffect(() => {
+      // Only prefill if the user hasn't already typed something — this can
+      // only ever apply once, since initialMessage is set from a one-time
+      // read on the parent page and never changes again after that.
+      if (initialMessage && !enteredMessage) {
+        setMessageValue(initialMessage);
+      }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [initialMessage]);
 
     const handleWorkTypeChange = (
       event: React.ChangeEvent<HTMLSelectElement>,
