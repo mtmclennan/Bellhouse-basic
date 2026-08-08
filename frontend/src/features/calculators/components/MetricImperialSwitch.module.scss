@@ -3,191 +3,96 @@
 
 .wrapper {
   display: grid;
-  gap: 0.45rem;
+}
+
+.label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  overflow: hidden;
+  border: 1px solid rgba(v.$text-color-dark, 0.18);
+  border-radius: 0.8rem;
+  background: rgba(v.$text-color-dark, 0.04);
+}
+
+.optionButton {
+  min-height: 4rem;
+  padding: 0.8rem 1.4rem;
+  border: 0;
+  background: transparent;
+  color: rgba(v.$text-color-dark, 0.66);
+  font-size: 1.3rem;
+  font-weight: 750;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+  @include m.focusRing(rgba(v.$cat-yellow2, 0.3));
+
+  + .optionButton {
+    border-left: 1px solid rgba(v.$text-color-dark, 0.12);
+  }
+
+  &:hover {
+    background: rgba(v.$text-color-dark, 0.06);
+  }
+}
+
+.optionButtonActive {
+  background: v.$cat-yellow2;
+  color: v.$text-color-dark;
+
+  &:hover {
+    background: v.$cat-yellow2;
+  }
 }
 
 .wrapperDark {
-  .label {
-    color: rgba(255, 255, 255, 0.84);
+  .row {
+    border-color: rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.04);
   }
 
-  .optionLabel {
-    color: rgba(255, 255, 255, 0.72);
+  .optionButton {
+    color: rgba(255, 255, 255, 0.66);
+
+    + .optionButton {
+      border-left-color: rgba(255, 255, 255, 0.11);
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.07);
+      color: #fff;
+    }
   }
 
-  .optionLabelActive {
-    color: #fff;
-  }
+  .optionButtonActive {
+    background: v.$cat-yellow2;
+    color: v.$text-color-dark;
 
-  .switch {
-    border-color: rgba(255, 255, 255, 0.22);
-    background-color: rgba(255, 255, 255, 0.12);
+    &:hover {
+      background: v.$cat-yellow2;
+      color: v.$text-color-dark;
+    }
   }
 }
 
 .wrapperCompact {
-  gap: 0.4rem;
-
-  .label {
-    font-size: 1.05rem;
-    letter-spacing: 0.1em;
-  }
-
-  .row {
-    gap: 0.65rem;
-  }
-
-  .optionLabel {
-    min-width: 4.8rem;
+  .optionButton {
+    min-height: 3.6rem;
+    padding: 0.7rem 1.15rem;
     font-size: 1.18rem;
-  }
-
-  .switch {
-    width: 4.8rem;
-    height: 2.7rem;
-  }
-
-  .thumb {
-    width: 2rem;
-    height: 2rem;
-    transform: translateX(0.3rem);
-
-    .switch[data-checked] & {
-      transform: translateX(2.48rem);
-    }
-  }
-}
-
-.label {
-  margin: 0;
-  font-size: 1.2rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(v.$text-color-dark, 0.82);
-}
-
-.row {
-  display: inline-flex;
-  width: fit-content;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-.optionLabel {
-  min-width: 5.4rem;
-  font-size: 1.28rem;
-  font-weight: 700;
-  line-height: 1.2;
-  text-align: center;
-  color: rgba(v.$text-color-mid-dark, 0.72);
-  transition: color 0.15s ease;
-}
-
-.optionLabelActive {
-  color: v.$text-color-mid-dark;
-}
-
-.switch {
-  position: relative;
-  display: inline-flex;
-  width: 5.3rem;
-  height: 3rem;
-  align-items: center;
-  border: 1px solid rgba(v.$cat-yellow2, 0.35);
-  border-radius: 999px;
-  background-color: rgba(rgba(v.$text-color-dark, 0.82), 0.84);
-  transition:
-    background-color 0.18s ease,
-    border-color 0.18s ease,
-    box-shadow 0.18s ease;
-  @include m.focusRing(rgba(v.$cat-yellow2, 0.28));
-
-  &[data-checked] {
-    background-color: rgba(v.$cat-yellow2, 0.96);
-    border-color: rgba(v.$cat-yellow2, 0.92);
-  }
-}
-
-.thumb {
-  display: inline-block;
-  width: 2.2rem;
-  height: 2.2rem;
-  transform: translateX(0.32rem);
-  border-radius: 999px;
-  background-color: #fff;
-  box-shadow: 0 0.5rem 1rem -0.6rem rgba(0, 0, 0, 0.45);
-  transition: transform 0.18s ease;
-
-  .switch[data-checked] & {
-    transform: translateX(2.45rem);
-  }
-}
-
-@media (max-width: 540px) {
-  .wrapper {
-    gap: 0.45rem;
-  }
-
-  .row {
-    width: fit-content;
-    max-width: 100%;
-    justify-content: flex-start;
-    gap: 0.65rem;
-  }
-
-  .optionLabel {
-    min-width: 0;
-    flex: 0 0 auto;
-    font-size: 1.2rem;
-  }
-
-  .wrapperCompact {
-    .optionLabel {
-      font-size: 1.12rem;
-    }
-
-    .row {
-      width: fit-content;
-      justify-content: flex-start;
-    }
-  }
-}
-
-@media (max-width: 380px) {
-  .optionLabel {
-    font-size: 1.14rem;
-  }
-
-  .switch {
-    width: 4.9rem;
-    height: 2.8rem;
-  }
-
-  .thumb {
-    width: 2rem;
-    height: 2rem;
-    transform: translateX(0.28rem);
-
-    .switch[data-checked] & {
-      transform: translateX(2.22rem);
-    }
-  }
-
-  .wrapperCompact {
-    .switch {
-      width: 4.4rem;
-      height: 2.5rem;
-    }
-
-    .thumb {
-      width: 1.8rem;
-      height: 1.8rem;
-      transform: translateX(0.28rem);
-
-      .switch[data-checked] & {
-        transform: translateX(2.3rem);
-      }
-    }
   }
 }

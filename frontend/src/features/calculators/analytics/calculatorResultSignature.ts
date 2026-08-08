@@ -15,6 +15,9 @@ export function buildCalculatorResultSignature(
     normalizedInput.lengthM,
     normalizedInput.widthM,
     normalizedInput.depthM,
+    (normalizedInput.additionalAreas ?? [])
+      .map((area) => `${area.lengthM},${area.widthM},${area.depthM}`)
+      .join(';'),
     normalizedInput.materialId,
     normalizedInput.useAdvanced,
     normalizedInput.workflowKind,

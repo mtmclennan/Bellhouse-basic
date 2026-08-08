@@ -2,18 +2,21 @@ import type { CalculatorKind } from '../types/calculator';
 import { calculatorSeoConfig } from './seo';
 
 export type CalculatorPageContent = {
-  eyebrow: string;
   pageTitle: string;
-  intro: string[];
-  supportHeading: string;
-  supportDescription: string;
-  supportItems: Array<{
-    title: string;
-    description: string;
+  heroDescription: string;
+  heroCapabilities: Array<{
+    icon: 'cube' | 'expand' | 'truck' | 'scales';
+    label: string;
   }>;
   guidanceHeading: string;
   guidanceDescription: string;
+  guidanceCallout: {
+    title: string;
+    paragraphs: string[];
+    check: string;
+  };
   guidanceItems: Array<{
+    icon: 'layers' | 'water' | 'access' | 'measure';
     title: string;
     description: string;
   }>;
@@ -28,6 +31,14 @@ export type CalculatorPageContent = {
   relatedServicesHeading: string;
   relatedServicesDescription: string;
   relatedServices: Array<{
+    icon:
+      | 'foundation'
+      | 'site'
+      | 'reuse'
+      | 'water'
+      | 'hauling'
+      | 'material'
+      | 'grading';
     href: string;
     title: string;
     description: string;
@@ -58,108 +69,108 @@ export const calculatorPageContent: Record<
   CalculatorPageContent
 > = {
   excavation: {
-    eyebrow: 'Excavation estimating',
     pageTitle: 'Excavation Calculator for Volume, Loose Material, and Loads',
-    intro: [
-      'Use this excavation calculator to estimate in-place cut volume, loose excavated material, truck loads, and weight before the job is priced or the haul plan is finalized.',
-      'It is built for excavation and material removal, so the workflow follows real cut work: bank volume first, then swell, then loose haul-out, then load and weight estimates.',
+    heroDescription:
+      'Multiply length × width × depth, divide by 27, and multiply by the material swell factor. This calculator does that for you — in-place cut volume, loose excavated material, truck loads, and weight, in cubic yards or cubic metres.',
+    heroCapabilities: [
+      { icon: 'cube', label: 'In-place volume' },
+      { icon: 'expand', label: 'Loose material' },
+      { icon: 'truck', label: 'Truck load count' },
+      { icon: 'scales', label: 'Material weight' },
     ],
-    supportHeading: 'How to use this excavation calculator properly',
-    supportDescription:
-      'This page is meant to help with excavation planning, not replace a site-specific quote. It works best when you need a practical first estimate for removed material and hauling.',
-    supportItems: [
-      {
-        title: 'How it works',
-        description:
-          'The calculator starts with in-place excavation volume, applies the selected material swell factor, then converts the loose material into estimated truck loads and weight.',
-      },
-      {
-        title: 'When to use it',
-        description:
-          'Use it for foundation digs, trenching, pond excavation, cut work, and spoil haul-out when you need a quick planning number before production details are confirmed.',
-      },
-      {
-        title: 'Who it is for',
-        description:
-          'It is useful for homeowners pricing a dig, builders comparing haul quantities, and contractors checking truck requirements before requesting a formal quote.',
-      },
-      {
-        title: 'Material and hauling assumptions',
-        description:
-          'Material type, swell, moisture, truck payload, and half-load restrictions all affect the estimate. Rock, wet ground, over-excavation, and access can change the real number.',
-      },
-    ],
-    guidanceHeading: 'Practical notes before using the excavation number',
+    guidanceHeading: 'What moves the number on a real site',
     guidanceDescription:
-      'Excavation estimates are most useful when the site conditions, haul route, truck access, and next construction step are known early.',
+      'The calculator assumes a rectangular cut of uniform depth in one material. These site conditions most often change the real haul plan.',
+    guidanceCallout: {
+      title: 'Road restrictions can double the number of trips',
+      paragraphs: [
+        'Posted load limits reduce the legal payload a truck can carry without changing the volume or total weight of material on the project.',
+        'Turn on half-load mode when the actual route is restricted. The calculator uses half of the entered legal payload for the load estimate, and the setting remains fully manual.',
+      ],
+      check:
+        'Confirm current route restrictions with the municipality before locking the haul plan.',
+    },
     guidanceItems: [
       {
-        title: 'What the estimate covers',
+        icon: 'layers',
+        title: 'Layered or unexpected material',
         description:
-          'Use the result as a rough planning number for cut volume, loose material after swell, likely truck loads, and material weight.',
+          'A cut that starts in topsoil and ends in clay has more than one swell factor. Buried fill, shale, or rock can change the equipment and hauling plan.',
       },
       {
-        title: 'Where it can change',
+        icon: 'water',
+        title: 'Groundwater and wet soil',
         description:
-          'Wet ground, rock, over-dig, poor access, buried debris, and half-load restrictions can change the actual hauled quantity and load count.',
+          'Saturated material is heavier. Trucks can reach their legal payload sooner, raising the trip count without changing the cut volume.',
       },
       {
-        title: 'What Bellhouse needs',
+        icon: 'access',
+        title: 'Access and truck staging',
         description:
-          'Send the location, rough dimensions, material type, access details, drawings if available, and what the site needs to be ready for next.',
+          'Tight lots, narrow entrances, soft shoulders, and limited turnarounds can reduce the truck size or cycle speed available to the job.',
+      },
+      {
+        icon: 'measure',
+        title: 'Over-dig for forming',
+        description:
+          'Foundations need working room for forms, waterproofing, drainage stone, and safe side slopes. That clearance is real excavation beyond the building footprint.',
       },
     ],
-    relatedToolsHeading: 'Related Bellhouse tools for the next step',
+    relatedToolsHeading: 'Where the excavation number goes next',
     relatedToolsDescription:
-      'Excavation is often only one part of the job. If the project also needs base material or finish grading, these related calculators help you plan the next material stage.',
+      'Excavation is one stage of the job. Use the connected tools for imported base or finish material, then review the site work Bellhouse can coordinate.',
     relatedTools: [
       {
         href: calculatorSeoConfig.gravel.resourcePath,
-        title: 'Gravel calculator for imported base material',
+        title: 'Gravel calculator',
         description:
           'Helpful when excavation is followed by granular fill, driveway base, pad prep, or compacted aggregate placement.',
         actionLabel: 'Open Gravel Calculator',
       },
       {
         href: calculatorSeoConfig.topsoil.resourcePath,
-        title: 'Topsoil calculator for finish grading',
+        title: 'Topsoil calculator',
         description:
           'Useful when the excavation job ends with topsoil placement, yard shaping, or final surface restoration.',
         actionLabel: 'Open Topsoil Calculator',
       },
     ],
-    relatedServicesHeading: 'Bellhouse services tied to excavation quantities',
+    relatedServicesHeading: 'Related Bellhouse services',
     relatedServicesDescription:
       'Once the rough excavation volume is known, these services help connect the estimate to the actual site work, access, haul-out, and next construction step.',
     relatedServices: [
       {
+        icon: 'foundation',
         href: '/services/foundation-excavation',
-        title: 'Foundation excavation for accurate building cuts',
+        title: 'Foundation excavation',
         description:
-          'Use this when the estimate is for a house, addition, garage, shop, or building footprint that needs a clean foundation dig and haul-out plan.',
+          'Houses, additions, garages, and shops.',
         actionLabel: 'View Foundation Excavation',
       },
       {
+        icon: 'site',
         href: '/services/site-preparation-land-grading',
-        title: 'Site preparation before the dig starts',
+        title: 'Site preparation',
         description:
-          'Helpful when excavation is part of a larger site setup that also needs stripping, access shaping, rough grading, or imported material planning.',
+          'Clearing, stripping, access, and rough grade.',
         actionLabel: 'Plan Site Preparation',
       },
       {
+        icon: 'water',
         href: '/services/pond-digging-cleaning',
-        title: 'Pond digging, cleaning, and spoil handling',
+        title: 'Pond digging and cleanout',
         description:
-          'A fit when the calculated volume is tied to pond excavation, dredging, reshaping, or cleanup where access and material movement matter.',
+          'Bulk excavation, reshaping, and spoil handling.',
         actionLabel: 'View Pond Work',
       },
     ],
     ctaTitle: 'Need Bellhouse to review the excavation properly?',
     ctaDescription:
-      'Send the location, scope, and access details for a real job review.',
+      'Send the location, dimensions, material assumptions, and access details for a practical job review before the haul plan is priced.',
     ctaPoints: [
-      'Best for early estimating before quote review.',
-      'Site conditions can change actual quantities.',
+      'Site location, dimensions, and access details reviewed',
+      'Material and hauling assumptions checked against the job',
+      'Straightforward follow-up before a written quote',
     ],
     relatedServiceLink: {
       href: '/services/foundation-excavation',
@@ -198,115 +209,116 @@ export const calculatorPageContent: Record<
     ],
   },
   gravel: {
-    eyebrow: 'Gravel estimating',
     pageTitle: 'Gravel Calculator for Base Quantity and Truck Loads',
-    intro: [
-      'Use this gravel calculator to estimate compacted base volume, delivered gravel quantity, truck loads, and weight for driveways, pads, lanes, and aggregate prep.',
-      'It is built for placed and compacted material, not excavation haul-out, so the estimate stays focused on base work, imported aggregate, and ordering decisions.',
+    heroDescription:
+      'Multiply length × width × depth and apply the material compaction allowance. This calculator estimates placed volume, delivered gravel, truck loads, and weight in cubic yards or cubic metres.',
+    heroCapabilities: [
+      { icon: 'cube', label: 'Placed volume' },
+      { icon: 'expand', label: 'Compaction allowance' },
+      { icon: 'truck', label: 'Truck load count' },
+      { icon: 'scales', label: 'Material weight' },
     ],
-    supportHeading: 'How to use this gravel calculator properly',
-    supportDescription:
-      'This tool is useful when you need a practical aggregate estimate for ordering, delivery planning, or comparing depths before the site is reviewed in detail.',
-    supportItems: [
-      {
-        title: 'How it works',
-        description:
-          'The calculator works from the placed area and target depth, then applies the selected gravel density and compaction-based assumptions to estimate quantity, loads, and weight.',
-      },
-      {
-        title: 'When to use it',
-        description:
-          'Use it when planning driveway base, parking lot prep, access lanes, building pads, or imported stone before material is ordered or delivered.',
-      },
-      {
-        title: 'Who it is for',
-        description:
-          'It is useful for homeowners comparing gravel depth, contractors checking rough tonnage, and crews planning deliveries for compacted base work.',
-      },
-      {
-        title: 'Material and site assumptions',
-        description:
-          'Subgrade condition, drainage correction, compaction needs, material choice, and truck payload can all change the real job quantity. Half-load mode affects hauling assumptions only.',
-      },
-    ],
-    guidanceHeading: 'Practical notes before ordering gravel',
+    guidanceHeading: 'What changes a gravel order on site',
     guidanceDescription:
-      'A gravel estimate works best when the base depth, subgrade condition, compaction needs, and delivery access are reviewed together.',
+      'The calculator assumes a consistent finished depth over a prepared area. Subgrade, compaction, moisture, and access determine how closely delivery matches that estimate.',
+    guidanceCallout: {
+      title: 'Road restrictions affect trips, not material quantity',
+      paragraphs: [
+        'A restricted route lowers the effective legal payload and can increase delivery trips even though the required compacted base and total material weight stay the same.',
+        'Use half-load mode only when the route is actually restricted. It applies 50% of the entered payload to the load calculation and does not alter the gravel quantity.',
+      ],
+      check:
+        'Confirm the legal payload, delivery route, and current restrictions before scheduling aggregate.',
+    },
     guidanceItems: [
       {
-        title: 'What the estimate covers',
+        icon: 'layers',
+        title: 'Soft or uneven subgrade',
         description:
-          'Use the result to plan placed volume, rough tonnage, and truck loads for driveways, pads, lanes, and compacted aggregate areas.',
+          'Weak areas and deeper edges can consume more aggregate than a uniform design depth suggests, especially before the base is trimmed.',
       },
       {
-        title: 'Where it can change',
+        icon: 'water',
+        title: 'Drainage correction',
         description:
-          'Soft subgrade, drainage correction, deeper edges, compaction, material choice, and truck payload can all change the final amount delivered.',
+          'Low areas, wet subgrade, and drainage shaping may need undercutting or extra stone before the planned compacted lift can be placed.',
       },
       {
-        title: 'What Bellhouse needs',
+        icon: 'access',
+        title: 'Delivery and stockpile access',
         description:
-          'Send the location, area dimensions, target depth, intended use, access details, preferred material if known, and whether grading or base prep is needed.',
+          'Truck size, turnaround room, overhead clearance, and where material can be dumped all affect delivery cycles and placement work.',
+      },
+      {
+        icon: 'measure',
+        title: 'Lift depth and compaction',
+        description:
+          'Deep bases are built and compacted in lifts. Material type, moisture, and equipment determine the practical allowance above finished volume.',
       },
     ],
-    relatedToolsHeading: 'Related Bellhouse tools around gravel work',
+    relatedToolsHeading: 'What connects to the gravel quantity',
     relatedToolsDescription:
-      'Base material planning often connects to excavation before placement or topsoil work after the aggregate is in. These tools help you move between those job stages naturally.',
+      'Base material usually follows excavation and often finishes beside graded topsoil. Use the connected calculators, then review delivery and base-preparation services.',
     relatedTools: [
       {
         href: calculatorSeoConfig.excavation.resourcePath,
-        title: 'Excavation calculator for cut and removal',
+        title: 'Excavation calculator',
         description:
           'Use it when the job starts with stripping, undercutting, trenching, or hauling out unsuitable material before base is installed.',
         actionLabel: 'Open Excavation Calculator',
       },
       {
         href: calculatorSeoConfig.topsoil.resourcePath,
-        title: 'Topsoil calculator for final grading around the base',
+        title: 'Topsoil calculator',
         description:
           'Helpful when a driveway, pad, or lane project also needs topsoil coverage and finish shaping around the completed work.',
         actionLabel: 'Open Topsoil Calculator',
       },
     ],
-    relatedServicesHeading: 'Bellhouse services that connect to gravel estimates',
+    relatedServicesHeading: 'Related Bellhouse services',
     relatedServicesDescription:
       'A gravel quantity is usually only useful when it is tied to delivery, base preparation, grading, and truck access on the actual site.',
     relatedServices: [
       {
+        icon: 'material',
         href: '/services/dirt-gravel-delivery',
-        title: 'Dirt and gravel delivery for the material order',
+        title: 'Dirt and gravel delivery',
         description:
-          'Use this when the calculator estimate is turning into an aggregate order, delivery plan, or truck-load discussion.',
+          'Aggregate supply, load planning, and delivery.',
         actionLabel: 'Plan Gravel Delivery',
       },
       {
+        icon: 'grading',
         href: '/services/driveway-parking-lot-preparation',
-        title: 'Driveway and parking lot base preparation',
+        title: 'Driveway and parking base',
         description:
-          'Helpful when gravel quantities are for a driveway, parking area, lane, or compacted base that needs grading and compaction.',
+          'Grading, placement, and compacted base work.',
         actionLabel: 'View Driveway Base Preparation',
       },
       {
+        icon: 'site',
         href: '/services/site-preparation-land-grading',
-        title: 'Site preparation before imported aggregate',
+        title: 'Site preparation',
         description:
-          'A fit when the ground still needs stripping, shaping, access prep, or rough grading before gravel can be placed properly.',
+          'Stripping, shaping, and subgrade preparation.',
         actionLabel: 'Plan Site Preparation',
       },
       {
+        icon: 'hauling',
         href: '/services/dump-truck-rental',
-        title: 'Dump truck rental for gravel and spoil movement',
+        title: 'Dump truck hauling',
         description:
-          'Useful when the estimate needs to become a hauling plan for aggregate delivery, spoil export, or repeated truck cycles.',
+          'Repeated aggregate and spoil movement.',
         actionLabel: 'Plan Truck Hauling',
       },
     ],
     ctaTitle: 'Need Bellhouse to price gravel supply, grading, or delivery?',
     ctaDescription:
-      'Send the location, dimensions, depth, and access details for a real site review.',
+      'Send the location, area dimensions, target depth, material choice, and access details so the quantity can be checked against the actual base work.',
     ctaPoints: [
-      'Useful for imported aggregate, pads, and lane prep.',
-      'Subgrade correction can change actual stone volume.',
+      'Area, target depth, and intended use reviewed',
+      'Material, compaction, and subgrade assumptions checked',
+      'Delivery access and truck planning confirmed before pricing',
     ],
     relatedServiceLink: {
       href: '/services/dirt-gravel-delivery',
@@ -345,115 +357,116 @@ export const calculatorPageContent: Record<
     ],
   },
   topsoil: {
-    eyebrow: 'Topsoil estimating',
     pageTitle: 'Topsoil Calculator for Coverage, Volume, and Loads',
-    intro: [
-      'Use this topsoil calculator to estimate placed topsoil volume, coverage, truck loads, and weight for finish grading, yard shaping, and delivery planning.',
-      'It is built for topsoil placement and surface coverage, so it works best when you need to plan finish material rather than excavation removal or compacted gravel base.',
+    heroDescription:
+      'Multiply length × width × depth and apply the finish allowance. This calculator estimates topsoil coverage, placed volume, truck loads, and weight in cubic yards or cubic metres.',
+    heroCapabilities: [
+      { icon: 'cube', label: 'Coverage volume' },
+      { icon: 'expand', label: 'Finish allowance' },
+      { icon: 'truck', label: 'Truck load count' },
+      { icon: 'scales', label: 'Material weight' },
     ],
-    supportHeading: 'How to use this topsoil calculator properly',
-    supportDescription:
-      'This page works best as a planning guide for finish grading and topsoil delivery before the final surface condition, cleanup scope, and target depth are confirmed on site.',
-    supportItems: [
-      {
-        title: 'How it works',
-        description:
-          'The calculator uses the placed area and selected depth to estimate topsoil volume, then converts that into likely truck loads and weight based on the chosen material assumptions.',
-      },
-      {
-        title: 'When to use it',
-        description:
-          'Use it when planning lawn prep, finish grading, yard reshaping, and topsoil delivery for residential or light commercial projects.',
-      },
-      {
-        title: 'Who it is for',
-        description:
-          'It is useful for property owners checking coverage, landscapers planning delivery, and contractors roughing out topsoil quantities before a final site review.',
-      },
-      {
-        title: 'Material and finish assumptions',
-        description:
-          'Existing grade, cleanup needs, moisture, target finish depth, and truck payload can all change the real number. Half-load mode changes hauling assumptions only.',
-      },
-    ],
-    guidanceHeading: 'Practical notes before spreading topsoil',
+    guidanceHeading: 'What changes topsoil coverage on site',
     guidanceDescription:
-      'Topsoil coverage depends on finish grade, surface prep, moisture, target depth, and how cleanly the area is ready to receive material.',
+      'The calculator assumes a prepared area with a consistent finish depth. Existing grade, moisture, cleanup, and spreading conditions change how far each load goes.',
+    guidanceCallout: {
+      title: 'Wet topsoil can reach payload sooner',
+      paragraphs: [
+        'Moisture adds weight without increasing the area to cover. A truck may reach its legal payload before carrying the same loose volume as a dry load.',
+        'Use the moisture adjustment for material condition and half-load mode only for a posted route restriction. Each setting changes hauling, not the target coverage depth.',
+      ],
+      check:
+        'Confirm material condition, truck access, and route restrictions before arranging delivery.',
+    },
     guidanceItems: [
       {
-        title: 'What the estimate covers',
+        icon: 'layers',
+        title: 'Low spots and rough grade',
         description:
-          'Use the result to plan placed topsoil volume, rough tonnage, and likely truck loads for lawn prep, yard shaping, or finish grading.',
+          'Topsoil used to correct grade disappears into low areas before it creates the planned growing layer across the full surface.',
       },
       {
-        title: 'Where it can change',
+        icon: 'water',
+        title: 'Moisture and handling',
         description:
-          'Low spots, rough grading, cleanup, moisture, uneven spreading depth, and access limits can change actual coverage and delivery needs.',
+          'Wet material is heavier, harder to spread evenly, and more likely to compact during handling without improving coverage.',
       },
       {
-        title: 'What Bellhouse needs',
+        icon: 'access',
+        title: 'Delivery and spreading access',
         description:
-          'Send the location, area size, target depth, current grade condition, access details, and whether grading or drainage work is needed first.',
+          'Dump location, gate width, soft ground, slopes, and travel distance across the property affect how the material can be placed.',
+      },
+      {
+        icon: 'measure',
+        title: 'Finish depth and settling',
+        description:
+          'The required growing layer should be measured after rough grading. Light settling allowance helps maintain the intended final depth.',
       },
     ],
-    relatedToolsHeading: 'Related Bellhouse tools before topsoil goes down',
+    relatedToolsHeading: 'What comes before the topsoil quantity',
     relatedToolsDescription:
-      'Topsoil usually follows earlier site work. If the job also involves excavation or compacted gravel/base, these tools help you estimate those stages separately and more clearly.',
+      'Topsoil usually follows excavation, drainage, or compacted base work. Use the connected calculators, then review the grading and delivery services tied to the finish.',
     relatedTools: [
       {
         href: calculatorSeoConfig.excavation.resourcePath,
-        title: 'Excavation calculator for earlier cut work',
+        title: 'Excavation calculator',
         description:
           'Useful when the project includes digging, spoil removal, or bulk reshaping before final topsoil placement happens.',
         actionLabel: 'Open Excavation Calculator',
       },
       {
         href: calculatorSeoConfig.gravel.resourcePath,
-        title: 'Gravel calculator for pads, lanes, and compacted base',
+        title: 'Gravel calculator',
         description:
           'Helpful when the job needs gravel underlayment, access routes, or a compacted base before finish grading and topsoil coverage.',
         actionLabel: 'Open Gravel Calculator',
       },
     ],
-    relatedServicesHeading: 'Bellhouse services that support topsoil planning',
+    relatedServicesHeading: 'Related Bellhouse services',
     relatedServicesDescription:
       'Topsoil estimates are strongest when the finish grade, drainage, delivery access, and earlier site work are understood together.',
     relatedServices: [
       {
+        icon: 'grading',
         href: '/services/land-grading-drainage',
-        title: 'Land grading and drainage before finish material',
+        title: 'Land grading and drainage',
         description:
-          'Use this when topsoil placement depends on correcting slope, runoff, low areas, or rough grades before the final surface goes down.',
+          'Slope correction, drainage, and finish shaping.',
         actionLabel: 'View Land Grading & Drainage',
       },
       {
+        icon: 'material',
         href: '/services/dirt-gravel-delivery',
-        title: 'Dirt, gravel, and topsoil delivery support',
+        title: 'Material delivery',
         description:
-          'Helpful when the estimate is ready to become a material delivery plan with truck access, load counts, and site timing.',
+          'Topsoil, fill, and aggregate delivery planning.',
         actionLabel: 'Plan Material Delivery',
       },
       {
+        icon: 'site',
         href: '/services/site-preparation-land-grading',
-        title: 'Site preparation before lawn or yard restoration',
+        title: 'Site preparation',
         description:
-          'A fit when topsoil is part of broader lot shaping, cleanup, pad work, access prep, or final site readiness.',
+          'Cleanup, rough grading, and site readiness.',
         actionLabel: 'Plan Site Preparation',
       },
       {
+        icon: 'grading',
         href: '/services/driveway-parking-lot-preparation',
-        title: 'Driveway edge and base preparation',
+        title: 'Driveway edge preparation',
         description:
-          'Useful when topsoil quantities relate to dressing around a driveway, lane, parking area, or compacted base after grading.',
+          'Finish grading around lanes, pads, and bases.',
         actionLabel: 'View Driveway Base Preparation',
       },
     ],
     ctaTitle: 'Need Bellhouse to quote topsoil delivery or finish grading?',
     ctaDescription:
-      'Send the area, target depth, location, and finish expectations for a real review.',
+      'Send the area, target depth, current grade, access details, and finish expectations so coverage and placement can be reviewed properly.',
     ctaPoints: [
-      'Best for early planning before final grading review.',
-      'Existing grade and finish expectations can change actual quantities.',
+      'Coverage area, finish depth, and current grade reviewed',
+      'Moisture, settling, and cleanup allowances checked',
+      'Delivery and spreading access confirmed before pricing',
     ],
     relatedServiceLink: {
       href: '/services/land-grading-drainage',

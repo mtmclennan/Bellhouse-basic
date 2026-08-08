@@ -140,7 +140,12 @@ export function calculateProjectMaterial(
   // Start from in-place dimensions, then let the calculator workflow decide
   // whether this job behaves like excavation swell, compacted placement,
   // or a combined adjusted-material workflow.
-  const rawProjectVolumeM3 = input.lengthM * input.widthM * input.depthM;
+  const primaryAreaVolumeM3 = input.lengthM * input.widthM * input.depthM;
+  const additionalAreaVolumeM3 = (input.additionalAreas ?? []).reduce(
+    (total, area) => total + area.lengthM * area.widthM * area.depthM,
+    0,
+  );
+  const rawProjectVolumeM3 = primaryAreaVolumeM3 + additionalAreaVolumeM3;
 
   const swellFactor = resolveActiveSwellFactor(input, material);
   const compactionPercentage = resolveActiveCompactionPercentage(input, material);

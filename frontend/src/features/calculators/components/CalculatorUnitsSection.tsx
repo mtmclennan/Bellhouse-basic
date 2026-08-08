@@ -10,15 +10,15 @@ type CalculatorUnitsSectionProps = {
 
 export function CalculatorUnitsSection({ section }: CalculatorUnitsSectionProps) {
   return (
-    <div className={classes.fieldGroup}>
-      <p className={classes.fieldGroupLabel}>{section.title}</p>
-
+    <div className={classes.panelUnits}>
       <MetricImperialSwitch
         label={section.label}
         value={section.value}
         onChange={section.onChange}
         metricLabel={section.metricLabel}
         imperialLabel={section.imperialLabel}
+        tone="dark"
+        size="compact"
       />
     </div>
   );

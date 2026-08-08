@@ -1,6 +1,5 @@
 'use client';
 
-import { Switch } from '@headlessui/react';
 import classes from './MetricImperialSwitch.module.scss';
 
 type MetricImperialValue = 'metric' | 'imperial';
@@ -24,8 +23,6 @@ export function MetricImperialSwitch({
   tone = 'light',
   size = 'default',
 }: MetricImperialSwitchProps) {
-  const isImperial = value === 'imperial';
-
   return (
     <div
       className={`${classes.wrapper} ${
@@ -33,31 +30,31 @@ export function MetricImperialSwitch({
       } ${
         size === 'compact' ? classes.wrapperCompact : ''
       }`}
+      role="group"
+      aria-label={label}
     >
       <span className={classes.label}>{label}</span>
       <div className={classes.row}>
-        <span
-          className={`${classes.optionLabel} ${
-            !isImperial ? classes.optionLabelActive : ''
+        <button
+          type="button"
+          className={`${classes.optionButton} ${
+            value === 'metric' ? classes.optionButtonActive : ''
           }`}
+          onClick={() => onChange('metric')}
+          aria-pressed={value === 'metric'}
         >
           {metricLabel}
-        </span>
-        <Switch
-          checked={isImperial}
-          onChange={(checked) => onChange(checked ? 'imperial' : 'metric')}
-          className={classes.switch}
-          aria-label={label}
-        >
-          <span className={classes.thumb} />
-        </Switch>
-        <span
-          className={`${classes.optionLabel} ${
-            isImperial ? classes.optionLabelActive : ''
+        </button>
+        <button
+          type="button"
+          className={`${classes.optionButton} ${
+            value === 'imperial' ? classes.optionButtonActive : ''
           }`}
+          onClick={() => onChange('imperial')}
+          aria-pressed={value === 'imperial'}
         >
           {imperialLabel}
-        </span>
+        </button>
       </div>
     </div>
   );

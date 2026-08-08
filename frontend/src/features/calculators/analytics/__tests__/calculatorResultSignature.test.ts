@@ -32,6 +32,19 @@ describe('buildCalculatorResultSignature', () => {
     );
   });
 
+  it('changes when an additional area changes', () => {
+    const first = baseInput({
+      additionalAreas: [{ lengthM: 2, widthM: 2, depthM: 1 }],
+    });
+    const second = baseInput({
+      additionalAreas: [{ lengthM: 3, widthM: 2, depthM: 1 }],
+    });
+
+    expect(buildCalculatorResultSignature('excavation', first)).not.toBe(
+      buildCalculatorResultSignature('excavation', second),
+    );
+  });
+
   it('changes when material changes', () => {
     expect(buildCalculatorResultSignature('excavation', baseInput())).not.toBe(
       buildCalculatorResultSignature('excavation', baseInput({ materialId: 'clay' })),

@@ -2,6 +2,10 @@
 
 import { useCallback, useMemo, useState } from 'react';
 import { getMaterialById, getMaterialsByIds } from '../config/materials';
+import {
+  createCalculatorAreaFormInput,
+  MAX_CALCULATOR_AREAS,
+} from '../config/calculators';
 import { calculateProjectMaterial } from '../logic/calculator';
 import { normalizeCalculatorInput } from '../logic/normalizeInput';
 import type { CalculatorConfig } from '../config/calculators';
@@ -41,6 +45,10 @@ export function useCalculatorCoreState({
     },
     [onUserChange],
   );
+
+  const replaceInput = useCallback((nextInput: CalculatorFormInput) => {
+    setRawInput(nextInput);
+  }, []);
 
   const allowedMaterials = useMemo(() => {
     return getMaterialsByIds(config.allowedMaterialIds);
@@ -97,6 +105,97 @@ export function useCalculatorCoreState({
     }));
   };
 
+  const updateAreaDimensionValueField = (
+    areaIndex: number,
+    dimension: CalculatorDimensionKey,
+    field: CalculatorDimensionValueField,
+    value: CalculatorEditableNumber,
+  ) => {
+    if (areaIndex === 0) {
+      updateDimensionValueField(dimension, field, value);
+      return;
+    }
+
+    setInput((prev) => ({
+      ...prev,
+      additionalAreas: prev.additionalAreas.map((area, index) =>
+        index === areaIndex - 1
+          ? {
+              ...area,
+              [dimension]: {
+                ...area[dimension],
+                [field]: value,
+              },
+            }
+          : area,
+      ),
+    }));
+  };
+
+  const updateAreaDimensionUnitField = (
+    areaIndex: number,
+    dimension: CalculatorDimensionKey,
+    value: MetricDimensionUnit,
+  ) => {
+    if (areaIndex === 0) {
+      updateDimensionUnitField(dimension, value);
+      return;
+    }
+
+    setInput((prev) => ({
+      ...prev,
+      additionalAreas: prev.additionalAreas.map((area, index) =>
+        index === areaIndex - 1
+          ? {
+              ...area,
+              [dimension]: {
+                ...area[dimension],
+                metricUnit: value,
+              },
+            }
+          : area,
+      ),
+    }));
+  };
+
+  const addArea = () => {
+    setInput((prev) => {
+      if (prev.additionalAreas.length + 1 >= MAX_CALCULATOR_AREAS) {
+        return prev;
+      }
+
+      return {
+        ...prev,
+        additionalAreas: [
+          ...prev.additionalAreas,
+          createCalculatorAreaFormInput(config),
+        ],
+      };
+    });
+  };
+
+  const removeArea = (areaIndex: number) => {
+    setInput((prev) => {
+      const areas = [
+        { length: prev.length, width: prev.width, depth: prev.depth },
+        ...prev.additionalAreas,
+      ];
+
+      if (areas.length <= 1 || areaIndex < 0 || areaIndex >= areas.length) {
+        return prev;
+      }
+
+      const remainingAreas = areas.filter((_, index) => index !== areaIndex);
+      const [primaryArea, ...additionalAreas] = remainingAreas;
+
+      return {
+        ...prev,
+        ...primaryArea,
+        additionalAreas,
+      };
+    });
+  };
+
   const updateToggleField = (
     field: CalculatorToggleField,
     value: boolean,
@@ -123,16 +222,13 @@ export function useCalculatorCoreState({
     setInput((prev) => ({
       ...prev,
       inputUnitSystem: nextUnitSystem,
-      outputUnitPreference:
-        prev.outputUnitPreference === prev.inputUnitSystem
-          ? nextUnitSystem
-          : prev.outputUnitPreference,
     }));
   };
 
   return {
     input,
     setInput,
+    replaceInput,
     allowedMaterials,
     material,
     normalizedInput,
@@ -140,6 +236,10 @@ export function useCalculatorCoreState({
     updateNumberField,
     updateDimensionValueField,
     updateDimensionUnitField,
+    updateAreaDimensionValueField,
+    updateAreaDimensionUnitField,
+    addArea,
+    removeArea,
     updateToggleField,
     updateSelectField,
     updateInputUnitSystem,

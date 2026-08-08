@@ -1,8 +1,10 @@
 export type UnitSystem = 'metric' | 'imperial';
-export type OutputUnitPreference = 'metric' | 'imperial';
+export type ResolvedOutputUnitPreference = 'metric' | 'imperial';
+export type OutputUnitPreference = 'same' | ResolvedOutputUnitPreference | 'both';
 export type MetricDimensionUnit = 'm' | 'cm' | 'mm';
 export type ImperialDimensionMode = 'feet-inches' | 'inches';
 export type MoistureLevel = 'dry' | 'normal' | 'wet';
+export type CalculatorPriceMode = '' | 'load' | 'volume';
 export type CalculatorWorkflowKind =
   | 'swell-based'
   | 'compaction-based'
@@ -49,6 +51,11 @@ export type CalculatorDimensionFormInput = {
   inches: CalculatorEditableNumber;
 };
 
+export type CalculatorAreaFormInput = Record<
+  CalculatorDimensionKey,
+  CalculatorDimensionFormInput
+>;
+
 export type CalculatorDimensionBehavior = {
   defaultMetricUnit: MetricDimensionUnit;
   metricUnits: readonly MetricDimensionUnit[];
@@ -59,7 +66,8 @@ export type CalculatorNumberField =
   | 'swellFactor'
   | 'wetMaterialPercentage'
   | 'compactionPercentage'
-  | 'truckCapacityTons';
+  | 'truckCapacityTons'
+  | 'pricePerUnit';
 
 export type CalculatorToggleField = 'useAdvanced' | 'isHalfLoad';
 
@@ -67,15 +75,19 @@ export type CalculatorSelectField =
   | 'inputUnitSystem'
   | 'outputUnitPreference'
   | 'materialId'
-  | 'moistureLevel';
+  | 'moistureLevel'
+  | 'priceMode';
 
 export type CalculatorFormInput = {
   length: CalculatorDimensionFormInput;
   width: CalculatorDimensionFormInput;
   depth: CalculatorDimensionFormInput;
+  additionalAreas: CalculatorAreaFormInput[];
   inputUnitSystem: UnitSystem;
   outputUnitPreference: OutputUnitPreference;
   materialId: MaterialId;
+  priceMode: CalculatorPriceMode;
+  pricePerUnit: CalculatorEditableNumber;
   moistureLevel: MoistureLevel;
   useAdvanced: boolean;
   swellFactor: CalculatorEditableNumber;
@@ -85,10 +97,17 @@ export type CalculatorFormInput = {
   truckCapacityTons: CalculatorEditableNumber;
 };
 
+export type CalculatorCalculationAreaInput = {
+  lengthM: number;
+  widthM: number;
+  depthM: number;
+};
+
 export type CalculatorCalculationInput = {
   lengthM: number;
   widthM: number;
   depthM: number;
+  additionalAreas?: CalculatorCalculationAreaInput[];
   materialId: MaterialId;
   useAdvanced: boolean;
   workflowKind: CalculatorWorkflowKind;
