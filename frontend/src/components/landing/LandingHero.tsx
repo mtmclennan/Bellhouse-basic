@@ -20,6 +20,10 @@ export default function LandingHero({
   serviceKey,
   pageSlug,
 }: LandingHeroProps) {
+  const headingText = hero.titleHighlight
+    ? `${hero.titleHighlight} ${hero.title}`
+    : hero.title;
+
   return (
     <section className="landing-hero">
       {hero.backgroundImage ? (
@@ -40,11 +44,12 @@ export default function LandingHero({
             {hero.eyebrow}
           </p>
         ) : null}
-        <h1>
+        <h1 aria-label={headingText}>
           {hero.titleHighlight ? (
             <span className="landing-hero-keyword">{hero.titleHighlight}</span>
           ) : null}
-          {hero.title}
+          {hero.titleHighlight ? ' ' : null}
+          <span>{hero.title}</span>
         </h1>
         <p>{hero.subtitle}</p>
         {hero.bullets?.length ? (

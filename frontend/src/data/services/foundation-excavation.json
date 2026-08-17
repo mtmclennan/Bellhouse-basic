@@ -6,7 +6,7 @@
   "contactService": "Foundation Excavation",
   "meta": {
     "title": "Foundation Excavation in Brant County | Bellhouse",
-    "description": "Foundation excavation for rural properties, farms, and new developments across Brantford and Brant County. Large-site equipment, no tight urban lots."
+    "description": "Foundation excavation for homes, additions, farms, builders, and larger sites across Brantford and Brant County. Access and trucking reviewed before quoting."
   },
   "visuals": {
     "background": {
@@ -22,8 +22,8 @@
   },
   "hero": {
     "eyebrow": "Serving Brantford and Brant County",
-    "heading": "Large-Site Foundation Excavation in Brantford & Brant County",
-    "summary": "Excavation, trucking, backfill, and site prep coordinated by a local crew that understands access, depth, elevations, and real construction schedules.",
+    "heading": "Foundation Excavation in Brantford & Brant County",
+    "summary": "Excavation, trucking, backfill, and site prep for homes, additions, farm buildings, builder projects, and larger sites where access, depth, elevations, and schedule need to be planned properly.",
     "actions": [
       {
         "label": "Get My Free Foundation Quote",
@@ -47,7 +47,7 @@
     "sideForm": true,
     "proofBar": [
       { "icon": "map-pin", "title": "Local to Brantford", "subtitle": "& Brant County" },
-      { "icon": "calendar-check", "title": "Since 1982", "subtitle": "Family operation" },
+      { "icon": "calendar-check", "title": "Since 1982", "subtitle": "Owner-operated" },
       { "icon": "truck", "title": "Own fleet", "subtitle": "Trucks & excavators" },
       { "icon": "star", "title": "5.0 on Google", "subtitle": "Local reviews" },
       { "icon": "shield-check", "title": "Licensed & insured", "subtitle": "Fully covered" }
@@ -59,7 +59,7 @@
       "tone": "light",
       "eyebrow": "Who it's for",
       "heading": "Foundation excavation for builders and property owners",
-      "body": "Bellhouse Excavating handles foundation excavation for rural properties, farms, and large-site builds across Brant County and Brantford. From basement digs and garage foundations to shop slabs, barn foundations, and subdivision pads, the scope is planned around access, elevations, soil conditions, and what needs to happen after the excavation is done. Spoil haul-out, backfill, and rough grading are coordinated with the dig rather than left as separate calls.",
+      "body": "Bellhouse Excavating handles foundation excavation for homeowners, builders, rural properties, farms, and larger-site builds across Brant County and Brantford. From basement digs and additions to garage foundations, shop slabs, barn foundations, and subdivision pads, the scope is planned around access, elevations, soil conditions, and what needs to happen after the excavation is done. Spoil haul-out, backfill, and rough grading are coordinated with the dig rather than left as separate calls.",
       "audience": [
         { "icon": "house-line", "label": "Home builders" },
         { "icon": "blueprint", "label": "General contractors" },
@@ -147,24 +147,24 @@
     {
       "type": "scope",
       "tone": "dark",
-      "heading": "Best Fit & Not the Best Fit",
-      "subheading": "Foundation excavation works best where site access is clear, elevations are confirmed, and there is room for trucks and spoil staging. Some projects are a stronger fit than others.",
+      "heading": "Project Fit & Site Review",
+      "subheading": "Bellhouse handles a range of foundation excavation projects. Fit is decided by access, scope, and coordination — not by property type — though rural, farm, and larger-lot jobs are where the fleet works especially well.",
       "items": [
         {
-          "title": "Best fit: Rural properties and farm builds",
-          "body": "Properties in Brant County and surrounding areas with clear equipment access, room for truck staging, and defined spoil placement. Barn foundations, shop slabs, rural residential builds, and acreage lots are common work."
+          "title": "Best fit: Excavation, hauling, and backfill under one scope",
+          "body": "New homes, additions, garages, and shop or barn foundations where the same crew can handle the dig, the spoil haul-out, and the backfill after the foundation work — reduces coordination overhead and keeps the schedule moving."
         },
         {
           "title": "Best fit: Large-lot residential and subdivision foundations",
           "body": "Basement digs, garage pads, walkouts, and multi-unit starts on larger lots where excavation scope, haul-out, and backfill support need to be coordinated as one scope."
         },
         {
-          "title": "Best fit: Excavation, hauling, and backfill under one scope",
-          "body": "Projects where the same crew can handle the dig, the spoil haul-out, and the backfill after the foundation work — reduces coordination overhead and keeps the schedule moving."
+          "title": "Especially strong fit: Rural properties and farm builds",
+          "body": "Properties in Brant County and surrounding areas with clear equipment access, room for truck staging, and defined spoil placement. Barn foundations, shop slabs, rural residential builds, and acreage lots are where Bellhouse's equipment and trucking are most efficient."
         },
         {
-          "title": "Not the best fit: Tight urban infill",
-          "body": "Jobs in dense urban cores where large excavation equipment cannot safely access the site, stage spoil, or turn trucks are generally outside Bellhouse's scope for foundation work."
+          "title": "Reviewed case by case: Tight or in-town access",
+          "body": "In-town foundations, additions, garages, and tighter residential sites may still be workable when access can be managed. Send the address, photos, or plans and Bellhouse can review the excavation, trucking, and spoil-handling approach."
         },
         {
           "title": "Not the best fit: Underpinning or interior structural work",
@@ -423,7 +423,7 @@
       "type": "serviceAreas",
       "tone": "dark",
       "heading": "Foundation excavation by service area",
-      "body": "Foundation excavation needs vary by site, from Brantford access constraints and Paris rural lots to Hamilton infill work, Cambridge active sites, Ancaster slopes, and Woodstock or Simcoe larger-property jobs.",
+      "body": "Foundation excavation needs vary by site, from Brantford in-town access and Paris rural lots to Hamilton infill work, Cambridge active sites, Ancaster slopes, and Woodstock or Simcoe larger-property jobs.",
       "areaSlugs": [
         "paris",
         "brantford",

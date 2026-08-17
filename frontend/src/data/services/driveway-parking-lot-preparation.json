@@ -5,18 +5,18 @@
   "navTitle": "Driveway & Lot Prep",
   "contactService": "Driveway",
   "meta": {
-    "title": "Rural Driveway Grading in Brant County | Bellhouse",
-    "description": "Rural driveway and laneway preparation across Brantford and Brant County. Grading, base prep, and drainage for farm access roads and large rural properties."
+    "title": "Driveway & Parking Lot Base Prep Brant County | Bellhouse",
+    "description": "Driveway, laneway, and parking area base prep across Brantford and Brant County. Grading, drainage, aggregate base, and compaction."
   },
   "card": {
-    "title": "Farm Laneway & Rural Driveway Grading",
+    "title": "Driveway & Parking Lot Base Preparation",
     "description": "Expert site grading and compaction for stable driveways and parking lots.",
     "image": "/assets/services/driveways-laneways/skid-steer-final-grading-gravel-driveway-farm-shop.webp",
     "alt": "Skid steer final grading a gravel driveway base at a farm shop."
   },
   "hero": {
     "eyebrow": "Driveway base prep & lot grading",
-    "heading": "Rural Driveway & Laneway Grading in Brantford & Brant County",
+    "heading": "Driveway & Parking Lot Base Preparation in Brantford & Brant County",
     "summary": "Precision grading, granular base placement, and compaction for driveways, laneways, parking areas, and contractor-ready surfaces.",
     "actions": [
       { "label": "Request a Quote", "href": "/contact", "variant": "primary" },
@@ -28,7 +28,7 @@
     "sideForm": true,
     "proofBar": [
       { "icon": "map-pin", "title": "Local to Brantford", "subtitle": "& Brant County" },
-      { "icon": "calendar-check", "title": "Since 1982", "subtitle": "Family operation" },
+      { "icon": "calendar-check", "title": "Since 1982", "subtitle": "Owner-operated" },
       { "icon": "truck", "title": "Own equipment", "subtitle": "Trucks & excavators" },
       { "icon": "star", "title": "5.0 on Google", "subtitle": "Local reviews" },
       { "icon": "shield-check", "title": "Licensed & insured", "subtitle": "Fully covered" }
@@ -39,8 +39,8 @@
       "type": "intro",
       "tone": "light",
       "eyebrow": "Who it's for",
-      "heading": "Driveway & Laneway Base Prep for Farm, Rural & Large-Lot Properties",
-      "body": "Bellhouse Excavating prepares farm laneways, rural driveways, and large-lot access roads across Brantford and Brant County. We shape the grade, remove unsuitable material, place granular base, and compact the surface so the finished area has better drainage and durability. This page is for farm access roads, rural property driveways, and large-lot grading — not short urban residential driveways.",
+      "heading": "Driveway & Laneway Base Prep for Rural, Residential & Large-Lot Properties",
+      "body": "Bellhouse Excavating prepares driveways, laneways, access roads, and parking areas for homeowners, farms, and commercial properties across Brantford and Brant County. We shape the grade, remove unsuitable material, place granular base, and compact the surface so the finished area has better drainage and durability. Bellhouse is especially well equipped for long laneways and larger access projects — but a standard home driveway that needs real grade correction or a base rebuild is a normal part of the work too. For new farm laneways and access road construction, see the farm laneway construction page.",
       "audience": [
         { "icon": "map-trifold", "label": "Farms & rural properties" },
         { "icon": "blueprint", "label": "Builders & contractors" },
@@ -90,20 +90,24 @@
     {
       "type": "scope",
       "tone": "dark",
-      "heading": "Best Fit & Not the Best Fit",
-      "subheading": "Bellhouse driveway and lot prep works best on rural properties, farm laneways, and large lots where there is room for equipment and trucks to work safely.",
+      "heading": "Project Fit & Scope Review",
+      "subheading": "Bellhouse takes on driveway and lot prep where the job needs real grading, base work, or compaction — not just a bag of gravel dumped and raked. Fit is decided by scope and access, not by property type.",
       "items": [
         {
-          "title": "Best fit: Farm laneways and rural driveways",
-          "body": "Long laneways, farm access roads, and rural property driveways where the grade, base, and drainage all need proper attention before gravel or surface material goes down."
+          "title": "Best fit: Driveway rebuilds and drainage or base correction",
+          "body": "Any home driveway — in town or in the country — that is holding water, rutting, or breaking down because the grade and base were never done properly. This is core, everyday Bellhouse work."
         },
         {
-          "title": "Best fit: Large-lot parking areas and yard entrances",
+          "title": "Especially strong fit: Farm laneways and rural driveways",
+          "body": "Long laneways, farm access roads, and rural property driveways where the grade, base, and drainage all need proper attention before gravel or surface material goes down. This is where Bellhouse's equipment and trucking are most efficient."
+        },
+        {
+          "title": "Especially strong fit: Large-lot parking areas and yard entrances",
           "body": "Commercial yard entrances, farm parking areas, and large-lot turnarounds that need grading, compacted base, and a clean handoff to the surface contractor."
         },
         {
-          "title": "Not the best fit: Short urban residential driveways",
-          "body": "Bellhouse is set up for rural laneways, farm driveways, and large-lot access roads. Short suburban or city driveways with limited space for trucks and equipment are better suited to a smaller-scale contractor."
+          "title": "Reviewed case by case: Simple top-ups with no underlying problem",
+          "body": "If the existing base and grade are sound and the job is just adding a bit of fresh gravel on top, the scope may not justify bringing in equipment. Send the details and Bellhouse can confirm whether it makes sense."
         },
         {
           "title": "Not the best fit: Surface paving or asphalt work",
@@ -301,7 +305,7 @@
       "tone": "dark",
       "eyebrow": "Related services",
       "heading": "Related grading, aggregate, and hauling services",
-      "serviceSlugs": ["dirt-gravel-delivery", "land-grading-drainage", "site-preparation-land-grading", "dump-truck-rental"]
+      "serviceSlugs": ["dirt-gravel-delivery", "land-grading-drainage", "site-preparation-land-grading", "dump-truck-rental", "farm-laneway-rural-driveway"]
     },
     {
       "type": "faq",

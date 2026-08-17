@@ -136,8 +136,8 @@ const methodContent: Record<
       rows: [
         { label: 'Bank volume', value: '12 x 8 x 2.4 = 230.4 m3' },
         { label: 'Native soil swell', value: '230.4 x 1.2 = 276.5 m3 loose' },
-        { label: 'Truck loads', value: '511.5 / 21.5 = 23.8 loads' },
-        { label: 'Estimated weight', value: '276.5 x 1.85 = 511.5 t' },
+        { label: 'Estimated weight', value: '276.5 x 1.85 x 1.08 (normal moisture) = 552.4 t' },
+        { label: 'Truck loads', value: '552.4 / 21.5 = 26 loads' },
       ],
       note:
         'Actual jobs may need allowance for working room, sloped sides, groundwater, and material that changes across the cut.',

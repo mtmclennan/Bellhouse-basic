@@ -19,10 +19,6 @@ const footerSections = [
         label: 'Rural Structure Demolition',
       },
       {
-        href: '/services/driveway-parking-lot-preparation',
-        label: 'Rural Driveway & Laneway',
-      },
-      {
         href: '/services/foundation-excavation',
         label: 'Foundation Excavation',
       },

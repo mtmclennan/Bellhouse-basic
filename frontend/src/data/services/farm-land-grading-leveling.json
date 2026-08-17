@@ -1,0 +1,426 @@
+{
+  "id": 18,
+  "slug": "farm-land-grading-leveling",
+  "title": "Farm Land Grading & Leveling",
+  "navTitle": "Farm Land Grading & Leveling",
+  "contactService": "Farm Land Grading & Leveling",
+  "meta": {
+    "title": "Farm Land Grading & Leveling Brant County | Bellhouse Excavating",
+    "description": "Farm land grading, leveling, cut-and-fill earthmoving, farmyard grading, and rural property reshaping across Brant County."
+  },
+  "card": {
+    "title": "Farm Land Grading & Leveling",
+    "description": "Cut-and-fill earthmoving, farmyard grading, and large-area rural property reshaping using excavators, dozer, and the off-road haul truck.",
+    "image": "/assets/services/farm-land-leveling/dozer-grading-farm-property.webp",
+    "alt": "Dozer leveling a farm property in Brant County"
+  },
+  "hero": {
+    "eyebrow": "Farm land grading, leveling & earthmoving",
+    "heading": "Farm Land Grading, Leveling & Earthmoving in Brant County",
+    "summary": "Cut it, load it, move it, place it, grade it. Bellhouse Excavating handles practical heavy-equipment grading and earthmoving for farm operations across Brant County — farmyard leveling, high and low area correction, cut-and-fill reshaping, and large-volume material movement using excavators, dozer, and the off-road haul truck.",
+    "actions": [
+      { "label": "Request Grading Quote", "href": "/contact", "variant": "primary" },
+      { "label": "For Builders & Contractors", "href": "/contractors", "variant": "secondary" }
+    ],
+    "emphasis": "high",
+    "image": "/assets/services/farm-land-leveling/dozer-grading-farm-property.webp",
+    "alt": "Dozer grading and leveling a farm property in Brant County",
+    "sideForm": true,
+    "proofBar": [
+      { "icon": "map-pin", "title": "Local to Brantford", "subtitle": "& Brant County" },
+      { "icon": "calendar-check", "title": "Since 1982", "subtitle": "Owner-operated" },
+      { "icon": "truck", "title": "Volvo A35", "subtitle": "Large-volume material movement" },
+      { "icon": "path", "title": "Cut & fill", "subtitle": "Practical heavy-equipment grading" },
+      { "icon": "shield-check", "title": "Licensed & insured", "subtitle": "Fully covered" }
+    ]
+  },
+  "sections": [
+    {
+      "type": "intro",
+      "tone": "light",
+      "eyebrow": "Who it's for",
+      "heading": "Practical Grading and Earthmoving for Farm Properties",
+      "body": "Bellhouse Excavating provides farm land grading, leveling, and earthmoving services for agricultural operations and rural property owners across Brant County and Brantford. When a farmyard has high and low spots, a property needs reshaping after old buildings or fence rows come out, or material needs to be cut from one area and moved to fill another, the work comes down to practical heavy equipment — excavators to cut and load, a dozer to shape and finish, and trucks sized to actually move the volume.\n\nThe off-road haul truck is what separates farm-scale earthmoving from a typical grading job. Standard highway trucks are inefficient or unsuitable across soft fields, long farm distances, and uneven ground — the Volvo A35 handles that material movement so cut material actually gets to where it needs to be filled, instead of the job stalling on access. Bellhouse handles the full sequence: cut, load, move, place, and grade.",
+      "audience": [
+        { "icon": "tractor", "label": "Farm operations" },
+        { "icon": "house-line", "label": "Rural property owners" },
+        { "icon": "map-trifold", "label": "Acreage properties" },
+        { "icon": "cube", "label": "Farmyard & building sites" }
+      ]
+    },
+    {
+      "type": "projectFit",
+      "tone": "dark",
+      "heading": "Farm Grading Projects Bellhouse Handles",
+      "subheading": "Best fit for practical, large-area farm grading and earthmoving where material needs to be cut, moved, and placed — not just smoothed over.",
+      "cards": [
+        {
+          "title": "Farmyard leveling and high/low area correction",
+          "body": "A strong fit when a farmyard has uneven ground, high spots, and low spots that collect water or make equipment movement awkward. Material is cut from the high areas and moved to fill the low areas so the yard grades out level.",
+          "tags": ["Farmyard leveling", "High/low correction", "Yard grading"],
+          "outcome": "A level, workable farmyard instead of ground that pools water in some spots and won't hold equipment weight in others."
+        },
+        {
+          "title": "Cut-and-fill earthmoving across larger acreage",
+          "body": "Useful when a rural or farm property needs material moved from one area to another at scale — reshaping a field, correcting a large low area, or building up ground for a new use. This is where the off-road haul truck earns its keep.",
+          "tags": ["Cut-and-fill", "Large-area earthmoving", "Material movement"],
+          "outcome": "Material is moved efficiently across the property instead of the job being limited by what a highway truck can access."
+        },
+        {
+          "title": "Rough leveling after fence-row removal or building teardown",
+          "body": "A practical fit when a fence row has been cleared or an old building or farmyard structure has come down and the disturbed area needs to be reshaped and graded back into usable ground.",
+          "tags": ["Post-clearing grading", "Site reclamation", "Farmyard cleanup"],
+          "outcome": "Disturbed ground is reshaped and graded so it ties back into the surrounding property instead of staying rough and unusable."
+        },
+        {
+          "title": "Grading around barns, shops, and agricultural access areas",
+          "body": "A strong fit when the ground around existing farm buildings needs regrading for drainage, equipment access, or expansion — tying new grades into existing structures and traffic patterns.",
+          "tags": ["Barn & shop grading", "Access area grading", "Building-adjacent earthwork"],
+          "outcome": "Grades around buildings and access areas that work with how the farm actually operates day to day."
+        }
+      ]
+    },
+    {
+      "type": "scope",
+      "tone": "light",
+      "eyebrow": "What Bellhouse handles",
+      "heading": "Farm Land Grading & Leveling Includes",
+      "subheading": "Practical heavy-equipment grading and earthmoving for farm operations where material needs to be cut, loaded, moved, placed, and graded.",
+      "items": [
+        { "title": "Farmyard Leveling", "body": "Uneven farmyards with high spots, ruts, and low areas are cut and filled to a consistent, workable grade for equipment traffic and everyday farm use." },
+        { "title": "Cut-and-Fill Earthmoving", "body": "Material is cut from areas with excess ground and moved to fill low or disturbed areas elsewhere on the property, balancing the site instead of importing or exporting material unnecessarily." },
+        { "title": "Rough Leveling & Reclamation", "body": "Disturbed ground from fence-row removal, old building teardown, or general farmyard cleanup is regraded and leveled so it ties back into usable property." },
+        { "title": "Grading Around Barns & Shops", "body": "The ground surrounding existing agricultural buildings is regraded for drainage, equipment access, and any planned expansion, matched into the existing site." },
+        { "title": "Large-Area Rough Grading", "body": "Larger rural properties needing broad reshaping — old pasture, unused farmland, or acreage being brought back into productive or usable condition — are graded at scale." },
+        { "title": "Large-Volume Material Movement", "body": "The Volvo A35 off-road haul truck moves cut material across the property where highway trucks are inefficient or can't get access, keeping large cut-and-fill jobs moving." },
+        { "title": "Restoring Disturbed Farm Ground", "body": "Areas torn up by prior construction, drainage work, pond excavation spoil, or old farmyard use are graded and reshaped back into usable ground." }
+      ]
+    },
+    {
+      "type": "scope",
+      "tone": "dark",
+      "heading": "Best Fit & Not the Best Fit",
+      "subheading": "This service is practical heavy-equipment grading and earthmoving for farm and rural properties — not engineered agricultural drainage design or precision crop-field laser leveling.",
+      "items": [
+        {
+          "title": "Best fit: Farmyards with high spots, low spots, or uneven ground",
+          "body": "Working farmyards where equipment traffic, drainage, and everyday use are affected by an uneven surface. Properties in Brant County, Paris, St. George, Burford, and surrounding rural areas."
+        },
+        {
+          "title": "Best fit: Large-area rural property reshaping",
+          "body": "Acreage and farm properties where a significant amount of material needs to be cut and moved to reshape the ground — old pasture, unused farmland, or property being reconfigured for a new use."
+        },
+        {
+          "title": "Best fit: Rough grading after fence-row removal or farmyard cleanup",
+          "body": "Ground disturbed by fence-row clearing, old building teardown, or general farm cleanup that needs to be leveled and tied back into the surrounding property."
+        },
+        {
+          "title": "Best fit: Projects where material needs moving across real distance or soft ground",
+          "body": "Sites where highway trucks are inefficient or can't access the area — the Volvo A35 off-road haul truck moves cut material to fill areas elsewhere on the property."
+        },
+        {
+          "title": "Not the best fit: Engineered agricultural tile drainage or drainage design",
+          "body": "Bellhouse handles surface grading and earthmoving, not engineered tile drainage systems or municipal drain design work. See the Agricultural Drainage & Land Grading service for surface drainage correction, or a dedicated tile drainage contractor for tile installation."
+        },
+        {
+          "title": "Not the best fit: Ultra-precision, GPS laser-guided crop-field leveling",
+          "body": "This service is practical heavy-equipment leveling, not precision agricultural laser field leveling to sub-inch tolerances for irrigation or crop uniformity. Where GPS/laser grade-control equipment is genuinely part of the scope, that will be confirmed and arranged directly — not assumed."
+        },
+        {
+          "title": "Reviewed case by case: Work near watercourses, wetlands, or municipal drains",
+          "body": "Grading and earthmoving near a watercourse, regulated wetland, or municipal drain may require conservation authority or municipal approvals before work begins. Bellhouse can review the site, but approvals are the property owner's responsibility to confirm."
+        }
+      ]
+    },
+    {
+      "type": "reviews",
+      "tone": "light",
+      "eyebrow": "Testimonials",
+      "heading": "What customers say about Bellhouse",
+      "subheading": "Feedback from local homeowners, builders, and job-site customers Bellhouse has worked with.",
+      "limit": 3
+    },
+    {
+      "type": "pricingFactors",
+      "tone": "dark",
+      "eyebrow": "What affects price",
+      "heading": "Farm grading cost depends on area, material volume, and haul distance",
+      "subheading": "A useful quote depends on the area to grade, how much material needs to move, haul distance across the property, and whether the off-road truck is needed for access.",
+      "tiers": [
+        { "name": "Simpler", "eg": "Small farmyard area with minor high/low correction and good access", "position": "low" },
+        { "name": "Typical", "eg": "Farmyard leveling or cut-and-fill grading across a defined area with moderate material movement", "position": "mid" },
+        { "name": "Complex", "eg": "Large-area cut-and-fill reshaping, long haul distances, or off-road truck access required across soft ground", "position": "high" }
+      ],
+      "rangeNote": "Most farm grading projects fall in the middle range. Bellhouse quotes after reviewing the area, the material volume, and what the finished ground needs to do.",
+      "factors": [
+        {
+          "title": "Area to grade",
+          "body": "Larger areas mean more machine passes and more material to cut, move, and place. A farmyard corner is a different scope than a multi-acre reshape."
+        },
+        {
+          "title": "Cut-and-fill material volume",
+          "body": "The amount of material that needs to move from cut areas to fill areas drives both loading time and haul time — more volume means more truck cycles."
+        },
+        {
+          "title": "Haul distance across the property",
+          "body": "Longer distances between the cut area and the fill area mean more cycle time per load, whether material is moving by highway truck or the off-road haul truck."
+        },
+        {
+          "title": "Ground access and conditions",
+          "body": "Soft, wet, or uneven ground that standard highway trucks can't handle efficiently requires the Volvo A35, which changes the equipment mix and approach."
+        },
+        {
+          "title": "Finish grading requirements",
+          "body": "A rough grade for farm use is a different scope than a finer finish grade around buildings or access areas that needs more passes to dial in."
+        }
+      ],
+      "aside": {
+        "label": "Get a real number",
+        "heading": "Photos of the area and a description of the high/low spots help Bellhouse quote accurately",
+        "body": "Instead of guessing from acreage alone.",
+        "action": { "label": "Request Grading Quote", "href": "/contact" },
+        "phone": { "label": "519-752-8500", "href": "tel:5197528500" }
+      }
+    },
+    {
+      "type": "jobsiteProof",
+      "tone": "light",
+      "eyebrow": "Farm grading work",
+      "heading": "Farm grading comes down to cut, load, move, place, and grade — in that order.",
+      "body": "Farm land grading and leveling isn't just running a dozer blade over the surface. Bellhouse reviews where the high and low ground actually is, cuts material where there's excess, loads and moves it to where it's needed, places it, and grades the finished surface — using the off-road haul truck where the ground or the distance makes a highway truck the wrong tool.",
+      "image": {
+        "src": "/assets/services/cat-320D-excavator-leveling-aggregates-pile.webp",
+        "alt": "Excavator leveling material during farm land grading in Brant County"
+      },
+      "caption": "Grading work is planned around where material is cut, where it needs to go, and how it gets moved efficiently."
+    },
+    {
+      "type": "outcomes",
+      "tone": "dark",
+      "eyebrow": "Site outcomes",
+      "heading": "What the Finished Grading Should Deliver",
+      "subheading": "The goal is a farm property that's level where it needs to be, reshaped where it was disturbed, and ready for the equipment and traffic it needs to handle.",
+      "stats": [
+        { "label": "Since 1982", "body": "Over four decades of rural site work across Brant County" },
+        { "label": "Own equipment", "body": "Excavators, dozer, Volvo A35, and highway trucks" },
+        { "label": "5.0 on Google", "body": "Rated by homeowners, builders, and contractors" },
+        { "label": "Licensed & insured", "body": "Full coverage on every job" }
+      ],
+      "items": [
+        { "title": "A level, workable farmyard", "body": "High and low spots are corrected so equipment moves easily and water doesn't pool where it shouldn't." },
+        { "title": "Material actually moved, not just piled", "body": "Cut material is delivered to where it's needed using equipment matched to the distance and ground conditions, including the off-road truck where standard trucks can't work efficiently." },
+        { "title": "Disturbed ground reshaped and tied in", "body": "Areas cleared, torn up, or reworked are graded so they match the surrounding property instead of standing out as rough patches." },
+        { "title": "Reclaimed ground back in production", "body": "Land that's regraded and leveled instead of left rough is farmable or usable ground again — one more acre you don't have to rent, or one more acre you can rent out to another farm operation." }
+      ]
+    },
+    {
+      "type": "problemsPrevented",
+      "tone": "light",
+      "heading": "What Proper Farm Grading Prevents",
+      "subheading": "Farm ground that's never properly graded stays a problem — soft spots, standing water, and wasted acreage don't fix themselves.",
+      "items": [
+        {
+          "problem": "A farmyard with the same soft, low spot every wet season because it was never cut and filled to grade.",
+          "solution": "Bellhouse cuts material from higher ground and fills the low spot so the yard grades out level instead of pooling water in the same place year after year."
+        },
+        {
+          "problem": "Cut material sitting in a pile because a highway truck couldn't get across soft or distant ground to move it to where it's needed.",
+          "solution": "The Volvo A35 off-road haul truck moves material across soft ground and real distance so cut-and-fill jobs finish instead of stalling on access."
+        },
+        {
+          "problem": "Ground left rough and unusable after a fence row is cleared or an old building comes down.",
+          "solution": "Bellhouse grades the disturbed area back into the surrounding property so it's usable ground again, not a rough patch that gets ignored."
+        },
+        {
+          "problem": "A highway truck gets stuck trying to reach a soft or low-lying section of the property, stalling a cut-and-fill job before it's finished.",
+          "solution": "The off-road haul truck moves material through ground a standard dump truck would get stuck in, so material actually gets from the cut area to the fill area instead of the job stalling on access."
+        }
+      ]
+    },
+    {
+      "type": "equipment",
+      "tone": "dark",
+      "heading": "Equipment Used for Farm Land Grading & Leveling",
+      "subheading": "The equipment combination that makes cut-and-fill earthmoving practical at farm scale — cut, load, move, place, and grade.",
+      "items": [
+        {
+          "name": "Excavator",
+          "body": "Cuts and loads material from high areas, handles rough excavation, and loads the haul trucks efficiently for movement to fill areas.",
+          "image": { "src": "/assets/services/dump-truck-hauling/cat-320-excavator-loading-b-gravel.webp", "alt": "Excavator loading material for farm cut-and-fill grading in Brant County" }
+        },
+        {
+          "name": "Dozer",
+          "body": "Shapes and finishes the graded surface, pushes and spreads placed material, and does the final leveling pass across the farmyard or field.",
+          "image": { "src": "/assets/services/bellhouse-dozer-equipment-illustration.webp", "alt": "Dozer shaping and finish grading a farm property" }
+        },
+        {
+          "name": "Volvo A35 Off-Road Haul Truck",
+          "body": "Moves large volumes of cut material into spots a standard highway truck would get stuck — soft ground, wet fields, and real distance — keeping high-volume cut-and-fill work moving instead of stalling on access.",
+          "image": { "src": "/assets/services/bellhouse-offroad-dump-truck-equipment-illustration.webp", "alt": "Volvo A35 off-road haul truck moving material during farm land grading" }
+        },
+        {
+          "name": "Highway & Tri-Axle Trucks",
+          "body": "Used for material movement where site access allows, and for hauling excess material off site or bringing in fill from off property.",
+          "image": { "src": "/assets/services/dump-truck-hauling/Triaxle_Dump_Trucks_Fleet.webp", "alt": "Bellhouse tri-axle dump truck fleet supporting farm grading and earthmoving work" }
+        }
+      ]
+    },
+    {
+      "type": "process",
+      "tone": "light",
+      "heading": "How Farm Land Grading & Leveling Works",
+      "subheading": "Clear steps from site review to finished grade — cut, load, move, place, and grade, in that order.",
+      "image": {
+        "src": "/assets/services/auto-level-fine-grading-skid-steer.webp",
+        "alt": "Auto level used for finish grading on a farm property in Brant County"
+      },
+      "caption": "Grading is planned around where material is cut, where it needs to be placed, and how it gets moved efficiently.",
+      "steps": [
+        { "title": "Site review and grade assessment", "body": "Bellhouse reviews the property, identifies the high and low areas, and confirms what the finished grade needs to accomplish." },
+        { "title": "Cutting and loading material", "body": "Excavators cut material from areas with excess ground and load it for movement to the fill areas." },
+        { "title": "Moving material across the property", "body": "The off-road haul truck or highway trucks move the cut material to where it's needed, matched to the distance and ground conditions." },
+        { "title": "Placing and finish grading", "body": "Material is placed and the dozer shapes the final grade so the ground is level, workable, and tied into the surrounding property." }
+      ]
+    },
+    {
+      "type": "contractorCta",
+      "tone": "dark",
+      "eyebrow": "For farm operations and rural property owners",
+      "heading": "Farmyard uneven? Ground disturbed? Need material actually moved?",
+      "body": "If your farm has high and low spots that never got corrected, ground that needs reshaping after clearing or teardown, or a cut-and-fill job that needs real material movement, Bellhouse can review the site and return a scope and quote.",
+      "image": {
+        "src": "/assets/services/dumptruck-foudation-excavator-loading.webp",
+        "alt": "Excavator loading a dump truck during farm earthmoving work in Brant County"
+      },
+      "caption": "Grading work can be coordinated with fence-row clearing, drainage correction, and material hauling.",
+      "actions": [
+        { "label": "Send Project Details", "href": "/contractors#contractor-form", "variant": "primary" },
+        { "label": "Call 519-752-8500", "href": "tel:5197528500", "variant": "secondary" }
+      ]
+    },
+    {
+      "type": "resources",
+      "tone": "light",
+      "eyebrow": "Planning tool & related service",
+      "heading": "Removing an old fence row first, or estimating material volume?",
+      "subheading": "Cut-and-fill grading is often planned alongside fence-row removal or a rough material estimate before Bellhouse reviews the site.",
+      "cards": [
+        {
+          "title": "Excavation calculator for cut-and-fill grading",
+          "body": "Estimate rough excavation and material volume for farmyard leveling, cut-and-fill earthmoving, and large-area grading.",
+          "href": "/resources/calculators/excavation",
+          "label": "Estimate Excavation Volume"
+        },
+        {
+          "title": "Removing an old fence row first?",
+          "body": "Fence-row clearing is often the step before grading. See our Farm Fence Row Clearing service for brush, stump, and old wire removal ahead of a reshape.",
+          "href": "/services/farm-fence-row-clearing",
+          "label": "See Farm Fence Row Clearing"
+        }
+      ],
+      "actions": [{ "label": "View Calculators", "href": "/resources/calculators", "variant": "secondary" }]
+    },
+    {
+      "type": "serviceAreas",
+      "tone": "dark",
+      "heading": "Farm land grading & leveling by service area",
+      "body": "Farm land grading, leveling, and earthmoving services are available across Brant County and surrounding areas — including Brantford, Paris, St. George, Burford, Scotland, Oakland, Mount Pleasant, Cambridge, Woodstock, and nearby rural communities where farm-scale earthmoving is needed.",
+      "areaSlugs": ["brantford", "paris", "cambridge", "woodstock", "simcoe", "hamilton", "ancaster", "caledonia", "hagersville", "tillsonburg"]
+    },
+    {
+      "type": "faq",
+      "tone": "light",
+      "heading": "Frequently Asked Questions",
+      "items": [
+        {
+          "question": "How much does farm land grading cost in Brant County?",
+          "answer": "Farm land grading cost depends on the area being graded, how much material needs to be cut and moved, the haul distance across the property, and whether the off-road truck is needed for access. A small farmyard correction is a different scope than a large-area cut-and-fill reshape across several acres. Bellhouse quotes after reviewing the site, the high and low areas, and what the finished ground needs to handle. Photos of the area and a description of the problem help Bellhouse return an accurate number."
+        },
+        {
+          "question": "What's the difference between this and your Land Grading & Drainage service?",
+          "answer": "Land Grading & Drainage focuses on correcting drainage problems — standing water, swales, and general property grading where water movement is the main issue. Farm Land Grading & Leveling focuses on farm-scale earthmoving — farmyard leveling, cut-and-fill reshaping, and moving real volumes of material across agricultural properties. There's overlap between the two, and Bellhouse can review a project and confirm which scope fits, or handle grading and drainage together where a project needs both."
+        },
+        {
+          "question": "Why does the off-road haul truck matter for farm grading?",
+          "answer": "Standard highway trucks are built for road-legal weights and need reasonably firm, accessible ground to work. Farm properties often have soft fields, long distances between the cut area and the fill area, and uneven ground — exactly the conditions a highway truck gets stuck in. The Volvo A35 off-road haul truck is built for exactly that — moving larger volumes of material into spots a standard dump truck would get stuck, so a cut-and-fill job actually gets material to where it needs to be placed instead of stalling because the trucks can't get in."
+        },
+        {
+          "question": "Do you do precision laser leveling for crop fields?",
+          "answer": "Bellhouse provides practical heavy-equipment grading and leveling — farmyard correction, cut-and-fill reshaping, and large-area earthmoving. This is not ultra-precision, GPS laser-guided field leveling to sub-inch tolerances for irrigation or crop uniformity. If a project genuinely requires that level of precision agricultural laser leveling, that scope would be discussed and arranged directly rather than assumed as part of standard grading work."
+        },
+        {
+          "question": "Can you grade a farmyard without hauling material off site?",
+          "answer": "Yes, and it's often the more cost-effective approach. Most farmyard leveling and cut-and-fill grading works by cutting material from the high spots on the property and moving it to fill the low spots on the same property, which balances the site without importing or exporting material. Hauling material off site or bringing in fill is only needed when there isn't enough usable material on the property to balance the grade. Bellhouse reviews the site to determine whether the job can be balanced on site before quoting hauling."
+        }
+      ]
+    },
+    {
+      "type": "relatedServices",
+      "tone": "dark",
+      "eyebrow": "Related services",
+      "heading": "Related clearing, drainage, and rural site services",
+      "serviceSlugs": ["farm-fence-row-clearing", "farm-laneway-rural-driveway", "agricultural-drainage-land-grading", "land-grading-drainage", "farm-building-pad-excavation"]
+    },
+    {
+      "type": "finalCta",
+      "tone": "light",
+      "heading": "Ready to Get Your Farm Property Graded?",
+      "body": "Send the location, a description of the high and low areas, and roughly how much ground needs work. Bellhouse will review the site and return a scope and quote for the earthmoving needed.",
+      "bullets": [
+        "No obligation — free project review",
+        "Bellhouse replies with real numbers",
+        "Local crew, local knowledge"
+      ],
+      "form": true,
+      "actions": [
+        { "label": "Request Grading Quote", "href": "/contact", "variant": "primary" },
+        { "label": "Send Project Details", "href": "/contractors#contractor-form", "variant": "secondary" }
+      ],
+      "navGroups": [
+        {
+          "label": "Other services",
+          "icon": "wrench",
+          "links": [
+            { "label": "Farm Fence Row Clearing", "href": "/services/farm-fence-row-clearing", "icon": "caret-right" },
+            { "label": "Farm Laneway Construction", "href": "/services/farm-laneway-rural-driveway", "icon": "caret-right" },
+            { "label": "Agricultural Drainage & Land Grading", "href": "/services/agricultural-drainage-land-grading", "icon": "caret-right" },
+            { "label": "Land Grading & Drainage", "href": "/services/land-grading-drainage", "icon": "caret-right" },
+            { "label": "Contractor Support", "href": "/contractors", "icon": "caret-right" }
+          ]
+        },
+        {
+          "label": "Service areas",
+          "icon": "map-pin",
+          "links": [
+            { "label": "Brantford", "href": "/service-areas/brantford", "icon": "map-pin" },
+            { "label": "Brant County", "href": "/service-areas/brantford", "icon": "map-pin" },
+            { "label": "Paris", "href": "/service-areas/paris", "icon": "map-pin" },
+            { "label": "Cambridge", "href": "/service-areas/cambridge", "icon": "map-pin" },
+            { "label": "Woodstock", "href": "/service-areas/woodstock", "icon": "map-pin" },
+            { "label": "Hamilton", "href": "/service-areas/hamilton", "icon": "map-pin" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "banner",
+      "tone": "dark",
+      "eyebrow": "Farm grading done right",
+      "heading": "Farmyard uneven? Ground disturbed? Bellhouse is local, equipped, and taking jobs now.",
+      "body": "From farmyard leveling and cut-and-fill earthmoving to rough grading after clearing and large-volume material movement — Bellhouse handles practical farm-scale grading across Brant County. Own excavators, dozer, Volvo A35, and highway trucks — no subcontracting.",
+      "bullets": [
+        "Farmyard leveling, cut-and-fill, and reclamation grading handled together",
+        "Volvo A35 reaches ground a standard dump truck would get stuck in",
+        "Brantford, Paris, St. George, Burford, and surrounding Brant County"
+      ],
+      "image": {
+        "src": "/assets/services/large-yard-soil-grading-lawn.webp",
+        "alt": "Large farm area shaped with grading and leveling equipment in Brant County"
+      },
+      "actions": [
+        { "label": "Request Grading Quote", "href": "/contact", "variant": "primary" },
+        { "label": "Call 519-752-8500", "href": "tel:5197528500", "variant": "secondary" }
+      ]
+    }
+  ]
+}

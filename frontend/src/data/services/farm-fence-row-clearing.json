@@ -1,0 +1,423 @@
+{
+  "id": 17,
+  "slug": "farm-fence-row-clearing",
+  "title": "Farm Fence Row Clearing",
+  "navTitle": "Farm Fence Row Clearing",
+  "contactService": "Farm Fence Row Clearing",
+  "meta": {
+    "title": "Farm Fence Row Clearing Brant County | Bellhouse Excavating",
+    "description": "Farm fence row clearing, brush and stump removal, field-edge cleanup, grading, and material movement across Brant County and surrounding rural areas."
+  },
+  "card": {
+    "title": "Farm Fence Row Clearing",
+    "description": "Fence row and field-edge clearing, brush and stump removal, old wire and post cleanup, and grading to reclaim usable farm ground.",
+    "image": "/assets/services/farm-fence-row/excavator-clearing-farm-fence-row.webp",
+    "alt": "Excavator clearing an overgrown farm fence row in Brant County"
+  },
+  "hero": {
+    "eyebrow": "Farm fence row & field-edge clearing",
+    "heading": "Farm Fence Row & Fence Line Clearing in Brant County",
+    "summary": "Clear the fence row. Reclaim the ground. Bellhouse Excavating clears old farm fence rows and overgrown field edges across Brant County — brush, stumps, roots, old wire, posts, and stone — then grades the area so it's actually usable again, not just cut back.",
+    "actions": [
+      { "label": "Request Clearing Quote", "href": "/contact", "variant": "primary" },
+      { "label": "For Builders & Contractors", "href": "/contractors", "variant": "secondary" }
+    ],
+    "emphasis": "high",
+    "image": "/assets/services/farm-fence-row/excavator-clearing-farm-fence-row.webp",
+    "alt": "Excavator clearing brush and an old fence row on a Brant County farm property",
+    "sideForm": true,
+    "proofBar": [
+      { "icon": "map-pin", "title": "Local to Brantford", "subtitle": "& Brant County" },
+      { "icon": "calendar-check", "title": "Since 1982", "subtitle": "Owner-operated" },
+      { "icon": "tree", "title": "Clear & remove", "subtitle": "Brush, stumps, wire" },
+      { "icon": "path", "title": "Grade after clearing", "subtitle": "Usable ground, not just cut back" },
+      { "icon": "shield-check", "title": "Licensed & insured", "subtitle": "Fully covered" }
+    ]
+  },
+  "sections": [
+    {
+      "type": "intro",
+      "tone": "light",
+      "eyebrow": "Who it's for",
+      "heading": "Fence Row Clearing for Farms and Rural Properties",
+      "body": "Bellhouse Excavating clears old fence rows and overgrown field edges for farm operations and rural property owners across Brant County and Brantford. Old fence lines collect decades of growth — brush, volunteer trees, tangled wire, rotted posts, and stone that a bush hog or a chainsaw crew can't fully deal with. Bellhouse clears the growth, pulls the stumps and roots, cleans up the old wire and posts, and grades the reclaimed strip so it's actually usable — for replacement fencing, wider field access, or simply more workable acreage.\n\nThis isn't a mowing or brushing service. Bellhouse brings excavators and a dozer to a fence row job, which means stumps and roots come out instead of getting cut off at grade, buried stone and debris get pulled and hauled, and the ground gets graded once the clearing is done. The result is a fence row that's actually cleared, not one that grows back in two seasons.",
+      "audience": [
+        { "icon": "tractor", "label": "Farm operations" },
+        { "icon": "house-line", "label": "Rural property owners" },
+        { "icon": "map-trifold", "label": "Acreage properties" },
+        { "icon": "tree", "label": "Hobby farms" }
+      ]
+    },
+    {
+      "type": "projectFit",
+      "tone": "dark",
+      "heading": "Fence Row Clearing Projects Bellhouse Handles",
+      "subheading": "Best fit for old fence rows and field edges that need real equipment to clear brush, pull stumps and roots, remove old wire and posts, and grade the area afterward.",
+      "cards": [
+        {
+          "title": "Old farm fence rows and abandoned fence lines",
+          "body": "A strong fit when a fence row hasn't been maintained in years and has grown into a solid line of brush, saplings, and volunteer trees along the old fence. Bellhouse clears the growth, pulls the old fence and posts, and reclaims the strip.",
+          "tags": ["Old fence rows", "Abandoned fence lines", "Overgrown field edges"],
+          "outcome": "The old fence line is cleared down to usable ground instead of a brushed-back thicket that grows back the same season."
+        },
+        {
+          "title": "Clearing ahead of replacement fencing",
+          "body": "Useful when a farm is putting in new fence and needs the old line cleared first — brush, stumps, old wire, and rotted posts removed so the new fence contractor has a clean, graded line to work with.",
+          "tags": ["Pre-fence clearing", "New fence prep", "Line clearing"],
+          "outcome": "A cleared, graded fence line ready for new posts and wire, with the old material hauled off or piled as directed."
+        },
+        {
+          "title": "Reclaiming field edges and opening field access",
+          "body": "A practical fit when brush and volunteer growth along a field edge is eating into usable acreage or blocking equipment access between fields. Clearing and grading pushes the field edge back to where it should be.",
+          "tags": ["Field edge reclamation", "Field access", "Acreage recovery"],
+          "outcome": "More usable field width and a clear equipment path between fields instead of brush encroaching further every year."
+        },
+        {
+          "title": "Brush, stump, and debris cleanup on rural property",
+          "body": "A strong fit for hobby farms and rural properties with brush piles, stumps, stone accumulation, or general fence-row debris that's built up over years and needs equipment to actually clear it out.",
+          "tags": ["Brush clearing", "Stump removal", "Debris cleanup"],
+          "outcome": "The area is cleared, the debris is dealt with, and the ground is left graded and usable instead of just cut back."
+        }
+      ]
+    },
+    {
+      "type": "scope",
+      "tone": "light",
+      "eyebrow": "What Bellhouse clears",
+      "heading": "Farm Fence Row Clearing Includes",
+      "subheading": "Complete fence row and field-edge clearing for farm and rural properties — not just cutting brush, but removing what's underneath and grading what's left.",
+      "items": [
+        { "title": "Brush & Small Tree Clearing", "body": "Overgrown brush, saplings, and volunteer trees along the fence line are cleared with excavator and dozer equipment, not just brushed back or mowed over." },
+        { "title": "Stump & Root Removal", "body": "Stumps and root systems are pulled out rather than cut flush, so the ground can actually be graded and used afterward instead of hiding buried stumps." },
+        { "title": "Old Fence, Post & Wire Cleanup", "body": "Abandoned fence line, rotted wood posts, steel posts, and tangled wire are pulled and removed as part of the clearing scope." },
+        { "title": "Stone & Debris Removal", "body": "Stone piles, buried rock, and accumulated debris along the fence row are cleared and hauled off or piled where directed." },
+        { "title": "Excavation & Material Movement", "body": "Cleared brush, stumps, stone, and old fence material are loaded and moved off site, or piled on the property, using excavators and trucks." },
+        { "title": "Filling & Rough Grading", "body": "Low spots and disturbed ground left behind from stump removal are filled and rough graded so the reclaimed strip sits level with the surrounding ground." },
+        { "title": "Post-Clearing Grading", "body": "Once the fence row is cleared, the strip is graded so it's usable ground — ready for new fencing, wider field access, or simply reclaimed acreage." }
+      ]
+    },
+    {
+      "type": "scope",
+      "tone": "dark",
+      "heading": "Best Fit & Not the Best Fit",
+      "subheading": "Fence row clearing works best on farm and rural properties where equipment can access the line and the goal is real ground reclamation, not just tree removal.",
+      "items": [
+        {
+          "title": "Best fit: Old, overgrown farm fence rows",
+          "body": "Fence lines that have grown in with brush, saplings, and small trees over years of no maintenance. Properties in Brant County, Paris, St. George, Burford, Scotland, Oakland, Mount Pleasant, and surrounding rural areas."
+        },
+        {
+          "title": "Best fit: Clearing ahead of new or replacement fencing",
+          "body": "Fence rows being cleared before a fencing contractor installs new fence. The line is cleared, old material removed, and the strip graded so the new fence goes in on clean, usable ground."
+        },
+        {
+          "title": "Best fit: Field-edge and access-lane clearing",
+          "body": "Brush and growth encroaching on field edges or blocking equipment access between fields, where clearing and grading recovers usable acreage or opens an access route."
+        },
+        {
+          "title": "Best fit: Stump, root, and debris removal along a fence line",
+          "body": "Properties where a bush hog or chainsaw crew has already cut the brush back but stumps, roots, old wire, and stone are still in the ground and need equipment to actually pull and clear."
+        },
+        {
+          "title": "Not the best fit: Specialty tree work, arborist services, or forestry management",
+          "body": "Bellhouse clears fence rows and field edges with excavation equipment — it does not provide arborist services, selective forestry management, tree health assessments, or environmental consulting. Larger woodlot or forestry projects should go to a licensed forestry contractor."
+        },
+        {
+          "title": "Reviewed case by case: Clearing near watercourses, wetlands, or treed hedgerows with environmental significance",
+          "body": "Fence rows that run through or near a watercourse, regulated wetland, or a hedgerow with significant tree cover may fall under conservation authority or municipal tree-removal rules. Bellhouse can review the site, but any required approvals need to be confirmed and in place before clearing begins."
+        }
+      ]
+    },
+    {
+      "type": "reviews",
+      "tone": "light",
+      "eyebrow": "Testimonials",
+      "heading": "What customers say about Bellhouse",
+      "subheading": "Feedback from local homeowners, builders, and job-site customers Bellhouse has worked with.",
+      "limit": 3
+    },
+    {
+      "type": "pricingFactors",
+      "tone": "dark",
+      "eyebrow": "What affects price",
+      "heading": "Fence row clearing cost depends on length, growth, and what's buried in the ground",
+      "subheading": "A useful quote depends on fence-row length, how heavy the brush and tree growth is, how many stumps and how much old wire and post need pulling, and whether material stays on site or gets hauled away.",
+      "tiers": [
+        { "name": "Simpler", "eg": "Shorter fence row with light brush and a few stumps, material staying on site", "position": "low" },
+        { "name": "Typical", "eg": "Overgrown fence row with brush, stumps, old wire and posts, plus grading after clearing", "position": "mid" },
+        { "name": "Complex", "eg": "Long, heavily overgrown fence row with stone, extensive stump removal, and material hauled off site", "position": "high" }
+      ],
+      "rangeNote": "Most fence row clearing projects fall in the middle range. Bellhouse quotes after reviewing the fence-row length, growth, and what's underneath.",
+      "factors": [
+        {
+          "title": "Fence-row length",
+          "body": "Longer fence lines mean more clearing, more stumps, and more material to move. A short field-edge run is a different scope than a quarter-mile overgrown line."
+        },
+        {
+          "title": "Brush, tree, and stump density",
+          "body": "Light brush clears quickly. Established saplings and volunteer trees with real root systems take more excavator time to pull cleanly."
+        },
+        {
+          "title": "Old wire, posts, and buried debris",
+          "body": "Fence rows with intact wire, steel or wood posts, and buried stone take more time to clear and separate than a line that's mostly grown-in brush."
+        },
+        {
+          "title": "Material staying on site or hauled away",
+          "body": "Piling cleared brush and debris on the property costs less than loading and trucking it off site. Bellhouse quotes both ways depending on what you need."
+        },
+        {
+          "title": "Grading after clearing",
+          "body": "Filling stump holes and rough grading the cleared strip adds machine time but is what actually leaves the ground usable instead of torn up."
+        }
+      ],
+      "aside": {
+        "label": "Get a real number",
+        "heading": "Photos of the fence row and a rough length help Bellhouse quote accurately",
+        "body": "Instead of guessing from a description alone.",
+        "action": { "label": "Request Clearing Quote", "href": "/contact" },
+        "phone": { "label": "519-752-8500", "href": "tel:5197528500" }
+      }
+    },
+    {
+      "type": "jobsiteProof",
+      "tone": "light",
+      "eyebrow": "Fence row clearing work",
+      "heading": "Clearing a fence row means pulling what's in the ground, not just cutting what's above it.",
+      "body": "A bush hog or a chainsaw crew can knock brush down, but the stumps, roots, old wire, and buried stone stay in the ground and the growth comes back. Bellhouse uses excavators and a dozer to pull stumps and roots, clear old fence material, and grade the strip once it's clear — so the ground is actually reclaimed, not just cut back for a season.",
+      "image": {
+        "src": "/assets/services/dozer-stripping-site-prep.webp",
+        "alt": "Dozer grading a cleared fence row area on a Brant County farm property"
+      },
+      "caption": "Clearing work is planned around what's growing, what's buried, and what the ground needs to look like when it's done."
+    },
+    {
+      "type": "outcomes",
+      "tone": "dark",
+      "eyebrow": "What happens after clearing",
+      "heading": "A Fence Row That's Actually Usable When Bellhouse Is Done",
+      "subheading": "The goal isn't just cutting brush back — it's leaving ground that's cleared, graded, and ready for what comes next.",
+      "stats": [
+        { "label": "Since 1982", "body": "Over four decades of rural site work across Brant County" },
+        { "label": "Own equipment", "body": "Excavators, dozer, off-road truck, and highway trucks" },
+        { "label": "5.0 on Google", "body": "Rated by homeowners, builders, and contractors" },
+        { "label": "Licensed & insured", "body": "Full coverage on every job" }
+      ],
+      "items": [
+        { "title": "Stumps and roots actually out of the ground", "body": "Not cut flush and left to sprout again — pulled out so the strip can be graded and used." },
+        { "title": "Old wire, posts, and stone cleared away", "body": "Fence material and buried debris are removed and hauled off or piled where directed, not left tangled in the brush pile." },
+        { "title": "The area graded and ready for what's next", "body": "Once clearing is done, low spots are filled and the strip is rough graded — ready for new fencing, wider field access, or reclaimed acreage." },
+        { "title": "One more acre in production", "body": "Every acre of fence row reclaimed is farmable ground again — one more acre you don't have to rent from a neighbour, or one more acre you can rent out if you're not farming it yourself." }
+      ]
+    },
+    {
+      "type": "problemsPrevented",
+      "tone": "light",
+      "heading": "What Proper Fence Row Clearing Prevents",
+      "subheading": "Brushing or mowing a fence row without pulling what's underneath just delays the problem — it doesn't solve it.",
+      "items": [
+        {
+          "problem": "Brush cut back with a mower or brush hog grows back within a season because the roots were never removed.",
+          "solution": "Bellhouse pulls stumps and root systems with excavators so the growth doesn't come right back the following year."
+        },
+        {
+          "problem": "Old fence wire left tangled in cleared brush creates a hazard for equipment and livestock and makes the area unusable.",
+          "solution": "Old wire, posts, and fence material are pulled and cleared as part of the job, not left buried in the debris."
+        },
+        {
+          "problem": "A fence row that's been cut back but never graded is still too rough to drive equipment across or run new fence along.",
+          "solution": "Bellhouse fills stump holes and grades the cleared strip so the ground is actually usable when the job is finished."
+        },
+        {
+          "problem": "A highway dump truck gets stuck or simply can't reach a soft, wet, or low-lying stretch of a fence row, stalling the job halfway through.",
+          "solution": "Bellhouse brings the off-road haul truck to move cleared material through ground a standard dump truck would get stuck in, so the job keeps moving regardless of field conditions."
+        }
+      ]
+    },
+    {
+      "type": "equipment",
+      "tone": "dark",
+      "heading": "Equipment & Material-Movement Capability",
+      "subheading": "Fence row clearing is an excavation job, not a mowing job — the equipment is what separates a real reclamation from a brush-back.",
+      "items": [
+        {
+          "name": "Excavator",
+          "body": "Used to clear brush and small trees, pull stumps and roots, and remove old wire, posts, and buried stone from the fence line. Sized to the job for efficient clearing and loading.",
+          "image": { "src": "/assets/services/cat-excavator-digging-in-aggregates-pile.webp", "alt": "CAT excavator clearing a farm fence row in Brant County" }
+        },
+        {
+          "name": "Dozer",
+          "body": "Handles pushing cleared brush and material into piles, filling stump holes, and rough grading the reclaimed strip once clearing is complete.",
+          "image": { "src": "/assets/services/bellhouse-dozer-equipment-illustration.webp", "alt": "Dozer grading a cleared fence row and field edge" }
+        },
+        {
+          "name": "Off-Road Haul Truck",
+          "body": "Moves cleared brush, stumps, and debris into spots a standard dump truck would get stuck — soft fields, wet ground, and uneven farm terrain that longer fence rows often run through.",
+          "image": { "src": "/assets/services/bellhouse-offroad-dump-truck-equipment-illustration.webp", "alt": "Off-road haul truck moving cleared debris on a farm property" }
+        },
+        {
+          "name": "Highway & Tri-Axle Trucks",
+          "body": "Used to haul cleared brush, stumps, and debris off site when material isn't staying on the property, or to bring in fill for grading after clearing.",
+          "image": { "src": "/assets/services/dump-truck-hauling/triaxle-dump-truck-gravel-hauling-brant-county.webp", "alt": "Tri-axle dump truck hauling cleared debris from a farm fence row job" }
+        }
+      ]
+    },
+    {
+      "type": "process",
+      "tone": "light",
+      "heading": "How Farm Fence Row Clearing Works",
+      "subheading": "Clear steps from site review to a graded, usable strip — planned around the growth, what's buried, and what the ground needs to be ready for.",
+      "image": {
+        "src": "/assets/services/driveways-laneways/excavator-topsoil-removal-laneway-base.webp",
+        "alt": "Excavator clearing material along a rural property fence line in Brant County"
+      },
+      "caption": "Clearing is planned around the fence-row length, growth, buried material, and what the reclaimed ground needs to be used for.",
+      "steps": [
+        { "title": "Site review", "body": "Bellhouse walks or reviews the fence row to assess the growth, old fence and wire condition, buried stone, and what the finished ground needs to look like." },
+        { "title": "Clearing brush, stumps, and roots", "body": "Brush and small trees are cleared and stumps and root systems are pulled with the excavator, not just cut flush." },
+        { "title": "Removing old wire, posts, and debris", "body": "Old fence material, posts, and accumulated stone or debris are pulled and separated for hauling off or piling on site." },
+        { "title": "Filling and grading", "body": "Stump holes and disturbed ground are filled, and the cleared strip is rough graded so it's usable — for new fencing, field access, or reclaimed acreage." }
+      ]
+    },
+    {
+      "type": "contractorCta",
+      "tone": "dark",
+      "eyebrow": "For farm operations and rural property owners",
+      "heading": "Old fence row overgrown and eating into your field?",
+      "body": "If a fence row hasn't been touched in years and brush, stumps, and old wire are taking over usable ground, Bellhouse can review the line, the growth, and what needs to come out — then clear it and grade it properly.",
+      "image": {
+        "src": "/assets/services/large-yard-soil-grading-lawn.webp",
+        "alt": "Graded and reclaimed ground on a rural property after fence row clearing"
+      },
+      "caption": "Fence row clearing can be coordinated with grading, material hauling, and prep for new fencing.",
+      "actions": [
+        { "label": "Send Project Details", "href": "/contractors#contractor-form", "variant": "primary" },
+        { "label": "Call 519-752-8500", "href": "tel:5197528500", "variant": "secondary" }
+      ]
+    },
+    {
+      "type": "resources",
+      "tone": "light",
+      "eyebrow": "Planning tool & related service",
+      "heading": "Reshaping the ground after clearing, or estimating the job?",
+      "subheading": "Fence row clearing is often the first step — grading, material volume, and what comes next are worth planning for at the same time.",
+      "cards": [
+        {
+          "title": "Excavation calculator for clearing and grading",
+          "body": "Estimate rough excavation and material volume for fence row clearing, stump removal, and post-clearing grading.",
+          "href": "/resources/calculators/excavation",
+          "label": "Estimate Excavation Volume"
+        },
+        {
+          "title": "Need the cleared area reshaped afterward?",
+          "body": "Once a fence row is cleared, many properties need the strip cut-and-fill graded or tied into a larger farmyard reshaping project. See our Farm Land Grading & Leveling service.",
+          "href": "/services/farm-land-grading-leveling",
+          "label": "See Farm Land Grading & Leveling"
+        }
+      ],
+      "actions": [{ "label": "View Calculators", "href": "/resources/calculators", "variant": "secondary" }]
+    },
+    {
+      "type": "serviceAreas",
+      "tone": "dark",
+      "heading": "Farm fence row clearing by service area",
+      "body": "Farm fence row and field-edge clearing services are available across Brant County and surrounding rural areas — including Brantford, Paris, St. George, Burford, Scotland, Oakland, Mount Pleasant, Cambridge, and nearby farming communities where old fence lines need real equipment to clear.",
+      "areaSlugs": ["brantford", "paris", "cambridge", "woodstock", "simcoe", "hamilton", "ancaster", "caledonia", "hagersville", "tillsonburg"]
+    },
+    {
+      "type": "faq",
+      "tone": "light",
+      "heading": "Frequently Asked Questions",
+      "items": [
+        {
+          "question": "How much does farm fence row clearing cost in Brant County?",
+          "answer": "Fence row clearing cost depends on the length of the line, how heavy the brush and tree growth is, how many stumps and how much old wire and post material need to be pulled, and whether the cleared material stays on site or gets hauled away. A short, lightly grown-in field edge is a different scope than a quarter-mile fence row with established trees, tangled wire, and buried stone. Bellhouse quotes after reviewing the fence row length, growth, and what's underneath. Photos of the fence line and a rough length estimate help Bellhouse return an accurate number."
+        },
+        {
+          "question": "Do you just cut the brush back, or actually clear the fence row?",
+          "answer": "Bellhouse clears the fence row — that means pulling stumps and root systems out of the ground, not just cutting brush flush with a mower or brush hog. A bush hog knocks growth down for a season, but the roots stay in the ground and the brush comes back. Because Bellhouse uses excavators, the stumps and roots come out, old wire and posts are pulled, and the ground is graded afterward so the strip is actually usable — not just temporarily cut back."
+        },
+        {
+          "question": "What happens to the old wire, posts, and stone after clearing?",
+          "answer": "Old fence wire, wood and steel posts, and any stone or debris pulled from the fence row are separated during clearing and either hauled off site or piled on the property, depending on what you need. Bellhouse can load and truck the material away using highway and tri-axle trucks, or leave it piled in a location that works for the farm operation. This is confirmed during the site review before work begins."
+        },
+        {
+          "question": "Can you grade the area after the fence row is cleared?",
+          "answer": "Yes. Grading after clearing is a standard part of the job, not an add-on. Once the brush, stumps, and old fence material are removed, Bellhouse fills stump holes and rough grades the cleared strip using the dozer, so the ground is level and usable — whether that's for new fencing, wider field access, or simply reclaimed acreage. Clearing without grading leaves torn-up ground that's still hard to use."
+        },
+        {
+          "question": "Do I need a permit to clear an old fence row?",
+          "answer": "Most farm fence row clearing on private agricultural land doesn't require a permit, but fence rows that run through or near a watercourse, a regulated wetland, or a hedgerow with significant tree cover may fall under conservation authority or municipal tree-removal rules. Property owners are responsible for confirming any required municipal, conservation authority, or other approvals before work begins. Bellhouse can review the site and flag anything that looks like it may need a closer look, but does not provide permitting or environmental consulting services."
+        }
+      ]
+    },
+    {
+      "type": "relatedServices",
+      "tone": "dark",
+      "eyebrow": "Related services",
+      "heading": "Related grading, drainage, and rural site services",
+      "serviceSlugs": ["farm-land-grading-leveling", "agricultural-drainage-land-grading", "farm-building-pad-excavation", "farm-laneway-rural-driveway", "site-preparation-land-grading"]
+    },
+    {
+      "type": "finalCta",
+      "tone": "light",
+      "heading": "Ready to Clear an Old Fence Row?",
+      "body": "Send the location, a rough length, and what's growing along the line — brush, trees, old wire, stone. Bellhouse will return a scope and quote based on the actual fence row, not a per-foot guess.",
+      "bullets": [
+        "No obligation — free project review",
+        "Bellhouse replies with real numbers",
+        "Local crew, local knowledge"
+      ],
+      "form": true,
+      "actions": [
+        { "label": "Request Clearing Quote", "href": "/contact", "variant": "primary" },
+        { "label": "Send Project Details", "href": "/contractors#contractor-form", "variant": "secondary" }
+      ],
+      "navGroups": [
+        {
+          "label": "Other services",
+          "icon": "wrench",
+          "links": [
+            { "label": "Farm Land Grading & Leveling", "href": "/services/farm-land-grading-leveling", "icon": "caret-right" },
+            { "label": "Agricultural Drainage & Land Grading", "href": "/services/agricultural-drainage-land-grading", "icon": "caret-right" },
+            { "label": "Farm Building Pad Excavation", "href": "/services/farm-building-pad-excavation", "icon": "caret-right" },
+            { "label": "Farm Laneway Construction", "href": "/services/farm-laneway-rural-driveway", "icon": "caret-right" },
+            { "label": "Contractor Support", "href": "/contractors", "icon": "caret-right" }
+          ]
+        },
+        {
+          "label": "Service areas",
+          "icon": "map-pin",
+          "links": [
+            { "label": "Brantford", "href": "/service-areas/brantford", "icon": "map-pin" },
+            { "label": "Brant County", "href": "/service-areas/brantford", "icon": "map-pin" },
+            { "label": "Paris", "href": "/service-areas/paris", "icon": "map-pin" },
+            { "label": "Cambridge", "href": "/service-areas/cambridge", "icon": "map-pin" },
+            { "label": "Woodstock", "href": "/service-areas/woodstock", "icon": "map-pin" },
+            { "label": "Hamilton", "href": "/service-areas/hamilton", "icon": "map-pin" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "banner",
+      "tone": "dark",
+      "eyebrow": "Fence rows cleared right",
+      "heading": "Old fence row overgrown? Field edge closing in? Bellhouse is local, equipped, and taking jobs now.",
+      "body": "From brush and stump clearing to old wire and post removal, stone cleanup, and grading afterward — Bellhouse clears farm fence rows across Brant County and leaves the ground actually usable. Own excavators, dozer, off-road truck, and highway trucks — no subcontracting.",
+      "bullets": [
+        "Brush, stumps, roots, old wire, and stone cleared together",
+        "Off-road haul truck reaches ground a standard dump truck would get stuck in",
+        "Grading after clearing so the ground is usable, not just cut back",
+        "Brantford, Paris, St. George, Burford, and surrounding Brant County"
+      ],
+      "image": {
+        "src": "/assets/services/site-preparations-land-clearing/large-site-preparation-excavation-equipment.webp",
+        "alt": "Excavation equipment ready for farm fence row clearing work in Brant County"
+      },
+      "actions": [
+        { "label": "Request Clearing Quote", "href": "/contact", "variant": "primary" },
+        { "label": "Call 519-752-8500", "href": "tel:5197528500", "variant": "secondary" }
+      ]
+    }
+  ]
+}

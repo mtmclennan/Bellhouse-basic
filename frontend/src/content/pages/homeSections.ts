@@ -32,9 +32,9 @@ function addRelatedServiceTitles(
 export const homeHeroData: HeroSectionData = {
   _type: 'heroSection',
   eyebrow: 'Bellhouse Excavating',
-  headline: 'Excavation & Site Preparation for Rural, Farm, Commercial, and Large-Site Projects',
+  headline: 'Excavation, Grading & Site Work in Brantford & Brant County',
   subheadline:
-    'Bellhouse Excavating provides grading, demolition, trucking, pond excavation, laneway construction, drainage, and site preparation across Brant County, Brantford, Hamilton, and surrounding areas.',
+    'Foundation excavation, demolition, grading, drainage, site servicing, trucking, and site preparation for homeowners, farms, builders, contractors, and commercial properties.',
   primaryAction: {
     label: 'Request a Quote',
     href: '/contact',
@@ -51,7 +51,7 @@ export const homeHeroData: HeroSectionData = {
   proofItems: [
     { label: 'Since 1982' },
     { label: 'Licensed & Insured' },
-    { label: 'Farm, Rural, Commercial & Builder Work' },
+    { label: 'Residential, Farm, Commercial & Builder Work' },
     { label: 'Serving Brant County, Brantford & Southern Ontario' },
   ],
   density: 'default',
@@ -65,8 +65,8 @@ export const homeProofSection: ProofSectionData = {
   eyebrow: 'Why Bellhouse',
   heading: 'Why Property Owners and Contractors Choose Bellhouse',
   intro: [
-    'Since 1982, Bellhouse Excavating has been the go-to excavation contractor for farmers, rural property owners, commercial developers, and builders across Brant County and Southern Ontario.',
-    'We bring large-site equipment — including an articulated off-road dump truck and float — to projects that most residential contractors can\'t take on. If the job needs serious equipment, serious hauling, or serious site prep, that\'s where we work best.',
+    'Bellhouse Excavating works with homeowners, farms, rural property owners, commercial clients, developers, builders, and contractors across Brant County and Southern Ontario.',
+    'The company is especially well equipped for projects that need excavation, grading, trucking, site servicing components, material movement, and practical access planning handled together.',
   ],
   items: [
     {
@@ -101,9 +101,9 @@ export const homeProofSection: ProofSectionData = {
 export const homeServicesSection: ServicesSectionData = {
   _type: 'servicesSection',
   eyebrow: 'What We Do',
-  heading: 'Farm, Rural & Commercial Excavation Services',
+  heading: 'Excavation, Grading, Demolition & Hauling Services',
   intro:
-    'Farm, rural, commercial, and builder work across Brant County and surrounding areas.',
+    'Residential, rural, farm, commercial, and builder work across Brant County and surrounding areas, with particular strength on projects where equipment access, trucking, and material movement matter.',
   items: featuredServices,
   actions: [
     {

@@ -33,18 +33,18 @@ export const foundationExcavationLandingPage = {
     },
   },
   hero: {
-    eyebrow: 'Serving Brantford and Brant County',
+    eyebrow: 'Foundation Excavation - Brantford Area',
     titleHighlight: 'Foundation Excavation',
-    title: 'in Brantford',
+    title: 'in Brantford & Brant County',
     subtitle:
-      'Excavation, trucking, backfill, and site prep coordinated by a local crew that understands access, depth, elevations, and real construction schedules.',
+      'Excavation, trucking, backfill, and site prep for new homes, additions, garages, shops, farm buildings, and builder projects across Brantford and Brant County.',
     bullets: [
-      'Foundation digs, basements, footings, and garage pads',
+      'Residential foundations, basements, footings, garage pads, and additions',
       'Spoil haul-out and material delivery planned with the dig',
-      'Clean equipment, practical communication, and a tidy site handoff',
+      'Tighter properties reviewed for equipment access, trucking, and spoil handling',
     ],
     primaryCta: {
-      label: 'Request a Foundation Quote',
+      label: 'Request a Foundation Excavation Quote',
       href: '#landing-quote',
       variant: 'primary',
       trackingId: 'foundation-hero-quote',
@@ -67,8 +67,8 @@ export const foundationExcavationLandingPage = {
     id: 'foundation-excavation-quote',
     heading: 'Get a foundation excavation quote',
     description:
-      'Send the site location, timing, drawings, and access details so Bellhouse can review the project clearly.',
-    submitLabel: 'Request My Foundation Quote',
+      'Send the site location, timing, drawings, and access details so Bellhouse can review the practical excavation and trucking approach.',
+    submitLabel: 'Request My Foundation Excavation Quote',
     successMessage:
       'Thanks. Bellhouse will review the foundation excavation details and follow up shortly.',
     fields: [
@@ -112,11 +112,12 @@ export const foundationExcavationLandingPage = {
         defaultValue: 'Foundation excavation',
         options: [
           'Foundation excavation',
+          'Residential foundation excavation',
           'Basement excavation',
           'Garage or slab excavation',
           'Footings or addition',
           'Backfill and grading',
-          'Other foundation work',
+          'Rural or large-lot foundation work',
         ],
       },
       {
@@ -296,22 +297,22 @@ export const foundationExcavationLandingPage = {
     ],
     gallery: [
       {
-        src: '/assets/excavator-digging-foundation.jpg',
+        src: '/assets/services/foundation-excavation/Foundation-footings-excavation-paris.webp',
         alt: 'Excavator digging a foundation',
         caption: 'Foundation excavation',
       },
       {
-        src: '/assets/excavator-loading-tri-axle-foundation.jpg',
+        src: '/assets/services/foundation-excavation/garage-foundation-excavation-residential-site-brant.webp',
         alt: 'Excavator loading material into a triaxle truck',
         caption: 'Haul-out coordination',
       },
       {
-        src: '/assets/foundation-backfill-packer.jpg',
+        src: '/assets/services/foundation-excavation/foundation-backfilling-lifts-ontario-garage-house.webp',
         alt: 'Backfill and compaction equipment beside a foundation',
         caption: 'Backfill and compaction',
       },
       {
-        src: '/assets/dozer-pushing-dirt.jpg',
+        src: '/assets/services/foundation-excavation/barn-shop-foundation-subgrade-laser-level-floor-concrete.webp',
         alt: 'Dozer pushing dirt while grading a site',
         caption: 'Site grading and cut/fill',
       },
@@ -339,14 +340,14 @@ export const foundationExcavationLandingPage = {
       {
         question: 'Can you work on tight residential lots?',
         answer:
-          'Often, yes. Access, staging, and equipment size are reviewed before the work is scheduled.',
+          'Yes. Bellhouse handles in-town and residential foundation excavation where access can be managed. Tighter properties may require a different equipment, trucking, or spoil-handling approach, so send the location or plans and Bellhouse can review access before confirming the scope.',
       },
     ],
   },
   finalCta: {
     eyebrow: 'Get Started',
-    heading: 'Ready to quote your foundation excavation?',
-    body: 'Send the site details, drawings, and timing, or call Bellhouse to talk through the project directly.',
+    heading: 'Ready to quote your Brantford-area foundation excavation?',
+    body: 'Send the site details, drawings, timing, and access notes, or call Bellhouse to talk through the excavation, hauling, and access plan.',
     primaryCta: {
       label: 'Request a Foundation Quote',
       href: '#landing-quote',

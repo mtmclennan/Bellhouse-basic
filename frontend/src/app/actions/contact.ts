@@ -1,5 +1,6 @@
 'use server';
 
+import crypto from 'crypto';
 import { promises as fs } from 'fs';
 import path from 'path';
 import { logMonitorEvent } from '@/lib/monitor/eventLog';
@@ -13,7 +14,9 @@ import {
   serviceHeroFormSchema,
   isSuspiciousContactInput,
 } from '@/lib/contact/contactValidation';
+import type { LeadAttribution } from '@/lib/tracking/attribution';
 import type { QuoteUploadEmailFile } from '@/lib/uploads/shared/uploadTypes';
+import { submitLeadToEstivorIntake } from '@/lib/leadIntake/leadIntakeService';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -21,6 +24,18 @@ function mustEnv(name: string) {
   const v = process.env[name];
   if (!v) throw new Error(`Missing env var: ${name}`);
   return v;
+}
+
+async function getGoogleCredentials(): Promise<Record<string, unknown>> {
+  const envJson = process.env.GOOGLE_SERVICE_ACCOUNT_JSON;
+  if (envJson) {
+    return JSON.parse(envJson);
+  }
+
+  // Local-dev fallback only: this file is gitignored and never deployed.
+  const keyFilePath = path.join(process.cwd(), 'google-service-account.json');
+  const keyFile = await fs.readFile(keyFilePath, 'utf-8');
+  return JSON.parse(keyFile);
 }
 
 async function getGoogleSheetsClient(credentials: Record<string, unknown>) {
@@ -44,8 +59,11 @@ export type ContactData = {
   smsDisclosureShown?: boolean;
   smsConsentAt?: string;
   leadId?: string;
+  attribution?: LeadAttribution;
   uploads?: QuoteUploadEmailFile[];
   uploadLinkExpiryNote?: string;
+  formName?: string;
+  location?: string;
 };
 
 export async function processContactCore(
@@ -59,12 +77,16 @@ export async function processContactCore(
   },
 ) {
   const RECIPIENT_EMAIL = mustEnv('RECIPIENT_EMAIL');
+  const lead: ContactData = {
+    ...data,
+    leadId: data.leadId ?? crypto.randomUUID(),
+  };
 
-  const business = buildBusinessEmail(data);
-  const customer = buildCustomerEmail(data);
+  const business = buildBusinessEmail(lead);
+  const customer = buildCustomerEmail(lead);
 
   const businessTo = opts?.businessToEmail ?? RECIPIENT_EMAIL;
-  const customerTo = opts?.customerToEmail ?? data.email;
+  const customerTo = opts?.customerToEmail ?? lead.email;
   const subjectPrefix = opts?.subjectPrefix ?? '';
 
   try {
@@ -73,8 +95,14 @@ export async function processContactCore(
     }
 
     if (!opts?.skipSheets) {
-      saveToGoogleSheets(data).catch((error) =>
+      saveToGoogleSheets(lead).catch((error) =>
         console.error('Google Sheets error:', error),
+      );
+
+      // Future source of truth. No-op in 'legacy' mode (the default) —
+      // see src/lib/leadIntake/config.ts.
+      submitLeadToEstivorIntake(lead).catch((error) =>
+        console.error('Estivor submit error:', error),
       );
     }
 
@@ -83,7 +111,7 @@ export async function processContactCore(
         subject: `${subjectPrefix}${business.subject}`,
         html: business.html,
         to: [{ email: businessTo }],
-        replyTo: { email: data.email || businessTo, name: data.name },
+        replyTo: { email: lead.email || businessTo, name: lead.name },
         tags: opts?.subjectPrefix ? ['monitor', 'form-check'] : undefined,
       }),
     ];
@@ -110,8 +138,8 @@ export async function processContactCore(
       type: 'CONTACT_EMAIL_FAIL',
       message: err?.message ?? 'Unknown Brevo error',
       meta: {
-        workType: data.workType,
-        fromEmail: data.email,
+        workType: lead.workType,
+        fromEmail: lead.email,
       },
     });
 
@@ -134,7 +162,9 @@ export async function sendContactForm(data: {
   token: string;
   smsConsent?: boolean;
   smsDisclosureShown?: boolean;
+  attribution?: LeadAttribution;
   honeypot?: string;
+  formName?: string;
 }) {
   const RECAPTCHA_SECRET = mustEnv('RECAPTCHA_SECRET');
 
@@ -179,6 +209,8 @@ export async function sendContactForm(data: {
       smsConsent: hasPhone ? data.smsConsent : false,
       smsDisclosureShown: hasPhone ? data.smsDisclosureShown : false,
       smsConsentAt,
+      attribution: parsed.data.attribution,
+      formName: data.formName,
     });
 
     return { success: 'Estimate request sent successfully.' };
@@ -192,14 +224,12 @@ async function isDuplicateEntry(data: { email: string; workType: string }) {
   if (!data.email) return false;
 
   try {
-    const keyFilePath = path.join(process.cwd(), 'google-service-account.json');
-    const keyFile = await fs.readFile(keyFilePath, 'utf-8');
-    const credentials = JSON.parse(keyFile);
+    const credentials = await getGoogleCredentials();
     const sheets = await getGoogleSheetsClient(credentials);
 
     const spreadsheetId = mustEnv('GOOGLE_SHEET_ID');
     const sheetName = 'BellhouseMessages';
-    const range = `${sheetName}!A:N`;
+    const range = `${sheetName}!A:Z`;
 
     const sheetData = await sheets.spreadsheets.values.get({
       spreadsheetId,
@@ -230,14 +260,12 @@ export async function saveToGoogleSheets(data: ContactData) {
       return;
     }
 
-    const keyFilePath = path.join(process.cwd(), 'google-service-account.json');
-    const keyFile = await fs.readFile(keyFilePath, 'utf-8');
-    const credentials = JSON.parse(keyFile);
+    const credentials = await getGoogleCredentials();
     const sheets = await getGoogleSheetsClient(credentials);
 
     const spreadsheetId = GOOGLE_SHEET_ID;
     const sheetName = 'BellhouseMessages';
-    const range = `${sheetName}!A:N`;
+    const range = `${sheetName}!A:Z`;
 
     const formattedDateTime = new Date().toLocaleString();
     const uploads = data.uploads ?? [];
@@ -251,6 +279,7 @@ export async function saveToGoogleSheets(data: ContactData) {
       .map((upload) => upload.cleanStorageKey)
       .filter(Boolean)
       .join(', ');
+    const attribution = data.attribution ?? {};
 
     const values = [
       [
@@ -268,6 +297,21 @@ export async function saveToGoogleSheets(data: ContactData) {
         uploadedFileNames,
         uploadStatuses,
         cleanStorageKeys,
+        attribution.utmSource || '',
+        attribution.utmMedium || '',
+        attribution.utmCampaign || '',
+        attribution.utmContent || '',
+        attribution.utmTerm || '',
+        attribution.gclid || '',
+        attribution.gbraid || '',
+        attribution.wbraid || '',
+        attribution.initialLandingPage || '',
+        attribution.currentPage || '',
+        attribution.referrer || '',
+        attribution.initialTimestamp || '',
+        attribution.requestedService || '',
+        attribution.fbclid || '',
+        attribution.msclkid || '',
       ],
     ];
 
@@ -307,6 +351,7 @@ export async function sendServiceHeroForm(data: {
   honeypot?: string;
   smsConsent: boolean;
   smsDisclosureShown: boolean;
+  attribution?: LeadAttribution;
 }) {
   const RECAPTCHA_SECRET = mustEnv('RECAPTCHA_SECRET');
 
@@ -315,8 +360,18 @@ export async function sendServiceHeroForm(data: {
     return { error: parsed.error.errors[0]?.message || 'Invalid form submission.' };
   }
 
-  if (data.honeypot?.trim()) {
-    return { error: 'Suspicious activity detected.' };
+  const message = data.location?.trim()
+    ? `Project location: ${data.location.trim()}\n\nQuick quote request from service page hero form.`
+    : 'Quick quote request from service page hero form.';
+
+  if (
+    isSuspiciousContactInput({
+      email: data.email?.trim() || '',
+      message,
+      honeypot: data.honeypot,
+    })
+  ) {
+    return { error: 'Suspicious activity detected. Your request was not sent.' };
   }
 
   const recaptchaVerify = await fetch(
@@ -334,9 +389,6 @@ export async function sendServiceHeroForm(data: {
   }
 
   const smsConsentAt = data.smsConsent ? new Date().toISOString() : undefined;
-  const message = data.location?.trim()
-    ? `Project location: ${data.location.trim()}\n\nQuick quote request from service page hero form.`
-    : 'Quick quote request from service page hero form.';
 
   try {
     await processContactCore(
@@ -349,6 +401,9 @@ export async function sendServiceHeroForm(data: {
         smsConsent: data.smsConsent,
         smsDisclosureShown: data.smsDisclosureShown,
         smsConsentAt,
+        formName: 'service-hero',
+        location: data.location?.trim() || undefined,
+        attribution: parsed.data.attribution,
       },
       { skipCustomerEmail: true },
     );

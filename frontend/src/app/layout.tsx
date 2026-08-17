@@ -1,9 +1,10 @@
 import '../styles/main.scss';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Open_Sans, Oswald } from 'next/font/google';
 import schema from '../data/schema.json';
 import Script from 'next/script';
 import LayoutHome from './components/layoutsWeb/layoutHome';
+import AttributionTracker from './components/tracking/AttributionTracker';
 import GoogleTrackingScripts from './components/tracking/GoogleTrackingScripts';
 import TrackingClickEvents from './components/tracking/TrackingClickEvents';
 
@@ -24,6 +25,10 @@ const oswald = Oswald({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://bellhouseexcavating.ca'),
+};
+
+export const viewport: Viewport = {
+  themeColor: '#272727',
 };
 
 export default function RootLayout({
@@ -57,6 +62,7 @@ export default function RootLayout({
         />
 
         <LayoutHome>{children}</LayoutHome>
+        <AttributionTracker />
         <GoogleTrackingScripts />
         <TrackingClickEvents />
       </body>

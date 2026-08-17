@@ -1,0 +1,419 @@
+{
+  "id": 15,
+  "slug": "farm-building-pad-excavation",
+  "title": "Farm Building Pad Excavation",
+  "navTitle": "Farm Building Pad Excavation",
+  "contactService": "Farm Building Pad Excavation",
+  "meta": {
+    "title": "Farm Building Pad Excavation Ontario | Bellhouse",
+    "description": "Farm building pad excavation for barns, shops, grain bins, and agricultural buildings across Brant County. Graded, drained, and compacted."
+  },
+  "card": {
+    "title": "Farm Building Pad Excavation",
+    "description": "Building pad excavation and subgrade preparation for barns, shops, grain bins, and agricultural structures.",
+    "image": "/assets/services/foundation-excavation/barn-shop-foundation-subgrade-laser-level-floor-concrete.webp",
+    "alt": "Farm building pad subgrade prepared for concrete floor work in Brant County"
+  },
+  "hero": {
+    "eyebrow": "Farm building pads",
+    "heading": "Farm Building Pad Excavation in Brant County & Ontario",
+    "summary": "A building pad that settles, heaves, or drains poorly causes problems from day one. Bellhouse Excavating excavates and prepares building pads for agricultural structures — barns, shops, coveralls, grain bins, and equipment storage — across Brant County and Ontario.",
+    "actions": [
+      { "label": "Request Pad Quote", "href": "/contact", "variant": "primary" },
+      { "label": "For Builders & Contractors", "href": "/contractors", "variant": "secondary" }
+    ],
+    "emphasis": "high",
+    "image": "/assets/services/foundation-excavation/barn-shop-foundation-subgrade-laser-level-floor-concrete.webp",
+    "alt": "Barn and shop foundation subgrade being prepared with laser level for concrete floor work",
+    "sideForm": true,
+    "proofBar": [
+      { "icon": "map-pin", "title": "Local to Brantford", "subtitle": "& Brant County" },
+      { "icon": "calendar-check", "title": "Since 1982", "subtitle": "Owner-operated" },
+      { "icon": "truck", "title": "Agricultural scale", "subtitle": "Grain bins to large barns" },
+      { "icon": "check-square", "title": "Pad-ready handoff", "subtitle": "Graded, drained, compacted" },
+      { "icon": "shield-check", "title": "Licensed & insured", "subtitle": "Fully covered" }
+    ]
+  },
+  "sections": [
+    {
+      "type": "intro",
+      "tone": "light",
+      "eyebrow": "Who it's for",
+      "heading": "Building Pad Excavation for Agricultural Structures",
+      "body": "Bellhouse Excavating provides building pad excavation and subgrade preparation for agricultural structures across Brant County and Brantford. Whether the project is a new barn, a farm shop, a coverall structure, a grain bin pad, or equipment storage, the pad needs to be excavated to the right depth, properly drained, and compacted so the structure sits on a stable, long-lasting base.\n\nFarm building pads take loads that residential foundations rarely see — heavy equipment driving onto the slab, grain weight on bin pads, livestock traffic, and seasonal moisture changes. A pad that settles unevenly, holds water against the slab edge, or was built on unstripped topsoil creates problems that are expensive to fix after the structure is up. Bellhouse handles the excavation, topsoil strip, subgrade preparation, granular base, drainage grading, and compaction so the pad is ready for the concrete contractor or building erector.",
+      "audience": [
+        { "icon": "tractor", "label": "Farm operations" },
+        { "icon": "blueprint", "label": "Agricultural builders" },
+        { "icon": "house-line", "label": "Rural property owners" },
+        { "icon": "cube", "label": "Grain storage operators" }
+      ]
+    },
+    {
+      "type": "projectFit",
+      "tone": "dark",
+      "heading": "Farm Building Pad Projects Bellhouse Handles",
+      "subheading": "Best fit for agricultural building pad work where the subgrade, drainage, and compaction need to support real farm loads for the long term.",
+      "cards": [
+        {
+          "title": "Barn pads, coverall pads, and equipment storage buildings",
+          "body": "A strong fit when a new barn, coverall, or equipment storage building needs a properly excavated and graded pad. The pad is sized to the building footprint with drainage grading around the perimeter and subgrade compaction matched to the expected loads.",
+          "tags": ["Barn pads", "Coverall structures", "Equipment storage"],
+          "outcome": "A level, well-drained pad ready for the concrete contractor or building erector without additional excavation or subgrade correction."
+        },
+        {
+          "title": "Grain bin pads and concrete ring walls",
+          "body": "Useful when grain bin pads need to be excavated and prepared to handle the concentrated weight of a loaded bin. The pad is excavated to the required depth, subgrade is compacted, and granular base is placed and levelled for the concrete ring wall or slab.",
+          "tags": ["Grain bin pads", "Ring wall prep", "Bin site preparation"],
+          "outcome": "The pad is excavated and prepared to handle the full weight of a loaded grain bin without settlement or drainage problems."
+        },
+        {
+          "title": "Farm shop and implement storage pads",
+          "body": "A practical fit when a farm shop, implement shed, or cold storage building needs a pad excavated and prepared. The pad accounts for equipment driving onto the slab, door clearances, and drainage around the building perimeter.",
+          "tags": ["Farm shop pads", "Implement storage", "Workshop pads"],
+          "outcome": "The pad is graded for equipment access and drainage so the shop floor stays dry and the building performs as designed."
+        },
+        {
+          "title": "Pad expansions or additions to existing farm facilities",
+          "body": "A strong fit when an existing farm operation needs a pad added adjacent to existing buildings — a new storage bay, an equipment shelter extension, or an additional grain bin. The new pad ties into existing grades and drainage.",
+          "tags": ["Pad expansion", "Building additions", "Facility growth"],
+          "outcome": "The new pad integrates with existing site grades and drainage instead of creating conflicts with the existing buildings."
+        }
+      ]
+    },
+    {
+      "type": "scope",
+      "tone": "light",
+      "eyebrow": "What Bellhouse handles",
+      "heading": "Farm Building Pad Excavation Includes",
+      "subheading": "Complete pad excavation and subgrade preparation for agricultural buildings where the loads, drainage, and site conditions require proper planning and equipment.",
+      "items": [
+        { "title": "Site Layout & Pad Footprint Marking", "body": "The pad location is confirmed based on building plans, setbacks, access requirements, and drainage flow before any excavation begins." },
+        { "title": "Topsoil Strip & Stockpile", "body": "Topsoil is stripped from the full pad footprint and approach areas, then stockpiled on site for later use around the finished building." },
+        { "title": "Excavation to Required Depth", "body": "The pad area is excavated to the depth specified by the building plans or engineer, with the subgrade cut clean and level." },
+        { "title": "Subgrade Preparation & Compaction", "body": "The exposed subgrade is evaluated, soft spots are addressed, and the surface is compacted to provide a stable base for the granular material and slab." },
+        { "title": "Granular Base Supply & Placement", "body": "Granular A or specified base material is delivered, placed in lifts, and compacted to the required depth across the full pad area." },
+        { "title": "Drainage Grading Around the Pad Perimeter", "body": "The ground around the pad is graded to direct surface water away from the building and slab edge. Swales or drainage channels are cut where needed." },
+        { "title": "Finished Pad Ready for Concrete or Structure", "body": "The completed pad is level, compacted, properly drained, and ready for the concrete contractor to form and pour or for the building erector to begin." }
+      ]
+    },
+    {
+      "type": "scope",
+      "tone": "dark",
+      "heading": "Best Fit & Not the Best Fit",
+      "subheading": "Farm building pad excavation works best on agricultural properties with clear equipment access and where the pad needs to support real farm loads.",
+      "items": [
+        {
+          "title": "Best fit: Barn pads, coverall pads, and equipment storage buildings",
+          "body": "New agricultural buildings on farm properties where the pad needs proper excavation, subgrade compaction, and drainage grading. Properties in Brant County, Paris, St. George, Burford, and surrounding rural areas."
+        },
+        {
+          "title": "Best fit: Grain bin pads and concrete ring walls (pad prep only)",
+          "body": "Grain bin sites where the pad needs to be excavated, compacted, and prepared for the concrete ring wall or slab. Bellhouse handles the earthwork — a concrete contractor handles the pour."
+        },
+        {
+          "title": "Best fit: Farm shop and implement storage pads",
+          "body": "Workshop and storage building pads where equipment will drive onto the slab and the pad needs to handle the loads and drainage properly."
+        },
+        {
+          "title": "Best fit: Agricultural building pads on active farm operations",
+          "body": "Pads being built on working farms where the excavation needs to be coordinated around active farm operations, equipment access, and existing site features."
+        },
+        {
+          "title": "Best fit: Pad expansions or additions to existing farm facilities",
+          "body": "New pads adjacent to existing buildings where the grades, drainage, and access need to tie into the existing site properly."
+        },
+        {
+          "title": "Not the best fit: Residential house foundations in subdivisions",
+          "body": "Standard residential foundation excavation in subdivisions is a different scope — see the foundation excavation service page for residential and builder foundation work."
+        },
+        {
+          "title": "Not the best fit: Concrete flatwork",
+          "body": "Bellhouse prepares the pad — excavation, subgrade, granular base, compaction, and drainage grading. The concrete forming, pouring, and finishing is handled by a concrete contractor after the pad is ready."
+        },
+        {
+          "title": "Not the best fit: Large commercial building foundations over 10,000 sq ft",
+          "body": "Large commercial and industrial building foundations with engineered specifications are a different scope — see the commercial site preparation or foundation excavation service pages."
+        }
+      ]
+    },
+    {
+      "type": "reviews",
+      "tone": "light",
+      "eyebrow": "Testimonials",
+      "heading": "What customers say about Bellhouse",
+      "subheading": "Feedback from local homeowners, builders, and job-site customers Bellhouse has worked with.",
+      "limit": 3
+    },
+    {
+      "type": "pricingFactors",
+      "tone": "dark",
+      "eyebrow": "What affects price",
+      "heading": "Farm building pad cost depends on pad size, depth, and site conditions",
+      "subheading": "A useful quote depends on the pad footprint, topsoil depth, subgrade condition, drainage requirements, and the depth of granular base specified.",
+      "tiers": [
+        { "name": "Simpler", "eg": "Small equipment shelter pad on a cleared site with good subgrade", "position": "low" },
+        { "name": "Typical", "eg": "Barn or shop pad with topsoil strip, excavation, granular base, and drainage grading", "position": "mid" },
+        { "name": "Complex", "eg": "Large barn pad or multiple grain bin pads with deep excavation, soft subgrade, and extensive drainage", "position": "high" }
+      ],
+      "rangeNote": "Most farm building pad projects fall in the middle range. Bellhouse quotes after reviewing the pad size, building plans, and site conditions.",
+      "factors": [
+        {
+          "title": "Pad size and footprint",
+          "body": "A larger pad means more area to strip, excavate, compact, and surface. A 30x40 shop pad is a different scope than an 80x200 barn pad."
+        },
+        {
+          "title": "Topsoil depth",
+          "body": "Deeper topsoil means more material to strip and stockpile before the subgrade is exposed. Farm properties in Brant County can have anywhere from six inches to two feet of topsoil."
+        },
+        {
+          "title": "Subgrade conditions",
+          "body": "A solid clay subgrade compacts well and is straightforward. Soft spots, organic material, or wet ground may need to be excavated and replaced with imported granular before the pad base can be built."
+        },
+        {
+          "title": "Drainage requirements",
+          "body": "Pads on flat ground or in low areas need more drainage grading, swale construction, or culvert work to keep water away from the building and slab edge."
+        },
+        {
+          "title": "Granular base depth",
+          "body": "The depth of Granular A or specified base material depends on the building loads and the engineer's specification. Grain bin pads and heavy-equipment shop pads typically need a deeper base than light storage buildings."
+        }
+      ],
+      "aside": {
+        "label": "Get a real number",
+        "heading": "Building plans and site photos help Bellhouse quote the pad accurately",
+        "body": "Instead of estimating from pad size alone.",
+        "action": { "label": "Request Pad Quote", "href": "/contact" },
+        "phone": { "label": "519-752-8500", "href": "tel:5197528500" }
+      }
+    },
+    {
+      "type": "jobsiteProof",
+      "tone": "light",
+      "eyebrow": "Farm building pad work",
+      "heading": "A building pad is only as good as the subgrade and drainage underneath it.",
+      "body": "Farm building pad excavation needs more than scraping the ground flat. Bellhouse strips the topsoil cleanly, evaluates the subgrade, compacts properly, places granular base in lifts, and grades the perimeter for drainage so the finished pad performs under the loads the building will carry — whether that is a loaded grain bin, a tractor driving onto the shop slab, or livestock traffic in a barn.",
+      "image": {
+        "src": "/assets/services/driveways-laneways/skid-steer-final-grading-gravel-driveway-farm-shop.webp",
+        "alt": "Skid steer final grading a granular base at a farm shop building pad site"
+      },
+      "caption": "Pad work is planned around subgrade, compaction, granular depth, and drainage around the building perimeter."
+    },
+    {
+      "type": "outcomes",
+      "tone": "dark",
+      "eyebrow": "Site outcomes",
+      "heading": "What the Finished Building Pad Should Be Ready For",
+      "subheading": "The goal is a pad that is level, compacted, properly drained, and ready for the concrete contractor or building erector to start without additional excavation.",
+      "stats": [
+        { "label": "Since 1982", "body": "Over four decades of agricultural site work across Brant County" },
+        { "label": "Own equipment", "body": "Excavators, skid steers, compactors, and trucks for every pad condition" },
+        { "label": "5.0 on Google", "body": "Rated by homeowners, builders, and contractors" },
+        { "label": "Licensed & insured", "body": "Full coverage on every job" }
+      ],
+      "items": [
+        { "title": "A stable, level pad surface", "body": "The granular base is placed in lifts, compacted, and finished level so the concrete contractor can form and pour without fighting grade problems." },
+        { "title": "Drainage that protects the slab edge", "body": "The ground around the pad perimeter is graded to direct water away from the building and slab edge instead of pooling against the structure." },
+        { "title": "A pad built for the actual building loads", "body": "The subgrade preparation and granular base depth are matched to the loads the structure will carry — grain weight, equipment traffic, or livestock use." }
+      ]
+    },
+    {
+      "type": "problemsPrevented",
+      "tone": "light",
+      "heading": "What Proper Building Pad Preparation Prevents",
+      "subheading": "Building pads that are rushed or poorly prepared create problems that show up after the concrete is poured and the structure is built.",
+      "items": [
+        {
+          "problem": "A slab that cracks and settles unevenly because topsoil was left under the pad or the subgrade was never compacted.",
+          "solution": "Bellhouse strips topsoil cleanly from the full pad footprint and compacts the subgrade before any granular base is placed."
+        },
+        {
+          "problem": "Water pooling against the slab edge and seeping under the building because the surrounding grade was never shaped for drainage.",
+          "solution": "The pad perimeter is graded to direct surface water away from the building. Swales or drainage channels are cut where the site drainage requires it."
+        },
+        {
+          "problem": "A grain bin pad that settles under load because the subgrade and granular base were not built for the concentrated weight of a full bin.",
+          "solution": "Grain bin pads are excavated deeper and compacted more aggressively than standard building pads. The base depth and compaction are matched to the bin size and expected grain weight."
+        }
+      ]
+    },
+    {
+      "type": "equipment",
+      "tone": "dark",
+      "heading": "Equipment Used for Farm Building Pad Excavation",
+      "subheading": "Equipment sized for agricultural building pad work — from small shop pads to large barn foundations.",
+      "items": [
+        {
+          "name": "CAT Excavator",
+          "body": "Used for topsoil stripping, pad excavation, drainage shaping, and material loading. Sized to the pad for efficient handling of the excavation and granular placement.",
+          "image": { "src": "/assets/services/cat-excavator-digging-in-aggregates-pile.webp", "alt": "CAT excavator working on farm building pad excavation in Brant County" }
+        },
+        {
+          "name": "Skid Steer",
+          "body": "Used for fine grading, granular spreading, tight-access work around existing buildings, and final pad surface levelling before concrete.",
+          "image": { "src": "/assets/services/bellhouse-skid-steer-equipment-illustration.webp", "alt": "Skid steer fine grading a farm building pad surface" }
+        },
+        {
+          "name": "Plate Compactor",
+          "body": "Used for compacting granular base in lifts across the pad area. Proper compaction prevents settlement and ensures a stable base for the concrete slab.",
+          "image": { "src": "/assets/services/bellhouse-plate-compactor-excavation-compaction-tool.webp", "alt": "Plate compactor used for building pad compaction on a farm site" }
+        },
+        {
+          "name": "Tri-Axle Dump Trucks",
+          "body": "Used for delivering Granular A and base material to the pad site and hauling away excess topsoil or excavated material.",
+          "image": { "src": "/assets/services/dump-truck-hauling/triaxle-dump-truck-gravel-hauling-brant-county.webp", "alt": "Bellhouse tri-axle dump truck delivering granular base for farm building pad" }
+        }
+      ]
+    },
+    {
+      "type": "process",
+      "tone": "light",
+      "heading": "How Farm Building Pad Excavation Works",
+      "subheading": "Clear steps from site layout to finished pad — planned around the building plans, subgrade, and the loads the structure will carry.",
+      "image": {
+        "src": "/assets/services/bellhouse-laser-level-gps-rover-precision-layout-tools.webp",
+        "alt": "Bellhouse laser level and GPS rover used for precision building pad layout"
+      },
+      "caption": "Pad layout and elevation are confirmed with precision tools before excavation begins.",
+      "steps": [
+        { "title": "Site layout and pad footprint confirmation", "body": "The pad location, building footprint, and finished elevation are confirmed based on building plans, setbacks, and drainage requirements." },
+        { "title": "Topsoil strip and subgrade evaluation", "body": "Topsoil is stripped from the pad area and stockpiled. The subgrade is evaluated for soft spots, moisture, and compaction suitability." },
+        { "title": "Excavation, compaction, and granular base", "body": "The pad is excavated to the required depth, subgrade is compacted, and granular base is placed in lifts and compacted to specification." },
+        { "title": "Drainage grading and pad handoff", "body": "The pad perimeter is graded for drainage, the finished pad surface is checked for level, and the site is handed off ready for concrete or structure erection." }
+      ]
+    },
+    {
+      "type": "contractorCta",
+      "tone": "dark",
+      "eyebrow": "For farm operations and agricultural builders",
+      "heading": "Need a building pad excavated for a barn, shop, or grain bin?",
+      "body": "If your farm operation needs a building pad excavated and prepared for a new structure, Bellhouse can review the building plans, site conditions, and access to return a scope and quote for the pad work.",
+      "image": {
+        "src": "/assets/finished-garage-foundation-excavation-backfilled-for-slab.webp",
+        "alt": "Finished building pad backfilled and prepared for slab work"
+      },
+      "caption": "Building pad work is coordinated so the pad is ready when the concrete contractor or building erector arrives.",
+      "actions": [
+        { "label": "Send Project Details", "href": "/contractors#contractor-form", "variant": "primary" },
+        { "label": "Call 519-752-8500", "href": "tel:5197528500", "variant": "secondary" }
+      ]
+    },
+    {
+      "type": "resources",
+      "tone": "light",
+      "eyebrow": "Planning tool",
+      "heading": "Estimating excavation volume for a building pad?",
+      "subheading": "A rough excavation estimate helps clarify the material volume before Bellhouse reviews the pad size, building plans, and site conditions.",
+      "cards": [
+        {
+          "title": "Excavation calculator for building pads",
+          "body": "Estimate rough excavation volume, material to haul, and granular base needed for building pad excavation work.",
+          "href": "/resources/calculators/excavation",
+          "label": "Estimate Excavation Volume"
+        }
+      ],
+      "actions": [{ "label": "View Calculators", "href": "/resources/calculators", "variant": "secondary" }]
+    },
+    {
+      "type": "serviceAreas",
+      "tone": "dark",
+      "heading": "Farm building pad excavation by service area",
+      "body": "Farm building pad excavation services are available across Brant County and surrounding areas — including Brantford, Paris, Cambridge, Woodstock, Simcoe, Tillsonburg, Hamilton, Caledonia, Hagersville, Ancaster, and nearby agricultural communities where barn, shop, and grain bin pads are needed.",
+      "areaSlugs": ["brantford", "paris", "cambridge", "woodstock", "simcoe", "hamilton", "ancaster", "caledonia", "hagersville", "tillsonburg"]
+    },
+    {
+      "type": "faq",
+      "tone": "light",
+      "heading": "Frequently Asked Questions",
+      "items": [
+        {
+          "question": "How deep does a farm building pad need to be excavated?",
+          "answer": "The excavation depth for a farm building pad depends on the topsoil depth, the building engineer's specification, and the type of structure being built. Most farm building pads require the topsoil to be fully stripped — typically six to eighteen inches in Brant County — and then the subgrade is excavated to the depth needed for the specified granular base. A small equipment shelter might need eight inches of granular base while a large barn or grain bin pad might need twelve to eighteen inches or more depending on the loads. Bellhouse reviews the building plans and site conditions to confirm the excavation depth before quoting."
+        },
+        {
+          "question": "What's included in farm building pad preparation?",
+          "answer": "Farm building pad preparation typically includes confirming the pad layout and footprint, stripping topsoil from the full pad area and stockpiling it on site, excavating to the required depth, evaluating and compacting the subgrade, placing granular base material in lifts and compacting each lift, grading the pad perimeter for drainage so water moves away from the building, and leaving the finished pad level and ready for the concrete contractor to form and pour. Bellhouse handles the earthwork scope — the concrete forming, pouring, and finishing is handled by a separate concrete contractor."
+        },
+        {
+          "question": "How much does farm building pad excavation cost in Ontario?",
+          "answer": "Farm building pad excavation cost depends on the pad size, topsoil depth, subgrade conditions, drainage requirements, and the depth of granular base specified. A small shop pad on a site with shallow topsoil and good subgrade is a different scope than a large barn pad with deep topsoil, soft subgrade, and extensive drainage grading. Bellhouse quotes after reviewing the building plans, pad dimensions, and site conditions. Providing the building plans, pad size, and photos of the site helps Bellhouse return an accurate number."
+        },
+        {
+          "question": "Do you do grain bin pads?",
+          "answer": "Yes. Grain bin pad excavation and preparation is a common project for Bellhouse across Brant County and Southern Ontario. Grain bin pads need to handle the concentrated weight of a loaded bin, which means deeper excavation, more aggressive subgrade compaction, and a thicker granular base than a standard building pad. Bellhouse excavates the pad, prepares and compacts the subgrade, places and compacts granular base, and grades the perimeter for drainage. The concrete ring wall or slab is handled by a concrete contractor after the pad is ready."
+        },
+        {
+          "question": "How long does it take to prepare a farm building pad?",
+          "answer": "Most farm building pad preparation projects take one to three days of machine time depending on the pad size, topsoil depth, subgrade conditions, and granular base depth. A small shop pad on a cleared site can be completed in a day. A large barn pad with deep topsoil, soft subgrade, and extensive drainage work may take two to three days. Bellhouse confirms a realistic timeline after reviewing the building plans and site so the concrete contractor or building erector can plan their schedule around the pad completion."
+        }
+      ]
+    },
+    {
+      "type": "relatedServices",
+      "tone": "dark",
+      "eyebrow": "Related services",
+      "heading": "Related excavation, grading, and site services",
+      "serviceSlugs": ["foundation-excavation", "site-preparation-land-grading", "dirt-gravel-delivery", "farm-land-grading-leveling", "farm-fence-row-clearing"]
+    },
+    {
+      "type": "finalCta",
+      "tone": "light",
+      "heading": "Ready to Get Your Farm Building Pad Prepared?",
+      "body": "Send the building plans, pad size, site location, and what structure is going on the pad. Bellhouse will return a scope and quote based on the actual site conditions.",
+      "bullets": [
+        "No obligation — free project review",
+        "Bellhouse replies with real numbers",
+        "Local crew, local knowledge"
+      ],
+      "form": true,
+      "actions": [
+        { "label": "Request Pad Quote", "href": "/contact", "variant": "primary" },
+        { "label": "Send Project Details", "href": "/contractors#contractor-form", "variant": "secondary" }
+      ],
+      "navGroups": [
+        {
+          "label": "Other services",
+          "icon": "wrench",
+          "links": [
+            { "label": "Foundation Excavation", "href": "/services/foundation-excavation", "icon": "caret-right" },
+            { "label": "Site Prep & Grading", "href": "/services/site-preparation-land-grading", "icon": "caret-right" },
+            { "label": "Dirt & Gravel Delivery", "href": "/services/dirt-gravel-delivery", "icon": "caret-right" },
+            { "label": "Farm Laneway Construction", "href": "/services/farm-laneway-rural-driveway", "icon": "caret-right" },
+            { "label": "Contractor Support", "href": "/contractors", "icon": "caret-right" }
+          ]
+        },
+        {
+          "label": "Service areas",
+          "icon": "map-pin",
+          "links": [
+            { "label": "Brantford", "href": "/service-areas/brantford", "icon": "map-pin" },
+            { "label": "Brant County", "href": "/service-areas/brantford", "icon": "map-pin" },
+            { "label": "Paris", "href": "/service-areas/paris", "icon": "map-pin" },
+            { "label": "Cambridge", "href": "/service-areas/cambridge", "icon": "map-pin" },
+            { "label": "Woodstock", "href": "/service-areas/woodstock", "icon": "map-pin" },
+            { "label": "Hamilton", "href": "/service-areas/hamilton", "icon": "map-pin" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "banner",
+      "tone": "dark",
+      "eyebrow": "Farm building pads done right",
+      "heading": "Barn, shop, or grain bin pad? Bellhouse is local, equipped, and taking jobs now.",
+      "body": "From topsoil stripping and subgrade compaction to granular base placement and drainage grading — Bellhouse prepares building pads that hold up under real farm loads across Brant County and Southern Ontario.",
+      "bullets": [
+        "Topsoil strip, excavation, compaction, and granular base handled together",
+        "Own excavators, skid steers, compactors, and trucks — no subcontracting",
+        "Brantford, Paris, Cambridge, Woodstock, and surrounding Brant County"
+      ],
+      "image": {
+        "src": "/assets/services/concrete-floor-site-prep.webp",
+        "alt": "Building pad site preparation ready for concrete floor work"
+      },
+      "actions": [
+        { "label": "Request Pad Quote", "href": "/contact", "variant": "primary" },
+        { "label": "Call 519-752-8500", "href": "tel:5197528500", "variant": "secondary" }
+      ]
+    }
+  ]
+}

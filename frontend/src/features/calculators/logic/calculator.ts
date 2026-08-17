@@ -109,14 +109,6 @@ export function resolveActiveCompactionPercentage(
     return undefined;
   }
 
-  if (input.workflowKind === 'compaction-based') {
-    return input.compactionPercentage ?? material.defaultCompactionPercentage;
-  }
-
-  if (!input.useAdvanced) {
-    return undefined;
-  }
-
   return input.compactionPercentage ?? material.defaultCompactionPercentage;
 }
 
@@ -161,16 +153,12 @@ export function calculateProjectMaterial(
       break;
     case 'compaction-based':
       adjustedLooseMaterialVolumeM3 = rawProjectVolumeM3;
-      adjustedMaterialVolumeM3 = input.useAdvanced
-        ? rawProjectVolumeM3 * compactionMultiplier
-        : rawProjectVolumeM3;
+      adjustedMaterialVolumeM3 = rawProjectVolumeM3 * compactionMultiplier;
       break;
     case 'swell-then-compaction':
     default:
       adjustedLooseMaterialVolumeM3 = rawProjectVolumeM3 * swellFactor;
-      adjustedMaterialVolumeM3 = input.useAdvanced
-        ? adjustedLooseMaterialVolumeM3 * compactionMultiplier
-        : adjustedLooseMaterialVolumeM3;
+      adjustedMaterialVolumeM3 = adjustedLooseMaterialVolumeM3 * compactionMultiplier;
       break;
   }
 

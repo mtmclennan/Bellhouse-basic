@@ -28,7 +28,7 @@
     "sideForm": true,
     "proofBar": [
       { "icon": "map-pin", "title": "Local to Brantford", "subtitle": "& Brant County" },
-      { "icon": "calendar-check", "title": "Since 1982", "subtitle": "Family operation" },
+      { "icon": "calendar-check", "title": "Since 1982", "subtitle": "Owner-operated" },
       { "icon": "truck", "title": "Own equipment", "subtitle": "Trucks & excavators" },
       { "icon": "star", "title": "5.0 on Google", "subtitle": "Local reviews" },
       { "icon": "shield-check", "title": "Licensed & insured", "subtitle": "Fully covered" }
@@ -40,7 +40,7 @@
       "tone": "light",
       "eyebrow": "Who it's for",
       "heading": "Start Your Project with Proper Site Preparation",
-      "body": "Bellhouse Excavating handles full site preparation across Brantford, Brant County, and surrounding areas — including stripping topsoil, rough grading, land shaping, and excavation for foundations, roads, and drainage. Proper site prep sets your project up for long-term success.",
+      "body": "Bellhouse Excavating handles site preparation across Brantford, Brant County, and surrounding areas, including stripping topsoil, rough grading, land shaping, and excavation for foundations, access routes, site servicing components, and drainage. Proper site prep sets your project up for long-term success.",
       "audience": [
         { "icon": "blueprint", "label": "Builders & developers" },
         { "icon": "hard-hat", "label": "Contractors" },
@@ -90,20 +90,20 @@
     {
       "type": "scope",
       "tone": "dark",
-      "heading": "Best Fit & Not the Best Fit",
-      "subheading": "Site preparation works best where the lot has room for equipment staging, truck access, and material movement before the next phase of construction begins.",
+      "heading": "Project Fit & Site Review",
+      "subheading": "Site preparation is strongest where equipment staging, truck access, and material movement can be planned before the next construction phase. Fit is decided by scope and access, not by property type.",
       "items": [
-        {
-          "title": "Best fit: Rural, farm, and large-lot new builds",
-          "body": "Properties with room for equipment access, truck staging, and material stockpiling. Barn sites, shop pads, rural residential builds, and acreage lots across Brant County are common work."
-        },
         {
           "title": "Best fit: Builder and contractor site prep",
           "body": "Projects where stripping, grading, pad prep, and drainage all need to stay coordinated with the build schedule instead of being split across separate crews."
         },
         {
-          "title": "Not the best fit: Small urban lots with no staging room",
-          "body": "Site prep with large equipment works best on lots with room for trucks, material staging, and machine movement. Tight city lots with restricted access are generally outside Bellhouse's scope."
+          "title": "Especially strong fit: Rural, farm, and large-lot new builds",
+          "body": "Properties with room for equipment access, truck staging, and material stockpiling. Barn sites, shop pads, rural residential builds, and acreage lots across Brant County are where Bellhouse's fleet works most efficiently."
+        },
+        {
+          "title": "Reviewed case by case: Tight access sites",
+          "body": "Smaller residential or in-town sites may need different equipment, trucking, or spoil-handling plans. If access, utility clearance, and staging can be managed, Bellhouse can review the scope before deciding the practical approach."
         },
         {
           "title": "Not the best fit: Landscaping and finish work",
@@ -317,7 +317,7 @@
       "tone": "dark",
       "eyebrow": "Related services",
       "heading": "Related excavation, grading, and haul support",
-      "serviceSlugs": ["foundation-excavation", "driveway-parking-lot-preparation", "dump-truck-rental", "dirt-gravel-delivery", "volvo-a35-off-road-dump-truck-rental"]
+      "serviceSlugs": ["foundation-excavation", "driveway-parking-lot-preparation", "dump-truck-rental", "dirt-gravel-delivery", "volvo-a35-off-road-dump-truck-rental", "farm-land-grading-leveling"]
     },
     {
       "type": "faq",

@@ -144,6 +144,7 @@ export default function LandingQuoteForm({
   const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '';
   const turnstileRef = useRef<HTMLDivElement>(null);
   const honeypotRef = useRef<HTMLInputElement>(null);
+  const formStartedRef = useRef(false);
   const [values, setValues] = useState<LandingFormValues>(() =>
     getInitialValues(form.fields),
   );
@@ -178,6 +179,16 @@ export default function LandingQuoteForm({
       const next = { ...current };
       delete next[name];
       return next;
+    });
+  }
+
+  function trackFormStart() {
+    if (formStartedRef.current) return;
+    formStartedRef.current = true;
+    trackEvent('form_start', {
+      form_variant: 'landing',
+      page: pageSlug,
+      service: serviceKey,
     });
   }
 
@@ -513,6 +524,8 @@ export default function LandingQuoteForm({
           data-conversion-page={pageSlug}
           data-service-key={serviceKey}
           noValidate
+          onChange={trackFormStart}
+          onFocus={trackFormStart}
           onSubmit={handleSubmit}
         >
           <input

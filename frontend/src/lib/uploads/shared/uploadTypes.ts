@@ -1,3 +1,5 @@
+import type { LeadAttribution } from '@/lib/tracking/attribution';
+
 export type QuoteUploadDetectedMime =
   | 'image/jpeg'
   | 'image/png'
@@ -17,6 +19,8 @@ export type QuoteUploadContactFields = {
   message: string;
   smsConsent?: boolean;
   smsDisclosureShown?: boolean;
+  attribution?: LeadAttribution;
+  formName?: string;
 };
 
 export type QuoteUploadClientFile = {

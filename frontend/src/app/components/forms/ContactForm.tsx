@@ -53,28 +53,32 @@ const REQUIRED_SMS_DISCLOSURE = [
 ] as const;
 
 export const DEFAULT_WORK_TYPE_OPTIONS = [
-  'Other',
   'General Excavation / Site Work',
   'Foundation Excavation',
-  'Site Grading',
+  'Site Preparation',
+  'Site Grading / Land Grading',
   'Land Clearing',
   'Demolition',
+  'Farm / Rural Property Work',
+  'Farm Land Grading / Leveling',
+  'Fence-Row Clearing',
+  'Pond Work',
+  'Laneway / Driveway',
+  'Parking Lot',
   'Retaining Walls',
   'Utility Trenches',
   'Erosion Control',
   'Drainage',
-  'Dump Truck Services',
+  'Trucking / Material Delivery',
   'Equipment Hauling',
   'Gravel Delivery',
   'Sand Delivery',
   'Topsoil Delivery',
   'Fill Dirt',
-  'Driveway',
-  'Parking Lot',
+  'Other / Not Sure',
 ];
 
 const CONTRACTOR_WORK_TYPE_OPTIONS = [
-  'Other',
   'Excavation and site prep',
   'Grading and pad prep',
   'Foundation excavation and trenching',
@@ -84,6 +88,7 @@ const CONTRACTOR_WORK_TYPE_OPTIONS = [
   'Additional equipment with operator',
   'Volvo A35 off-road truck support',
   'Multi-scope project support',
+  'Other / Not Sure',
 ] as const;
 
 const CONTRACTOR_TIMELINE_OPTIONS = [
@@ -153,6 +158,7 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
     const sectionRef = useRef<HTMLDivElement>(null);
     const turnstileRef = useRef<HTMLDivElement>(null);
     const honeypotRef = useRef<HTMLInputElement>(null);
+    const formStartedRef = useRef(false);
     const isContractor = variant === 'contractor';
     const copy = VARIANT_COPY[variant];
 
@@ -259,7 +265,7 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
       setSelectedWorkType(value);
       setWorkTypeTouched(true);
 
-      if (value !== 'Other') {
+      if (value !== 'Other / Not Sure') {
         setCustomWorkType('');
       }
     };
@@ -285,7 +291,16 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
       `${selectedWorkType}${customWorkType ? ` ${customWorkType}` : ''}`.trim();
     const workTypeIsValid =
       selectedWorkType.length > 0 &&
-      (selectedWorkType !== 'Other' || customWorkType.trim().length > 0);
+      (selectedWorkType !== 'Other / Not Sure' || customWorkType.trim().length > 0);
+
+    const trackFormStart = () => {
+      if (formStartedRef.current) return;
+      formStartedRef.current = true;
+      trackEvent('form_start', {
+        form_variant: variant,
+        service: workTypeFinal,
+      });
+    };
 
     const compiledMessage = isContractor
       ? [
@@ -422,6 +437,8 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
         className={`${classes.contactForm} ${
           embedded ? classes.embeddedForm : ''
         }`.trim()}
+        onChange={trackFormStart}
+        onFocus={trackFormStart}
         onSubmit={onSubmitHandler}
       >
         <div className={classes.formHeader}>
@@ -446,10 +463,14 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
                   onBlur={companyNameBlurHandler}
                   value={enteredCompanyName}
                   autoComplete="organization"
+                  aria-invalid={companyNameHasError ? true : undefined}
+                  aria-describedby={
+                    companyNameHasError ? 'companyName-error' : undefined
+                  }
                   required
                 />
                 {companyNameHasError ? (
-                  <p className={classes.fieldError}>
+                  <p className={classes.fieldError} id="companyName-error">
                     Please provide your company name
                   </p>
                 ) : null}
@@ -467,10 +488,12 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
                   onBlur={nameBlurHandler}
                   value={enteredName}
                   autoComplete="name"
+                  aria-invalid={nameHasError ? true : undefined}
+                  aria-describedby={nameHasError ? 'name-error' : undefined}
                   required
                 />
                 {nameHasError ? (
-                  <p className={classes.fieldError}>
+                  <p className={classes.fieldError} id="name-error">
                     Please provide a contact name
                   </p>
                 ) : null}
@@ -490,10 +513,14 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
                   onBlur={emailBlurHandler}
                   value={enteredEmail}
                   autoComplete="email"
+                  aria-invalid={emailInputHasError ? true : undefined}
+                  aria-describedby={
+                    emailInputHasError ? 'email-error' : undefined
+                  }
                   required
                 />
                 {emailInputHasError ? (
-                  <p className={classes.fieldError}>
+                  <p className={classes.fieldError} id="email-error">
                     Please provide a valid email
                   </p>
                 ) : null}
@@ -528,10 +555,14 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
                   value={enteredProjectLocation}
                   autoComplete="street-address"
                   placeholder="City, municipality, or site address"
+                  aria-invalid={projectLocationHasError ? true : undefined}
+                  aria-describedby={
+                    projectLocationHasError ? 'projectLocation-error' : undefined
+                  }
                   required
                 />
                 {projectLocationHasError ? (
-                  <p className={classes.fieldError}>
+                  <p className={classes.fieldError} id="projectLocation-error">
                     Please provide the project location
                   </p>
                 ) : null}
@@ -569,10 +600,14 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
                 onBlur={nameBlurHandler}
                 value={enteredName}
                 autoComplete="name"
+                aria-invalid={nameHasError ? true : undefined}
+                aria-describedby={nameHasError ? 'name-error' : undefined}
                 required
               />
               {nameHasError ? (
-                <p className={classes.fieldError}>Please provide your name</p>
+                <p className={classes.fieldError} id="name-error">
+                  Please provide your name
+                </p>
               ) : null}
             </div>
           </div>
@@ -591,10 +626,12 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
               onBlur={emailBlurHandler}
               value={enteredEmail}
               autoComplete="email"
+              aria-invalid={emailInputHasError ? true : undefined}
+              aria-describedby={emailInputHasError ? 'email-error' : undefined}
               required
             />
             {emailInputHasError ? (
-              <p className={classes.fieldError}>
+              <p className={classes.fieldError} id="email-error">
                 Please provide a valid email
               </p>
             ) : null}
@@ -628,6 +665,12 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
             onBlur={() => setWorkTypeTouched(true)}
             value={selectedWorkType}
             suppressHydrationWarning
+            aria-invalid={
+              !workTypeIsValid && workTypeTouched ? true : undefined
+            }
+            aria-describedby={
+              !workTypeIsValid && workTypeTouched ? 'workType-error' : undefined
+            }
             required
           >
             <option value="">{copy.workTypePlaceholder}</option>
@@ -638,11 +681,13 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
             ))}
           </select>
           {!workTypeIsValid && workTypeTouched ? (
-            <p className={classes.fieldError}>Please select a scope</p>
+            <p className={classes.fieldError} id="workType-error">
+              Please select a scope
+            </p>
           ) : null}
         </div>
 
-        {selectedWorkType === 'Other' ? (
+        {selectedWorkType === 'Other / Not Sure' ? (
           <div className={classes.inputWrapper}>
             <label htmlFor="customWorkType">{copy.customWorkTypeLabel}</label>
             <input
@@ -680,10 +725,12 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
             onBlur={messageBlurHandler}
             value={enteredMessage}
             placeholder={copy.messagePlaceholder}
+            aria-invalid={messageHasError ? true : undefined}
+            aria-describedby={messageHasError ? 'message-error' : undefined}
             required
           />
           {messageHasError ? (
-            <p className={classes.errorTextArea}>
+            <p className={classes.errorTextArea} id="message-error">
               Please complete this required field
             </p>
           ) : null}
@@ -771,10 +818,11 @@ const ContactForm = forwardRef<ContactFormRef, ContactFormProps>(
         {status ? (
           <p
             className={`${classes.status} ${
-              status.startsWith('Error')
-                ? classes.statusError
-                : classes.statusSuccess
+              status.startsWith('Success')
+                ? classes.statusSuccess
+                : classes.statusError
             }`}
+            role={status.startsWith('Success') ? 'status' : 'alert'}
           >
             {status}
           </p>

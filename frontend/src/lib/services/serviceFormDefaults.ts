@@ -7,7 +7,7 @@ const heroFormDefaults: Record<string, string> = {
   'site-preparation-land-grading': 'Site prep & grading',
   'driveway-parking-lot-preparation': 'Site prep & grading',
   'dump-truck-rental': 'Dirt & gravel delivery',
-  'heavy-equipment-hauling': 'Other / not sure',
+  'heavy-equipment-hauling': 'Equipment hauling / float service',
   'volvo-a35-off-road-dump-truck-rental': 'Other / not sure',
   'house-barn-demolition': 'Demolition',
   'pond-digging-cleaning': 'Other / not sure',
@@ -17,13 +17,13 @@ const contactFormDefaults: Record<string, string> = {
   'foundation-excavation': 'Foundation Excavation',
   'land-grading-drainage': 'Drainage',
   'dirt-gravel-delivery': 'Gravel Delivery',
-  'site-preparation-land-grading': 'Site Grading',
-  'driveway-parking-lot-preparation': 'Driveway',
-  'dump-truck-rental': 'Dump Truck Services',
+  'site-preparation-land-grading': 'Site Grading / Land Grading',
+  'driveway-parking-lot-preparation': 'Laneway / Driveway',
+  'dump-truck-rental': 'Trucking / Material Delivery',
   'heavy-equipment-hauling': 'Equipment Hauling',
   'volvo-a35-off-road-dump-truck-rental': 'Equipment Hauling',
   'house-barn-demolition': 'Demolition',
-  'pond-digging-cleaning': 'Other',
+  'pond-digging-cleaning': 'Pond Work',
 };
 
 export function getHeroFormWorkType(slug: string): string | undefined {

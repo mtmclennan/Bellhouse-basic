@@ -455,6 +455,21 @@ const baseServiceAreaPages = {
           },
         ],
       },
+      {
+        title: 'In-town Paris homes and additions',
+        description:
+          'Standard in-town Paris projects — additions, garages, driveway prep, and drainage fixes — are handled the same way, reviewed for equipment and truck access rather than lot type.',
+        links: [
+          {
+            label: 'foundation excavation',
+            href: '/services/foundation-excavation',
+          },
+          {
+            label: 'land grading and drainage',
+            href: '/services/land-grading-drainage',
+          },
+        ],
+      },
     ],
     sectionHeadings: {
       intro: 'Paris site work where grade, drainage, and access affect the whole build',

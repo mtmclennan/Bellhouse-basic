@@ -1,0 +1,414 @@
+{
+  "id": 12,
+  "slug": "farm-laneway-rural-driveway",
+  "title": "Farm Laneway & Rural Driveway Construction",
+  "navTitle": "Farm Laneway Construction",
+  "contactService": "Farm Laneway & Rural Driveway Construction",
+  "meta": {
+    "title": "Farm Laneway Construction Brant County | Bellhouse",
+    "description": "Farm laneway and rural driveway construction across Brant County. Gravel lanes, access roads, grading, drainage, and washout repair."
+  },
+  "card": {
+    "title": "Farm Laneway & Rural Driveway Construction",
+    "description": "Gravel laneway construction, regrading, culvert work, and washout repair for farms and rural properties.",
+    "image": "/assets/services/driveways-laneways/long-gravel-driveway-brant-gravel.webp",
+    "alt": "Gravel farm laneway under construction on a rural property in Brant County"
+  },
+  "hero": {
+    "eyebrow": "Farm laneways & rural driveways",
+    "heading": "Farm Laneway & Rural Driveway Construction in Brant County",
+    "summary": "A laneway that washes out or turns to mud every spring isn't just inconvenient — it stops equipment when you need it most. Bellhouse Excavating builds and grades farm laneways, rural access roads, and gravel driveways across Brant County that hold up to heavy equipment, wet seasons, and daily farm traffic.",
+    "actions": [
+      { "label": "Request Laneway Quote", "href": "/contact", "variant": "primary" },
+      { "label": "For Builders & Contractors", "href": "/contractors", "variant": "secondary" }
+    ],
+    "emphasis": "high",
+    "image": "/assets/services/cat315D-excavator-farm-laneway.webp",
+    "alt": "Farm laneway construction and gravel placement on a rural property in Brant County",
+    "sideForm": true,
+    "proofBar": [
+      { "icon": "map-pin", "title": "Local to Brantford", "subtitle": "& Brant County" },
+      { "icon": "calendar-check", "title": "Since 1982", "subtitle": "Owner-operated" },
+      { "icon": "truck", "title": "Volvo A35", "subtitle": "Handles soft ground" },
+      { "icon": "path", "title": "Built for loads", "subtitle": "Equipment-grade laneways" },
+      { "icon": "shield-check", "title": "Licensed & insured", "subtitle": "Fully covered" }
+    ]
+  },
+  "sections": [
+    {
+      "type": "intro",
+      "tone": "light",
+      "eyebrow": "Who it's for",
+      "heading": "Farm Laneways and Rural Driveways Built for Real Use",
+      "body": "Bellhouse Excavating provides farm laneway construction and rural driveway building services across Brant County and Brantford. Whether the project is a new laneway from a concession road to a barn, a full regrade of an existing farm access road, or a washout repair after a wet spring, the work is planned around drainage, subgrade, traffic load, and the equipment that needs to use the lane.\n\nFarm laneways across Southern Ontario take punishment that suburban driveways never see — loaded grain trucks, tractors with implements, manure spreaders, and combines. A laneway built without proper crown, drainage, or base material breaks down fast. Bellhouse builds laneways that account for the weight, the water, and the soil underneath so the surface holds up season after season.",
+      "audience": [
+        { "icon": "tractor", "label": "Farm operations" },
+        { "icon": "house-line", "label": "Rural property owners" },
+        { "icon": "map-trifold", "label": "Acreage properties" },
+        { "icon": "tree", "label": "Hobby farms" }
+      ]
+    },
+    {
+      "type": "projectFit",
+      "tone": "dark",
+      "heading": "Laneway Projects Bellhouse Handles",
+      "subheading": "Best fit for farm and rural laneway work that needs proper base, drainage planning, and equipment that can handle soft or wet ground conditions.",
+      "cards": [
+        {
+          "title": "New farm laneways and access roads",
+          "body": "A strong fit when a new laneway needs to be built from a road allowance to a barn, shop, grain storage, or field access point. The work includes clearing, subgrade prep, granular base, crown shaping, and culvert installation where drainage requires it.",
+          "tags": ["New laneway construction", "Farm access roads", "Field access lanes"],
+          "outcome": "A laneway built to carry equipment loads with proper drainage and base material from the start."
+        },
+        {
+          "title": "Laneway regrading and resurfacing",
+          "body": "Useful when an existing farm laneway has lost its crown, developed ruts, or broken down from years of heavy use. Regrading restores the surface profile and drainage so water sheds off the lane instead of pooling in the wheel tracks.",
+          "tags": ["Laneway regrading", "Surface restoration", "Crown reshaping"],
+          "outcome": "Restores a driveable, well-drained surface without a full rebuild where the subgrade is still sound."
+        },
+        {
+          "title": "Washout repair and stabilization",
+          "body": "A practical fit when spring runoff, heavy rain, or poor drainage has washed out sections of a laneway. Bellhouse repairs the damaged area, addresses the drainage cause, and stabilizes the lane so the same section doesn't fail again next season.",
+          "tags": ["Washout repair", "Spring damage", "Erosion control"],
+          "outcome": "The damaged section is rebuilt with proper drainage and base so it holds through the next wet season."
+        },
+        {
+          "title": "Culvert installation and replacement",
+          "body": "A strong fit when a laneway crosses a ditch, swale, or drainage path and needs a culvert installed, replaced, or upsized. Bellhouse handles the excavation, pipe placement, backfill, and surface restoration as part of the laneway scope.",
+          "tags": ["Culvert installation", "Culvert replacement", "Ditch crossings"],
+          "outcome": "Water moves under the laneway instead of over it, and the surface stays intact through wet conditions."
+        }
+      ]
+    },
+    {
+      "type": "scope",
+      "tone": "light",
+      "eyebrow": "What Bellhouse handles",
+      "heading": "Farm Laneway & Rural Driveway Construction Includes",
+      "subheading": "Complete laneway construction and repair services for farm and rural properties where equipment access, drainage, and load capacity matter.",
+      "items": [
+        { "title": "Site Assessment & Drainage Planning", "body": "The laneway route is reviewed for grade, drainage flow, soft spots, and culvert needs before any equipment arrives on site." },
+        { "title": "Existing Laneway Regrading & Reshaping", "body": "Laneways that have lost crown, developed ruts, or settled unevenly are reshaped and regraded to restore proper water runoff and a smooth driving surface." },
+        { "title": "Culvert Installation & Replacement", "body": "Culverts are installed or replaced where the laneway crosses ditches, swales, or drainage paths. Pipe is sized for the expected water volume and buried to proper depth." },
+        { "title": "Granular Base Supply & Placement", "body": "Crusher run, Granular A, or Granular B base material is supplied and placed to the required depth. The Volvo A35 handles delivery and placement on soft or wet ground where standard trucks can't reach." },
+        { "title": "Crown Shaping for Water Runoff", "body": "The laneway surface is crowned so water sheds to the edges instead of pooling in the wheel tracks. Proper crown prevents soft spots and extends the life of the gravel surface." },
+        { "title": "New Laneway Construction", "body": "New laneways are built from the road allowance to the destination — barn, shop, grain bin, or field access point. The route is planned for grade, drainage, and turning radius for farm equipment." },
+        { "title": "Washout Repair & Stabilization", "body": "Washed-out sections are excavated, the drainage cause is addressed, and the lane is rebuilt with proper base and grading to prevent repeat failure." }
+      ]
+    },
+    {
+      "type": "scope",
+      "tone": "dark",
+      "heading": "Project Fit & Scope Review",
+      "subheading": "Farm laneway and rural driveway construction works best on properties with room for equipment, clear drainage needs, and lanes that carry real weight. Non-farm gravel driveways are still reviewed when the access, drainage, and base work fit the equipment.",
+      "items": [
+        {
+          "title": "Best fit: Farm laneways and access roads on agricultural properties",
+          "body": "New or existing laneways on working farms where the lane needs to carry tractors, grain trucks, combines, and daily farm traffic. Properties in Brant County, Paris, St. George, Burford, and surrounding rural areas."
+        },
+        {
+          "title": "Best fit: Rural driveways on acreage or estate lots",
+          "body": "Longer gravel driveways on rural properties where proper base, crown, and drainage are needed to keep the surface stable through all four seasons."
+        },
+        {
+          "title": "Best fit: Gravel laneways needing regrading, new base, or culvert work",
+          "body": "Existing laneways that have broken down, lost their crown, or need culverts replaced. Regrading and resurfacing are often more cost-effective than a full rebuild when the subgrade is still in reasonable condition."
+        },
+        {
+          "title": "Best fit: Washout repair after wet seasons or heavy rains",
+          "body": "Laneways damaged by spring runoff, storm events, or chronic poor drainage. Bellhouse repairs the surface and addresses the drainage issue so the same section doesn't wash out again."
+        },
+        {
+          "title": "Best fit: New laneway construction for farm buildings, grain storage, or field access",
+          "body": "Building a lane from scratch to reach a new barn, shop, grain bin pad, or field entrance. The route is planned around grade, drainage, and the turning radius needed for equipment."
+        },
+        {
+          "title": "Not the best fit: Paved residential subdivision driveways",
+          "body": "Bellhouse focuses on gravel and granular surface laneways for rural and farm properties. Asphalt paving for subdivision driveways is coordinated through a trusted paving sub when needed, but is not a core Bellhouse service."
+        },
+        {
+          "title": "Reviewed case by case: Driveways needing municipal approvals",
+          "body": "Driveways in town that involve municipal curb cuts, sidewalk restoration, or boulevard grading may require other trades or approvals. Gravel driveway reconstruction, drainage correction, or base work can still be reviewed where access and scope make sense."
+        },
+        {
+          "title": "Reviewed case by case: Short driveways",
+          "body": "Short residential driveways may not always justify Bellhouse's equipment and mobilization costs, but access, drainage failure, base reconstruction, or nearby coordinated work can change the fit. Send details and Bellhouse can give a practical answer."
+        }
+      ]
+    },
+    {
+      "type": "reviews",
+      "tone": "light",
+      "eyebrow": "Testimonials",
+      "heading": "What customers say about Bellhouse",
+      "subheading": "Feedback from local homeowners, builders, and job-site customers Bellhouse has worked with.",
+      "limit": 3
+    },
+    {
+      "type": "pricingFactors",
+      "tone": "dark",
+      "eyebrow": "What affects price",
+      "heading": "Farm laneway cost depends on length, base condition, and drainage",
+      "subheading": "A useful quote depends on laneway length, existing subgrade condition, culvert needs, drainage complexity, and the depth of gravel required.",
+      "tiers": [
+        { "name": "Simpler", "eg": "Regrading and crown reshaping on an existing laneway with solid subgrade", "position": "low" },
+        { "name": "Typical", "eg": "New gravel laneway with culvert, base material, and crown shaping", "position": "mid" },
+        { "name": "Complex", "eg": "Long laneway on soft ground, multiple culverts, heavy base material, and drainage work", "position": "high" }
+      ],
+      "rangeNote": "Most farm laneway projects fall in the middle range. Bellhouse quotes after reviewing the lane condition, length, drainage, and what the finished laneway needs to handle.",
+      "factors": [
+        {
+          "title": "Laneway length",
+          "body": "Longer laneways require more material, more machine time, and more grading passes. A 200-foot lane is a different scope than a half-mile farm access road."
+        },
+        {
+          "title": "Existing subgrade condition",
+          "body": "A lane with a solid existing base may only need regrading and fresh gravel. A lane on soft clay or organic soil may need excavation and a full granular base built up from the subgrade."
+        },
+        {
+          "title": "Culvert needs",
+          "body": "Each culvert installation adds excavation, pipe, backfill, and surface restoration. Replacing an undersized culvert with a larger pipe costs more than a simple regrade."
+        },
+        {
+          "title": "Drainage complexity",
+          "body": "Laneways that cross low ground, run along ditches, or need swale construction require more grading and shaping to keep water off the driving surface."
+        },
+        {
+          "title": "Gravel depth required",
+          "body": "Equipment-grade laneways need a thicker granular base than a lightly used residential driveway. The depth of material drives both the supply cost and placement time."
+        }
+      ],
+      "aside": {
+        "label": "Get a real number",
+        "heading": "Photos of the existing lane and a description of the traffic help Bellhouse quote accurately",
+        "body": "Instead of guessing from length alone.",
+        "action": { "label": "Request Laneway Quote", "href": "/contact" },
+        "phone": { "label": "519-752-8500", "href": "tel:5197528500" }
+      }
+    },
+    {
+      "type": "jobsiteProof",
+      "tone": "light",
+      "eyebrow": "Laneway construction work",
+      "heading": "A farm laneway is only as good as the drainage and base underneath it.",
+      "body": "Farm laneway construction needs more than dumping gravel on dirt. Bellhouse reviews the subgrade, plans the drainage, shapes the crown, and builds the base so the surface holds up under loaded trucks, tractors, and seasonal weather across Brant County and Southern Ontario.",
+      "image": {
+        "src": "/assets/services/driveways-laneways/farm-laneway-base-dozer.webp",
+        "alt": "Dozer working on farm laneway base material placement in Brant County"
+      },
+      "caption": "Laneway work is planned around drainage, crown shape, base depth, and the equipment that uses the lane."
+    },
+    {
+      "type": "outcomes",
+      "tone": "dark",
+      "eyebrow": "Site outcomes",
+      "heading": "What the Finished Laneway Should Be Ready For",
+      "subheading": "The goal is a laneway that handles weight, sheds water, and stays driveable through all four seasons.",
+      "stats": [
+        { "label": "Since 1982", "body": "Over four decades of rural site work across Brant County" },
+        { "label": "Own equipment", "body": "Excavators, graders, A35, and trucks for every laneway condition" },
+        { "label": "5.0 on Google", "body": "Rated by homeowners, builders, and contractors" },
+        { "label": "Licensed & insured", "body": "Full coverage on every job" }
+      ],
+      "items": [
+        { "title": "A stable, well-drained driving surface", "body": "Proper crown and drainage keep water off the lane and prevent soft spots from developing in the wheel tracks." },
+        { "title": "A laneway that handles equipment loads", "body": "The base material and depth are matched to the traffic — grain trucks, tractors with implements, and seasonal equipment access." },
+        { "title": "Culverts and drainage that work", "body": "Water crosses under the laneway through properly sized culverts instead of washing over the surface and eroding the gravel." }
+      ]
+    },
+    {
+      "type": "problemsPrevented",
+      "tone": "light",
+      "heading": "What Proper Laneway Construction Helps Prevent",
+      "subheading": "Farm laneways break down when drainage, base material, and crown shaping are treated as optional instead of essential.",
+      "items": [
+        {
+          "problem": "A flat laneway without crown holds water in the wheel tracks and turns to mud under load.",
+          "solution": "Bellhouse shapes proper crown into the lane surface so water sheds to the edges instead of sitting on the driving surface."
+        },
+        {
+          "problem": "Washouts happen in the same spot every year because the drainage path was never properly handled.",
+          "solution": "The drainage cause is identified and addressed — culvert installed, ditch reshaped, or swale cut — before the surface is rebuilt."
+        },
+        {
+          "problem": "Gravel placed on soft subgrade pushes down into the mud within one season and the lane is back to square one.",
+          "solution": "Subgrade is assessed before material is placed. Where the ground is soft, it is excavated and built up with proper base before the surface gravel goes down."
+        }
+      ]
+    },
+    {
+      "type": "equipment",
+      "tone": "dark",
+      "heading": "Equipment Used for Farm Laneway Construction",
+      "subheading": "The right equipment for building and grading laneways on rural and farm properties — including soft ground and wet conditions.",
+      "items": [
+        {
+          "name": "Volvo A35 Articulated Dump Truck",
+          "body": "The A35 handles material delivery and placement on soft or wet ground where standard highway trucks would get stuck. Essential for farm laneway work during wet seasons or on properties with poor access.",
+          "image": { "src": "/assets/services/bellhouse-offroad-dump-truck-equipment-illustration.webp", "alt": "Volvo A35 articulated dump truck delivering gravel on soft ground for farm laneway construction" }
+        },
+        {
+          "name": "Excavator",
+          "body": "Used for culvert installation, ditch shaping, subgrade excavation, and laneway prep work. Sized to the job for efficient material handling.",
+          "image": { "src": "/assets/services/cat-excavator-digging-in-aggregates-pile.webp", "alt": "CAT excavator preparing subgrade for farm laneway construction in Brant County" }
+        },
+        {
+          "name": "Tri-Axle Dump Trucks",
+          "body": "Used for delivering granular base material, crusher run, and gravel where site conditions allow standard truck access.",
+          "image": { "src": "/assets/services/dump-truck-hauling/triaxle-dump-truck-gravel-hauling-brant-county.webp", "alt": "Bellhouse tri-axle dump truck hauling gravel for rural laneway construction" }
+        }
+      ]
+    },
+    {
+      "type": "process",
+      "tone": "light",
+      "heading": "How Farm Laneway Construction Works",
+      "subheading": "Clear steps from site review to finished laneway — planned around drainage, base, and the loads the lane needs to carry.",
+      "image": {
+        "src": "/assets/services/driveways-laneways/excavator-topsoil-removal-laneway-base.webp",
+        "alt": "Excavator preparing laneway base by removing topsoil on a rural property"
+      },
+      "caption": "Laneway construction is planned around subgrade, drainage, crown shape, and the equipment that uses the lane daily.",
+      "steps": [
+        { "title": "Site review and drainage assessment", "body": "Bellhouse reviews the lane route, subgrade condition, drainage flow, culvert needs, and the type of traffic the lane will carry." },
+        { "title": "Subgrade preparation", "body": "Soft spots are excavated, ditches are shaped, and culverts are installed before any surface material goes down." },
+        { "title": "Base material supply and placement", "body": "Granular base is delivered and placed to the required depth. The A35 handles placement on soft ground where standard trucks can't reach." },
+        { "title": "Crown shaping and final grading", "body": "The lane surface is crowned for water runoff, edges are dressed, and the finished grade is set for the traffic the laneway will handle." }
+      ]
+    },
+    {
+      "type": "contractorCta",
+      "tone": "dark",
+      "eyebrow": "For farm operations and rural property owners",
+      "heading": "Need a laneway built, regraded, or repaired?",
+      "body": "If your farm laneway washes out every spring, your access road can't handle equipment traffic, or you need a new lane built to a barn or grain storage, Bellhouse can review the route, drainage, subgrade, and material needs.",
+      "image": {
+        "src": "/assets/services/driveways-laneways/finished-driveway-base-preparation-brantford.webp",
+        "alt": "Finished driveway base preparation on a rural property near Brantford"
+      },
+      "caption": "Laneway work can be coordinated with drainage, culverts, grading, and material delivery.",
+      "actions": [
+        { "label": "Send Project Details", "href": "/contractors#contractor-form", "variant": "primary" },
+        { "label": "Call 519-752-8500", "href": "tel:5197528500", "variant": "secondary" }
+      ]
+    },
+    {
+      "type": "resources",
+      "tone": "light",
+      "eyebrow": "Planning tool",
+      "heading": "Estimating gravel volume for laneway construction?",
+      "subheading": "A rough gravel estimate helps clarify material needs before Bellhouse reviews the lane route, subgrade, and drainage conditions.",
+      "cards": [
+        {
+          "title": "Gravel calculator for laneway construction",
+          "body": "Estimate rough gravel volume and truck loads for laneway construction, resurfacing, or base material placement.",
+          "href": "/resources/calculators/gravel",
+          "label": "Estimate Gravel Volume"
+        }
+      ],
+      "actions": [{ "label": "View Calculators", "href": "/resources/calculators", "variant": "secondary" }]
+    },
+    {
+      "type": "serviceAreas",
+      "tone": "dark",
+      "heading": "Farm laneway construction by service area",
+      "body": "Farm laneway and rural driveway construction services are available across Brant County and surrounding areas — including Brantford, Paris, Cambridge, Woodstock, Simcoe, Tillsonburg, Hamilton, Caledonia, Hagersville, Ancaster, and nearby rural communities where farm access and equipment-grade laneways are needed.",
+      "areaSlugs": ["brantford", "paris", "cambridge", "woodstock", "simcoe", "hamilton", "ancaster", "caledonia", "hagersville", "tillsonburg"]
+    },
+    {
+      "type": "faq",
+      "tone": "light",
+      "heading": "Frequently Asked Questions",
+      "items": [
+        {
+          "question": "How much does farm laneway construction cost in Brant County?",
+          "answer": "Farm laneway construction cost depends on the length of the lane, the condition of the existing subgrade, whether culverts are needed, how much drainage work is required, and the depth of granular base material specified. A short regrade on an existing lane with solid base is a different scope than building a half-mile lane from scratch on soft clay ground. Bellhouse quotes after reviewing the lane route, soil conditions, drainage needs, and what the finished lane needs to carry. Providing photos of the existing lane and a description of the traffic — grain trucks, tractors, daily vehicle use — helps Bellhouse return an accurate number."
+        },
+        {
+          "question": "How do you fix a farm laneway that washes out every spring?",
+          "answer": "A laneway that washes out every spring usually has a drainage problem, not just a gravel problem. The water is either crossing the lane where a culvert should be, running down the lane because the crown is flat or reversed, or pooling because there is no ditch or swale to carry it away. Bellhouse starts by identifying where the water is coming from and why it's damaging the lane. The fix typically involves installing or upsizing a culvert, reshaping the crown so water sheds to the edges, cutting or cleaning a ditch alongside the lane, and rebuilding the damaged section with proper base material. Addressing the drainage cause means the repair holds instead of washing out again next spring."
+        },
+        {
+          "question": "What's the right gravel for a farm laneway in Ontario?",
+          "answer": "Most farm laneways in Ontario are built with a Granular A or Granular B base layer topped with crusher run or three-quarter-inch clear stone depending on the expected traffic and surface preference. Granular A compacts well and provides a solid structural base for heavy loads. Crusher run — a blend of crushed stone and fines — packs tight and creates a smooth, firm driving surface that holds up to equipment traffic. The depth of material depends on the subgrade condition and the weight the lane needs to carry. Bellhouse recommends the right material and depth based on the soil, the drainage, and what equipment uses the lane."
+        },
+        {
+          "question": "How wide should a farm laneway be for tractor and equipment access?",
+          "answer": "A farm laneway that needs to handle tractors, combines, grain trucks, and two-way traffic is typically built at sixteen to twenty feet wide. A single-lane access road for lighter traffic can work at twelve to fourteen feet with pullouts where needed. The right width depends on the equipment that uses the lane, whether two vehicles need to pass, and what turns or corners the lane has. Bellhouse reviews the route and the equipment dimensions during site assessment so the finished lane width works for the actual farm operation instead of being too narrow for the machinery that uses it daily."
+        },
+        {
+          "question": "Do you install culverts as part of laneway construction?",
+          "answer": "Yes. Culvert installation is a standard part of Bellhouse laneway construction where the lane crosses a ditch, drainage swale, or low area that carries water. Bellhouse handles the excavation, pipe sizing, placement, backfill, and surface restoration as part of the laneway scope. Culvert size is matched to the expected water volume — an undersized culvert plugs and overflows, which is the leading cause of laneway washouts at ditch crossings. Replacement of old, rusted, or crushed culverts is also handled as part of laneway regrading and repair projects."
+        }
+      ]
+    },
+    {
+      "type": "relatedServices",
+      "tone": "dark",
+      "eyebrow": "Related services",
+      "heading": "Related excavation, grading, and hauling services",
+      "serviceSlugs": ["site-preparation-land-grading", "land-grading-drainage", "dirt-gravel-delivery", "driveway-parking-lot-preparation", "farm-land-grading-leveling", "farm-fence-row-clearing"]
+    },
+    {
+      "type": "finalCta",
+      "tone": "light",
+      "heading": "Ready to Build or Fix Your Farm Laneway?",
+      "body": "Send the location, lane length, current condition, and what equipment uses the lane. Bellhouse will return a quote based on the actual site — not a per-foot formula.",
+      "bullets": [
+        "No obligation — free project review",
+        "Bellhouse replies with real numbers",
+        "Local crew, local knowledge"
+      ],
+      "form": true,
+      "actions": [
+        { "label": "Request Laneway Quote", "href": "/contact", "variant": "primary" },
+        { "label": "Send Project Details", "href": "/contractors#contractor-form", "variant": "secondary" }
+      ],
+      "navGroups": [
+        {
+          "label": "Other services",
+          "icon": "wrench",
+          "links": [
+            { "label": "Site Prep & Grading", "href": "/services/site-preparation-land-grading", "icon": "caret-right" },
+            { "label": "Land Grading & Drainage", "href": "/services/land-grading-drainage", "icon": "caret-right" },
+            { "label": "Dirt & Gravel Delivery", "href": "/services/dirt-gravel-delivery", "icon": "caret-right" },
+            { "label": "Driveway & Parking Lot Prep", "href": "/services/driveway-parking-lot-preparation", "icon": "caret-right" },
+            { "label": "Contractor Support", "href": "/contractors", "icon": "caret-right" }
+          ]
+        },
+        {
+          "label": "Service areas",
+          "icon": "map-pin",
+          "links": [
+            { "label": "Brantford", "href": "/service-areas/brantford", "icon": "map-pin" },
+            { "label": "Brant County", "href": "/service-areas/brantford", "icon": "map-pin" },
+            { "label": "Paris", "href": "/service-areas/paris", "icon": "map-pin" },
+            { "label": "Cambridge", "href": "/service-areas/cambridge", "icon": "map-pin" },
+            { "label": "Woodstock", "href": "/service-areas/woodstock", "icon": "map-pin" },
+            { "label": "Hamilton", "href": "/service-areas/hamilton", "icon": "map-pin" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "banner",
+      "tone": "dark",
+      "eyebrow": "Farm laneways built right",
+      "heading": "Laneway washing out? Mud season shutting down access? Bellhouse is local, equipped, and taking jobs now.",
+      "body": "From new farm laneway construction and access road grading to culvert installation, washout repair, and gravel resurfacing — Bellhouse builds laneways that hold up to real farm traffic across Brant County. Own equipment, own trucks, and the A35 for soft-ground delivery when standard trucks can't get in.",
+      "bullets": [
+        "New laneways, regrading, culverts, and washout repair handled together",
+        "Volvo A35 for soft-ground gravel delivery — no waiting for dry conditions",
+        "Brantford, Paris, Cambridge, Woodstock, and surrounding Brant County"
+      ],
+      "image": {
+        "src": "/assets/services/driveways-laneways/brantwood-farms-driveway-laneway-excavation-brantford.webp",
+        "alt": "Farm laneway construction with gravel base being placed on a rural Brant County property"
+      },
+      "actions": [
+        { "label": "Request Laneway Quote", "href": "/contact", "variant": "primary" },
+        { "label": "Call 519-752-8500", "href": "tel:5197528500", "variant": "secondary" }
+      ]
+    }
+  ]
+}

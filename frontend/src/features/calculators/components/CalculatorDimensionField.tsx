@@ -12,6 +12,7 @@ type CalculatorDimensionFieldProps = {
 export function CalculatorDimensionField({ field }: CalculatorDimensionFieldProps) {
   const [isTouched, setIsTouched] = useState(false);
   const errorId = useId();
+  const fieldId = useId();
   const isPositive = (value: number | '') =>
     typeof value === 'number' && Number.isFinite(value) && value > 0;
   const hasValidValue =
@@ -39,6 +40,7 @@ export function CalculatorDimensionField({ field }: CalculatorDimensionFieldProp
           onBlurCapture={handleCompoundBlur}
         >
           <input
+            id={fieldId}
             type="number"
             inputMode="decimal"
             min="0"
@@ -82,6 +84,7 @@ export function CalculatorDimensionField({ field }: CalculatorDimensionFieldProp
         >
           <div className={classes.dimensionCompoundSegment}>
             <input
+              id={fieldId}
               type="number"
               inputMode="decimal"
               min="0"
@@ -135,6 +138,7 @@ export function CalculatorDimensionField({ field }: CalculatorDimensionFieldProp
       >
         <div className={classes.dimensionCompoundSegment}>
           <input
+            id={fieldId}
             type="number"
             inputMode="decimal"
             min="0"
@@ -163,7 +167,9 @@ export function CalculatorDimensionField({ field }: CalculatorDimensionFieldProp
         showError ? classes.dimensionCardError : ''
       }`}
     >
-      <span className={classes.dimensionLabel}>{field.label}</span>
+      <label className={classes.dimensionLabel} htmlFor={fieldId}>
+        {field.label}
+      </label>
       {renderInputs()}
       {showError ? (
         <span id={errorId} className={classes.dimensionErrorMessage}>
