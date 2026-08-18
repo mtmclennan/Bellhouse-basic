@@ -620,6 +620,33 @@ const baseServiceAreaPages = {
       description:
         'Bellhouse supports Paris-area projects where excavation, grading, truck hauling, and equipment movement need to stay practical across custom homes, rural properties, and access-heavy site work.',
     },
+    atAGlance: {
+      items: [
+        {
+          kind: 'projects',
+          label: 'Common projects',
+          value:
+            'Rural custom-home starts, long driveways and lanes, pond work, and in-town additions',
+        },
+        {
+          kind: 'audience',
+          label: 'Who this is for',
+          value:
+            'Custom-home builders, contractors, farms, and Paris property owners',
+        },
+        {
+          kind: 'coverage',
+          label: 'Coverage',
+          value: 'Paris and rural Brant County from the Paris base',
+        },
+        {
+          kind: 'quote',
+          label: 'What to send for a quote',
+          value:
+            'Property location, project type, driveway/access route, and rough timing',
+        },
+      ],
+    },
     intro: [
       'Work in and around Paris often starts on rural lots where the grades are uneven, the driveway run is longer, and the building area needs shaping before the site is ready for footings or utilities. On those jobs, drainage, truck access, and where material moves all affect the dig from day one.',
       'Bellhouse handles excavation, site prep, grading, dump truck hauling, material delivery, and equipment floating for Paris jobs where custom-home work, driveway access, and rough grading all need to stay tied together instead of being split across separate crews.',
@@ -683,6 +710,86 @@ const baseServiceAreaPages = {
         ],
       },
     ],
+    localConditions: {
+      intro:
+        'Paris sits at the confluence of the Grand and Nith Rivers, so ground and access conditions can vary a lot from one rural lot to the next.',
+      items: [
+        {
+          kind: 'ground',
+          title: 'Soil & ground conditions',
+          body: 'Ground conditions around Paris vary and may include river-terrace sand and gravel, silt, clay, and glacial till, depending on the lot and its distance from the river valley. That mix affects how the ground cuts, how much it swells once excavated, and how many truckloads a job needs.',
+        },
+        {
+          kind: 'drainage',
+          title: 'Drainage & grade',
+          body: 'Rural Paris lots often have more grade change than an in-town property, with drainage that needs to move water across a larger area instead of straight off a small lot. Grading gets planned around where the property actually sheds water, not just the building envelope.',
+        },
+        {
+          kind: 'access',
+          title: 'Access & material handling',
+          body: 'Longer rural driveways and lane approaches change how equipment and trucks get to the working area. Truck size and stockpile placement get matched to the access route, not assumed from the road frontage alone.',
+        },
+        {
+          kind: 'utilities',
+          title: 'Underground services',
+          body: 'Rural properties can still have septic systems, wells, and buried service lines that are not always mapped. Known service and septic locations get confirmed and a locate request gets placed before the first cut.',
+        },
+      ],
+    },
+    localPermits: {
+      intro:
+        'Paris falls under the County of Brant. These are the approvals that most often apply to excavation, grading, and site work on County of Brant properties.',
+      items: [
+        {
+          title: 'Building Permits',
+          status: 'Required for construction or major alteration',
+          description:
+            'A building permit is required for the construction of a house, addition, or other structure, including new residential builds.',
+          authority: 'County of Brant — Building Division',
+          officialUrl: 'https://www.brant.ca/building-and-renovating/',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'Site Alteration Permit',
+          status: 'May require County approval',
+          description:
+            'Importing or exporting fill, removing topsoil, or altering grade can require a Site Alteration Permit. Projects under 100 cubic metres of fill, work covered by an issued building permit, and minor driveway redos may be exempt — exemptions have their own conditions.',
+          authority: 'County of Brant — Site Alteration Bylaw',
+          officialUrl:
+            'https://www.brant.ca/applications-licences-and-permits/site-alteration-permits/',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'Public Works & Entrance Permits',
+          status: 'Required for work in the road allowance',
+          description:
+            'Constructing or altering an entrance, or doing work within the County road allowance, requires a Public Works Permit before work starts.',
+          authority: 'County of Brant — Public Works',
+          officialUrl:
+            'https://www.brant.ca/applications-licences-and-permits/',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'GRCA-Regulated Areas',
+          status: 'May require GRCA approval',
+          description:
+            'Paris sits at the confluence of two rivers, so work near a watercourse, wetland, or floodplain may fall inside a Grand River Conservation Authority regulated area and need a separate permit.',
+          authority: 'Grand River Conservation Authority',
+          officialUrl:
+            'https://www.grandriver.ca/en/Planning-Development/Apply-for-a-permit.aspx',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'Utility Locates',
+          status: 'Required by law before digging',
+          description:
+            'Ontario law requires a locate request before any excavation. A locate request should be placed at least 5 business days ahead of digging.',
+          authority: 'Ontario One Call',
+          officialUrl: 'https://ontarioonecall.ca/homeowners/',
+          lastVerified: '2026-08',
+        },
+      ],
+    },
     sectionHeadings: {
       intro: 'Paris site work where grade, drainage, and access affect the whole build',
       services:
@@ -889,11 +996,152 @@ const baseServiceAreaPages = {
       description:
         'Bellhouse supports Hamilton jobs that need excavation, truck hauling, material delivery, and machine moves sequenced cleanly across redevelopment, commercial, and logistics-heavy sites.',
     },
+    atAGlance: {
+      items: [
+        {
+          kind: 'projects',
+          label: 'Common projects',
+          value:
+            'Infill foundations, redevelopment site prep, commercial/industrial grading, demolition removals',
+        },
+        {
+          kind: 'audience',
+          label: 'Who this is for',
+          value:
+            'General contractors, developers, and commercial/industrial site managers',
+        },
+        {
+          kind: 'coverage',
+          label: 'Coverage',
+          value: 'Hamilton and surrounding wards from the Paris base',
+        },
+        {
+          kind: 'quote',
+          label: 'What to send for a quote',
+          value:
+            'Site address, scope of work, schedule pressure, and access photos if you have them',
+        },
+      ],
+    },
     intro: [
       'Hamilton excavation work is often tied to redevelopment schedules, active commercial properties, and tighter urban access where delays spread fast. Once the dig starts, haul-out, imported material, and machine timing all have to keep pace with the wider job.',
       'Bellhouse handles excavation, site prep, grading, dump truck hauling, material delivery, and equipment floating for Hamilton work where infill builds, commercial upgrades, industrial yards, and redevelopment parcels need one crew to keep the ground work and truck movement in step.',
       'The practical job is to cut accurately, move spoil out without clogging the site, bring the next load in when the grade is ready, and leave the work area stable for utilities, concrete, paving prep, or the next subcontractor.',
     ],
+    projectTypes: [
+      {
+        title: 'Infill and redevelopment foundations',
+        description:
+          'Foundation digs and removals for infill builds and redevelopment parcels where the next trade is already booked and access windows are short.',
+        links: [
+          { label: 'Foundation excavation', href: '/services/foundation-excavation' },
+        ],
+      },
+      {
+        title: 'Commercial and industrial site prep',
+        description:
+          'Stripping, clearing, and rough grading for commercial and industrial sites that need to stay usable while multiple trades and deliveries cycle through.',
+        links: [
+          { label: 'Site preparation & grading', href: '/services/site-preparation-land-grading' },
+        ],
+      },
+      {
+        title: 'Demolition ahead of redevelopment',
+        description:
+          'Demolition and haul-out for structures being cleared ahead of infill or commercial redevelopment, coordinated with the excavation that follows.',
+        links: [
+          { label: 'House & barn demolition', href: '/services/house-barn-demolition' },
+        ],
+      },
+      {
+        title: 'Truck logistics for active sites',
+        description:
+          'Spoil export and imported material timed against a tighter schedule so haul-out does not become the bottleneck on a redevelopment site.',
+        links: [
+          { label: 'Dump truck rental', href: '/services/dump-truck-rental' },
+        ],
+      },
+    ],
+    localConditions: {
+      intro:
+        'Hamilton ground and access conditions vary widely between older urban lots, redevelopment parcels, and commercial or industrial sites.',
+      items: [
+        {
+          kind: 'ground',
+          title: 'Soil & ground conditions',
+          body: 'Ground conditions across Hamilton vary and may include clay, fill, and mixed native material, especially on older urban and redevelopment lots that have been built on before. That mix affects how the ground cuts and how much spoil a job produces.',
+        },
+        {
+          kind: 'drainage',
+          title: 'Drainage & grade',
+          body: 'Redevelopment and infill sites often need drainage rebuilt around existing neighbouring properties and municipal storm connections, not just the new building footprint.',
+        },
+        {
+          kind: 'access',
+          title: 'Access & material handling',
+          body: 'Hamilton sites range from tight urban infill lots to larger commercial and industrial yards. Equipment and truck size get matched to the access available, and staging gets planned around a schedule that often has little slack.',
+        },
+        {
+          kind: 'utilities',
+          title: 'Underground services',
+          body: 'Water, sewer, gas, and other utility lines are common on established Hamilton lots and redevelopment parcels. Known service locations get confirmed and a locate request gets placed before the first cut.',
+        },
+      ],
+    },
+    localPermits: {
+      intro:
+        'Hamilton permits and approvals depend on the property and the scope of work. These are the approvals that most often apply to excavation, grading, and site work in the city.',
+      items: [
+        {
+          title: 'Building Permits',
+          status: 'Required for construction or demolition',
+          description:
+            'A building permit is required prior to construction or demolition, submitted through the City online services portal.',
+          authority: 'City of Hamilton — Building Division',
+          officialUrl:
+            'https://www.hamilton.ca/build-invest-grow/construction-renovation/residential-building-renovation/building-permit',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'Site Alteration Permit',
+          status: 'Required to place fill or alter grade',
+          description:
+            'A permit is required before placing or dumping fill, removing fill, or altering the grade of land anywhere in the City of Hamilton.',
+          authority: 'City of Hamilton — Site Alteration By-law',
+          officialUrl:
+            'https://www.hamilton.ca/build-invest-grow/planning-development/planning-applications/site-alteration-permit',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'Right-of-Way / Excavation Permit',
+          status: 'Required for work in the street right-of-way',
+          description:
+            'Excavation, road cuts, or occupying a City street, sidewalk, or right-of-way requires a municipal consent, excavation, or road occupancy permit before work starts.',
+          authority: 'City of Hamilton — Right-of-Way Permits',
+          officialUrl:
+            'https://www.hamilton.ca/build-invest-grow/planning-development/planning-policies-guidelines/right-way-utility-installation',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'HCA-Regulated Areas',
+          status: 'May require HCA approval',
+          description:
+            'Work near a ravine, valley, steep slope, wetland, watercourse, or floodplain may fall inside a Hamilton Conservation Authority regulated area and need a separate permit.',
+          authority: 'Hamilton Conservation Authority',
+          officialUrl: 'https://conservationhamilton.ca/hca-regulation-permits/',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'Utility Locates',
+          status: 'Required by law before digging',
+          description:
+            'Ontario law requires a locate request before any excavation. A locate request should be placed at least 5 business days ahead of digging.',
+          authority: 'Ontario One Call',
+          officialUrl: 'https://ontarioonecall.ca/homeowners/',
+          lastVerified: '2026-08',
+        },
+      ],
+    },
     sectionHeadings: {
       intro: 'Hamilton jobs where schedule pressure and truck logistics matter',
       services:
@@ -1093,11 +1341,153 @@ const baseServiceAreaPages = {
       description:
         'Bellhouse supports Cambridge-area excavation where grading, trucking, material delivery, and equipment movement have to stay coordinated across mixed-use active sites.',
     },
+    atAGlance: {
+      items: [
+        {
+          kind: 'projects',
+          label: 'Common projects',
+          value:
+            'Staged site development, foundation digs, yard grading, and industrial pads',
+        },
+        {
+          kind: 'audience',
+          label: 'Who this is for',
+          value:
+            'General contractors, builders, developers, and facility managers',
+        },
+        {
+          kind: 'coverage',
+          label: 'Coverage',
+          value: 'Cambridge and Waterloo Region from the Paris base',
+        },
+        {
+          kind: 'quote',
+          label: 'What to send for a quote',
+          value:
+            'Site address, current stage of work, access photos if you have them, and rough timing',
+        },
+      ],
+    },
     intro: [
       'Cambridge work often moves through active residential, commercial, and industrial sites where excavation is only one part of a broader flow. Crews, trucks, material deliveries, and machine moves all need to stay in sequence so the site keeps working instead of stalling between phases.',
       'Bellhouse handles excavation, site prep, rough grading, dump truck hauling, material delivery, and equipment floating for Cambridge jobs where imported material, spoil removal, haul routes, and machine timing all have to stay lined up through multiple stages of work.',
       'The practical focus is site flow: get the cut right, keep pads and haul routes usable, move material without bottlenecks, and leave the next crew a site that is ready to keep building.',
     ],
+    projectTypes: [
+      {
+        title: 'Staged residential and infill development',
+        description:
+          'Cambridge builds often move through several stages on the same site, so excavation, haul-out, and imported material need to stay lined up with whichever phase is active.',
+        links: [
+          { label: 'Foundation excavation', href: '/services/foundation-excavation' },
+        ],
+      },
+      {
+        title: 'Commercial and industrial pads',
+        description:
+          'Working pads, yard areas, and haul routes for commercial and industrial sites, shaped so trucks and equipment can keep using them through the build.',
+        links: [
+          { label: 'Site preparation & grading', href: '/services/site-preparation-land-grading' },
+        ],
+      },
+      {
+        title: 'Grading and drainage for active sites',
+        description:
+          'Drainage and grade corrections planned around a site that has to keep functioning for deliveries and crews while the work is underway.',
+        links: [
+          { label: 'Land grading & drainage', href: '/services/land-grading-drainage' },
+        ],
+      },
+      {
+        title: 'Material supply for multi-phase jobs',
+        description:
+          'Aggregate, fill, or gravel delivered while spoil moves out, kept on the same schedule as excavation and grading across a staged build.',
+        links: [
+          { label: 'Dirt & gravel delivery', href: '/services/dirt-gravel-delivery' },
+        ],
+      },
+    ],
+    localConditions: {
+      intro:
+        'Cambridge sits at the confluence of the Grand and Speed Rivers, in an area that includes the Haldimand Clay Plain, so ground and drainage conditions can vary across the city.',
+      items: [
+        {
+          kind: 'ground',
+          title: 'Soil & ground conditions',
+          body: 'Ground conditions across Cambridge vary and may include clay, clay loam, silt, sand, and fill, depending on the site and its distance from the river valleys. That mix affects how the ground cuts, how much it swells once excavated, and how many truckloads a job needs.',
+        },
+        {
+          kind: 'drainage',
+          title: 'Drainage & grade',
+          body: 'Active multi-phase sites need drainage and grading planned so water moves off working pads and haul routes throughout the build, not just at the end once the site is finished.',
+        },
+        {
+          kind: 'access',
+          title: 'Access & material handling',
+          body: 'Cambridge sites range from tighter residential infill to larger commercial and industrial yards. Equipment and truck size get matched to the access available, and stockpile placement gets planned around what the active site can hold.',
+        },
+        {
+          kind: 'utilities',
+          title: 'Underground services',
+          body: 'Water, sewer, gas, and utility lines are common across Cambridge, especially on established residential and commercial properties. Known service locations get confirmed and a locate request gets placed before the first cut.',
+        },
+      ],
+    },
+    localPermits: {
+      intro:
+        'Cambridge permits and approvals depend on the property and the scope of work. These are the approvals that most often apply to excavation, grading, and site work in the city.',
+      items: [
+        {
+          title: 'Building Permits',
+          status: 'Required for construction or demolition',
+          description:
+            'A building permit is required for construction, additions, and demolition, submitted through the City application portal.',
+          authority: 'City of Cambridge — Building Division',
+          officialUrl:
+            'https://www.cambridge.ca/business-building-development/building-planning/building-permits/',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'Site Alteration Permit',
+          status: 'May require municipal approval',
+          description:
+            'Grading, fill placement, or topsoil removal ahead of final approvals can be allowed under the City Site Alteration By-law, applied for through the City application portal.',
+          authority: 'City of Cambridge — Site Alteration By-law',
+          officialUrl:
+            'https://www.cambridge.ca/business-building-development/development-infrastructure/engineering-standards-and-development/',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'Highway Occupancy Permit',
+          status: 'Required for work in the right-of-way',
+          description:
+            'Excavating, trenching, or occupying a City roadway, shoulder, sidewalk, or boulevard requires a Highway Occupancy Permit before work starts.',
+          authority: 'City of Cambridge — Transportation Corridor Management',
+          officialUrl:
+            'https://www.cambridge.ca/resident-services/roads-sidewalks/transportation-corridor-management/',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'GRCA-Regulated Areas',
+          status: 'May require GRCA approval',
+          description:
+            'Cambridge sits at the confluence of the Grand and Speed Rivers, so work near a watercourse, wetland, or floodplain may fall inside a Grand River Conservation Authority regulated area and need a separate permit.',
+          authority: 'Grand River Conservation Authority',
+          officialUrl:
+            'https://www.grandriver.ca/en/Planning-Development/Apply-for-a-permit.aspx',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'Utility Locates',
+          status: 'Required by law before digging',
+          description:
+            'Ontario law requires a locate request before any excavation. A locate request should be placed at least 5 business days ahead of digging.',
+          authority: 'Ontario One Call',
+          officialUrl: 'https://ontarioonecall.ca/homeowners/',
+          lastVerified: '2026-08',
+        },
+      ],
+    },
     sectionHeadings: {
       intro:
         'Site work for active Cambridge jobs that cannot lose flow',
@@ -1312,6 +1702,33 @@ const baseServiceAreaPages = {
       description:
         'Bellhouse handles excavation, grading, hauling, and equipment movement across the region from its Paris base, supporting Dundas work where access, neighbours, and clean truck movement matter from the start.',
     },
+    atAGlance: {
+      items: [
+        {
+          kind: 'projects',
+          label: 'Common projects',
+          value:
+            'Additions, garage foundations, drainage corrections, driveway reconstruction',
+        },
+        {
+          kind: 'audience',
+          label: 'Who this is for',
+          value:
+            'Homeowners, renovation contractors, and builders on older properties',
+        },
+        {
+          kind: 'coverage',
+          label: 'Coverage',
+          value: 'Dundas and nearby Hamilton communities from the Paris base',
+        },
+        {
+          kind: 'quote',
+          label: 'What to send for a quote',
+          value:
+            'Property address, project type, access photos if you have them, and rough timing',
+        },
+      ],
+    },
     intro: [
       'Dundas jobs often happen on older residential properties where the work area is tighter, the driveway is already established, and there is less room to stage spoil, stone, and truck movement without creating problems fast.',
       'That changes the work. Excavation has to stay controlled around existing houses, additions, garages, trees, fences, retaining edges, and neighbouring properties instead of treating the lot like an open site.',
@@ -1371,6 +1788,86 @@ const baseServiceAreaPages = {
         ],
       },
     ],
+    localConditions: {
+      intro:
+        'Dundas sits at the base of the Niagara Escarpment, known locally as the Valley Town, so drainage and access on older lots need extra care.',
+      items: [
+        {
+          kind: 'ground',
+          title: 'Soil & ground conditions',
+          body: 'Ground conditions in Dundas vary and may include clay, fill, and mixed native material typical of older, previously-built lots. That mix affects how the ground cuts and how much spoil a job produces.',
+        },
+        {
+          kind: 'drainage',
+          title: 'Drainage & grade',
+          body: 'Dundas sits low against the escarpment, so runoff from surrounding higher ground can affect how a lot drains. Grading and drainage corrections are planned with where water already moves through the property in mind.',
+        },
+        {
+          kind: 'access',
+          title: 'Access & material handling',
+          body: 'Older Dundas streets, established driveways, and close neighbours leave less room to stage spoil, stone, or trucks. Equipment gets matched to the access available rather than assumed from the lot size.',
+        },
+        {
+          kind: 'utilities',
+          title: 'Underground services',
+          body: 'Water, sewer, gas, and other utility lines are common on older Dundas lots. Known service locations get confirmed and a locate request gets placed before the first cut.',
+        },
+      ],
+    },
+    localPermits: {
+      intro:
+        'Dundas is part of the City of Hamilton. These are the approvals that most often apply to excavation, grading, and site work on Dundas properties.',
+      items: [
+        {
+          title: 'Building Permits',
+          status: 'Required for construction or demolition',
+          description:
+            'A building permit is required prior to construction or demolition, submitted through the City online services portal.',
+          authority: 'City of Hamilton — Building Division',
+          officialUrl:
+            'https://www.hamilton.ca/build-invest-grow/construction-renovation/residential-building-renovation/building-permit',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'Site Alteration Permit',
+          status: 'Required to place fill or alter grade',
+          description:
+            'A permit is required before placing or dumping fill, removing fill, or altering the grade of land anywhere in the City of Hamilton, including Dundas.',
+          authority: 'City of Hamilton — Site Alteration By-law',
+          officialUrl:
+            'https://www.hamilton.ca/build-invest-grow/planning-development/planning-applications/site-alteration-permit',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'Right-of-Way / Excavation Permit',
+          status: 'Required for work in the street right-of-way',
+          description:
+            'Excavation, driveway entrance work, or occupying a City street or right-of-way requires a municipal consent, excavation, or road occupancy permit before work starts.',
+          authority: 'City of Hamilton — Right-of-Way Permits',
+          officialUrl:
+            'https://www.hamilton.ca/build-invest-grow/planning-development/planning-policies-guidelines/right-way-utility-installation',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'HCA-Regulated Areas',
+          status: 'May require HCA approval',
+          description:
+            'Dundas sits against the Niagara Escarpment, so work near a ravine, steep slope, watercourse, or wetland may fall inside a Hamilton Conservation Authority regulated area and need a separate permit.',
+          authority: 'Hamilton Conservation Authority',
+          officialUrl: 'https://conservationhamilton.ca/hca-regulation-permits/',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'Utility Locates',
+          status: 'Required by law before digging',
+          description:
+            'Ontario law requires a locate request before any excavation. A locate request should be placed at least 5 business days ahead of digging.',
+          authority: 'Ontario One Call',
+          officialUrl: 'https://ontarioonecall.ca/homeowners/',
+          lastVerified: '2026-08',
+        },
+      ],
+    },
     sectionHeadings: {
       intro: 'Tight residential site work in Dundas',
       services: 'Excavation, grading, hauling, and float work in Dundas',
@@ -1586,6 +2083,32 @@ const baseServiceAreaPages = {
       description:
         'Bellhouse handles excavation, grading, hauling, and equipment movement across the region from its Paris base, supporting Waterdown work that needs new-build timing, lot prep, and material flow kept practical.',
     },
+    atAGlance: {
+      items: [
+        {
+          kind: 'projects',
+          label: 'Common projects',
+          value:
+            'New-build and subdivision lot prep, foundation excavation, driveway base, lot grading',
+        },
+        {
+          kind: 'audience',
+          label: 'Who this is for',
+          value:
+            'Builders, general contractors, and property owners on new-build lots',
+        },
+        {
+          kind: 'coverage',
+          label: 'Coverage',
+          value: 'Waterdown and nearby Hamilton communities from the Paris base',
+        },
+        {
+          kind: 'quote',
+          label: 'What to send for a quote',
+          value: 'Lot address, project type, and rough build timing',
+        },
+      ],
+    },
     intro: [
       'Waterdown work is often shaped by growth. New houses, additions, mixed residential construction, and edge-of-town lot prep all depend on the ground being ready before the next crew arrives and the schedule gets tighter.',
       'That creates a different kind of pressure than older in-town sites. The job usually has a little more room to move than Dundas, but it still needs excavation, trucking, imported material, and grading to land in the right order so the site stays buildable.',
@@ -1649,6 +2172,86 @@ const baseServiceAreaPages = {
         ],
       },
     ],
+    localConditions: {
+      intro:
+        'Waterdown sits where subdivision growth meets the Niagara Escarpment and the Grindstone Creek valley, so ground and drainage can vary lot to lot.',
+      items: [
+        {
+          kind: 'ground',
+          title: 'Soil & ground conditions',
+          body: 'Ground conditions around Waterdown vary and may include clay, fill, sand, and mixed native material, depending on whether the lot is a new-build subdivision site or an older edge-of-town property. That mix affects how the ground cuts and how much spoil a job produces.',
+        },
+        {
+          kind: 'drainage',
+          title: 'Drainage & grade',
+          body: 'New-build lots need drainage and rough grades established early so the property sheds water correctly once driveways, yards, and landscaping lock the site into its final shape.',
+        },
+        {
+          kind: 'access',
+          title: 'Access & material handling',
+          body: 'Waterdown generally offers more room to work than tighter urban lots, but active subdivision streets still affect truck timing and staging. Access gets planned around the actual build schedule.',
+        },
+        {
+          kind: 'utilities',
+          title: 'Underground services',
+          body: 'New subdivision lots and edge-of-town properties can have recently installed or older service lines that are not always mapped. Known service locations get confirmed and a locate request gets placed before the first cut.',
+        },
+      ],
+    },
+    localPermits: {
+      intro:
+        'Waterdown is part of the City of Hamilton. These are the approvals that most often apply to excavation, grading, and site work on Waterdown properties.',
+      items: [
+        {
+          title: 'Building Permits',
+          status: 'Required for construction or demolition',
+          description:
+            'A building permit is required prior to construction or demolition, submitted through the City online services portal.',
+          authority: 'City of Hamilton — Building Division',
+          officialUrl:
+            'https://www.hamilton.ca/build-invest-grow/construction-renovation/residential-building-renovation/building-permit',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'Site Alteration Permit',
+          status: 'Required to place fill or alter grade',
+          description:
+            'A permit is required before placing or dumping fill, removing fill, or altering the grade of land anywhere in the City of Hamilton, including Waterdown.',
+          authority: 'City of Hamilton — Site Alteration By-law',
+          officialUrl:
+            'https://www.hamilton.ca/build-invest-grow/planning-development/planning-applications/site-alteration-permit',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'Right-of-Way / Excavation Permit',
+          status: 'Required for work in the street right-of-way',
+          description:
+            'Excavation, driveway entrance work, or occupying a City street or right-of-way requires a municipal consent, excavation, or road occupancy permit before work starts.',
+          authority: 'City of Hamilton — Right-of-Way Permits',
+          officialUrl:
+            'https://www.hamilton.ca/build-invest-grow/planning-development/planning-policies-guidelines/right-way-utility-installation',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'Conservation Halton-Regulated Areas',
+          status: 'May require Conservation Halton approval',
+          description:
+            'Waterdown sits in the Grindstone Creek watershed, which falls under Conservation Halton rather than Hamilton Conservation Authority. Work near the creek, wetlands, or escarpment slopes may need a separate permit.',
+          authority: 'Conservation Halton',
+          officialUrl: 'https://www.conservationhalton.ca/permitting/',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'Utility Locates',
+          status: 'Required by law before digging',
+          description:
+            'Ontario law requires a locate request before any excavation. A locate request should be placed at least 5 business days ahead of digging.',
+          authority: 'Ontario One Call',
+          officialUrl: 'https://ontarioonecall.ca/homeowners/',
+          lastVerified: '2026-08',
+        },
+      ],
+    },
     sectionHeadings: {
       intro: 'Site prep for growing Waterdown jobs',
       services: 'Excavation, grading, hauling, and float work in Waterdown',
@@ -1863,6 +2466,33 @@ const baseServiceAreaPages = {
       description:
         'Bellhouse handles excavation, grading, hauling, and equipment movement across the region from its Paris base, supporting Simcoe work that depends on truck access, larger lots, and reliable material movement.',
     },
+    atAGlance: {
+      items: [
+        {
+          kind: 'projects',
+          label: 'Common projects',
+          value:
+            'Rural-commercial pads, pond work, driveway/access prep, demolition cleanup',
+        },
+        {
+          kind: 'audience',
+          label: 'Who this is for',
+          value:
+            'Property owners, general contractors, and commercial/rural site operators',
+        },
+        {
+          kind: 'coverage',
+          label: 'Coverage',
+          value: 'Simcoe and Norfolk County from the Paris base',
+        },
+        {
+          kind: 'quote',
+          label: 'What to send for a quote',
+          value:
+            'Site address, project type, access route, and rough timing',
+        },
+      ],
+    },
     intro: [
       'Simcoe work often starts on larger properties where access routes, stockpile space, and truck movement matter just as much as the excavation itself. The site may not be tight in the urban sense, but it still has to work cleanly for trucks, imported material, and the next phase of construction.',
       'That creates a different mix from a pure rural custom-home page or a tighter city redevelopment page. Simcoe jobs often blend rural ground conditions with commercial-style site needs such as pads, access lanes, drainage shaping, and controlled haul-out.',
@@ -1926,6 +2556,86 @@ const baseServiceAreaPages = {
         ],
       },
     ],
+    localConditions: {
+      intro:
+        'Simcoe sits on the Norfolk Sand Plain, an area known for fast-draining sandy loam soil, which affects excavation and material handling differently than a clay-heavy site.',
+      items: [
+        {
+          kind: 'ground',
+          title: 'Soil & ground conditions',
+          body: 'Ground conditions around Simcoe vary and may include sandy loam, sand, and fill, consistent with the wider Norfolk Sand Plain, though some lower-lying areas can hold more clay or silt. That mix affects how the ground cuts and how it holds a grade once shaped.',
+        },
+        {
+          kind: 'drainage',
+          title: 'Drainage & grade',
+          body: 'Sandy ground generally drains faster than clay, but larger rural-commercial properties still need drainage and grading planned across the whole site, not just the immediate work area.',
+        },
+        {
+          kind: 'access',
+          title: 'Access & material handling',
+          body: 'Simcoe properties tend to have more room than tighter urban lots, which shifts the focus to truck efficiency, access-route planning, and stockpile placement over squeezing into a small footprint.',
+        },
+        {
+          kind: 'utilities',
+          title: 'Underground services',
+          body: 'Rural and rural-commercial properties can have septic systems, wells, and service lines that are not always mapped. Known locations get confirmed and a locate request gets placed before the first cut.',
+        },
+      ],
+    },
+    localPermits: {
+      intro:
+        'Simcoe is part of Norfolk County. These are the approvals that most often apply to excavation, grading, and site work on Norfolk County properties.',
+      items: [
+        {
+          title: 'Building Permits',
+          status: 'Required for construction or demolition',
+          description:
+            'A building permit is required for construction or demolition, submitted through the CityView portal or in person at the Norfolk County office in Simcoe.',
+          authority: 'Norfolk County — Building Division',
+          officialUrl:
+            'https://www.norfolkcounty.ca/business-building-and-development/building-and-renovating/apply-for-a-building-permit/',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'Grading & Drainage By-law',
+          status: 'May require a sealed grading plan',
+          description:
+            'Grading plans for new lots and subdivisions must be prepared and sealed by a qualified engineer or Ontario land surveyor and submitted with the building permit; final as-built grading is confirmed after construction.',
+          authority: 'Norfolk County — Grading and Drainage By-law',
+          officialUrl:
+            'https://www.norfolkcounty.ca/council-administration-and-government/by-laws-and-policies/by-law-directory/grading-and-drainage-by-law/',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'Entrance Permit',
+          status: 'Required to construct or alter an entrance',
+          description:
+            'Constructing, modifying, paving, or repaving an entrance onto a County road requires an entrance permit before work starts.',
+          authority: 'Norfolk County — Entrance By-law',
+          officialUrl:
+            'https://www.norfolkcounty.ca/council-administration-and-government/by-laws-and-policies/by-law-directory/entrance-by-law/',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'LPRCA-Regulated Areas',
+          status: 'May require LPRCA approval',
+          description:
+            'Work near a lake, river, stream, wetland, or floodplain may fall inside a Long Point Region Conservation Authority regulated area and need a separate permit.',
+          authority: 'Long Point Region Conservation Authority',
+          officialUrl: 'https://www.lprca.on.ca/planning-permits/regulation-permits/',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'Utility Locates',
+          status: 'Required by law before digging',
+          description:
+            'Ontario law requires a locate request before any excavation. A locate request should be placed at least 5 business days ahead of digging.',
+          authority: 'Ontario One Call',
+          officialUrl: 'https://ontarioonecall.ca/homeowners/',
+          lastVerified: '2026-08',
+        },
+      ],
+    },
     sectionHeadings: {
       intro: 'Site work for larger lots, access routes, and material movement',
       services: 'Excavation, grading, hauling, and float work in Simcoe',
@@ -2149,11 +2859,142 @@ const baseServiceAreaPages = {
       description:
         'Bellhouse handles excavation, grading, hauling, and equipment movement across the region from its Paris base, supporting Woodstock work that depends on access, pads, and reliable material flow.',
     },
+    atAGlance: {
+      items: [
+        {
+          kind: 'projects',
+          label: 'Common projects',
+          value:
+            'Industrial and commercial site prep, yard grading, building pads, access routes',
+        },
+        {
+          kind: 'audience',
+          label: 'Who this is for',
+          value: 'General contractors, developers, and facility-side teams',
+        },
+        {
+          kind: 'coverage',
+          label: 'Coverage',
+          value: 'Woodstock and the Oxford County / 401 corridor from the Paris base',
+        },
+        {
+          kind: 'quote',
+          label: 'What to send for a quote',
+          value:
+            'Site address, scope of work, how the site needs to keep operating, and rough timing',
+        },
+      ],
+    },
     intro: [
       'Woodstock work is often less about squeezing into a tight urban footprint and more about keeping larger industrial and commercial sites usable while excavation, truck cycles, and imported material keep moving.',
       'That changes the job. Yard prep, building pads, haul routes, loading areas, and drainage all have to work with the site flow instead of fighting production, deliveries, or the next phase of construction.',
       'Typical Woodstock work includes industrial and commercial site prep, yard grading, equipment pads, service trenching, spoil haul-out, imported aggregate, and machine moves tied to active site schedules.',
     ],
+    projectTypes: [
+      {
+        title: 'Industrial and commercial site prep',
+        description:
+          'Stripping, clearing, and rough grading for industrial and commercial sites along the Oxford County / 401 corridor.',
+        links: [
+          { label: 'Site preparation & grading', href: '/services/site-preparation-land-grading' },
+        ],
+      },
+      {
+        title: 'Yard and pad grading',
+        description:
+          'Grading for equipment pads, loading areas, and working yards that need to stay stable under regular truck traffic.',
+        links: [
+          { label: 'Land grading & drainage', href: '/services/land-grading-drainage' },
+        ],
+      },
+      {
+        title: 'Bulk material movement',
+        description:
+          'Larger-volume spoil export and aggregate delivery for industrial sites, including off-road hauling where production traffic needs to stay off public roads.',
+        links: [
+          { label: 'Volvo A35 off-road dump truck', href: '/services/volvo-a35-off-road-dump-truck-rental' },
+        ],
+      },
+      {
+        title: 'Access routes and haul lanes',
+        description:
+          'Base prep and grading for access routes and haul lanes that need to keep working through an active build.',
+        links: [
+          { label: 'Dirt & gravel delivery', href: '/services/dirt-gravel-delivery' },
+        ],
+      },
+    ],
+    localConditions: {
+      intro:
+        'Woodstock sits in Oxford County, an area known for clay and clay-loam soils, so drainage and material handling matter on most sites.',
+      items: [
+        {
+          kind: 'ground',
+          title: 'Soil & ground conditions',
+          body: 'Ground conditions around Woodstock vary and may include clay, clay loam, silt, and fill, depending on the site. Clay-heavy ground affects how the ground cuts, how much it swells once excavated, and how many truckloads a job needs.',
+        },
+        {
+          kind: 'drainage',
+          title: 'Drainage & grade',
+          body: 'Industrial and commercial yards need drainage planned so water moves off pads and haul routes under regular truck traffic, not just after the site is finished.',
+        },
+        {
+          kind: 'access',
+          title: 'Access & material handling',
+          body: 'Woodstock sites usually offer wider access than urban infill work, which puts the focus on truck efficiency and stockpile placement that keeps the yard usable during the build.',
+        },
+        {
+          kind: 'utilities',
+          title: 'Underground services',
+          body: 'Industrial and commercial properties commonly have utility, service, and drainage lines that are not always mapped. Known service locations get confirmed and a locate request gets placed before the first cut.',
+        },
+      ],
+    },
+    localPermits: {
+      intro:
+        'Woodstock permits and approvals depend on the property and the scope of work. These are the approvals that most often apply to excavation, grading, and site work in the city.',
+      items: [
+        {
+          title: 'Building & Site-Drainage Permit',
+          status: 'Required for construction or site drainage work',
+          description:
+            'The City of Woodstock uses a one-permit system covering construction, mechanical/plumbing work, and site drainage work, applied for through the Cloudpermit portal.',
+          authority: 'City of Woodstock — Building Department',
+          officialUrl:
+            'https://www.cityofwoodstock.ca/en/residential-services/building-permits.aspx',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'Road Allowance Excavation Permit',
+          status: 'Required for work in the city right-of-way',
+          description:
+            'Digging in the City right-of-way or on City property, including driveway widening, requires a Road Allowance Excavation Permit before work starts.',
+          authority: 'City of Woodstock — Engineering & Public Works',
+          officialUrl:
+            'https://www.cityofwoodstock.ca/en/residential-services/building-permits.aspx',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'UTRCA-Regulated Areas',
+          status: 'May require UTRCA approval',
+          description:
+            'Work near a river, stream valley, floodplain, or wetland may fall inside an Upper Thames River Conservation Authority regulated area and need a separate permit.',
+          authority: 'Upper Thames River Conservation Authority',
+          officialUrl:
+            'https://thamesriver.on.ca/planning-permits-maps/regulation-section-28/how-to-apply-for-a-permit/',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'Utility Locates',
+          status: 'Required by law before digging',
+          description:
+            'Ontario law requires a locate request before any excavation. A locate request should be placed at least 5 business days ahead of digging.',
+          authority: 'Ontario One Call',
+          officialUrl: 'https://ontarioonecall.ca/homeowners/',
+          lastVerified: '2026-08',
+        },
+      ],
+    },
     sectionHeadings: {
       intro: 'Site work for pads, yards, and steady material flow',
       services: 'Excavation, grading, hauling, and float work in Woodstock',
@@ -2377,11 +3218,151 @@ const baseServiceAreaPages = {
       description:
         'Bellhouse has handled excavation, grading, hauling, and equipment moves across the region since 1982, with one main base in Paris serving Ancaster and nearby communities.',
     },
+    atAGlance: {
+      items: [
+        {
+          kind: 'projects',
+          label: 'Common projects',
+          value:
+            'Estate-lot foundations, driveway and lane prep, slope grading, drainage corrections',
+        },
+        {
+          kind: 'audience',
+          label: 'Who this is for',
+          value: 'Custom-home builders, estate-lot owners, and contractors',
+        },
+        {
+          kind: 'coverage',
+          label: 'Coverage',
+          value: 'Ancaster and nearby Hamilton communities from the Paris base',
+        },
+        {
+          kind: 'quote',
+          label: 'What to send for a quote',
+          value:
+            'Property location, project type, driveway route, and rough timing',
+        },
+      ],
+    },
     intro: [
       'Ancaster jobs often sit on larger lots where the building area is not flat, the driveway run is longer, and grade transitions have to be built properly instead of forced into a simple cut-and-fill plan.',
       'That changes the work. Excavation has to account for truck approach, spoil haul-out, imported stone or fill, drainage direction, and how the finished driveway and access lane will function once the build is underway.',
       'Typical Ancaster work includes foundation excavation, site prep for custom homes and additions, driveway and lane prep, drainage grading, service trenching, and machine moves tied to the build schedule.',
     ],
+    projectTypes: [
+      {
+        title: 'Estate-lot and custom-home foundations',
+        description:
+          'Foundation excavation on larger Ancaster lots where the building area needs more shaping than a flat subdivision site.',
+        links: [
+          { label: 'Foundation excavation', href: '/services/foundation-excavation' },
+        ],
+      },
+      {
+        title: 'Slope grading and drainage',
+        description:
+          'Grade transitions and drainage work built to account for Ancaster’s sloped terrain, so water moves away from the house and neighbouring lots.',
+        links: [
+          { label: 'Land grading & drainage', href: '/services/land-grading-drainage' },
+        ],
+      },
+      {
+        title: 'Longer driveways and access lanes',
+        description:
+          'Base prep, compaction, and drainage for longer driveway approaches that have to hold up under construction traffic and wet weather.',
+        links: [
+          { label: 'Driveway & parking lot prep', href: '/services/driveway-parking-lot-preparation' },
+        ],
+      },
+      {
+        title: 'Material movement for estate builds',
+        description:
+          'Spoil export and imported stone or fill kept on the same schedule as excavation and grading on a larger property.',
+        links: [
+          { label: 'Dump truck rental', href: '/services/dump-truck-rental' },
+        ],
+      },
+    ],
+    localConditions: {
+      intro:
+        'Ancaster sits along the Niagara Escarpment, so slope and drainage direction matter more here than on flatter lots.',
+      items: [
+        {
+          kind: 'ground',
+          title: 'Soil & ground conditions',
+          body: 'Ground conditions in Ancaster vary and may include clay, shale, rock, and mixed native material, particularly on lots closer to the escarpment brow. That mix affects how the ground cuts and whether extra equipment or handling is needed.',
+        },
+        {
+          kind: 'drainage',
+          title: 'Drainage & grade',
+          body: 'Escarpment-influenced terrain means slope breaks and drainage direction need to be worked out before the building area is opened up, so runoff has somewhere sensible to go once the site is graded.',
+        },
+        {
+          kind: 'access',
+          title: 'Access & material handling',
+          body: 'Longer driveways, slope changes, and established landscaping on larger Ancaster lots affect where equipment and trucks can work. Access gets planned around the actual route in, not just the road frontage.',
+        },
+        {
+          kind: 'utilities',
+          title: 'Underground services',
+          body: 'Estate and rural-edge lots can have septic systems, wells, and service lines that are not always mapped. Known locations get confirmed and a locate request gets placed before the first cut.',
+        },
+      ],
+    },
+    localPermits: {
+      intro:
+        'Ancaster is part of the City of Hamilton. These are the approvals that most often apply to excavation, grading, and site work on Ancaster properties.',
+      items: [
+        {
+          title: 'Building Permits',
+          status: 'Required for construction or demolition',
+          description:
+            'A building permit is required prior to construction or demolition, submitted through the City online services portal.',
+          authority: 'City of Hamilton — Building Division',
+          officialUrl:
+            'https://www.hamilton.ca/build-invest-grow/construction-renovation/residential-building-renovation/building-permit',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'Site Alteration Permit',
+          status: 'Required to place fill or alter grade',
+          description:
+            'A permit is required before placing or dumping fill, removing fill, or altering the grade of land anywhere in the City of Hamilton, including Ancaster.',
+          authority: 'City of Hamilton — Site Alteration By-law',
+          officialUrl:
+            'https://www.hamilton.ca/build-invest-grow/planning-development/planning-applications/site-alteration-permit',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'Right-of-Way / Excavation Permit',
+          status: 'Required for work in the street right-of-way',
+          description:
+            'Excavation, driveway entrance work, or occupying a City street or right-of-way requires a municipal consent, excavation, or road occupancy permit before work starts.',
+          authority: 'City of Hamilton — Right-of-Way Permits',
+          officialUrl:
+            'https://www.hamilton.ca/build-invest-grow/planning-development/planning-policies-guidelines/right-way-utility-installation',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'HCA-Regulated Areas',
+          status: 'May require HCA approval',
+          description:
+            'Ancaster sits along the Niagara Escarpment, so work near a ravine, steep slope, watercourse, or wetland may fall inside a Hamilton Conservation Authority regulated area and need a separate permit.',
+          authority: 'Hamilton Conservation Authority',
+          officialUrl: 'https://conservationhamilton.ca/hca-regulation-permits/',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'Utility Locates',
+          status: 'Required by law before digging',
+          description:
+            'Ontario law requires a locate request before any excavation. A locate request should be placed at least 5 business days ahead of digging.',
+          authority: 'Ontario One Call',
+          officialUrl: 'https://ontarioonecall.ca/homeowners/',
+          lastVerified: '2026-08',
+        },
+      ],
+    },
     sectionHeadings: {
       intro: 'Site work for slopes, access, and grade change',
       services: 'Excavation, grading, hauling, and float work in Ancaster',
