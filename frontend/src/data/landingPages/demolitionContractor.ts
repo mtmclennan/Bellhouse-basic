@@ -7,7 +7,7 @@ export const demolitionContractorLandingPage = {
   seo: {
     title: 'Demolition Contractor Brantford & Brant County | Bellhouse',
     description:
-      'Machine-accessible demolition for barns, garages, outbuildings, farm buildings, houses where appropriate, and structures with debris handling, trucking, cleanup, and rough grading.',
+      'Machine-accessible demolition for barns, garages, outbuildings, farm buildings, and houses where appropriate, with debris handling, trucking, and cleanup.',
     noindex: true,
     canonical: '/landing/demolition-contractor-brantford',
     ogImage: {

@@ -9,11 +9,14 @@ import {
   CalculatorResults,
   type CalculatorResultsStyleClasses,
 } from './CalculatorResults';
+import { CalculatorResultsCta } from './CalculatorResultsCta';
 import classes from './CalculatorForm.module.scss';
 import type { CalculatorKind } from '../types/calculator';
+import type { CalculatorPageContent } from '../config/pageContent';
 
 type CalculatorFormProps = {
   kind: CalculatorKind;
+  resultsCta: CalculatorPageContent['resultsCta'];
 };
 
 const resultStyleClasses = {
@@ -66,7 +69,7 @@ const resultStyleClasses = {
   shareEstimateButtonCopied: classes.shareEstimateButtonCopied,
 } satisfies CalculatorResultsStyleClasses;
 
-export function CalculatorForm({ kind }: CalculatorFormProps) {
+export function CalculatorForm({ kind, resultsCta }: CalculatorFormProps) {
   const controller = useCalculatorController(kind);
   const [mobileTab, setMobileTab] = useState<'inputs' | 'results'>('inputs');
   const hasResult = Boolean(controller.state.result);
@@ -126,6 +129,9 @@ export function CalculatorForm({ kind }: CalculatorFormProps) {
           }`}
         >
           <CalculatorResults section={controller.sections.results} classes={resultStyleClasses} />
+          {hasResult ? (
+            <CalculatorResultsCta controller={controller} content={resultsCta} />
+          ) : null}
         </div>
       </div>
     </SectionWrapper>

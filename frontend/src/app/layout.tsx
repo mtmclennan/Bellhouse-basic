@@ -4,6 +4,7 @@ import { Open_Sans, Oswald } from 'next/font/google';
 import schema from '../data/schema.json';
 import Script from 'next/script';
 import LayoutHome from './components/layoutsWeb/layoutHome';
+import SkipToContent from './components/UI/SkipToContent';
 import AttributionTracker from './components/tracking/AttributionTracker';
 import GoogleTrackingScripts from './components/tracking/GoogleTrackingScripts';
 import TrackingClickEvents from './components/tracking/TrackingClickEvents';
@@ -53,6 +54,8 @@ export default function RootLayout({
             __html: "document.documentElement.classList.add('js');",
           }}
         />
+
+        <SkipToContent />
 
         {/* Local Business Schema */}
         <Script

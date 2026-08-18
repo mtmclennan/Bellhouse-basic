@@ -1,0 +1,19 @@
+@use '../../../styles/abstracts/variables' as v;
+
+.skipLink {
+  position: absolute;
+  top: -6rem;
+  left: 1rem;
+  z-index: 1000;
+  padding: 1.2rem 1.8rem;
+  border-radius: 0 0 8px 8px;
+  background-color: v.$cat-yellow2;
+  color: v.$btn-main-text2;
+  font-weight: 700;
+  text-decoration: none;
+  transition: top 0.15s ease;
+
+  &:focus {
+    top: 0;
+  }
+}

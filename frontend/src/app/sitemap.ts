@@ -66,6 +66,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     createSitemapEntry('/about', ['src/app/about/page.tsx', 'src/app/about/About-page.tsx'], 'yearly', 0.8),
     createSitemapEntry('/services', ['src/app/services/page.tsx', 'src/app/services/Services-page.tsx'], 'yearly', 0.9),
     createSitemapEntry('/resources', resourceHubFiles, 'monthly', 0.9),
+    createSitemapEntry(
+      '/resources/blog',
+      ['src/app/resources/blog/page.tsx', 'src/data/resourceBlog.ts'],
+      'monthly',
+      0.6,
+    ),
     createSitemapEntry('/resources/calculators', calculatorHubFiles, 'monthly', 0.9),
     createSitemapEntry('/service-areas', ['src/app/service-areas/page.tsx', 'src/lib/serviceAreas.ts'], 'weekly', 0.9),
     createSitemapEntry('/contractors', ['src/app/contractors/page.tsx', 'src/app/contractors/Contractors-page.tsx'], 'monthly', 0.9),

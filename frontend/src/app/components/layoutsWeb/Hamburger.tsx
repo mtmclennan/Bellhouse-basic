@@ -35,6 +35,7 @@ const Hamburger = ({ setShowMenu, showMenu }: HamburgerProps) => {
       onClick={hamburgerHandler}
       aria-label={showMenu ? 'Close navigation menu' : 'Open navigation menu'}
       aria-expanded={showMenu}
+      aria-controls="mobile-nav-menu"
     >
       <div className={topBarClass}></div>
       <div className={midBarClass}></div>

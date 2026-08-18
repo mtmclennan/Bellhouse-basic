@@ -45,7 +45,9 @@ const LayoutHome = ({ children, background = 'on' }: LayoutProps) => {
         </div>
       )}
       {!isLandingPage && <HeaderHome />}
-      <main className={classes.containerHome}>{children}</main>
+      <main id="main-content" className={classes.containerHome}>
+        {children}
+      </main>
       {!isLandingPage && <Footer />}
     </Fragment>
   );

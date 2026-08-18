@@ -7,7 +7,7 @@ export const commercialSitePreparationLandingPage = {
   seo: {
     title: 'Commercial Site Preparation Brantford | Bellhouse Excavating',
     description:
-      'Commercial site preparation in Brantford and Brant County. Excavation, cut and fill, grading, drainage, site-servicing components, gravel yards, building pads, and material placement.',
+      'Commercial site preparation in Brantford and Brant County — excavation, grading, drainage, gravel yards, building pads, and material placement.',
     noindex: true,
     canonical: '/landing/commercial-site-preparation-brantford',
     ogImage: {

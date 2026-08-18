@@ -329,7 +329,7 @@ export function CalculatorPageShell({ kind }: CalculatorPageShellProps) {
       </section>
 
       <div id="calculator" className={classes.scrollTarget}>
-        <CalculatorForm kind={kind} />
+        <CalculatorForm kind={kind} resultsCta={content.resultsCta} />
       </div>
 
       <SectionWrapper className={classes.methodSection} spacing="6">

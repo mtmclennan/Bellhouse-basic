@@ -5,7 +5,7 @@ export const ruralDrivewayFarmLanewayLandingPage = {
   serviceName: 'Rural Driveway & Farm Laneway Work',
   serviceKey: 'rural-driveway-farm-laneway',
   seo: {
-    title: 'Rural Driveway & Farm Laneway Contractor Brant County | Bellhouse',
+    title: 'Rural Driveway & Farm Laneway Work Brant County | Bellhouse',
     description:
       'Farm laneway construction, rural gravel driveway repair, washout repair, grading, drainage correction, and aggregate base work across Brant County.',
     noindex: true,

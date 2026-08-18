@@ -39,7 +39,7 @@ export default function ResourcesPage() {
             <ResourceBreadcrumbs
               trail={[
                 { name: 'Home', href: '/' },
-                { name: 'Resources' },
+                { name: 'Resources', href: '/resources' },
               ]}
             />
             <p className={classes.eyebrow}>Bellhouse resources</p>

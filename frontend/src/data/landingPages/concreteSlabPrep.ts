@@ -5,7 +5,7 @@ export const concreteSlabPrepLandingPage = {
   serviceName: 'Concrete Slab Base Preparation',
   serviceKey: 'concrete-slab-base-preparation',
   seo: {
-    title: 'Concrete Slab Base Preparation Brantford | Bellhouse Excavating',
+    title: 'Concrete Slab Base Preparation Brantford | Bellhouse',
     description:
       'Excavation, grading, granular base, and compaction support for concrete slab preparation in Brantford and Brant County.',
     noindex: true,

@@ -1,5 +1,5 @@
-export const GOOGLE_ADS_ROUTE_PREFIXES = ['/landing'] as const;
-export const GOOGLE_ADS_EXACT_ROUTES = ['/contact', '/thank-you'] as const;
+export const GOOGLE_ADS_ROUTE_PREFIXES = ['/landing', '/services'] as const;
+export const GOOGLE_ADS_EXACT_ROUTES = ['/contact'] as const;
 
 export function shouldUseGoogleAdsTracking(pathname: string) {
   return (
