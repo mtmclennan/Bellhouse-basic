@@ -192,12 +192,16 @@ export function getServiceLocalIntent(
   };
 }
 
+const MAX_RELATED_SERVICES = 3;
+
 export function getRelatedServiceLinks(
   service: ServicePage,
   allServices: ServicePage[],
 ): RelatedServiceLinkItem[] {
   const relatedServicesSection = getServiceSectionByType(service, 'relatedServices');
-  const relatedSlugs = relatedServicesSection?.serviceSlugs ?? relatedServiceMap[service.slug] ?? [];
+  const relatedSlugs = (
+    relatedServicesSection?.serviceSlugs ?? relatedServiceMap[service.slug] ?? []
+  ).slice(0, MAX_RELATED_SERVICES);
 
   return relatedSlugs
     .map((slug) => allServices.find((candidate) => candidate.slug === slug))

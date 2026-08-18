@@ -81,6 +81,22 @@
     padding-top: 1.4rem;
     border-top: 1px solid rgba(127, 127, 127, 0.18);
   }
+
+  @include m.mediaTablet {
+    .card:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+      max-width: calc(50% - 1.2rem);
+      margin-inline: auto;
+    }
+  }
+
+  @include m.mediaDesktop {
+    .card:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+      max-width: calc(50% - 1.2rem);
+      margin-inline: auto;
+    }
+  }
 }
 
 .grid {

@@ -72,6 +72,28 @@
   }
 }
 
+.address {
+  @include m.flexCenter();
+  gap: 0.8rem;
+  font-style: normal;
+
+  span {
+    font-size: 1.4rem;
+    color: rgba(v.$grey-color-1, 0.78);
+    line-height: 1.4;
+  }
+
+  @include m.mediaDesktop {
+    justify-content: flex-start;
+  }
+}
+
+.hours {
+  margin: -0.8rem 0 0;
+  font-size: 1.3rem;
+  color: rgba(v.$grey-color-1, 0.6);
+}
+
 .review {
   font-size: 1.7rem;
   font-weight: 600;

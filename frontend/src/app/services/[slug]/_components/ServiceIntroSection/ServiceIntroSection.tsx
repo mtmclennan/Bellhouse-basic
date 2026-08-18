@@ -16,7 +16,7 @@ export default function ServiceIntroSection({
 }: ServiceIntroSectionProps) {
   const heading = section.heading ?? '';
   const body = section.body;
-  const audience = section.audience ?? [];
+  const audience = (section.audience ?? []).slice(0, 4);
 
   return (
     <ServiceSectionWrapper

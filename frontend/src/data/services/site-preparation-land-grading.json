@@ -45,7 +45,6 @@
         { "icon": "blueprint", "label": "Builders & developers" },
         { "icon": "hard-hat", "label": "Contractors" },
         { "icon": "house-line", "label": "Rural property owners" },
-        { "icon": "buildings", "label": "Subdivision builders" },
         { "icon": "shovel", "label": "Raw land & rural builds" }
       ]
     },
@@ -179,12 +178,6 @@
       "eyebrow": "Site outcomes",
       "heading": "What The Site Should Be Ready For After Prep",
       "subheading": "Good site preparation should leave the job workable, drainable, and ready for the next trade instead of needing another round of correction.",
-      "stats": [
-        { "label": "Since 1982", "body": "Over four decades of local site work" },
-        { "label": "Own equipment", "body": "Excavators, dozers, trucks, and operators available for local site work" },
-        { "label": "5.0 on Google", "body": "Rated by homeowners, builders, and contractors" },
-        { "label": "Licensed & insured", "body": "Full coverage on every job" }
-      ],
       "items": [
         { "title": "Build-ready pads and working grades", "body": "The site is stripped, shaped, and brought to practical elevations so foundation, framing, utility, or concrete crews can move into usable ground." },
         { "title": "Cleaner drainage and access decisions", "body": "Water movement, ditching, and route prep are handled as part of the grading plan so the site stays more stable through the construction phase." },

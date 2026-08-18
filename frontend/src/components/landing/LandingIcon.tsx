@@ -11,8 +11,10 @@ import {
   ClipboardText,
   Clock,
   CompassTool,
+  Cow,
   Cube,
   Drop,
+  Factory,
   Hammer,
   HardHat,
   HouseLine,
@@ -25,9 +27,12 @@ import {
   Shovel,
   Stack,
   Star,
+  Tractor,
+  Tree,
   Truck,
   User,
   Wall,
+  Wrench,
 } from '@phosphor-icons/react/dist/ssr';
 
 type IconWeight = 'fill' | 'duotone' | 'regular' | 'bold';
@@ -70,12 +75,16 @@ export default function LandingIcon({
       return <CirclesThreePlus {...props} />;
     case 'compass-tool':
       return <CompassTool {...props} />;
+    case 'cow':
+      return <Cow {...props} />;
     case 'cube':
       return <Cube {...props} />;
     case 'clipboard-text':
       return <ClipboardText {...props} />;
     case 'drop':
       return <Drop {...props} />;
+    case 'factory':
+      return <Factory {...props} />;
     case 'hammer':
       return <Hammer {...props} />;
     case 'hard-hat':
@@ -100,12 +109,18 @@ export default function LandingIcon({
       return <Stack {...props} />;
     case 'star':
       return <Star {...props} />;
+    case 'tractor':
+      return <Tractor {...props} />;
+    case 'tree':
+      return <Tree {...props} />;
     case 'truck':
       return <Truck {...props} />;
     case 'user':
       return <User {...props} />;
     case 'wall':
       return <Wall {...props} />;
+    case 'wrench':
+      return <Wrench {...props} />;
     default:
       return null;
   }

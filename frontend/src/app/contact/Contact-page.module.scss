@@ -82,10 +82,25 @@
 }
 
 .detailTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
   margin: 0;
   font-size: 1.75rem;
   line-height: 1.35;
   color: #fff;
+}
+
+.addressIcon {
+  flex-shrink: 0;
+}
+
+.address {
+  margin: 0;
+  font-style: normal;
+  font-size: 1.55rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.82);
 }
 
 .detailList {

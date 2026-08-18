@@ -2,7 +2,7 @@ import classes from './Footer.module.scss';
 import Link from '@/components/SiteLink';
 import Image from 'next/image';
 import logo from '../../../../public/assets/BellhouseLogo-text.png';
-import { Phone, FacebookLogo, LinkedinLogo } from '@phosphor-icons/react';
+import { Phone, MapPin, FacebookLogo, LinkedinLogo } from '@phosphor-icons/react';
 import { GOOGLE_REVIEWS_URL } from '@/lib/reviewLinks';
 
 const footerSections = [
@@ -120,6 +120,12 @@ const Footer = () => {
             <Phone size={26} color="#ffc302" weight="duotone" />
             <span>519-752-8500</span>
           </a>
+
+          <address className={classes.address}>
+            <MapPin size={20} color="#ffc302" weight="duotone" />
+            <span>573 Governors Rd E, Paris, ON N3L 3E1</span>
+          </address>
+          <p className={classes.hours}>Mon–Fri, 7:00 AM–5:00 PM</p>
 
           <a
             target="_blank"

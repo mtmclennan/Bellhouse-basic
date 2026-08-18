@@ -167,8 +167,8 @@
       "heading": "Equipment hauling has to match the machine, the route, and the site access.",
       "body": "Bellhouse reviews the pickup, destination, equipment size, loading conditions, and delivery location so the move can happen safely and without creating avoidable site delays.",
       "image": {
-        "src": "/assets/services/heavy-equipment-hauling/truck-flat-deck-armour-stone-hauling-float-trailer-bobcat-t76-skid-steer.webp",
-        "alt": "Bellhouse flat deck and float trailer hauling a Bobcat skid steer and attachments"
+        "src": "/assets/services/heavy-equipment-hauling/truck-hauling-armour-stone-unloading-skidsteer-back-tilt.webp",
+        "alt": "Bellhouse float trailer unloading a skid steer with a back-tilt maneuver on site"
       },
       "caption": "Float and flat-deck hauling can support machines, attachments, and jobsite equipment moves."
     },
@@ -178,12 +178,6 @@
       "eyebrow": "Site outcomes",
       "heading": "What The Move Should Accomplish",
       "subheading": "The goal is more than getting the machine on a trailer. The equipment should arrive where it is useful, when the site is ready for it.",
-      "stats": [
-        { "label": "Since 1982", "body": "Over four decades of local site work" },
-        { "label": "Own equipment", "body": "Excavators, dozers, trucks, and operators available for local site work" },
-        { "label": "5.0 on Google", "body": "Rated by homeowners, builders, and contractors" },
-        { "label": "Licensed & insured", "body": "Full coverage on every job" }
-      ],
       "items": [
         { "title": "Equipment ready for the next phase", "body": "Machines are delivered where they can go to work without unnecessary repositioning or staging confusion." },
         { "title": "Safer transport between sites", "body": "Loading, tie-down, route, and unloading are handled with the realities of construction equipment in mind." },
@@ -235,6 +229,16 @@
           "name": "Transport Safety Gear",
           "body": "Chains, binders, and load securement equipment are used to keep machinery properly tied down.",
           "image": { "src": "/assets/services/bellhouse-transport-safety-gear.webp", "alt": "Chains, binders, and load securement equipment used for heavy equipment transport" }
+        },
+        {
+          "name": "CAT 315 Excavator Float",
+          "body": "A CAT 315 excavator loaded and secured on the float trailer, ready for transport between job sites.",
+          "image": { "src": "/assets/services/heavy-equipment-hauling/Heavy-Equipment-Float-Cat_315-excavator.webp", "alt": "Bellhouse float trailer hauling a CAT 315 excavator" }
+        },
+        {
+          "name": "Peterbilt 567 Float Truck",
+          "body": "The Peterbilt 567 hauling an excavator on the float, built for heavier equipment moves across longer routes.",
+          "image": { "src": "/assets/services/heavy-equipment-hauling/Heavy_equipment_haul_Float_Peterbilt_567.webp", "alt": "Bellhouse Peterbilt 567 hauling an excavator on a float trailer" }
         }
       ]
     },

@@ -178,12 +178,6 @@
       "eyebrow": "Site outcomes",
       "heading": "What the Site Should Gain",
       "subheading": "The goal is productive material movement that supports the pace of the equipment and crews already working on site.",
-      "stats": [
-        { "label": "Since 1982", "body": "Over four decades of local site work" },
-        { "label": "Own equipment", "body": "Excavators, dozers, trucks, and operators available for local site work" },
-        { "label": "5.0 on Google", "body": "Rated by homeowners, builders, and contractors" },
-        { "label": "Licensed & insured", "body": "Full coverage on every job" }
-      ],
       "items": [
         { "title": "More efficient internal hauling", "body": "Material can move from cut areas to fill areas, stockpiles, or dump locations without depending only on road trucks." },
         { "title": "Better support for rough conditions", "body": "The truck is suited to uneven, soft, sloped, or active earthmoving conditions where ordinary hauling setups may slow down." },

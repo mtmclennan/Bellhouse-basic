@@ -235,10 +235,13 @@ export default function ServiceSectionRenderer({
       serviceSlugs: [],
     });
 
+  const MAX_RELATED_SERVICES = 3;
+
   const getRelatedServiceLinksFromSlugs = (
     serviceSlugs: string[] = [],
   ): RelatedServiceLinkItem[] =>
     serviceSlugs
+      .slice(0, MAX_RELATED_SERVICES)
       .map((slug) => SERVICE_SITE_CONTEXT.serviceIndex[slug])
       .filter((item): item is NonNullable<typeof item> => Boolean(item));
 

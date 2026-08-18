@@ -46,25 +46,27 @@
 }
 
 .equipmentGrid {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.8rem;
   width: 100%;
-
-  @include m.mediaTablet {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  @include m.mediaDesktop {
-    grid-template-columns: repeat(var(--equip-cols, 3), minmax(0, 1fr));
-  }
 }
 
 .equipmentCard {
+  flex: 0 1 100%;
   border: 1px solid transparent;
   border-radius: 1.6rem;
   overflow: hidden;
   transition: border-color 0.2s ease;
+
+  @include m.mediaTablet {
+    flex-basis: calc(50% - 0.9rem);
+  }
+
+  @include m.mediaDesktop {
+    flex-basis: calc((100% - (var(--equip-cols, 3) - 1) * 1.8rem) / var(--equip-cols, 3));
+  }
 
   &:hover .equipmentPhoto {
     transform: scale(1.05);
