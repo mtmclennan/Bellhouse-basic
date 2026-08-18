@@ -57,6 +57,72 @@ export type ServiceAreaCtaContent = {
   supportingPoints?: string[];
 };
 
+export type ServiceAreaGlanceKind =
+  | 'projects'
+  | 'audience'
+  | 'coverage'
+  | 'quote';
+
+export type ServiceAreaGlanceItem = {
+  kind: ServiceAreaGlanceKind;
+  label: string;
+  value: string;
+};
+
+export type ServiceAreaAtAGlance = {
+  heading?: string;
+  items: ServiceAreaGlanceItem[];
+};
+
+export type ServiceAreaConditionKind =
+  | 'ground'
+  | 'drainage'
+  | 'access'
+  | 'utilities';
+
+export type ServiceAreaCondition = {
+  kind: ServiceAreaConditionKind;
+  title: string;
+  body: string;
+};
+
+export type ServiceAreaLocalConditions = {
+  heading?: string;
+  intro?: string;
+  items: ServiceAreaCondition[];
+};
+
+export type ServiceAreaPermit = {
+  title: string;
+  status: string;
+  description: string;
+  authority: string;
+  officialUrl: string;
+  lastVerified: string;
+};
+
+export type ServiceAreaLocalPermits = {
+  heading?: string;
+  intro?: string;
+  disclaimer?: string;
+  items: ServiceAreaPermit[];
+};
+
+export type ServiceAreaLocalProofItem = {
+  title: string;
+  location: string;
+  scope: string;
+  relatedServiceHref: string;
+  relatedServiceLabel: string;
+  image: ServiceAreaImage;
+};
+
+export type ServiceAreaLocalProof = {
+  heading?: string;
+  intro?: string;
+  items: ServiceAreaLocalProofItem[];
+};
+
 export type ServiceAreaPage = {
   slug: string;
   city: string;
@@ -71,8 +137,12 @@ export type ServiceAreaPage = {
   introImage?: ServiceAreaImage;
   ctaImage?: ServiceAreaImage;
   map?: ServiceAreaMap;
+  atAGlance?: ServiceAreaAtAGlance;
   intro: string[];
   projectTypes?: ServiceAreaProjectType[];
+  localConditions?: ServiceAreaLocalConditions;
+  localPermits?: ServiceAreaLocalPermits;
+  localProof?: ServiceAreaLocalProof;
   services: ServiceAreaService[];
   sectionHeadings?: ServiceAreaSectionHeadings;
   rightFitIntro?: string;
@@ -181,11 +251,153 @@ const baseServiceAreaPages = {
       description:
         'Bellhouse works across Brantford and the surrounding corridor, which makes it practical to keep excavation, truck hauling, and equipment moves coordinated across neighbouring communities.',
     },
+    atAGlance: {
+      items: [
+        {
+          kind: 'projects',
+          label: 'Common projects',
+          value:
+            'Foundation digs, additions, site grading, driveway prep, and demolition removals',
+        },
+        {
+          kind: 'audience',
+          label: 'Who this is for',
+          value:
+            'Homeowners, home builders, general contractors, and commercial site crews',
+        },
+        {
+          kind: 'coverage',
+          label: 'Coverage',
+          value:
+            'Brantford, Brant County, and nearby communities from the Paris base',
+        },
+        {
+          kind: 'quote',
+          label: 'What to send for a quote',
+          value:
+            'Site address, scope of work, access photos if you have them, and rough timing',
+        },
+      ],
+    },
     intro: [
       'Brantford work often means keeping excavation and trucking on the same schedule. A foundation dig, a building pad, or a redevelopment site can stall quickly if the spoil is not moving out, the imported stone is late, or the next machine cannot get to site when it is needed.',
       'Bellhouse works on residential starts, commercial site work, additions, yard regrades, laneways, and contractor-led jobs throughout Brantford. The practical advantage is having one crew handle the digging, rough grading, truck coordination, and equipment moves instead of handing those scopes to separate suppliers.',
       'That matters on active Brantford jobs where access is tight, streets are busy, and the next trade is already booked. The work has to be cut to grade, loaded out cleanly, and left ready for forming, servicing, backfill, or aggregate placement.',
     ],
+    projectTypes: [
+      {
+        title: 'New-build and addition foundations',
+        description:
+          'Foundation digs for infill lots, new starts, and additions across Brantford neighbourhoods, cut and backfilled on a schedule builders can plan the next trade around.',
+        links: [
+          { label: 'Foundation excavation', href: '/services/foundation-excavation' },
+        ],
+      },
+      {
+        title: 'Site grading and drainage correction',
+        description:
+          'Rough grading around foundations and additions, plus drainage correction so water moves away from the house and neighbouring lots instead of pooling against them.',
+        links: [
+          { label: 'Land grading & drainage', href: '/services/land-grading-drainage' },
+        ],
+      },
+      {
+        title: 'Driveway and access prep',
+        description:
+          'Base prep and regrading for residential driveways and access lanes, sized for the mix of older in-town streets and newer subdivision lots across Brantford.',
+        links: [
+          { label: 'Driveway & parking lot prep', href: '/services/driveway-parking-lot-preparation' },
+        ],
+      },
+      {
+        title: 'Demolition and site clean-up',
+        description:
+          'Teardown and haul-away for houses, barns, and outbuildings on lots being rebuilt, coordinated with the excavation and trucking that follows.',
+        links: [
+          { label: 'House & barn demolition', href: '/services/house-barn-demolition' },
+        ],
+      },
+    ],
+    localConditions: {
+      intro:
+        'Ground, drainage, and access conditions get confirmed on site, but these are the factors that most often shape scope and trucking on a Brantford job.',
+      items: [
+        {
+          kind: 'ground',
+          title: 'Soil & ground conditions',
+          body: 'Ground conditions vary across Brantford and may include clay, silt, sand, gravel, fill, and mixed native material, depending on the lot. That mix affects how the ground cuts, how much it swells once excavated, and how many truckloads a job needs.',
+        },
+        {
+          kind: 'drainage',
+          title: 'Drainage & grade',
+          body: 'Older in-town lots and newer subdivision lots often grade differently around the house. Grading and drainage correction get planned so water moves away from foundations and neighbouring properties, not just off the immediate work area.',
+        },
+        {
+          kind: 'access',
+          title: 'Access & material handling',
+          body: 'Brantford lots range from tight infill and century-home streets to wider new-build lots. Equipment and truck size get matched to the access available, and spoil or stockpile handling gets planned around what the site can actually hold.',
+        },
+        {
+          kind: 'utilities',
+          title: 'Underground services',
+          body: 'Water, sewer, gas, and other utility lines are common on in-town Brantford lots. Known service locations get confirmed and a locate request gets placed before the first cut.',
+        },
+      ],
+    },
+    localPermits: {
+      intro:
+        'Brantford permits and approvals depend on the property and the scope of work. These are the approvals that most often apply to excavation, grading, and site work in the city.',
+      items: [
+        {
+          title: 'Building & Demolition Permits',
+          status: 'Required for construction or demolition',
+          description:
+            'A building permit is required to construct, renovate, or materially alter a building; a demolition permit is required to demolish or partially demolish a structure.',
+          authority: 'City of Brantford — Building Department',
+          officialUrl:
+            'https://www.buildbrantford.ca/building-and-construction/building-permits/',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'Site Alteration & Grading',
+          status: 'May require municipal approval',
+          description:
+            'Placing or dumping fill, removing topsoil, excavating earth, or altering grade can require a site alteration permit, most often on larger properties. Standard home construction with the required building approvals is typically exempt.',
+          authority: 'City of Brantford — Site Alteration By-law',
+          officialUrl: 'https://www.brantford.ca/en/living-here/site-alteration.aspx',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'Right-of-Way Activity Permit',
+          status: 'Required for work in the street right-of-way',
+          description:
+            'Excavation, driveway entrance changes, or any work within the municipal road right-of-way requires a Right-of-Way Activity Permit before work starts.',
+          authority: 'City of Brantford — Right-of-Way Activity',
+          officialUrl:
+            'https://www.brantford.ca/en/living-here/right-of-way-activity.aspx',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'GRCA-Regulated Areas',
+          status: 'May require GRCA approval',
+          description:
+            'Work near a watercourse, wetland, shoreline, floodplain, or steep slope may fall inside a Grand River Conservation Authority regulated area and need a separate permit.',
+          authority: 'Grand River Conservation Authority',
+          officialUrl:
+            'https://www.grandriver.ca/en/Planning-Development/Apply-for-a-permit.aspx',
+          lastVerified: '2026-08',
+        },
+        {
+          title: 'Utility Locates',
+          status: 'Required by law before digging',
+          description:
+            'Ontario law requires a locate request before any excavation. Bellhouse confirms known service locations, but a locate request should still be placed at least 5 business days ahead of digging.',
+          authority: 'Ontario One Call',
+          officialUrl: 'https://ontarioonecall.ca/homeowners/',
+          lastVerified: '2026-08',
+        },
+      ],
+    },
     sectionHeadings: {
       intro: 'Brantford site work that needs digging, grading, and truck timing to line up',
       services:

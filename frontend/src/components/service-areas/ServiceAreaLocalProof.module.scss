@@ -1,0 +1,125 @@
+@use '../../styles/abstracts/mixins' as m;
+@use '../../styles/abstracts/variables' as v;
+
+.section {
+  color: v.$text-color-dark;
+  background-color: #ece4d8;
+  background-image: linear-gradient(180deg, #f1ece4 0%, #e8e1d4 100%);
+  border-top: 3px solid v.$cat-yellow2;
+}
+
+.container {
+  gap: 3rem;
+}
+
+.header {
+  display: flex;
+  max-width: 84rem;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.3rem;
+  text-align: center;
+
+  h2 {
+    @include m.sectionHeading(4rem, 5.2rem);
+    margin: 0;
+    color: v.$text-color-dark;
+  }
+
+  p {
+    max-width: 76rem;
+    margin: 0;
+    font-size: 1.8rem;
+    line-height: 1.72;
+    color: #4a443a;
+  }
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 0.85rem 1.2rem;
+  border: 1px solid rgba(122, 90, 0, 0.28);
+  background-color: rgba(122, 90, 0, 0.08);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #7a5a00;
+}
+
+.grid {
+  display: grid;
+  gap: 1.8rem;
+
+  @include m.mediaDesktop {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1.8rem;
+  overflow: hidden;
+  background-color: #fcfbf8;
+  border: 1px solid rgba(88, 72, 33, 0.16);
+  box-shadow: 0 1.5rem 3rem -2.1rem rgba(64, 50, 20, 0.24);
+}
+
+.imageFrame {
+  position: relative;
+  aspect-ratio: 4 / 3;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.cardCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.8rem;
+
+  h3 {
+    margin: 0;
+    font-size: 1.9rem;
+    font-weight: 650;
+    color: v.$text-color-dark;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1.5rem;
+    line-height: 1.55;
+    color: #5a5347;
+  }
+}
+
+.location {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #7a5a00;
+}
+
+.link {
+  margin-top: 0.6rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #7a5a00;
+  text-decoration: none;
+  border-bottom: 2px solid v.$cat-yellow2;
+  width: fit-content;
+
+  &:hover,
+  &:focus-visible {
+    color: #4a2e00;
+  }
+}

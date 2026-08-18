@@ -2,10 +2,14 @@ import type { ReactNode } from 'react';
 import {
   Bulldozer,
   Buildings,
+  ClipboardText,
   CompassRose,
+  Drop,
   HardHat,
   HouseLine,
   MapPin,
+  Mountains,
+  Plugs,
   ShieldCheck,
   Shovel,
   Truck,
@@ -14,6 +18,8 @@ import {
   Wrench,
 } from '@phosphor-icons/react/dist/ssr';
 import type {
+  ServiceAreaConditionKind,
+  ServiceAreaGlanceKind,
   ServiceAreaImage,
   ServiceAreaMap,
   ServiceAreaService,
@@ -76,6 +82,36 @@ export function getAudienceIcon(index: number): ReactNode {
   ];
 
   return icons[index % icons.length];
+}
+
+export function getGlanceIcon(kind: ServiceAreaGlanceKind): ReactNode {
+  switch (kind) {
+    case 'projects':
+      return <HardHat size={22} weight="fill" />;
+    case 'audience':
+      return <UsersThree size={22} weight="fill" />;
+    case 'coverage':
+      return <MapPin size={22} weight="fill" />;
+    case 'quote':
+      return <ClipboardText size={22} weight="fill" />;
+    default:
+      return <Wrench size={22} weight="fill" />;
+  }
+}
+
+export function getConditionIcon(kind: ServiceAreaConditionKind): ReactNode {
+  switch (kind) {
+    case 'ground':
+      return <Mountains size={24} weight="fill" />;
+    case 'drainage':
+      return <Drop size={24} weight="fill" />;
+    case 'access':
+      return <Truck size={24} weight="fill" />;
+    case 'utilities':
+      return <Plugs size={24} weight="fill" />;
+    default:
+      return <Wrench size={24} weight="fill" />;
+  }
 }
 
 export function getWhyChooseIcon(index: number): ReactNode {

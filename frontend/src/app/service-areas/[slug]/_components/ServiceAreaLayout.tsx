@@ -1,10 +1,14 @@
 import Script from 'next/script';
 import type { ServiceAreaPage } from '@/lib/serviceAreas';
 import {
+  ServiceAreaAtAGlance,
   ServiceAreaCta,
   ServiceAreaFaq,
   ServiceAreaHero,
   ServiceAreaIntro,
+  ServiceAreaLocalConditions,
+  ServiceAreaLocalPermits,
+  ServiceAreaLocalProof,
   ServiceAreaNearbyAreas,
   ServiceAreaProjectTypes,
   ServiceAreaServices,
@@ -125,6 +129,32 @@ export default function ServiceAreaLayout({
     })),
   };
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    '@id': `${pageUrl}#breadcrumb`,
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: baseUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Service Areas',
+        item: `${baseUrl}/service-areas`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: page.city,
+        item: pageUrl,
+      },
+    ],
+  };
+
   return (
     <>
       <Script
@@ -137,6 +167,11 @@ export default function ServiceAreaLayout({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      <Script
+        id={`service-area-breadcrumb-${page.slug}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <ServiceAreaHero
         eyebrow={`${page.city}, ${page.province}`}
         title={page.heroTitle}
@@ -148,6 +183,13 @@ export default function ServiceAreaLayout({
           label: 'Text 519-752-8500',
         }}
       />
+      {page.atAGlance?.items.length ? (
+        <ServiceAreaAtAGlance
+          heading={page.atAGlance.heading}
+          city={page.city}
+          items={page.atAGlance.items}
+        />
+      ) : null}
       <ServiceAreaIntro
         heading={
           page.sectionHeadings?.intro ??
@@ -164,6 +206,39 @@ export default function ServiceAreaLayout({
           }
           intro={`These are the local project types where excavation, grading, hauling, and site access often need to be planned together before the work starts.`}
           items={page.projectTypes}
+        />
+      ) : null}
+      {page.localConditions?.items.length ? (
+        <ServiceAreaLocalConditions
+          heading={
+            page.localConditions.heading ??
+            `Local excavation conditions around ${page.city}`
+          }
+          intro={page.localConditions.intro}
+          items={page.localConditions.items}
+        />
+      ) : null}
+      {page.localPermits?.items.length ? (
+        <ServiceAreaLocalPermits
+          heading={
+            page.localPermits.heading ??
+            `${page.city} permits and approvals to check before you dig`
+          }
+          intro={page.localPermits.intro}
+          disclaimer={
+            page.localPermits.disclaimer ??
+            'Requirements vary by property and project. Confirm final requirements with the applicable authority before work begins.'
+          }
+          items={page.localPermits.items}
+        />
+      ) : null}
+      {page.localProof?.items.length ? (
+        <ServiceAreaLocalProof
+          heading={
+            page.localProof.heading ?? `Recent Bellhouse work in ${page.city}`
+          }
+          intro={page.localProof.intro}
+          items={page.localProof.items}
         />
       ) : null}
       <ServiceAreaServices

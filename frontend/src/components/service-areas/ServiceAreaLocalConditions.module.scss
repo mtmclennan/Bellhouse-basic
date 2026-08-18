@@ -1,0 +1,98 @@
+@use '../../styles/abstracts/mixins' as m;
+@use '../../styles/abstracts/variables' as v;
+
+.section {
+  color: v.$text-color-dark;
+  background-color: #ece4d8;
+  background-image: linear-gradient(180deg, #f1ece4 0%, #e8e1d4 100%);
+  border-top: 3px solid v.$cat-yellow2;
+}
+
+.container {
+  gap: 3rem;
+}
+
+.header {
+  display: flex;
+  max-width: 84rem;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.3rem;
+  text-align: center;
+
+  h2 {
+    @include m.sectionHeading(4rem, 5.2rem);
+    margin: 0;
+    color: v.$text-color-dark;
+  }
+
+  p {
+    max-width: 76rem;
+    margin: 0;
+    font-size: 1.8rem;
+    line-height: 1.72;
+    color: #4a443a;
+  }
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 0.85rem 1.2rem;
+  border: 1px solid rgba(122, 90, 0, 0.28);
+  background-color: rgba(122, 90, 0, 0.08);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #7a5a00;
+}
+
+.grid {
+  display: grid;
+  gap: 1.6rem;
+
+  @include m.mediaDesktop {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: 2.2rem;
+  border: 1px solid rgba(88, 72, 33, 0.16);
+  border-radius: 1.8rem;
+  background-color: #fcfbf8;
+  background-image: linear-gradient(180deg, #fcfbf8 0%, #f6f3ec 100%);
+  box-shadow: 0 1.5rem 3rem -2.1rem rgba(64, 50, 20, 0.24);
+
+  h3 {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 1.2;
+    font-weight: 650;
+    color: v.$text-color-dark;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1.55rem;
+    line-height: 1.6;
+    color: #5a5347;
+  }
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.4rem;
+  height: 4.4rem;
+  border-radius: 999px;
+  background-color: rgba(122, 90, 0, 0.12);
+  color: #7a5a00;
+}
