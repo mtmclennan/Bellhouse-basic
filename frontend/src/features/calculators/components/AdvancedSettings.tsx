@@ -68,8 +68,9 @@ export function AdvancedSettings({
     <div className={classes.advancedFields}>
       {visibility.swellFactor && (
         <div className={classes.field}>
-          <span>{labels.swellFactor}</span>
+          <label htmlFor="advanced-swell-factor">{labels.swellFactor}</label>
           <input
+            id="advanced-swell-factor"
             type="number"
             inputMode="decimal"
             step="0.01"
@@ -88,8 +89,11 @@ export function AdvancedSettings({
 
       {visibility.compactionPercentage && (
         <div className={classes.field}>
-          <span>{labels.compactionPercentage}</span>
+          <label htmlFor="advanced-compaction-percentage">
+            {labels.compactionPercentage}
+          </label>
           <input
+            id="advanced-compaction-percentage"
             type="number"
             inputMode="decimal"
             step="0.1"
@@ -108,8 +112,9 @@ export function AdvancedSettings({
 
       {visibility.moistureLevel && (
         <div className={classes.field}>
-          <span>{labels.moistureLevel}</span>
+          <label htmlFor="advanced-moisture-level">{labels.moistureLevel}</label>
           <select
+            id="advanced-moisture-level"
             value={values.moistureLevel}
             onChange={(e) => onMoistureLevelChange(e.target.value as MoistureLevel)}
             className={classes.selectControl}
@@ -124,8 +129,11 @@ export function AdvancedSettings({
 
       {visibility.wetMaterialPercentage && (
         <div className={classes.field}>
-          <span>{labels.wetMaterialPercentage}</span>
+          <label htmlFor="advanced-wet-material-percentage">
+            {labels.wetMaterialPercentage}
+          </label>
           <input
+            id="advanced-wet-material-percentage"
             type="number"
             inputMode="decimal"
             step="0.1"
@@ -144,8 +152,11 @@ export function AdvancedSettings({
 
       {visibility.truckCapacityTons && (
         <div className={classes.field}>
-          <span>{labels.truckCapacityTons}</span>
+          <label htmlFor="advanced-truck-capacity-tons">
+            {labels.truckCapacityTons}
+          </label>
           <input
+            id="advanced-truck-capacity-tons"
             type="number"
             inputMode="decimal"
             step="0.1"

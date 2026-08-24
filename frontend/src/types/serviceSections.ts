@@ -90,10 +90,6 @@ export type ServiceOutcomesSectionData = ServiceBaseSection & {
     title: string;
     body: string;
   }>;
-  stats?: Array<{
-    label: string;
-    body: string;
-  }>;
   photos?: Array<{
     src: string;
     alt: string;

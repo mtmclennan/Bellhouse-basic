@@ -28,7 +28,7 @@
     "sideForm": true,
     "proofBar": [
       { "icon": "map-pin", "title": "Local to Brantford", "subtitle": "& Brant County" },
-      { "icon": "calendar-check", "title": "Since 1982", "subtitle": "Family operation" },
+      { "icon": "calendar-check", "title": "Since 1982", "subtitle": "Owner-operated" },
       { "icon": "truck", "title": "Own equipment", "subtitle": "Trucks & excavators" },
       { "icon": "star", "title": "5.0 on Google", "subtitle": "Local reviews" },
       { "icon": "shield-check", "title": "Licensed & insured", "subtitle": "Fully covered" }
@@ -200,12 +200,6 @@
       "eyebrow": "Site outcomes",
       "heading": "What The Site Should Be Ready For After Delivery",
       "subheading": "The goal is material on site, placed practically, and ready for the next step.",
-      "stats": [
-        { "label": "Since 1982", "body": "Over four decades of local site work" },
-        { "label": "Own equipment", "body": "Excavators, dozers, trucks, and operators available for local site work" },
-        { "label": "5.0 on Google", "body": "Rated by homeowners, builders, and contractors" },
-        { "label": "Licensed & insured", "body": "Full coverage on every job" }
-      ],
       "items": [
         {
           "title": "Material staged where it can be used",

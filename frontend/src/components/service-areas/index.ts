@@ -1,7 +1,12 @@
 export { default as ServiceAreaHero } from './ServiceAreaHero';
+export { default as ServiceAreaTrustStrip } from './ServiceAreaTrustStrip';
+export { default as ServiceAreaAtAGlance } from './ServiceAreaAtAGlance';
 export { default as ServiceAreaIntro } from './ServiceAreaIntro';
 export { default as ServiceAreaServices } from './ServiceAreaServices';
 export { default as ServiceAreaProjectTypes } from './ServiceAreaProjectTypes';
+export { default as ServiceAreaLocalConditions } from './ServiceAreaLocalConditions';
+export { default as ServiceAreaLocalPermits } from './ServiceAreaLocalPermits';
+export { default as ServiceAreaLocalProof } from './ServiceAreaLocalProof';
 export { default as ServiceAreaWhoWeWorkWith } from './ServiceAreaWhoWeWorkWith';
 export { default as ServiceAreaWhyChoose } from './ServiceAreaWhyChoose';
 export { default as ServiceAreaNearbyAreas } from './ServiceAreaNearbyAreas';

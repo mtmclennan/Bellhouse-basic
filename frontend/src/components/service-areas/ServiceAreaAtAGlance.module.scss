@@ -1,0 +1,79 @@
+@use '../../styles/abstracts/mixins' as m;
+@use '../../styles/abstracts/variables' as v;
+
+.card {
+  border-radius: 1.6rem;
+  overflow: hidden;
+  background-color: #ece4d8;
+  background-image: linear-gradient(180deg, #f1ece4 0%, #e8e1d4 100%);
+  box-shadow: 0 4rem 7rem -3.4rem rgba(0, 0, 0, 0.75);
+}
+
+.cardHead {
+  background-color: v.$btn-main-text2;
+  color: #fff;
+  padding: 1.3rem 2.2rem;
+}
+
+.heading {
+  margin: 0;
+  font-family: var(--font-oswald), sans-serif;
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.subheading {
+  margin: 0.2rem 0 0;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.grid {
+  margin: 0;
+  padding: 1.6rem 2.2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.2rem;
+  align-items: start;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(88, 72, 33, 0.16);
+
+  &:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  dt {
+    margin: 0 0 0.3rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #7a5a00;
+  }
+
+  dd {
+    margin: 0;
+    font-size: 1.5rem;
+    line-height: 1.45;
+    font-weight: 700;
+    color: v.$text-color-dark;
+  }
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #7a5a00;
+  font-size: 2rem;
+  line-height: 1;
+}

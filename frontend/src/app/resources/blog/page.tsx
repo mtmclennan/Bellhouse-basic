@@ -40,7 +40,7 @@ export default function ResourceBlogPage() {
               trail={[
                 { name: 'Home', href: '/' },
                 { name: 'Resources', href: '/resources' },
-                { name: 'Blog' },
+                { name: 'Blog', href: '/resources/blog' },
               ]}
             />
             <p className={classes.eyebrow}>Bellhouse blog</p>

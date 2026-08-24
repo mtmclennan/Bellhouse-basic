@@ -14,8 +14,12 @@ export default function ServiceAreaWhoWeWorkWith({
   items,
 }: ServiceAreaWhoWeWorkWithProps) {
   return (
-    <SectionWrapper containerClassName={classes.container}>
+    <SectionWrapper
+      className={classes.section}
+      containerClassName={classes.container}
+    >
       <div className={classes.content}>
+        <p className={classes.eyebrow}>Clients</p>
         <h2 className={classes.heading}>{heading}</h2>
         {intro ? <p className={classes.intro}>{intro}</p> : null}
         <ul className={classes.list}>

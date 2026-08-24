@@ -1,0 +1,413 @@
+{
+  "id": 14,
+  "slug": "commercial-industrial-site-preparation",
+  "title": "Commercial & Industrial Site Preparation",
+  "navTitle": "Commercial Site Preparation",
+  "contactService": "Commercial & Industrial Site Preparation",
+  "meta": {
+    "title": "Commercial Site Preparation Brantford | Bellhouse",
+    "description": "Commercial and industrial earthworks across Brantford and Brant County. Bulk excavation, rough grading, aggregate base, trucking, and yard preparation."
+  },
+  "card": {
+    "title": "Commercial & Industrial Site Preparation",
+    "description": "Site grading, drainage, gravel yard construction, and excavation for commercial and industrial properties.",
+    "image": "/assets/services/housing-development.webp",
+    "alt": "Commercial site preparation with heavy excavation equipment in Brantford"
+  },
+  "hero": {
+    "eyebrow": "Commercial & industrial site work",
+    "heading": "Commercial & Industrial Site Preparation in Brantford & Brant County",
+    "summary": "Commercial and industrial site work requires equipment that can move volume. Bellhouse Excavating handles bulk excavation, material movement, rough grading, aggregate base, trucking, and yard preparation for commercial sites, industrial facilities, and equipment yards across Brantford and Brant County.",
+    "actions": [
+      { "label": "Request Commercial Quote", "href": "/contact", "variant": "primary" },
+      { "label": "For Builders & Contractors", "href": "/contractors", "variant": "secondary" }
+    ],
+    "emphasis": "high",
+    "image": "/assets/services/site-prep-rocky-two-excavators-striping.webp",
+    "alt": "Two excavators working on a large commercial site preparation project in Brantford",
+    "sideForm": true,
+    "proofBar": [
+      { "icon": "map-pin", "title": "Local to Brantford", "subtitle": "& Brant County" },
+      { "icon": "calendar-check", "title": "Since 1982", "subtitle": "Local experience" },
+      { "icon": "truck", "title": "Volvo A35", "subtitle": "Volume hauling" },
+      { "icon": "buildings", "title": "Commercial scale", "subtitle": "Industrial & yard work" },
+      { "icon": "shield-check", "title": "Licensed & insured", "subtitle": "Fully covered" }
+    ]
+  },
+  "sections": [
+    {
+      "type": "intro",
+      "tone": "light",
+      "eyebrow": "Who it's for",
+      "heading": "Site Preparation for Commercial and Industrial Properties",
+      "body": "Bellhouse Excavating provides commercial and industrial earthworks support across Brantford and Brant County. When the project is a new commercial development, an equipment yard, a trucking terminal, an industrial building pad, or a gravel surface for outdoor storage, the site work needs equipment that can handle volume, grade to specification, and keep up with a commercial construction schedule.\n\nCommercial site preparation can include mass excavation, cut and fill, rough grading, subgrade preparation, aggregate base, surface drainage shaping, material hauling, site servicing components, catch basins, trenching, and related backfill where the scope fits the project. Larger or more complex civil-servicing packages, major watermain systems, and extensive sanitary or storm sewer networks are reviewed individually and may require additional civil partners.",
+      "audience": [
+        { "icon": "buildings", "label": "Commercial developers" },
+        { "icon": "factory", "label": "Industrial operators" },
+        { "icon": "blueprint", "label": "General contractors" },
+        { "icon": "house-line", "label": "Property owners" }
+      ]
+    },
+    {
+      "type": "projectFit",
+      "tone": "dark",
+      "heading": "Commercial Site Projects Bellhouse Handles",
+      "subheading": "Best fit for commercial and industrial site work where volume, drainage, and gravel surfaces need to be handled by equipment built for the scale.",
+      "cards": [
+        {
+          "title": "New commercial and industrial site preparation",
+          "body": "A strong fit when a commercial or industrial property needs exterior earthworks: stripping, mass excavation, rough grading, aggregate base, and subgrade preparation for buildings, yards, and access areas. Bellhouse coordinates the earthmoving and trucking scope so the site is ready for the building contractor and yard operations.",
+          "tags": ["Commercial site prep", "Industrial excavation", "New development"],
+          "outcome": "The site goes from raw ground to graded, drained, and subgrade-ready for building construction and exterior improvements."
+        },
+        {
+          "title": "Equipment yards, trucking yards, and outdoor storage areas",
+          "body": "Useful when a property needs a gravel surface built to handle heavy equipment, truck traffic, and material storage. Subgrade preparation, drainage, and gravel depth are planned around the loads and traffic the yard will carry.",
+          "tags": ["Equipment yards", "Trucking terminals", "Outdoor storage"],
+          "outcome": "A gravel yard surface that handles the weight and traffic without rutting, pooling, or breaking down after the first season."
+        },
+        {
+          "title": "Commercial drainage and grading correction",
+          "body": "A practical fit when an existing commercial property has drainage problems, pooling water, or poor surface grades that affect yard operations, parking areas, or building access. Regrading and drainage improvements can be handled without disrupting the full site.",
+          "tags": ["Drainage correction", "Yard regrading", "Surface improvements"],
+          "outcome": "Water drains off the yard and away from buildings instead of pooling in operational areas."
+        },
+        {
+          "title": "GC excavation sub for commercial builds",
+          "body": "A strong fit for general contractors who need a reliable excavation sub for the exterior site work on commercial projects — mass excavation, grading, drainage, material hauling, and gravel surface construction coordinated around the build schedule.",
+          "tags": ["GC support", "Excavation sub", "Commercial builds"],
+          "outcome": "Exterior site work stays on schedule and the GC has one point of contact for excavation, grading, hauling, and drainage."
+        }
+      ]
+    },
+    {
+      "type": "scope",
+      "tone": "light",
+      "eyebrow": "What Bellhouse handles",
+      "heading": "Commercial & Industrial Site Preparation Includes",
+      "subheading": "Exterior site work for commercial and industrial properties where volume, drainage, surface construction, and manageable servicing components need to be handled as one coordinated scope.",
+      "items": [
+        { "title": "Site Clearing & Demolition Coordination", "body": "Clearing, grubbing, and removal of existing structures or debris from the site. Demolition is coordinated with excavation and hauling so the site is cleared efficiently." },
+        { "title": "Mass Excavation & Rough Grading", "body": "Bulk earth moving to establish site grades, building pad elevations, and yard surfaces. Material is hauled off site or redistributed across the property as needed." },
+        { "title": "Subgrade Preparation for Buildings & Pads", "body": "Building pad areas are excavated, subgrade is prepared and compacted, and the surface is levelled for the foundation or slab contractor." },
+        { "title": "Industrial Yard Gravel Surface Construction", "body": "Gravel yards for equipment storage, truck staging, and outdoor operations are built with proper subgrade, drainage, and granular surface depth to handle heavy loads." },
+        { "title": "Surface Drainage Shaping", "body": "Swales, culvert-related grading, and surface grades are shaped to direct water off the site and away from buildings, yards, and operational areas." },
+        { "title": "Site Servicing Components", "body": "Drainage pipe, catch basins, service trenches, related excavation, bedding, and backfill can be included where they fit the project requirements and overall scope." },
+        { "title": "Trucking & Equipment Yard Grading", "body": "Yards are graded for proper water runoff, truck turning, equipment storage, and material staging. Surface grades are set to prevent pooling and maintain a driveable surface." },
+        { "title": "Material Hauling & Disposal", "body": "Excess material is hauled off site with Bellhouse trucks. Clean fill, gravel, and granular base are delivered and placed as part of the same scope." }
+      ]
+    },
+    {
+      "type": "scope",
+      "tone": "dark",
+      "heading": "Project Fit & Scope Review",
+      "subheading": "Commercial site preparation works best on open sites with clear access, defined grades, manageable servicing components, and enough volume to justify large-site equipment and trucking.",
+      "items": [
+        {
+          "title": "Best fit: Commercial and industrial sites on open land in Brant County",
+          "body": "New commercial developments, industrial building sites, and yard construction on properties with room for equipment access, truck staging, and material handling. Sites in Brantford, Paris, Cambridge, and surrounding Brant County."
+        },
+        {
+          "title": "Best fit: Equipment yards, trucking yards, and outdoor storage areas needing gravel surfaces",
+          "body": "Properties where the yard surface needs to be built to handle heavy equipment, loaded trucks, and material storage. Subgrade preparation, drainage, and gravel depth are planned for the actual loads."
+        },
+        {
+          "title": "Best fit: New industrial builds requiring exterior earthworks",
+          "body": "Industrial properties where the building contractor needs earthmoving, rough grading, aggregate surfaces, access roads, and material hauling coordinated as one practical scope."
+        },
+        {
+          "title": "Best fit: Commercial sites with drainage problems or poor subgrade",
+          "body": "Existing commercial properties where pooling water, soft ground, or poor yard grades are affecting operations. Regrading and drainage improvements can be handled without a full site rebuild."
+        },
+        {
+          "title": "Best fit: GCs looking for a reliable excavation sub for commercial projects",
+          "body": "General contractors who need exterior site work — excavation, grading, drainage, hauling — handled by one sub with their own equipment and trucks, coordinated around the build schedule."
+        },
+        {
+          "title": "Reviewed case by case: Tight urban infill sites",
+          "body": "Dense commercial sites with limited equipment access may need smaller equipment, different truck routing, or staged spoil handling. Bellhouse reviews access, staging, utilities, and safety before confirming the right approach."
+        },
+        {
+          "title": "Better handled through foundation or residential site work: Individual subdivision lots",
+          "body": "Individual residential lots are usually a different service path than commercial site preparation. Bellhouse can still review foundation excavation, backfill, grading, or builder support through the residential foundation and site-prep services."
+        },
+        {
+          "title": "Not the best fit: Standalone paving or flatwork",
+          "body": "Bellhouse prepares the subgrade and gravel surface. Asphalt paving is coordinated through a trusted paving sub when needed, and concrete flatwork is handled by a concrete contractor after Bellhouse prepares the pad."
+        }
+      ]
+    },
+    {
+      "type": "reviews",
+      "tone": "light",
+      "eyebrow": "Testimonials",
+      "heading": "What customers say about Bellhouse",
+      "subheading": "Feedback from local homeowners, builders, and job-site customers Bellhouse has worked with.",
+      "limit": 3
+    },
+    {
+      "type": "pricingFactors",
+      "tone": "dark",
+      "eyebrow": "What affects price",
+      "heading": "Commercial site preparation is priced around site size, conditions, and scope",
+      "subheading": "A useful quote depends on the site area, existing conditions, drainage requirements, gravel surface area, and haul distance for material removal.",
+      "tiers": [
+        { "name": "Simpler", "eg": "Gravel yard construction or regrading on an existing prepared subgrade", "position": "low" },
+        { "name": "Typical", "eg": "Full commercial site prep — stripping, grading, drainage, and gravel surface on 1–3 acres", "position": "mid" },
+        { "name": "Complex", "eg": "Large industrial site with mass excavation, extensive drainage, multiple building pads, and heavy hauling", "position": "high" }
+      ],
+      "rangeNote": "Most commercial site preparation projects fall in the middle range. Bellhouse quotes after reviewing the site plans, existing conditions, and earthworks scope.",
+      "factors": [
+        {
+          "title": "Site size and area to grade",
+          "body": "Larger sites with more area to strip, excavate, grade, and surface require more machine time, more material, and more truck loads."
+        },
+        {
+          "title": "Existing conditions",
+          "body": "A cleared, flat site with good subgrade is different from a treed or debris-covered property with soft ground. Clearing, demolition, and subgrade issues add to the scope."
+        },
+        {
+          "title": "Drainage complexity",
+          "body": "Sites that need swales, culvert-related grading, and engineered surface drainage require more excavation and shaping than simple grading."
+        },
+        {
+          "title": "Gravel surface area",
+          "body": "The area to be surfaced with gravel and the required depth directly drive material supply costs and placement time. Equipment yards need deeper base than light-use parking areas."
+        },
+        {
+          "title": "Haul distance for material removal",
+          "body": "The distance to the disposal site for excess material affects trucking costs. Clean fill with a nearby placement option costs less than material that needs to be hauled to a distant disposal location."
+        }
+      ],
+      "aside": {
+        "label": "Get a real number",
+        "heading": "Site plans, a scope description, and access details help Bellhouse quote commercial work accurately",
+        "body": "Instead of estimating from site area alone.",
+        "action": { "label": "Request Commercial Quote", "href": "/contact" },
+        "phone": { "label": "519-752-8500", "href": "tel:5197528500" }
+      }
+    },
+    {
+      "type": "jobsiteProof",
+      "tone": "light",
+      "eyebrow": "Commercial site work",
+      "heading": "Commercial site preparation starts with grades, drainage, and material handling — not just moving dirt.",
+      "body": "On a commercial or industrial site the grading, drainage, and subgrade need to support the loads and traffic the property will see for years. Bellhouse plans the site work around building pad elevations, yard surface grades, drainage flow, and truck access so the finished site works from day one instead of developing problems after the building is up.",
+      "image": {
+        "src": "/assets/services/site-preparation-heavy-equipment-brantford.webp",
+        "alt": "Heavy excavation equipment during commercial site preparation near Brantford"
+      },
+      "caption": "Commercial site work is planned around grades, drainage, load capacity, and the next trade on site."
+    },
+    {
+      "type": "outcomes",
+      "tone": "dark",
+      "eyebrow": "Site outcomes",
+      "heading": "What the Commercial Site Should Be Ready For",
+      "subheading": "The goal is a site that is graded, drained, and surfaced so building construction and yard operations can begin without additional excavation.",
+      "items": [
+        { "title": "Build-ready subgrade and building pads", "body": "Building pad areas are excavated, compacted, and levelled so the foundation or slab contractor can start without additional excavation or subgrade correction." },
+        { "title": "Functional yard surfaces", "body": "Gravel yards are built to handle the weight and traffic the operation requires — equipment storage, truck turning, material staging — without rutting or pooling." },
+        { "title": "Drainage that protects the site", "body": "Water flows off the yard and away from buildings through graded surfaces, swales, and culvert-related grading instead of pooling in operational areas." }
+      ]
+    },
+    {
+      "type": "problemsPrevented",
+      "tone": "light",
+      "heading": "What Proper Commercial Site Preparation Prevents",
+      "subheading": "Commercial sites that are graded poorly or drained inadequately create operational problems that are expensive to fix after the building is up.",
+      "items": [
+        {
+          "problem": "A gravel yard that ruts and pools after the first season of truck traffic because the subgrade was never properly prepared.",
+          "solution": "Bellhouse prepares the subgrade, establishes proper drainage grades, and places gravel to the depth needed for the actual traffic loads."
+        },
+        {
+          "problem": "Water pooling against the building foundation or in the yard because surface grades were set without a drainage plan.",
+          "solution": "Surface grades, swales, and drainage structures are planned before grading begins so water moves off the site predictably."
+        },
+        {
+          "problem": "Scheduling delays because the excavation sub can't keep up with the GC's build schedule or doesn't have enough trucks.",
+          "solution": "Bellhouse owns the equipment and trucks needed for commercial-scale site work and coordinates the schedule directly with the GC."
+        }
+      ]
+    },
+    {
+      "type": "equipment",
+      "tone": "dark",
+      "heading": "Equipment Used for Commercial Site Preparation",
+      "subheading": "Commercial-scale equipment for moving volume, grading to specification, and hauling material efficiently.",
+      "items": [
+        {
+          "name": "CAT Excavator",
+          "body": "Primary machine for mass excavation, rough grading, subgrade preparation, and material loading. Sized for commercial volume and production rates.",
+          "image": { "src": "/assets/services/cat-320D-excavator-leveling-aggregates-pile.webp", "alt": "CAT 320D excavator leveling aggregates on a commercial site in Brant County" }
+        },
+        {
+          "name": "Dozer",
+          "body": "Used for stripping, rough grading, material spreading, and establishing site grades across large areas. Essential for moving volume efficiently on commercial sites.",
+          "image": { "src": "/assets/services/foundation-excavation/equipment-dozer-grader.jpg", "alt": "Dozer grading a commercial site during site preparation" }
+        },
+        {
+          "name": "Volvo A35 Articulated Dump Truck",
+          "body": "Handles high-volume material hauling on site and to disposal locations. The A35 works on soft or unfinished ground where highway trucks cannot operate safely.",
+          "image": { "src": "/assets/services/bellhouse-offroad-dump-truck-equipment-illustration.webp", "alt": "Volvo A35 articulated dump truck handling volume hauling on a commercial site" }
+        },
+        {
+          "name": "Tri-Axle Dump Trucks",
+          "body": "Used for hauling material to and from the site — excess soil to disposal, gravel and granular base to the site for yard construction and subgrade work.",
+          "image": { "src": "/assets/services/dump-truck-hauling/triaxle-dump-truck-gravel-hauling-brant-county.webp", "alt": "Bellhouse tri-axle dump truck hauling material for commercial site preparation" }
+        }
+      ]
+    },
+    {
+      "type": "process",
+      "tone": "light",
+      "heading": "How Commercial Site Preparation Works",
+      "subheading": "Clear steps from site review to build-ready property — planned around the site plans, drainage, and the GC's construction schedule.",
+      "image": {
+        "src": "/assets/services/equipment-lined-up-large-site-prep.webp",
+        "alt": "Bellhouse equipment lined up for commercial site preparation work"
+      },
+      "caption": "Equipment is mobilized based on the site size, volume to move, and the schedule the GC needs to meet.",
+      "steps": [
+        { "title": "Site review and scope confirmation", "body": "Bellhouse reviews the site plans, existing conditions, access, surface drainage requirements, and schedule to confirm the earthworks scope and return a quote." },
+        { "title": "Clearing, stripping, and mass excavation", "body": "The site is cleared, topsoil stripped, and bulk earth moved to establish rough grades. Excess material is hauled off site with Bellhouse trucks." },
+        { "title": "Subgrade preparation and drainage shaping", "body": "Building pad subgrades are prepared and compacted. Swales, culvert-related grading, and surface grades are shaped to direct water off the site." },
+        { "title": "Gravel surface construction and final grading", "body": "Yard areas are surfaced with granular base to the required depth, grades are set for drainage and truck traffic, and the site is handed off ready for building construction." }
+      ]
+    },
+    {
+      "type": "contractorCta",
+      "tone": "dark",
+      "eyebrow": "For developers and general contractors",
+      "heading": "Need commercial site work scoped and quoted?",
+      "body": "If your commercial or industrial project needs site preparation, grading, drainage, gravel yard construction, or material hauling handled by one crew with their own equipment and trucks, Bellhouse can review the site plans and return a scope and quote.",
+      "image": {
+        "src": "/assets/services/large-site-prep-equipment.webp",
+        "alt": "Large-site excavation equipment during commercial site preparation"
+      },
+      "caption": "Commercial site work is coordinated so the GC has one point of contact for exterior excavation, grading, and hauling.",
+      "actions": [
+        { "label": "Send Project Details", "href": "/contractors#contractor-form", "variant": "primary" },
+        { "label": "Call 519-752-8500", "href": "tel:5197528500", "variant": "secondary" }
+      ]
+    },
+    {
+      "type": "resources",
+      "tone": "light",
+      "eyebrow": "Planning tool",
+      "heading": "Estimating excavation volume for commercial site work?",
+      "subheading": "A rough excavation estimate helps clarify the scale of material to move before Bellhouse reviews the site plans and conditions.",
+      "cards": [
+        {
+          "title": "Excavation calculator for commercial sites",
+          "body": "Estimate rough excavation volume, material to haul, and truck loads for commercial site preparation and grading work.",
+          "href": "/resources/calculators/excavation",
+          "label": "Estimate Excavation Volume"
+        }
+      ],
+      "actions": [{ "label": "View Calculators", "href": "/resources/calculators", "variant": "secondary" }]
+    },
+    {
+      "type": "serviceAreas",
+      "tone": "dark",
+      "heading": "Commercial site preparation by service area",
+      "body": "Commercial and industrial site preparation services are available across Brantford, Brant County, and surrounding areas — including Paris, Cambridge, Woodstock, Simcoe, Tillsonburg, Hamilton, Caledonia, Hagersville, Ancaster, and nearby communities where commercial-scale excavation and grading are needed.",
+      "areaSlugs": ["brantford", "paris", "cambridge", "woodstock", "simcoe", "hamilton", "ancaster", "caledonia", "hagersville", "tillsonburg"]
+    },
+    {
+      "type": "faq",
+      "tone": "light",
+      "heading": "Frequently Asked Questions",
+      "items": [
+        {
+          "question": "What does commercial site preparation include?",
+          "answer": "Commercial site preparation typically includes clearing and grubbing, topsoil stripping, mass excavation to establish site grades, subgrade preparation and compaction for building pads and yard areas, surface drainage shaping, gravel surface construction, material hauling, and manageable site-servicing components such as drainage pipe, catch basins, service trenches, related excavation, bedding, and backfill where the scope fits. Larger civil packages, major watermain work, extensive sanitary systems, or complex storm sewer networks are reviewed individually and may require additional civil partners."
+        },
+        {
+          "question": "How do you build a gravel yard for heavy trucks and equipment?",
+          "answer": "A gravel yard that handles heavy trucks and equipment starts with proper subgrade preparation — stripping the topsoil, compacting the existing ground, and addressing any soft spots or drainage issues before any gravel goes down. The granular base is then placed in lifts and compacted to the depth needed for the expected loads. A yard for loaded tri-axle trucks needs a deeper base than one for light vehicle parking. Surface grades are set so water drains off the yard instead of pooling in wheel tracks or low spots. Bellhouse builds gravel yards that stay driveable and functional instead of rutting and failing after one season of use."
+        },
+        {
+          "question": "How much does industrial site preparation cost in Brantford?",
+          "answer": "Industrial site preparation cost depends on the site size, how much material needs to be moved, existing conditions, surface drainage complexity, gravel surface area and depth, and haul distances for material removal. A small yard regrading on an existing prepared subgrade is a different scope than an industrial earthworks project with mass excavation, multiple building pads, and heavy gravel surface construction. Bellhouse quotes after reviewing the site plans, existing conditions, and earthworks scope."
+        },
+        {
+          "question": "Do you work with general contractors on commercial builds?",
+          "answer": "Yes. Bellhouse regularly works as the excavation sub for general contractors on commercial and industrial projects across Brantford and Brant County. The scope typically includes mass excavation, rough grading, aggregate base, gravel surface construction, and material hauling coordinated around the GC's build schedule."
+        },
+        {
+          "question": "What's the difference between site preparation and site servicing?",
+          "answer": "Site preparation covers the earthwork - clearing, excavation, grading, drainage, and gravel surfaces. Site servicing covers underground items such as water, sewer, storm, hydro, and gas connections. Bellhouse can handle site-servicing components such as drainage pipe, catch basins, service trenches, related excavation, bedding, and backfill depending on project requirements. Larger or more complex civil-servicing scopes are reviewed individually and may involve a dedicated utility or civil contractor."
+        }
+      ]
+    },
+    {
+      "type": "relatedServices",
+      "tone": "dark",
+      "eyebrow": "Related services",
+      "heading": "Related excavation, grading, and hauling services",
+      "serviceSlugs": ["site-preparation-land-grading", "land-grading-drainage", "dirt-gravel-delivery", "dump-truck-rental"]
+    },
+    {
+      "type": "finalCta",
+      "tone": "light",
+      "heading": "Ready to Get Your Commercial Site Prepared?",
+      "body": "Send the site plans, location, scope, and schedule. Bellhouse will return a quote based on the actual site conditions — not a per-square-foot formula.",
+      "bullets": [
+        "No obligation — free project review",
+        "Bellhouse replies with real numbers",
+        "Local crew, own equipment, own trucks"
+      ],
+      "form": true,
+      "actions": [
+        { "label": "Request Commercial Quote", "href": "/contact", "variant": "primary" },
+        { "label": "Send Project Details", "href": "/contractors#contractor-form", "variant": "secondary" }
+      ],
+      "navGroups": [
+        {
+          "label": "Other services",
+          "icon": "wrench",
+          "links": [
+            { "label": "Site Prep & Grading", "href": "/services/site-preparation-land-grading", "icon": "caret-right" },
+            { "label": "Land Grading & Drainage", "href": "/services/land-grading-drainage", "icon": "caret-right" },
+            { "label": "Dirt & Gravel Delivery", "href": "/services/dirt-gravel-delivery", "icon": "caret-right" },
+            { "label": "Dump Truck Rental", "href": "/services/dump-truck-rental", "icon": "caret-right" }
+          ]
+        },
+        {
+          "label": "Service areas",
+          "icon": "map-pin",
+          "links": [
+            { "label": "Brantford", "href": "/service-areas/brantford", "icon": "map-pin" },
+            { "label": "Brant County", "href": "/service-areas/brantford", "icon": "map-pin" },
+            { "label": "Paris", "href": "/service-areas/paris", "icon": "map-pin" },
+            { "label": "Cambridge", "href": "/service-areas/cambridge", "icon": "map-pin" },
+            { "label": "Woodstock", "href": "/service-areas/woodstock", "icon": "map-pin" },
+            { "label": "Hamilton", "href": "/service-areas/hamilton", "icon": "map-pin" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "banner",
+      "tone": "dark",
+      "eyebrow": "Commercial site work done right",
+      "heading": "Commercial or industrial site needs earthworks, grading, or gravel? Bellhouse is local, equipped, and taking jobs now.",
+      "body": "From mass excavation and rough grading to aggregate base, gravel yard construction, and material hauling, Bellhouse handles practical earthworks support so your commercial build stays on schedule.",
+      "bullets": [
+        "Site prep, grading, drainage, and gravel surfaces handled together",
+        "Own excavators, dozers, A35, and tri-axle trucks — no subcontracting",
+        "Brantford, Paris, Cambridge, Woodstock, and surrounding Brant County"
+      ],
+      "image": {
+        "src": "/assets/services/site-preparations-land-clearing/large-site-preparation-excavation-equipment.webp",
+        "alt": "Large-site excavation equipment during commercial site preparation"
+      },
+      "actions": [
+        { "label": "Request Commercial Quote", "href": "/contact", "variant": "primary" },
+        { "label": "Call 519-752-8500", "href": "tel:5197528500", "variant": "secondary" }
+      ]
+    }
+  ]
+}

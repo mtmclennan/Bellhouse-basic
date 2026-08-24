@@ -5,6 +5,7 @@ import {
   getLandingPageBySlug,
   landingPages,
 } from '@/data/landingPages/landingPages';
+import { validateMetadata } from '@/lib/utils/seoValidation';
 
 type LandingPageRouteProps = {
   params: Promise<{ slug: string }>;
@@ -22,6 +23,8 @@ export async function generateMetadata({
       description: 'Requested landing page does not exist.',
     };
   }
+
+  validateMetadata(page.seo.title, page.seo.description);
 
   return {
     title: page.seo.title,

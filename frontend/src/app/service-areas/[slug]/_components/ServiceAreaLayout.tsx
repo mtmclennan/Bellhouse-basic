@@ -1,21 +1,21 @@
 import Script from 'next/script';
-import type { ServiceAreaPage } from '@/lib/serviceAreas';
+import { serviceAreaServiceIndex, type ServiceAreaPage } from '@/lib/serviceAreas';
 import {
   ServiceAreaCta,
   ServiceAreaFaq,
   ServiceAreaHero,
   ServiceAreaIntro,
+  ServiceAreaLocalConditions,
+  ServiceAreaLocalPermits,
+  ServiceAreaLocalProof,
   ServiceAreaNearbyAreas,
   ServiceAreaProjectTypes,
   ServiceAreaServices,
+  ServiceAreaTrustStrip,
   ServiceAreaWhoWeWorkWith,
   ServiceAreaWhyChoose,
 } from '@/components/service-areas';
-import {
-  defaultCtaImage,
-  defaultHeroImage,
-  defaultIntroImage,
-} from '@/components/service-areas/visuals';
+import { defaultHeroImage, defaultIntroImage } from '@/components/service-areas/visuals';
 
 type ServiceAreaLayoutProps = {
   page: ServiceAreaPage;
@@ -81,6 +81,15 @@ export default function ServiceAreaLayout({
     page.whoWeWorkWith,
   ).slice(0, 6);
 
+  const heroBullets = (page.atAGlance?.items ?? [])
+    .filter((item) => item.kind === 'projects' || item.kind === 'audience' || item.kind === 'coverage')
+    .map((item) => item.value)
+    .slice(0, 3);
+
+  const trustServiceLabels = page.services
+    .map((service) => serviceAreaServiceIndex[service.slug as keyof typeof serviceAreaServiceIndex]?.label)
+    .filter((label): label is string => Boolean(label));
+
   const serviceAreaSchema = {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -125,6 +134,32 @@ export default function ServiceAreaLayout({
     })),
   };
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    '@id': `${pageUrl}#breadcrumb`,
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: baseUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Service Areas',
+        item: `${baseUrl}/service-areas`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: page.city,
+        item: pageUrl,
+      },
+    ],
+  };
+
   return (
     <>
       <Script
@@ -137,16 +172,28 @@ export default function ServiceAreaLayout({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      <Script
+        id={`service-area-breadcrumb-${page.slug}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <ServiceAreaHero
-        eyebrow={`${page.city}, ${page.province}`}
         title={page.heroTitle}
         description={page.heroDescription}
+        city={page.city}
+        province={page.province === 'Ontario' ? 'ON' : page.province}
+        bullets={heroBullets}
         image={page.heroImage ?? defaultHeroImage}
         actions={heroActions}
         contactNote={{
           href: 'sms:5197528500',
           label: 'Text 519-752-8500',
         }}
+        atAGlance={page.atAGlance}
+      />
+      <ServiceAreaTrustStrip
+        serviceLabels={trustServiceLabels}
+        city={page.city}
       />
       <ServiceAreaIntro
         heading={
@@ -164,6 +211,39 @@ export default function ServiceAreaLayout({
           }
           intro={`These are the local project types where excavation, grading, hauling, and site access often need to be planned together before the work starts.`}
           items={page.projectTypes}
+        />
+      ) : null}
+      {page.localConditions?.items.length ? (
+        <ServiceAreaLocalConditions
+          heading={
+            page.localConditions.heading ??
+            `Local excavation conditions around ${page.city}`
+          }
+          intro={page.localConditions.intro}
+          items={page.localConditions.items}
+        />
+      ) : null}
+      {page.localPermits?.items.length ? (
+        <ServiceAreaLocalPermits
+          heading={
+            page.localPermits.heading ??
+            `${page.city} permits and approvals to check before you dig`
+          }
+          intro={page.localPermits.intro}
+          disclaimer={
+            page.localPermits.disclaimer ??
+            'Requirements vary by property and project. Confirm final requirements with the applicable authority before work begins.'
+          }
+          items={page.localPermits.items}
+        />
+      ) : null}
+      {page.localProof?.items.length ? (
+        <ServiceAreaLocalProof
+          heading={
+            page.localProof.heading ?? `Recent Bellhouse work in ${page.city}`
+          }
+          intro={page.localProof.intro}
+          items={page.localProof.items}
         />
       ) : null}
       <ServiceAreaServices
@@ -218,7 +298,6 @@ export default function ServiceAreaLayout({
           'Call, text, or request a quote if you need a clear answer on fit, timing, and what the job needs first.'
         }
         supportingPoints={page.bottomCta?.supportingPoints}
-        image={page.ctaImage ?? defaultCtaImage}
         actions={finalActions}
         contactNote={{
           href: 'sms:5197528500',

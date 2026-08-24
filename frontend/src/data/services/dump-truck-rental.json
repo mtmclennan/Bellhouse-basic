@@ -28,7 +28,7 @@
     "sideForm": true,
     "proofBar": [
       { "icon": "map-pin", "title": "Local to Brantford", "subtitle": "& Brant County" },
-      { "icon": "calendar-check", "title": "Since 1982", "subtitle": "Family operation" },
+      { "icon": "calendar-check", "title": "Since 1982", "subtitle": "Owner-operated" },
       { "icon": "truck", "title": "Own equipment", "subtitle": "Trucks & excavators" },
       { "icon": "star", "title": "5.0 on Google", "subtitle": "Local reviews" },
       { "icon": "shield-check", "title": "Licensed & insured", "subtitle": "Fully covered" }
@@ -178,12 +178,6 @@
       "eyebrow": "Site outcomes",
       "heading": "What The Site Should Gain From Better Hauling",
       "subheading": "The goal is simple: material moved safely, efficiently, and without turning truck timing into the bottleneck.",
-      "stats": [
-        { "label": "Since 1982", "body": "Over four decades of local site work" },
-        { "label": "Own equipment", "body": "Excavators, dozers, trucks, and operators available for local site work" },
-        { "label": "5.0 on Google", "body": "Rated by homeowners, builders, and contractors" },
-        { "label": "Licensed & insured", "body": "Full coverage on every job" }
-      ],
       "items": [
         { "title": "Cleaner material flow", "body": "Imported aggregate, fill, topsoil, or excavated spoil moves in a sequence that supports the work already happening on site." },
         { "title": "Less downtime between loads", "body": "Truck scheduling is handled around access, loading, dumping, and the pace of the equipment on the job." },
@@ -225,6 +219,11 @@
           "name": "Loading Equipment",
           "body": "Excavators and loaders can support hauling work when Bellhouse is coordinating excavation, aggregate movement, or spoil removal.",
           "image": { "src": "/assets/services/dump-truck-hauling/excavator-loading-dump-truck-right.webp", "alt": "Bellhouse excavator loading a tri-axle dump truck during site hauling work in Brant County" }
+        },
+        {
+          "name": "Truck Fleet",
+          "body": "A fleet of tri-axle dump trucks maintained for reliable daily availability on active job sites.",
+          "image": { "src": "/assets/services/dump-truck-hauling/Triaxle_Dump_Trucks_Fleet.webp", "alt": "Bellhouse tri-axle dump truck fleet ready for hauling" }
         }
       ]
     },

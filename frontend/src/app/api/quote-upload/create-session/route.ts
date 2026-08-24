@@ -212,6 +212,8 @@ export async function POST(req: Request) {
         message: parsedContact.data.message,
         smsConsent: parsedContact.data.smsConsent,
         smsDisclosureShown: parsedContact.data.smsDisclosureShown,
+        attribution: parsedContact.data.attribution,
+        formName: parsedContact.data.formName,
       },
       files: sessionFiles.map(({ uploadUrl: _uploadUrl, ...file }) => file),
       expiresAt: Date.now() + QUOTE_UPLOAD_SESSION_TTL_SECONDS * 1000,

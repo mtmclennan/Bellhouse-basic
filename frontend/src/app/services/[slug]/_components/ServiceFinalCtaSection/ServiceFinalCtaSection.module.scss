@@ -19,6 +19,14 @@
   --final-cta-chip-background: rgba(v.$cat-yellow2, 0.08);
   --final-cta-chip-border: rgba(v.$cat-yellow2, 0.24);
   --final-cta-chip-color: #{v.$cat-yellow2};
+  --final-cta-navgroup-border: rgba(255, 255, 255, 0.1);
+  --final-cta-navgroup-label-color: rgba(255, 255, 255, 0.5);
+  --final-cta-navchip-color: rgba(255, 255, 255, 0.72);
+  --final-cta-navchip-border: rgba(255, 255, 255, 0.18);
+  --final-cta-navchip-icon-color: rgba(255, 255, 255, 0.4);
+  --final-cta-navchip-hover-color: #{v.$cat-yellow2};
+  --final-cta-navchip-hover-border: #{v.$cat-yellow2};
+  --final-cta-navchip-hover-bg: rgba(v.$cat-yellow2, 0.06);
 }
 
 .finalCtaSectionLight {
@@ -39,6 +47,14 @@
   --final-cta-chip-background: rgba(v.$cat-yellow2, 0.12);
   --final-cta-chip-border: rgba(88, 69, 20, 0.18);
   --final-cta-chip-color: #5b4812;
+  --final-cta-navgroup-border: rgba(88, 69, 20, 0.16);
+  --final-cta-navgroup-label-color: rgba(88, 69, 20, 0.62);
+  --final-cta-navchip-color: #{v.$text-color-dark};
+  --final-cta-navchip-border: rgba(88, 69, 20, 0.24);
+  --final-cta-navchip-icon-color: rgba(88, 69, 20, 0.5);
+  --final-cta-navchip-hover-color: #5b4812;
+  --final-cta-navchip-hover-border: #5b4812;
+  --final-cta-navchip-hover-bg: rgba(88, 69, 20, 0.08);
 }
 
 .finalCtaSectionDark {
@@ -224,7 +240,7 @@
 }
 
 .navGroup {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--final-cta-navgroup-border);
   padding-top: 1.8rem;
   margin-top: 1.8rem;
 }
@@ -237,11 +253,11 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--final-cta-navgroup-label-color);
   margin-bottom: 1.2rem;
 
   svg {
-    color: v.$cat-yellow2;
+    color: var(--final-cta-chip-color);
   }
 }
 
@@ -257,8 +273,8 @@
   gap: 0.7rem;
   font-size: 1.3rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: var(--final-cta-navchip-color);
+  border: 1px solid var(--final-cta-navchip-border);
   border-radius: 999px;
   padding: 0.8rem 1.4rem;
   text-decoration: none;
@@ -268,17 +284,17 @@
     background 0.16s ease;
 
   &:hover {
-    border-color: v.$cat-yellow2;
-    color: v.$cat-yellow2;
-    background: rgba(v.$cat-yellow2, 0.06);
+    border-color: var(--final-cta-navchip-hover-border);
+    color: var(--final-cta-navchip-hover-color);
+    background: var(--final-cta-navchip-hover-bg);
 
     svg {
-      color: v.$cat-yellow2;
+      color: var(--final-cta-navchip-hover-color);
     }
   }
 
   svg {
-    color: rgba(255, 255, 255, 0.4);
+    color: var(--final-cta-navchip-icon-color);
     transition: color 0.16s ease;
   }
 }

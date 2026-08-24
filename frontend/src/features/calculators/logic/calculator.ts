@@ -109,14 +109,6 @@ export function resolveActiveCompactionPercentage(
     return undefined;
   }
 
-  if (input.workflowKind === 'compaction-based') {
-    return input.compactionPercentage ?? material.defaultCompactionPercentage;
-  }
-
-  if (!input.useAdvanced) {
-    return undefined;
-  }
-
   return input.compactionPercentage ?? material.defaultCompactionPercentage;
 }
 
@@ -140,7 +132,12 @@ export function calculateProjectMaterial(
   // Start from in-place dimensions, then let the calculator workflow decide
   // whether this job behaves like excavation swell, compacted placement,
   // or a combined adjusted-material workflow.
-  const rawProjectVolumeM3 = input.lengthM * input.widthM * input.depthM;
+  const primaryAreaVolumeM3 = input.lengthM * input.widthM * input.depthM;
+  const additionalAreaVolumeM3 = (input.additionalAreas ?? []).reduce(
+    (total, area) => total + area.lengthM * area.widthM * area.depthM,
+    0,
+  );
+  const rawProjectVolumeM3 = primaryAreaVolumeM3 + additionalAreaVolumeM3;
 
   const swellFactor = resolveActiveSwellFactor(input, material);
   const compactionPercentage = resolveActiveCompactionPercentage(input, material);
@@ -156,16 +153,12 @@ export function calculateProjectMaterial(
       break;
     case 'compaction-based':
       adjustedLooseMaterialVolumeM3 = rawProjectVolumeM3;
-      adjustedMaterialVolumeM3 = input.useAdvanced
-        ? rawProjectVolumeM3 * compactionMultiplier
-        : rawProjectVolumeM3;
+      adjustedMaterialVolumeM3 = rawProjectVolumeM3 * compactionMultiplier;
       break;
     case 'swell-then-compaction':
     default:
       adjustedLooseMaterialVolumeM3 = rawProjectVolumeM3 * swellFactor;
-      adjustedMaterialVolumeM3 = input.useAdvanced
-        ? adjustedLooseMaterialVolumeM3 * compactionMultiplier
-        : adjustedLooseMaterialVolumeM3;
+      adjustedMaterialVolumeM3 = adjustedLooseMaterialVolumeM3 * compactionMultiplier;
       break;
   }
 

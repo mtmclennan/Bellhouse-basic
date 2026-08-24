@@ -16,11 +16,11 @@
   },
   "hero": {
     "eyebrow": "Float service for active sites",
-    "heading": "Heavy Equipment Hauling in Brantford",
-    "summary": "Safe, planned transport for excavators, skid steers, dozers, attachments, and other construction equipment moving between yards and job sites.",
+    "heading": "Heavy Equipment Hauling & Float Service in Brantford & Brant County",
+    "summary": "Safe, planned equipment transport for excavators, skid steers, dozers, attachments, and other construction, farm, and site equipment moving between yards, farms, storage locations, and job sites across Brantford and Brant County.",
     "actions": [
-      { "label": "Request Hauling Quote", "href": "/contact", "variant": "primary" },
-      { "label": "For Builders & Contractors", "href": "/contractors", "variant": "secondary" }
+      { "label": "Request Equipment Hauling Quote", "href": "/contact", "variant": "primary" },
+      { "label": "Send Project Details", "href": "/contact", "variant": "secondary" }
     ],
     "emphasis": "high",
     "image": "/assets/services/heavy-equipment-hauling/truck-hauling-heavy-equipment-excavator-hero.webp",
@@ -28,7 +28,7 @@
     "sideForm": true,
     "proofBar": [
       { "icon": "map-pin", "title": "Local to Brantford", "subtitle": "& Brant County" },
-      { "icon": "calendar-check", "title": "Since 1982", "subtitle": "Family operation" },
+      { "icon": "calendar-check", "title": "Since 1982", "subtitle": "Local experience" },
       { "icon": "truck", "title": "Own equipment", "subtitle": "Trucks & excavators" },
       { "icon": "star", "title": "5.0 on Google", "subtitle": "Local reviews" },
       { "icon": "shield-check", "title": "Licensed & insured", "subtitle": "Fully covered" }
@@ -81,7 +81,7 @@
       "subheading": "A safe and efficient experience from pickup to delivery.",
       "items": [
         { "title": "Machine Loading & Securement", "body": "Equipment is loaded and tied down with proper chains, binders, and transport procedures." },
-        { "title": "Equipment Transport", "body": "We move equipment between job sites, storage yards, rental depots, farms, and contractor yards." },
+        { "title": "Equipment Transport", "body": "We move equipment between job sites, storage yards, rental depots, farms, shops, and contractor yards." },
         { "title": "Flexible Scheduling", "body": "Hauling can be planned around working windows to reduce downtime and keep machines moving." },
         { "title": "Oversized Load Coordination", "body": "Machinery that needs extra planning is reviewed for route, access, loading, and unloading needs." }
       ]
@@ -89,24 +89,24 @@
     {
       "type": "scope",
       "tone": "dark",
-      "heading": "Best Fit & Not the Best Fit",
-      "subheading": "Bellhouse equipment hauling works best for local and regional moves where the float truck can safely load, transport, and deliver construction equipment.",
+      "heading": "Where Bellhouse Equipment Hauling Fits",
+      "subheading": "Bellhouse equipment hauling works best for local and regional moves where the float truck can safely load, transport, and deliver construction, farm, and site equipment.",
       "items": [
         {
-          "title": "Best fit: Contractor and builder equipment moves",
-          "body": "Excavators, skid steers, dozers, and attachments moving between active job sites, rental yards, storage locations, and farms across Brant County and surrounding areas."
+          "title": "Strong fit: Contractor, owner, and farm equipment moves",
+          "body": "Excavators, skid steers, dozers, and attachments moving between active job sites, rental yards, storage locations, shops, and farms across Brant County and surrounding areas."
         },
         {
-          "title": "Best fit: Hauling coordinated with excavation or site work",
+          "title": "Strong fit: Hauling coordinated with excavation or site work",
           "body": "Equipment moves that connect directly to a Bellhouse excavation, grading, or site prep project so machines arrive when the schedule needs them."
         },
         {
-          "title": "Not the best fit: Moves outside Southern Ontario",
+          "title": "Review separately: Moves outside Southern Ontario",
           "body": "Bellhouse floats equipment across Brant County, Hamilton, Cambridge, and surrounding areas. Long-distance or inter-provincial transport requires a licensed long-haul carrier."
         },
         {
-          "title": "Not the best fit: Equipment requiring oversize permits or pilot vehicles",
-          "body": "Very large equipment that requires oversize load permits, pilot vehicles, or specialized lowboy transport is outside the standard Bellhouse float scope. Not sure if yours qualifies — call us and we'll give you a straight answer."
+          "title": "Review separately: Equipment requiring oversize permits or pilot vehicles",
+          "body": "Very large equipment that requires oversize load permits, pilot vehicles, or specialized lowboy transport may need a specialized carrier. Not sure if yours can be moved? Call us and we'll give you a straight answer."
         }
       ]
     },
@@ -167,8 +167,8 @@
       "heading": "Equipment hauling has to match the machine, the route, and the site access.",
       "body": "Bellhouse reviews the pickup, destination, equipment size, loading conditions, and delivery location so the move can happen safely and without creating avoidable site delays.",
       "image": {
-        "src": "/assets/services/heavy-equipment-hauling/truck-flat-deck-armour-stone-hauling-float-trailer-bobcat-t76-skid-steer.webp",
-        "alt": "Bellhouse flat deck and float trailer hauling a Bobcat skid steer and attachments"
+        "src": "/assets/services/heavy-equipment-hauling/truck-hauling-armour-stone-unloading-skidsteer-back-tilt.webp",
+        "alt": "Bellhouse float trailer unloading a skid steer with a back-tilt maneuver on site"
       },
       "caption": "Float and flat-deck hauling can support machines, attachments, and jobsite equipment moves."
     },
@@ -178,12 +178,6 @@
       "eyebrow": "Site outcomes",
       "heading": "What The Move Should Accomplish",
       "subheading": "The goal is more than getting the machine on a trailer. The equipment should arrive where it is useful, when the site is ready for it.",
-      "stats": [
-        { "label": "Since 1982", "body": "Over four decades of local site work" },
-        { "label": "Own equipment", "body": "Excavators, dozers, trucks, and operators available for local site work" },
-        { "label": "5.0 on Google", "body": "Rated by homeowners, builders, and contractors" },
-        { "label": "Licensed & insured", "body": "Full coverage on every job" }
-      ],
       "items": [
         { "title": "Equipment ready for the next phase", "body": "Machines are delivered where they can go to work without unnecessary repositioning or staging confusion." },
         { "title": "Safer transport between sites", "body": "Loading, tie-down, route, and unloading are handled with the realities of construction equipment in mind." },
@@ -235,6 +229,16 @@
           "name": "Transport Safety Gear",
           "body": "Chains, binders, and load securement equipment are used to keep machinery properly tied down.",
           "image": { "src": "/assets/services/bellhouse-transport-safety-gear.webp", "alt": "Chains, binders, and load securement equipment used for heavy equipment transport" }
+        },
+        {
+          "name": "CAT 315 Excavator Float",
+          "body": "A CAT 315 excavator loaded and secured on the float trailer, ready for transport between job sites.",
+          "image": { "src": "/assets/services/heavy-equipment-hauling/Heavy-Equipment-Float-Cat_315-excavator.webp", "alt": "Bellhouse float trailer hauling a CAT 315 excavator" }
+        },
+        {
+          "name": "Peterbilt 567 Float Truck",
+          "body": "The Peterbilt 567 hauling an excavator on the float, built for heavier equipment moves across longer routes.",
+          "image": { "src": "/assets/services/heavy-equipment-hauling/Heavy_equipment_haul_Float_Peterbilt_567.webp", "alt": "Bellhouse Peterbilt 567 hauling an excavator on a float trailer" }
         }
       ]
     },

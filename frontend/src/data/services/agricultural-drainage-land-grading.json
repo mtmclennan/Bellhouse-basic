@@ -1,0 +1,413 @@
+{
+  "id": 16,
+  "slug": "agricultural-drainage-land-grading",
+  "title": "Agricultural Drainage & Land Grading",
+  "navTitle": "Agricultural Drainage",
+  "contactService": "Agricultural Drainage & Land Grading",
+  "meta": {
+    "title": "Agricultural Drainage Contractor Brant County | Bellhouse",
+    "description": "Agricultural drainage and land grading across Brant County. Farm ditch cleaning, surface drainage correction, and field grading."
+  },
+  "card": {
+    "title": "Agricultural Drainage & Land Grading",
+    "description": "Surface drainage correction, farm ditch cleaning, drainage swales, and land grading for farm operations and rural properties.",
+    "image": "/assets/services/large-yard-soil-grading-lawn.webp",
+    "alt": "Land grading work for agricultural drainage improvement in Brant County"
+  },
+  "hero": {
+    "eyebrow": "Agricultural drainage & land grading",
+    "heading": "Agricultural Drainage & Land Grading in Brant County",
+    "summary": "Standing water and poor drainage cost Ontario farmers yield and working days. Bellhouse Excavating handles agricultural drainage work — surface grading, ditch cleaning, drainage swales, and land grading — for farm operations across Brant County and surrounding area.",
+    "actions": [
+      { "label": "Request Drainage Quote", "href": "/contact", "variant": "primary" },
+      { "label": "For Builders & Contractors", "href": "/contractors", "variant": "secondary" }
+    ],
+    "emphasis": "high",
+    "image": "/assets/services/excavator-farm-driveway.webp",
+    "alt": "Excavator working on agricultural drainage and land grading on a farm property in Brant County",
+    "sideForm": true,
+    "proofBar": [
+      { "icon": "map-pin", "title": "Local to Brantford", "subtitle": "& Brant County" },
+      { "icon": "calendar-check", "title": "Since 1982", "subtitle": "Owner-operated" },
+      { "icon": "truck", "title": "Volvo A35", "subtitle": "Wet-ground access" },
+      { "icon": "drop", "title": "Farm drainage", "subtitle": "Surface & ditch work" },
+      { "icon": "shield-check", "title": "Licensed & insured", "subtitle": "Fully covered" }
+    ]
+  },
+  "sections": [
+    {
+      "type": "intro",
+      "tone": "light",
+      "eyebrow": "Who it's for",
+      "heading": "Drainage and Land Grading for Farm Operations",
+      "body": "Bellhouse Excavating provides agricultural drainage and land grading services for farm operations across Brant County and Brantford. When fields hold water after rain, laneways flood, yards stay soft, or ditches have silted in and stopped carrying water, the problem is usually surface drainage that was never properly graded or maintained.\n\nAgricultural drainage work covers surface grading to redirect standing water, farm ditch cleaning and reshaping, drainage swale construction, culvert installation and replacement, land levelling, and low-spot filling. Bellhouse handles the earthwork with equipment sized for farm properties — including the Volvo A35 for wet-ground access when standard trucks can't get into the field. The goal is farmland that drains predictably, stays workable longer after rain, and doesn't lose productive acres to standing water.",
+      "audience": [
+        { "icon": "tractor", "label": "Farm operations" },
+        { "icon": "drop", "label": "Cash crop farmers" },
+        { "icon": "cow", "label": "Livestock operations" },
+        { "icon": "house-line", "label": "Rural property owners" }
+      ]
+    },
+    {
+      "type": "projectFit",
+      "tone": "dark",
+      "heading": "Agricultural Drainage Projects Bellhouse Handles",
+      "subheading": "Best fit for farm drainage work that needs excavation equipment, grading capability, and the ability to work on wet or soft ground.",
+      "cards": [
+        {
+          "title": "Surface drainage correction on farm fields",
+          "body": "A strong fit when fields have low spots, wheel-track depressions, or areas where water sits after rain instead of draining off. Surface grading redirects water to ditches or drainage paths so the field dries faster and stays workable longer during wet seasons.",
+          "tags": ["Surface grading", "Wet field correction", "Low-spot filling"],
+          "outcome": "Fields drain more predictably and lose fewer working days to standing water after rain events."
+        },
+        {
+          "title": "Farm ditch cleaning and reshaping",
+          "body": "Useful when ditches along field edges, farm roads, or property lines have silted in, grown over, or lost their profile. Cleaning and reshaping restores the ditch capacity so water moves off the fields and laneways instead of backing up.",
+          "tags": ["Ditch cleaning", "Ditch reshaping", "Field-edge drainage"],
+          "outcome": "Ditches carry water at their designed capacity instead of overflowing onto fields and laneways."
+        },
+        {
+          "title": "Farm laneway and yard drainage",
+          "body": "A practical fit when farm laneways, barn yards, or equipment staging areas have chronic drainage problems — soft spots, pooling water, or mud that limits access during wet weather. Grading and drainage improvements keep these areas functional year-round.",
+          "tags": ["Laneway drainage", "Barnyard grading", "Equipment yard drainage"],
+          "outcome": "Laneways and yards stay accessible and functional instead of becoming impassable during wet conditions."
+        },
+        {
+          "title": "Municipal drain coordination",
+          "body": "A strong fit when drainage work involves or connects to a municipal drain. Bellhouse can handle the excavation and grading scope while the landowner coordinates the required municipal drain approvals and notifications.",
+          "tags": ["Municipal drains", "Drain maintenance", "Drainage compliance"],
+          "outcome": "The drainage work meets the practical requirements while the landowner maintains compliance with municipal drain obligations."
+        }
+      ]
+    },
+    {
+      "type": "scope",
+      "tone": "light",
+      "eyebrow": "What Bellhouse handles",
+      "heading": "Agricultural Drainage & Land Grading Includes",
+      "subheading": "Complete surface drainage and land grading services for farm operations where water management, field access, and productive land use are the priorities.",
+      "items": [
+        { "title": "Surface Grading to Redirect Standing Water", "body": "Low spots, depressions, and poorly graded areas are filled and regraded so surface water moves toward ditches and drainage paths instead of pooling in the field." },
+        { "title": "Farm Ditch Cleaning & Reshaping", "body": "Ditches along field edges, farm roads, and property lines are cleaned of silt, vegetation, and debris, then reshaped to restore proper flow capacity." },
+        { "title": "Drainage Swale Construction", "body": "Shallow drainage swales are constructed to carry surface water across fields and away from buildings, laneways, and productive areas." },
+        { "title": "Culvert Installation & Replacement", "body": "Culverts at ditch crossings, laneway crossings, and field entrances are installed, replaced, or upsized to handle the water volume and prevent backups." },
+        { "title": "Land Levelling for Improved Field Drainage", "body": "Fields with uneven grades or wheel-track depressions are levelled to improve surface runoff and reduce the number of wet spots that hold water after rain." },
+        { "title": "Low-Spot Filling & Grading", "body": "Persistent low spots in fields, yards, and laneways are filled with suitable material and graded to match the surrounding surface so water doesn't collect." },
+        { "title": "Municipal Drain Coordination", "body": "Where the drainage work involves or connects to a municipal drain, Bellhouse handles the excavation scope while the landowner manages the required approvals and notifications under the Drainage Act." }
+      ]
+    },
+    {
+      "type": "scope",
+      "tone": "dark",
+      "heading": "Best Fit & Not the Best Fit",
+      "subheading": "Agricultural drainage and land grading works best on farm properties where surface water is the problem and the solution involves grading, ditch work, and culverts.",
+      "items": [
+        {
+          "title": "Best fit: Cash crop farms with standing water or wet spots reducing yield",
+          "body": "Fields where low spots, poor surface grades, or silted ditches cause water to sit after rain, delaying planting, reducing yield, and shortening the working season. Common across Brant County, Norfolk County, and Oxford County farmland."
+        },
+        {
+          "title": "Best fit: Farm laneways and yards with chronic drainage problems",
+          "body": "Laneways, barn yards, and equipment areas that turn to mud or pool water during wet weather. Grading and drainage improvements keep these areas functional and accessible year-round."
+        },
+        {
+          "title": "Best fit: Ditch cleaning along farm roads and field edges",
+          "body": "Ditches that have silted in, grown over, or lost their profile and are no longer carrying water effectively. Cleaning and reshaping restores capacity and prevents water from backing up onto fields."
+        },
+        {
+          "title": "Best fit: Land grading to improve surface runoff across fields",
+          "body": "Fields with uneven surfaces, wheel-track depressions, or areas where the natural grade doesn't move water toward the ditches. Surface grading corrects the flow path without requiring tile drainage."
+        },
+        {
+          "title": "Best fit: Properties near municipal drains requiring ditch maintenance",
+          "body": "Farm properties where drainage work connects to or runs along a municipal drain. Bellhouse handles the excavation while the landowner manages the Drainage Act requirements."
+        },
+        {
+          "title": "Not the best fit: Tile drainage installation",
+          "body": "Bellhouse does not install tile drainage systems. Tile drainage requires specialized tile plows and GPS-guided installation equipment. A dedicated tile drainage contractor is the right fit for systematic tile installation."
+        },
+        {
+          "title": "Not the best fit: Urban stormwater management systems",
+          "body": "Engineered urban stormwater systems with catch basins, storm sewers, and retention ponds designed by a stormwater engineer are outside Bellhouse's agricultural drainage scope."
+        },
+        {
+          "title": "Not the best fit: Wetland work requiring conservation authority approvals without prior permitting",
+          "body": "Drainage work in or near regulated wetlands, watercourses, or conservation authority regulated areas may require permits before any excavation can begin. Bellhouse can review site conditions, but approvals must be in place before the work starts."
+        }
+      ]
+    },
+    {
+      "type": "reviews",
+      "tone": "light",
+      "eyebrow": "Testimonials",
+      "heading": "What customers say about Bellhouse",
+      "subheading": "Feedback from local homeowners, builders, and job-site customers Bellhouse has worked with.",
+      "limit": 3
+    },
+    {
+      "type": "pricingFactors",
+      "tone": "dark",
+      "eyebrow": "What affects price",
+      "heading": "Agricultural drainage cost depends on the area, ditch length, and site access",
+      "subheading": "A useful quote depends on the area to grade, ditch length, culvert needs, existing drainage infrastructure, and whether wet-ground equipment access is required.",
+      "tiers": [
+        { "name": "Simpler", "eg": "Ditch cleaning along a field edge or laneway with good access", "position": "low" },
+        { "name": "Typical", "eg": "Surface grading, ditch cleaning, and culvert work across a farm property", "position": "mid" },
+        { "name": "Complex", "eg": "Large-area land grading, multiple ditch systems, wet-ground access, and municipal drain coordination", "position": "high" }
+      ],
+      "rangeNote": "Most agricultural drainage projects fall in the middle range. Bellhouse quotes after reviewing the drainage problem, site conditions, and scope of work needed.",
+      "factors": [
+        {
+          "title": "Area to grade",
+          "body": "Larger areas with more ground to level, fill, or reshape require more machine time and more material handling."
+        },
+        {
+          "title": "Ditch length and condition",
+          "body": "Longer ditches and ditches that are heavily silted or overgrown take more time to clean and reshape. Ditch depth and profile affect the volume of material to handle."
+        },
+        {
+          "title": "Culvert needs",
+          "body": "Each culvert installation or replacement adds excavation, pipe, backfill, and surface restoration. Upsizing an existing culvert costs more than a simple cleanout."
+        },
+        {
+          "title": "Existing drainage infrastructure",
+          "body": "Properties with existing ditches and drainage paths that just need cleaning are different from properties where new drainage routes need to be cut from scratch."
+        },
+        {
+          "title": "Wet-ground access challenges",
+          "body": "Fields and ditches that are only accessible with the A35 or tracked equipment due to soft or saturated ground conditions affect the equipment and approach required."
+        }
+      ],
+      "aside": {
+        "label": "Get a real number",
+        "heading": "Photos of the drainage problem and a description of the affected area help Bellhouse quote accurately",
+        "body": "Instead of estimating from field size alone.",
+        "action": { "label": "Request Drainage Quote", "href": "/contact" },
+        "phone": { "label": "519-752-8500", "href": "tel:5197528500" }
+      }
+    },
+    {
+      "type": "jobsiteProof",
+      "tone": "light",
+      "eyebrow": "Agricultural drainage work",
+      "heading": "Farm drainage starts with understanding where the water goes — and why it isn't getting there.",
+      "body": "Agricultural drainage work is not just digging ditches. Bellhouse reviews the field grades, existing ditch profiles, culvert capacity, and water flow paths to identify why water is sitting where it shouldn't be. The fix is planned around the actual drainage pattern — grading, ditch cleaning, swale construction, and culvert work are coordinated so the water has a clear path off the field and the solution holds through wet seasons.",
+      "image": {
+        "src": "/assets/services/cat315D-excavator-farm-laneway.webp",
+        "alt": "CAT excavator working on agricultural drainage and ditch work on a farm property in Brant County"
+      },
+      "caption": "Drainage work is planned around field grades, ditch capacity, culvert sizing, and the water flow path across the property."
+    },
+    {
+      "type": "outcomes",
+      "tone": "dark",
+      "eyebrow": "Site outcomes",
+      "heading": "What the Drainage Work Should Deliver",
+      "subheading": "The goal is farmland that drains predictably, stays workable longer after rain, and doesn't lose productive acres to standing water.",
+      "items": [
+        { "title": "Fields that drain faster after rain", "body": "Surface grading and ditch work move water off the field more quickly so planting, spraying, and harvesting schedules lose fewer days to wet conditions." },
+        { "title": "Ditches that carry water at capacity", "body": "Cleaned and reshaped ditches move water off the property instead of overflowing onto fields, laneways, and yards." },
+        { "title": "Laneways and yards that stay accessible", "body": "Drainage improvements around laneways and barn yards keep these areas functional and passable during wet weather instead of turning to mud." }
+      ]
+    },
+    {
+      "type": "problemsPrevented",
+      "tone": "light",
+      "heading": "What Proper Agricultural Drainage Prevents",
+      "subheading": "Poor drainage on farmland costs yield, working days, and money — and the problems compound over time if the drainage is never properly addressed.",
+      "items": [
+        {
+          "problem": "Fields that hold water in the same low spots every spring, delaying planting and reducing yield on those acres.",
+          "solution": "Bellhouse grades the low spots, reshapes the field surface, and ensures water has a clear path to the ditches so the field drains consistently."
+        },
+        {
+          "problem": "Ditches that have silted in and no longer carry water away from the fields, causing backup and flooding during rain events.",
+          "solution": "Ditches are cleaned to their original profile, silt is removed, and the ditch banks are reshaped so water flows at the designed capacity."
+        },
+        {
+          "problem": "Farm laneways and yards that become impassable during wet weather because the surface grades direct water toward traffic areas instead of away from them.",
+          "solution": "Laneway and yard grades are corrected so water moves to ditches and swales instead of pooling on the driving surface and around buildings."
+        }
+      ]
+    },
+    {
+      "type": "equipment",
+      "tone": "dark",
+      "heading": "Equipment Used for Agricultural Drainage Work",
+      "subheading": "Equipment built for farm drainage — including wet-ground access where standard equipment can't reach.",
+      "items": [
+        {
+          "name": "CAT Excavator",
+          "body": "Primary machine for ditch cleaning, culvert installation, swale construction, and drainage shaping. Reach and bucket size are matched to the ditch depth and profile required.",
+          "image": { "src": "/assets/services/cat-excavator-digging-in-aggregates-pile.webp", "alt": "CAT excavator working on agricultural ditch cleaning and drainage in Brant County" }
+        },
+        {
+          "name": "Volvo A35 Articulated Dump Truck",
+          "body": "The A35 handles material hauling and delivery on soft or saturated ground where standard highway trucks would get stuck. Essential for drainage work on wet farm fields and soft ditch banks.",
+          "image": { "src": "/assets/services/bellhouse-offroad-dump-truck-equipment-illustration.webp", "alt": "Volvo A35 articulated dump truck handling wet-ground hauling for agricultural drainage work" }
+        },
+        {
+          "name": "Dozer",
+          "body": "Used for surface grading, land levelling, low-spot filling, and shaping drainage flow paths across fields and farm yards.",
+          "image": { "src": "/assets/services/foundation-excavation/equipment-dozer-grader.jpg", "alt": "Dozer grading farmland for improved agricultural drainage" }
+        },
+        {
+          "name": "Tri-Axle Dump Trucks",
+          "body": "Used for hauling silt and ditch cleanout material off site, and delivering fill material for low-spot correction and laneway drainage work.",
+          "image": { "src": "/assets/services/dump-truck-hauling/triaxle-dump-truck-gravel-hauling-brant-county.webp", "alt": "Bellhouse tri-axle dump truck supporting agricultural drainage work" }
+        }
+      ]
+    },
+    {
+      "type": "process",
+      "tone": "light",
+      "heading": "How Agricultural Drainage Work Is Handled",
+      "subheading": "Clear steps from drainage assessment to finished grading — planned around the water problem, the field conditions, and the farm schedule.",
+      "image": {
+        "src": "/assets/services/auto-level-fine-grading-skid-steer.webp",
+        "alt": "Auto level and skid steer used for precision drainage grading on a farm property"
+      },
+      "caption": "Drainage grading is planned around field grades, ditch profiles, culvert capacity, and the water flow path.",
+      "steps": [
+        { "title": "Drainage assessment and problem identification", "body": "Bellhouse reviews the field grades, ditch conditions, culvert sizing, and water flow to identify why water is sitting where it shouldn't be and what needs to change." },
+        { "title": "Ditch cleaning and drainage route preparation", "body": "Ditches are cleaned, reshaped, and restored to proper profile. Culverts are installed, replaced, or upsized where the existing capacity is insufficient." },
+        { "title": "Surface grading and low-spot correction", "body": "Low spots are filled, field surfaces are graded, and drainage swales are cut to give water a clear path off the field and into the ditch system." },
+        { "title": "Final grading and site cleanup", "body": "The graded areas are finished, spoil material is placed or hauled, and the drainage system is left functional and ready for the next growing season." }
+      ]
+    },
+    {
+      "type": "contractorCta",
+      "tone": "dark",
+      "eyebrow": "For farm operations and rural property owners",
+      "heading": "Fields holding water? Ditches silted in? Laneways flooding?",
+      "body": "If your farm has drainage problems that are costing yield, working days, or access, Bellhouse can review the drainage conditions and return a scope and quote for the grading, ditch cleaning, and culvert work needed to fix it.",
+      "image": {
+        "src": "/assets/pond-digging-cleaning-brant-county.jpg",
+        "alt": "Excavation and water management work on a rural property in Brant County"
+      },
+      "caption": "Drainage work is coordinated with ditch cleaning, culvert installation, surface grading, and material hauling.",
+      "actions": [
+        { "label": "Send Project Details", "href": "/contractors#contractor-form", "variant": "primary" },
+        { "label": "Call 519-752-8500", "href": "tel:5197528500", "variant": "secondary" }
+      ]
+    },
+    {
+      "type": "resources",
+      "tone": "light",
+      "eyebrow": "Planning tool",
+      "heading": "Estimating excavation volume for drainage work?",
+      "subheading": "A rough excavation estimate helps clarify the scale of ditch cleaning or land grading before Bellhouse reviews the drainage conditions.",
+      "cards": [
+        {
+          "title": "Excavation calculator for drainage projects",
+          "body": "Estimate rough excavation volume and material handling for ditch cleaning, swale construction, and land grading work.",
+          "href": "/resources/calculators/excavation",
+          "label": "Estimate Excavation Volume"
+        }
+      ],
+      "actions": [{ "label": "View Calculators", "href": "/resources/calculators", "variant": "secondary" }]
+    },
+    {
+      "type": "serviceAreas",
+      "tone": "dark",
+      "heading": "Agricultural drainage by service area",
+      "body": "Agricultural drainage and land grading services are available across Brant County and surrounding areas — including Brantford, Paris, Cambridge, Woodstock, Simcoe, Tillsonburg, Hamilton, Caledonia, Hagersville, Ancaster, Norfolk County, Oxford County, and nearby farming communities where field drainage and ditch maintenance are needed.",
+      "areaSlugs": ["brantford", "paris", "cambridge", "woodstock", "simcoe", "hamilton", "ancaster", "caledonia", "hagersville", "tillsonburg"]
+    },
+    {
+      "type": "faq",
+      "tone": "light",
+      "heading": "Frequently Asked Questions",
+      "items": [
+        {
+          "question": "How do you fix standing water on a farm field in Ontario?",
+          "answer": "Standing water on a farm field is usually caused by low spots in the field surface, poor natural grade that doesn't move water toward the ditches, silted-in ditches that have lost capacity, or undersized culverts that back up during rain events. Bellhouse fixes these problems with surface grading to eliminate low spots and direct water toward drainage paths, ditch cleaning and reshaping to restore flow capacity, culvert installation or replacement at ditch crossings, and swale construction to create new drainage routes where needed. The approach depends on the specific drainage problem — a single low spot in a field is different from a systemic grade issue across forty acres."
+        },
+        {
+          "question": "What's the difference between surface drainage and tile drainage?",
+          "answer": "Surface drainage is earthwork — grading the land surface, cleaning ditches, building swales, and installing culverts so water flows across the surface and into drainage paths. Tile drainage is underground — perforated pipe installed below the root zone to lower the water table and drain saturated soil from below. Bellhouse handles surface drainage — the grading, ditch cleaning, and culvert work. Tile drainage requires specialized tile plows and GPS-guided installation equipment operated by a dedicated tile drainage contractor. Many farms benefit from both — surface drainage moves the water that sits on top, and tile drainage handles the water trapped in the soil profile."
+        },
+        {
+          "question": "How much does farm ditch cleaning cost in Brant County?",
+          "answer": "Farm ditch cleaning cost depends on the ditch length, how heavily silted or overgrown the ditch is, the depth and profile required, whether culverts need to be replaced, and where the spoil material can be placed. A short stretch of lightly silted ditch with good access is a different scope than a half-mile of heavily silted and overgrown ditch that needs full reshaping. Bellhouse quotes after reviewing the ditch conditions, access, and what the finished ditch needs to handle. Photos of the ditch and a description of the drainage problem help Bellhouse return an accurate number."
+        },
+        {
+          "question": "What are the rules around municipal drains in Ontario?",
+          "answer": "Municipal drains in Ontario are governed by the Drainage Act. If your property has a municipal drain on it or adjacent to it, there are requirements around maintenance, alteration, and connecting to the drain. The municipality typically manages the drain through an appointed drainage superintendent. If you need to do work on or near a municipal drain — cleaning, widening, installing a culvert, or changing the flow — you should contact your municipality first to confirm what approvals or notifications are needed. Bellhouse can handle the excavation and grading work, but the landowner is responsible for the Drainage Act compliance and municipal notifications."
+        },
+        {
+          "question": "Can you grade land to improve drainage without tile?",
+          "answer": "Yes. Surface grading alone can significantly improve field drainage on many farms. If the problem is water sitting in low spots, running the wrong direction, or pooling because the field surface is uneven, grading can fix it without tile. Bellhouse uses a dozer and excavator to regrade the field surface so water moves toward the ditches and drainage paths naturally. This doesn't replace tile drainage for fields with high water tables or saturated subsoil, but for surface water problems — standing puddles, wheel-track depressions, and poor runoff flow — grading is often the most cost-effective solution."
+        }
+      ]
+    },
+    {
+      "type": "relatedServices",
+      "tone": "dark",
+      "eyebrow": "Related services",
+      "heading": "Related excavation, grading, and drainage services",
+      "serviceSlugs": ["site-preparation-land-grading", "land-grading-drainage", "pond-digging-cleaning", "farm-laneway-rural-driveway", "dirt-gravel-delivery", "farm-land-grading-leveling", "farm-fence-row-clearing"]
+    },
+    {
+      "type": "finalCta",
+      "tone": "light",
+      "heading": "Ready to Fix Your Farm Drainage?",
+      "body": "Send the location, a description of the drainage problem, and photos if you have them. Bellhouse will review the conditions and return a scope and quote for the work needed.",
+      "bullets": [
+        "No obligation — free project review",
+        "Bellhouse replies with real numbers",
+        "Local crew, local knowledge"
+      ],
+      "form": true,
+      "actions": [
+        { "label": "Request Drainage Quote", "href": "/contact", "variant": "primary" },
+        { "label": "Send Project Details", "href": "/contractors#contractor-form", "variant": "secondary" }
+      ],
+      "navGroups": [
+        {
+          "label": "Other services",
+          "icon": "wrench",
+          "links": [
+            { "label": "Site Prep & Grading", "href": "/services/site-preparation-land-grading", "icon": "caret-right" },
+            { "label": "Land Grading & Drainage", "href": "/services/land-grading-drainage", "icon": "caret-right" },
+            { "label": "Pond Digging & Cleaning", "href": "/services/pond-digging-cleaning", "icon": "caret-right" },
+            { "label": "Farm Laneway Construction", "href": "/services/farm-laneway-rural-driveway", "icon": "caret-right" },
+            { "label": "Dirt & Gravel Delivery", "href": "/services/dirt-gravel-delivery", "icon": "caret-right" }
+          ]
+        },
+        {
+          "label": "Service areas",
+          "icon": "map-pin",
+          "links": [
+            { "label": "Brantford", "href": "/service-areas/brantford", "icon": "map-pin" },
+            { "label": "Brant County", "href": "/service-areas/brantford", "icon": "map-pin" },
+            { "label": "Paris", "href": "/service-areas/paris", "icon": "map-pin" },
+            { "label": "Cambridge", "href": "/service-areas/cambridge", "icon": "map-pin" },
+            { "label": "Woodstock", "href": "/service-areas/woodstock", "icon": "map-pin" },
+            { "label": "Hamilton", "href": "/service-areas/hamilton", "icon": "map-pin" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "banner",
+      "tone": "dark",
+      "eyebrow": "Farm drainage done right",
+      "heading": "Fields holding water? Ditches silted in? Bellhouse is local, equipped, and taking jobs now.",
+      "body": "From surface grading and ditch cleaning to culvert installation, swale construction, and land levelling — Bellhouse handles agricultural drainage work that keeps farmland productive and accessible across Brant County and Southern Ontario.",
+      "bullets": [
+        "Surface grading, ditch cleaning, culverts, and swales handled together",
+        "Volvo A35 for wet-ground access — no waiting for dry conditions",
+        "Brantford, Paris, Cambridge, Woodstock, and surrounding Brant County"
+      ],
+      "image": {
+        "src": "/assets/services/dozer-stripping-site-prep.webp",
+        "alt": "Dozer grading farmland for agricultural drainage improvement"
+      },
+      "actions": [
+        { "label": "Request Drainage Quote", "href": "/contact", "variant": "primary" },
+        { "label": "Call 519-752-8500", "href": "tel:5197528500", "variant": "secondary" }
+      ]
+    }
+  ]
+}

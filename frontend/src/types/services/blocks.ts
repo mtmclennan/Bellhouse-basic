@@ -78,10 +78,6 @@ export type ServiceOutcomesBlock = ServiceBaseBlock & {
     title: string;
     body: string;
   }>;
-  stats?: Array<{
-    label: string;
-    body: string;
-  }>;
   photos?: Array<{
     src: string;
     alt: string;

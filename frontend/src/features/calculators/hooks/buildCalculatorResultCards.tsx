@@ -11,8 +11,8 @@ import type {
   CalculatorResultCardModel,
 } from './calculatorController.types';
 import type {
-  CalculatorFormInput,
   CalculatorVolumeValueSource,
+  ResolvedOutputUnitPreference,
 } from '../types/calculator';
 
 type ResultCardId =
@@ -35,7 +35,7 @@ function formatCubicUnit(value: string, unitLabel: 'm' | 'yd') {
 
 function formatVolume(
   cubicMetres: number,
-  outputUnitPreference: CalculatorFormInput['outputUnitPreference'],
+  outputUnitPreference: ResolvedOutputUnitPreference,
 ) {
   if (outputUnitPreference === 'imperial') {
     return formatCubicUnit(formatNumber(m3ToCubicYards(cubicMetres)), 'yd');
@@ -46,7 +46,7 @@ function formatVolume(
 
 function formatWeight(
   metricTonnes: number,
-  outputUnitPreference: CalculatorFormInput['outputUnitPreference'],
+  outputUnitPreference: ResolvedOutputUnitPreference,
 ) {
   if (outputUnitPreference === 'imperial') {
     return `${formatNumber(tonnesToShortTons(metricTonnes), 1)} short tons`;
@@ -65,7 +65,7 @@ function getResultVolumeValue(
 export function buildCalculatorResultCardMap(
   config: CalculatorController['config'],
   result: NonNullable<CalculatorController['state']['result']>,
-  outputUnitPreference: CalculatorFormInput['outputUnitPreference'],
+  outputUnitPreference: ResolvedOutputUnitPreference,
   showDetailedResults: boolean,
 ): Partial<Record<ResultCardId, CalculatorResultCardModel>> {
   return {
@@ -76,6 +76,7 @@ export function buildCalculatorResultCardMap(
         getResultVolumeValue(result, config.resultPresentation.volumeValueSource),
         outputUnitPreference,
       ),
+      supportingValue: config.resultPresentation.volumeSupportingText,
       meta: showDetailedResults && config.resultPresentation.showCardMeta
         ? 'Adjusted total material volume.'
         : undefined,
@@ -93,6 +94,8 @@ export function buildCalculatorResultCardMap(
             ),
             outputUnitPreference,
           ),
+          supportingValue:
+            config.resultPresentation.adjustedVolumeSupportingText,
           meta: showDetailedResults && config.resultPresentation.showCardMeta
             ? 'Expanded volume to haul away.'
             : undefined,
@@ -103,6 +106,7 @@ export function buildCalculatorResultCardMap(
       id: 'weight',
       label: config.resultPresentation.weightLabel,
       value: formatWeight(result.adjustedWeightTons, outputUnitPreference),
+      supportingValue: config.resultPresentation.weightSupportingText,
       meta: showDetailedResults && config.resultPresentation.showCardMeta
         ? 'Based on material density and moisture.'
         : undefined,
@@ -112,6 +116,7 @@ export function buildCalculatorResultCardMap(
       id: 'truckLoads',
       label: config.resultPresentation.truckLoadsLabel,
       value: formatTruckLoads(result.estimatedTruckLoads),
+      supportingValue: config.resultPresentation.truckLoadsSupportingText,
       meta: showDetailedResults && config.resultPresentation.showCardMeta
         ? 'Rounded for quick hauling estimates.'
         : undefined,
@@ -129,6 +134,8 @@ export function buildCalculatorResultCardMap(
             ),
             outputUnitPreference,
           ),
+          supportingValue:
+            config.resultPresentation.secondaryVolumeSupportingText,
           meta: showDetailedResults && config.resultPresentation.showCardMeta
             ? 'Before advanced adjustments.'
             : undefined,

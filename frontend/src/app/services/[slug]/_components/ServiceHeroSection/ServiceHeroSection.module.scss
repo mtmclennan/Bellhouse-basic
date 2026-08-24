@@ -8,11 +8,6 @@
   color: v.$grey-color-1;
   background:
     radial-gradient(
-      circle at 82% 18%,
-      rgba(45, 120, 255, 0.16),
-      transparent 30%
-    ),
-    radial-gradient(
       circle at 12% 8%,
       rgba(v.$cat-yellow2, 0.12),
       transparent 28%
@@ -86,6 +81,10 @@
   @include m.mediaDesktop {
     gap: 2.5rem;
   }
+
+  @include m.mediaPhone {
+    gap: 1.35rem;
+  }
 }
 
 .breadcrumbs {
@@ -129,6 +128,10 @@
   [aria-current='page'] {
     color: rgba(255, 255, 255, 0.52);
   }
+
+  @include m.mediaPhone {
+    display: none;
+  }
 }
 
 .eyebrow {
@@ -171,6 +174,11 @@
   @include m.mediaDesktop {
     font-size: 1.98rem;
   }
+
+  @include m.mediaPhone {
+    font-size: 1.55rem;
+    line-height: 1.45;
+  }
 }
 
 .actions {
@@ -183,6 +191,7 @@
     width: 100%;
     flex-direction: column;
     align-items: stretch;
+    gap: 0.85rem;
   }
 }
 
@@ -230,7 +239,7 @@
   background-color: rgba(255, 255, 255, 0.03);
   box-shadow:
     0 3rem 8rem rgba(0, 0, 0, 0.42),
-    0 0 6rem rgba(45, 120, 255, 0.12),
+    0 0 6rem rgba(0, 0, 0, 0.35),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
   isolation: isolate;
   margin-inline: auto;
@@ -246,8 +255,7 @@
   z-index: 1;
   background:
     linear-gradient(180deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.52) 100%),
-    linear-gradient(120deg, rgba(v.$cat-yellow2, 0.11) 0%, transparent 44%),
-    linear-gradient(240deg, rgba(45, 120, 255, 0.14) 0%, transparent 42%);
+    linear-gradient(120deg, rgba(v.$cat-yellow2, 0.11) 0%, transparent 44%);
 }
 
 .imageBadge {
@@ -576,6 +584,16 @@
       color: v.$cat-yellow2;
       white-space: nowrap;
     }
+
+    @include m.mediaPhone {
+      max-width: 13ch;
+      font-size: clamp(2.55rem, 10vw, 3.25rem);
+      line-height: 1.03;
+    }
+  }
+
+  @include m.mediaPhone {
+    gap: 1rem;
   }
 }
 
@@ -585,6 +603,10 @@
   gap: 3.6rem;
   align-items: start;
   padding-inline: 0;
+
+  @include m.mediaPhone {
+    gap: 2rem;
+  }
 
   @include m.mediaDesktop {
     grid-template-columns: 1fr 40rem;

@@ -70,7 +70,7 @@ export default async function ResourceBlogPostPage({
               { name: 'Home', href: '/' },
               { name: 'Resources', href: '/resources' },
               { name: 'Blog', href: '/resources/blog' },
-              { name: post.title },
+              { name: post.title, href: `/resources/blog/${post.slug}` },
             ]}
           />
           <p className={classes.eyebrow}>Bellhouse resource article</p>

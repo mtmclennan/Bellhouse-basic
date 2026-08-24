@@ -7,6 +7,7 @@ import classes from './ServiceAreaIntro.module.scss';
 type ServiceAreaIntroProps = {
   intro: string[];
   heading?: string;
+  eyebrow?: string;
   children?: ReactNode;
   image?: ServiceAreaImage;
 };
@@ -14,13 +15,15 @@ type ServiceAreaIntroProps = {
 export default function ServiceAreaIntro({
   intro,
   heading = 'What the job needs on the ground',
+  eyebrow = 'Local excavation work',
   children,
   image,
 }: ServiceAreaIntroProps) {
   return (
-    <SectionWrapper containerClassName={classes.container}>
+    <SectionWrapper className={classes.section} containerClassName={classes.container}>
       <div className={classes.content}>
         <div className={classes.copyBlock}>
+          <p className={classes.eyebrow}>{eyebrow}</p>
           <h2 className={classes.heading}>{heading}</h2>
           <div className={classes.copy}>
             {intro.map((paragraph) => (

@@ -1,14 +1,17 @@
 import type { CalculatorConfig } from '../config/calculators';
+import { resolveOutputUnitPreference } from '../config/calculators';
 import { m3ToCubicYards, tonnesToShortTons } from '../logic/conversions';
+import { buildCalculatorCostEstimate } from '../logic/costEstimate';
 import { formatNumber, formatTruckLoads } from '../utils/format';
 import type {
+  CalculatorAreaFormInput,
   CalculatorDimensionBehavior,
   CalculatorDimensionFormInput,
   CalculatorFormInput,
   CalculatorKind,
   CalculatorResult,
   Material,
-  OutputUnitPreference,
+  ResolvedOutputUnitPreference,
   UnitSystem,
 } from '../types/calculator';
 import { CALCULATOR_LEAD_VERSION, type CalculatorLeadData } from './calculatorLead.types';
@@ -50,7 +53,42 @@ function formatDimensionValue(
   return `${inches} in`;
 }
 
-function formatVolumeText(cubicMetres: number, outputUnitPreference: OutputUnitPreference): string {
+function isDimensionEntered(
+  value: CalculatorDimensionFormInput,
+  unitSystem: UnitSystem,
+  behavior: CalculatorDimensionBehavior,
+): boolean {
+  if (unitSystem === 'metric') {
+    return typeof value.metricValue === 'number' && value.metricValue > 0;
+  }
+
+  if (behavior.imperialMode === 'inches') {
+    return typeof value.inches === 'number' && value.inches > 0;
+  }
+
+  const feet = typeof value.feet === 'number' ? value.feet : 0;
+  const inches = typeof value.inches === 'number' ? value.inches : 0;
+  return feet > 0 || inches > 0;
+}
+
+function isCompleteArea(
+  area: CalculatorAreaFormInput,
+  unitSystem: UnitSystem,
+  dimensionBehavior: CalculatorConfig['dimensionBehavior'],
+): boolean {
+  return (['length', 'width', 'depth'] as const).every((dimension) =>
+    isDimensionEntered(
+      area[dimension],
+      unitSystem,
+      dimensionBehavior[dimension],
+    ),
+  );
+}
+
+function formatVolumeText(
+  cubicMetres: number,
+  outputUnitPreference: ResolvedOutputUnitPreference,
+): string {
   if (outputUnitPreference === 'imperial') {
     return `${formatNumber(m3ToCubicYards(cubicMetres))} yd³`;
   }
@@ -58,7 +96,10 @@ function formatVolumeText(cubicMetres: number, outputUnitPreference: OutputUnitP
   return `${formatNumber(cubicMetres)} m³`;
 }
 
-function formatWeightText(metricTonnes: number, outputUnitPreference: OutputUnitPreference): string {
+function formatWeightText(
+  metricTonnes: number,
+  outputUnitPreference: ResolvedOutputUnitPreference,
+): string {
   if (outputUnitPreference === 'imperial') {
     return `${formatNumber(tonnesToShortTons(metricTonnes), 1)} short tons`;
   }
@@ -81,20 +122,83 @@ export function buildCalculatorLeadData({
   now = Date.now(),
 }: BuildCalculatorLeadDataParams): CalculatorLeadData {
   const { outputUnitPreference, inputUnitSystem } = input;
+  const resolvedOutputUnitPreference = resolveOutputUnitPreference(
+    outputUnitPreference,
+    inputUnitSystem,
+  );
   const { resultPresentation, dimensionBehavior, labels } = config;
 
-  const dimensionDisplay = {
-    length: formatDimensionValue(input.length, inputUnitSystem, dimensionBehavior.length),
-    width: formatDimensionValue(input.width, inputUnitSystem, dimensionBehavior.width),
-    depth: formatDimensionValue(input.depth, inputUnitSystem, dimensionBehavior.depth),
-  };
+  const formAreas: CalculatorAreaFormInput[] = [
+    { length: input.length, width: input.width, depth: input.depth },
+    ...input.additionalAreas,
+  ];
+  const areaDisplays = formAreas
+    .filter((area) =>
+      isCompleteArea(area, inputUnitSystem, dimensionBehavior),
+    )
+    .map((area) => {
+      const display = {
+        length: formatDimensionValue(
+          area.length,
+          inputUnitSystem,
+          dimensionBehavior.length,
+        ),
+        width: formatDimensionValue(
+          area.width,
+          inputUnitSystem,
+          dimensionBehavior.width,
+        ),
+        depth: formatDimensionValue(
+          area.depth,
+          inputUnitSystem,
+          dimensionBehavior.depth,
+        ),
+      };
 
-  const inputs: Record<string, string> = {
-    [labels.dimensions.length]: dimensionDisplay.length,
-    [labels.dimensions.width]: dimensionDisplay.width,
-    [labels.dimensions.depth]: dimensionDisplay.depth,
-    [labels.material]: material.name,
-  };
+      return {
+        ...display,
+        summary: `${display.length} \u00d7 ${display.width} \u00d7 ${display.depth}`,
+      };
+    });
+  const primaryDisplay = areaDisplays[0];
+
+  const inputs: Record<string, string> = {};
+
+  if (areaDisplays.length === 1 && primaryDisplay) {
+    inputs[labels.dimensions.length] = primaryDisplay.length;
+    inputs[labels.dimensions.width] = primaryDisplay.width;
+    inputs[labels.dimensions.depth] = primaryDisplay.depth;
+  } else {
+    areaDisplays.forEach((area, index) => {
+      inputs[`Area ${index + 1}`] = area.summary;
+    });
+  }
+
+  inputs[labels.material] = material.name;
+
+  const costEstimate = buildCalculatorCostEstimate(
+    result,
+    input.priceMode,
+    input.pricePerUnit,
+    inputUnitSystem,
+  );
+  const currencyFormatter = new Intl.NumberFormat('en-CA', {
+    style: 'currency',
+    currency: 'CAD',
+    maximumFractionDigits: 0,
+  });
+
+  if (costEstimate) {
+    const rateUnit =
+      costEstimate.mode === 'load'
+        ? 'load'
+        : costEstimate.quantityLabel === 'm3'
+        ? 'm\u00b3'
+        : costEstimate.quantityLabel === 'yd3'
+          ? 'yd\u00b3'
+          : costEstimate.quantityLabel;
+    inputs['Price per'] = `${currencyFormatter.format(costEstimate.rate)} per ${rateUnit}`;
+  }
 
   if (assumptionsSummary) {
     inputs.Assumptions = assumptionsSummary;
@@ -103,36 +207,48 @@ export function buildCalculatorLeadData({
   const results: Record<string, string> = {
     [resultPresentation.volumeLabel]: formatVolumeText(
       result[resultPresentation.volumeValueSource],
-      outputUnitPreference,
+      resolvedOutputUnitPreference,
     ),
   };
 
   if (resultPresentation.adjustedVolumeLabel && resultPresentation.adjustedVolumeValueSource) {
     results[resultPresentation.adjustedVolumeLabel] = formatVolumeText(
       result[resultPresentation.adjustedVolumeValueSource],
-      outputUnitPreference,
+      resolvedOutputUnitPreference,
     );
   }
 
   if (resultPresentation.secondaryVolumeLabel && resultPresentation.secondaryVolumeValueSource) {
     results[resultPresentation.secondaryVolumeLabel] = formatVolumeText(
       result[resultPresentation.secondaryVolumeValueSource],
-      outputUnitPreference,
+      resolvedOutputUnitPreference,
     );
   }
 
   results[resultPresentation.weightLabel] = formatWeightText(
     result.adjustedWeightTons,
-    outputUnitPreference,
+    resolvedOutputUnitPreference,
   );
   results[resultPresentation.truckLoadsLabel] = formatTruckLoads(result.estimatedTruckLoads);
 
-  const dimensionsLine = `${dimensionDisplay.length} × ${dimensionDisplay.width} × ${dimensionDisplay.depth}`;
+  if (costEstimate) {
+    results['Estimated cost'] = currencyFormatter.format(costEstimate.total);
+  }
+
+  const dimensionMessageLines =
+    areaDisplays.length === 1 && primaryDisplay
+      ? [`Dimensions: ${primaryDisplay.summary}`]
+      : [
+          'Areas:',
+          ...areaDisplays.map(
+            (area, index) => `Area ${index + 1}: ${area.summary}`,
+          ),
+        ];
 
   const messageLines = [
     `I used the Bellhouse ${kind} calculator.`,
     '',
-    `Dimensions: ${dimensionsLine}`,
+    ...dimensionMessageLines,
     `Material: ${material.name}`,
     ...Object.entries(results).map(([label, value]) => `${label}: ${value}`),
     '',

@@ -3,9 +3,9 @@ import { test, expect } from '@playwright/test';
 test('excavation calculator to contact form handoff', async ({ page }) => {
   await page.goto('http://localhost:3000/resources/calculators/excavation');
 
-  await page.getByLabel('Cut Length').fill('10');
-  await page.getByLabel('Cut Width').fill('5');
-  await page.getByLabel('Cut Depth').fill('2');
+  await page.getByRole('spinbutton', { name: 'Cut Length' }).fill('10');
+  await page.getByRole('spinbutton', { name: 'Cut Width' }).fill('5');
+  await page.getByRole('spinbutton', { name: 'Cut Depth' }).fill('2');
 
   await expect(page.getByText('100.00', { exact: false })).toBeVisible();
 
@@ -16,7 +16,7 @@ test('excavation calculator to contact form handoff', async ({ page }) => {
   const message = await page.locator('#message').inputValue();
   expect(message).toContain('I used the Bellhouse excavation calculator.');
   expect(message).toContain('Dimensions: 10 m × 5 m × 2 m');
-  expect(message).toContain('Excavation volume: 100.00 m³');
+  expect(message).toContain('In-place volume: 100.00 m³');
   expect(message).toContain('Truck loads: 11.5');
 
   // Excavation must map to the generic site-work option, never Foundation Excavation.
@@ -50,9 +50,9 @@ test('malformed sessionStorage lead is discarded safely', async ({ page }) => {
 
 test('gravel calculator to contact form handoff', async ({ page }) => {
   await page.goto('http://localhost:3000/resources/calculators/gravel');
-  await page.getByLabel('Area Length').fill('20');
-  await page.getByLabel('Area Width').fill('3');
-  const depthInput = page.getByLabel('Gravel Depth');
+  await page.getByRole('spinbutton', { name: 'Area Length' }).fill('20');
+  await page.getByRole('spinbutton', { name: 'Area Width' }).fill('3');
+  const depthInput = page.getByRole('spinbutton', { name: 'Gravel Depth' });
   await depthInput.fill('150');
 
   await page.getByRole('link', { name: 'Request a project estimate' }).click();
@@ -65,9 +65,9 @@ test('gravel calculator to contact form handoff', async ({ page }) => {
 
 test('topsoil calculator to contact form handoff', async ({ page }) => {
   await page.goto('http://localhost:3000/resources/calculators/topsoil');
-  await page.getByLabel('Coverage Length').fill('12');
-  await page.getByLabel('Coverage Width').fill('8');
-  await page.getByLabel('Topsoil Depth').fill('100');
+  await page.getByRole('spinbutton', { name: 'Coverage Length' }).fill('12');
+  await page.getByRole('spinbutton', { name: 'Coverage Width' }).fill('8');
+  await page.getByRole('spinbutton', { name: 'Topsoil Depth' }).fill('100');
 
   await page.getByRole('link', { name: 'Request a project estimate' }).click();
   await page.waitForURL('**/contact?service=topsoil&source=calculator');
@@ -97,9 +97,9 @@ test('a non-calculator ?service= link keeps its existing exact-match behaviour',
 
 test('does not overwrite a work type the user already selected', async ({ page }) => {
   await page.goto('http://localhost:3000/resources/calculators/excavation');
-  await page.getByLabel('Cut Length').fill('10');
-  await page.getByLabel('Cut Width').fill('5');
-  await page.getByLabel('Cut Depth').fill('2');
+  await page.getByRole('spinbutton', { name: 'Cut Length' }).fill('10');
+  await page.getByRole('spinbutton', { name: 'Cut Width' }).fill('5');
+  await page.getByRole('spinbutton', { name: 'Cut Depth' }).fill('2');
   await page.getByRole('link', { name: 'Request a project estimate' }).click();
   await page.waitForURL('**/contact?service=excavation&source=calculator');
 

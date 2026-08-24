@@ -1,0 +1,408 @@
+{
+  "id": 13,
+  "slug": "acreage-estate-excavation",
+  "title": "Acreage & Estate Property Excavation",
+  "navTitle": "Acreage Property Excavation",
+  "contactService": "Acreage & Estate Property Excavation",
+  "meta": {
+    "title": "Acreage Property Excavation Ontario | Bellhouse",
+    "description": "Acreage and estate property excavation across Brant County and Ontario. Site prep, grading, drainage, and building pads for rural lots. Free estimates."
+  },
+  "card": {
+    "title": "Acreage & Estate Property Excavation",
+    "description": "Full site preparation, grading, drainage, and building pad excavation for acreage lots and rural estate properties.",
+    "image": "/assets/services/large-site-prep-two-excavators.webp",
+    "alt": "Excavation equipment preparing a large acreage property for building in Brant County"
+  },
+  "hero": {
+    "eyebrow": "Acreage & estate site work",
+    "heading": "Acreage & Estate Property Excavation in Brant County & Ontario",
+    "summary": "You bought the land. We get it ready. Bellhouse Excavating handles site preparation, grading, drainage, and building pad excavation for acreage properties, rural estate lots, and large custom home sites across Brant County and surrounding Ontario.",
+    "actions": [
+      { "label": "Request Property Quote", "href": "/contact", "variant": "primary" },
+      { "label": "For Builders & Contractors", "href": "/contractors", "variant": "secondary" }
+    ],
+    "emphasis": "high",
+    "image": "/assets/services/site-preparations-land-clearing/large-site-preparation-excavation-equipment.webp",
+    "alt": "Large-site excavation equipment preparing an acreage property for building in Southern Ontario",
+    "sideForm": true,
+    "proofBar": [
+      { "icon": "map-pin", "title": "Local to Brantford", "subtitle": "& Brant County" },
+      { "icon": "calendar-check", "title": "Since 1982", "subtitle": "Owner-operated" },
+      { "icon": "truck", "title": "Large-site equipment", "subtitle": "Excavators, dozers, trucks" },
+      { "icon": "map-trifold", "title": "Rural specialists", "subtitle": "Acreage & estate lots" },
+      { "icon": "shield-check", "title": "Licensed & insured", "subtitle": "Fully covered" }
+    ]
+  },
+  "sections": [
+    {
+      "type": "intro",
+      "tone": "light",
+      "eyebrow": "Who it's for",
+      "heading": "Full Site Preparation for Acreage and Estate Properties",
+      "body": "Bellhouse Excavating provides site preparation and excavation services for acreage properties, rural estate lots, and large custom home sites across Brant County and Brantford. When the lot is two acres, five acres, or twenty acres, the site work is different from a subdivision build — the driveway is longer, the drainage is more complex, the topsoil strip covers more ground, and the equipment needs room to work efficiently.\n\nAcreage property excavation typically involves clearing, topsoil stripping, building pad excavation, driveway construction, drainage installation, and rough grading across the full lot. Bellhouse handles the scope as one coordinated project so the site is ready for foundation work, outbuilding pads, and laneway access without separate contractors trying to sequence around each other.",
+      "audience": [
+        { "icon": "map-trifold", "label": "Acreage property owners" },
+        { "icon": "house-line", "label": "Custom home builders" },
+        { "icon": "tree", "label": "Rural estate buyers" },
+        { "icon": "tractor", "label": "Hobby farm owners" }
+      ]
+    },
+    {
+      "type": "projectFit",
+      "tone": "dark",
+      "heading": "Acreage Projects Bellhouse Handles",
+      "subheading": "Best fit for large-lot site work where clearing, grading, drainage, and building pads need to be handled together by one crew with the right equipment.",
+      "cards": [
+        {
+          "title": "Full site preparation on raw acreage",
+          "body": "A strong fit when a rural lot needs to go from raw land to build-ready — clearing, topsoil strip, rough grading, drainage, building pad, and driveway construction handled as one scope. Common on lots being developed for custom homes, hobby farms, or estate properties across Brant County.",
+          "tags": ["Raw land prep", "Custom home sites", "Full-lot grading"],
+          "outcome": "The property goes from unworked land to a graded, drained site with a building pad and access road ready for the next phase."
+        },
+        {
+          "title": "Building pad and driveway together",
+          "body": "Useful when the house pad, garage pad, and driveway all need to be excavated and graded as part of the same mobilization. Doing pad and lane together avoids double-mobilizing equipment and keeps the site grades consistent.",
+          "tags": ["Building pad excavation", "Driveway construction", "Combined scope"],
+          "outcome": "Pad and driveway grades are set together so drainage flows properly across the lot instead of fighting each other."
+        },
+        {
+          "title": "Drainage correction before building",
+          "body": "A practical fit when the lot has wet areas, standing water, or poor natural drainage that needs to be corrected before any foundation or structure work begins. Surface grading, swales, culverts, and ditch work are planned around the building location.",
+          "tags": ["Drainage correction", "Wet lot solutions", "Pre-build grading"],
+          "outcome": "Water is directed away from the building area and the lot drains predictably before foundation work starts."
+        },
+        {
+          "title": "Hobby farm development from raw land",
+          "body": "A strong fit when a rural property is being developed for hobby farm use — building pads for a barn or shop, laneway construction, paddock grading, and pond excavation can be coordinated as one project.",
+          "tags": ["Hobby farm setup", "Barn pads", "Paddock grading"],
+          "outcome": "The property is shaped for its intended agricultural use with access, buildings, and drainage planned together."
+        }
+      ]
+    },
+    {
+      "type": "scope",
+      "tone": "light",
+      "eyebrow": "What Bellhouse handles",
+      "heading": "Acreage Site Preparation Includes",
+      "subheading": "Complete site excavation and preparation for acreage and estate properties where the lot size, access requirements, and drainage complexity require large-site equipment and planning.",
+      "items": [
+        { "title": "Site Clearing & Grubbing", "body": "Trees, brush, stumps, and debris are removed from the building area and access route. Material is either burned on site where permitted, chipped, or hauled off." },
+        { "title": "Building Pad Excavation & Levelling", "body": "The building pad is excavated to the required depth, subgrade is prepared, and the pad is levelled and compacted for the foundation or slab." },
+        { "title": "Driveway & Laneway Construction", "body": "The access route from the road to the building area is cleared, graded, and surfaced with granular base material. Culverts are installed at ditch crossings." },
+        { "title": "Drainage Planning & Installation", "body": "Surface drainage is planned around the building location, driveway, and lot grades. Swales, ditches, and culverts are installed to direct water away from structures." },
+        { "title": "Topsoil Stripping & Stockpiling", "body": "Topsoil is stripped from the building area and driveway route, then stockpiled on site for later use in finish grading and landscaping." },
+        { "title": "Rough Grading Across the Full Lot", "body": "The lot is rough graded to establish proper drainage flow, building pad elevation, and driveway grades across the entire property." },
+        { "title": "Pond or Dugout Excavation", "body": "Where applicable, a pond or dugout can be excavated as part of the site preparation scope — for livestock water, irrigation, fire suppression, or property features." }
+      ]
+    },
+    {
+      "type": "scope",
+      "tone": "dark",
+      "heading": "Project Fit & Scope Review",
+      "subheading": "Acreage site preparation works best on properties with enough space for equipment to work efficiently and where multiple site elements need to be coordinated together. Smaller lots are not automatically ruled out, but the scope needs to justify the equipment and mobilization.",
+      "items": [
+        {
+          "title": "Best fit: Acreage lots (2+ acres) requiring full site preparation",
+          "body": "Rural properties where the building pad, driveway, drainage, and lot grading all need to happen before construction begins. Bellhouse's equipment scale makes sense on lots where there is room to work and material to move."
+        },
+        {
+          "title": "Best fit: Rural estate properties with a custom home or outbuilding planned",
+          "body": "Estate lots where the home site, driveway, garage pad, and property grades need to be set before the builder starts. Common on rural properties outside Brantford, Paris, Cambridge, and surrounding areas."
+        },
+        {
+          "title": "Best fit: Large lots needing drainage correction before building",
+          "body": "Properties with wet areas, standing water, or poor natural drainage where grading, swales, and culverts need to be installed before any foundation work can begin safely."
+        },
+        {
+          "title": "Best fit: Properties that need a driveway, pad, and grading done together",
+          "body": "Sites where combining the driveway, building pad, and rough grading into one scope saves mobilization costs and keeps the grades consistent across the lot."
+        },
+        {
+          "title": "Best fit: Hobby farms being developed from raw land",
+          "body": "Rural properties being set up for agricultural use — barn pads, shop pads, paddock grading, laneway construction, and pond excavation coordinated as one project."
+        },
+        {
+          "title": "Better handled through foundation or residential site work: Subdivision lots",
+          "body": "Subdivision lots where the builder has already rough graded the site are usually a different service path than acreage preparation. Bellhouse can still review foundation excavation, backfill, grading, or builder support through the residential foundation and site-prep services."
+        },
+        {
+          "title": "Reviewed case by case: Smaller lots",
+          "body": "On a smaller lot, the fit comes down to whether the scope justifies bringing in Bellhouse's equipment. If the project includes meaningful excavation, grading, hauling, drainage, or access work, Bellhouse can still review whether the scope makes sense — send the details and get a straight answer."
+        },
+        {
+          "title": "Not the best fit: Landscaping or finish grading work",
+          "body": "Bellhouse handles rough grading — establishing lot grades, drainage flow, and building pad elevation. Fine grading for lawns, gardens, and landscape features is typically handled by a landscaping contractor after the rough grade is set."
+        }
+      ]
+    },
+    {
+      "type": "reviews",
+      "tone": "light",
+      "eyebrow": "Testimonials",
+      "heading": "What customers say about Bellhouse",
+      "subheading": "Feedback from local homeowners, builders, and job-site customers Bellhouse has worked with.",
+      "limit": 3
+    },
+    {
+      "type": "pricingFactors",
+      "tone": "dark",
+      "eyebrow": "What affects price",
+      "heading": "Acreage site preparation is priced around the lot and the scope",
+      "subheading": "A useful quote depends on lot size, what needs to be cleared, how many structures are planned, drainage complexity, and the condition of the existing ground.",
+      "tiers": [
+        { "name": "Simpler", "eg": "Building pad and driveway on a cleared lot with good drainage", "position": "low" },
+        { "name": "Typical", "eg": "Full site prep — clearing, pad, driveway, drainage, and rough grading on 2–5 acres", "position": "mid" },
+        { "name": "Complex", "eg": "Large acreage with heavy clearing, wet ground, multiple building pads, and pond excavation", "position": "high" }
+      ],
+      "rangeNote": "Most acreage site preparation projects fall in the middle range. Bellhouse quotes after reviewing the lot, the building plans, and the site conditions.",
+      "factors": [
+        {
+          "title": "Lot size and area to grade",
+          "body": "Larger lots with more area to strip, grade, and shape require more machine time and material handling. A two-acre lot is a different scope than a twenty-acre property."
+        },
+        {
+          "title": "Tree clearing required",
+          "body": "Heavily treed lots need clearing and grubbing before any grading can begin. The volume of trees, stumps, and brush directly affects the time and disposal costs."
+        },
+        {
+          "title": "Drainage complexity",
+          "body": "Properties with wet areas, high water tables, or poor natural drainage need more grading, swale construction, and culvert work to direct water away from the building area."
+        },
+        {
+          "title": "Number of structures planned",
+          "body": "A single house pad is one scope. A house pad plus garage pad, barn pad, and shop pad means more excavation, more subgrade prep, and more grading to tie the grades together."
+        },
+        {
+          "title": "Distance from Brant County",
+          "body": "Properties within Brant County and nearby areas are the most efficient for mobilization. Jobs further afield are quoted with travel and mobilization factored into the scope."
+        }
+      ],
+      "aside": {
+        "label": "Get a real number",
+        "heading": "A site visit or detailed photos help Bellhouse quote the full scope accurately",
+        "body": "Instead of estimating from lot size alone.",
+        "action": { "label": "Request Property Quote", "href": "/contact" },
+        "phone": { "label": "519-752-8500", "href": "tel:5197528500" }
+      }
+    },
+    {
+      "type": "jobsiteProof",
+      "tone": "light",
+      "eyebrow": "Acreage site work",
+      "heading": "Acreage site preparation starts with drainage, grades, and access — not just the building pad.",
+      "body": "On a large rural lot the building pad is only one piece. The driveway route, the drainage flow across the property, the topsoil stockpile location, and the rough grade for the full lot all need to be planned together. Bellhouse coordinates the full scope so the site is ready for the builder instead of leaving problems for the next trade to sort out.",
+      "image": {
+        "src": "/assets/services/dozer-stripping-site-prep.webp",
+        "alt": "Dozer stripping topsoil during acreage site preparation in Brant County"
+      },
+      "caption": "Site preparation on acreage properties is planned around drainage, access, building pads, and lot grades."
+    },
+    {
+      "type": "outcomes",
+      "tone": "dark",
+      "eyebrow": "Site outcomes",
+      "heading": "What the Property Should Be Ready For After Site Prep",
+      "subheading": "The goal is a property that is cleared, graded, drained, and ready for the builder to start foundation work without additional site excavation.",
+      "items": [
+        { "title": "Build-ready building pad", "body": "The pad is excavated, subgrade prepared, and levelled so foundation work can begin without additional excavation or grading." },
+        { "title": "Functional driveway and access", "body": "The driveway from the road to the building area is built with proper base, crown, and culverts so equipment and deliveries can access the site." },
+        { "title": "Drainage that protects the building area", "body": "Water flows away from the building pad and across the lot through planned grades, swales, and culverts instead of pooling around the foundation." }
+      ]
+    },
+    {
+      "type": "problemsPrevented",
+      "tone": "light",
+      "heading": "What Proper Acreage Site Preparation Prevents",
+      "subheading": "Acreage site work done poorly creates problems that follow the build for years — wet basements, settling pads, drainage fights, and access issues.",
+      "items": [
+        {
+          "problem": "A building pad set at the wrong elevation traps water against the foundation and creates long-term moisture problems.",
+          "solution": "Bellhouse sets the pad elevation based on the lot drainage and surrounding grades so water moves away from the structure naturally."
+        },
+        {
+          "problem": "A driveway built without proper base or drainage washes out or turns to mud after the first wet season.",
+          "solution": "The driveway is built with granular base, proper crown, and culverts at ditch crossings so it holds up to construction traffic and daily use."
+        },
+        {
+          "problem": "Topsoil mixed into the subgrade during site prep creates soft spots that settle after the foundation is poured.",
+          "solution": "Topsoil is stripped cleanly from the building area and stockpiled separately before any excavation or grading begins on the pad."
+        }
+      ]
+    },
+    {
+      "type": "equipment",
+      "tone": "dark",
+      "heading": "Equipment Used for Acreage Site Preparation",
+      "subheading": "Large-site equipment for clearing, excavating, grading, and hauling on acreage and estate properties.",
+      "items": [
+        {
+          "name": "CAT Excavator",
+          "body": "Primary machine for building pad excavation, drainage installation, clearing, and material handling. Sized to the lot for efficient work across the property.",
+          "image": { "src": "/assets/services/cat-excavator-digging-in-aggregates-pile.webp", "alt": "CAT excavator working on acreage site preparation in Brant County" }
+        },
+        {
+          "name": "Dozer",
+          "body": "Used for topsoil stripping, rough grading, lot shaping, and pushing material across the property. Essential for establishing lot grades on larger acreage.",
+          "image": { "src": "/assets/services/foundation-excavation/equipment-dozer-grader.jpg", "alt": "Dozer grading an acreage property during site preparation" }
+        },
+        {
+          "name": "Tri-Axle Dump Trucks",
+          "body": "Used for hauling excess material off site, delivering granular base for driveways and pads, and removing debris from clearing work.",
+          "image": { "src": "/assets/services/dump-truck-hauling/triaxle-dump-truck-gravel-hauling-brant-county.webp", "alt": "Bellhouse tri-axle dump truck supporting acreage site preparation" }
+        }
+      ]
+    },
+    {
+      "type": "process",
+      "tone": "light",
+      "heading": "How Acreage Site Preparation Works",
+      "subheading": "Clear steps from lot assessment to build-ready site — planned around the property, the building plans, and the drainage.",
+      "image": {
+        "src": "/assets/services/equipment-lined-up-large-site-prep.webp",
+        "alt": "Bellhouse equipment lined up for large acreage site preparation work"
+      },
+      "caption": "Equipment is mobilized based on the lot size, clearing needs, and the number of building pads and access routes required.",
+      "steps": [
+        { "title": "Property assessment and scope review", "body": "Bellhouse reviews the lot, building plans, access route, drainage conditions, and clearing needs to confirm the full scope before equipment arrives." },
+        { "title": "Clearing and topsoil stripping", "body": "Trees, brush, and debris are removed from the building area and driveway route. Topsoil is stripped and stockpiled for later use." },
+        { "title": "Pad excavation and driveway construction", "body": "Building pads are excavated and levelled, and the driveway is built with granular base, culverts, and proper crown shaping." },
+        { "title": "Drainage installation and rough grading", "body": "Swales, ditches, and culverts are installed. The full lot is rough graded to establish drainage flow and building pad elevations." }
+      ]
+    },
+    {
+      "type": "contractorCta",
+      "tone": "dark",
+      "eyebrow": "For property owners and builders",
+      "heading": "Planning to build on acreage? Get the site work scoped first.",
+      "body": "If you have an acreage lot that needs clearing, grading, drainage, a building pad, or a driveway built before construction starts, Bellhouse can review the property and return a scope and quote for the full site preparation.",
+      "image": {
+        "src": "/assets/services/site-preparation-heavy-equipment-brantford.webp",
+        "alt": "Heavy excavation equipment during site preparation on a large property near Brantford"
+      },
+      "caption": "Acreage site work is coordinated so the property is build-ready when the foundation crew arrives.",
+      "actions": [
+        { "label": "Send Project Details", "href": "/contractors#contractor-form", "variant": "primary" },
+        { "label": "Call 519-752-8500", "href": "tel:5197528500", "variant": "secondary" }
+      ]
+    },
+    {
+      "type": "resources",
+      "tone": "light",
+      "eyebrow": "Planning tool",
+      "heading": "Estimating excavation volume for your property?",
+      "subheading": "A rough excavation estimate helps clarify the scale of site work before Bellhouse reviews the lot, building plans, and drainage conditions.",
+      "cards": [
+        {
+          "title": "Excavation calculator for site preparation",
+          "body": "Estimate rough excavation volume, material to haul, and truck loads for building pad excavation and site grading work.",
+          "href": "/resources/calculators/excavation",
+          "label": "Estimate Excavation Volume"
+        }
+      ],
+      "actions": [{ "label": "View Calculators", "href": "/resources/calculators", "variant": "secondary" }]
+    },
+    {
+      "type": "serviceAreas",
+      "tone": "dark",
+      "heading": "Acreage property excavation by service area",
+      "body": "Acreage and estate property excavation services are available across Brant County and surrounding areas — including Brantford, Paris, Cambridge, Woodstock, Simcoe, Tillsonburg, Hamilton, Caledonia, Hagersville, Ancaster, and nearby rural communities where large-lot site preparation is needed.",
+      "areaSlugs": ["brantford", "paris", "cambridge", "woodstock", "simcoe", "hamilton", "ancaster", "caledonia", "hagersville", "tillsonburg"]
+    },
+    {
+      "type": "faq",
+      "tone": "light",
+      "heading": "Frequently Asked Questions",
+      "items": [
+        {
+          "question": "What does acreage site preparation involve?",
+          "answer": "Acreage site preparation typically involves clearing trees and brush from the building area and access route, stripping and stockpiling topsoil, excavating and levelling building pads for the house and any outbuildings, constructing the driveway or laneway from the road to the building area, installing drainage such as swales, ditches, and culverts, and rough grading the full lot to establish proper drainage flow and elevation. The scope depends on the lot — a cleared agricultural field needs different work than a heavily treed property. Bellhouse reviews the property and building plans to confirm what is needed before quoting."
+        },
+        {
+          "question": "How much does site prep cost on a rural property in Ontario?",
+          "answer": "Site preparation cost on a rural property depends on the lot size, how much clearing is required, the number of building pads needed, drainage complexity, driveway length, and the condition of the existing ground. A two-acre lot that is already cleared with good drainage is a different scope than a ten-acre treed property with wet ground and multiple outbuildings planned. Bellhouse quotes after reviewing the lot, the building plans, and the site conditions. Providing a survey, building plans, or at minimum photos and a description of the property helps Bellhouse return an accurate number."
+        },
+        {
+          "question": "How long does it take to prepare an acreage lot for building?",
+          "answer": "Most acreage site preparation projects take one to three weeks depending on the lot size, amount of clearing required, number of building pads, and weather conditions. A cleared lot needing a building pad and driveway may take a few days of machine time. A large treed property requiring full clearing, multiple pads, extensive drainage work, and a long driveway may take two to three weeks. Bellhouse confirms a realistic timeline after reviewing the property so the builder can plan the foundation schedule around the site work completion."
+        },
+        {
+          "question": "Do you do the laneway and building pad at the same time?",
+          "answer": "Yes, and that is the most efficient way to handle it. Building the driveway and excavating the building pad during the same mobilization saves equipment move costs and ensures the grades between the driveway, the pad, and the lot drainage all work together. When the pad and laneway are done separately by different contractors, the grades often conflict and drainage problems develop between the building area and the access road. Bellhouse coordinates the full scope so everything ties together properly."
+        },
+        {
+          "question": "What should I do first — clear the land or get permits?",
+          "answer": "Get your building permit and any required approvals in place before clearing begins. The building permit confirms the house location, setbacks, and elevation, which determines where the building pad, driveway, and drainage need to be placed. Clearing before the permit is issued risks removing trees or grading areas that may be affected by setback requirements, conservation authority regulations, or lot grading conditions attached to the permit. Bellhouse can review the property and provide a scope estimate while permits are in progress so the work can be scheduled to start as soon as approvals are in hand."
+        }
+      ]
+    },
+    {
+      "type": "relatedServices",
+      "tone": "dark",
+      "eyebrow": "Related services",
+      "heading": "Related excavation, grading, and site services",
+      "serviceSlugs": ["foundation-excavation", "site-preparation-land-grading", "land-grading-drainage", "pond-digging-cleaning", "farm-laneway-rural-driveway", "farm-fence-row-clearing", "farm-land-grading-leveling"]
+    },
+    {
+      "type": "finalCta",
+      "tone": "light",
+      "heading": "Ready to Get Your Acreage Build-Ready?",
+      "body": "Send the property location, lot size, building plans, and what you need prepared. Bellhouse will return a scope and quote based on the actual property — not a per-acre estimate.",
+      "bullets": [
+        "No obligation — free project review",
+        "Bellhouse replies with real numbers",
+        "Local crew, local knowledge"
+      ],
+      "form": true,
+      "actions": [
+        { "label": "Request Property Quote", "href": "/contact", "variant": "primary" },
+        { "label": "Send Project Details", "href": "/contractors#contractor-form", "variant": "secondary" }
+      ],
+      "navGroups": [
+        {
+          "label": "Other services",
+          "icon": "wrench",
+          "links": [
+            { "label": "Foundation Excavation", "href": "/services/foundation-excavation", "icon": "caret-right" },
+            { "label": "Site Prep & Grading", "href": "/services/site-preparation-land-grading", "icon": "caret-right" },
+            { "label": "Land Grading & Drainage", "href": "/services/land-grading-drainage", "icon": "caret-right" },
+            { "label": "Pond Digging & Cleaning", "href": "/services/pond-digging-cleaning", "icon": "caret-right" },
+            { "label": "Farm Laneway Construction", "href": "/services/farm-laneway-rural-driveway", "icon": "caret-right" }
+          ]
+        },
+        {
+          "label": "Service areas",
+          "icon": "map-pin",
+          "links": [
+            { "label": "Brantford", "href": "/service-areas/brantford", "icon": "map-pin" },
+            { "label": "Brant County", "href": "/service-areas/brantford", "icon": "map-pin" },
+            { "label": "Paris", "href": "/service-areas/paris", "icon": "map-pin" },
+            { "label": "Cambridge", "href": "/service-areas/cambridge", "icon": "map-pin" },
+            { "label": "Woodstock", "href": "/service-areas/woodstock", "icon": "map-pin" },
+            { "label": "Hamilton", "href": "/service-areas/hamilton", "icon": "map-pin" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "banner",
+      "tone": "dark",
+      "eyebrow": "Acreage site work done right",
+      "heading": "Building on acreage? Bellhouse is local, equipped, and taking jobs now.",
+      "body": "From raw land clearing and building pad excavation to driveway construction, drainage installation, and full-lot rough grading — Bellhouse gets acreage properties build-ready across Brant County and Southern Ontario. One crew, one scope, one mobilization.",
+      "bullets": [
+        "Clearing, pad excavation, driveway, and drainage handled together",
+        "Own excavators, dozers, and trucks — no subcontracting the site work",
+        "Brantford, Paris, Cambridge, Woodstock, and surrounding Brant County"
+      ],
+      "image": {
+        "src": "/assets/services/large-site-prep-equipment.webp",
+        "alt": "Large-site excavation equipment preparing an acreage property for building"
+      },
+      "actions": [
+        { "label": "Request Property Quote", "href": "/contact", "variant": "primary" },
+        { "label": "Call 519-752-8500", "href": "tel:5197528500", "variant": "secondary" }
+      ]
+    }
+  ]
+}

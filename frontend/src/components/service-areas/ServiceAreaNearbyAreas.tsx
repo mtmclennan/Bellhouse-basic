@@ -32,68 +32,47 @@ export default function ServiceAreaNearbyAreas({
   const mapContent = map ?? defaultMapContent;
 
   return (
-    <SectionWrapper containerClassName={classes.container}>
+    <SectionWrapper className={classes.section} containerClassName={classes.container}>
       <div className={classes.content}>
-        <div className={classes.mapCard}>
+        <div className={classes.imageCard}>
           {mapContent.image ? (
-            <div className={classes.mapImageFrame}>
-              <Image
-                src={mapContent.image.src}
-                alt={mapContent.image.alt}
-                width={mapContent.image.width ?? 1600}
-                height={mapContent.image.height ?? 1200}
-                className={classes.mapImage}
-                sizes="(max-width: 1000px) 100vw, 40vw"
-              />
-              <div className={classes.mapOverlay} />
-            </div>
+            <Image
+              src={mapContent.image.src}
+              alt={mapContent.image.alt}
+              width={mapContent.image.width ?? 1200}
+              height={mapContent.image.height ?? 1200}
+              className={classes.image}
+              sizes="(max-width: 1000px) 100vw, 40vw"
+            />
           ) : null}
-          <div className={classes.mapCopy}>
-            <p className={classes.eyebrow}>
-              {mapContent.eyebrow ?? defaultMapContent.eyebrow}
-            </p>
-            <h2 className={classes.heading}>{heading}</h2>
-            <h3>{mapContent.title ?? defaultMapContent.title}</h3>
+          <div className={classes.imageOverlay} />
+          <div className={classes.imageCopy}>
+            <p className={classes.eyebrow}>{mapContent.eyebrow ?? defaultMapContent.eyebrow}</p>
             <p>
               {city
-                ? `If your job sits just outside ${city}, these nearby pages may match the ground conditions, access, and trucking setup more closely.`
-                : 'If your job sits between service areas, these nearby pages may be the closer match for site conditions and trucking access.'}
+                ? `If your job sits just outside ${city}, the nearest area page is usually the closer match for access, haul-out, and site conditions.`
+                : 'If your job sits between service areas, the nearest area page is usually the closer match for site conditions and trucking access.'}
             </p>
-            <p>{mapContent.description ?? defaultMapContent.description}</p>
-            <div className={classes.pinRow}>
-              {items.slice(0, 5).map((item) =>
-                typeof item === 'string' ? (
-                  <span className={classes.pin} key={getAreaKey(item)}>
-                    <MapPin size={16} weight="fill" />
-                    {getAreaLabel(item)}
-                  </span>
-                ) : (
-                  <Link className={classes.pin} href={item.href} key={getAreaKey(item)}>
-                    <MapPin size={16} weight="fill" />
-                    {getAreaLabel(item)}
-                  </Link>
-                ),
-              )}
-            </div>
           </div>
         </div>
-        <ul className={classes.list}>
-          {items.map((item) => (
-            <li className={classes.item} key={getAreaKey(item)}>
-              {typeof item === 'string' ? (
-                <span>
-                  <MapPin size={18} weight="fill" />
-                  {item}
+        <div className={classes.listBlock}>
+          <h2 className={classes.heading}>{heading}</h2>
+          <div className={classes.grid}>
+            {items.map((item) =>
+              typeof item === 'string' ? (
+                <span className={classes.comingSoon} key={getAreaKey(item)}>
+                  <MapPin size={20} />
+                  {item} — page coming soon
                 </span>
               ) : (
-                <Link href={item.href}>
-                  <MapPin size={18} weight="fill" />
-                  See {item.label} excavation and site work
+                <Link className={classes.pill} href={item.href} key={getAreaKey(item)}>
+                  <MapPin size={20} weight="fill" />
+                  See {getAreaLabel(item)} excavation and site work
                 </Link>
-              )}
-            </li>
-          ))}
-        </ul>
+              ),
+            )}
+          </div>
+        </div>
       </div>
     </SectionWrapper>
   );

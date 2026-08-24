@@ -3,20 +3,20 @@
   "slug": "pond-digging-cleaning",
   "title": "Pond Digging & Cleaning Services",
   "navTitle": "Pond Digging & Cleaning",
-  "contactService": "Other",
+  "contactService": "Pond Work",
   "meta": {
-    "title": "Farm Pond Excavation & Cleanout | Brant County | Bellhouse",
-    "description": "Farm pond excavation, sediment removal, and pond cleanout for agricultural and rural properties across Brant County and surrounding areas."
+    "title": "Pond Excavation & Cleanout | Brant County | Bellhouse",
+    "description": "Pond excavation, sediment removal, and cleanout for farms, rural properties, and residential sites across Brant County and surrounding areas."
   },
   "card": {
-    "title": "Farm Pond Excavation & Cleanout",
+    "title": "Pond Excavation & Cleanout",
     "description": "Custom pond excavation, dredging, and cleaning for farms and residential properties.",
     "image": "/assets/pond-digging-cleaning-brant-county.jpg",
     "alt": "Excavator digging and shaping a pond on rural land in Brant County."
   },
   "hero": {
     "eyebrow": "Pond excavation & restoration",
-    "heading": "Farm Pond Excavation & Cleanout in Brant County",
+    "heading": "Pond Excavation & Cleanout in Brant County",
     "summary": "Custom pond excavation, deepening, sediment removal, shoreline reshaping, and restoration for farm and rural properties across Brant County. Farm ponds for livestock water supply, irrigation, fire suppression, and wildlife habitat.",
     "actions": [
       { "label": "Request Pond Quote", "href": "/contact", "variant": "primary" },
@@ -28,7 +28,7 @@
     "sideForm": true,
     "proofBar": [
       { "icon": "map-pin", "title": "Local to Brantford", "subtitle": "& Brant County" },
-      { "icon": "calendar-check", "title": "Since 1982", "subtitle": "Family operation" },
+      { "icon": "calendar-check", "title": "Since 1982", "subtitle": "Owner-operated" },
       { "icon": "truck", "title": "Own equipment", "subtitle": "Trucks & excavators" },
       { "icon": "star", "title": "5.0 on Google", "subtitle": "Local reviews" },
       { "icon": "shield-check", "title": "Licensed & insured", "subtitle": "Fully covered" }
@@ -190,12 +190,6 @@
       "eyebrow": "Site outcomes",
       "heading": "What the Pond Should Be Ready For",
       "subheading": "The goal is a pond or pond area that is cleaner, deeper, better shaped, and easier to manage.",
-      "stats": [
-        { "label": "Since 1982", "body": "Over four decades of local site work" },
-        { "label": "Own equipment", "body": "Excavators, dozers, trucks, and operators available for local site work" },
-        { "label": "5.0 on Google", "body": "Rated by homeowners, builders, and contractors" },
-        { "label": "Licensed & insured", "body": "Full coverage on every job" }
-      ],
       "items": [
         { "title": "Better usable depth", "body": "Sediment removal, deepening, or expansion can restore capacity and improve pond function." },
         { "title": "Cleaner pond edges", "body": "Shoreline shaping can improve access, reduce rough edges, and support better drainage around the pond." },
@@ -301,7 +295,7 @@
       "tone": "dark",
       "eyebrow": "Related services",
       "heading": "Related excavation, grading, and hauling services",
-      "serviceSlugs": ["land-grading-drainage", "site-preparation-land-grading", "house-barn-demolition", "dump-truck-rental", "volvo-a35-off-road-dump-truck-rental"]
+      "serviceSlugs": ["land-grading-drainage", "site-preparation-land-grading", "house-barn-demolition", "dump-truck-rental", "volvo-a35-off-road-dump-truck-rental", "farm-land-grading-leveling"]
     },
     {
       "type": "faq",

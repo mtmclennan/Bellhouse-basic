@@ -12,7 +12,8 @@ type MonitorEvent = {
     | 'UPLOAD_REJECTED'
     | 'UPLOAD_TURNSTILE_FAIL'
     | 'UPLOAD_PROCESSING_FAIL'
-    | 'UPLOAD_CONTACT_EMAIL_FAIL';
+    | 'UPLOAD_CONTACT_EMAIL_FAIL'
+    | 'ESTIVOR_SUBMIT_FAIL';
   message: string;
   meta?: Record<string, any>;
 };

@@ -1,5 +1,6 @@
 'use client';
 
+import { useId, useState, type FocusEvent } from 'react';
 import type { MetricDimensionUnit } from '../types/calculator';
 import type { CalculatorDimensionFieldModel } from '../hooks/calculatorController.types';
 import classes from './CalculatorForm.module.scss';
@@ -9,15 +10,42 @@ type CalculatorDimensionFieldProps = {
 };
 
 export function CalculatorDimensionField({ field }: CalculatorDimensionFieldProps) {
+  const [isTouched, setIsTouched] = useState(false);
+  const errorId = useId();
+  const fieldId = useId();
+  const isPositive = (value: number | '') =>
+    typeof value === 'number' && Number.isFinite(value) && value > 0;
+  const hasValidValue =
+    field.inputUnitSystem === 'metric'
+      ? isPositive(field.value.metricValue)
+      : field.behavior.imperialMode === 'feet-inches'
+        ? isPositive(field.value.feet) || isPositive(field.value.inches)
+        : isPositive(field.value.inches);
+  const showError = isTouched && !hasValidValue;
+  const validationProps = {
+    'aria-invalid': showError,
+    'aria-describedby': showError ? errorId : undefined,
+  };
+  const handleCompoundBlur = (event: FocusEvent<HTMLDivElement>) => {
+    if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+      setIsTouched(true);
+    }
+  };
+
   const renderInputs = () => {
     if (field.inputUnitSystem === 'metric') {
       return (
-        <div className={classes.dimensionMetricRow}>
+        <div
+          className={`${classes.dimensionCompound} ${classes.dimensionMetricCompound}`}
+          onBlurCapture={handleCompoundBlur}
+        >
           <input
+            id={fieldId}
             type="number"
             inputMode="decimal"
             min="0"
             step="any"
+            placeholder="0"
             value={field.value.metricValue}
             onChange={(e) =>
               field.onValueChange(
@@ -25,8 +53,9 @@ export function CalculatorDimensionField({ field }: CalculatorDimensionFieldProp
                 e.target.value === '' ? '' : Number(e.target.value),
               )
             }
-            className={classes.fieldControl}
+            className={classes.dimensionBareInput}
             aria-label={field.label}
+            {...validationProps}
           />
 
           <select
@@ -34,7 +63,8 @@ export function CalculatorDimensionField({ field }: CalculatorDimensionFieldProp
             onChange={(e) =>
               field.onUnitChange(e.target.value as MetricDimensionUnit)
             }
-            className={`${classes.selectControl} ${classes.dimensionUnitSelect}`}
+            className={`${classes.dimensionUnitSelectCompact} ${classes.dimensionUnitSelect}`}
+            aria-label={`${field.label} unit`}
           >
             {field.behavior.metricUnits.map((unit) => (
               <option key={unit} value={unit}>
@@ -48,45 +78,54 @@ export function CalculatorDimensionField({ field }: CalculatorDimensionFieldProp
 
     if (field.behavior.imperialMode === 'feet-inches') {
       return (
-        <div className={classes.dimensionImperialGroup}>
-          <div className={classes.dimensionImperialRow}>
-            <label className={`${classes.subField} ${classes.subFieldGrouped}`}>
-              <span className={classes.subFieldLabel}>ft</span>
-              <input
-                type="number"
-                inputMode="decimal"
-                min="0"
-                step="1"
-                value={field.value.feet}
-                onChange={(e) =>
-                  field.onValueChange(
-                    'feet',
-                    e.target.value === '' ? '' : Number(e.target.value),
-                  )
-                }
-                className={`${classes.fieldControl} ${classes.dimensionFieldControl}`}
-                aria-label={`${field.label} feet`}
-              />
-            </label>
+        <div
+          className={`${classes.dimensionCompound} ${classes.dimensionImperialCompound}`}
+          onBlurCapture={handleCompoundBlur}
+        >
+          <div className={classes.dimensionCompoundSegment}>
+            <input
+              id={fieldId}
+              type="number"
+              inputMode="decimal"
+              min="0"
+              step="1"
+              placeholder="0"
+              value={field.value.feet}
+              onChange={(e) =>
+                field.onValueChange(
+                  'feet',
+                  e.target.value === '' ? '' : Number(e.target.value),
+                )
+              }
+              className={classes.dimensionBareInput}
+              aria-label={`${field.label} feet`}
+              {...validationProps}
+            />
+            <span className={classes.dimensionSuffix}>ft</span>
+          </div>
 
-            <label className={`${classes.subField} ${classes.subFieldGrouped}`}>
-              <span className={classes.subFieldLabel}>in</span>
-              <input
-                type="number"
-                inputMode="decimal"
-                min="0"
-                step="any"
-                value={field.value.inches}
-                onChange={(e) =>
-                  field.onValueChange(
-                    'inches',
-                    e.target.value === '' ? '' : Number(e.target.value),
-                  )
-                }
-                className={`${classes.fieldControl} ${classes.dimensionFieldControl}`}
-                aria-label={`${field.label} inches`}
-              />
-            </label>
+          <div
+            className={`${classes.dimensionCompoundSegment} ${classes.dimensionCompoundSegmentDivider}`}
+          >
+            <input
+              type="number"
+              inputMode="decimal"
+              min="0"
+              step="any"
+              max="11"
+              placeholder="0"
+              value={field.value.inches}
+              onChange={(e) =>
+                field.onValueChange(
+                  'inches',
+                  e.target.value === '' ? '' : Number(e.target.value),
+                )
+              }
+              className={classes.dimensionBareInput}
+              aria-label={`${field.label} inches`}
+              {...validationProps}
+            />
+            <span className={classes.dimensionSuffix}>in</span>
           </div>
         </div>
       );
@@ -94,15 +133,17 @@ export function CalculatorDimensionField({ field }: CalculatorDimensionFieldProp
 
     return (
       <div
-        className={`${classes.dimensionImperialGroup} ${classes.dimensionImperialGroupSingle}`}
+        className={`${classes.dimensionCompound} ${classes.dimensionSingleCompound}`}
+        onBlurCapture={handleCompoundBlur}
       >
-        <label className={`${classes.subField} ${classes.subFieldGrouped}`}>
-          <span className={classes.subFieldLabel}>in</span>
+        <div className={classes.dimensionCompoundSegment}>
           <input
+            id={fieldId}
             type="number"
             inputMode="decimal"
             min="0"
             step="any"
+            placeholder="0"
             value={field.value.inches}
             onChange={(e) =>
               field.onValueChange(
@@ -110,18 +151,31 @@ export function CalculatorDimensionField({ field }: CalculatorDimensionFieldProp
                 e.target.value === '' ? '' : Number(e.target.value),
               )
             }
-            className={`${classes.fieldControl} ${classes.dimensionFieldControl}`}
+            className={classes.dimensionBareInput}
             aria-label={`${field.label} inches`}
+            {...validationProps}
           />
-        </label>
+          <span className={classes.dimensionSuffix}>in</span>
+        </div>
       </div>
     );
   };
 
   return (
-    <div className={classes.dimensionCard}>
-      <span className={classes.dimensionLabel}>{field.label}</span>
+    <div
+      className={`${classes.dimensionCard} ${
+        showError ? classes.dimensionCardError : ''
+      }`}
+    >
+      <label className={classes.dimensionLabel} htmlFor={fieldId}>
+        {field.label}
+      </label>
       {renderInputs()}
+      {showError ? (
+        <span id={errorId} className={classes.dimensionErrorMessage}>
+          Enter a value greater than 0.
+        </span>
+      ) : null}
     </div>
   );
 }

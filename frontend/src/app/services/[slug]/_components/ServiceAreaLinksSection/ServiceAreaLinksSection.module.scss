@@ -186,23 +186,26 @@
 
 /* Fallback single-col layout */
 .locationList {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
   margin: 0;
   padding: 0;
   list-style: none;
-
-  @media (min-width: 700px) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  @include m.mediaDesktop {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
 }
 
 .locationItem {
+  flex: 0 1 100%;
   list-style: none;
+
+  @media (min-width: 700px) {
+    flex-basis: calc(50% - 0.5rem);
+  }
+
+  @include m.mediaDesktop {
+    flex-basis: calc(33.333% - 0.667rem);
+  }
 }
 
 .locationLink,

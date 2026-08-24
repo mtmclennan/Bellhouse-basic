@@ -5,6 +5,7 @@ import { sendContactForm } from '@/app/actions/contact';
 import { getInvisibleTurnstileToken } from '@/lib/uploads/client/turnstile';
 import { submitQuoteWithImages } from '@/lib/uploads/client/submitQuoteWithImages';
 import type { QuoteUploadClientFile } from '@/lib/uploads/shared/uploadTypes';
+import { getLeadAttribution } from '@/lib/tracking/attribution';
 import {
   GOOGLE_ADS_CONVERSION_LABELS,
   trackEvent,
@@ -83,6 +84,17 @@ export function useQuoteSubmit({
 
     setLoading(true);
     try {
+      const attribution = getLeadAttribution(contact.workType);
+      const formName =
+        variant === 'landing'
+          ? `landing:${typeof extra.page === 'string' ? extra.page : ''}`
+          : `contact-form:${variant}`;
+      const contactWithAttribution = {
+        ...contact,
+        attribution,
+        formName,
+      };
+
       if (files.length > 0) {
         const turnstileToken = await getInvisibleTurnstileToken({
           container: turnstileContainerRef.current,
@@ -90,13 +102,20 @@ export function useQuoteSubmit({
         });
 
         const result = await submitQuoteWithImages({
-          contact,
+          contact: contactWithAttribution,
           files,
           turnstileToken,
           honeypot,
         });
 
-        trackEvent('quote_form_submit', { form_variant: variant, has_upload: true, ...extra });
+        trackEvent('quote_form_submit', {
+          form_variant: variant,
+          has_upload: true,
+          lead_source: attribution.utmSource || '',
+          lead_medium: attribution.utmMedium || '',
+          lead_campaign: attribution.utmCampaign || '',
+          ...extra,
+        });
         trackGoogleAdsConversion(GOOGLE_ADS_CONVERSION_LABELS.quoteFormSubmit);
 
         return { success: result.success, failedCount: result.failedCount };
@@ -108,14 +127,25 @@ export function useQuoteSubmit({
 
       const token = await window.grecaptcha.execute(recaptchaSiteKey, { action });
 
-      const result = await sendContactForm({ ...contact, token, honeypot });
+      const result = await sendContactForm({
+        ...contactWithAttribution,
+        token,
+        honeypot,
+      });
 
       if (!result?.success) {
         trackEvent('quote_form_error', { form_variant: variant, error_type: 'server', ...extra });
         throw new Error(result?.error || 'Something went wrong. Please try again.');
       }
 
-      trackEvent('quote_form_submit', { form_variant: variant, has_upload: false, ...extra });
+      trackEvent('quote_form_submit', {
+        form_variant: variant,
+        has_upload: false,
+        lead_source: attribution.utmSource || '',
+        lead_medium: attribution.utmMedium || '',
+        lead_campaign: attribution.utmCampaign || '',
+        ...extra,
+      });
       trackGoogleAdsConversion(GOOGLE_ADS_CONVERSION_LABELS.quoteFormSubmit);
 
       return { success: 'Your request has been sent.' };

@@ -274,6 +274,15 @@
   }
 }
 
+.lightAccordionSingle {
+  max-width: 82rem;
+  margin: 0 auto;
+
+  @include m.mediaDesktop {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 .lightItem {
   border-bottom: 1px solid rgba(88, 72, 33, 0.16);
   border-radius: 0;

@@ -25,7 +25,8 @@ export default function ServiceAreaFaq({
         answer: <p>{item.answer}</p>,
       }))}
       cta={cta}
-      variant="serviceArea"
+      variant="light"
+      singleColumn
     />
   );
 }

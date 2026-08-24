@@ -28,6 +28,13 @@ const cmsServiceSlugs = new Set([
   'volvo-a35-off-road-dump-truck-rental',
   'house-barn-demolition',
   'pond-digging-cleaning',
+  'farm-laneway-rural-driveway',
+  'acreage-estate-excavation',
+  'commercial-industrial-site-preparation',
+  'farm-building-pad-excavation',
+  'agricultural-drainage-land-grading',
+  'farm-fence-row-clearing',
+  'farm-land-grading-leveling',
 ]);
 
 function isCmsServiceSlug(slug: string) {

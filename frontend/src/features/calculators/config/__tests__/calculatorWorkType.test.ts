@@ -10,24 +10,29 @@ import {
 // so this list is kept in sync manually — the important invariant (every
 // mapped work type is a real, spellable dropdown option) is what's tested.
 const DEFAULT_WORK_TYPE_OPTIONS = [
-  'Other',
   'General Excavation / Site Work',
   'Foundation Excavation',
-  'Site Grading',
+  'Site Preparation',
+  'Site Grading / Land Grading',
   'Land Clearing',
   'Demolition',
+  'Farm / Rural Property Work',
+  'Farm Land Grading / Leveling',
+  'Fence-Row Clearing',
+  'Pond Work',
+  'Laneway / Driveway',
+  'Parking Lot',
   'Retaining Walls',
   'Utility Trenches',
   'Erosion Control',
   'Drainage',
-  'Dump Truck Services',
+  'Trucking / Material Delivery',
   'Equipment Hauling',
   'Gravel Delivery',
   'Sand Delivery',
   'Topsoil Delivery',
   'Fill Dirt',
-  'Driveway',
-  'Parking Lot',
+  'Other / Not Sure',
 ];
 
 describe('resolveCalculatorWorkType', () => {

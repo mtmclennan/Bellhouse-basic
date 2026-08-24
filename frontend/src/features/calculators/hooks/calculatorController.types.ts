@@ -3,12 +3,14 @@ import type { CalculatorConfig } from '../config/calculators';
 import { normalizeCalculatorInput } from '../logic/normalizeInput';
 import type {
   CalculatorDimensionBehavior,
+  CalculatorAreaFormInput,
   CalculatorDimensionKey,
   CalculatorDimensionValueField,
   CalculatorEditableNumber,
   CalculatorFormInput,
   CalculatorKind,
   CalculatorNumberField,
+  CalculatorPriceMode,
   OutputUnitPreference,
   CalculatorResult,
   CalculatorSelectField,
@@ -21,7 +23,7 @@ export type CalculatorDimensionEntry = {
   key: CalculatorDimensionKey;
   label: string;
   behavior: CalculatorDimensionBehavior;
-  value: CalculatorFormInput[CalculatorDimensionKey];
+  value: CalculatorAreaFormInput[CalculatorDimensionKey];
 };
 
 export type CalculatorAdvancedValues = {
@@ -41,7 +43,6 @@ export type CalculatorAdvancedState = {
 };
 
 export type CalculatorUnitsSection = {
-  title: string;
   label: string;
   value: CalculatorFormInput['inputUnitSystem'];
   metricLabel: string;
@@ -62,9 +63,20 @@ export type CalculatorDimensionFieldModel = {
   onUnitChange: (value: MetricDimensionUnit) => void;
 };
 
-export type CalculatorDimensionsSection = {
+export type CalculatorDimensionAreaModel = {
+  id: string;
   title: string;
   fields: CalculatorDimensionFieldModel[];
+  onRemove?: () => void;
+};
+
+export type CalculatorDimensionsSection = {
+  title: string;
+  areas: CalculatorDimensionAreaModel[];
+  addAreaLabel: string;
+  canAddArea: boolean;
+  maxAreas: number;
+  onAddArea: () => void;
 };
 
 export type CalculatorMaterialSection = {
@@ -74,6 +86,15 @@ export type CalculatorMaterialSection = {
   value: CalculatorFormInput['materialId'];
   options: Material[];
   onChange: (materialId: CalculatorFormInput['materialId']) => void;
+};
+
+export type CalculatorCostSection = {
+  title: string;
+  value: CalculatorEditableNumber;
+  mode: CalculatorPriceMode;
+  volumeUnitLabel: string;
+  onValueChange: (value: CalculatorEditableNumber) => void;
+  onModeChange: (mode: Exclude<CalculatorPriceMode, ''>) => void;
 };
 
 export type CalculatorAdvancedFieldsModel = {
@@ -142,13 +163,40 @@ export type CalculatorResultsSection = {
     label: string;
     value: OutputUnitPreference;
     onChange: (value: OutputUnitPreference) => void;
+    options: readonly OutputUnitPreference[];
     metricLabel: string;
     imperialLabel: string;
   };
   placeholderMessage: string;
+  reference: {
+    title: string;
+    unitLabel: string;
+    rows: Array<{
+      id: string;
+      label: string;
+      adjustment: string;
+      weight: string;
+      isActive: boolean;
+    }>;
+  };
   primaryCards: CalculatorResultCardModel[];
   secondaryCards: CalculatorResultCardModel[];
+  comparisonRows: Array<{
+    id: string;
+    label: string;
+    metricValue: ReactNode;
+    imperialValue: ReactNode;
+  }>;
   assumptions: CalculatorAssumptionsSection | null;
+  costEstimate: {
+    value: string;
+    meta: string;
+  } | null;
+  share: {
+    label: string;
+    isCopied: boolean;
+    onClick: () => void;
+  };
   disclaimer: string;
 };
 
@@ -203,6 +251,7 @@ export type CalculatorController = {
       units: CalculatorUnitsSection;
       dimensions: CalculatorDimensionsSection;
       material: CalculatorMaterialSection | null;
+      cost: CalculatorCostSection;
       advanced: CalculatorAdvancedSection;
     };
     results: CalculatorResultsSection;

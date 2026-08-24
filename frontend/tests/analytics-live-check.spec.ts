@@ -15,15 +15,15 @@ test('excavation calculator fires the full event set with no PII', async ({ page
   // Before any input: no calculator_started yet.
   expect((await getCalcEvents(page)).length).toBe(0);
 
-  await page.getByLabel('Cut Length').fill('10');
+  await page.getByRole('spinbutton', { name: 'Cut Length' }).fill('10');
 
   let events = await getCalcEvents(page);
   const startedEvents = events.filter((e) => e[1] === 'calculator_started');
   expect(startedEvents.length).toBe(1);
   expect(startedEvents[0][2]).toEqual({ calculator_type: 'excavation' });
 
-  await page.getByLabel('Cut Width').fill('5');
-  await page.getByLabel('Cut Depth').fill('2');
+  await page.getByRole('spinbutton', { name: 'Cut Width' }).fill('5');
+  await page.getByRole('spinbutton', { name: 'Cut Depth' }).fill('2');
 
   // Still only one calculator_started despite multiple changes.
   events = await getCalcEvents(page);
@@ -107,9 +107,9 @@ test('related Bellhouse service link fires with destination_type "service"', asy
 
 test('gravel and topsoil calculators fire calculator_started/completed correctly', async ({ page }) => {
   await page.goto(`${BASE}/resources/calculators/gravel`);
-  await page.getByLabel('Area Length').fill('20');
-  await page.getByLabel('Area Width').fill('3');
-  await page.getByLabel('Gravel Depth').fill('150');
+  await page.getByRole('spinbutton', { name: 'Area Length' }).fill('20');
+  await page.getByRole('spinbutton', { name: 'Area Width' }).fill('3');
+  await page.getByRole('spinbutton', { name: 'Gravel Depth' }).fill('150');
   await page.waitForTimeout(900);
 
   let events = await getCalcEvents(page);
@@ -117,9 +117,9 @@ test('gravel and topsoil calculators fire calculator_started/completed correctly
   expect(events.some((e) => e[1] === 'calculator_completed' && e[2].calculator_type === 'gravel')).toBe(true);
 
   await page.goto(`${BASE}/resources/calculators/topsoil`);
-  await page.getByLabel('Coverage Length').fill('12');
-  await page.getByLabel('Coverage Width').fill('8');
-  await page.getByLabel('Topsoil Depth').fill('100');
+  await page.getByRole('spinbutton', { name: 'Coverage Length' }).fill('12');
+  await page.getByRole('spinbutton', { name: 'Coverage Width' }).fill('8');
+  await page.getByRole('spinbutton', { name: 'Topsoil Depth' }).fill('100');
   await page.waitForTimeout(900);
 
   events = await getCalcEvents(page);

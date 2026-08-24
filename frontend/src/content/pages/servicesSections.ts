@@ -14,9 +14,9 @@ export const servicesHeroData: HeroSectionData = {
   _type: 'heroSection',
   eyebrow: 'Bellhouse Services',
   headline:
-    'Farm, Rural & Large-Site Excavation Services in Brant County',
+    'Excavation, Grading, Demolition, Site Work & Hauling Services',
   subheadline:
-    'Bellhouse Excavating handles excavation, grading, demolition, trucking, pond work, and site preparation for farm properties, rural lots, acreages, commercial sites, and builder projects across Brant County and surrounding areas.',
+    'Bellhouse Excavating handles foundation excavation, grading, demolition, trucking, drainage, site servicing components, pond work, and site preparation for homeowners, farms, rural lots, commercial sites, and builder projects across Brant County and surrounding areas.',
   primaryAction: {
     label: 'Explore Services',
     href: '#services-list',
@@ -43,7 +43,7 @@ export const servicesServicesSection: ServicesSectionData = {
   eyebrow: 'Service Hub',
   heading: 'Explore Excavation, Hauling, and Site Services',
   intro:
-    'Bellhouse is set up for jobs with room for equipment, trucks, and material staging — rural properties, farm operations, commercial sites, and builder-led projects. If you’re looking for a contractor who can handle scale, access, and volume, you’re in the right place.',
+    'Bellhouse works across residential, rural, farm, commercial, and contractor-led projects. The company is especially well suited to work where equipment access, trucking, material movement, grading, drainage, and site coordination need to be planned together.',
   groups: [
     {
       id: 'rural-farm',
@@ -54,6 +54,12 @@ export const servicesServicesSection: ServicesSectionData = {
         'pond-digging-cleaning',
         'house-barn-demolition',
         'driveway-parking-lot-preparation',
+        'farm-laneway-rural-driveway',
+        'acreage-estate-excavation',
+        'agricultural-drainage-land-grading',
+        'farm-building-pad-excavation',
+        'farm-fence-row-clearing',
+        'farm-land-grading-leveling',
       ]),
     },
     {
@@ -85,6 +91,7 @@ export const servicesServicesSection: ServicesSectionData = {
       items: buildServiceCards([
         'heavy-equipment-hauling',
         'volvo-a35-off-road-dump-truck-rental',
+        'commercial-industrial-site-preparation',
       ]),
     },
   ],
@@ -98,7 +105,7 @@ export const servicesServiceAreasSection: ServiceAreasSectionData = {
   eyebrow: 'Where Bellhouse Works',
   heading: 'Local Excavation, Hauling, and Site Work Service Areas',
   subtext:
-    'Bellhouse supports local job sites across Brantford, Paris, Hamilton, Cambridge, and nearby Southern Ontario communities. Use the linked area pages to confirm local service fit before requesting a quote.',
+    'Bellhouse supports local job sites across Brantford, Paris, Hamilton, Cambridge, and nearby Southern Ontario communities. Use the linked area pages to understand local conditions, or send project details and Bellhouse can review the practical scope.',
   locations: [
     { label: 'Brantford', href: '/service-areas/brantford' },
     { label: 'Paris', href: '/service-areas/paris' },
@@ -145,7 +152,7 @@ export const servicesFinalCtaSection: FinalCtaSectionData = {
     href: '/contractors',
   },
   proofItems: [
-    { label: 'Project Fit Check' },
+    { label: 'Project Review' },
     { label: 'Local Job Review' },
     { label: 'Contractor Support Available' },
   ],

@@ -1,6 +1,7 @@
 import Link from '@/components/SiteLink';
 import SectionWrapper from '@/components/layout/SectionWrapper';
 import type { ServiceAreaProjectType } from '@/lib/serviceAreas';
+import { getProjectTypeIcon } from './visuals';
 import classes from './ServiceAreaProjectTypes.module.scss';
 
 type ServiceAreaProjectTypesProps = {
@@ -20,29 +21,31 @@ export default function ServiceAreaProjectTypes({
       containerClassName={classes.container}
     >
       <div className={classes.header}>
-        <p className={classes.eyebrow}>Local project types</p>
+        <p className={classes.eyebrow}>Common projects</p>
         <h2>{heading}</h2>
         {intro ? <p>{intro}</p> : null}
       </div>
 
       <div className={classes.grid}>
-        {items.map((item) => (
+        {items.map((item, index) => (
           <article className={classes.card} key={item.title}>
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
-            {item.links?.length ? (
-              <div className={classes.links}>
-                {item.links.map((link) => (
-                  <Link href={link.href} key={`${item.title}-${link.href}`}>
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-            ) : null}
+            <span className={classes.icon}>{getProjectTypeIcon(index)}</span>
+            <div className={classes.cardCopy}>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+              {item.links?.length ? (
+                <div className={classes.links}>
+                  {item.links.map((link) => (
+                    <Link href={link.href} key={`${item.title}-${link.href}`}>
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              ) : null}
+            </div>
           </article>
         ))}
       </div>
     </SectionWrapper>
   );
 }
-

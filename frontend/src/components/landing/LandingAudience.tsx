@@ -24,6 +24,7 @@ export default function LandingAudience({ audience }: LandingAudienceProps) {
               <LandingIcon name={item.icon} size={34} color="#7a5a00" />
             ) : null}
             <h3>{item.title}</h3>
+            <p>{item.description}</p>
           </LandingReveal>
         ))}
       </div>

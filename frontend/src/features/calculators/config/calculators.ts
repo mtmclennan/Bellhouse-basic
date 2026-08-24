@@ -1,6 +1,7 @@
 import type {
   CalculatorDimensionBehavior,
   CalculatorDimensionKey,
+  CalculatorAreaFormInput,
   CalculatorDimensionFormInput,
   CalculatorFormInput,
   CalculatorKind,
@@ -8,6 +9,7 @@ import type {
   CalculatorWorkflowKind,
   MaterialId,
   OutputUnitPreference,
+  ResolvedOutputUnitPreference,
   MetricDimensionUnit,
   UnitSystem,
 } from '../types/calculator';
@@ -60,12 +62,17 @@ type CalculatorResultCardId =
 type CalculatorResultPresentation = {
   volumeLabel: string;
   volumeValueSource: CalculatorVolumeValueSource;
+  volumeSupportingText?: string;
   adjustedVolumeLabel?: string;
   adjustedVolumeValueSource?: CalculatorVolumeValueSource;
+  adjustedVolumeSupportingText?: string;
   weightLabel: string;
+  weightSupportingText?: string;
   truckLoadsLabel: string;
+  truckLoadsSupportingText?: string;
   secondaryVolumeLabel?: string;
   secondaryVolumeValueSource?: CalculatorVolumeValueSource;
+  secondaryVolumeSupportingText?: string;
   defaultPrimaryCardIds: readonly CalculatorResultCardId[];
   primaryCardIds: readonly CalculatorResultCardId[];
   secondaryCardIds?: readonly CalculatorResultCardId[];
@@ -78,7 +85,6 @@ type CalculatorWorkflow = {
 
 type CalculatorSectionCopy = {
   inputPanelTitle: string;
-  unitsTitle: string;
   dimensionsTitle: string;
   materialTitle: string;
   materialHelperText?: string;
@@ -121,6 +127,23 @@ function createInitialDimensionInput(
   };
 }
 
+export const MAX_CALCULATOR_AREAS = 6;
+
+export function createCalculatorAreaFormInput(
+  config: Pick<CalculatorConfig, 'dimensionBehavior'>,
+): CalculatorAreaFormInput {
+  return {
+    length: createInitialDimensionInput(
+      config.dimensionBehavior.length.defaultMetricUnit,
+    ),
+    width: createInitialDimensionInput(
+      config.dimensionBehavior.width.defaultMetricUnit,
+    ),
+    depth: createInitialDimensionInput(
+      config.dimensionBehavior.depth.defaultMetricUnit,
+    ),
+  };
+}
 export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
   excavation: {
     kind: 'excavation',
@@ -130,7 +153,7 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
     defaults: {
       materialId: 'native-soil',
       inputUnitSystem: 'metric',
-      outputUnitPreference: 'metric',
+      outputUnitPreference: 'same',
       truckCapacityTons: 21.5,
     },
     allowedMaterialIds: excavationMaterialIds,
@@ -179,17 +202,21 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
       kind: 'swell-based',
     },
     resultDisplay: {
-      options: ['metric', 'imperial'],
+      options: ['same', 'imperial', 'metric', 'both'],
     },
     resultPresentation: {
-      volumeLabel: 'Excavation volume',
+      volumeLabel: 'In-place volume',
       volumeValueSource: 'rawProjectVolumeM3',
-      adjustedVolumeLabel: 'Loose material',
+      volumeSupportingText: 'Bank measure',
+      adjustedVolumeLabel: 'Loose (hauled)',
       adjustedVolumeValueSource: 'adjustedLooseMaterialVolumeM3',
-      weightLabel: 'Estimated weight',
+      adjustedVolumeSupportingText: 'After material swell',
+      weightLabel: 'Material weight',
+      weightSupportingText: 'Based on density and moisture',
       truckLoadsLabel: 'Truck loads',
-      defaultPrimaryCardIds: ['volume', 'adjustedVolume', 'weight', 'truckLoads'],
-      primaryCardIds: ['volume', 'adjustedVolume', 'weight', 'truckLoads'],
+      truckLoadsSupportingText: 'Based on effective legal payload',
+      defaultPrimaryCardIds: ['volume', 'adjustedVolume', 'truckLoads', 'weight'],
+      primaryCardIds: ['volume', 'adjustedVolume', 'truckLoads', 'weight'],
       showCardMeta: false,
     },
     advancedSettings: {
@@ -202,7 +229,6 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
     },
     sectionCopy: {
       inputPanelTitle: 'Excavation details',
-      unitsTitle: 'Measurement system',
       dimensionsTitle: 'Cut dimensions',
       materialTitle: 'Material to haul',
       materialHelperText:
@@ -213,9 +239,9 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
         'Turn on advanced features to adjust swell, moisture, truck payload, and half-load mode.',
       resultsTitle: 'Excavation estimate',
       resultsPlaceholder:
-        'Enter the cut dimensions to see excavation volume, loose material, estimated weight, and truck loads.',
+        'Enter length, width, and depth to see volume, truck loads, and weight.',
       disclaimer:
-        'Planning estimate only. Results reflect loose excavated material after swell, not compacted fill. Over-excavation, groundwater, access, and hauling limits can change actual quantities.',
+        'Estimates only. Actual site conditions, access, and hauling limits affect final quantities.',
     },
   },
   gravel: {
@@ -226,7 +252,7 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
     defaults: {
       materialId: 'granular-a',
       inputUnitSystem: 'metric',
-      outputUnitPreference: 'metric',
+      outputUnitPreference: 'same',
       truckCapacityTons: 21.5,
     },
     allowedMaterialIds: ['granular-a', 'granular-b'],
@@ -275,17 +301,21 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
       kind: 'compaction-based',
     },
     resultDisplay: {
-      options: ['metric', 'imperial'],
+      options: ['same', 'imperial', 'metric', 'both'],
     },
     resultPresentation: {
       volumeLabel: 'Compacted base volume',
       volumeValueSource: 'adjustedMaterialVolumeM3',
-      weightLabel: 'Estimated weight',
+      volumeSupportingText: 'Placed and compacted volume',
+      weightLabel: 'Material weight',
+      weightSupportingText: 'Based on density and moisture',
       truckLoadsLabel: 'Truck loads',
+      truckLoadsSupportingText: 'Based on effective legal payload',
       secondaryVolumeLabel: 'Base volume',
       secondaryVolumeValueSource: 'rawProjectVolumeM3',
-      defaultPrimaryCardIds: ['volume', 'weight', 'truckLoads'],
-      primaryCardIds: ['volume', 'weight', 'truckLoads'],
+      secondaryVolumeSupportingText: 'Before compaction allowance',
+      defaultPrimaryCardIds: ['volume', 'truckLoads', 'weight'],
+      primaryCardIds: ['volume', 'truckLoads', 'weight'],
       secondaryCardIds: ['secondaryVolume'],
       showCardMeta: true,
     },
@@ -299,7 +329,6 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
     },
     sectionCopy: {
       inputPanelTitle: 'Gravel details',
-      unitsTitle: 'Measurement system',
       dimensionsTitle: 'Area and depth',
       materialTitle: 'Aggregate',
       advancedTitle: 'Advanced features',
@@ -308,9 +337,9 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
         'Turn on advanced features to adjust compaction, wet material, truck payload, and half-load mode.',
       resultsTitle: 'Material estimate',
       resultsPlaceholder:
-        'Enter the coverage area and gravel depth to see compacted base volume, estimated weight, and truck loads.',
+        'Enter length, width, and depth to see material volume, truck loads, and weight.',
       disclaimer:
-        'Planning estimate only. Subgrade correction, compaction, and waste can change actual stone required.',
+        'Estimates only. Subgrade conditions, compaction, and delivery access affect final quantities.',
     },
   },
   topsoil: {
@@ -321,7 +350,7 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
     defaults: {
       materialId: 'topsoil',
       inputUnitSystem: 'metric',
-      outputUnitPreference: 'metric',
+      outputUnitPreference: 'same',
       truckCapacityTons: 21.5,
     },
     allowedMaterialIds: ['topsoil'],
@@ -370,17 +399,21 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
       kind: 'compaction-based',
     },
     resultDisplay: {
-      options: ['metric', 'imperial'],
+      options: ['same', 'imperial', 'metric', 'both'],
     },
     resultPresentation: {
       volumeLabel: 'Placed topsoil volume',
       volumeValueSource: 'adjustedMaterialVolumeM3',
-      weightLabel: 'Estimated weight',
+      volumeSupportingText: 'Placed finish volume',
+      weightLabel: 'Material weight',
+      weightSupportingText: 'Based on density and moisture',
       truckLoadsLabel: 'Truck loads',
+      truckLoadsSupportingText: 'Based on effective legal payload',
       secondaryVolumeLabel: 'Area volume',
       secondaryVolumeValueSource: 'rawProjectVolumeM3',
-      defaultPrimaryCardIds: ['volume', 'weight', 'truckLoads'],
-      primaryCardIds: ['volume', 'weight', 'truckLoads'],
+      secondaryVolumeSupportingText: 'Before finish allowance',
+      defaultPrimaryCardIds: ['volume', 'truckLoads', 'weight'],
+      primaryCardIds: ['volume', 'truckLoads', 'weight'],
       secondaryCardIds: ['secondaryVolume'],
       showCardMeta: true,
     },
@@ -394,7 +427,6 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
     },
     sectionCopy: {
       inputPanelTitle: 'Topsoil details',
-      unitsTitle: 'Measurement system',
       dimensionsTitle: 'Coverage and depth',
       materialTitle: 'Material',
       advancedTitle: 'Advanced features',
@@ -403,15 +435,26 @@ export const calculatorConfigs: Record<CalculatorKind, CalculatorConfig> = {
         'Turn on advanced features to adjust compaction, wet material, truck payload, and half-load mode.',
       resultsTitle: 'Material estimate',
       resultsPlaceholder:
-        'Enter the coverage area and target depth to see placed topsoil volume, estimated weight, and truck loads.',
+        'Enter length, width, and depth to see placed volume, truck loads, and weight.',
       disclaimer:
-        'Planning estimate only. Existing grade, cleanup, and finish expectations can change actual topsoil required.',
+        'Estimates only. Existing grade, cleanup, moisture, and finish depth affect final quantities.',
     },
   },
 };
 
 export function getCalculatorConfig(kind: CalculatorKind): CalculatorConfig {
   return calculatorConfigs[kind];
+}
+
+export function resolveOutputUnitPreference(
+  outputUnitPreference: OutputUnitPreference,
+  inputUnitSystem: ResolvedOutputUnitPreference,
+): ResolvedOutputUnitPreference {
+  if (outputUnitPreference === 'same' || outputUnitPreference === 'both') {
+    return inputUnitSystem;
+  }
+
+  return outputUnitPreference;
 }
 
 export function createCalculatorFormInput(
@@ -433,19 +476,16 @@ export function createCalculatorFormInput(
         isHalfLoad: false,
       };
 
+  const initialArea = createCalculatorAreaFormInput(config);
+
   return {
-    length: createInitialDimensionInput(
-      config.dimensionBehavior.length.defaultMetricUnit,
-    ),
-    width: createInitialDimensionInput(
-      config.dimensionBehavior.width.defaultMetricUnit,
-    ),
-    depth: createInitialDimensionInput(
-      config.dimensionBehavior.depth.defaultMetricUnit,
-    ),
+    ...initialArea,
+    additionalAreas: [],
     inputUnitSystem: config.defaults.inputUnitSystem,
     outputUnitPreference: config.defaults.outputUnitPreference,
     materialId: config.defaults.materialId,
+    priceMode: '',
+    pricePerUnit: '',
     moistureLevel: materialDefaults.moistureLevel,
     useAdvanced: false,
     swellFactor: materialDefaults.swellFactor,

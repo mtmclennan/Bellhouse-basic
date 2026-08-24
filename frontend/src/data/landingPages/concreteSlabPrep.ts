@@ -5,14 +5,14 @@ export const concreteSlabPrepLandingPage = {
   serviceName: 'Concrete Slab Base Preparation',
   serviceKey: 'concrete-slab-base-preparation',
   seo: {
-    title: 'Concrete Slab Base Preparation Brantford | Bellhouse Excavating',
+    title: 'Concrete Slab Base Preparation Brantford | Bellhouse',
     description:
       'Excavation, grading, granular base, and compaction support for concrete slab preparation in Brantford and Brant County.',
     noindex: true,
     canonical: '/landing/concrete-slab-base-preparation-brantford',
     ogImage: {
       src: '/assets/grading-driveway-laser-level.jpg',
-      alt: 'Bellhouse grading a prepared base for concrete work',
+      alt: 'Bellhouse grading a prepared granular base for a concrete slab',
       width: 1200,
       height: 630,
     },
@@ -37,11 +37,11 @@ export const concreteSlabPrepLandingPage = {
     titleHighlight: 'Concrete Slab Prep',
     title: 'in Brantford',
     subtitle:
-      'Excavation, grading, granular placement, and compaction support for garages, shops, driveways, pads, and concrete flatwork.',
+      'Base excavation, subgrade prep, granular placement, and compaction support for garages, shops, driveways, pads, and slab projects before the concrete pour.',
     bullets: [
       'Cut, fill, grading, and granular base support',
       'Truck delivery coordinated with site access and schedule',
-      'Prepared base conditions for concrete contractors and builders',
+      'Base and subgrade prepared before forming, pouring, and finishing',
     ],
     primaryCta: {
       label: 'Request a Slab Prep Quote',
@@ -57,7 +57,7 @@ export const concreteSlabPrepLandingPage = {
     },
     backgroundImage: {
       src: '/assets/grading-driveway-laser-level.jpg',
-      alt: 'Prepared and graded base for concrete slab work',
+      alt: 'Prepared and graded granular base for concrete slab placement',
       width: 1600,
       height: 900,
       priority: true,
@@ -67,7 +67,7 @@ export const concreteSlabPrepLandingPage = {
     id: 'concrete-slab-base-prep-quote',
     heading: 'Get a slab base preparation quote',
     description:
-      'Share the slab type, approximate size, access, timing, and any drawings or elevations.',
+      'Share the slab type, approximate size, access, timing, and any base or subgrade requirements.',
     submitLabel: 'Request My Slab Prep Quote',
     successMessage:
       'Thanks. Bellhouse will review the slab base preparation details and follow up shortly.',
@@ -110,10 +110,10 @@ export const concreteSlabPrepLandingPage = {
         required: true,
         width: 'half',
         options: [
-          'Garage slab',
-          'Shop or building pad',
-          'Driveway or parking area',
-          'Concrete patio or walkway',
+          'Garage slab base prep',
+          'Shop or building pad base prep',
+          'Driveway or parking area base prep',
+          'Patio or walkway base prep',
           'Commercial slab prep',
           'Other concrete base prep',
         ],
@@ -135,7 +135,7 @@ export const concreteSlabPrepLandingPage = {
         label: 'Project details',
         type: 'textarea',
         placeholder:
-          'Tell us about the slab size, garage/shop/pad type, excavation needed, granular base, access, and timing.',
+          'Tell us about the slab size, garage/shop/pad type, excavation needed, subgrade condition, granular base, access, and timing.',
         width: 'full',
       },
       {
@@ -164,16 +164,16 @@ export const concreteSlabPrepLandingPage = {
     eyebrow: 'Who it is for',
     heading: 'Base prep for concrete-ready projects',
     intro:
-      'Bellhouse supports concrete contractors, builders, and property owners who need the base ready before forms and concrete arrive.',
+      'Bellhouse supports concrete contractors, builders, and property owners who need the base and subgrade ready before forming, pouring, and finishing.',
     items: [
       {
         title: 'Concrete contractors',
-        description: 'Base prep, access, granular placement, and grading before forming and pouring.',
+        description: 'Base excavation, access, granular placement, grading, and compaction before forming and pouring.',
         icon: 'wall',
       },
       {
         title: 'Home builders',
-        description: 'Garage slabs, shop pads, additions, and concrete areas on active build sites.',
+        description: 'Garage slabs, shop pads, additions, and slab areas on active build sites.',
         icon: 'hard-hat',
       },
       {
@@ -190,13 +190,13 @@ export const concreteSlabPrepLandingPage = {
   },
   handles: {
     eyebrow: 'What Bellhouse handles',
-    heading: 'The work before the concrete work',
+    heading: 'The base work before the pour',
     intro:
-      'The base is planned around grade, drainage, granular depth, access, and what the next trade needs.',
+      'We prepare the base and subgrade. Your concrete contractor handles the pour.',
     items: [
       {
         title: 'Cut and excavation',
-        description: 'Unsuitable material removed and grade prepared for the base depth required.',
+        description: 'Unsuitable material removed and subgrade prepared for the base depth required.',
         icon: 'shovel',
       },
       {
@@ -206,7 +206,7 @@ export const concreteSlabPrepLandingPage = {
       },
       {
         title: 'Grading',
-        description: 'Rough and finish grading shaped around drainage and final concrete elevation.',
+        description: 'Rough and final base grading shaped around drainage and slab elevation.',
         icon: 'ruler',
       },
       {
@@ -221,7 +221,7 @@ export const concreteSlabPrepLandingPage = {
       },
       {
         title: 'Site handoff',
-        description: 'The prepared area is left ready for forming, reinforcement, or the next step.',
+        description: 'The prepared area is left ready for your concrete contractor to form, reinforce, pour, and finish.',
         icon: 'check-circle',
       },
     ],
@@ -254,14 +254,14 @@ export const concreteSlabPrepLandingPage = {
         description: 'Truck reach, equipment access, and staging room affect delivery and placement.',
       },
       {
-        title: 'Concrete timing',
-        description: 'The work may need to line up with forming, inspection, and pour schedules.',
+        title: 'Concrete contractor timing',
+        description: 'Base prep may need to line up with forming, inspection, and pour schedules handled by your concrete contractor.',
       },
     ],
     rail: {
       eyebrow: 'The honest version',
       heading: 'You get a number built around your slab, not a ballpark',
-      body: 'Send slab size, current site photos, and base depth needed — we\'ll review grade, access, and material before quoting.',
+      body: 'Send slab size, current site photos, and base depth needed. We will review grade, access, subgrade, and granular material before quoting.',
       anchorLabel: 'Where your job sits',
       anchorLow: { value: 'Smaller jobs', sub: 'Garage pad & simple base prep' },
       anchorHigh: { value: 'Larger jobs', sub: 'Large slab, deep base & drainage work' },
@@ -278,12 +278,12 @@ export const concreteSlabPrepLandingPage = {
     eyebrow: 'Proof',
     heading: 'Prepared for the work that follows',
     intro:
-      'Bellhouse focuses on practical site conditions: clean access, shaped grade, granular support, and clear handoff.',
+      'Bellhouse focuses on the work before concrete: clean access, prepared subgrade, shaped granular base, compaction, and clear handoff.',
     stats: [
       { value: 'Base', label: 'Granular placement and grading support' },
       { value: 'Truck', label: 'Material delivery coordinated with site access' },
       { value: 'Grade', label: 'Drainage and elevation details reviewed' },
-      { value: 'Ready', label: 'Prepared handoff for the next trade' },
+      { value: 'Ready', label: 'Prepared handoff before forming and pouring' },
     ],
     gallery: [
       {
@@ -310,7 +310,7 @@ export const concreteSlabPrepLandingPage = {
       {
         question: 'Can Bellhouse prepare the base before my concrete contractor arrives?',
         answer:
-          'Yes. Bellhouse can handle excavation, granular delivery, grading, and preparation so the site is ready for the next step.',
+          'Yes. Bellhouse can handle base excavation, subgrade prep, granular delivery, grading, and compaction so the site is ready for your concrete contractor. We prepare the base and subgrade. Your concrete contractor handles the pour.',
       },
       {
         question: 'Do I need to know the exact granular depth?',
@@ -327,7 +327,7 @@ export const concreteSlabPrepLandingPage = {
   finalCta: {
     eyebrow: 'Get Started',
     heading: 'Ready to quote your slab base prep?',
-    body: 'Send the slab size, access details, timing, and photos, or call Bellhouse to talk through the site.',
+    body: 'Send the slab size, access details, timing, and photos, or call Bellhouse to talk through the base excavation, subgrade prep, granular base, and compaction.',
     primaryCta: {
       label: 'Request a Slab Prep Quote',
       href: '#landing-quote',
@@ -343,7 +343,7 @@ export const concreteSlabPrepLandingPage = {
   },
   footer: {
     logoLabel: 'Bellhouse Excavating',
-    serviceLine: 'Concrete slab base preparation, grading, granular delivery, and compaction support',
+    serviceLine: 'Concrete slab base excavation, subgrade prep, granular base, grading, and compaction support',
     locationLine: 'Serving Brantford, Brant County, and nearby areas',
     phoneCta: {
       label: '519-752-8500',

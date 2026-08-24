@@ -1,5 +1,7 @@
 import type {
   CalculatorCalculationInput,
+  CalculatorCalculationAreaInput,
+  CalculatorAreaFormInput,
   Material,
   CalculatorDimensionBehavior,
   CalculatorDimensionFormInput,
@@ -125,25 +127,46 @@ export function normalizeCalculatorInput(
   >,
   material?: Material,
 ): CalculatorCalculationInput | null {
-  const lengthM = normalizeDimensionInput(
-    input.length,
-    input.inputUnitSystem,
-    config.dimensionBehavior.length,
-  );
-  const widthM = normalizeDimensionInput(
-    input.width,
-    input.inputUnitSystem,
-    config.dimensionBehavior.width,
-  );
-  const depthM = normalizeDimensionInput(
-    input.depth,
-    input.inputUnitSystem,
-    config.dimensionBehavior.depth,
+  const formAreas: CalculatorAreaFormInput[] = [
+    {
+      length: input.length,
+      width: input.width,
+      depth: input.depth,
+    },
+    ...input.additionalAreas,
+  ];
+
+  const normalizedAreas = formAreas.flatMap<CalculatorCalculationAreaInput>(
+    (area) => {
+      const lengthM = normalizeDimensionInput(
+        area.length,
+        input.inputUnitSystem,
+        config.dimensionBehavior.length,
+      );
+      const widthM = normalizeDimensionInput(
+        area.width,
+        input.inputUnitSystem,
+        config.dimensionBehavior.width,
+      );
+      const depthM = normalizeDimensionInput(
+        area.depth,
+        input.inputUnitSystem,
+        config.dimensionBehavior.depth,
+      );
+
+      return lengthM === null || widthM === null || depthM === null
+        ? []
+        : [{ lengthM, widthM, depthM }];
+    },
   );
 
-  if (lengthM === null || widthM === null || depthM === null) {
+  const [primaryArea, ...additionalAreas] = normalizedAreas;
+
+  if (!primaryArea) {
     return null;
   }
+
+  const { lengthM, widthM, depthM } = primaryArea;
 
   if (!input.useAdvanced) {
     const swellFactor = normalizeOptionalPositiveNumber(input.swellFactor);
@@ -157,6 +180,7 @@ export function normalizeCalculatorInput(
       lengthM,
       widthM,
       depthM,
+      additionalAreas,
       materialId: input.materialId,
       useAdvanced: false,
       workflowKind: config.workflow.kind,
@@ -195,6 +219,7 @@ export function normalizeCalculatorInput(
     lengthM,
     widthM,
     depthM,
+    additionalAreas,
     materialId: input.materialId,
     useAdvanced: input.useAdvanced,
     workflowKind: config.workflow.kind,

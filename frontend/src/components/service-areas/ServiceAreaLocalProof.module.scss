@@ -1,0 +1,132 @@
+@use '../../styles/abstracts/mixins' as m;
+@use '../../styles/abstracts/variables' as v;
+
+.section {
+  background-color: #181818;
+  color: #fff;
+}
+
+.container {
+  gap: 2.6rem;
+}
+
+.header {
+  display: flex;
+  max-width: 76rem;
+  flex-direction: column;
+  gap: 1.2rem;
+
+  h2 {
+    @include m.sectionHeading(4rem, 5.2rem);
+    margin: 0;
+    color: #fff;
+  }
+
+  p {
+    max-width: 68rem;
+    margin: 0;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: #868e96;
+  }
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 0.85rem 1.2rem;
+  border: 1px solid rgba(v.$cat-yellow2, 0.28);
+  background-color: rgba(v.$cat-yellow2, 0.08);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: v.$cat-yellow2;
+}
+
+.grid {
+  display: grid;
+  gap: 1.6rem;
+
+  @include m.mediaDesktop {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1.4rem;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.imageFrame {
+  position: relative;
+  aspect-ratio: 4 / 3;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.cardCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 2rem;
+
+  h3 {
+    margin: 0;
+    font-family: var(--font-oswald), sans-serif;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 0.005em;
+    line-height: 1.15;
+    color: #fff;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1.4rem;
+    line-height: 1.55;
+    color: #ced4da;
+  }
+}
+
+.location {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: v.$cat-yellow2;
+}
+
+.link {
+  margin-top: auto;
+  padding-top: 0.6rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+
+  &::after {
+    content: '\2192';
+  }
+
+  &:hover,
+  &:focus-visible {
+    color: v.$cat-yellow2;
+  }
+}

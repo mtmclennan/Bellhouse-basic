@@ -1,7 +1,8 @@
 import Image from 'next/image';
+import { CheckCircle, MapPin } from '@phosphor-icons/react/dist/ssr';
 import Link from '@/components/SiteLink';
-import SectionWrapper from '@/components/layout/SectionWrapper';
-import type { ServiceAreaImage } from '@/lib/serviceAreas';
+import type { ServiceAreaAtAGlance as ServiceAreaAtAGlanceData, ServiceAreaImage } from '@/lib/serviceAreas';
+import ServiceAreaAtAGlance from './ServiceAreaAtAGlance';
 import classes from './ServiceAreaHero.module.scss';
 
 type HeroAction = {
@@ -19,80 +20,99 @@ type ContactNote = {
 type ServiceAreaHeroProps = {
   title: string;
   description: string;
-  eyebrow?: string;
+  city: string;
+  province?: string;
+  bullets?: string[];
   actions?: HeroAction[];
   image?: ServiceAreaImage;
   contactNote?: ContactNote;
-  badges?: string[];
+  atAGlance?: ServiceAreaAtAGlanceData;
 };
 
 export default function ServiceAreaHero({
   title,
   description,
-  eyebrow,
+  city,
+  province = 'ON',
+  bullets = [],
   actions = [],
   image,
   contactNote,
-  badges = ['Excavation', 'Hauling', 'Float Service'],
+  atAGlance,
 }: ServiceAreaHeroProps) {
   return (
-    <SectionWrapper
-      className={classes.section}
-      containerClassName={classes.container}
-      spacing="loose"
-    >
-      <div className={classes.shell}>
-        <div className={classes.content}>
-          {eyebrow ? <p className={classes.eyebrow}>{eyebrow}</p> : null}
-          <h1 className={classes.title}>{title}</h1>
-          <p className={classes.description}>{description}</p>
-          {actions.length > 0 ? (
-            <div className={classes.actions}>
-              {actions.map((action) => (
-                <Link
-                  key={`${action.href}-${action.label}`}
-                  className={
-                    action.variant === 'secondary'
-                      ? classes.secondaryAction
-                      : classes.primaryAction
-                  }
-                  href={action.href}
-                >
-                  {action.label}
-                </Link>
-              ))}
-            </div>
-          ) : null}
-          {contactNote ? (
-            <p className={classes.contactNote}>
-              {contactNote.prefix ?? 'Prefer to text?'}{' '}
-              <Link href={contactNote.href}>{contactNote.label}</Link>
+    <section className={classes.section}>
+      {image ? (
+        <div className={classes.bgFrame}>
+          <Image
+            src={image.src}
+            alt={image.alt}
+            fill
+            priority
+            className={classes.bgImage}
+            sizes="100vw"
+          />
+          <div className={classes.bgOverlay} />
+        </div>
+      ) : null}
+      <div className={classes.container}>
+        <div className={classes.shell}>
+          <div className={classes.content}>
+            <p className={classes.eyebrow}>
+              <MapPin size={16} weight="fill" />
+              Excavation Contractor
+              <span>
+                {' '}
+                &middot; {city}, {province}
+              </span>
             </p>
+            <h1 className={classes.title}>{title}</h1>
+            <p className={classes.description}>{description}</p>
+            {bullets.length > 0 ? (
+              <ul className={classes.bullets}>
+                {bullets.map((bullet) => (
+                  <li key={bullet}>
+                    <CheckCircle size={20} weight="fill" />
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+            {actions.length > 0 ? (
+              <div className={classes.actions}>
+                {actions.map((action) => (
+                  <Link
+                    key={`${action.href}-${action.label}`}
+                    className={
+                      action.variant === 'secondary'
+                        ? classes.secondaryAction
+                        : classes.primaryAction
+                    }
+                    href={action.href}
+                  >
+                    {action.label}
+                  </Link>
+                ))}
+              </div>
+            ) : null}
+            {contactNote ? (
+              <p className={classes.contactNote}>
+                {contactNote.prefix ?? 'Prefer to text?'}{' '}
+                <Link href={contactNote.href}>{contactNote.label}</Link>
+              </p>
+            ) : null}
+          </div>
+          {atAGlance?.items.length ? (
+            <div className={classes.media}>
+              <ServiceAreaAtAGlance
+                heading={atAGlance.heading ?? `${city} excavation at a glance`}
+                city={city}
+                items={atAGlance.items}
+              />
+            </div>
           ) : null}
         </div>
-        {image ? (
-          <div className={classes.media}>
-            <div className={classes.imageFrame}>
-              <Image
-                src={image.src}
-                alt={image.alt}
-                width={image.width ?? 1600}
-                height={image.height ?? 1200}
-                className={classes.image}
-                sizes="(max-width: 1000px) 100vw, 42vw"
-              />
-              <div className={classes.imageOverlay} />
-              {badges.length > 0 ? (
-                <div className={classes.mediaBadge}>
-                  {badges.map((badge) => (
-                    <span key={badge}>{badge}</span>
-                  ))}
-                </div>
-              ) : null}
-            </div>
-          </div>
-        ) : null}
       </div>
-    </SectionWrapper>
+    </section>
   );
 }

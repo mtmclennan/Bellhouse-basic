@@ -1,36 +1,33 @@
 @use '../../styles/abstracts/mixins' as m;
 @use '../../styles/abstracts/variables' as v;
 
+.section {
+  background-color: #272727;
+}
+
 .container {
-  gap: 3rem;
+  color: #fff;
 }
 
 .content {
   display: grid;
-  gap: 2rem;
+  gap: 3rem;
+  align-items: center;
 
   @include m.mediaDesktop {
-    grid-template-columns: minmax(30rem, 0.92fr) minmax(0, 1.08fr);
-    align-items: start;
+    grid-template-columns: minmax(28rem, 0.92fr) minmax(0, 1.08fr);
   }
 }
 
-.mapCard {
+.imageCard {
   position: relative;
   overflow: hidden;
-  min-height: 36rem;
-  border-radius: 2.4rem;
-  background: linear-gradient(180deg, #191919 0%, #121212 100%);
-  color: #fff;
+  height: 32rem;
+  border-radius: 1.6rem;
   box-shadow: v.$box-shadow-dark;
 }
 
-.mapImageFrame {
-  position: absolute;
-  inset: 0;
-}
-
-.mapImage {
+.image {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -38,128 +35,99 @@
   object-fit: cover;
 }
 
-.mapOverlay {
+.imageOverlay {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.38) 0%, rgba(0, 0, 0, 0.82) 100%),
-    linear-gradient(100deg, rgba(10, 10, 10, 0.88) 0%, rgba(10, 10, 10, 0.72) 44%, rgba(10, 10, 10, 0.28) 72%, transparent 100%),
-    linear-gradient(125deg, rgba(v.$cat-yellow2, 0.08) 0%, transparent 44%);
+  background: linear-gradient(0deg, rgba(13, 13, 13, 0.85) 0%, rgba(13, 13, 13, 0.15) 70%);
+  pointer-events: none;
 }
 
-.mapCopy {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 1.4rem;
-  padding: 2.6rem;
-
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 1.6rem auto 1.6rem 1.6rem;
-    width: min(100%, 54rem);
-    border-radius: 2rem;
-    background:
-      linear-gradient(180deg, rgba(8, 8, 8, 0.74) 0%, rgba(8, 8, 8, 0.5) 100%);
-    backdrop-filter: blur(0.2rem);
-    z-index: -1;
-  }
-
-  h3 {
-    font-size: 2.6rem;
-    line-height: 1.2;
-    font-weight: 500;
-    color: #fff;
-  }
+.imageCopy {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2.2rem;
+  pointer-events: none;
 
   p {
-    max-width: 46rem;
-    font-size: 1.7rem;
-    line-height: 1.68;
-    color: rgba(255, 255, 255, 0.92);
-  }
-
-  p:last-of-type {
-    color: rgba(255, 255, 255, 0.86);
+    margin: 0;
+    font-size: 1.5rem;
+    color: #e9ecef;
   }
 }
 
 .eyebrow {
   display: inline-flex;
-  width: fit-content;
-  padding: 0.8rem 1.1rem;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background-color: rgba(255, 255, 255, 0.05);
+  align-items: center;
+  margin: 0 0 0.6rem;
   font-size: 1.3rem;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: v.$cat-yellow2;
 }
 
-.heading {
-  @include m.sectionHeading();
-  color: #fff;
-}
-
-.pinRow {
+.listBlock {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-  margin-top: 0.8rem;
+  flex-direction: column;
 }
 
-.pin {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.8rem 1rem;
-  background-color: rgba(255, 255, 255, 0.08);
+.heading {
+  @include m.sectionHeading(4rem, 5.2rem);
+  margin: 0 0 1.8rem;
   color: #fff;
-  font-size: 1.2rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
 }
 
-.list {
+.grid {
   display: grid;
   gap: 1.2rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
 
-  @include m.mediaDesktop {
+  @include m.mediaTablet {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-.item {
-  a,
-  span {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    min-height: 7.4rem;
-    padding: 1.8rem 2rem;
-    border-radius: 1.6rem;
-    background-color: v.$grey-color-1;
-    border: 1px solid v.$grey-color-3;
-    color: v.$text-color-mid-dark;
-    font-size: 1.7rem;
-    font-weight: 600;
-    box-shadow: 0 1rem 2rem -2rem rgba(0, 0, 0, 0.45);
+.pill {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  padding: 1.6rem 1.8rem;
+  border-radius: 1.4rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+
+  svg {
+    flex: 0 0 auto;
+    color: v.$cat-yellow2;
   }
 
-  a:hover,
-  a:focus {
-    background-color: v.$color-primary;
-    border-color: rgba(v.$cat-yellow2, 0.55);
+  &:hover,
+  &:focus-visible {
+    background-color: rgba(255, 255, 255, 0.09);
+    border-color: rgba(v.$cat-yellow2, 0.45);
   }
 
-  a {
-    @include m.focusRing();
+  @include m.focusRing();
+}
+
+.comingSoon {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  padding: 1.6rem 1.8rem;
+  border-radius: 1.4rem;
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px dashed rgba(255, 255, 255, 0.18);
+  color: #868e96;
+  font-size: 1.5rem;
+  font-weight: 600;
+
+  svg {
+    flex: 0 0 auto;
   }
 }

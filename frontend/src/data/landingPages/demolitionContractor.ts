@@ -2,12 +2,12 @@ import type { LandingPageData } from './types';
 
 export const demolitionContractorLandingPage = {
   slug: 'demolition-contractor-brantford',
-  serviceName: 'Demolition Contractor',
+  serviceName: 'Structure Demolition',
   serviceKey: 'demolition-contractor',
   seo: {
-    title: 'Demolition Contractor Brantford | Bellhouse Excavating',
+    title: 'Demolition Contractor Brantford & Brant County | Bellhouse',
     description:
-      'Demolition, removal, trucking, and site cleanup support for Brantford and Brant County properties.',
+      'Machine-accessible demolition for barns, garages, outbuildings, farm buildings, and houses where appropriate, with debris handling, trucking, and cleanup.',
     noindex: true,
     canonical: '/landing/demolition-contractor-brantford',
     ogImage: {
@@ -33,18 +33,18 @@ export const demolitionContractorLandingPage = {
     },
   },
   hero: {
-    eyebrow: 'Serving Brantford and Brant County',
+    eyebrow: 'Demolition Contractor - Brantford & Brant County',
     titleHighlight: 'Demolition Contractor',
-    title: 'in Brantford',
+    title: 'in Brantford & Brant County',
     subtitle:
-      'Demolition, removal, trucking, and site cleanup handled with practical planning around access, debris, neighbours, and the next phase of work.',
+      'Bellhouse handles machine-accessible demolition for barns, garages, outbuildings, farm buildings, houses where appropriate, and structures where excavators, trucks, debris handling, and cleanup can be planned safely.',
     bullets: [
-      'House, barn, outbuilding, and small structure demolition',
-      'Debris removal and trucking coordinated with the tear-down',
-      'Site cleanup and grading support after demolition',
+      'Barn, garage, outbuilding, farm building, house, and structure removal',
+      'Excavator demolition with debris handling and trucking planned in',
+      'Access, utilities, debris, cleanup, and rough grading reviewed before quoting',
     ],
     primaryCta: {
-      label: 'Request a Demolition Quote',
+      label: 'Request a Structure Demolition Quote',
       href: '#landing-quote',
       variant: 'primary',
       trackingId: 'demo-hero-quote',
@@ -67,8 +67,8 @@ export const demolitionContractorLandingPage = {
     id: 'demolition-contractor-quote',
     heading: 'Get a demolition quote',
     description:
-      'Send the structure type, location, access details, timing, and any photos so Bellhouse can review the job.',
-    submitLabel: 'Request My Demolition Quote',
+      'Send the structure type, location, rough size, access details, timing, and photos so Bellhouse can review the job.',
+    submitLabel: 'Request My Structure Demolition Quote',
     successMessage:
       'Thanks. Bellhouse will review the demolition details and follow up shortly.',
     fields: [
@@ -110,11 +110,12 @@ export const demolitionContractorLandingPage = {
         required: true,
         width: 'half',
         options: [
-          'House demolition',
           'Barn demolition',
+          'Farm building demolition',
           'Garage or shed demolition',
+          'Outbuilding demolition',
+          'House demolition where appropriate',
           'Concrete or foundation removal',
-          'Interior or partial demolition',
           'Other demolition work',
         ],
       },
@@ -135,7 +136,7 @@ export const demolitionContractorLandingPage = {
         label: 'Project details',
         type: 'textarea',
         placeholder:
-          'Tell us about the structure, approximate size, utilities, foundation removal, cleanup, access, and timing.',
+          'Tell us about the structure, approximate dimensions, access for machines and trucks, utilities, debris, foundation removal, cleanup, and timing.',
         width: 'full',
       },
       {
@@ -162,18 +163,18 @@ export const demolitionContractorLandingPage = {
   },
   audience: {
     eyebrow: 'Who it is for',
-    heading: 'Demolition support for owners, builders, and contractors',
+    heading: 'Structure demolition with access reviewed up front',
     intro:
       'Bellhouse helps remove structures and debris so the site can move toward cleanup, grading, rebuilding, or sale.',
     items: [
       {
         title: 'Property owners',
-        description: 'Older houses, garages, barns, sheds, and unwanted site structures.',
+        description: 'Older barns, garages, sheds, houses where appropriate, outbuildings, and unwanted site structures.',
         icon: 'house-line',
       },
       {
         title: 'Builders',
-        description: 'Tear-down and removal before redevelopment, additions, or new construction.',
+        description: 'Tear-down and removal before redevelopment, additions, or new construction where machines can access the site.',
         icon: 'hard-hat',
       },
       {
@@ -182,9 +183,9 @@ export const demolitionContractorLandingPage = {
         icon: 'blueprint',
       },
       {
-        title: 'Rural properties',
-        description: 'Barns, outbuildings, concrete, and cleanup work where access and hauling matter.',
-        icon: 'barn',
+        title: 'Farm and acreage properties',
+        description: 'Barns, outbuildings, farm buildings, concrete, and cleanup work where access and hauling matter.',
+        icon: 'buildings',
       },
     ],
   },
@@ -196,12 +197,12 @@ export const demolitionContractorLandingPage = {
     items: [
       {
         title: 'Structure demolition',
-        description: 'Homes, garages, sheds, barns, and other site structures reviewed by scope.',
+        description: 'Barns, garages, sheds, farm buildings, houses, and other machine-accessible structures reviewed by scope.',
         icon: 'buildings',
       },
       {
         title: 'Material separation',
-        description: 'Debris handling planned around disposal needs and site conditions.',
+        description: 'Debris handling planned around disposal needs, site access, and what materials are coming down.',
         icon: 'arrows-split',
       },
       {
@@ -221,7 +222,7 @@ export const demolitionContractorLandingPage = {
       },
       {
         title: 'Site cleanup',
-        description: 'A cleaner, safer handoff for the next project step.',
+        description: 'Cleanup and rough grading for a workable handoff after the structure is removed.',
         icon: 'broom',
       },
     ],
@@ -280,7 +281,7 @@ export const demolitionContractorLandingPage = {
     intro:
       'Bellhouse pairs demolition work with hauling support so debris removal is not an afterthought.',
     stats: [
-      { value: 'Demo', label: 'Houses, barns, garages, and outbuildings' },
+      { value: 'Demo', label: 'Barns, garages, farm buildings, houses, and outbuildings' },
       { value: 'Haul', label: 'Debris removal and trucking coordination' },
       { value: 'Clean', label: 'Practical site cleanup after removal' },
       { value: 'Local', label: 'Brantford and Brant County support' },
@@ -308,26 +309,26 @@ export const demolitionContractorLandingPage = {
     heading: 'Demolition questions',
     items: [
       {
-        question: 'Can Bellhouse haul away demolition debris?',
+        question: 'What demolition work can Bellhouse review?',
         answer:
-          'Yes. Demolition and haul-out can be coordinated together so debris removal is planned into the job.',
+          'Bellhouse can review viable in-town and rural demolition where safe machine access, utilities, debris handling, trucking, and cleanup can be planned. Barns, garages, outbuildings, farm buildings, and houses where appropriate are strong fits. Interior renovation demolition and small hand-demo jobs are not the focus.',
       },
       {
         question: 'Do utilities need to be disconnected first?',
         answer:
-          'Utilities and site safety requirements should be handled before demolition begins. Bellhouse can discuss what needs to be ready during the quote process.',
+          'Yes. Utilities and site safety requirements need to be handled before demolition begins. Bellhouse can discuss what needs to be ready during the quote process, but hazardous-material remediation must be handled by the appropriate specialists where required.',
       },
       {
-        question: 'Can the site be graded after demolition?',
+        question: 'Can Bellhouse haul away debris and grade the site after demolition?',
         answer:
-          'Yes. Cleanup, rough grading, and related excavation work can be included depending on what the site needs next.',
+          'Yes. Debris haul-out, cleanup, concrete or foundation removal, and rough grading can be included depending on the structure and what the site needs next.',
       },
     ],
   },
   finalCta: {
     eyebrow: 'Get Started',
-    heading: 'Ready to quote your demolition project?',
-    body: 'Send photos, location, timing, and structure details, or call Bellhouse to talk through the job directly.',
+    heading: 'Ready to quote your structure demolition project?',
+    body: 'Send photos, location, timing, structure size, and access details, or call Bellhouse to talk through the job directly.',
     primaryCta: {
       label: 'Request a Demolition Quote',
       href: '#landing-quote',

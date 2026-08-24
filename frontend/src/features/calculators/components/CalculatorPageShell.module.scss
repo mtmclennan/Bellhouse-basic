@@ -10,6 +10,125 @@
   }
 }
 
+.calculatorHero {
+  padding: 8.4rem 1.6rem 2.8rem;
+  border-bottom: 3px solid v.$cat-yellow2;
+  background: #181818;
+
+  @include m.mediaDesktop {
+    padding: 10.8rem 2rem 3.8rem;
+  }
+}
+
+.heroContainer {
+  display: grid;
+  gap: 2rem;
+  width: min(100%, 110rem);
+  margin: 0 auto;
+}
+
+.heroContent {
+  display: grid;
+  gap: 1.4rem;
+  max-width: 68rem;
+
+  h1 {
+    margin: 0;
+    max-width: 68rem;
+    color: #fff;
+    font-size: clamp(2.8rem, 3.2vw, 4rem);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: 0;
+  }
+}
+
+.heroDescription {
+  max-width: 60rem;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1.6rem;
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+.heroChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 0.6rem;
+
+  span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    min-height: 3.2rem;
+    padding: 0.7rem 1.4rem;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  svg {
+    flex: 0 0 auto;
+    color: v.$cat-yellow2;
+  }
+}
+
+.heroByline {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin: 0.8rem 0 0;
+  padding-top: 1.6rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 1.25rem;
+  line-height: 1.5;
+
+  svg {
+    flex: 0 0 auto;
+    color: v.$cat-yellow2;
+  }
+}
+
+.heroBylineSeparator {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+@include m.mediaPhone {
+  .heroContent {
+    gap: 1.2rem;
+  }
+
+  .heroDescription {
+    font-size: 1.5rem;
+  }
+
+  .heroChips {
+    gap: 0.7rem;
+
+    span {
+      padding: 0.65rem 1rem;
+      font-size: 1.2rem;
+    }
+  }
+
+  .heroByline {
+    align-items: flex-start;
+  }
+
+  .heroBylineSeparator {
+    display: none;
+  }
+}
+
 .ctaSection {
   background:
     radial-gradient(
@@ -25,7 +144,6 @@
 }
 
 .ctaContent,
-.supportIntro,
 .guidanceIntro,
 .faqIntro,
 .relatedIntro {
@@ -57,7 +175,6 @@
   }
 }
 
-.supportIntro .eyebrow,
 .guidanceIntro .eyebrow,
 .faqIntro .eyebrow,
 .relatedIntro .eyebrow {
@@ -66,7 +183,6 @@
   color: v.$text-color-light;
 }
 
-.supportIntro,
 .guidanceIntro,
 .faqIntro,
 .relatedIntro {
@@ -89,7 +205,6 @@
   }
 }
 
-.supportGrid,
 .guidanceGrid {
   display: grid;
   gap: 1.8rem;
@@ -99,7 +214,6 @@
   }
 }
 
-.supportCard,
 .guidanceCard {
   display: flex;
   flex-direction: column;
@@ -386,5 +500,816 @@
 
   .faqItem p {
     padding: 0 1.6rem 1.8rem;
+  }
+}
+
+.methodSection,
+.guidanceSection {
+  background: #f1ece4;
+}
+
+.guidanceSection {
+  border-top: 3px solid v.$cat-yellow2;
+}
+
+.referenceSection,
+.nextStepsSection,
+.faqSection {
+  background: #202020;
+}
+
+.methodSection > div,
+.referenceSection > div,
+.guidanceSection > div,
+.nextStepsSection > div {
+  display: grid;
+  gap: 2.8rem;
+}
+
+.methodIntro,
+.referenceIntro,
+.guidanceIntro,
+.relatedIntro {
+  display: grid;
+  gap: 1rem;
+  max-width: 74rem;
+  margin: 0;
+  text-align: left;
+  justify-items: start;
+
+  h2 {
+    margin: 0;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: 0;
+  }
+
+  > p:last-child {
+    max-width: 68ch;
+    margin: 0;
+    font-size: 1.55rem;
+    line-height: 1.65;
+  }
+}
+
+.methodIntro,
+.guidanceIntro {
+  h2 {
+    color: v.$text-color-dark;
+  }
+
+  > p:last-child {
+    color: rgba(v.$text-color-dark, 0.8);
+  }
+
+  .eyebrow {
+    border-color: rgba(122, 90, 0, 0.18);
+    background: rgba(v.$cat-yellow2, 0.14);
+    color: #725400;
+  }
+}
+
+.referenceIntro,
+.relatedIntro {
+  h2 {
+    color: #fff;
+  }
+
+  > p:last-child {
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+.eyebrow {
+  padding: 0.65rem 0.9rem;
+  border-radius: 0;
+  font-size: 1.08rem;
+  letter-spacing: 0.14em;
+}
+
+.methodLayout {
+  display: grid;
+  gap: 2.8rem;
+  align-items: start;
+
+  @media (min-width: 68rem) {
+    grid-template-columns: minmax(0, 1.35fr) minmax(30rem, 1fr);
+  }
+}
+
+.methodSteps {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.methodStep {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1.6rem;
+  padding: 1.8rem 0;
+  border-bottom: 1px solid rgba(88, 72, 33, 0.14);
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  h3 {
+    margin: 0 0 0.8rem;
+    color: v.$text-color-dark;
+    font-size: 1.62rem;
+    line-height: 1.3;
+  }
+
+  code {
+    display: inline-block;
+    margin-bottom: 0.8rem;
+    padding: 0.65rem 0.9rem;
+    border: 1px solid rgba(122, 90, 0, 0.16);
+    border-radius: 0.6rem;
+    background: rgba(122, 90, 0, 0.08);
+    color: #3f3a30;
+    font-size: 1.24rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  p {
+    max-width: 68ch;
+    margin: 0;
+    color: #4a443a;
+    font-size: 1.4rem;
+    line-height: 1.65;
+  }
+}
+
+.methodStepNumber {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 999px;
+  background: #7a5a00;
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.workedExample {
+  display: grid;
+  gap: 1.2rem;
+  padding: 2.4rem;
+  border: 1px solid rgba(88, 72, 33, 0.16);
+  border-radius: 0.8rem;
+  background: #fff;
+  box-shadow: 0 1rem 3rem -2rem rgba(64, 50, 10, 0.28);
+
+  @media (min-width: 68rem) {
+    position: sticky;
+    top: 11.2rem;
+  }
+
+  h3 {
+    margin: 0;
+    color: #7a5a00;
+    font-size: 1.1rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  > p {
+    margin: 0;
+    color: v.$text-color-dark;
+    font-size: 1.45rem;
+    line-height: 1.5;
+  }
+
+  dl {
+    display: grid;
+    margin: 0;
+  }
+
+  dl div {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 1.4rem;
+    align-items: baseline;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(88, 72, 33, 0.1);
+  }
+
+  dl div:last-child {
+    border-bottom: 0;
+  }
+
+  dt {
+    color: #6b6357;
+    font-size: 1.25rem;
+  }
+
+  dd {
+    margin: 0;
+    color: #3f3a30;
+    font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+    font-size: 1.22rem;
+    line-height: 1.4;
+    text-align: right;
+  }
+}
+
+.workedNote {
+  padding: 1rem 1.2rem;
+  border-radius: 0.7rem;
+  background: rgba(122, 90, 0, 0.07);
+  color: #6b6357 !important;
+  font-size: 1.25rem !important;
+  line-height: 1.6 !important;
+}
+
+.referenceTables {
+  display: grid;
+  gap: 2.6rem;
+}
+
+.referenceTableBlock {
+  display: grid;
+  gap: 1.2rem;
+
+  > h3 {
+    margin: 0;
+    color: v.$cat-yellow2;
+    font-size: 1.12rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+}
+
+.referenceTableWrap {
+  overflow-x: auto;
+  overflow-y: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.8rem;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.referenceTable {
+  width: 100%;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: 1.15rem 1.4rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    font-size: 1.34rem;
+    line-height: 1.35;
+  }
+
+  thead th {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  th {
+    color: #fff;
+    text-align: left;
+  }
+
+  td {
+    color: rgba(255, 255, 255, 0.76);
+    font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+    text-align: right;
+  }
+
+  .referenceNotes {
+    width: 38%;
+    font-family: inherit;
+    text-align: left;
+  }
+
+  tbody tr:last-child th,
+  tbody tr:last-child td {
+    border-bottom: 0;
+  }
+}
+
+.haulingTable {
+  td:nth-child(2) {
+    font-weight: 700;
+    color: #fff;
+    text-align: left;
+  }
+}
+
+.referenceTableNote {
+  max-width: 90ch;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 1.24rem;
+  line-height: 1.55;
+}
+
+.guidanceCallout {
+  display: flex;
+  gap: 2rem;
+  padding: 2.6rem 2.8rem;
+  border: 1px solid rgba(88, 72, 33, 0.16);
+  border-radius: 0.8rem;
+  background: #fff;
+  box-shadow: 0 1rem 3rem -2rem rgba(64, 50, 10, 0.28);
+
+  > div {
+    display: grid;
+    gap: 1rem;
+  }
+
+  h3 {
+    margin: 0;
+    color: v.$text-color-dark;
+    font-size: 1.9rem;
+    line-height: 1.3;
+  }
+
+  p {
+    max-width: 78ch;
+    margin: 0;
+    color: #4a443a;
+    font-size: 1.43rem;
+    line-height: 1.7;
+  }
+}
+
+.guidanceCalloutIcon,
+.guidanceCardIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  color: #725400;
+  background: rgba(v.$cat-yellow2, 0.16);
+}
+
+.guidanceCalloutIcon {
+  width: 4.6rem;
+  height: 4.6rem;
+  border-radius: 0.8rem;
+}
+
+.guidanceCalloutCheck {
+  display: flex;
+  gap: 0.9rem;
+  align-items: center;
+  color: v.$text-color-dark !important;
+  font-size: 1.33rem !important;
+  font-weight: 700;
+
+  svg {
+    flex: 0 0 auto;
+    color: #7a5a00;
+  }
+}
+
+.guidanceGrid {
+  display: grid;
+  gap: 1.4rem;
+
+  @media (min-width: 48rem) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (min-width: 72rem) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.guidanceCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 2.2rem;
+  border: 1px solid rgba(88, 72, 33, 0.14);
+  border-radius: 0.8rem;
+  background: #fff;
+  box-shadow: none;
+
+  h3 {
+    margin: 0;
+    color: v.$text-color-dark;
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+
+  p {
+    margin: 0;
+    color: #4a443a;
+    font-size: 1.34rem;
+    line-height: 1.65;
+  }
+}
+
+.guidanceCardIcon {
+  width: 3.4rem;
+  height: 3.4rem;
+  margin-bottom: 0.2rem;
+  border-radius: 0.7rem;
+}
+
+.nextStepsLayout {
+  display: grid;
+  gap: 2.2rem;
+  align-items: start;
+
+  @media (min-width: 68rem) {
+    grid-template-columns: minmax(0, 1.5fr) minmax(28rem, 1fr);
+  }
+}
+
+.relatedToolGrid {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.relatedToolCard {
+  display: flex;
+  min-height: 15rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.8rem;
+  background: rgba(255, 255, 255, 0.04);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    border-color: rgba(v.$cat-yellow2, 0.42);
+  }
+}
+
+.relatedToolImage {
+  position: relative;
+  width: 14rem;
+  flex: 0 0 14rem;
+  background: #111;
+
+  img {
+    object-fit: cover;
+  }
+}
+
+.relatedToolBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.8rem;
+  min-width: 0;
+  padding: 2rem 2.2rem;
+
+  > strong {
+    color: #fff;
+    font-size: 1.55rem;
+    line-height: 1.3;
+  }
+
+  > span:not(.relatedToolAction) {
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 1.34rem;
+    line-height: 1.55;
+  }
+}
+
+.relatedToolAction {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: auto;
+  color: v.$cat-yellow2;
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.relatedServiceList {
+  padding: 0.8rem 1.8rem 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.8rem;
+  background: rgba(255, 255, 255, 0.03);
+
+  > h3 {
+    margin: 0;
+    padding: 1.4rem 0 1rem;
+    color: rgba(255, 255, 255, 0.48);
+    font-size: 1.1rem;
+    font-weight: 900;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+}
+
+.relatedServiceRow {
+  display: flex;
+  gap: 1.3rem;
+  align-items: center;
+  padding: 1.4rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  color: inherit;
+  text-decoration: none;
+
+  &:hover,
+  &:focus-visible {
+    .relatedServiceText strong,
+    .relatedServiceArrow {
+      color: v.$cat-yellow2;
+    }
+
+    .relatedServiceArrow {
+      transform: translateX(0.3rem);
+    }
+  }
+}
+
+.relatedServiceIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.4rem;
+  height: 3.4rem;
+  flex: 0 0 3.4rem;
+  border-radius: 0.7rem;
+  background: rgba(v.$cat-yellow2, 0.1);
+  color: v.$cat-yellow2;
+}
+
+.relatedServiceText {
+  display: grid;
+  flex: 1;
+  gap: 0.2rem;
+  min-width: 0;
+
+  strong {
+    color: #fff;
+    font-size: 1.4rem;
+    line-height: 1.35;
+    transition: color 0.2s ease;
+  }
+
+  span {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.23rem;
+    line-height: 1.45;
+  }
+}
+
+.relatedServiceArrow {
+  flex: 0 0 auto;
+  color: rgba(255, 255, 255, 0.36);
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.faqList {
+  gap: 0;
+  max-width: 92rem;
+}
+
+.faqIntro {
+  h2 {
+    color: #fff;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 800;
+    line-height: 1.08;
+  }
+}
+
+.faqIntro > p:last-child {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.faqItem {
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+
+  &[open] {
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+
+  &:first-child {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+}
+
+.faqQuestion {
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1.6rem;
+  min-height: 6.2rem;
+  padding: 1.8rem 0;
+
+  > span:first-child {
+    color: #fff;
+    font-size: 1.58rem;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+}
+
+.faqItem p {
+  max-width: 82ch;
+  padding: 0 5rem 2rem 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 1.43rem;
+  line-height: 1.68;
+}
+
+.faqToggle {
+  width: 3rem;
+  height: 3rem;
+  border: 0;
+  background: transparent;
+
+  &::before,
+  &::after {
+    background-color: v.$cat-yellow2;
+  }
+}
+
+.ctaSection {
+  border-top: 0;
+  background: #f1ece4;
+}
+
+.ctaContainer {
+  color: v.$text-color-dark;
+}
+
+.ctaShell {
+  display: block;
+}
+
+.ctaContent {
+  align-items: center;
+  max-width: 68rem;
+  margin: 0 auto;
+  text-align: center;
+
+  h2 {
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: 0;
+    color: v.$text-color-dark;
+  }
+
+  p {
+    font-size: 1.55rem;
+    color: #4a443a;
+
+    a {
+      color: #725400;
+
+      &:hover,
+      &:focus-visible {
+        color: v.$text-color-dark;
+      }
+    }
+  }
+
+  > p:last-child {
+    font-size: 1.3rem;
+    color: #756c60;
+  }
+
+  .eyebrow {
+    border-color: rgba(122, 90, 0, 0.18);
+    background: rgba(v.$cat-yellow2, 0.14);
+    color: #725400;
+  }
+}
+
+.ctaPoints {
+  gap: 1rem;
+  width: min(100%, 50rem);
+  text-align: left;
+
+  li {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding-left: 0;
+    color: #3f3a30;
+    font-size: 1.45rem;
+    font-weight: 600;
+
+    &::before {
+      display: none;
+    }
+
+    svg {
+      flex: 0 0 auto;
+      margin-top: 0.2rem;
+      color: #7a5a00;
+    }
+  }
+}
+
+.ctaActions {
+  justify-content: center;
+  margin-top: 0.4rem;
+}
+
+.ctaSection .primaryAction,
+.ctaSection .secondaryAction {
+  min-height: 4.8rem;
+  padding: 1.1rem 1.6rem;
+  border-radius: 0.8rem;
+  font-size: 1.5rem;
+  line-height: 1.35;
+}
+
+.ctaSection .secondaryAction {
+  border: 2px solid rgba(v.$text-color-dark, 0.28);
+  background: transparent;
+  color: v.$text-color-dark;
+
+  &:hover,
+  &:focus-visible {
+    border-color: v.$text-color-dark;
+    background: rgba(v.$text-color-dark, 0.06);
+  }
+}
+
+@media (max-width: 46rem) {
+  .workedExample {
+    padding: 2rem;
+
+    dl div {
+      grid-template-columns: 1fr;
+      gap: 0.3rem;
+    }
+
+    dd {
+      text-align: left;
+    }
+  }
+
+  .referenceTable {
+    th,
+    td {
+      padding: 1rem;
+      font-size: 1.22rem;
+    }
+
+    .referenceFactor,
+    .referenceNotes {
+      display: none;
+    }
+  }
+
+  .guidanceCallout {
+    flex-direction: column;
+    gap: 1.4rem;
+    padding: 2rem;
+  }
+
+  .relatedToolCard {
+    flex-direction: column;
+  }
+
+  .relatedToolImage {
+    width: 100%;
+    height: 16rem;
+    flex-basis: 16rem;
+  }
+
+  .relatedToolBody {
+    padding: 1.8rem;
+  }
+
+  .faqItem p {
+    padding: 0 4rem 1.8rem 0;
+  }
+
+  .ctaActions {
+    width: 100%;
+
+    a {
+      width: 100%;
+      justify-content: center;
+    }
   }
 }

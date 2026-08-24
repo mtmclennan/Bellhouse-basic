@@ -8,6 +8,7 @@ import {
   trackEvent,
   trackGoogleAdsConversion,
 } from '@/lib/tracking/google';
+import { getLeadAttribution } from '@/lib/tracking/attribution';
 import classes from './ServiceHeroQuoteForm.module.scss';
 
 const WORK_TYPE_OPTIONS = [
@@ -19,6 +20,7 @@ const WORK_TYPE_OPTIONS = [
   'Site prep & grading',
   'Land grading & drainage',
   'Dirt & gravel delivery',
+  'Equipment hauling / float service',
   'Demolition',
   'Other / not sure',
 ] as const;
@@ -40,6 +42,7 @@ export default function ServiceHeroQuoteForm({
 }: ServiceHeroQuoteFormProps) {
   const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '';
   const honeypotRef = useRef<HTMLInputElement>(null);
+  const formStartedRef = useRef(false);
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -61,6 +64,15 @@ export default function ServiceHeroQuoteForm({
     if (!phone.trim()) errs.phone = 'Phone number is required.';
     if (hasPhone && !smsConsent) errs.smsConsent = 'SMS consent is required when providing a phone number.';
     return errs;
+  };
+
+  const trackFormStart = () => {
+    if (formStartedRef.current) return;
+    formStartedRef.current = true;
+    trackEvent('form_start', {
+      form_variant: 'service-hero',
+      service: selectedType,
+    });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -94,10 +106,14 @@ export default function ServiceHeroQuoteForm({
         honeypot: honeypotRef.current?.value || '',
         smsConsent,
         smsDisclosureShown: hasPhone,
+        attribution: getLeadAttribution(selectedType),
       });
 
       if (result?.success) {
-        trackEvent('quote_form_submit', { form_variant: 'service-hero' });
+        trackEvent('quote_form_submit', {
+          form_variant: 'service-hero',
+          service: selectedType,
+        });
         trackGoogleAdsConversion(GOOGLE_ADS_CONVERSION_LABELS.quoteFormSubmit);
         setStatus('success');
       } else {
@@ -113,7 +129,7 @@ export default function ServiceHeroQuoteForm({
   if (status === 'success') {
     return (
       <div className={classes.card}>
-        <div className={classes.success}>
+        <div className={classes.success} role="status">
           <svg width="44" height="44" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <circle cx="12" cy="12" r="12" fill="#1f7a39" opacity="0.12" />
             <path d="M7 12.5l3.5 3.5L17 9" stroke="#1f7a39" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -141,7 +157,13 @@ export default function ServiceHeroQuoteForm({
           <p>Bellhouse replies with real numbers, not a range.</p>
         </div>
 
-        <form className={classes.cardBody} onSubmit={handleSubmit} noValidate>
+        <form
+          className={classes.cardBody}
+          onChange={trackFormStart}
+          onFocus={trackFormStart}
+          onSubmit={handleSubmit}
+          noValidate
+        >
           <input
             ref={honeypotRef}
             type="text"
@@ -256,7 +278,7 @@ export default function ServiceHeroQuoteForm({
           </button>
 
           {status === 'error' ? (
-            <p className={classes.errorMsg}>
+            <p className={classes.errorMsg} role="alert">
               Something went wrong. Please try again or call{' '}
               <a href="tel:5197528500">519-752-8500</a>.
             </p>

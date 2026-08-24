@@ -27,7 +27,7 @@ export const aboutHeroData: HeroSectionData = {
   eyebrow: 'About Bellhouse Excavating',
   headline: 'Built on field experience since 1982',
   subheadline:
-    'Bellhouse Excavating is a Brantford-area excavation company known for practical site work, dependable scheduling, and field-led support across Brant County and nearby communities.',
+    'Bellhouse Excavating is a Paris, Ontario-based excavation company known for practical site work, dependable scheduling, and field-led support across Brantford, Brant County, and nearby communities.',
   primaryAction: {
     label: 'Request an Estimate',
     href: '/contact',

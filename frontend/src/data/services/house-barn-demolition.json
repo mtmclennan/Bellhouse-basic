@@ -5,19 +5,19 @@
   "navTitle": "Demolition",
   "contactService": "Demolition",
   "meta": {
-    "title": "Rural Structure Demolition | Brant County | Bellhouse",
-    "description": "Demolition of farmhouses, barns, grain bins, silos, and outbuildings across Brant County. Equipment access, debris hauling, and site cleanup included."
+    "title": "Structure Demolition | Brant County | Bellhouse",
+    "description": "Demolition of houses, barns, garages, grain bins, silos, and outbuildings across Brant County. Equipment access, debris hauling, and site cleanup included."
   },
   "card": {
-    "title": "Rural Structure Demolition",
+    "title": "Structure Demolition",
     "description": "Full or partial demolition of houses, barns, and outbuildings, including cleanup and disposal.",
     "image": "/assets/services/house-barn-demolition/Paris-brant-house-demo-winter.webp",
     "alt": "Excavator tearing down a house during winter demolition cleanup."
   },
   "hero": {
-    "eyebrow": "Farm & rural structure removal",
-    "heading": "Rural Structure Demolition in Brant County",
-    "summary": "Demolition of farmhouses, barns, grain bins, silos, sheds, shops, and outbuildings across Brant County and Southern Ontario. Large equipment, debris hauling, material sorting, and rough site cleanup included.",
+    "eyebrow": "Machine-accessible structure removal",
+    "heading": "Structure Demolition in Brant County",
+    "summary": "Demolition of houses, garages, farmhouses, barns, grain bins, silos, sheds, shops, and outbuildings across Brant County and Southern Ontario. Rural and farm structures are a strong fit, and other machine-accessible demolition is reviewed around access, utilities, debris hauling, and cleanup.",
     "actions": [
       { "label": "Request Demolition Quote", "href": "/contact", "variant": "primary" },
       { "label": "For Builders & Contractors", "href": "/contractors", "variant": "secondary" }
@@ -28,7 +28,7 @@
     "sideForm": true,
     "proofBar": [
       { "icon": "map-pin", "title": "Local to Brantford", "subtitle": "& Brant County" },
-      { "icon": "calendar-check", "title": "Since 1982", "subtitle": "Family operation" },
+      { "icon": "calendar-check", "title": "Since 1982", "subtitle": "Owner-operated" },
       { "icon": "truck", "title": "Own equipment", "subtitle": "Trucks & excavators" },
       { "icon": "star", "title": "5.0 on Google", "subtitle": "Local reviews" },
       { "icon": "shield-check", "title": "Licensed & insured", "subtitle": "Fully covered" }
@@ -39,8 +39,8 @@
       "type": "intro",
       "tone": "light",
       "eyebrow": "Who it's for",
-      "heading": "Farm & Rural Structure Demolition Across Brant County and Southern Ontario",
-      "body": "Bellhouse Excavating demolishes farmhouses, barns, sheds, shops, grain bins, silos, and outbuildings across Brant County and Southern Ontario. Rural properties, working farms, and acreages are where this work fits best — sites where equipment access is clear, trucks have room to manoeuvre, and debris can be loaded and hauled without working around neighbours.\n\nThe job covers more than bringing the structure down. Bellhouse coordinates machine access, debris sorting, haul-out, and rough site grading so the footprint is left in a workable condition for whatever comes next. Whether it's a standalone farm cleanup or demolition as part of a larger redevelopment, the scope is planned and executed as one connected piece of work.",
+      "heading": "Structure Demolition Across Brant County and Southern Ontario",
+      "body": "Bellhouse Excavating demolishes houses, garages, farmhouses, barns, sheds, shops, grain bins, silos, and outbuildings across Brant County and Southern Ontario. Rural properties, working farms, and acreages are where this work fits especially well because equipment access is often clearer and debris hauling can be planned efficiently. Other viable demolition work is reviewed around access, utilities, neighbouring structures, permits, and debris handling.\n\nThe job covers more than bringing the structure down. Bellhouse coordinates machine access, debris sorting, haul-out, and rough site grading so the footprint is left in a workable condition for whatever comes next. Whether it's a standalone cleanup or demolition as part of a larger redevelopment, the scope is planned and executed as one connected piece of work.",
       "audience": [
         { "icon": "map-trifold", "label": "Farm operations" },
         { "icon": "house-line", "label": "Rural property owners" },
@@ -111,8 +111,8 @@
     {
       "type": "scope",
       "tone": "dark",
-      "heading": "Best Fit & Not the Best Fit",
-      "subheading": "Bellhouse demolition works best on rural properties where equipment access is straightforward and there is room to work. Some projects are a stronger fit than others.",
+      "heading": "Project Fit & Safety Review",
+      "subheading": "Bellhouse demolition works best where equipment access is clear, debris can be hauled safely, and utilities and permits are addressed before work starts. Rural and farm structures are a strong fit, but they are not the only viable projects.",
       "items": [
         {
           "title": "Best fit: Farms and rural properties",
@@ -127,8 +127,8 @@
           "body": "Demolition that is part of a farm redevelopment, new building project, or property cleanup where teardown and the next phase can be planned as one scope."
         },
         {
-          "title": "Not the best fit: Tight urban demolition",
-          "body": "Jobs in downtown cores or dense residential areas with restricted equipment access where excavators and trucks cannot work safely are outside the typical Bellhouse scope."
+          "title": "Reviewed case by case: Tight urban demolition",
+          "body": "In-town demolition may be workable when excavators, trucks, utilities, neighbouring structures, and debris handling can be managed safely. Send photos and the address so Bellhouse can review access before confirming the scope."
         },
         {
           "title": "Not the best fit: No machine access",
@@ -195,7 +195,7 @@
       "tone": "dark",
       "eyebrow": "Controlled structure removal",
       "heading": "Good rural demolition is planned around access, debris volume, and what the site needs after.",
-      "body": "Bellhouse plans farm structure demolition around the property layout — where equipment enters, how debris loads, where trucks turn around, and what the site should look like when the work is done. Rural properties with clear access and room for equipment are where this work goes efficiently. Grain bin removal, farm silo demolition, and barn teardowns are part of Bellhouse's regular workload across Brant County.",
+      "body": "Bellhouse plans structure demolition around the property layout - where equipment enters, how debris loads, where trucks turn around, and what the site should look like when the work is done. Rural properties with clear access and room for equipment are where this work goes especially efficiently, while other machine-accessible projects are reviewed around safety, utilities, and debris handling. Grain bin removal, farm silo demolition, barn teardowns, garage removal, and house demolition are part of Bellhouse's workload across Brant County.",
       "image": {
         "src": "/assets/services/house-barn-demolition/paris-residental-house-demoilition-above.webp",
         "alt": "Overhead view of a house demolition site with excavator and debris ready for cleanup"
@@ -208,12 +208,6 @@
       "eyebrow": "Site outcomes",
       "heading": "What the Site Should Be Ready For",
       "subheading": "The goal is a structure removed cleanly enough that the property can move into its next use.",
-      "stats": [
-        { "label": "Since 1982", "body": "Over four decades of local site work across Brant County and Southern Ontario" },
-        { "label": "Own equipment", "body": "Excavators, dozers, trucks, and operators available for rural and farm demolition work" },
-        { "label": "5.0 on Google", "body": "Rated by homeowners, builders, and contractors" },
-        { "label": "Licensed & insured", "body": "Full coverage on every job" }
-      ],
       "items": [
         { "title": "A cleared structure footprint", "body": "The building is taken down, material is sorted where applicable, and major demolition debris is removed from the work area." },
         { "title": "A more usable site", "body": "Rough grading and cleanup leave the property safer, flatter, and easier to access after demolition. Farm properties can return to productive use faster." },
@@ -318,7 +312,7 @@
       "type": "serviceAreas",
       "tone": "dark",
       "heading": "Rural structure demolition by service area",
-      "body": "Farmhouse demolition, barn teardown, grain bin removal, and outbuilding removal across Brant County and nearby areas. Rural and farm properties with clear equipment access are the primary focus for this work.",
+      "body": "House demolition, farmhouse demolition, barn teardown, grain bin removal, garage removal, and outbuilding removal across Brant County and nearby areas. Rural and farm properties with clear equipment access are a primary focus, and other machine-accessible structures are reviewed by site conditions.",
       "areaSlugs": ["paris", "brantford", "cambridge", "woodstock", "hamilton", "ancaster"]
     },
     {
@@ -326,7 +320,7 @@
       "tone": "dark",
       "eyebrow": "Related services",
       "heading": "Related hauling, grading, and site prep",
-      "serviceSlugs": ["dump-truck-rental", "site-preparation-land-grading", "land-grading-drainage", "heavy-equipment-hauling"]
+      "serviceSlugs": ["dump-truck-rental", "site-preparation-land-grading", "land-grading-drainage", "heavy-equipment-hauling", "farm-land-grading-leveling"]
     },
     {
       "type": "faq",
@@ -358,8 +352,8 @@
     {
       "type": "finalCta",
       "tone": "dark",
-      "heading": "Need a Farm Structure Removed?",
-      "body": "Send the structure type, property location, access details, and what you want the site ready for after demolition. Bellhouse will come back with a straight answer on fit and pricing.",
+      "heading": "Need a Structure Removed?",
+      "body": "Send the structure type, property location, access details, and what you want the site ready for after demolition. Bellhouse will come back with a straight answer on scope, access, and pricing.",
       "bullets": [
         "No obligation — free project review",
         "Bellhouse replies with real numbers",

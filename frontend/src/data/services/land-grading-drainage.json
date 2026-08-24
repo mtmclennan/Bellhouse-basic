@@ -34,7 +34,7 @@
     "sideForm": true,
     "proofBar": [
       { "icon": "map-pin", "title": "Local to Brantford", "subtitle": "& Brant County" },
-      { "icon": "calendar-check", "title": "Since 1982", "subtitle": "Family operation" },
+      { "icon": "calendar-check", "title": "Since 1982", "subtitle": "Owner-operated" },
       { "icon": "truck", "title": "Own equipment", "subtitle": "Trucks & excavators" },
       { "icon": "star", "title": "5.0 on Google", "subtitle": "Local reviews" },
       { "icon": "shield-check", "title": "Licensed & insured", "subtitle": "Fully covered" }
@@ -46,7 +46,7 @@
       "tone": "light",
       "eyebrow": "Who it's for",
       "heading": "Grading and Drainage Work That Solves Water Problems",
-      "body": "Standing water, muddy access, poor slope, and soft ground usually point back to how water moves across the property. Bellhouse handles land grading and drainage work for homeowners, builders, farms, and contractors who need practical site shaping, ditching, and drainage prep across Brantford, Paris, Brant County, and nearby Southern Ontario communities.",
+      "body": "Standing water, muddy access, poor slope, and soft ground usually point back to how water moves across the property. Bellhouse handles land grading and drainage work for homeowners, builders, and contractors who need practical site shaping, ditching, and drainage prep across Brantford, Paris, Brant County, and nearby Southern Ontario communities. For agricultural drainage — farm ditch cleaning, field grading, and municipal drain work — see the agricultural drainage page.",
       "audience": [
         { "icon": "house-line", "label": "Homeowners" },
         { "icon": "drop", "label": "Drainage projects" },
@@ -102,7 +102,7 @@
       "items": [
         {
           "title": "Best fit: Yards, lots, and lanes with water problems",
-          "body": "Properties where standing water, poor drainage, soft ground, or erosion are affecting usability. Grading and drainage solutions for rural, farm, and residential properties across Brant County."
+          "body": "Properties where standing water, poor drainage, soft ground, or erosion are affecting usability. Grading and drainage solutions for rural and residential properties across Brant County."
         },
         {
           "title": "Best fit: Drainage coordinated with grading or site work",
@@ -113,8 +113,8 @@
           "body": "Bellhouse handles exterior grading and drainage. Interior waterproofing systems, sump pumps, and below-slab drainage are separate trades with different equipment and expertise."
         },
         {
-          "title": "Not the best fit: Municipal storm sewer connections",
-          "body": "Tying into municipal storm infrastructure requires engineering approvals, permits, and licensed utility work that falls outside standard site grading and drainage."
+          "title": "Reviewed case by case: Municipal storm connections",
+          "body": "Storm connections, catch basins, and related underground drainage work depend on permits, engineering requirements, outlet conditions, and overall scope. Bellhouse can review manageable drainage and servicing components, while larger municipal infrastructure work may require a dedicated civil or utility contractor."
         }
       ]
     },
@@ -186,12 +186,6 @@
       "eyebrow": "Site outcomes",
       "heading": "What The Site Should Be Ready For After Grading",
       "subheading": "The goal is a property or job site that drains better, works better, and is ready for the next step.",
-      "stats": [
-        { "label": "Since 1982", "body": "Over four decades of local site work" },
-        { "label": "Own equipment", "body": "Excavators, dozers, trucks, and operators available for local site work" },
-        { "label": "5.0 on Google", "body": "Rated by homeowners, builders, and contractors" },
-        { "label": "Licensed & insured", "body": "Full coverage on every job" }
-      ],
       "items": [
         { "title": "Water has a clearer path", "body": "Swales, slopes, ditches, or drainage prep help move water away from the places where it causes damage or delays." },
         { "title": "Ground is more workable", "body": "Corrected grades and placed material help reduce soft access, muddy work zones, and uneven transitions." },
@@ -325,7 +319,7 @@
       "tone": "dark",
       "eyebrow": "Related services",
       "heading": "Related grading, excavation, and haul support",
-      "serviceSlugs": ["site-preparation-land-grading", "driveway-parking-lot-preparation", "pond-digging-cleaning", "dirt-gravel-delivery", "dump-truck-rental"]
+      "serviceSlugs": ["site-preparation-land-grading", "driveway-parking-lot-preparation", "pond-digging-cleaning", "dirt-gravel-delivery", "dump-truck-rental", "agricultural-drainage-land-grading", "farm-land-grading-leveling", "farm-fence-row-clearing"]
     },
     {
       "type": "faq",

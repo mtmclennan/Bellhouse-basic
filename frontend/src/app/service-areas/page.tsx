@@ -12,10 +12,7 @@ import SectionWrapper from '@/components/layout/SectionWrapper';
 import { ServiceAreaCta } from '@/components/service-areas';
 import heroImage from '../../../public/assets/services/southern-ontario-excavation-service-area-3d-map-hero.webp';
 
-import {
-  defaultCtaImage,
-  defaultHeroImage,
-} from '@/components/service-areas/visuals';
+import { defaultHeroImage } from '@/components/service-areas/visuals';
 import { serviceAreaPageList } from '@/lib/serviceAreas';
 import { validateMetadata } from '@/lib/utils/seoValidation';
 import classes from './page.module.scss';
@@ -239,7 +236,6 @@ export default function ServiceAreasPage() {
       <ServiceAreaCta
         title="Have a project that needs excavation or trucking?"
         description="Bellhouse supports excavation, grading, hauling, and equipment movement across Southern Ontario. Reach out to get your project moving."
-        image={defaultCtaImage}
         actions={[
           { href: '/contact', label: 'Request a Quote' },
           {

@@ -1,5 +1,6 @@
 import type { QuoteUploadEmailFile } from '@/lib/uploads/shared/uploadTypes';
 import { formatUploadSize } from '@/lib/uploads/shared/uploadLimits';
+import type { LeadAttribution } from '@/lib/tracking/attribution';
 
 export type ContactPayload = {
   name: string;
@@ -13,6 +14,7 @@ export type ContactPayload = {
   smsDisclosureShown?: boolean;
   smsConsentAt?: string; // ISO timestamp
   leadId?: string;
+  attribution?: LeadAttribution;
   uploads?: QuoteUploadEmailFile[];
   uploadLinkExpiryNote?: string;
 };
@@ -22,6 +24,7 @@ export function buildBusinessEmail(data: ContactPayload) {
 
   const phoneProvided = !!data.phone?.trim();
   const uploadsSection = buildUploadsSection(data);
+  const attributionSection = buildAttributionSection(data.attribution);
 
   const smsConsentSection = phoneProvided
     ? `
@@ -70,6 +73,7 @@ export function buildBusinessEmail(data: ContactPayload) {
             : ''
         }
         <p><strong>🚧 Service Requested:</strong> ${escapeHtml(data.workType)}</p>
+        ${attributionSection}
         <p><strong>📝 Message:</strong><br>${
           data.message
             ? escapeHtml(data.message).replace(/\n/g, '<br/>')
@@ -134,6 +138,44 @@ export function buildCustomerEmail(data: ContactPayload) {
     </div>
     `,
   };
+}
+
+function buildAttributionSection(attribution?: LeadAttribution) {
+  if (!attribution || !Object.values(attribution).some(Boolean)) {
+    return '';
+  }
+
+  const attributionRows: Array<[string, string | undefined]> = [
+    ['Source', attribution.utmSource],
+    ['Medium', attribution.utmMedium],
+    ['Campaign', attribution.utmCampaign],
+    ['Content', attribution.utmContent],
+    ['Search term / UTM term', attribution.utmTerm],
+    ['GCLID', attribution.gclid],
+    ['GBRAID', attribution.gbraid],
+    ['WBRAID', attribution.wbraid],
+    ['FBCLID', attribution.fbclid],
+    ['MSCLKID', attribution.msclkid],
+    ['Initial landing page', attribution.initialLandingPage],
+    ['Current page', attribution.currentPage],
+    ['Referrer', attribution.referrer],
+    ['Initial timestamp', attribution.initialTimestamp],
+    ['Requested service', attribution.requestedService],
+  ];
+
+  const rows = attributionRows
+    .filter(([, value]) => Boolean(value))
+    .map(
+      ([label, value]) =>
+        `<p><strong>${escapeHtml(label)}:</strong> ${escapeHtml(value ?? '')}</p>`,
+    )
+    .join('');
+
+  return `
+    <hr style="border: none; border-top: 1px solid #ddd; margin: 15px 0;">
+    <h3 style="color: #ffc302;">Lead Attribution</h3>
+    ${rows}
+  `;
 }
 
 function buildUploadsSection(data: ContactPayload) {

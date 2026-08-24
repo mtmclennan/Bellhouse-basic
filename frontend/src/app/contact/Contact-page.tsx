@@ -2,6 +2,7 @@
 
 import { Fragment, useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
+import { MapPin } from '@phosphor-icons/react';
 import ContactForm, { DEFAULT_WORK_TYPE_OPTIONS } from '../components/forms/ContactForm';
 import ContactMethodsSection from '../components/sections/ContactMethodsSection/ContactMethodsSection';
 import FaqSection from '../components/sections/FaqSection/FaqSection';
@@ -92,6 +93,27 @@ const Contact = () => {
               </ul>
               <p className={pageClasses.responseNote}>
                 {contactFormSupportData.planning.responseNote}
+              </p>
+            </section>
+
+            <section className={pageClasses.planningCard}>
+              <h3 className={pageClasses.detailTitle}>
+                <MapPin
+                  size={20}
+                  color="#ffc302"
+                  weight="duotone"
+                  className={pageClasses.addressIcon}
+                  aria-hidden="true"
+                />
+                Mailing Address
+              </h3>
+              <address className={pageClasses.address}>
+                573 Governors Rd E
+                <br />
+                Paris, ON N3L 3E1
+              </address>
+              <p className={pageClasses.responseNote}>
+                Mon&ndash;Fri, 7:00 AM&ndash;5:00 PM
               </p>
             </section>
           </aside>

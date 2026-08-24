@@ -2,29 +2,32 @@
 @use '../../styles/abstracts/variables' as v;
 
 .section {
-  background-color: v.$grey-color-0;
+  background-color: #272727;
 }
 
 .container {
-  gap: 8rem;
+  gap: 3.6rem;
+  color: #fff;
 }
 
 .header {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 1.8rem;
-  text-align: center;
+  align-items: flex-start;
+  gap: 1.2rem;
+  max-width: 76rem;
+  text-align: left;
 }
 
 .heading {
   @include m.sectionHeading(4rem, 5.4rem);
   max-width: 26ch;
+  color: #fff;
 }
 
 .grid {
   display: grid;
-  gap: 2rem;
+  gap: 1.6rem;
 
   @include m.mediaDesktop {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -35,30 +38,21 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background-color: v.$color-primary;
-  border: 1px solid v.$grey-color-3;
-  border-radius: 2rem;
-  box-shadow: 0 1.4rem 3rem -2.6rem rgba(0, 0, 0, 0.45);
-  color: inherit;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.4rem;
+  color: #fff;
   text-decoration: none;
   transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
+    background-color 0.2s ease,
     border-color 0.2s ease;
 
   @include m.focusRing();
 
-  @include m.mediaDesktop {
-    &:nth-child(even) {
-      transform: translateY(4rem);
-    }
-  }
-
   &:hover,
   &:focus-visible {
-    transform: translateY(-0.4rem);
-    box-shadow: 0 2.2rem 3.6rem -2.8rem rgba(0, 0, 0, 0.45);
-    border-color: rgba(v.$cat-yellow2, 0.6);
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: rgba(v.$cat-yellow2, 0.45);
   }
 }
 
@@ -96,51 +90,51 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: 1.4rem;
-  padding: 2.4rem;
+  gap: 1rem;
+  padding: 2rem;
 
   h3 {
-    font-size: 2.4rem;
-    line-height: 1.2;
+    font-family: var(--font-oswald), sans-serif;
+    text-transform: uppercase;
+    font-size: 1.9rem;
     font-weight: 600;
-    color: v.$text-color-mid-dark;
+    letter-spacing: 0.005em;
+    line-height: 1.18;
+    color: #fff;
   }
 
   p {
-    font-size: 1.7rem;
-    line-height: 1.68;
-    color: v.$text-color-mid-dark;
+    font-size: 1.4rem;
+    line-height: 1.55;
+    color: #ced4da;
   }
 }
 
 .serviceLink {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.7rem;
   width: fit-content;
   margin-top: auto;
-  padding-bottom: 0.2rem;
-  border-bottom: 2px solid v.$cat-yellow2;
-  color: v.$text-color-mid-dark;
-  font-size: 1.4rem;
+  padding-top: 0.6rem;
+  color: v.$cat-yellow2;
+  font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 
   &::after {
-    content: '>';
-    font-size: 1.6rem;
+    content: '\2192';
   }
 }
 
 .supportingCopy {
   max-width: 82rem;
-  margin: 0 auto;
 
   p {
     font-size: 1.7rem;
     line-height: 1.72;
-    color: v.$text-color-mid-dark;
+    color: #ced4da;
 
     @include m.mediaDesktop {
       font-size: 1.8rem;
@@ -148,7 +142,7 @@
   }
 
   a {
-    @include m.textLink();
+    @include m.textLink(#fff, v.$cat-yellow2);
     @include m.focusRing();
   }
 }
