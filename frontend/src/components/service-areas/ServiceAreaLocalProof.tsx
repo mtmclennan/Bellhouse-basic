@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { MapPin } from '@phosphor-icons/react/dist/ssr';
 import Link from '@/components/SiteLink';
 import SectionWrapper from '@/components/layout/SectionWrapper';
 import type { ServiceAreaLocalProofItem } from '@/lib/serviceAreas';
@@ -21,7 +22,7 @@ export default function ServiceAreaLocalProof({
       containerClassName={classes.container}
     >
       <div className={classes.header}>
-        <p className={classes.eyebrow}>Local project proof</p>
+        <p className={classes.eyebrow}>Local work</p>
         <h2>{heading}</h2>
         {intro ? <p>{intro}</p> : null}
       </div>
@@ -41,7 +42,10 @@ export default function ServiceAreaLocalProof({
             </div>
             <div className={classes.cardCopy}>
               <h3>{item.title}</h3>
-              <p className={classes.location}>{item.location}</p>
+              <p className={classes.location}>
+                <MapPin size={14} weight="fill" />
+                {item.location}
+              </p>
               <p>{item.scope}</p>
               <Link className={classes.link} href={item.relatedServiceHref}>
                 {item.relatedServiceLabel}

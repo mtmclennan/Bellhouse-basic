@@ -1,7 +1,5 @@
-import Image from 'next/image';
 import Link from '@/components/SiteLink';
 import SectionWrapper from '@/components/layout/SectionWrapper';
-import type { ServiceAreaImage } from '@/lib/serviceAreas';
 import classes from './ServiceAreaCta.module.scss';
 
 type CtaAction = {
@@ -15,15 +13,10 @@ type ContactNote = {
   href: string;
 };
 
-type ServiceAreaCtaImage = ServiceAreaImage & {
-  priority?: boolean;
-};
-
 type ServiceAreaCtaProps = {
   title: string;
   description: string;
   actions: CtaAction[];
-  image?: ServiceAreaCtaImage;
   supportingPoints?: string[];
   contactNote?: ContactNote;
 };
@@ -32,7 +25,6 @@ export default function ServiceAreaCta({
   title,
   description,
   actions,
-  image,
   supportingPoints,
   contactNote,
 }: ServiceAreaCtaProps) {
@@ -42,54 +34,36 @@ export default function ServiceAreaCta({
       containerClassName={classes.container}
     >
       <div className={classes.shell}>
-        <div className={classes.content}>
-          <h2 className={classes.title}>{title}</h2>
-          <p className={classes.description}>{description}</p>
-          {supportingPoints && supportingPoints.length > 0 ? (
-            <ul className={classes.supportingPoints}>
-              {supportingPoints.map((point) => (
-                <li key={point}>{point}</li>
-              ))}
-            </ul>
-          ) : null}
-          {actions.length > 0 ? (
-            <div className={classes.actions}>
-              {actions.map((action) => (
-                <Link
-                  key={`${action.href}-${action.label}`}
-                  className={
-                    action.variant === 'secondary'
-                      ? classes.secondaryAction
-                      : classes.primaryAction
-                  }
-                  href={action.href}
-                >
-                  {action.label}
-                </Link>
-              ))}
-            </div>
-          ) : null}
-          {contactNote ? (
-            <p className={classes.contactNote}>
-              Prefer to text? <Link href={contactNote.href}>{contactNote.label}</Link>
-            </p>
-          ) : null}
-        </div>
-        {image ? (
-          <div className={classes.media}>
-            <div className={classes.imageFrame}>
-              <Image
-                src={image.src}
-                alt={image.alt}
-                width={image.width ?? 1600}
-                height={image.height ?? 1200}
-                className={classes.image}
-                priority={image.priority}
-                sizes="(max-width: 1000px) 100vw, 38vw"
-              />
-              <div className={classes.imageOverlay} />
-            </div>
+        <h2 className={classes.title}>{title}</h2>
+        <p className={classes.description}>{description}</p>
+        {supportingPoints && supportingPoints.length > 0 ? (
+          <ul className={classes.supportingPoints}>
+            {supportingPoints.map((point) => (
+              <li key={point}>{point}</li>
+            ))}
+          </ul>
+        ) : null}
+        {actions.length > 0 ? (
+          <div className={classes.actions}>
+            {actions.map((action) => (
+              <Link
+                key={`${action.href}-${action.label}`}
+                className={
+                  action.variant === 'secondary'
+                    ? classes.secondaryAction
+                    : classes.primaryAction
+                }
+                href={action.href}
+              >
+                {action.label}
+              </Link>
+            ))}
           </div>
+        ) : null}
+        {contactNote ? (
+          <p className={classes.contactNote}>
+            Prefer to text? <Link href={contactNote.href}>{contactNote.label}</Link>
+          </p>
         ) : null}
       </div>
     </SectionWrapper>

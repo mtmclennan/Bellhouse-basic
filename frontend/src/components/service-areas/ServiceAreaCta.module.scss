@@ -2,13 +2,8 @@
 @use '../../styles/abstracts/variables' as v;
 
 .section {
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(v.$cat-yellow2, 0.14),
-      transparent 26%
-    ),
-    linear-gradient(180deg, #171717 0%, #101010 100%);
+  background: linear-gradient(180deg, #1c1c1c 0%, #111 100%);
+  text-align: center;
 }
 
 .container {
@@ -16,68 +11,54 @@
 }
 
 .shell {
-  display: grid;
-  gap: 2rem;
-  align-items: stretch;
-
-  @include m.mediaDesktop {
-    grid-template-columns: minmax(0, 1fr) minmax(30rem, 0.86fr);
-    gap: 3rem;
-  }
-}
-
-.content {
+  max-width: 68rem;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
   gap: 1.8rem;
-  padding: 2rem 0;
 }
 
 .title {
-  font-size: 4.4rem;
-  line-height: 1.04;
-  font-weight: 300;
+  font-family: var(--font-oswald), sans-serif;
+  text-transform: uppercase;
+  line-height: 1.05;
+  letter-spacing: 0.005em;
+  font-weight: 600;
+  font-size: clamp(2.6rem, 3.4vw, 4rem);
+  margin: 0;
   color: #fff;
-
-  @include m.mediaDesktop {
-    font-size: 5.8rem;
-  }
 }
 
 .description {
-  max-width: 60rem;
+  margin: 0;
   font-size: 1.8rem;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.86);
-
-  @include m.mediaDesktop {
-    font-size: 2rem;
-  }
+  line-height: 1.6;
+  color: #ced4da;
 }
 
 .supportingPoints {
-  display: grid;
-  gap: 1rem;
-  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem 2rem;
+  margin: -0.6rem 0 0;
   padding: 0;
   list-style: none;
-  max-width: 60rem;
 
   li {
     position: relative;
-    padding-left: 2rem;
-    font-size: 1.7rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.84);
+    padding-left: 1.6rem;
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.72);
 
     &::before {
       content: '';
       position: absolute;
-      top: 1rem;
+      top: 0.65rem;
       left: 0;
-      width: 0.8rem;
-      height: 0.8rem;
+      width: 0.6rem;
+      height: 0.6rem;
       border-radius: 999px;
       background-color: v.$cat-yellow2;
     }
@@ -88,7 +69,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1.6rem;
-  margin-top: 1.2rem;
+  justify-content: center;
 }
 
 .primaryAction {
@@ -102,7 +83,7 @@
 }
 
 .contactNote {
-  margin: -0.4rem 0 0;
+  margin: 0;
   font-size: 1.6rem;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.76);
@@ -117,36 +98,4 @@
       text-decoration: underline;
     }
   }
-}
-
-.media {
-  display: block;
-}
-
-.imageFrame {
-  position: relative;
-  overflow: hidden;
-  min-height: 32rem;
-  border-radius: 2.4rem;
-  box-shadow: v.$box-shadow-dark;
-
-  @include m.mediaDesktop {
-    min-height: 100%;
-  }
-}
-
-.image {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.imageOverlay {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.04) 0%, rgba(0, 0, 0, 0.4) 100%),
-    linear-gradient(135deg, rgba(v.$cat-yellow2, 0.08) 0%, transparent 45%);
 }

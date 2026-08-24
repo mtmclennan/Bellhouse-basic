@@ -1,0 +1,31 @@
+@use '../../styles/abstracts/mixins' as m;
+@use '../../styles/abstracts/variables' as v;
+
+.strip {
+  position: relative;
+  background-color: #0d0d0d;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.container {
+  width: min(calc(100% - 4.4rem), 114rem);
+  margin: 0 auto;
+  padding: 1.8rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 3rem;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #e9ecef;
+
+  svg {
+    flex: 0 0 auto;
+    color: v.$cat-yellow2;
+  }
+}

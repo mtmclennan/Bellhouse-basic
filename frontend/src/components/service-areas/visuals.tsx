@@ -4,13 +4,15 @@ import {
   Buildings,
   ClipboardText,
   CompassRose,
+  DropHalfBottom,
   Drop,
+  Hammer,
   HardHat,
   HouseLine,
   MapPin,
   Mountains,
   Plugs,
-  ShieldCheck,
+  Ruler,
   Shovel,
   Truck,
   TruckTrailer,
@@ -37,13 +39,6 @@ export const defaultIntroImage: ServiceAreaImage = {
   alt: 'Excavator shaping material on a Southern Ontario excavation and grading project.',
   width: 900,
   height: 1200,
-};
-
-export const defaultCtaImage: ServiceAreaImage = {
-  src: '/assets/services/dump-truck-hauling/excavator-loading-dump-truck-right.webp',
-  alt: 'Bellhouse excavator loading a dump truck on a Southern Ontario construction project.',
-  width: 1440,
-  height: 1080,
 };
 
 export const defaultMapContent: ServiceAreaMap = {
@@ -114,12 +109,12 @@ export function getConditionIcon(kind: ServiceAreaConditionKind): ReactNode {
   }
 }
 
-export function getWhyChooseIcon(index: number): ReactNode {
+export function getProjectTypeIcon(index: number): ReactNode {
   const icons = [
-    <ShieldCheck key="shield" size={24} weight="fill" />,
-    <CompassRose key="compass" size={24} weight="fill" />,
-    <TruckTrailer key="float" size={24} weight="fill" />,
-    <MapPin key="pin" size={24} weight="fill" />,
+    <HouseLine key="house" size={24} weight="fill" />,
+    <Ruler key="ruler" size={24} weight="fill" />,
+    <Hammer key="hammer" size={24} weight="fill" />,
+    <DropHalfBottom key="drop" size={24} weight="fill" />,
   ];
 
   return icons[index % icons.length];

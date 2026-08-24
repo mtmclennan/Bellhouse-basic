@@ -10,50 +10,58 @@ type ServiceAreaLocalPermitsProps = {
   items: ServiceAreaPermit[];
 };
 
+function getLastVerified(items: ServiceAreaPermit[]) {
+  return items.reduce<string | undefined>((latest, item) => {
+    if (!item.lastVerified) return latest;
+    if (!latest || item.lastVerified > latest) return item.lastVerified;
+    return latest;
+  }, undefined);
+}
+
 export default function ServiceAreaLocalPermits({
   heading,
   intro,
   disclaimer,
   items,
 }: ServiceAreaLocalPermitsProps) {
+  const lastVerified = getLastVerified(items);
+
   return (
     <SectionWrapper
       className={classes.section}
       containerClassName={classes.container}
     >
       <div className={classes.header}>
-        <p className={classes.eyebrow}>Local planning & permits</p>
+        <p className={classes.eyebrow}>Planning &amp; approvals</p>
         <h2>{heading}</h2>
         {intro ? <p>{intro}</p> : null}
       </div>
 
-      <ul className={classes.list}>
+      <div className={classes.grid}>
         {items.map((item) => (
-          <li className={classes.item} key={item.title}>
-            <div className={classes.itemHead}>
-              <h3>{item.title}</h3>
-              <span className={classes.status}>{item.status}</span>
-            </div>
+          <div className={classes.item} key={item.title}>
+            <span className={classes.status}>{item.status}</span>
+            <h3>{item.title}</h3>
             <p className={classes.description}>{item.description}</p>
-            <div className={classes.meta}>
-              <a
-                href={item.officialUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={classes.link}
-              >
-                {item.authority}
-                <ArrowSquareOut size={16} weight="bold" />
-              </a>
-              <span className={classes.verified}>
-                Last verified {item.lastVerified}
-              </span>
-            </div>
-          </li>
+            <a
+              href={item.officialUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={classes.link}
+            >
+              <span>{item.authority}</span>
+              <ArrowSquareOut size={16} weight="bold" />
+            </a>
+          </div>
         ))}
-      </ul>
+      </div>
 
-      {disclaimer ? <p className={classes.disclaimer}>{disclaimer}</p> : null}
+      <div className={classes.footer}>
+        {disclaimer ? <p className={classes.disclaimer}>{disclaimer}</p> : null}
+        {lastVerified ? (
+          <span className={classes.verified}>Links last verified {lastVerified}</span>
+        ) : null}
+      </div>
     </SectionWrapper>
   );
 }

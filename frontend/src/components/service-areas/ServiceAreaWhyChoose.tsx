@@ -1,5 +1,4 @@
 import SectionWrapper from '@/components/layout/SectionWrapper';
-import { getWhyChooseIcon } from './visuals';
 import classes from './ServiceAreaWhyChoose.module.scss';
 
 type ServiceAreaWhyChooseProps = {
@@ -18,13 +17,15 @@ export default function ServiceAreaWhyChoose({
       className={classes.section}
       containerClassName={classes.container}
     >
-      <h2 className={classes.heading}>{heading}</h2>
-      {intro ? <p className={classes.intro}>{intro}</p> : null}
+      <div className={classes.intro}>
+        <p className={classes.eyebrow}>Why Bellhouse</p>
+        <h2 className={classes.heading}>{heading}</h2>
+        {intro ? <p className={classes.introText}>{intro}</p> : null}
+      </div>
       <ol className={classes.list}>
         {items.map((item, index) => (
           <li className={classes.item} key={item}>
-            <span className={classes.count}>0{index + 1}</span>
-            <span className={classes.icon}>{getWhyChooseIcon(index)}</span>
+            <span className={classes.count}>{String(index + 1).padStart(2, '0')}</span>
             <p>{item}</p>
           </li>
         ))}

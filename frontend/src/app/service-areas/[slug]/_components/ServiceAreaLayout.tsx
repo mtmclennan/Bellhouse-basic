@@ -1,7 +1,6 @@
 import Script from 'next/script';
-import type { ServiceAreaPage } from '@/lib/serviceAreas';
+import { serviceAreaServiceIndex, type ServiceAreaPage } from '@/lib/serviceAreas';
 import {
-  ServiceAreaAtAGlance,
   ServiceAreaCta,
   ServiceAreaFaq,
   ServiceAreaHero,
@@ -12,14 +11,11 @@ import {
   ServiceAreaNearbyAreas,
   ServiceAreaProjectTypes,
   ServiceAreaServices,
+  ServiceAreaTrustStrip,
   ServiceAreaWhoWeWorkWith,
   ServiceAreaWhyChoose,
 } from '@/components/service-areas';
-import {
-  defaultCtaImage,
-  defaultHeroImage,
-  defaultIntroImage,
-} from '@/components/service-areas/visuals';
+import { defaultHeroImage, defaultIntroImage } from '@/components/service-areas/visuals';
 
 type ServiceAreaLayoutProps = {
   page: ServiceAreaPage;
@@ -84,6 +80,15 @@ export default function ServiceAreaLayout({
     page.rightFit,
     page.whoWeWorkWith,
   ).slice(0, 6);
+
+  const heroBullets = (page.atAGlance?.items ?? [])
+    .filter((item) => item.kind === 'projects' || item.kind === 'audience' || item.kind === 'coverage')
+    .map((item) => item.value)
+    .slice(0, 3);
+
+  const trustServiceLabels = page.services
+    .map((service) => serviceAreaServiceIndex[service.slug as keyof typeof serviceAreaServiceIndex]?.label)
+    .filter((label): label is string => Boolean(label));
 
   const serviceAreaSchema = {
     '@context': 'https://schema.org',
@@ -173,23 +178,23 @@ export default function ServiceAreaLayout({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <ServiceAreaHero
-        eyebrow={`${page.city}, ${page.province}`}
         title={page.heroTitle}
         description={page.heroDescription}
+        city={page.city}
+        province={page.province === 'Ontario' ? 'ON' : page.province}
+        bullets={heroBullets}
         image={page.heroImage ?? defaultHeroImage}
         actions={heroActions}
         contactNote={{
           href: 'sms:5197528500',
           label: 'Text 519-752-8500',
         }}
+        atAGlance={page.atAGlance}
       />
-      {page.atAGlance?.items.length ? (
-        <ServiceAreaAtAGlance
-          heading={page.atAGlance.heading}
-          city={page.city}
-          items={page.atAGlance.items}
-        />
-      ) : null}
+      <ServiceAreaTrustStrip
+        serviceLabels={trustServiceLabels}
+        city={page.city}
+      />
       <ServiceAreaIntro
         heading={
           page.sectionHeadings?.intro ??
@@ -293,7 +298,6 @@ export default function ServiceAreaLayout({
           'Call, text, or request a quote if you need a clear answer on fit, timing, and what the job needs first.'
         }
         supportingPoints={page.bottomCta?.supportingPoints}
-        image={page.ctaImage ?? defaultCtaImage}
         actions={finalActions}
         contactNote={{
           href: 'sms:5197528500',

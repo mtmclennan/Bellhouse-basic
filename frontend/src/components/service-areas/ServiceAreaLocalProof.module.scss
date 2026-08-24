@@ -2,37 +2,32 @@
 @use '../../styles/abstracts/variables' as v;
 
 .section {
-  color: v.$text-color-dark;
-  background-color: #ece4d8;
-  background-image: linear-gradient(180deg, #f1ece4 0%, #e8e1d4 100%);
-  border-top: 3px solid v.$cat-yellow2;
+  background-color: #181818;
+  color: #fff;
 }
 
 .container {
-  gap: 3rem;
+  gap: 2.6rem;
 }
 
 .header {
   display: flex;
-  max-width: 84rem;
-  margin: 0 auto;
+  max-width: 76rem;
   flex-direction: column;
-  align-items: center;
-  gap: 1.3rem;
-  text-align: center;
+  gap: 1.2rem;
 
   h2 {
     @include m.sectionHeading(4rem, 5.2rem);
     margin: 0;
-    color: v.$text-color-dark;
+    color: #fff;
   }
 
   p {
-    max-width: 76rem;
+    max-width: 68rem;
     margin: 0;
-    font-size: 1.8rem;
-    line-height: 1.72;
-    color: #4a443a;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: #868e96;
   }
 }
 
@@ -41,18 +36,18 @@
   align-items: center;
   width: fit-content;
   padding: 0.85rem 1.2rem;
-  border: 1px solid rgba(122, 90, 0, 0.28);
-  background-color: rgba(122, 90, 0, 0.08);
+  border: 1px solid rgba(v.$cat-yellow2, 0.28);
+  background-color: rgba(v.$cat-yellow2, 0.08);
   font-size: 1.3rem;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #7a5a00;
+  color: v.$cat-yellow2;
 }
 
 .grid {
   display: grid;
-  gap: 1.8rem;
+  gap: 1.6rem;
 
   @include m.mediaDesktop {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -62,11 +57,10 @@
 .card {
   display: flex;
   flex-direction: column;
-  border-radius: 1.8rem;
+  border-radius: 1.4rem;
   overflow: hidden;
-  background-color: #fcfbf8;
-  border: 1px solid rgba(88, 72, 33, 0.16);
-  box-shadow: 0 1.5rem 3rem -2.1rem rgba(64, 50, 20, 0.24);
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .imageFrame {
@@ -82,44 +76,57 @@
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-  padding: 1.8rem;
+  padding: 2rem;
 
   h3 {
     margin: 0;
-    font-size: 1.9rem;
-    font-weight: 650;
-    color: v.$text-color-dark;
+    font-family: var(--font-oswald), sans-serif;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 0.005em;
+    line-height: 1.15;
+    color: #fff;
   }
 
   p {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     line-height: 1.55;
-    color: #5a5347;
+    color: #ced4da;
   }
 }
 
 .location {
-  font-size: 1.3rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #7a5a00;
+  color: v.$cat-yellow2;
 }
 
 .link {
-  margin-top: 0.6rem;
-  font-size: 1.3rem;
+  margin-top: auto;
+  padding-top: 0.6rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #7a5a00;
+  color: #fff;
   text-decoration: none;
-  border-bottom: 2px solid v.$cat-yellow2;
-  width: fit-content;
+
+  &::after {
+    content: '\2192';
+  }
 
   &:hover,
   &:focus-visible {
-    color: #4a2e00;
+    color: v.$cat-yellow2;
   }
 }

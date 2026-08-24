@@ -3,91 +3,123 @@
 
 .section {
   position: relative;
-  padding-top: 11rem;
-
-  @include m.mediaDesktop {
-    padding-top: 8rem;
-  }
   overflow: hidden;
+  background-color: #0d0d0d;
+}
+
+.bgFrame {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.bgImage {
+  object-fit: cover;
+}
+
+.bgOverlay {
+  position: absolute;
+  inset: 0;
   background:
-    radial-gradient(
-      circle at top left,
-      rgba(v.$cat-yellow2, 0.14),
-      transparent 26%
+    linear-gradient(
+      90deg,
+      rgba(13, 13, 13, 0.96) 0%,
+      rgba(13, 13, 13, 0.86) 44%,
+      rgba(13, 13, 13, 0.6) 72%,
+      rgba(13, 13, 13, 0.35) 100%
     ),
-    linear-gradient(180deg, #191919 0%, #101010 100%);
+    linear-gradient(0deg, rgba(13, 13, 13, 0.5) 0%, rgba(13, 13, 13, 0) 55%);
+  pointer-events: none;
 }
 
 .container {
   position: relative;
-  color: #fff;
+  z-index: 2;
+  width: min(calc(100% - 4.4rem), 114rem);
+  margin: 0 auto;
 }
 
 .shell {
   display: grid;
-  gap: 3rem;
+  gap: 4.8rem;
   align-items: center;
+  padding: 12rem 0 6.4rem;
 
   @include m.mediaDesktop {
-    grid-template-columns: minmax(0, 1.22fr) minmax(30rem, 0.78fr);
-    gap: 4.8rem;
+    grid-template-columns: minmax(0, 1.22fr) minmax(32rem, 0.78fr);
+    padding: 8rem 0 6.4rem;
   }
 }
 
 .content {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  padding: 1rem 0;
-
-  @include m.mediaDesktop {
-    gap: 2.6rem;
-    padding: 2rem 0;
-  }
+  max-width: 64rem;
 }
 
 .eyebrow {
   display: inline-flex;
   align-items: center;
+  gap: 0.9rem;
   width: fit-content;
-  padding: 0.9rem 1.2rem;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background-color: rgba(255, 255, 255, 0.05);
+  margin: 0 0 1.6rem;
   font-size: 1.3rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: v.$cat-yellow2;
-}
 
-.title {
-  max-width: 16ch;
-  font-size: 5rem;
-  line-height: 0.98;
-  font-weight: 200;
-  color: #fff;
-
-  @include m.mediaDesktop {
-    font-size: 7.6rem;
+  span {
+    color: #fff;
   }
 }
 
-.description {
-  max-width: 64rem;
-  font-size: 1.8rem;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.86);
+.title {
+  font-family: var(--font-oswald), sans-serif;
+  text-transform: uppercase;
+  line-height: 1.05;
+  letter-spacing: 0.005em;
+  font-weight: 700;
+  font-size: clamp(3.2rem, 5vw, 5.4rem);
+  margin: 0 0 1.8rem;
+  color: #fff;
+}
 
-  @include m.mediaDesktop {
-    font-size: 2rem;
+.description {
+  font-size: 1.8rem;
+  line-height: 1.65;
+  color: #dee2e6;
+  margin: 0 0 2.4rem;
+}
+
+.bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin: 0 0 2.8rem;
+  padding: 0;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    font-size: 1.6rem;
+    color: #f1f3f5;
+    font-weight: 500;
+
+    svg {
+      flex: 0 0 auto;
+      color: v.$cat-yellow2;
+    }
   }
 }
 
 .actions {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 1.6rem;
-  margin-top: 0.8rem;
 }
 
 .primaryAction {
@@ -101,7 +133,7 @@
 }
 
 .contactNote {
-  margin: -0.2rem 0 0;
+  margin: 1.6rem 0 0;
   font-size: 1.6rem;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.76);
@@ -120,54 +152,4 @@
 
 .media {
   display: block;
-}
-
-.imageFrame {
-  position: relative;
-  overflow: hidden;
-  min-height: 38rem;
-  border-radius: 2.8rem;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: v.$box-shadow-dark;
-  isolation: isolate;
-
-  @include m.mediaDesktop {
-    min-height: 58rem;
-  }
-}
-
-.image {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.imageOverlay {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.5) 100%),
-    linear-gradient(120deg, rgba(v.$cat-yellow2, 0.12) 0%, transparent 42%);
-}
-
-.mediaBadge {
-  position: absolute;
-  inset: auto 1.6rem 1.6rem 1.6rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-
-  span {
-    padding: 0.9rem 1.2rem;
-    background-color: rgba(17, 17, 17, 0.78);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    color: #fff;
-    font-size: 1.2rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    backdrop-filter: blur(4px);
-  }
 }

@@ -18,6 +18,7 @@ interface FAQAccordionProps {
   cta?: React.ReactNode;
   accentColor?: string;
   variant?: 'default' | 'serviceArea' | 'light';
+  singleColumn?: boolean;
   className?: string;
 }
 
@@ -29,6 +30,7 @@ export default function FAQAccordion({
   cta,
   accentColor = '#ffc302',
   variant = 'default',
+  singleColumn = false,
   className,
 }: FAQAccordionProps) {
   const uid = useId();
@@ -96,6 +98,7 @@ export default function FAQAccordion({
     styles.accordion,
     isServiceArea ? styles.serviceAreaAccordion : '',
     isLight ? styles.lightAccordion : '',
+    isLight && singleColumn ? styles.lightAccordionSingle : '',
   ]
     .filter(Boolean)
     .join(' ');
